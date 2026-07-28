@@ -203,20 +203,23 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   const track = document.createElement("div");
   track.className = "u-track";
   track.innerHTML = `
-    <div class="u-track__head">
-      <p class="u-track__name">${tf(uni.name)}</p>
-      <p class="u-track__span">${tf(uni.span)}</p>
-    </div>
-    <div class="timeline-carousel"></div>
+    <div class="u-track__head"></div>
+    <div class="h-timeline"></div>
   `;
-  const carousel = track.querySelector(".timeline-carousel");
-  if(prevBtn) carousel.appendChild(prevBtn);
+  const head = track.querySelector(".u-track__head");
+  if(prevBtn) head.appendChild(prevBtn);
 
-  const timeline = document.createElement("div");
-  timeline.className = "h-timeline";
-  carousel.appendChild(timeline);
+  const nameBlock = document.createElement("div");
+  nameBlock.className = "u-track__name-block";
+  nameBlock.innerHTML = `
+    <p class="u-track__name">${tf(uni.name)}</p>
+    <p class="u-track__span">${tf(uni.span)}</p>
+  `;
+  head.appendChild(nameBlock);
 
-  if(nextBtn) carousel.appendChild(nextBtn);
+  if(nextBtn) head.appendChild(nextBtn);
+
+  const timeline = track.querySelector(".h-timeline");
 
   const total = uni.entries.length;
   uni.entries.forEach((entry, i) => {
