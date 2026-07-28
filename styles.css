@@ -247,9 +247,16 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   background:
     radial-gradient(ellipse 40% 90% at 58% 50%, rgba(255,255,255,.22), transparent 70%),
     linear-gradient(90deg,
-      var(--bg) 0%, var(--bg) 22%,
-      transparent 46%, transparent 60%,
-      var(--bg) 70%, var(--bg) 100%);
+      var(--bg) 0%,
+      var(--bg) 10%,
+      rgba(10,14,23,.88) 20%,
+      rgba(10,14,23,.68) 30%,
+      rgba(10,14,23,.44) 40%,
+      rgba(10,14,23,.22) 48%,
+      transparent 56%,
+      transparent 61%,
+      var(--bg) 67%,
+      var(--bg) 100%);
 }
 .game-header__cover, .game-header__info{ position:relative; z-index:1; }
 .game-header__cover{

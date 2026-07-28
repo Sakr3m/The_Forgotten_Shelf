@@ -12,8 +12,8 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Banner.jpg",
     blurb: {
-      it: "Una serie di <a href=\"https://it.wikipedia.org/wiki/Videogioco\">videogiochi</a> <a href=\"https://it.wikipedia.org/wiki/Survival_horror\">survival horror</a> nata nel 1992<br>con il capitolo originale di Infogrames. È generalmente considerata la capostipite del genere, un titolo che avrebbe ispirato Resident Evil pochi anni più tardi.",
-      en: "A <a href=\"https://en.wikipedia.org/wiki/Survival_horror\">survival horror</a> <a href=\"https://en.wikipedia.org/wiki/Video_game\">video game</a> series that began in 1992<br>with the original Infogrames release. Widely regarded as the genre's originator, it went on to directly influence Resident Evil a few years later."
+      it: "Una serie di videogiochi survival horror nata nel 1992<br>con il capitolo originale di Infogrames, generalmente<br>considerata la capostipite del genere.",
+      en: "A survival horror video game series that began in 1992<br>with the original Infogrames release, widely regarded<br>as the genre's originator."
     },
     universes: [
       {
