@@ -291,6 +291,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   overflow-x:auto; overflow-y:visible;
   padding:44px 0;
   scrollbar-width:none;
+  transform:translateY(50px);
 }
 .h-timeline::-webkit-scrollbar{ display:none; }
 .h-timeline::before{
