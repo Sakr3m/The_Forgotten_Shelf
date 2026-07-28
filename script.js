@@ -83,6 +83,7 @@ function applyPaletteToCSS(){
   document.body.style.setProperty("--tl-1", palette[0]);
   document.body.style.setProperty("--tl-2", palette[1]);
   document.body.style.setProperty("--tl-3", palette[2]);
+  document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`);
 }
 
 function gradientColorAt(t){
@@ -431,6 +432,7 @@ function setState(view){
     document.body.style.setProperty("--tl-1", DEFAULT_PALETTE[0]);
     document.body.style.setProperty("--tl-2", DEFAULT_PALETTE[1]);
     document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
+    document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
     renderSidebar();
     renderCaseGrid();
     renderUniversePicker();
