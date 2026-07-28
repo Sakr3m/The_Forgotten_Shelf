@@ -381,3 +381,23 @@ const GAMES = {
 };
 
 const GAME_ORDER = ["aitd", "castlevania", "dmc"];
+
+// Full sidebar roadmap, alphabetical. Titles with hasData:true link to a
+// populated GAMES entry; the rest are shown as upcoming, not yet clickable.
+const SIDEBAR_ORDER = [
+  { id: "aitd", hasData: true },
+  { id: "castlevania", hasData: true },
+  { id: "dmc", hasData: true },
+  { id: "doom", hasData: false, title: { it: "Doom", en: "Doom" } },
+  { id: "dragon-quest", hasData: false, title: { it: "Dragon Quest", en: "Dragon Quest" } },
+  { id: "dying-light", hasData: false, title: { it: "Dying Light", en: "Dying Light" } },
+  { id: "gta", hasData: false, title: { it: "Grand Theft Auto", en: "Grand Theft Auto" } },
+  { id: "kingdom-hearts", hasData: false, title: { it: "Kingdom Hearts", en: "Kingdom Hearts" } },
+  { id: "legacy-of-kain", hasData: false, title: { it: "Legacy of Kain", en: "Legacy of Kain" } },
+  { id: "lost-planet", hasData: false, title: { it: "Lost Planet", en: "Lost Planet" } },
+  { id: "metal-gear-solid", hasData: false, title: { it: "Metal Gear Solid", en: "Metal Gear Solid" } },
+  { id: "resident-evil", hasData: false, title: { it: "Resident Evil", en: "Resident Evil" } },
+  { id: "silent-hill", hasData: false, title: { it: "Silent Hill", en: "Silent Hill" } },
+  { id: "remedy-universe", hasData: false, title: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" } },
+  { id: "wolfenstein", hasData: false, title: { it: "Wolfenstein", en: "Wolfenstein" } }
+];

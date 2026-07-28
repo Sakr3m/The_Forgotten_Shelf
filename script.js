@@ -6,9 +6,6 @@ const STRINGS = {
   it: {
     brand: "Timeline",
     sidebarEyebrow: "Libreria Timeline",
-    sidebarNote: "— altri titoli in arrivo —",
-    landingEyebrow: "Benvenuto su Timeline",
-    landingTitle: "Scegli un titolo",
     landingSub: "Ogni titolo custodisce una o più linee temporali. Selezionane uno per aprirlo.",
     universeLabel: "Universo",
     backToTimeline: "← Torna alla linea temporale"
@@ -16,9 +13,6 @@ const STRINGS = {
   en: {
     brand: "Timeline",
     sidebarEyebrow: "Timeline Library",
-    sidebarNote: "— more titles coming soon —",
-    landingEyebrow: "Welcome to Timeline",
-    landingTitle: "Choose a title",
     landingSub: "Every title holds one or more timelines. Select one to open it.",
     universeLabel: "Universe",
     backToTimeline: "← Back to the timeline"
@@ -112,15 +106,22 @@ function paintStaticText(){
 // ---------------------------------------------------------
 function renderSidebar(){
   el.gameList.innerHTML = "";
-  GAME_ORDER.forEach(id => {
-    const g = GAMES[id];
+  SIDEBAR_ORDER.forEach(item => {
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.textContent = tf(g.listTitle);
-    btn.classList.toggle("is-active", state.gameId === id);
-    btn.addEventListener("click", () => selectGame(id));
-    li.appendChild(btn);
+    if(item.hasData){
+      const g = GAMES[item.id];
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = tf(g.listTitle);
+      btn.classList.toggle("is-active", state.gameId === item.id);
+      btn.addEventListener("click", () => selectGame(item.id));
+      li.appendChild(btn);
+    } else {
+      const span = document.createElement("span");
+      span.className = "game-list__pending";
+      span.textContent = tf(item.title);
+      li.appendChild(span);
+    }
     el.gameList.appendChild(li);
   });
 }
