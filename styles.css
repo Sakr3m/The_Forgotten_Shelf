@@ -263,6 +263,12 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header__eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); }
 .game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
 .game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
+.game-header__blurb a, .case-blurb a{
+  color:var(--cyan); text-decoration:underline; text-decoration-color:rgba(34,211,238,.35);
+  text-underline-offset:2px;
+  transition:color var(--dur-fast) var(--ease);
+}
+.game-header__blurb a:hover, .case-blurb a:hover{ color:var(--text); }
 
 /* Universes: a single centered track, same fixed length regardless of entry count */
 .universe-stage{ display:flex; justify-content:center; flex:1; min-height:0; }

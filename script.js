@@ -51,6 +51,12 @@ const el = {
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
+function stripLinks(html){
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  div.querySelectorAll("a").forEach(a => { a.replaceWith(document.createTextNode(a.textContent)); });
+  return div.innerHTML;
+}
 
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
@@ -134,7 +140,7 @@ function renderCaseGrid(){
       <span class="seal" aria-hidden="true"><span class="seal__crack"></span></span>
       <h3>${tf(g.listTitle)}</h3>
       <p class="case-count">${uLabel}</p>
-      <p class="case-blurb">${tf(g.blurb)}</p>
+      <p class="case-blurb">${stripLinks(tf(g.blurb))}</p>
     `;
     card.addEventListener("click", () => selectGame(id));
     el.caseGrid.appendChild(card);
