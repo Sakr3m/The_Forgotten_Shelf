@@ -55,9 +55,9 @@ function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
 const GRADIENT_STOPS = [
-  { p: 0,    c: [34, 211, 238] },   // cyan
-  { p: 0.55, c: [232, 121, 249] },  // magenta
-  { p: 1,    c: [251, 146, 60] }    // orange
+  { p: 0,    c: [0, 240, 255] },    // electric cyan
+  { p: 0.55, c: [255, 46, 196] },   // hot magenta
+  { p: 1,    c: [167, 66, 255] }    // electric purple
 ];
 function gradientColorAt(t){
   for(let i = 0; i < GRADIENT_STOPS.length - 1; i++){
@@ -232,12 +232,15 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     const color = gradientColorAt(t);
     node.style.setProperty("--dot-color", color);
 
-    const tileBlock = `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span><span class="h-node__title">${tf(entry.title)}</span>`;
+    const tileSpan = `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>`;
 
-    // The title always stays attached right after the cover, on whichever
-    // side the cover happens to be (up or down), regardless of distance to the line.
-    const topContent = tileDown ? "" : tileBlock;
-    const bottomContent = tileDown ? tileBlock : "";
+    // "up": avatar (farthest from line) -> title (text top-aligned, touching avatar) -> [reserved empty 2nd line, touching line] -> line
+    // "down": line -> [reserved empty 2nd line, touching line] -> title (text bottom-aligned, touching avatar) -> avatar (farthest from line)
+    const titleUp = `<span class="h-node__title h-node__title--top">${tf(entry.title)}</span>`;
+    const titleDown = `<span class="h-node__title h-node__title--bottom">${tf(entry.title)}</span>`;
+
+    const topContent = tileDown ? "" : (tileSpan + titleUp);
+    const bottomContent = tileDown ? (titleDown + tileSpan) : "";
 
     node.innerHTML = `
       <span class="h-node__top">${topContent}</span>

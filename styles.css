@@ -15,7 +15,10 @@
   --cyan:#22d3ee;
   --magenta:#e879f9;
   --orange:#fb923c;
-  --gradient: linear-gradient(90deg, var(--cyan), var(--magenta) 55%, var(--orange));
+  --tl-1:#00f0ff;
+  --tl-2:#ff2ec4;
+  --tl-3:#a742ff;
+  --gradient: linear-gradient(90deg, var(--tl-1), var(--tl-2) 55%, var(--tl-3));
 
   --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
@@ -286,15 +289,21 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   display:flex; gap:26px;
   justify-content:space-between;
   overflow-x:auto; overflow-y:visible;
-  padding:54px 0 34px;
+  padding:44px 0;
   scrollbar-width:none;
 }
 .h-timeline::-webkit-scrollbar{ display:none; }
 .h-timeline::before{
   content:"";
-  position:absolute; left:75px; right:75px; top:223px; height:7px; border-radius:7px;
+  position:absolute; left:75px; right:75px; top:214px; height:7px; border-radius:7px;
   background:var(--gradient);
+  background-size:200% 100%;
   opacity:.95;
+  animation:lineShift 10s ease-in-out infinite alternate;
+}
+@keyframes lineShift{
+  from{ background-position:0% 50%; }
+  to{ background-position:24% 50%; }
 }
 
 /* Each node reserves the same fixed height above/below the line regardless of
@@ -328,7 +337,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .h-node--down .h-node__marker::after{
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
-  margin-top:3px;
+  margin-top:8px;
   width:2px; height:9px;
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
@@ -336,7 +345,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .h-node--up .h-node__marker::before{
   content:"";
   position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
-  margin-bottom:3px;
+  margin-bottom:8px;
   width:2px; height:9px;
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
@@ -372,7 +381,10 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .h-node__title{
   font-size:.78rem; font-weight:600; text-align:center; color:var(--text-dim);
   line-height:1.3; height:38px; width:100%;
+  display:flex; flex-direction:column;
 }
+.h-node__title--top{ justify-content:flex-start; }
+.h-node__title--bottom{ justify-content:flex-end; }
 .h-node:hover .h-node__title{ color:var(--text); }
 
 /* ============================================================
