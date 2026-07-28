@@ -278,7 +278,7 @@ function renderGamePanel(){
   el.gameHeader.innerHTML = `
     ${g.banner ? `<img class="game-header__banner" src="${g.banner}" alt=""><div class="game-header__banner-overlay"></div>` : ""}
     <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
-    <div>
+    <div class="game-header__info">
       <h2 class="game-header__title">${tf(g.title)}</h2>
       <p class="game-header__blurb">${tf(g.blurb)}</p>
     </div>
