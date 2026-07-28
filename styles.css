@@ -233,12 +233,14 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
   overflow:hidden;
+  max-height:220px;
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
 .game-header__banner{
   position:absolute; inset:0; z-index:0;
-  object-fit:contain; object-position:right center;
-  width:100%; height:100%;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:right center;
 }
 .game-header__banner-overlay{
   position:absolute; inset:0; z-index:0;

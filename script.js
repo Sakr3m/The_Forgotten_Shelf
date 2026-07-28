@@ -276,7 +276,7 @@ function renderGamePanel(){
   if(!g) return;
 
   el.gameHeader.innerHTML = `
-    ${g.banner ? `<img class="game-header__banner" src="${g.banner}" alt=""><div class="game-header__banner-overlay"></div>` : ""}
+    ${g.banner ? `<div class="game-header__banner" style="background-image:url('${g.banner}')"></div><div class="game-header__banner-overlay"></div>` : ""}
     <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
     <div class="game-header__info">
       <h2 class="game-header__title">${tf(g.title)}</h2>
