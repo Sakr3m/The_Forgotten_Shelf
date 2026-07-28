@@ -65,7 +65,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .brand{ display:flex; align-items:center; gap:10px; margin-bottom:22px; }
 .brand-text{ font-size:1.15rem; font-weight:800; letter-spacing:-.01em; color:var(--text); }
 
-.stage-controls{ display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-bottom:28px; }
+.stage-controls{ position:absolute; top:44px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 .universe-picker{ position:relative; }
 .universe-trigger{
@@ -156,7 +156,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   padding:6px 8px; font-size:.82rem; font-weight:600; color:var(--text-faint);
 }
 
-.stage{ flex:1; min-width:0; padding:44px 40px 80px; display:flex; flex-direction:column; }
+.stage{ position:relative; flex:1; min-width:0; padding:44px 40px 80px; display:flex; flex-direction:column; }
 
 .timeline-rail{
   width:280px; flex-shrink:0;
@@ -173,7 +173,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* ============================================================
    Landing — case grid
    ============================================================ */
-.landing{ width:100%; max-width:1700px; }
+.landing{ width:100%; max-width:1700px; margin-top:66px; }
 .landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); }
 .landing-title{ font-size:2.4rem; margin-top:16px; color:var(--text); }
 .landing-sub{ margin-top:12px; color:var(--text-dim); font-size:.95rem; max-width:720px; }
@@ -449,7 +449,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* ============================================================
    Title panel — full detail
    ============================================================ */
-.title-panel{ width:100%; max-width:1860px; position:relative; }
+.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:66px; }
 .title-watermark{
   position:absolute; top:0; right:0; bottom:0; width:46%;
   background-size:cover; background-position:center;
