@@ -232,7 +232,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
 .game-header__cover{
-  width:130px; height:130px; flex-shrink:0;
+  width:140px; height:140px; flex-shrink:0;
   border-radius:var(--radius);
   background:var(--panel);
   border:1px solid var(--line);

@@ -270,7 +270,7 @@ function renderGamePanel(){
   if(!g) return;
 
   el.gameHeader.innerHTML = `
-    <div class="game-header__cover"><span class="monogram">${monogram(tf(g.title))}</span></div>
+    <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
     <div>
       <h2 class="game-header__title">${tf(g.title)}</h2>
       <p class="game-header__blurb">${tf(g.blurb)}</p>

@@ -9,6 +9,7 @@ const GAMES = {
     listTitle: { it: "Alone in the Dark", en: "Alone in the Dark" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Alone in the Dark", en: "Alone in the Dark" },
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Avatar.jpg",
     blurb: {
       it: "Due universi separati e incompatibili tra loro. Personaggi, eventi e lore non si trasferiscono da uno all'altro.",
       en: "Two separate and mutually incompatible universes. Characters, events, and lore do not carry over between them."
