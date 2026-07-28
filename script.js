@@ -462,6 +462,7 @@ function selectGame(id){
   state.gameId = id;
   state.universeIndex = 0;
   setState("game");
+  closeMobileSidebar();
 }
 
 function selectEntry(entryId){
@@ -508,6 +509,28 @@ el.musicToggle.addEventListener("click", () => {
   state.musicOn = !state.musicOn;
   updateMusicPlayback();
 });
+
+// ---------------------------------------------------------
+// Mobile sidebar drawer (hamburger). Inert on desktop, where the
+// button stays hidden via CSS and the sidebar is always visible inline.
+// ---------------------------------------------------------
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+function openMobileSidebar(){
+  el.body.classList.add("sidebar-open");
+  sidebarBackdrop.hidden = false;
+  mobileMenuBtn.setAttribute("aria-expanded", "true");
+}
+function closeMobileSidebar(){
+  el.body.classList.remove("sidebar-open");
+  sidebarBackdrop.hidden = true;
+  mobileMenuBtn.setAttribute("aria-expanded", "false");
+}
+mobileMenuBtn.addEventListener("click", () => {
+  el.body.classList.contains("sidebar-open") ? closeMobileSidebar() : openMobileSidebar();
+});
+sidebarBackdrop.addEventListener("click", closeMobileSidebar);
 
 el.brandBtn.addEventListener("click", () => setState("landing"));
 

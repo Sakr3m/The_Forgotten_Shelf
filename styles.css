@@ -532,14 +532,137 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 /* ============================================================
    Responsive
    ============================================================ */
-@media (max-width: 980px){
-  .layout{ flex-direction:column; }
-  .sidebar{ width:100%; border-right:none; border-bottom:1px solid var(--line); }
-  .timeline-rail{ width:100%; border-left:none; border-top:1px solid var(--line); }
-  .stage{ padding:30px 20px 60px; }
-  .game-header{ flex-direction:column; }
-  .u-track__head{ flex-wrap:wrap; }
-  .universe-stage .u-track{ max-width:100%; }
+/* ============================================================
+   Mobile hamburger + sidebar drawer (hidden on desktop by default)
+   ============================================================ */
+.mobile-topbar__hamburger{ display:none; }
+.sidebar-backdrop{ display:none; }
+
+/* ============================================================
+   Mobile (phone) redesign — scoped entirely to this breakpoint,
+   the desktop layout above is untouched.
+   ============================================================ */
+@media (max-width: 760px){
+
+  /* --- Hamburger + drawer --- */
+  .mobile-topbar__hamburger{
+    display:flex; align-items:center; justify-content:center;
+    position:fixed; top:14px; left:14px; z-index:60;
+    width:40px; height:40px;
+    border:1px solid var(--line); border-radius:10px;
+    background:rgba(10,14,23,.9); backdrop-filter:blur(6px);
+  }
+  .mobile-topbar__hamburger-lines,
+  .mobile-topbar__hamburger-lines::before,
+  .mobile-topbar__hamburger-lines::after{
+    content:""; display:block; width:18px; height:2px; border-radius:2px;
+    background:var(--text);
+    transition:transform .2s var(--ease), opacity .2s var(--ease);
+  }
+  .mobile-topbar__hamburger-lines{ position:relative; }
+  .mobile-topbar__hamburger-lines::before{ position:absolute; left:0; top:-6px; }
+  .mobile-topbar__hamburger-lines::after{ position:absolute; left:0; top:6px; }
+  body.sidebar-open .mobile-topbar__hamburger-lines{ background:transparent; }
+  body.sidebar-open .mobile-topbar__hamburger-lines::before{ top:0; transform:rotate(45deg); }
+  body.sidebar-open .mobile-topbar__hamburger-lines::after{ top:0; transform:rotate(-45deg); }
+
+  .sidebar-backdrop{
+    display:block; position:fixed; inset:0; z-index:40;
+    background:rgba(4,6,10,.6);
+  }
+  .sidebar-backdrop[hidden]{ display:none; }
+
+  .layout{ display:block; }
+  .sidebar{
+    position:fixed; top:0; left:0; bottom:0; z-index:45;
+    width:80vw; max-width:300px;
+    transform:translateX(-100%);
+    transition:transform .25s var(--ease);
+    border-right:1px solid var(--line); border-bottom:none;
+    overflow-y:auto;
+  }
+  body.sidebar-open .sidebar{ transform:translateX(0); }
+
+  /* --- Stage --- */
+  .stage{ padding:72px 16px 48px; }
+  .stage-controls{ top:12px; right:12px; gap:8px; }
+  .universe-trigger{ padding:7px 10px; font-size:.72rem; }
+  .lang-switch{ padding:7px 10px; font-size:.72rem; }
+  .music-toggle{ width:34px; height:34px; }
+
+  .landing{ margin-top:44px; }
+  .landing-title{ font-size:1.7rem; }
+  .case-grid{ grid-template-columns:1fr; gap:14px; }
+
+  /* --- Game header --- */
+  .game-header{
+    flex-direction:column; align-items:center; text-align:center;
+    height:auto; max-height:none; overflow:visible;
+    padding:20px 16px; gap:12px;
+  }
+  .game-header__banner{ position:absolute; }
+  .game-header__banner-overlay{ background:rgba(10,14,23,.74); }
+  .game-header__cover{ width:88px; height:88px; }
+  .game-header__info{ text-align:center; }
+  .game-header__blurb{ max-width:100%; }
+  .game-header__blurb br{ display:none; }
+
+  /* --- Universe carousel --- */
+  .u-track__head{ gap:10px; }
+  .u-track__name{ font-size:1rem; }
+  .carousel-arrow{ padding:9px; gap:0; }
+  .carousel-arrow__label{ display:none; }
+  .universe-stage .u-track{ margin-top:66px; }
+
+  /* --- Horizontal timeline: everything resized to fit a phone --- */
+  .h-timeline{ padding:32px 0; }
+  .h-timeline::before{ left:52px; right:52px; top:152px; height:5px; }
+  .h-node{ width:104px; grid-template-rows:112px 18px 112px; }
+  .h-node__top{ padding-bottom:8px; }
+  .h-node__bottom{ padding-top:8px; }
+  .h-node__tile{ width:70px; height:88px; }
+  .h-node__title{ font-size:.7rem; height:32px; }
+  .h-node__dot{ width:14px; height:14px; border:5px solid var(--dot-color, var(--cyan)); }
+  .h-node--down .h-node__marker::after,
+  .h-node--up .h-node__marker::before{ height:7px; }
+
+  /* --- Title detail page --- */
+  .title-panel{ margin-top:44px; }
+  .title-content{ max-width:100%; }
+  .title-name{ font-size:1.5rem; }
+  .title-watermark{
+    position:absolute; top:0; left:0; right:0; bottom:0; width:auto;
+    -webkit-mask-image:linear-gradient(180deg, transparent, black 45%, black 70%, transparent);
+    mask-image:linear-gradient(180deg, transparent, black 45%, black 70%, transparent);
+    opacity:.1;
+  }
+  .title-nav{ flex-wrap:wrap; }
+  .title-back{ order:-1; width:100%; justify-content:center; }
+  .title-nav__side{ flex:1 1 0; }
+  .title-nav__side span{ max-width:80px; }
+
+  /* --- Vertical rail becomes a horizontal strip, same language as the main timeline --- */
+  .timeline-rail{
+    width:100%; border-left:none; border-top:1px solid var(--line);
+    padding:16px;
+  }
+  .rail-track{
+    display:flex; flex-direction:row; gap:14px;
+    padding:14px 4px 6px; margin-top:6px;
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .rail-track::-webkit-scrollbar{ display:none; }
+  .rail-track::before{
+    left:0; right:0; top:38px; bottom:auto; width:auto; height:3px;
+  }
+  .v-node{
+    flex-direction:column; align-items:center; gap:6px;
+    padding:0; flex-shrink:0; width:64px;
+  }
+  .v-node::before{ left:50%; top:24px; transform:translateX(-50%); }
+  .v-node__tile{ width:56px; height:70px; margin-top:14px; }
+  .v-node__meta{ text-align:center; }
+  .v-node__title{ font-size:.68rem; }
 }
 
 :focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
