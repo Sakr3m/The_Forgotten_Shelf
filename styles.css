@@ -228,12 +228,12 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header{
   position:relative;
   display:flex; gap:24px; align-items:center;
-  padding:22px 28px 64px;
+  padding:16px 28px 44px;
   margin-bottom:40px;
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
   overflow:hidden;
-  max-height:260px;
+  height:200px; max-height:200px;
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
 .game-header__banner{
