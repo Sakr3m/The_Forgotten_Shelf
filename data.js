@@ -117,6 +117,7 @@ const GAMES = {
       it: "Due linee temporali separate e incompatibili tra loro. Personaggi, eventi e lore non si trasferiscono da una all'altra.",
       en: "Two separate and mutually incompatible timelines. Characters, events, and lore do not carry over between them."
     },
+    palette: ["#a11d33", "#4b2e6b", "#d4af37"],
     universes: [
       {
         id: "iga",
