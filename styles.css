@@ -228,7 +228,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header{
   position:relative;
   display:flex; gap:24px; align-items:flex-start;
-  padding:28px 28px 30px;
+  padding:10px 28px 30px;
   margin-bottom:40px;
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
