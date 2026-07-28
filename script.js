@@ -205,7 +205,7 @@ function selectUniverse(idx){
   }
 }
 
-function buildUniverseTrack(uni){
+function buildUniverseTrack(uni, prevBtn, nextBtn){
   const track = document.createElement("div");
   track.className = "u-track";
   track.innerHTML = `
@@ -213,11 +213,18 @@ function buildUniverseTrack(uni){
       <p class="u-track__name">${tf(uni.name)}</p>
       <p class="u-track__span">${tf(uni.span)}</p>
     </div>
-    <div class="h-timeline"></div>
+    <div class="timeline-carousel"></div>
   `;
-  const timeline = track.querySelector(".h-timeline");
-  const total = uni.entries.length;
+  const carousel = track.querySelector(".timeline-carousel");
+  if(prevBtn) carousel.appendChild(prevBtn);
 
+  const timeline = document.createElement("div");
+  timeline.className = "h-timeline";
+  carousel.appendChild(timeline);
+
+  if(nextBtn) carousel.appendChild(nextBtn);
+
+  const total = uni.entries.length;
   uni.entries.forEach((entry, i) => {
     const node = document.createElement("button");
     const tileDown = i % 2 === 0; // alternates which side the cover sits on
@@ -274,30 +281,27 @@ function renderGamePanel(){
   el.universesRow.innerHTML = "";
   el.universesRow.className = "universe-stage" + (multi ? "" : " single");
 
+  let prevBtn = null, nextBtn = null;
   if(multi){
     const prevIdx = (idx - 1 + universes.length) % universes.length;
     const nextIdx = (idx + 1) % universes.length;
 
-    const prevBtn = document.createElement("button");
+    prevBtn = document.createElement("button");
     prevBtn.type = "button";
     prevBtn.className = "carousel-arrow carousel-arrow--prev";
     prevBtn.setAttribute("aria-label", tf(universes[prevIdx].name));
     prevBtn.innerHTML = `${arrowIcon("left")}<span class="carousel-arrow__label">${tf(universes[prevIdx].name)}</span>`;
     prevBtn.addEventListener("click", () => selectUniverse(prevIdx));
 
-    const nextBtn = document.createElement("button");
+    nextBtn = document.createElement("button");
     nextBtn.type = "button";
     nextBtn.className = "carousel-arrow carousel-arrow--next";
     nextBtn.setAttribute("aria-label", tf(universes[nextIdx].name));
     nextBtn.innerHTML = `<span class="carousel-arrow__label">${tf(universes[nextIdx].name)}</span>${arrowIcon("right")}`;
     nextBtn.addEventListener("click", () => selectUniverse(nextIdx));
-
-    el.universesRow.appendChild(prevBtn);
-    el.universesRow.appendChild(buildUniverseTrack(uni));
-    el.universesRow.appendChild(nextBtn);
-  } else {
-    el.universesRow.appendChild(buildUniverseTrack(uni));
   }
+
+  el.universesRow.appendChild(buildUniverseTrack(uni, prevBtn, nextBtn));
 }
 
 // ---------------------------------------------------------
