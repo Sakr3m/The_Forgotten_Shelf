@@ -332,6 +332,18 @@ function renderTitlePanel(){
     setState("game");
   });
 
+  let watermark = el.titlePanel.querySelector(".title-watermark");
+  if(entry.image){
+    if(!watermark){
+      watermark = document.createElement("div");
+      watermark.className = "title-watermark";
+      el.titlePanel.insertBefore(watermark, el.titleContent);
+    }
+    watermark.style.backgroundImage = `url('${entry.image}')`;
+  } else if(watermark){
+    watermark.remove();
+  }
+
   // restart entrance animation
   el.titleContent.style.animation = "none";
   void el.titleContent.offsetWidth;
