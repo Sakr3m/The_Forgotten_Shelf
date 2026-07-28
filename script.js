@@ -232,13 +232,12 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     const color = gradientColorAt(t);
     node.style.setProperty("--dot-color", color);
 
-    const tileSpan = `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>`;
-    const titleSpan = `<span class="h-node__title">${tf(entry.title)}</span>`;
+    const tileBlock = `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span><span class="h-node__title">${tf(entry.title)}</span>`;
 
-    // The title always sits between the line and the cover, on whichever side
-    // the cover happens to be: [line] title cover  (down)  /  cover title [line]  (up)
-    const topContent = tileDown ? "" : (tileSpan + titleSpan);
-    const bottomContent = tileDown ? (titleSpan + tileSpan) : "";
+    // The title always stays attached right after the cover, on whichever
+    // side the cover happens to be (up or down), regardless of distance to the line.
+    const topContent = tileDown ? "" : tileBlock;
+    const bottomContent = tileDown ? tileBlock : "";
 
     node.innerHTML = `
       <span class="h-node__top">${topContent}</span>

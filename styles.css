@@ -254,9 +254,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .u-track__name-block{ text-align:center; }
 .u-track__name{ font-size:1.4rem; font-weight:700; color:var(--text); }
 .u-track__span{
-  display:inline-block; font-size:.76rem; color:var(--text-faint); margin-top:6px; font-weight:500;
-  padding-bottom:8px; border-bottom:2px solid transparent;
-  border-image:var(--gradient) 1;
+  display:block; font-size:.76rem; color:var(--text-faint); margin-top:6px; font-weight:500;
 }
 
 /* Compact carousel arrows, sized to sit beside a text heading rather than
@@ -330,18 +328,18 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .h-node--down .h-node__marker::after{
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
-  margin-top:2px;
-  border-left:5px solid transparent;
-  border-right:5px solid transparent;
-  border-top:7px solid var(--dot-color, var(--cyan));
+  margin-top:3px;
+  width:2px; height:9px;
+  background:var(--dot-color, var(--cyan));
+  border-radius:1px;
 }
 .h-node--up .h-node__marker::before{
   content:"";
   position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
-  margin-bottom:2px;
-  border-left:5px solid transparent;
-  border-right:5px solid transparent;
-  border-bottom:7px solid var(--dot-color, var(--cyan));
+  margin-bottom:3px;
+  width:2px; height:9px;
+  background:var(--dot-color, var(--cyan));
+  border-radius:1px;
 }
 .h-node__dot{
   width:20px; height:20px; border-radius:50%;
