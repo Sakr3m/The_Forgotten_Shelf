@@ -58,15 +58,27 @@ function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
 
-const TYPE_COLORS = {
-  "VIDEOGIOCO": "#22d3ee", "VIDEOGAME": "#22d3ee",
-  "FUMETTO": "#e879f9", "COMIC": "#e879f9",
-  "STORIA": "#fb923c", "STORY": "#fb923c",
-  "MANGA": "#facc15",
-  "LIGHT NOVEL": "#34d399",
-  "ANIME": "#f472b6"
-};
-function dotColor(entry){ return TYPE_COLORS[entry.type] || TYPE_COLORS[entry.typeEn] || "#22d3ee"; }
+// Dot color follows position along the sequence (like the line's own gradient),
+// not the media type — cyan -> magenta -> orange across the whole timeline.
+const GRADIENT_STOPS = [
+  { p: 0,    c: [34, 211, 238] },   // cyan
+  { p: 0.55, c: [232, 121, 249] },  // magenta
+  { p: 1,    c: [251, 146, 60] }    // orange
+];
+function gradientColorAt(t){
+  for(let i = 0; i < GRADIENT_STOPS.length - 1; i++){
+    const a = GRADIENT_STOPS[i], b = GRADIENT_STOPS[i+1];
+    if(t >= a.p && t <= b.p){
+      const lt = (t - a.p) / (b.p - a.p);
+      const r = a.c[0] + (b.c[0]-a.c[0])*lt;
+      const g = a.c[1] + (b.c[1]-a.c[1])*lt;
+      const bch = a.c[2] + (b.c[2]-a.c[2])*lt;
+      return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(bch)})`;
+    }
+  }
+  const last = GRADIENT_STOPS[GRADIENT_STOPS.length-1].c;
+  return `rgb(${last[0]}, ${last[1]}, ${last[2]})`;
+}
 
 function currentGame(){ return state.gameId ? GAMES[state.gameId] : null; }
 function currentUniverse(){
@@ -204,16 +216,28 @@ function buildUniverseTrack(uni){
     <div class="h-timeline"></div>
   `;
   const timeline = track.querySelector(".h-timeline");
-  uni.entries.forEach(entry => {
+  const total = uni.entries.length;
+
+  uni.entries.forEach((entry, i) => {
     const node = document.createElement("button");
+    const tileDown = i % 2 === 0; // alternates which side the cover sits on
     node.type = "button";
-    node.className = "h-node";
+    node.className = "h-node " + (tileDown ? "h-node--down" : "h-node--up");
+
     const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
-    node.innerHTML = `
-      <span class="h-node__year">${yearLabel}</span>
-      <span class="h-node__marker"><span class="h-node__dot" style="--dot-color:${dotColor(entry)}"></span></span>
+    const t = total > 1 ? i / (total - 1) : 0;
+    const color = gradientColorAt(t);
+
+    const yearBlock = `<span class="h-node__year">${yearLabel}</span>`;
+    const tileBlock = `
       <span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
       <span class="h-node__title">${tf(entry.title)}</span>
+    `;
+
+    node.innerHTML = `
+      <span class="h-node__top">${tileDown ? yearBlock : tileBlock}</span>
+      <span class="h-node__marker"><span class="h-node__dot" style="--dot-color:${color}"></span></span>
+      <span class="h-node__bottom">${tileDown ? tileBlock : yearBlock}</span>
     `;
     node.addEventListener("click", () => selectEntry(entry.id));
     timeline.appendChild(node);
