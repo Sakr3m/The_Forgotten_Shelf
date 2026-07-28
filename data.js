@@ -11,6 +11,7 @@ const GAMES = {
     title: { it: "Alone in the Dark", en: "Alone in the Dark" },
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Filigrana.jpg",
     palette: ["#c9a24b", "#4a9d6e", "#6b3fa0"],
     blurb: {
       it: "Una serie di videogiochi survival horror nata nel 1992<br>con il capitolo originale di Infogrames, generalmente<br>considerata la capostipite del genere.",

@@ -376,13 +376,14 @@ function renderTitlePanel(){
   if(nextEntry) document.getElementById("titleNextBtn").addEventListener("click", () => selectEntry(nextEntry.id));
 
   let watermark = el.titlePanel.querySelector(".title-watermark");
-  if(entry.image){
+  const watermarkSrc = g.watermark || entry.image;
+  if(watermarkSrc){
     if(!watermark){
       watermark = document.createElement("div");
       watermark.className = "title-watermark";
       el.titlePanel.insertBefore(watermark, el.titleContent);
     }
-    watermark.style.backgroundImage = `url('${entry.image}')`;
+    watermark.style.backgroundImage = `url('${watermarkSrc}')`;
   } else if(watermark){
     watermark.remove();
   }
