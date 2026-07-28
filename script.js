@@ -219,8 +219,9 @@ function renderGamePanel(){
       node.className = "h-node";
       const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
       node.innerHTML = `
-        <span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
         <span class="h-node__year">${yearLabel}</span>
+        <span class="h-node__marker"><span class="h-node__dot"></span></span>
+        <span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
         <span class="h-node__title">${tf(entry.title)}</span>
       `;
       node.addEventListener("click", () => selectEntry(entry.id));
