@@ -4,21 +4,21 @@
 
 const STRINGS = {
   it: {
-    brand: "L'Archivio",
-    sidebarEyebrow: "Archivio Titoli",
-    sidebarNote: "— altri fascicoli in arrivo —",
-    landingEyebrow: "Benvenuto nell'archivio",
-    landingTitle: "Scegli un fascicolo",
+    brand: "Timeline",
+    sidebarEyebrow: "Libreria Timeline",
+    sidebarNote: "— altri titoli in arrivo —",
+    landingEyebrow: "Benvenuto su Timeline",
+    landingTitle: "Scegli un titolo",
     landingSub: "Ogni titolo custodisce una o più linee temporali. Selezionane uno per aprirlo.",
     universeLabel: "Universo",
     backToTimeline: "← Torna alla linea temporale"
   },
   en: {
-    brand: "The Archive",
-    sidebarEyebrow: "Title Archive",
-    sidebarNote: "— more case files coming soon —",
-    landingEyebrow: "Welcome to the archive",
-    landingTitle: "Choose a case file",
+    brand: "Timeline",
+    sidebarEyebrow: "Timeline Library",
+    sidebarNote: "— more titles coming soon —",
+    landingEyebrow: "Welcome to Timeline",
+    landingTitle: "Choose a title",
     landingSub: "Every title holds one or more timelines. Select one to open it.",
     universeLabel: "Universe",
     backToTimeline: "← Back to the timeline"
