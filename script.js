@@ -58,6 +58,16 @@ function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
 
+const TYPE_COLORS = {
+  "VIDEOGIOCO": "#22d3ee", "VIDEOGAME": "#22d3ee",
+  "FUMETTO": "#e879f9", "COMIC": "#e879f9",
+  "STORIA": "#fb923c", "STORY": "#fb923c",
+  "MANGA": "#facc15",
+  "LIGHT NOVEL": "#34d399",
+  "ANIME": "#f472b6"
+};
+function dotColor(entry){ return TYPE_COLORS[entry.type] || TYPE_COLORS[entry.typeEn] || "#22d3ee"; }
+
 function currentGame(){ return state.gameId ? GAMES[state.gameId] : null; }
 function currentUniverse(){
   const g = currentGame();
@@ -201,7 +211,7 @@ function buildUniverseTrack(uni){
     const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
     node.innerHTML = `
       <span class="h-node__year">${yearLabel}</span>
-      <span class="h-node__marker"><span class="h-node__dot"></span></span>
+      <span class="h-node__marker"><span class="h-node__dot" style="--dot-color:${dotColor(entry)}"></span></span>
       <span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
       <span class="h-node__title">${tf(entry.title)}</span>
     `;
