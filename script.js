@@ -60,14 +60,35 @@ function stripLinks(html){
 
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
-const GRADIENT_STOPS = [
-  { p: 0,    c: [0, 240, 255] },    // electric cyan
-  { p: 0.55, c: [255, 46, 196] },   // hot magenta
-  { p: 1,    c: [167, 66, 255] }    // electric purple
-];
+const DEFAULT_PALETTE = ["#00f0ff", "#ff2ec4", "#a742ff"];
+
+function hexToRgb(hex){
+  const n = parseInt(hex.replace("#",""), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+
+function currentGradientStops(){
+  const g = currentGame();
+  const palette = (g && g.palette) || DEFAULT_PALETTE;
+  return [
+    { p: 0,    c: hexToRgb(palette[0]) },
+    { p: 0.55, c: hexToRgb(palette[1]) },
+    { p: 1,    c: hexToRgb(palette[2]) }
+  ];
+}
+
+function applyPaletteToCSS(){
+  const g = currentGame();
+  const palette = (g && g.palette) || DEFAULT_PALETTE;
+  document.body.style.setProperty("--tl-1", palette[0]);
+  document.body.style.setProperty("--tl-2", palette[1]);
+  document.body.style.setProperty("--tl-3", palette[2]);
+}
+
 function gradientColorAt(t){
-  for(let i = 0; i < GRADIENT_STOPS.length - 1; i++){
-    const a = GRADIENT_STOPS[i], b = GRADIENT_STOPS[i+1];
+  const stops = currentGradientStops();
+  for(let i = 0; i < stops.length - 1; i++){
+    const a = stops[i], b = stops[i+1];
     if(t >= a.p && t <= b.p){
       const lt = (t - a.p) / (b.p - a.p);
       const r = a.c[0] + (b.c[0]-a.c[0])*lt;
@@ -76,7 +97,7 @@ function gradientColorAt(t){
       return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(bch)})`;
     }
   }
-  const last = GRADIENT_STOPS[GRADIENT_STOPS.length-1].c;
+  const last = stops[stops.length-1].c;
   return `rgb(${last[0]}, ${last[1]}, ${last[2]})`;
 }
 
@@ -407,15 +428,20 @@ function setState(view){
 
   if(view === "landing"){
     state.gameId = null; state.universeIndex = 0; state.entryId = null;
+    document.body.style.setProperty("--tl-1", DEFAULT_PALETTE[0]);
+    document.body.style.setProperty("--tl-2", DEFAULT_PALETTE[1]);
+    document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
     renderSidebar();
     renderCaseGrid();
     renderUniversePicker();
   } else if(view === "game"){
     state.entryId = null;
+    applyPaletteToCSS();
     renderSidebar();
     renderUniversePicker();
     renderGamePanel();
   } else if(view === "title"){
+    applyPaletteToCSS();
     renderSidebar();
     renderUniversePicker();
     renderTitlePanel();
