@@ -179,7 +179,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
    ============================================================ */
 .landing{ max-width:920px; margin:0 auto; }
 .landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); }
-.landing-title{ font-size:2.4rem; margin-top:10px; color:var(--text); }
+.landing-title{ font-size:2.4rem; margin-top:16px; color:var(--text); }
 .landing-sub{ margin-top:12px; color:var(--text-dim); font-size:.95rem; max-width:520px; }
 
 .case-grid{
@@ -219,7 +219,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .case-card .seal{ margin-bottom:14px; }
 .case-card h3{ font-size:1.15rem; color:var(--text); }
 .case-card .case-count{ margin-top:5px; font-size:.72rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--text-faint); }
-.case-card p.case-blurb{ margin-top:10px; font-size:.82rem; color:var(--text-dim); line-height:1.5; }
+.case-card p.case-blurb{ margin-top:16px; font-size:.82rem; color:var(--text-dim); line-height:1.5; }
 
 /* ============================================================
    Game panel — header + proportional timelines
@@ -247,7 +247,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header__cover .monogram{ font-size:2.4rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .game-header__eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); }
 .game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
-.game-header__blurb{ margin-top:10px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
+.game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
 
 /* Universes: a single centered track, same fixed length regardless of entry count */
 .universe-stage{ display:flex; justify-content:center; }
@@ -264,11 +264,12 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* The carousel row: arrows flank ONLY the timeline itself (not the head above),
    and since the node grid is symmetric (equal space above/below the line),
    centering this row vertically puts the arrows exactly on the line. */
-.timeline-carousel{ display:flex; align-items:center; gap:28px; }
+.timeline-carousel{ display:flex; align-items:center; gap:56px; }
 
 .carousel-arrow{
   display:flex; flex-direction:column; align-items:center; gap:8px;
   width:118px; flex-shrink:0;
+  margin-top:16px;
   padding:16px 12px;
   border:1px solid var(--line);
   border-radius:var(--radius);
@@ -291,13 +292,13 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   display:flex; gap:26px;
   justify-content:space-between;
   overflow-x:auto; overflow-y:visible;
-  padding:44px 0;
+  padding:54px 0 34px;
   scrollbar-width:none;
 }
 .h-timeline::-webkit-scrollbar{ display:none; }
 .h-timeline::before{
   content:"";
-  position:absolute; left:59px; right:59px; top:212px; height:10px; border-radius:10px;
+  position:absolute; left:59px; right:59px; top:222px; height:10px; border-radius:10px;
   background:var(--gradient);
   opacity:.95;
 }
