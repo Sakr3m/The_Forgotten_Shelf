@@ -153,7 +153,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   padding:6px 8px; font-size:.82rem; font-weight:600; color:var(--text-faint);
 }
 
-.stage{ flex:1; min-width:0; padding:44px 40px 80px; }
+.stage{ flex:1; min-width:0; padding:44px 40px 80px; display:flex; flex-direction:column; }
 
 .timeline-rail{
   width:280px; flex-shrink:0;
@@ -217,7 +217,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* ============================================================
    Game panel — header + proportional timelines
    ============================================================ */
-.game-panel{ width:100%; max-width:1860px; }
+.game-panel{ width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
 
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
@@ -243,12 +243,13 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
 
 /* Universes: a single centered track, same fixed length regardless of entry count */
-.universe-stage{ display:flex; justify-content:center; }
-.universe-stage .u-track{ width:1800px; max-width:100%; }
+.universe-stage{ display:flex; justify-content:center; flex:1; min-height:0; }
+.universe-stage .u-track{ width:1800px; max-width:100%; height:100%; display:flex; flex-direction:column; }
+
+.timeline-viewport{ flex:1; min-height:0; display:flex; align-items:center; }
 
 .u-track__head{
-  display:flex; align-items:center; justify-content:center; gap:56px;
-  margin-bottom:28px;
+  display:flex; align-items:center; justify-content:center; gap:100px;
 }
 .u-track__name-block{ text-align:center; }
 .u-track__name{ font-size:1.4rem; font-weight:700; color:var(--text); }
@@ -326,6 +327,22 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 
 
 .h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
+.h-node--down .h-node__marker::after{
+  content:"";
+  position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  margin-top:2px;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:7px solid var(--dot-color, var(--cyan));
+}
+.h-node--up .h-node__marker::before{
+  content:"";
+  position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
+  margin-bottom:2px;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom:7px solid var(--dot-color, var(--cyan));
+}
 .h-node__dot{
   width:20px; height:20px; border-radius:50%;
   background:var(--bg);

@@ -204,7 +204,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   track.className = "u-track";
   track.innerHTML = `
     <div class="u-track__head"></div>
-    <div class="h-timeline"></div>
+    <div class="timeline-viewport"><div class="h-timeline"></div></div>
   `;
   const head = track.querySelector(".u-track__head");
   if(prevBtn) head.appendChild(prevBtn);
@@ -230,16 +230,20 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
     const t = total > 1 ? i / (total - 1) : 0;
     const color = gradientColorAt(t);
+    node.style.setProperty("--dot-color", color);
 
-    const tileBlock = `
-      <span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
-      <span class="h-node__title">${tf(entry.title)}</span>
-    `;
+    const tileSpan = `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>`;
+    const titleSpan = `<span class="h-node__title">${tf(entry.title)}</span>`;
+
+    // The title always sits between the line and the cover, on whichever side
+    // the cover happens to be: [line] title cover  (down)  /  cover title [line]  (up)
+    const topContent = tileDown ? "" : (tileSpan + titleSpan);
+    const bottomContent = tileDown ? (titleSpan + tileSpan) : "";
 
     node.innerHTML = `
-      <span class="h-node__top">${tileDown ? "" : tileBlock}</span>
-      <span class="h-node__marker"><span class="h-node__dot" style="--dot-color:${color}"></span></span>
-      <span class="h-node__bottom">${tileDown ? tileBlock : ""}</span>
+      <span class="h-node__top">${topContent}</span>
+      <span class="h-node__marker"><span class="h-node__dot"></span></span>
+      <span class="h-node__bottom">${bottomContent}</span>
     `;
     node.addEventListener("click", () => selectEntry(entry.id));
     timeline.appendChild(node);
