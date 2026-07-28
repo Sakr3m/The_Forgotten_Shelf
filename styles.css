@@ -226,11 +226,30 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
 
 .game-header{
+  position:relative;
   display:flex; gap:24px; align-items:flex-start;
-  padding-bottom:30px; margin-bottom:40px;
+  padding:28px 28px 30px;
+  margin-bottom:40px;
   border-bottom:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
+.game-header__banner{
+  position:absolute; inset:0; z-index:0;
+  object-fit:cover; object-position:78% center;
+  width:100%; height:100%;
+}
+.game-header__banner-overlay{
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 40% 90% at 58% 50%, rgba(255,255,255,.22), transparent 70%),
+    linear-gradient(90deg,
+      var(--bg) 0%, var(--bg) 22%,
+      transparent 46%, transparent 60%,
+      var(--bg) 70%, var(--bg) 100%);
+}
+.game-header > *{ position:relative; z-index:1; }
 .game-header__cover{
   width:140px; height:140px; flex-shrink:0;
   border-radius:var(--radius);
