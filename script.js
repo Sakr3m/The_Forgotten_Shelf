@@ -24,13 +24,16 @@ const state = {
   view: "landing",     // landing | game | title
   gameId: null,
   universeIndex: 0,
-  entryId: null
+  entryId: null,
+  musicOn: false
 };
 
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
   langSwitch: document.getElementById("langSwitch"),
+  musicToggle: document.getElementById("musicToggle"),
+  bgMusic: document.getElementById("bgMusic"),
   universePicker: document.getElementById("universePicker"),
   universeTrigger: document.getElementById("universeTrigger"),
   universeTriggerLabel: document.getElementById("universeTriggerLabel"),
@@ -452,6 +455,7 @@ function setState(view){
     el.timelineRail.hidden = false;
   }
   if(view !== "title") el.timelineRail.hidden = true;
+  updateMusicPlayback();
 }
 
 function selectGame(id){
@@ -477,6 +481,32 @@ el.langSwitch.addEventListener("click", () => {
   if(state.view === "landing"){ renderSidebar(); renderCaseGrid(); }
   else if(state.view === "game"){ renderSidebar(); renderUniversePicker(); renderGamePanel(); }
   else if(state.view === "title"){ renderSidebar(); renderUniversePicker(); renderTitlePanel(); renderRail(); }
+});
+
+// ---------------------------------------------------------
+// Background music — game pages only, never autoplays with sound,
+// user must opt in via the toggle; browsers block autoplay-with-audio anyway.
+// ---------------------------------------------------------
+function updateMusicPlayback(){
+  const g = currentGame();
+  const inGamePages = state.view === "game" || state.view === "title";
+  el.musicToggle.hidden = !inGamePages;
+  el.musicToggle.setAttribute("aria-pressed", String(state.musicOn));
+
+  if(!inGamePages || !state.musicOn || !g || !g.music){
+    el.bgMusic.pause();
+    return;
+  }
+  const wantedSrc = g.music;
+  if(!el.bgMusic.src || !el.bgMusic.src.endsWith(wantedSrc)){
+    el.bgMusic.src = wantedSrc;
+  }
+  el.bgMusic.play().catch(() => { /* blocked until a user gesture; toggle click itself counts as one */ });
+}
+
+el.musicToggle.addEventListener("click", () => {
+  state.musicOn = !state.musicOn;
+  updateMusicPlayback();
 });
 
 el.brandBtn.addEventListener("click", () => setState("landing"));

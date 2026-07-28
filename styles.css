@@ -118,6 +118,24 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .lang-option.is-active{ color:var(--cyan); }
 .lang-sep{ color:var(--line); }
 
+.music-toggle{
+  display:flex; align-items:center; justify-content:center;
+  width:38px; height:38px; flex-shrink:0;
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:999px;
+  color:var(--text-faint);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.music-toggle:hover{ border-color:var(--cyan); color:var(--text); }
+.music-toggle svg{ width:18px; height:18px; }
+.music-toggle__icon-off{ display:none; }
+.music-toggle[aria-pressed="true"]{ color:var(--cyan); border-color:rgba(34,211,238,.4); }
+.music-toggle[aria-pressed="true"] .music-toggle__icon-on{ display:block; }
+.music-toggle[aria-pressed="true"] .music-toggle__icon-off{ display:none; }
+.music-toggle[aria-pressed="false"] .music-toggle__icon-on{ display:none; }
+.music-toggle[aria-pressed="false"] .music-toggle__icon-off{ display:block; }
+
 /* ============================================================
    Layout
    ============================================================ */

@@ -37,6 +37,11 @@
     <main class="stage" id="stage">
 
       <div class="stage-controls">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-pressed="false" hidden>
+          <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        </button>
+
         <div class="universe-picker" id="universePicker" hidden>
           <button class="universe-trigger" id="universeTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
             <span id="universeTriggerLabel">—</span>
@@ -51,6 +56,8 @@
           <span class="lang-option" data-lang-option="en">EN</span>
         </button>
       </div>
+
+      <audio id="bgMusic" loop preload="none"></audio>
 
       <section class="landing" id="landingPanel">
         <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nell'archivio</p>
