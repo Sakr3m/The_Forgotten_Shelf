@@ -158,7 +158,11 @@ function renderUniversePicker(){
     btn.type = "button";
     btn.setAttribute("role", "option");
     btn.classList.toggle("is-active", idx === state.universeIndex);
-    btn.innerHTML = `${tf(uni.name)}<span class="u-span">${tf(uni.span)}</span>`;
+    const count = uni.entries.length;
+    const countLabel = state.lang === "it"
+      ? `${count} ${count === 1 ? "episodio" : "episodi"}`
+      : `${count} ${count === 1 ? "episode" : "episodes"}`;
+    btn.innerHTML = `${tf(uni.name)} · ${countLabel}<span class="u-span">${tf(uni.span)}</span>`;
     btn.addEventListener("click", () => {
       closeUniverseMenu();
       selectUniverse(idx);
@@ -316,6 +320,10 @@ function renderTitlePanel(){
   const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
   const typeLabel = state.lang === "it" ? entry.type : (entry.typeEn || entry.type);
 
+  const idx = universe.entries.findIndex(e => e.id === entry.id);
+  const prevEntry = idx > 0 ? universe.entries[idx - 1] : null;
+  const nextEntry = idx < universe.entries.length - 1 ? universe.entries[idx + 1] : null;
+
   el.titleContent.innerHTML = `
     <div>
       <span class="title-tag">${typeLabel}</span>
@@ -325,12 +333,18 @@ function renderTitlePanel(){
     <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
     <p class="title-synopsis">${tf(entry.synopsis)}</p>
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
-    <button type="button" class="title-back" id="titleBackBtn">${t("backToTimeline")}</button>
+    <div class="title-nav">
+      ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev" id="titlePrevBtn">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
+      <button type="button" class="title-back" id="titleBackBtn">${t("backToTimeline")}</button>
+      ${nextEntry ? `<button type="button" class="title-nav__side title-nav__side--next" id="titleNextBtn"><span>${tf(nextEntry.title)}</span>${arrowIcon("right")}</button>` : `<span class="title-nav__spacer"></span>`}
+    </div>
   `;
   document.getElementById("titleBackBtn").addEventListener("click", () => {
     state.view = "game";
     setState("game");
   });
+  if(prevEntry) document.getElementById("titlePrevBtn").addEventListener("click", () => selectEntry(prevEntry.id));
+  if(nextEntry) document.getElementById("titleNextBtn").addEventListener("click", () => selectEntry(nextEntry.id));
 
   let watermark = el.titlePanel.querySelector(".title-watermark");
   if(entry.image){
