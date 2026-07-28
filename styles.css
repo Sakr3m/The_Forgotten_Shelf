@@ -298,13 +298,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   content:"";
   position:absolute; left:75px; right:75px; top:214px; height:7px; border-radius:7px;
   background:var(--gradient);
-  background-size:200% 100%;
   opacity:.95;
-  animation:lineShift 10s ease-in-out infinite alternate;
-}
-@keyframes lineShift{
-  from{ background-position:0% 50%; }
-  to{ background-position:24% 50%; }
 }
 
 /* Each node reserves the same fixed height above/below the line regardless of
