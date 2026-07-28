@@ -250,18 +250,34 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header__blurb{ margin-top:10px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
 
 /* Universes: stacked vertically, each row uses the full available width */
-.universes-row{ display:flex; flex-direction:column; gap:52px; }
-.universes-row.count-1{ align-items:center; }
-.universes-row.count-1 .u-track{ max-width:900px; width:100%; }
-.u-track{ width:100%; min-width:0; }
+.universe-stage{ display:flex; align-items:center; justify-content:center; gap:28px; }
+.universe-stage .u-track{ max-width:800px; width:100%; }
 
-.u-track__head{ position:relative; padding-left:16px; margin-bottom:24px; }
-.u-track__head::before{
-  content:""; position:absolute; left:0; top:2px; bottom:2px; width:4px;
-  border-radius:2px; background:var(--gradient);
+.u-track__head{ text-align:center; margin-bottom:24px; }
+.u-track__name{ font-size:1.15rem; font-weight:700; color:var(--text); }
+.u-track__span{
+  display:inline-block; font-size:.74rem; color:var(--text-faint); margin-top:6px; font-weight:500;
+  padding-bottom:8px; border-bottom:2px solid transparent;
+  border-image:var(--gradient) 1;
 }
-.u-track__name{ font-size:1.1rem; font-weight:700; color:var(--text); }
-.u-track__span{ font-size:.74rem; color:var(--text-faint); margin-top:3px; font-weight:500; }
+
+.carousel-arrow{
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  width:118px; flex-shrink:0;
+  padding:16px 12px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--panel);
+  color:var(--text-dim);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.carousel-arrow:hover, .carousel-arrow:focus-visible{
+  border-color:var(--cyan); color:var(--text);
+}
+.carousel-arrow--prev:hover, .carousel-arrow--prev:focus-visible{ transform:translateX(-3px); }
+.carousel-arrow--next:hover, .carousel-arrow--next:focus-visible{ transform:translateX(3px); }
+.carousel-arrow__icon{ width:16px; height:18px; color:var(--cyan); }
+.carousel-arrow__label{ font-size:.76rem; font-weight:600; text-align:center; line-height:1.25; }
 
 .h-timeline{
   position:relative;
@@ -390,8 +406,9 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .timeline-rail{ width:100%; border-left:none; border-top:1px solid var(--line); }
   .stage{ padding:30px 20px 60px; }
   .game-header{ flex-direction:column; }
-  .universes-row{ align-items:stretch; }
-  .universes-row.count-1 .u-track{ max-width:100%; }
+  .universe-stage{ flex-direction:column; }
+  .carousel-arrow{ flex-direction:row; width:100%; }
+  .universe-stage .u-track{ max-width:100%; }
 }
 
 :focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
