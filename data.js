@@ -12,8 +12,8 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/AitD%20Banner.jpg",
     blurb: {
-      it: "Una serie di <a href=\"https://it.wikipedia.org/wiki/Videogioco\">videogiochi</a> <a href=\"https://it.wikipedia.org/wiki/Survival_horror\">survival horror</a> nata nel 1992 con il capitolo originale di Infogrames, generalmente considerata la capostipite del genere: fu tra i primi titoli a unire personaggi poligonali in tempo reale e fondali prerenderizzati, ponendo le basi che avrebbero ispirato Resident Evil quattro anni più tardi.",
-      en: "A <a href=\"https://en.wikipedia.org/wiki/Survival_horror\">survival horror</a> <a href=\"https://en.wikipedia.org/wiki/Video_game\">video game</a> series that began in 1992 with the original Infogrames release, widely regarded as the genre's originator: among the first titles to combine real-time polygonal characters with pre-rendered backgrounds, laying groundwork that would go on to inspire Resident Evil four years later."
+      it: "Una serie di <a href=\"https://it.wikipedia.org/wiki/Videogioco\">videogiochi</a> <a href=\"https://it.wikipedia.org/wiki/Survival_horror\">survival horror</a> nata nel 1992<br>con il capitolo originale di Infogrames. È generalmente considerata la capostipite del genere, un titolo che avrebbe ispirato Resident Evil pochi anni più tardi.",
+      en: "A <a href=\"https://en.wikipedia.org/wiki/Survival_horror\">survival horror</a> <a href=\"https://en.wikipedia.org/wiki/Video_game\">video game</a> series that began in 1992<br>with the original Infogrames release. Widely regarded as the genre's originator, it went on to directly influence Resident Evil a few years later."
     },
     universes: [
       {
