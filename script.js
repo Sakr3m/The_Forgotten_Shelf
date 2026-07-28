@@ -43,8 +43,11 @@ const el = {
   universeMenu: document.getElementById("universeMenu"),
   gameList: document.getElementById("gameList"),
   caseGrid: document.getElementById("caseGrid"),
+  landingPanel: document.getElementById("landingPanel"),
+  gamePanel: document.getElementById("gamePanel"),
   gameHeader: document.getElementById("gameHeader"),
   universesRow: document.getElementById("universesRow"),
+  titlePanel: document.getElementById("titlePanel"),
   titleContent: document.getElementById("titleContent"),
   timelineRail: document.getElementById("timelineRail"),
   railLabel: document.getElementById("railLabel"),
@@ -291,6 +294,11 @@ function renderRail(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
+
+  el.landingPanel.hidden = view !== "landing";
+  el.gamePanel.hidden = view !== "game";
+  el.titlePanel.hidden = view !== "title";
+
   if(view === "landing"){
     state.gameId = null; state.universeIndex = 0; state.entryId = null;
     renderSidebar();
