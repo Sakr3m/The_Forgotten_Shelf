@@ -288,7 +288,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 }
 .h-timeline::before{
   content:"";
-  position:absolute; left:59px; right:59px; top:48px; height:6px; border-radius:6px;
+  position:absolute; left:59px; right:59px; top:52px; height:6px; border-radius:6px;
   background:var(--gradient);
   opacity:.9;
 }
