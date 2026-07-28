@@ -228,20 +228,18 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     node.type = "button";
     node.className = "h-node " + (tileDown ? "h-node--down" : "h-node--up");
 
-    const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
     const t = total > 1 ? i / (total - 1) : 0;
     const color = gradientColorAt(t);
 
-    const yearBlock = `<span class="h-node__year">${yearLabel}</span>`;
     const tileBlock = `
       <span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
       <span class="h-node__title">${tf(entry.title)}</span>
     `;
 
     node.innerHTML = `
-      <span class="h-node__top">${tileDown ? yearBlock : tileBlock}</span>
+      <span class="h-node__top">${tileDown ? "" : tileBlock}</span>
       <span class="h-node__marker"><span class="h-node__dot" style="--dot-color:${color}"></span></span>
-      <span class="h-node__bottom">${tileDown ? tileBlock : yearBlock}</span>
+      <span class="h-node__bottom">${tileDown ? tileBlock : ""}</span>
     `;
     node.addEventListener("click", () => selectEntry(entry.id));
     timeline.appendChild(node);
