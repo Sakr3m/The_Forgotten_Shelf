@@ -239,7 +239,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header__banner{
   position:absolute; inset:0; z-index:0;
   background-repeat:no-repeat;
-  background-size:120%;
+  background-size:contain;
   background-position:calc(68% - 30px) center;
 }
 .game-header__banner-overlay{
