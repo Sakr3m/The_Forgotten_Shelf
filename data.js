@@ -377,27 +377,144 @@ const GAMES = {
       }
     ]
   }
+,
+
+  doom: {
+    id: "doom",
+    listTitle: { it: "Doom", en: "Doom" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Doom", en: "Doom" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "dragon-quest": {
+    id: "dragon-quest",
+    listTitle: { it: "Dragon Quest", en: "Dragon Quest" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Dragon Quest", en: "Dragon Quest" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "dying-light": {
+    id: "dying-light",
+    listTitle: { it: "Dying Light", en: "Dying Light" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Dying Light", en: "Dying Light" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  gta: {
+    id: "gta",
+    listTitle: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "kingdom-hearts": {
+    id: "kingdom-hearts",
+    listTitle: { it: "Kingdom Hearts", en: "Kingdom Hearts" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Kingdom Hearts", en: "Kingdom Hearts" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "legacy-of-kain": {
+    id: "legacy-of-kain",
+    listTitle: { it: "Legacy of Kain", en: "Legacy of Kain" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Legacy of Kain", en: "Legacy of Kain" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "lost-planet": {
+    id: "lost-planet",
+    listTitle: { it: "Lost Planet", en: "Lost Planet" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Lost Planet", en: "Lost Planet" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "metal-gear-solid": {
+    id: "metal-gear-solid",
+    listTitle: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "resident-evil": {
+    id: "resident-evil",
+    listTitle: { it: "Resident Evil", en: "Resident Evil" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Resident Evil", en: "Resident Evil" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "silent-hill": {
+    id: "silent-hill",
+    listTitle: { it: "Silent Hill", en: "Silent Hill" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Silent Hill", en: "Silent Hill" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  "remedy-universe": {
+    id: "remedy-universe",
+    listTitle: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  },
+
+  wolfenstein: {
+    id: "wolfenstein",
+    listTitle: { it: "Wolfenstein", en: "Wolfenstein" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Wolfenstein", en: "Wolfenstein" },
+    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    universes: [
+      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+    ]
+  }
 
 };
 
-const GAME_ORDER = ["aitd", "castlevania", "dmc"];
-
-// Full sidebar roadmap, alphabetical. Titles with hasData:true link to a
-// populated GAMES entry; the rest are shown as upcoming, not yet clickable.
-const SIDEBAR_ORDER = [
-  { id: "aitd", hasData: true },
-  { id: "castlevania", hasData: true },
-  { id: "dmc", hasData: true },
-  { id: "doom", hasData: false, title: { it: "Doom", en: "Doom" } },
-  { id: "dragon-quest", hasData: false, title: { it: "Dragon Quest", en: "Dragon Quest" } },
-  { id: "dying-light", hasData: false, title: { it: "Dying Light", en: "Dying Light" } },
-  { id: "gta", hasData: false, title: { it: "Grand Theft Auto", en: "Grand Theft Auto" } },
-  { id: "kingdom-hearts", hasData: false, title: { it: "Kingdom Hearts", en: "Kingdom Hearts" } },
-  { id: "legacy-of-kain", hasData: false, title: { it: "Legacy of Kain", en: "Legacy of Kain" } },
-  { id: "lost-planet", hasData: false, title: { it: "Lost Planet", en: "Lost Planet" } },
-  { id: "metal-gear-solid", hasData: false, title: { it: "Metal Gear Solid", en: "Metal Gear Solid" } },
-  { id: "resident-evil", hasData: false, title: { it: "Resident Evil", en: "Resident Evil" } },
-  { id: "silent-hill", hasData: false, title: { it: "Silent Hill", en: "Silent Hill" } },
-  { id: "remedy-universe", hasData: false, title: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" } },
-  { id: "wolfenstein", hasData: false, title: { it: "Wolfenstein", en: "Wolfenstein" } }
+const GAME_ORDER = [
+  "aitd", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta",
+  "kingdom-hearts", "legacy-of-kain", "lost-planet", "metal-gear-solid",
+  "resident-evil", "silent-hill", "remedy-universe", "wolfenstein"
 ];

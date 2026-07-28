@@ -150,12 +150,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   background:linear-gradient(90deg, rgba(34,211,238,.14), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--cyan);
 }
-.game-list__pending{
-  display:block; width:100%;
-  padding:10px 12px;
-  font-size:.9rem; color:var(--text-faint);
-  cursor:default;
-}
+
 
 .sidebar-group{
   margin-top:22px; padding-top:16px; border-top:1px solid var(--line);

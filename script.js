@@ -106,22 +106,15 @@ function paintStaticText(){
 // ---------------------------------------------------------
 function renderSidebar(){
   el.gameList.innerHTML = "";
-  SIDEBAR_ORDER.forEach(item => {
+  GAME_ORDER.forEach(id => {
+    const g = GAMES[id];
     const li = document.createElement("li");
-    if(item.hasData){
-      const g = GAMES[item.id];
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.textContent = tf(g.listTitle);
-      btn.classList.toggle("is-active", state.gameId === item.id);
-      btn.addEventListener("click", () => selectGame(item.id));
-      li.appendChild(btn);
-    } else {
-      const span = document.createElement("span");
-      span.className = "game-list__pending";
-      span.textContent = tf(item.title);
-      li.appendChild(span);
-    }
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = tf(g.listTitle);
+    btn.classList.toggle("is-active", state.gameId === id);
+    btn.addEventListener("click", () => selectGame(id));
+    li.appendChild(btn);
     el.gameList.appendChild(li);
   });
 }
