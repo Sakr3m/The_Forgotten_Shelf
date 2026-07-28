@@ -8,14 +8,14 @@ const STRINGS = {
     sidebarEyebrow: "Libreria Timeline",
     landingSub: "Ogni titolo custodisce una o più linee temporali. Selezionane uno per aprirlo.",
     universeLabel: "Universo",
-    backToTimeline: "← Torna alla linea temporale"
+    backToTimeline: "Torna alla linea temporale"
   },
   en: {
     brand: "Timeline",
     sidebarEyebrow: "Timeline Library",
     landingSub: "Every title holds one or more timelines. Select one to open it.",
     universeLabel: "Universe",
-    backToTimeline: "← Back to the timeline"
+    backToTimeline: "Back to the timeline"
   }
 };
 
