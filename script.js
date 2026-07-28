@@ -268,7 +268,6 @@ function renderGamePanel(){
   el.gameHeader.innerHTML = `
     <div class="game-header__cover"><span class="monogram">${monogram(tf(g.title))}</span></div>
     <div>
-      <p class="game-header__eyebrow">${tf(g.eyebrow)}</p>
       <h2 class="game-header__title">${tf(g.title)}</h2>
       <p class="game-header__blurb">${tf(g.blurb)}</p>
     </div>
@@ -324,7 +323,6 @@ function renderTitlePanel(){
     </div>
     <h2 class="title-name">${tf(entry.title)}</h2>
     <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
-    ${entry.image ? `<div class="title-media"><img src="${entry.image}" alt=""></div>` : ""}
     <p class="title-synopsis">${tf(entry.synopsis)}</p>
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <button type="button" class="title-back" id="titleBackBtn">${t("backToTimeline")}</button>
