@@ -135,7 +135,7 @@ const GAMES = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Sorrow%27s%20Distortion.mp3", title: "Sorrow's Distortion", game: "Order of Ecclesia" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20The%20Tragic%20Prince.mp3", title: "The Tragic Prince", game: "Symphony of the Night" }
     ],
-    bannerOffset: 255,
+    bannerOffset: 265,
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
@@ -325,7 +325,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Avatar.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Banner.jpg",
-    bannerOffset: 255,
+    bannerOffset: 265,
     music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry.mp3",
     universes: [
       {
