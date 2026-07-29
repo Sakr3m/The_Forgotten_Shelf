@@ -14,7 +14,11 @@ const GAMES = {
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
     palette: ["#c9a24b", "#4a9d6e", "#6b3fa0"],
     accentColor: "#6b3fa0",
-    music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark.mp3",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20In%20the%20Eye%20of%20the%20Storm.mp3", title: "In the Eye of the Storm", game: "Alone in the Dark (1992)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Fa%C3%A7ade.mp3", title: "The Façade", game: "Alone in the Dark (2008)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
+    ],
     blurb: {
       it: "Una serie survival horror che intreccia case infestate,<br>occultismo e segreti di famiglia sepolti nel tempo.<br>Considerata la capostipite del genere horror videoludico.",
       en: "A survival horror series weaving together haunted houses,<br>occultism, and family secrets buried in time. Regarded<br>as the originator of the survival horror genre itself."
