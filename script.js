@@ -25,7 +25,8 @@ const state = {
   gameId: null,
   universeIndex: 0,
   entryId: null,
-  musicOn: false
+  musicOn: false,
+  trackIndex: 0
 };
 
 const el = {
@@ -34,6 +35,11 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   musicToggle: document.getElementById("musicToggle"),
   bgMusic: document.getElementById("bgMusic"),
+  trackInfo: document.getElementById("trackInfo"),
+  trackTitle: document.getElementById("trackTitle"),
+  trackGame: document.getElementById("trackGame"),
+  trackSkipBtn: document.getElementById("trackSkipBtn"),
+  volumeSlider: document.getElementById("volumeSlider"),
   universePicker: document.getElementById("universePicker"),
   universeTrigger: document.getElementById("universeTrigger"),
   universeTriggerLabel: document.getElementById("universeTriggerLabel"),
@@ -496,6 +502,7 @@ function setState(view){
 }
 
 function selectGame(id){
+  if(state.gameId !== id) state.trackIndex = 0;
   state.gameId = id;
   state.universeIndex = 0;
   setState("game");
@@ -525,22 +532,55 @@ el.langSwitch.addEventListener("click", () => {
 // Background music — game pages only, never autoplays with sound,
 // user must opt in via the toggle; browsers block autoplay-with-audio anyway.
 // ---------------------------------------------------------
+function getTrackList(g){
+  if(!g) return [];
+  if(g.tracks && g.tracks.length) return g.tracks;
+  if(g.music) return [{ src: g.music, title: null, game: null }];
+  return [];
+}
+
 function updateMusicPlayback(){
   const g = currentGame();
   const inGamePages = state.view === "game" || state.view === "title";
   el.musicToggle.hidden = !inGamePages;
   el.musicToggle.setAttribute("aria-pressed", String(state.musicOn));
 
-  if(!inGamePages || !state.musicOn || !g || !g.music){
+  const tracks = getTrackList(g);
+  const hasTracks = inGamePages && tracks.length > 0;
+
+  if(!hasTracks || !state.musicOn){
     el.bgMusic.pause();
+    el.trackInfo.hidden = true;
     return;
   }
-  const wantedSrc = g.music;
-  if(!el.bgMusic.src || !el.bgMusic.src.endsWith(wantedSrc)){
-    el.bgMusic.src = wantedSrc;
+
+  if(state.trackIndex >= tracks.length) state.trackIndex = 0;
+  const track = tracks[state.trackIndex];
+
+  if(track.title){
+    el.trackInfo.hidden = false;
+    el.trackTitle.textContent = track.title;
+    el.trackGame.textContent = track.game || "";
+    el.trackSkipBtn.hidden = tracks.length <= 1;
+  } else {
+    el.trackInfo.hidden = true;
+  }
+
+  if(!el.bgMusic.src || !el.bgMusic.src.endsWith(track.src)){
+    el.bgMusic.src = track.src;
   }
   el.bgMusic.play().catch(() => { /* blocked until a user gesture; toggle click itself counts as one */ });
 }
+
+function advanceTrack(){
+  const g = currentGame();
+  const tracks = getTrackList(g);
+  if(tracks.length === 0) return;
+  state.trackIndex = (state.trackIndex + 1) % tracks.length;
+  updateMusicPlayback();
+}
+el.bgMusic.addEventListener("ended", advanceTrack);
+el.trackSkipBtn.addEventListener("click", advanceTrack);
 
 // ---------------------------------------------------------
 // UI tap sound — plays on every button press, site-wide.
@@ -554,6 +594,11 @@ document.addEventListener("click", (e) => {
     tap.volume = 0.2;
     tap.play().catch(() => { /* blocked until a user gesture; the click itself is one, so this is just a safety net */ });
   }
+});
+
+el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+el.volumeSlider.addEventListener("input", () => {
+  el.bgMusic.volume = parseFloat(el.volumeSlider.value);
 });
 
 el.musicToggle.addEventListener("click", () => {

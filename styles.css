@@ -118,6 +118,51 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .lang-option.is-active{ color:var(--cyan); }
 .lang-sep{ color:var(--line); }
 
+.music-control{ position:relative; display:flex; align-items:center; gap:10px; }
+
+.track-info{
+  display:flex; align-items:center; gap:8px;
+  padding:6px 6px 6px 14px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:999px;
+  max-width:280px;
+}
+.track-info__text{ display:flex; flex-direction:column; line-height:1.25; overflow:hidden; }
+.track-info__title{ font-size:.74rem; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.track-info__game{ font-size:.66rem; font-style:italic; color:var(--text-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.track-skip{
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  width:26px; height:26px; border-radius:50%;
+  border:1px solid var(--line); background:var(--bg-soft);
+  color:var(--text-faint);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.track-skip:hover{ border-color:var(--cyan); color:var(--cyan); }
+.track-skip svg{ width:11px; height:11px; }
+
+.volume-panel{
+  position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  margin-top:6px;
+  padding:12px 8px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:12px;
+  opacity:0; visibility:hidden;
+  transition:opacity .18s var(--ease), visibility 0s linear 1s;
+  z-index:20;
+}
+.music-control:hover .volume-panel{
+  opacity:1; visibility:visible;
+  transition:opacity .18s var(--ease) 1s, visibility 0s linear 1s;
+}
+.volume-slider{
+  writing-mode:vertical-lr; direction:rtl;
+  width:6px; height:90px;
+  accent-color:var(--cyan);
+  cursor:pointer;
+}
+
 .music-toggle{
   display:flex; align-items:center; justify-content:center;
   width:38px; height:38px; flex-shrink:0;

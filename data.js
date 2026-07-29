@@ -122,7 +122,15 @@ const GAMES = {
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
     accentColor: "#a11d33",
-    music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania.mp3",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Vampire%20Killer.mp3", title: "Vampire Killer", game: "Castlevania (1986)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Invitation%20of%20a%20Crazed%20Moon.mp3", title: "Invitation of a Crazed Moon", game: "Portrait of Ruin" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Bloody%20Tears.mp3", title: "Bloody Tears", game: "Simon's Quest" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Wood%20Carving%20Partita.mp3", title: "Wood Carving Partita", game: "Symphony of the Night" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20The%20Gears%20Go%20Awry.mp3", title: "The Gears Go Awry", game: "Portrait of Ruin" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Sorrow%27s%20Distortion.mp3", title: "Sorrow's Distortion", game: "Order of Ecclesia" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20The%20Tragic%20Prince.mp3", title: "The Tragic Prince", game: "Symphony of the Night" }
+    ],
     bannerOffset: 225,
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
