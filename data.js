@@ -119,6 +119,9 @@ const GAMES = {
       en: "Two separate and mutually incompatible timelines. Characters, events, and lore do not carry over between them."
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
     universes: [
       {
         id: "iga",
