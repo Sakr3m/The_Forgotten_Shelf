@@ -616,13 +616,13 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   /* --- Horizontal timeline: everything resized to fit a phone --- */
   .h-timeline{ padding:32px 0; }
-  .h-timeline::before{ left:49.5px; width:calc(var(--tl-content-width, 100%) - 99px); top:144px; height:5px; }
-  .h-node{ width:99px; grid-template-rows:106px 17px 106px; }
+  .h-timeline::before{ left:47px; width:calc(var(--tl-content-width, 100%) - 94px); top:139.5px; height:5px; }
+  .h-node{ width:94px; grid-template-rows:101px 16px 101px; }
   .h-node__top{ padding-bottom:8px; }
   .h-node__bottom{ padding-top:8px; }
-  .h-node__tile{ width:66px; height:84px; }
+  .h-node__tile{ width:63px; height:80px; }
   .h-node__title{ font-size:.7rem; height:32px; }
-  .h-node__dot{ width:13px; height:13px; border:5px solid var(--dot-color, var(--cyan)); }
+  .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
   .h-node--down .h-node__marker::after,
   .h-node--up .h-node__marker::before{ height:7px; }
 

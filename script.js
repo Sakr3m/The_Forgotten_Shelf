@@ -348,27 +348,24 @@ function renderGamePanel(){
   if(liveTimeline){
     const count = uni.entries.length;
     const availableWidth = liveTimeline.clientWidth; // verified via real bounding boxes to fit without the old safety margin
-    const BASE_SCALE = 0.95;        // global 5% reduction applied to the whole timeline, everywhere
-    const AVATAR_MIN_SCALE = BASE_SCALE; // avatars/titles always stay at the base size, never smaller
-    const DOT_MIN_SCALE = 0.05;     // dots/gap can compress much further to compensate
-    const GAP_MIN_PX = 26 * DOT_MIN_SCALE; // must match the floor actually enforced in CSS
+    const BASE_SCALE = 0.9025;      // global ~9.75% reduction (two compounding 5% cuts) applied everywhere
+    const AVATAR_FLOOR = 0.85;      // avatars/titles can dip toward this before dots give up more room
+    const DOT_TARGET = 0.55;        // dots aim for a clearly visible size, not just a bare minimum
+    const DOT_FLOOR = 0.2;          // absolute last resort
 
-    // Try avatars at the base size first; whatever's left over goes to the gap.
-    let avatarScale = BASE_SCALE;
-    let avatarWidth = 100 * avatarScale;
-    let neededForAvatarsOnly = count * avatarWidth;
+    // Reserve room for dots/gap at their target size first...
+    let dotScale = DOT_TARGET;
+    let gapPx = 26 * dotScale;
+    let avatarScale = count > 0 ? Math.min(BASE_SCALE, (availableWidth - Math.max(0, count - 1) * gapPx) / (count * 100)) : BASE_SCALE;
 
-    if(neededForAvatarsOnly + Math.max(0, count - 1) * GAP_MIN_PX > availableWidth && count > 0){
-      // Even at the minimum gap, base-size avatars don't fit: shrink them
-      // just enough (but not below the floor) to make room for that gap.
-      avatarScale = Math.max(AVATAR_MIN_SCALE, (availableWidth - Math.max(0, count - 1) * GAP_MIN_PX) / (count * 100));
-      avatarWidth = 100 * avatarScale;
-      neededForAvatarsOnly = count * avatarWidth;
+    if(avatarScale < AVATAR_FLOOR){
+      // Avatars would get too small at the dot target: give avatars their
+      // floor instead, and let dots shrink further to make room.
+      avatarScale = AVATAR_FLOOR;
+      const remaining = availableWidth - count * 100 * avatarScale;
+      gapPx = count > 1 ? Math.max(26 * DOT_FLOOR, remaining / (count - 1)) : 26 * DOT_TARGET;
+      dotScale = Math.max(DOT_FLOOR, Math.min(DOT_TARGET, gapPx / 26));
     }
-
-    const remaining = availableWidth - neededForAvatarsOnly;
-    const gapPx = count > 1 ? Math.max(GAP_MIN_PX, remaining / (count - 1)) : 26 * BASE_SCALE;
-    let dotScale = Math.min(BASE_SCALE, Math.max(DOT_MIN_SCALE, gapPx / 26));
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
