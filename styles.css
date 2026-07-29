@@ -226,7 +226,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 }
 .case-card:hover, .case-card:focus-visible{
   transform:translateY(-4px);
-  border-color:rgba(34,211,238,.4);
+  border-color:color-mix(in srgb, var(--card-accent, var(--cyan)) 40%, transparent);
   box-shadow:0 16px 32px rgba(0,0,0,.35);
 }
 .case-card:hover::before, .case-card:focus-visible::before{ opacity:1; }

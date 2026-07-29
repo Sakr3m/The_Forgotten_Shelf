@@ -64,7 +64,7 @@ function stripLinks(html){
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
 const DEFAULT_PALETTE = ["#00f0ff", "#ff2ec4", "#a742ff"];
-const DEFAULT_ACCENT = "#22d3ee";
+const DEFAULT_ACCENT = "#6b7280"; // neutral gray on landing until a game "owns" this slot
 
 function hexToRgb(hex){
   const n = parseInt(hex.replace("#",""), 16);
@@ -165,6 +165,7 @@ function renderCaseGrid(){
     const uLabel = uCount === 1
       ? (state.lang === "it" ? "1 continuità" : "1 continuity")
       : (state.lang === "it" ? uCount + " universi" : uCount + " universes");
+    card.style.setProperty("--card-accent", g.accentColor || "#6b7280");
     card.innerHTML = `
       <span class="seal" aria-hidden="true"><span class="seal__crack"></span></span>
       <h3>${tf(g.listTitle)}</h3>
