@@ -347,7 +347,8 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .h-timeline::-webkit-scrollbar{ display:none; }
 .h-timeline::before{
   content:"";
-  position:absolute; left:75px; right:75px; top:214px; height:7px; border-radius:7px;
+  position:absolute; left:75px; top:214px; height:7px; border-radius:7px;
+  width: calc(var(--tl-content-width, 100%) - 150px);
   background:var(--gradient);
   opacity:.95;
 }
@@ -616,7 +617,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   /* --- Horizontal timeline: everything resized to fit a phone --- */
   .h-timeline{ padding:32px 0; }
-  .h-timeline::before{ left:52px; right:52px; top:152px; height:5px; }
+  .h-timeline::before{ left:52px; width:calc(var(--tl-content-width, 100%) - 104px); top:152px; height:5px; }
   .h-node{ width:104px; grid-template-rows:112px 18px 112px; }
   .h-node__top{ padding-bottom:8px; }
   .h-node__bottom{ padding-top:8px; }

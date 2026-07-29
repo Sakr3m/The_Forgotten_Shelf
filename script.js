@@ -338,6 +338,11 @@ function renderGamePanel(){
   }
 
   el.universesRow.appendChild(buildUniverseTrack(uni, prevBtn, nextBtn));
+
+  const liveTimeline = el.universesRow.querySelector(".h-timeline");
+  if(liveTimeline){
+    liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
+  }
 }
 
 // ---------------------------------------------------------
