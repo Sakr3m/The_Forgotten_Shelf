@@ -174,7 +174,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   padding:6px 8px; font-size:.82rem; font-weight:600; color:var(--text-faint);
 }
 
-.stage{ position:relative; flex:1; min-width:0; padding:44px 40px 80px; display:flex; flex-direction:column; }
+.stage{ position:relative; flex:1; min-width:0; padding:44px 25px 80px; display:flex; flex-direction:column; }
 
 .timeline-rail{
   width:280px; flex-shrink:0;

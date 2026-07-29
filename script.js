@@ -346,8 +346,8 @@ function renderGamePanel(){
   if(liveTimeline){
     const count = uni.entries.length;
     const availableWidth = liveTimeline.clientWidth; // verified via real bounding boxes to fit without the old safety margin
-    const AVATAR_MIN_SCALE = 0.9;   // avatars/titles never shrink below 90% of full size
-    const DOT_MIN_SCALE = 0.2;      // dots/gap never shrink below 20% of full size
+    const AVATAR_MIN_SCALE = 1;     // avatars/titles always stay at full size
+    const DOT_MIN_SCALE = 0.05;     // dots/gap can compress much further to compensate
     const GAP_MIN_PX = 26 * DOT_MIN_SCALE; // must match the floor actually enforced in CSS
 
     // Try avatars at full size first; whatever's left over goes to the gap.
