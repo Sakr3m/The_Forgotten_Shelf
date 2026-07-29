@@ -267,12 +267,15 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     const color = gradientColorAt(t);
     node.style.setProperty("--dot-color", color);
 
-    const tileSpan = `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>`;
+    const hasAvatar = !entry.noAvatar;
+    const tileSpan = hasAvatar
+      ? `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>`
+      : "";
 
     // "up": avatar (farthest from line) -> title (text top-aligned, touching avatar) -> [reserved empty 2nd line, touching line] -> line
     // "down": line -> [reserved empty 2nd line, touching line] -> title (text bottom-aligned, touching avatar) -> avatar (farthest from line)
-    const titleUp = `<span class="h-node__title h-node__title--top">${tf(entry.title)}</span>`;
-    const titleDown = `<span class="h-node__title h-node__title--bottom">${tf(entry.title)}</span>`;
+    const titleUp = `<span class="h-node__title${hasAvatar ? " h-node__title--top" : ""}">${tf(entry.title)}</span>`;
+    const titleDown = `<span class="h-node__title${hasAvatar ? " h-node__title--bottom" : ""}">${tf(entry.title)}</span>`;
 
     const topContent = tileDown ? "" : (tileSpan + titleUp);
     const bottomContent = tileDown ? (titleDown + tileSpan) : "";
