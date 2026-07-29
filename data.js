@@ -16,8 +16,8 @@ const GAMES = {
     accentColor: "#6b3fa0",
     music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark.mp3",
     blurb: {
-      it: "Una serie survival horror che intreccia case infestate, occultismo e segreti di famiglia sepolti nel tempo. Considerata la capostipite del genere, ha aperto la strada a decenni di orrore videoludico, influenzando generazioni di titoli successivi.",
-      en: "A survival horror series weaving together haunted houses, occultism, and family secrets buried in time. Regarded as the genre's originator, it paved the way for decades of horror gaming that followed."
+      it: "Una serie survival horror che intreccia case infestate,<br>occultismo e segreti di famiglia sepolti nel tempo.<br>Considerata la capostipite del genere horror videoludico.",
+      en: "A survival horror series weaving together haunted houses,<br>occultism, and family secrets buried in time. Regarded<br>as the originator of the survival horror genre itself."
     },
     universes: [
       {
@@ -117,8 +117,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Castlevania", en: "Castlevania" },
     blurb: {
-      it: "Una saga action-gotica che racconta la guerra secolare tra il clan Belmont e Dracula, tra castelli maledetti, creature della notte e la leggendaria Vampire Killer. Un ciclo di caccia e vendetta che si ripete di generazione in generazione.",
-      en: "A gothic action saga chronicling the centuries-old war between the Belmont clan and Dracula, through cursed castles, creatures of the night, and the legendary Vampire Killer. A cycle of hunting and vengeance repeating across generations."
+      it: "Una saga action-gotica che racconta la guerra secolare<br>tra il clan Belmont e Dracula, tra castelli maledetti<br>e la leggendaria Vampire Killer, di generazione in generazione.",
+      en: "A gothic action saga chronicling the centuries-old war<br>between the Belmont clan and Dracula, through cursed castles<br>and the legendary Vampire Killer, across generations."
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
     accentColor: "#a11d33",
@@ -313,8 +313,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Una saga action dallo stile sopra le righe, che segue i cacciatori di demoni della stirpe di Sparda tra spade leggendarie, pistole gemelle e combattimenti spettacolari. Il conflitto tra sangue umano e demoniaco è il cuore pulsante di ogni capitolo.",
-      en: "A flashy, over-the-top action saga following the demon hunters of Sparda's bloodline through legendary swords, twin pistols, and spectacular combat. The clash between human and demon blood is the beating heart of every entry."
+      it: "Una saga action dallo stile sopra le righe, che segue<br>i cacciatori di demoni della stirpe di Sparda tra spade<br>leggendarie e pistole gemelle, tra sangue umano e demoniaco.",
+      en: "A flashy, over-the-top action saga following the demon<br>hunters of Sparda's bloodline through legendary swords<br>and twin pistols, between human blood and demon blood."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#9ca3af",
