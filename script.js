@@ -341,12 +341,6 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
-    const count = uni.entries.length;
-    const availableWidth = liveTimeline.clientWidth;
-    const naturalWidth = count * 150 + Math.max(0, count - 1) * 26;
-    let scale = count > 0 ? Math.min(1, availableWidth / naturalWidth) : 1;
-    scale = Math.max(0.4, scale);
-    liveTimeline.style.setProperty("--node-scale", scale.toFixed(3));
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
   }
 }
