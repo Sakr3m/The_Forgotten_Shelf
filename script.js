@@ -87,6 +87,8 @@ function applyPaletteToCSS(){
   document.body.style.setProperty("--tl-2", palette[1]);
   document.body.style.setProperty("--tl-3", palette[2]);
   document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`);
+  const bannerOffset = (g && g.bannerOffset != null) ? g.bannerOffset : 125;
+  document.body.style.setProperty("--banner-x-offset", bannerOffset + "px");
 }
 
 function gradientColorAt(t){
@@ -346,17 +348,18 @@ function renderGamePanel(){
   if(liveTimeline){
     const count = uni.entries.length;
     const availableWidth = liveTimeline.clientWidth; // verified via real bounding boxes to fit without the old safety margin
-    const AVATAR_MIN_SCALE = 1;     // avatars/titles always stay at full size
+    const BASE_SCALE = 0.95;        // global 5% reduction applied to the whole timeline, everywhere
+    const AVATAR_MIN_SCALE = BASE_SCALE; // avatars/titles always stay at the base size, never smaller
     const DOT_MIN_SCALE = 0.05;     // dots/gap can compress much further to compensate
     const GAP_MIN_PX = 26 * DOT_MIN_SCALE; // must match the floor actually enforced in CSS
 
-    // Try avatars at full size first; whatever's left over goes to the gap.
-    let avatarScale = 1;
+    // Try avatars at the base size first; whatever's left over goes to the gap.
+    let avatarScale = BASE_SCALE;
     let avatarWidth = 100 * avatarScale;
     let neededForAvatarsOnly = count * avatarWidth;
 
     if(neededForAvatarsOnly + Math.max(0, count - 1) * GAP_MIN_PX > availableWidth && count > 0){
-      // Even at the minimum gap, full-size avatars don't fit: shrink them
+      // Even at the minimum gap, base-size avatars don't fit: shrink them
       // just enough (but not below the floor) to make room for that gap.
       avatarScale = Math.max(AVATAR_MIN_SCALE, (availableWidth - Math.max(0, count - 1) * GAP_MIN_PX) / (count * 100));
       avatarWidth = 100 * avatarScale;
@@ -364,8 +367,8 @@ function renderGamePanel(){
     }
 
     const remaining = availableWidth - neededForAvatarsOnly;
-    const gapPx = count > 1 ? Math.max(GAP_MIN_PX, remaining / (count - 1)) : 26;
-    let dotScale = Math.min(1, Math.max(DOT_MIN_SCALE, gapPx / 26));
+    const gapPx = count > 1 ? Math.max(GAP_MIN_PX, remaining / (count - 1)) : 26 * BASE_SCALE;
+    let dotScale = Math.min(BASE_SCALE, Math.max(DOT_MIN_SCALE, gapPx / 26));
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));

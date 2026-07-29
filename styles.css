@@ -258,7 +258,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   position:absolute; inset:0; z-index:0;
   background-repeat:no-repeat;
   background-size:contain;
-  background-position:calc(68% - 125px) center;
+  background-position:calc(68% - var(--banner-x-offset, 125px)) center;
 }
 .game-header__banner-overlay{
   position:absolute; inset:0; z-index:0;
@@ -616,13 +616,13 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   /* --- Horizontal timeline: everything resized to fit a phone --- */
   .h-timeline{ padding:32px 0; }
-  .h-timeline::before{ left:52px; width:calc(var(--tl-content-width, 100%) - 104px); top:152px; height:5px; }
-  .h-node{ width:104px; grid-template-rows:112px 18px 112px; }
+  .h-timeline::before{ left:49.5px; width:calc(var(--tl-content-width, 100%) - 99px); top:144px; height:5px; }
+  .h-node{ width:99px; grid-template-rows:106px 17px 106px; }
   .h-node__top{ padding-bottom:8px; }
   .h-node__bottom{ padding-top:8px; }
-  .h-node__tile{ width:70px; height:88px; }
+  .h-node__tile{ width:66px; height:84px; }
   .h-node__title{ font-size:.7rem; height:32px; }
-  .h-node__dot{ width:14px; height:14px; border:5px solid var(--dot-color, var(--cyan)); }
+  .h-node__dot{ width:13px; height:13px; border:5px solid var(--dot-color, var(--cyan)); }
   .h-node--down .h-node__marker::after,
   .h-node--up .h-node__marker::before{ height:7px; }
 
