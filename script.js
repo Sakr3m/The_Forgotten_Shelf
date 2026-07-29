@@ -345,11 +345,30 @@ function renderGamePanel(){
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
     const count = uni.entries.length;
-    const availableWidth = liveTimeline.clientWidth;
-    const naturalWidth = count * 150 + Math.max(0, count - 1) * 26;
-    let scale = count > 0 ? Math.min(1, availableWidth / naturalWidth) : 1;
-    scale = Math.max(0.4, scale);
-    liveTimeline.style.setProperty("--node-scale", scale.toFixed(3));
+    const availableWidth = liveTimeline.clientWidth * 0.99; // small safety margin against rounding
+    const AVATAR_MIN_SCALE = 0.9;   // avatars/titles never shrink below 90% of full size
+    const DOT_MIN_SCALE = 0.2;      // dots/gap never shrink below 20% of full size
+    const GAP_MIN_PX = 26 * DOT_MIN_SCALE; // must match the floor actually enforced in CSS
+
+    // Try avatars at full size first; whatever's left over goes to the gap.
+    let avatarScale = 1;
+    let avatarWidth = 100 * avatarScale;
+    let neededForAvatarsOnly = count * avatarWidth;
+
+    if(neededForAvatarsOnly + Math.max(0, count - 1) * GAP_MIN_PX > availableWidth && count > 0){
+      // Even at the minimum gap, full-size avatars don't fit: shrink them
+      // just enough (but not below the floor) to make room for that gap.
+      avatarScale = Math.max(AVATAR_MIN_SCALE, (availableWidth - Math.max(0, count - 1) * GAP_MIN_PX) / (count * 100));
+      avatarWidth = 100 * avatarScale;
+      neededForAvatarsOnly = count * avatarWidth;
+    }
+
+    const remaining = availableWidth - neededForAvatarsOnly;
+    const gapPx = count > 1 ? Math.max(GAP_MIN_PX, remaining / (count - 1)) : 26;
+    let dotScale = Math.min(1, Math.max(DOT_MIN_SCALE, gapPx / 26));
+
+    liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
+    liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
   }
 }
