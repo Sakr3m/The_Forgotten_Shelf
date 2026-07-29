@@ -25,7 +25,7 @@ const state = {
   gameId: null,
   universeIndex: 0,
   entryId: null,
-  musicOn: false,
+  musicOn: true,
   trackIndex: 0
 };
 

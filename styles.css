@@ -119,6 +119,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .lang-sep{ color:var(--line); }
 
 .music-control{ position:relative; display:flex; align-items:center; gap:10px; }
+.volume-control{ position:relative; }
 
 .track-info{
   display:flex; align-items:center; gap:8px;
@@ -152,7 +153,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   transition:opacity .18s var(--ease), visibility 0s linear 1s;
   z-index:20;
 }
-.music-control:hover .volume-panel{
+.volume-control:hover .volume-panel{
   opacity:1; visibility:visible;
   transition:opacity .18s var(--ease) 1s, visibility 0s linear 1s;
 }
