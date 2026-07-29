@@ -338,7 +338,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   position:relative;
   flex:1; min-width:0;
   display:flex; gap:calc(26px * var(--node-scale, 1));
-  justify-content:center;
+  justify-content:space-between;
   overflow-x:visible; overflow-y:visible;
   padding:44px 0;
   transform:translateY(50px);
