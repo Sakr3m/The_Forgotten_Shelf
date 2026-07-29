@@ -370,12 +370,12 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .h-node__top{
   align-self:end;
   display:flex; flex-direction:column; align-items:center; gap:10px;
-  padding-bottom:12px;
+  padding-bottom:20px;
 }
 .h-node__bottom{
   align-self:start;
   display:flex; flex-direction:column; align-items:center; gap:10px;
-  padding-top:12px;
+  padding-top:20px;
 }
 
 
