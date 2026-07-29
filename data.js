@@ -304,6 +304,7 @@ const GAMES = {
       it: "Un'unica continuità narrativa, senza universi alternativi: qui la linea del tempo è una sola.",
       en: "A single narrative continuity, with no alternate universes: here there is only one timeline."
     },
+    palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     universes: [
       {
         id: "main",
