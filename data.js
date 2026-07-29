@@ -13,6 +13,8 @@ const GAMES = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
     palette: ["#c9a24b", "#4a9d6e", "#6b3fa0"],
+    accentColor: "#6b3fa0",
+    music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark.mp3",
     blurb: {
       it: "Una serie di videogiochi survival horror nata nel 1992<br>con il capitolo originale di Infogrames, generalmente<br>considerata la capostipite del genere.",
       en: "A survival horror video game series that began in 1992<br>with the original Infogrames release, widely regarded<br>as the genre's originator."
@@ -119,6 +121,8 @@ const GAMES = {
       en: "Two separate and mutually incompatible timelines. Characters, events, and lore do not carry over between them."
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
+    accentColor: "#a11d33",
+    music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania.mp3",
     bannerOffset: 225,
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
@@ -305,6 +309,8 @@ const GAMES = {
       en: "A single narrative continuity, with no alternate universes: here there is only one timeline."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
+    accentColor: "#9ca3af",
+    music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry.mp3",
     universes: [
       {
         id: "main",

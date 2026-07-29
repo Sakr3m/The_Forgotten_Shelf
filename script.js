@@ -64,6 +64,7 @@ function stripLinks(html){
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
 const DEFAULT_PALETTE = ["#00f0ff", "#ff2ec4", "#a742ff"];
+const DEFAULT_ACCENT = "#22d3ee";
 
 function hexToRgb(hex){
   const n = parseInt(hex.replace("#",""), 16);
@@ -87,6 +88,7 @@ function applyPaletteToCSS(){
   document.body.style.setProperty("--tl-2", palette[1]);
   document.body.style.setProperty("--tl-3", palette[2]);
   document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`);
+  document.body.style.setProperty("--cyan", (g && g.accentColor) || DEFAULT_ACCENT);
   const bannerOffset = (g && g.bannerOffset != null) ? g.bannerOffset : 125;
   document.body.style.setProperty("--banner-x-offset", bannerOffset + "px");
 }
@@ -470,6 +472,7 @@ function setState(view){
     document.body.style.setProperty("--tl-2", DEFAULT_PALETTE[1]);
     document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
+    document.body.style.setProperty("--cyan", DEFAULT_ACCENT);
     renderSidebar();
     renderCaseGrid();
     renderUniversePicker();

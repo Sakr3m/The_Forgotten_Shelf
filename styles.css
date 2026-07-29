@@ -101,7 +101,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   border-bottom:1px solid var(--line);
 }
 .universe-menu li:last-child button{ border-bottom:none; }
-.universe-menu li button:hover, .universe-menu li button:focus-visible{ background:rgba(34,211,238,.08); color:var(--text); }
+.universe-menu li button:hover, .universe-menu li button:focus-visible{ background:color-mix(in srgb, var(--cyan) 8%, transparent); color:var(--text); }
 .universe-menu li button.is-active{ color:var(--cyan); }
 .universe-menu .u-span{ display:block; font-size:.7rem; color:var(--text-faint); margin-top:2px; font-weight:400; }
 
@@ -130,7 +130,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .music-toggle:hover{ border-color:var(--cyan); color:var(--text); }
 .music-toggle svg{ width:18px; height:18px; }
 .music-toggle__icon-off{ display:none; }
-.music-toggle[aria-pressed="true"]{ color:var(--cyan); border-color:rgba(34,211,238,.4); }
+.music-toggle[aria-pressed="true"]{ color:var(--cyan); border-color:color-mix(in srgb, var(--cyan) 40%, transparent); }
 .music-toggle[aria-pressed="true"] .music-toggle__icon-on{ display:block; }
 .music-toggle[aria-pressed="true"] .music-toggle__icon-off{ display:none; }
 .music-toggle[aria-pressed="false"] .music-toggle__icon-on{ display:none; }
@@ -161,7 +161,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-list button:hover{ background:var(--panel); color:var(--text); }
 .game-list button.is-active{
   color:var(--text); font-weight:600;
-  background:linear-gradient(90deg, rgba(34,211,238,.14), rgba(232,121,249,.06));
+  background:linear-gradient(90deg, color-mix(in srgb, var(--cyan) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--cyan);
 }
 
@@ -290,7 +290,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
 .game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
 .game-header__blurb a, .case-blurb a{
-  color:var(--cyan); text-decoration:underline; text-decoration-color:rgba(34,211,238,.35);
+  color:var(--cyan); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--cyan) 35%, transparent);
   text-underline-offset:2px;
   transition:color var(--dur-fast) var(--ease);
 }
@@ -480,7 +480,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .title-content{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
 .title-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:1px solid rgba(34,211,238,.4); border-radius:999px; padding:4px 12px;
+  color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
 }
 .title-year{ font-size:.8rem; font-weight:600; color:var(--text-faint); margin-left:10px; }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
