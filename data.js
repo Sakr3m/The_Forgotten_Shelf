@@ -117,8 +117,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Castlevania", en: "Castlevania" },
     blurb: {
-      it: "Due linee temporali separate e incompatibili tra loro. Personaggi, eventi e lore non si trasferiscono da una all'altra.",
-      en: "Two separate and mutually incompatible timelines. Characters, events, and lore do not carry over between them."
+      it: "Una saga action-gotica che racconta la guerra secolare tra il clan Belmont e Dracula, tra castelli maledetti, creature della notte e la leggendaria Vampire Killer. Un ciclo di caccia e vendetta che si ripete di generazione in generazione.",
+      en: "A gothic action saga chronicling the centuries-old war between the Belmont clan and Dracula, through cursed castles, creatures of the night, and the legendary Vampire Killer. A cycle of hunting and vengeance repeating across generations."
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
     accentColor: "#a11d33",
@@ -313,8 +313,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Un'unica continuità narrativa, senza universi alternativi: qui la linea del tempo è una sola.",
-      en: "A single narrative continuity, with no alternate universes: here there is only one timeline."
+      it: "Una saga action dallo stile sopra le righe, che segue i cacciatori di demoni della stirpe di Sparda tra spade leggendarie, pistole gemelle e combattimenti spettacolari. Il conflitto tra sangue umano e demoniaco è il cuore pulsante di ogni capitolo.",
+      en: "A flashy, over-the-top action saga following the demon hunters of Sparda's bloodline through legendary swords, twin pistols, and spectacular combat. The clash between human and demon blood is the beating heart of every entry."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#9ca3af",
