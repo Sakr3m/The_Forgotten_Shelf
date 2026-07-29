@@ -322,7 +322,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Continuità Unica", en: "Single Continuity" },
+        name: { it: "Universo Limbo City", en: "Limbo City Universe" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
         entries: [
           { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "—",
