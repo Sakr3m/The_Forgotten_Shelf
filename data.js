@@ -16,8 +16,8 @@ const GAMES = {
     accentColor: "#6b3fa0",
     music: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark.mp3",
     blurb: {
-      it: "Una serie di videogiochi survival horror nata nel 1992<br>con il capitolo originale di Infogrames, generalmente<br>considerata la capostipite del genere.",
-      en: "A survival horror video game series that began in 1992<br>with the original Infogrames release, widely regarded<br>as the genre's originator."
+      it: "Una serie survival horror che intreccia case infestate, occultismo e segreti di famiglia sepolti nel tempo. Considerata la capostipite del genere, ha aperto la strada a decenni di orrore videoludico, influenzando generazioni di titoli successivi.",
+      en: "A survival horror series weaving together haunted houses, occultism, and family secrets buried in time. Regarded as the genre's originator, it paved the way for decades of horror gaming that followed."
     },
     universes: [
       {
