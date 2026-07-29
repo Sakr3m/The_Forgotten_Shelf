@@ -337,6 +337,7 @@ const GAMES = {
             }
           },
           { id: "dmc3-manga", type: "MANGA", typeEn: "MANGA", year: "—",
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%203%20Code%201%20Dante%20%20Code%202%20Vergil.jpg",
             title: { it: "Code 1 Dante / Code 2 Vergil", en: "Code 1 Dante / Code 2 Vergil" },
             synopsis: {
               it: "Due volumi manga di una trilogia mai completata, pubblicata con supervisione Capcom. \n\"Code 1: Dante\" segue le prime missioni di Dante come cacciatore di demoni, quando ha da poco aperto il suo shop ancora senza un nome. Una misteriosa figura demoniaca chiamata White Rabbit lo ingaggia con il pretesto di ritrovare una bambina di nome Alice, in realtà per osservare il figlio di Sparda in azione. \n\"Code 2: Vergil\" mostra il percorso parallelo di Vergil e spiega come lui e Arkham abbiano formato la loro alleanza per risvegliare la Temen-ni-gru. \nIl terzo volume previsto, \"Code 3: Lady\", non fu mai completato perché l'artista abbandonò il progetto.",
