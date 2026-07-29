@@ -329,7 +329,7 @@ const GAMES = {
         name: { it: "Universo Limbo City", en: "Limbo City Universe" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
         entries: [
-          { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "—",
+          { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "—", noAvatar: true,
             title: { it: "La Leggenda di Sparda", en: "The Legend of Sparda" },
             synopsis: {
               it: "Duemila anni fa, il cavaliere demoniaco Sparda si ribellò al re dell'Inferno Mundus per proteggere il mondo umano. Sconfitto Mundus e le sue legioni, sigillò la Temen-ni-gru, il portale principale tra il mondo umano e il mondo dei demoni, usando il proprio sangue, quello di una sacerdotessa umana, un amuleto mistico e la propria spada come chiave del sigillo. Il rituale lo privò di gran parte del suo potere demoniaco. In seguito visse tra gli umani, regnando pacificamente per un periodo, poi conobbe una donna di nome Eva e con lei ebbe due figli gemelli, Dante e Vergil. Sparda scomparve in circostanze ignote, lasciando Eva sola con i ragazzi. Poco prima del loro ottavo compleanno, i demoni di Mundus attaccarono la famiglia, uccisero Eva e separarono i due gemelli, ognuno convinto che l'altro fosse morto. Da quel momento i due intrapresero strade opposte.",
@@ -435,6 +435,7 @@ const GAMES = {
       it: "Una saga action di violenza pura, portali infernali<br>e un marine trasformato in una forza cosmica<br>di sterminio contro le legioni dell'Inferno.",
       en: "An action saga of pure violence, hellish portals,<br>and a marine turned into a cosmic force<br>of extermination against the legions of Hell."
     },
+    palette: ["#46433a", "#991b1b", "#f97316"],
     universes: [
       {
         id: "main",
