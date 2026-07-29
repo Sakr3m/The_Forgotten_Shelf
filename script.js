@@ -542,6 +542,20 @@ function updateMusicPlayback(){
   el.bgMusic.play().catch(() => { /* blocked until a user gesture; toggle click itself counts as one */ });
 }
 
+// ---------------------------------------------------------
+// UI tap sound — plays on every button press, site-wide.
+// A fresh Audio instance per click so rapid successive taps
+// can overlap instead of cutting each other off.
+// ---------------------------------------------------------
+const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
+document.addEventListener("click", (e) => {
+  if(e.target.closest("button")){
+    const tap = new Audio(TAP_SOUND_URL);
+    tap.volume = 0.5;
+    tap.play().catch(() => { /* blocked until a user gesture; the click itself is one, so this is just a safety net */ });
+  }
+});
+
 el.musicToggle.addEventListener("click", () => {
   state.musicOn = !state.musicOn;
   updateMusicPlayback();
