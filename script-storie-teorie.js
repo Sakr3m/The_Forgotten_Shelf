@@ -255,9 +255,24 @@ function randomizeLangSwitchColor(){
     el.langSwitch.style.borderColor = "";
     return;
   }
-  el.langSwitch.style.borderColor = "#ef4444";
+  const hue = Math.floor(Math.random() * 360);
+  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
 }
 randomizeLangSwitchColor();
+
+// Index-link and Ko-fi link: random color on hover (instead of a fixed
+// red), same random-hue mechanic as the lang switch, just triggered by
+// mouseenter instead of always-on.
+function addRandomHoverColor(node){
+  if(!node) return;
+  node.addEventListener("mouseenter", () => {
+    const hue = Math.floor(Math.random() * 360);
+    node.style.borderColor = `hsl(${hue}, 75%, 60%)`;
+  });
+  node.addEventListener("mouseleave", () => { node.style.borderColor = ""; });
+}
+addRandomHoverColor(document.querySelector(".index-link"));
+addRandomHoverColor(document.querySelector(".kofi-link"));
 
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";

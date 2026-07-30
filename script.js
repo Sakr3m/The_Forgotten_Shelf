@@ -420,42 +420,26 @@ function renderGamePanel(){
   });
   el.universesRow.appendChild(scrollToggle);
 
-  // Horizontal: centered on the real, measured lang-switch button.
-  // Vertical: same height as the universe carousel arrows — measured off
-  // .u-track__head itself (the row that holds them), so it's correct even
-  // for single-universe games where no arrows actually exist.
-  // Uses translate(-50%,-50%) so the browser does the actual centering
-  // against the button's real rendered size at paint time, instead of a
-  // manual half-width/half-height subtraction that can be a few px off.
+  // Horizontal: centered on the real, measured lang-switch button, nudged
+  // 15px to the right by hand per direct visual check. Vertical: same
+  // height as the universe carousel arrows — measured off .u-track__head
+  // itself (the row that holds them), so it's correct even for
+  // single-universe games where no arrows actually exist.
   const langRect = el.langSwitch.getBoundingClientRect();
   const stageRect = el.universesRow.getBoundingClientRect();
   const trackHead = el.universesRow.querySelector(".u-track__head");
   const headRect = trackHead ? trackHead.getBoundingClientRect() : langRect;
   const langCenterX = (langRect.left + langRect.right) / 2;
   const headCenterY = (headRect.top + headRect.bottom) / 2;
-  scrollToggle.style.left = (langCenterX - stageRect.left).toFixed(2) + "px";
+  scrollToggle.style.left = (langCenterX - stageRect.left + 15).toFixed(2) + "px";
   scrollToggle.style.top = (headCenterY - stageRect.top).toFixed(2) + "px";
   scrollToggle.style.transform = "translate(-50%, -50%)";
-
-  // Self-correct: measure where the button actually landed and nudge it by
-  // whatever residual gap remains, instead of trusting the calculation
-  // alone — this cancels out any box-model/rounding quirk regardless of
-  // its cause.
-  const checkRect = scrollToggle.getBoundingClientRect();
-  const actualCenterX = (checkRect.left + checkRect.right) / 2;
-  const actualCenterY = (checkRect.top + checkRect.bottom) / 2;
-  const errorX = langCenterX - actualCenterX;
-  const errorY = headCenterY - actualCenterY;
-  if(Math.abs(errorX) > 0.4 || Math.abs(errorY) > 0.4){
-    scrollToggle.style.left = (parseFloat(scrollToggle.style.left) + errorX).toFixed(2) + "px";
-    scrollToggle.style.top = (parseFloat(scrollToggle.style.top) + errorY).toFixed(2) + "px";
-  }
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
     const isDesktop = window.matchMedia("(min-width: 761px)").matches;
     const avatarScale = 1;
-    const dotScale = 0.625;
+    const dotScale = 5 / 24; // 5px dot
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
 
@@ -729,9 +713,24 @@ function randomizeLangSwitchColor(){
     el.langSwitch.style.borderColor = "";
     return;
   }
-  el.langSwitch.style.borderColor = "#ef4444";
+  const hue = Math.floor(Math.random() * 360);
+  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
 }
 randomizeLangSwitchColor();
+
+// Index-link and Ko-fi link: random color on hover (instead of a fixed
+// red), same random-hue mechanic as the lang switch, just triggered by
+// mouseenter instead of always-on.
+function addRandomHoverColor(node){
+  if(!node) return;
+  node.addEventListener("mouseenter", () => {
+    const hue = Math.floor(Math.random() * 360);
+    node.style.borderColor = `hsl(${hue}, 75%, 60%)`;
+  });
+  node.addEventListener("mouseleave", () => { node.style.borderColor = ""; });
+}
+addRandomHoverColor(document.querySelector(".index-link"));
+addRandomHoverColor(document.querySelector(".kofi-link"));
 
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
