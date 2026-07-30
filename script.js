@@ -433,6 +433,20 @@ function renderGamePanel(){
     liveTimeline.style.width = availableWidth.toFixed(2) + "px";
 
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
+
+    // Anchor the line directly to the real, rendered dots instead of trusting
+    // a hand-derived pixel formula to stay in sync with them: measure the
+    // actual center of the first and last dot and pin the line exactly there.
+    const dots = liveTimeline.querySelectorAll(".h-node__dot");
+    if(dots.length){
+      const timelineRect = liveTimeline.getBoundingClientRect();
+      const firstDot = dots[0].getBoundingClientRect();
+      const lastDot = dots[dots.length - 1].getBoundingClientRect();
+      const lineLeft = (firstDot.left + firstDot.right) / 2 - timelineRect.left;
+      const lineRight = (lastDot.left + lastDot.right) / 2 - timelineRect.left;
+      liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
+      liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
+    }
   }
 }
 
