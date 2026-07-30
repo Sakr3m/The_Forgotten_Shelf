@@ -6,7 +6,12 @@ const STRINGS = {
   it: {
     brand: "Timeline",
     sidebarEyebrow: "Libreria Timeline",
-    landingSub: "Ogni titolo custodisce una o più linee temporali. Selezionane uno per aprirlo.",
+    landingEyebrow: "Benvenuto nell'archivio",
+    landingTitle: "The Forgotten Shelf",
+    landingIntro: "The Forgotten Shelf raccoglie e riordina le linee temporali di alcune delle saghe videoludiche più amate, ricostruendo l'ordine cronologico degli eventi capitolo per capitolo — tra continuità ufficiali e progressioni ricostruite dai fan quando un canon dichiarato non esiste. Un archivio pensato per chi vuole orientarsi tra spin-off, reboot e universi paralleli senza perdersi.",
+    spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
+    landingSub: "Seleziona un titolo dalla libreria a sinistra per esplorarne la linea temporale.",
+    kofiLabel: "Sostienimi su Ko-fi",
     universeLabel: "Universo",
     backToTimeline: "Torna alla linea temporale",
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:"
@@ -14,7 +19,12 @@ const STRINGS = {
   en: {
     brand: "Timeline",
     sidebarEyebrow: "Timeline Library",
-    landingSub: "Every title holds one or more timelines. Select one to open it.",
+    landingEyebrow: "Welcome to the archive",
+    landingTitle: "The Forgotten Shelf",
+    landingIntro: "The Forgotten Shelf collects and reorders the timelines of some of the most beloved video game sagas, reconstructing the chronological order of events chapter by chapter — spanning official continuities and fan-reconstructed progressions where no declared canon exists. An archive built for anyone who wants to navigate spin-offs, reboots, and parallel universes without getting lost.",
+    spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
+    landingSub: "Select a title from the library on the left to explore its timeline.",
+    kofiLabel: "Support me on Ko-fi",
     universeLabel: "Universe",
     backToTimeline: "Back to the timeline",
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:"
@@ -501,7 +511,6 @@ function setState(view){
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
     document.body.style.setProperty("--cyan", DEFAULT_ACCENT);
     renderSidebar();
-    renderCaseGrid();
     renderUniversePicker();
   } else if(view === "game"){
     state.entryId = null;
@@ -543,7 +552,7 @@ function selectEntry(entryId){
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   paintStaticText();
-  if(state.view === "landing"){ renderSidebar(); renderCaseGrid(); }
+  if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderUniversePicker(); renderGamePanel(); }
   else if(state.view === "title"){ renderSidebar(); renderUniversePicker(); renderTitlePanel(); renderRail(); }
 });

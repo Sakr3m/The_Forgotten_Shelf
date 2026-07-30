@@ -210,6 +210,11 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
   background:linear-gradient(90deg, color-mix(in srgb, var(--cyan) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--cyan);
 }
+.game-list button:hover{
+  color:var(--text); font-weight:600;
+  background:linear-gradient(90deg, color-mix(in srgb, var(--cyan) 14%, transparent), rgba(232,121,249,.06));
+  box-shadow:inset 2px 0 0 var(--cyan);
+}
 
 
 .sidebar-group{
@@ -237,10 +242,41 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* ============================================================
    Landing — case grid
    ============================================================ */
-.landing{ width:100%; max-width:1700px; margin-top:66px; }
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); }
-.landing-title{ font-size:2.4rem; margin-top:16px; color:var(--text); }
-.landing-sub{ margin-top:12px; color:var(--text-dim); font-size:.95rem; max-width:720px; }
+.landing{
+  position:relative;
+  width:100%; max-width:760px; margin:66px auto 0;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.kofi-link{
+  position:absolute; top:0; right:0;
+  display:flex; align-items:center; gap:8px;
+  padding:9px 16px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:999px;
+  font-size:.8rem; font-weight:600; color:var(--text-dim);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.kofi-link:hover{ border-color:#ff5e5b; color:var(--text); }
+.kofi-link svg{ width:16px; height:16px; color:#ff5e5b; flex-shrink:0; }
+
+.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:8px; }
+.landing-title{ font-size:2.6rem; margin-top:14px; color:var(--text); }
+.landing-intro{ margin-top:20px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
+
+.spoiler-alert{
+  display:flex; align-items:flex-start; gap:12px;
+  margin-top:28px; padding:16px 20px;
+  max-width:640px;
+  border:1px solid rgba(250,204,21,.35);
+  background:rgba(250,204,21,.08);
+  border-radius:var(--radius-sm);
+  text-align:left;
+}
+.spoiler-alert__icon{ font-size:1.1rem; color:#facc15; flex-shrink:0; line-height:1.4; }
+.spoiler-alert p{ font-size:.88rem; line-height:1.55; color:var(--text-dim); margin:0; }
+
+.landing-sub{ margin-top:28px; color:var(--text-faint); font-size:.88rem; }
 
 .case-grid{
   margin-top:48px;
