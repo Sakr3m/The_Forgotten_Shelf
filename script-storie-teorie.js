@@ -51,6 +51,7 @@ const el = {
   landingPanel: document.getElementById("landingPanel"),
   entryPanel: document.getElementById("entryPanel"),
   entryContent: document.getElementById("entryContent"),
+  pageHeaderBanner: document.getElementById("pageHeaderBanner"),
   bgMusic: document.getElementById("bgMusic"),
   trackInfo: document.getElementById("trackInfo"),
   trackTitle: document.getElementById("trackTitle"),
@@ -128,6 +129,8 @@ function renderEntry(){
   const tag = state.column === "teorie" ? t("tagTeoria") : t("tagStoria");
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
+  el.pageHeaderBanner.style.backgroundImage = entry.banner ? `url('${entry.banner}')` : "";
+  el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <span class="entry-tag">${tag}</span>
     <h1 class="entry-title">${tf(entry.title)}</h1>

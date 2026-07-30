@@ -10,6 +10,8 @@ const TEORIE_ORDER = [
 const TEORIE = {
   clair_obscur_chi_e_quel_bambino: {
     accentColor: "#c9a24b",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
+    bannerOffset: 75,
     title: {
       it: "Clair Obscur: Expedition 33\nChi è quel Bambino?",
       en: "Clair Obscur: Expedition 33\nWho is that Boy?"
@@ -59,6 +61,8 @@ A small detail. One of the most powerful images in the entire game.`
   },
   ff8_vera_identita_artemisia: {
     accentColor: "#ff3b30",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
+    bannerOffset: 65,
     title: {
       it: "Final Fantasy 8\nLa Vera Identità di Artemisia",
       en: "Final Fantasy 8\nUltimecia's True Identity"
