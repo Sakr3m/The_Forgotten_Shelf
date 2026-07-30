@@ -30,14 +30,17 @@
 
 /* Header in cima allo stage: stesso game-header di timeline.html
    (riusa le classi condivise .game-header/.game-header__banner/
-   .game-header__banner-overlay già definite in styles.css), ma dato
-   che qui non c'è cover/titolo/blurb, l'icona+testo si centrano da
-   soli verticalmente grazie all'align-items:center ereditato. */
-.page-header__brand{
-  position:relative; z-index:1;
-  display:flex; align-items:center; gap:14px;
-}
+   .game-header__banner-overlay già definite in styles.css), vuoto
+   e pronto ad ospitare un banner in futuro. Nascosto in home come
+   il game-header originale. */
 body[data-state="landing"] #pageHeader{ display:none; }
+
+/* Overlay fisso tazza+testo: stessa classe .brand di timeline.html
+   (stessa altezza, stessa animazione), solo spostata un po' più a
+   destra perché qui la sidebar è più larga (260px invece di 230px). */
+@media (min-width:761px){
+  .brand{ left:313px; }
+}
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
    centrale — solo su desktop, sul mobile la sidebar resta il drawer
