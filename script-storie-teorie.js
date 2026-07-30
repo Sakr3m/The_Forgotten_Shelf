@@ -169,6 +169,7 @@ function selectEntry(column, id){
   state.entryId = id;
   setState("entry");
   closeMobileSidebar();
+  closeRailDrawer();
 }
 
 // ---------------------------------------------------------
@@ -263,26 +264,49 @@ el.langSwitch.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
-// Drawer mobile (hamburger) — controlla solo la colonna Teorie,
-// la colonna Storie Nascoste diventa una striscia sotto lo stage.
+// Drawer mobile: due cassetti simmetrici, uno per colonna —
+// Teorie a sinistra (hamburger esistente), Storie Nascoste a
+// destra (nuovo pulsante). Un solo cassetto aperto alla volta,
+// stesso backdrop condiviso per entrambi.
 // ---------------------------------------------------------
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const railMenuBtn = document.getElementById("railMenuBtn");
 const sidebarBackdrop = document.getElementById("sidebarBackdrop");
 
 function openMobileSidebar(){
+  el.body.classList.remove("rail-open");
+  railMenuBtn.setAttribute("aria-expanded", "false");
   el.body.classList.add("sidebar-open");
   sidebarBackdrop.hidden = false;
   mobileMenuBtn.setAttribute("aria-expanded", "true");
 }
 function closeMobileSidebar(){
   el.body.classList.remove("sidebar-open");
-  sidebarBackdrop.hidden = true;
   mobileMenuBtn.setAttribute("aria-expanded", "false");
+  if(!el.body.classList.contains("rail-open")) sidebarBackdrop.hidden = true;
+}
+function openRailDrawer(){
+  el.body.classList.remove("sidebar-open");
+  mobileMenuBtn.setAttribute("aria-expanded", "false");
+  el.body.classList.add("rail-open");
+  sidebarBackdrop.hidden = false;
+  railMenuBtn.setAttribute("aria-expanded", "true");
+}
+function closeRailDrawer(){
+  el.body.classList.remove("rail-open");
+  railMenuBtn.setAttribute("aria-expanded", "false");
+  if(!el.body.classList.contains("sidebar-open")) sidebarBackdrop.hidden = true;
 }
 mobileMenuBtn.addEventListener("click", () => {
   el.body.classList.contains("sidebar-open") ? closeMobileSidebar() : openMobileSidebar();
 });
-sidebarBackdrop.addEventListener("click", closeMobileSidebar);
+railMenuBtn.addEventListener("click", () => {
+  el.body.classList.contains("rail-open") ? closeRailDrawer() : openRailDrawer();
+});
+sidebarBackdrop.addEventListener("click", () => {
+  closeMobileSidebar();
+  closeRailDrawer();
+});
 
 el.brandBtn.addEventListener("click", () => setState("landing"));
 
