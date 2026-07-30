@@ -490,6 +490,7 @@ const GAMES = {
       en: "An RPG saga following a lineage of legendary heroes,<br>descendants of Erdrick, called to stop demons,<br>dragons, and dark lords in worlds reborn across time."
     },
     palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
+    accentColor: "#0f9b8e",
     universes: [
       {
         id: "erdrick",
@@ -566,10 +567,12 @@ const GAMES = {
       it: "Una saga survival-horror in prima persona, tra parkour<br>su tetti infestati e un virus capace di ridurre<br>la civiltà in rovina, dal focolaio locale al collasso globale.",
       en: "A first-person survival horror saga of rooftop parkour<br>and a virus capable of reducing civilization<br>to ruin, from a local outbreak to global collapse."
     },
+    palette: ["#eab308", "#4d7c0f", "#1e3a5f"],
+    accentColor: "#4d7c0f",
     universes: [
       {
         id: "main",
-        name: { it: "Continuità Unica", en: "Single Continuity" },
+        name: { it: "Universo Harran", en: "Harran Universe" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
         entries: [
           { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015",
