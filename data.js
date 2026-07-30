@@ -317,7 +317,7 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Una saga action dallo stile sopra le righe, che segue<br>i cacciatori di demoni della stirpe di Sparda tra spade<br>leggendarie e pistole gemelle, tra sangue umano e demoniaco.",
+      it: "Una saga action dallo stile sopra le righe, che segue<br>i cacciatori di demoni della stirpe di Sparda tra spade<br>leggendarie e pistole gemelle, tra sangue umano e<br>demoniaco.",
       en: "A flashy, over-the-top action saga following the demon<br>hunters of Sparda's bloodline through legendary swords<br>and twin pistols, between human blood and demon blood."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
