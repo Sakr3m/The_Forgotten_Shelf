@@ -63,7 +63,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
    Brand (sidebar) + stage controls (universe picker, language)
    ============================================================ */
 body[data-state="landing"] .brand{ display:none; }
-.brand{ position:fixed; top:44px; left:283px; width:140px; z-index:5; display:flex; align-items:center; justify-content:space-between; }
+.brand{ position:fixed; top:15px; left:283px; width:140px; z-index:5; display:flex; align-items:center; justify-content:space-between; }
 .brand-icon{ display:flex; cursor:pointer; position:relative; left:-7.5px; transition:transform var(--dur-fast) var(--ease); }
 .brand-icon:hover{ transform:scale(1.08); }
 .brand-text{
@@ -71,7 +71,7 @@ body[data-state="landing"] .brand{ display:none; }
   background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
 }
 
-.stage-controls{ position:absolute; top:44px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
+.stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 .universe-picker{ position:relative; }
 .universe-trigger{
@@ -245,7 +245,7 @@ body[data-state="landing"] .brand{ display:none; }
   padding:6px 8px; font-size:.82rem; font-weight:600; color:var(--text-faint);
 }
 
-.stage{ position:relative; flex:1; min-width:0; padding:44px 25px 80px; display:flex; flex-direction:column; }
+.stage{ position:relative; flex:1; min-width:0; padding:15px 25px 80px; display:flex; flex-direction:column; }
 
 .timeline-rail{
   width:280px; flex-shrink:0;
@@ -265,7 +265,7 @@ body[data-state="landing"] .brand{ display:none; }
 body[data-state="landing"] .music-control{ display:none; }
 .landing{
   position:relative;
-  width:100%; max-width:760px; margin:66px auto 0;
+  width:100%; max-width:760px; margin:37px auto 0;
   display:flex; flex-direction:column; align-items:center; text-align:center;
 }
 .kofi-link{
@@ -281,7 +281,7 @@ body[data-state="landing"] .music-control{ display:none; }
 .kofi-link:hover{ border-color:#ff5e5b; color:var(--text); }
 .kofi-link svg{ width:16px; height:16px; color:#ff5e5b; flex-shrink:0; }
 
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:32px; }
+.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:44px; }
 .landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
 .landing-intro{ margin-top:52px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
 
@@ -600,7 +600,7 @@ body[data-state="landing"] .music-control{ display:none; }
 /* ============================================================
    Title panel — full detail
    ============================================================ */
-.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:66px; }
+.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:37px; }
 .title-watermark{
   position:fixed; top:0; bottom:0; right:280px; width:42vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
