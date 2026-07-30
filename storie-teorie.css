@@ -95,7 +95,6 @@ body[data-state="landing"] #pageHeader{ display:none; }
    skip e titolo del brano — non solo al tag sopra il titolo. */
 .lang-switch{ border-color:var(--item-accent, var(--cyan)); }
 .lang-switch .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
-.music-toggle:hover{ border-color:var(--item-accent, var(--cyan)); }
 .music-toggle[aria-pressed="true"]{
   color:var(--item-accent, var(--cyan));
   border-color:color-mix(in srgb, var(--item-accent, var(--cyan)) 40%, transparent);
