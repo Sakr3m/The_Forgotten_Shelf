@@ -104,6 +104,13 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .track-progress__fill{ background:var(--item-accent, var(--cyan)); }
 .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
 
+/* Switch lingua e controlli musica: erano ancora position:absolute
+   legati allo .stage, quindi scorrevano via con la pagina — e nel
+   farlo passavano per un istante SOPRA l'header sticky (z-index più
+   alto) prima di sparire del tutto. Ora restano fissi in schermo
+   insieme all'header, invece di scorrere e sparire. */
+.stage-controls{ position:fixed; }
+
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
 
