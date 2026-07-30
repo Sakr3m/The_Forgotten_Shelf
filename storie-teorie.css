@@ -32,7 +32,16 @@
    (riusa le classi condivise .game-header/.game-header__banner/
    .game-header__banner-overlay già definite in styles.css), vuoto
    e pronto ad ospitare un banner in futuro. Nascosto in home come
-   il game-header originale. */
+   il game-header originale.
+   Reso sticky con sfondo pagina: la tazza sopra è fissa (position:
+   fixed) e non scorre mai, quindi anche l'header doveva restare
+   fermo con lei — altrimenti la riga dell'header scorreva via da
+   sola e il testo, salendo, spariva dietro la tazza immobile senza
+   più nessun bordo/sfondo a "coprirlo" correttamente. */
+#pageHeader{
+  position:sticky; top:0; z-index:4;
+  background:var(--bg);
+}
 body[data-state="landing"] #pageHeader{ display:none; }
 
 /* Overlay fisso tazza+testo: stessa classe .brand di timeline.html
