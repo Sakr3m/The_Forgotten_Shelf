@@ -8,14 +8,16 @@ const STRINGS = {
     sidebarEyebrow: "Libreria Timeline",
     landingSub: "Ogni titolo custodisce una o più linee temporali. Selezionane uno per aprirlo.",
     universeLabel: "Universo",
-    backToTimeline: "Torna alla linea temporale"
+    backToTimeline: "Torna alla linea temporale",
+    canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:"
   },
   en: {
     brand: "Timeline",
     sidebarEyebrow: "Timeline Library",
     landingSub: "Every title holds one or more timelines. Select one to open it.",
     universeLabel: "Universe",
-    backToTimeline: "Back to the timeline"
+    backToTimeline: "Back to the timeline",
+    canonTitlesLabel: "The most widely accepted progression follows these titles, in order:"
   }
 };
 
@@ -327,7 +329,17 @@ function renderGamePanel(){
 
   if(g.noTimeline){
     el.universesRow.className = "universe-stage no-timeline";
-    el.universesRow.innerHTML = `<div class="canon-note">${tf(g.canonNote).replace(/\n/g, "<br><br>")}</div>`;
+    el.universesRow.innerHTML = `
+      <div class="canon-page">
+        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}')"></div>` : ""}
+        <div class="canon-note">
+          <p>${tf(g.canonNote.intro)}</p>
+          <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
+          <p class="canon-note__titles">${tf(g.canonNote.titles)}</p>
+          <p>${tf(g.canonNote.outro)}</p>
+        </div>
+      </div>
+    `;
     return;
   }
 
