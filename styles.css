@@ -481,7 +481,7 @@ body[data-state="landing"] .kofi-link{ display:flex; }
 .h-timeline::before{
   content:"";
   position:absolute; left:calc(50px * var(--avatar-scale, 1)); top:calc(40.5px + 162px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1)); height:7px; border-radius:7px;
-  width: calc((var(--tl-content-width, 100%) - (100px * var(--avatar-scale, 1))) * 0.95);
+  width: calc(var(--tl-content-width, 100%) - (100px * var(--avatar-scale, 1)));
   background:var(--gradient);
   opacity:.95;
 }
@@ -750,7 +750,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   /* --- Horizontal timeline: everything resized to fit a phone --- */
   .h-timeline{ padding:32px 0; }
-  .h-timeline::before{ left:47px; width:calc((var(--tl-content-width, 100%) - 94px) * 0.95); top:139.5px; height:5px; }
+  .h-timeline::before{ left:47px; width:calc(var(--tl-content-width, 100%) - 94px); top:139.5px; height:5px; }
   .h-node{ width:94px; grid-template-rows:101px 16px 101px; }
   .h-node__top{ padding-bottom:8px; }
   .h-node__bottom{ padding-top:8px; }
