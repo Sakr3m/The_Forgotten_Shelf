@@ -497,6 +497,9 @@ const GAMES = {
     },
     palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
     accentColor: "#0f9b8e",
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
     universes: [
       {
         id: "erdrick",
