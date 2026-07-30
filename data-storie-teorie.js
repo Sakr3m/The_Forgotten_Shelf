@@ -61,6 +61,7 @@ A small detail. One of the most powerful images in the entire game.`
   },
   ff8_vera_identita_artemisia: {
     accentColor: "#ff3b30",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     title: {
       it: "Final Fantasy 8\nLa Vera Identità di Artemisia",
       en: "Final Fantasy 8\nUltimecia's True Identity"
