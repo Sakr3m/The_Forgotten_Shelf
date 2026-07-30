@@ -636,9 +636,97 @@ const GAMES = {
     listTitle: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
-    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    blurb: {
+      it: "Una saga open world action-crime che segue<br>criminali, rapinatori e trafficanti attraverso due<br>linee temporali distinte e incompatibili tra loro.",
+      en: "An open-world action-crime saga following<br>criminals, robbers, and traffickers across two<br>separate, mutually incompatible timelines."
+    },
+    palette: ["#1a1a1a", "#f2b705", "#8b8b8b"],
+    accentColor: "#f2b705",
     universes: [
-      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+      {
+        id: "3d-universe",
+        name: { it: "Universo 3D", en: "3D Universe" },
+        span: { it: "1984 – 2001", en: "1984 – 2001" },
+        entries: [
+          { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984",
+            title: { it: "Vice City Stories", en: "Vice City Stories" },
+            synopsis: {
+              it: "Victor Vance, militare espulso dall'esercito dal corrotto sergente Martinez, costruisce un impero criminale a Vice City per pagare le cure mediche del fratello Pete e aiutare il fratello Lance. Entra in conflitto con il potente cartello dei fratelli Mendez, li elimina entrambi insieme a Martinez, e decide di ritirarsi dalla vita criminale. Due anni dopo, tornato a fare affari di droga con Lance, viene ucciso nell'agguato di Ricardo Diaz, la scena che apre Vice City.",
+              en: "Victor Vance, a soldier dishonourably discharged by corrupt Sergeant Martinez, builds a criminal empire in Vice City to pay for his brother Pete's medical bills and support his brother Lance. He enters into conflict with the powerful Mendez Brothers cartel, eliminates both of them along with Martinez, and decides to retire from criminal life. Two years later, having returned to the drug trade with Lance, he is killed in Ricardo Diaz's ambush — the scene that opens Vice City."
+            }
+          },
+          { id: "vc", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986",
+            title: { it: "Vice City", en: "Vice City" },
+            synopsis: {
+              it: "Tommy Vercetti arriva a Vice City per conto del boss Sonny Forelli, finisce in un'imboscata orchestrata da Ricardo Diaz, perde soldi e droga. Costruisce da zero un proprio impero criminale ed elimina Diaz insieme a Lance Vance. Nel finale Sonny arriva a Vice City per prendere il controllo dell'impero di Tommy: Lance lo tradisce passando dalla parte di Forelli, ma Tommy uccide entrambi. Durante lo scontro Sonny conferma di averlo tradito 15 anni prima facendolo cadere in un'imboscata a Harwood. Tommy diventa il re indiscusso di Vice City.",
+              en: "Tommy Vercetti arrives in Vice City on behalf of boss Sonny Forelli, walks into an ambush orchestrated by Ricardo Diaz, and loses both the money and the drugs. He builds his own criminal empire from scratch and eliminates Diaz alongside Lance Vance. In the finale, Sonny arrives in Vice City to seize control of Tommy's empire: Lance betrays him by siding with Forelli, but Tommy kills them both. During the confrontation, Sonny confirms that he set Tommy up fifteen years earlier by sending him into an ambush in Harwood. Tommy becomes the undisputed king of Vice City."
+            }
+          },
+          { id: "sa-intro", type: "CORTOMETRAGGIO", typeEn: "SHORT FILM", year: "1992",
+            title: { it: "Introduzione a San Andreas", en: "Introduction to San Andreas" },
+            synopsis: {
+              it: "Cortometraggio di 20 minuti che mostra gli eventi nelle ore precedenti l'inizio di San Andreas: le manovre del corrotto agente Tenpenny, che arruola il rookie Hernandez e comincia a orchestrare il tradimento di Big Smoke; il declino di Ken Rosenberg, radiato dall'albo degli avvocati e in un centro di disintossicazione a Las Venturas dove gestisce i rapporti tesi tra Salvatore Leone e i Sindacco; e i movimenti del cartello di San Fierro. Si chiude con la telefonata di Sweet a CJ che annuncia la morte della madre.",
+              en: "A 20-minute short film showing the events in the hours before San Andreas begins: the manoeuvres of corrupt officer Tenpenny, who recruits rookie Hernandez and begins orchestrating Big Smoke's betrayal; the decline of Ken Rosenberg, disbarred and in rehab in Las Venturas where he manages the tense relations between Salvatore Leone and the Sindaccos; and the movements of the San Fierro cartel. It closes with Sweet's phone call to CJ announcing their mother's death."
+            }
+          },
+          { id: "sa", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992",
+            title: { it: "San Andreas", en: "San Andreas" },
+            synopsis: {
+              it: "Carl \"CJ\" Johnson torna a Los Santos dopo anni di assenza e viene immediatamente incastrato dalla polizia corrotta di Tenpenny. Per sopravvivere è costretto a lavorare per lui mentre cerca di risollevare la sua gang, i Grove Street Families. Scopre che il suo amico di vecchia data Big Smoke ha tradito la gang alleandosi con i Ballas e con Tenpenny per controllare il traffico di droga della città. La storia attraversa tre città e culmina nella rivolta di Los Santos, nella morte di Big Smoke e in quella di Tenpenny.",
+              en: "Carl \"CJ\" Johnson returns to Los Santos after years away and is immediately framed by corrupt officer Tenpenny. To survive, he is forced to work for him while trying to rebuild his gang, the Grove Street Families. He discovers that his longtime friend Big Smoke has betrayed the gang by allying with the Ballas and Tenpenny to control the city's drug trade. The story spans three cities and culminates in the Los Santos riots, the death of Big Smoke, and the death of Tenpenny."
+            }
+          },
+          { id: "lcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1998",
+            title: { it: "Liberty City Stories", en: "Liberty City Stories" },
+            synopsis: {
+              it: "Toni Cipriani torna a Liberty City dopo quattro anni di fuga, durante i quali aveva ucciso un uomo d'onore su ordine di Salvatore Leone. Al ritorno viene retrocesso di grado perché Vincenzo Cilli lo ha scalzato nella gerarchia dei Leone. Toni si fa strada eliminando Vincenzo e le famiglie rivali Sindacco e Forelli, mentre il vero antagonista si rivela essere Massimo Torini della mafia siciliana, che vuole prendere il controllo di Liberty City. Nel finale Toni e Salvatore sventano il piano dei siciliani. La famiglia Leone diventa la forza dominante della città, direttamente prima degli eventi di GTA III.",
+              en: "Toni Cipriani returns to Liberty City after four years on the run, having killed a made man on Salvatore Leone's orders. On his return he is demoted because Vincenzo Cilli has taken his place in the Leone hierarchy. Toni works his way back up by eliminating Vincenzo and the rival Sindacco and Forelli families, while the true antagonist turns out to be Massimo Torini of the Sicilian Mafia, who is attempting to seize control of Liberty City. In the finale, Toni and Salvatore foil the Sicilians' plan. The Leone family becomes the dominant force in the city — directly before the events of GTA III."
+            }
+          },
+          { id: "gta-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2000",
+            title: { it: "GTA Advance", en: "GTA Advance" },
+            synopsis: {
+              it: "Mike, piccolo criminale di Liberty City, vede il suo socio Vinnie morire in un'esplosione prima che i due possano finalmente lasciare la città. Mentre indaga sulla morte, scopre la verità: Vinnie ha finto la propria morte per scappare con tutti i loro risparmi. Mike lo rintraccia e lo uccide. Storia autoconclusiva, ambientata un anno prima di GTA III.",
+              en: "Mike, a small-time criminal in Liberty City, watches his partner Vinnie apparently die in a car explosion just before the two can finally leave the city for good. As he investigates the murder, he uncovers the truth: Vinnie faked his own death to run off with all their savings. Mike tracks him down and kills him. A self-contained story set one year before GTA III."
+            }
+          },
+          { id: "gta3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2001",
+            title: { it: "GTA III", en: "GTA III" },
+            synopsis: {
+              it: "Claude viene tradito e lasciato per morto dalla fidanzata Catalina durante una rapina in banca a Liberty City. Arrestato, fugge approfittando di un attacco del cartello colombiano al convoglio che lo trasporta in prigione. Scala i ranghi criminali della città lavorando per la famiglia Leone e la Yakuza, mentre Catalina, ora a capo del cartello, gli dà la caccia. Nel finale Claude salva Maria Latore tenuta in ostaggio, insegue Catalina fino alla diga di Cochrane e la abbatte con un lanciarazzi mentre tenta di fuggire in elicottero.",
+              en: "Claude is betrayed and left for dead by his girlfriend Catalina during a bank robbery in Liberty City. Arrested, he escapes by taking advantage of a Colombian cartel attack on the convoy transporting him to prison. He climbs the criminal ranks of the city working for the Leone family and the Yakuza, while Catalina — now head of the cartel — hunts him down. In the finale, Claude rescues Maria Latore from captivity, pursues Catalina to the Cochrane Dam, and shoots down her helicopter with a rocket launcher as she attempts to flee."
+            }
+          }
+        ]
+      },
+      {
+        id: "hd-universe",
+        name: { it: "Universo HD", en: "HD Universe" },
+        span: { it: "dal 2008", en: "since 2008" },
+        entries: [
+          { id: "gta4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2008",
+            title: { it: "GTA IV", en: "GTA IV" },
+            synopsis: {
+              it: "Niko Bellic arriva a Liberty City dal cugino Roman cercando vendetta per un tradimento di guerra che decimò la sua unità. Lavora per varie famiglie criminali mentre Dimitri Rascalov lo manipola e lo tradisce ripetutamente. Nell'ending fortemente implicato come canonico: Niko uccide Dimitri sulla nave Platypus, Kate McReary muore nell'attacco al matrimonio di Roman orchestrato da Pegorino, Niko uccide Pegorino a Happiness Island.\n\nDLC The Lost and Damned (2008, parallelo a GTA IV). Johnny Klebitz cerca di tenere unita la gang motociclistica The Lost MC mentre il presidente Billy Grey, appena uscito dalla riabilitazione, la trascina in guerra con i Triadi. La gang si sgretola progressivamente: Johnny finisce per uccidere Billy e vede tutto ciò per cui aveva combattuto andare in pezzi.\n\nDLC The Ballad of Gay Tony (2008, parallelo a GTA IV). Luis Lopez, bodyguard del nightclub owner \"Gay Tony\" Prince, si destreggia tra creditori, gangster russi e l'élite corrotta di Liberty City. Il suo finale si sovrappone esattamente a quello di GTA IV, con l'aereo di Ray Bulgarin visibile nella scena finale.",
+              en: "Niko Bellic arrives in Liberty City to stay with his cousin Roman, seeking revenge for a wartime betrayal that decimated his unit. He works for various criminal families while Dimitri Rascalov repeatedly manipulates and betrays him. In the ending strongly implied to be canonical: Niko kills Dimitri on the Platypus ship, Kate McReary dies in the attack on Roman's wedding orchestrated by Pegorino, and Niko kills Pegorino on Happiness Island.\n\nDLC The Lost and Damned (2008, parallel to GTA IV). Johnny Klebitz tries to hold together the Lost MC motorcycle gang while president Billy Grey — fresh out of rehab — drags it into war with the Triads. The gang gradually falls apart: Johnny ends up killing Billy and watches everything he fought for crumble.\n\nDLC The Ballad of Gay Tony (2008, parallel to GTA IV). Luis Lopez, bodyguard to nightclub owner \"Gay Tony\" Prince, navigates between loan sharks, Russian gangsters, and Liberty City's corrupt elite. His finale overlaps exactly with that of GTA IV — Ray Bulgarin's plane is visible in the final scene."
+            }
+          },
+          { id: "ctw", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2009",
+            title: { it: "Chinatown Wars", en: "Chinatown Wars" },
+            synopsis: {
+              it: "Huang Lee arriva a Liberty City per consegnare la spada ancestrale Yu Jian allo zio Wu \"Kenny\" Lee come simbolo di successione alla guida delle Triadi. Viene subito attaccato, lasciato per morto e la spada rubata. Indagando sulla corruzione interna scopre la verità: è stato Kenny stesso a orchestrare il furto e a far uccidere il padre di Huang per scalare il potere delle Triadi da solo. Huang uccide Kenny e viene offerto come nuovo boss dalle Triadi dal vecchio capo Hsin.",
+              en: "Huang Lee arrives in Liberty City to deliver the ancestral sword Yu Jian to his uncle Wu \"Kenny\" Lee as a symbol of succession to the leadership of the Triads. He is immediately ambushed, left for dead, and the sword stolen. As he investigates the internal corruption, he uncovers the truth: it was Kenny himself who orchestrated the theft and had Huang's father murdered in order to seize control of the Triads alone. Huang kills Kenny and is offered the position of new Triad boss by the outgoing leader Hsin."
+            }
+          },
+          { id: "gta5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
+            title: { it: "GTA V", en: "GTA V" },
+            synopsis: {
+              it: "Michael De Santa, Franklin Clinton e Trevor Philips, rispettivamente ex rapinatore in pensione sotto falsa identità, giovane di strada e trafficante di metanfetamine, si intrecciano in una serie di grandi rapine mentre FIB e vari antagonisti li mettono l'uno contro l'altro. Nell'ending canonico, confermato da Rockstar nel dicembre 2025 tramite GTA Online: i tre si alleano, eliminano Steve Haines, Wei Cheng e Devin Weston, e sopravvivono tutti. Michael diventa produttore cinematografico, Trevor si reinventa come lifestyle guru e Franklin gestisce una società di sicurezza e contratti chiamata F. Clinton and Partner, dove collabora con Dr. Dre.\n\nNella versione online (GTA Online) il protagonista custom del giocatore opera a Los Santos prima e dopo gli eventi di GTA V. Canonicamente parte dell'Universo HD: Franklin, Michael e Trevor appaiono in diverse missioni. Lester menziona Niko Bellic come \"un tipo dell'Est Europa che faceva rumore a Liberty City, poi è sparito\", confermando la continuità con GTA IV.",
+              en: "Michael De Santa, Franklin Clinton and Trevor Philips — a retired robber living under a false identity, a young street hustler, and a methamphetamine trafficker — become entangled in a series of major heists while the FIB and various antagonists turn them against each other. In the canonical ending, confirmed by Rockstar in December 2025 via GTA Online: the three ally and eliminate Steve Haines, Wei Cheng and Devin Weston, and all survive. Michael becomes a film producer, Trevor reinvents himself as a lifestyle guru, and Franklin runs a security and contracts firm called F. Clinton and Partner, where he works alongside Dr. Dre.\n\nIn the online version (GTA Online), the player's custom protagonist operates in Los Santos before and after the events of GTA V. Canonically part of the HD Universe: Franklin, Michael and Trevor all appear in various missions. Lester mentions Niko Bellic as \"an Eastern European guy who was making noise in Liberty City, then went quiet\", confirming continuity with GTA IV."
+            }
+          }
+        ]
+      }
     ]
   },
 
