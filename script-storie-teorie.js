@@ -13,6 +13,7 @@ const STRINGS = {
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
+    backToIndexLabel: "Torna all'index",
     backLabel: "Torna all'archivio",
     tagTeoria: "Teoria",
     tagStoria: "Storia Nascosta"
@@ -27,6 +28,7 @@ const STRINGS = {
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     landingSub: "Select an entry from the Theories column or from the Hidden Stories column to dive in.",
     kofiLabel: "Support me on Ko-fi",
+    backToIndexLabel: "Back to index",
     backLabel: "Back to the archive",
     tagTeoria: "Theory",
     tagStoria: "Hidden Story"

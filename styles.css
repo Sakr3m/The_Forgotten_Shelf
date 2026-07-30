@@ -282,6 +282,33 @@ body[data-state="landing"] .kofi-link{ display:flex; }
 .kofi-link:hover{ border-color:#ef4444; color:var(--text); }
 .kofi-link svg{ width:16px; height:16px; color:#ef4444; flex-shrink:0; }
 
+/* Pulsante "torna all'index": stessa estetica del pill di Ko-fi
+   (bordo neutro, rosso in hover), ma sul lato opposto (sinistra)
+   dello spazio in alto, indipendente da stage-controls perché deve
+   restare a sinistra invece che unirsi al gruppo a destra. */
+.index-link{
+  display:none; align-items:center; gap:8px;
+  position:fixed; top:15px; left:40px; z-index:5;
+  padding:9px 16px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:999px;
+  font-size:.8rem; font-weight:600; color:var(--text-dim);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+body[data-state="landing"] .index-link{ display:flex; }
+.index-link:hover{ border-color:#ef4444; color:var(--text); }
+.index-link svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
+
+@media (max-width:760px){
+  .index-link{
+    top:64px; left:12px;
+    width:34px; height:34px; padding:0;
+    justify-content:center; border-radius:50%;
+  }
+  .index-link span{ display:none; }
+}
+
 .landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:44px; }
 .landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
 .landing-intro{ margin-top:52px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }

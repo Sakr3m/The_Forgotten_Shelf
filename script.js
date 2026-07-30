@@ -12,6 +12,7 @@ const STRINGS = {
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona un titolo dalla libreria a sinistra per esplorarne la linea temporale.",
     kofiLabel: "Sostienimi su Ko-fi",
+    backToIndexLabel: "Torna all'index",
     universeLabel: "Universo",
     backToTimeline: "Torna alla linea temporale",
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:"
@@ -25,6 +26,7 @@ const STRINGS = {
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     landingSub: "Select a title from the library on the left to explore its timeline.",
     kofiLabel: "Support me on Ko-fi",
+    backToIndexLabel: "Back to index",
     universeLabel: "Universe",
     backToTimeline: "Back to the timeline",
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:"
