@@ -418,6 +418,15 @@ function renderGamePanel(){
   });
   el.universesRow.appendChild(scrollToggle);
 
+  // Vertically center the button on the real, measured lang-switch button
+  // instead of guessing a top offset — robust to any future change in
+  // either element's height.
+  const langRect = el.langSwitch.getBoundingClientRect();
+  const stageRect = el.universesRow.getBoundingClientRect();
+  const toggleRect = scrollToggle.getBoundingClientRect();
+  const toggleTop = (langRect.top + langRect.bottom) / 2 - stageRect.top - toggleRect.height / 2;
+  scrollToggle.style.top = toggleTop.toFixed(2) + "px";
+
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
     const count = uni.entries.length;
