@@ -430,6 +430,19 @@ function renderGamePanel(){
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
 
+    // Scrolling is a last resort for desktop windows that are ridiculously
+    // small for 2026 — the trigger is the screen resolution itself, not
+    // whether this particular universe's content happens to fit. Above the
+    // threshold, current lines are left completely untouched: overflow stays
+    // "visible" (the CSS default), no scrollbar, no scroll capability, not
+    // even a hint of one. Below it, scrolling switches on silently.
+    const RIDICULOUSLY_SMALL_DESKTOP = 1024;
+    if(isDesktop){
+      liveTimeline.style.overflowX = window.innerWidth < RIDICULOUSLY_SMALL_DESKTOP ? "auto" : "visible";
+    } else {
+      liveTimeline.style.overflowX = "";
+    }
+
     // Constrain the box itself to that same final width so the nodes
     // (space-between) pack exactly into it, first flush left / last flush
     // right, instead of stretching to fill the container's full natural width.
