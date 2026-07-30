@@ -37,7 +37,9 @@ const state = {
   lang: "it",
   view: "landing",   // landing | entry
   column: null,      // teorie | storie
-  entryId: null
+  entryId: null,
+  musicOn: true,
+  trackIndex: 0
 };
 
 const el = {
@@ -49,6 +51,14 @@ const el = {
   landingPanel: document.getElementById("landingPanel"),
   entryPanel: document.getElementById("entryPanel"),
   entryContent: document.getElementById("entryContent"),
+  bgMusic: document.getElementById("bgMusic"),
+  trackInfo: document.getElementById("trackInfo"),
+  trackTitle: document.getElementById("trackTitle"),
+  trackGame: document.getElementById("trackGame"),
+  trackSkipBtn: document.getElementById("trackSkipBtn"),
+  trackProgressFill: document.getElementById("trackProgressFill"),
+  volumeSlider: document.getElementById("volumeSlider"),
+  musicToggle: document.getElementById("musicToggle"),
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -117,7 +127,7 @@ function renderEntry(){
   if(!entry){ el.entryContent.innerHTML = ""; return; }
   const tag = state.column === "teorie" ? t("tagTeoria") : t("tagStoria");
 
-  el.entryContent.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
+  el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   el.entryContent.innerHTML = `
     <span class="entry-tag">${tag}</span>
     <h1 class="entry-title">${tf(entry.title)}</h1>
@@ -140,21 +150,96 @@ function renderEntry(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
-  if(view === "landing"){ state.column = null; state.entryId = null; }
+  if(view === "landing"){
+    state.column = null; state.entryId = null;
+    el.body.style.removeProperty("--item-accent");
+  }
 
   el.landingPanel.hidden = view !== "landing";
   el.entryPanel.hidden = view !== "entry";
 
   renderLists();
   if(view === "entry") renderEntry();
+  updateMusicPlayback();
 }
 
 function selectEntry(column, id){
+  if(state.column !== column || state.entryId !== id) state.trackIndex = 0;
   state.column = column;
   state.entryId = id;
   setState("entry");
   closeMobileSidebar();
 }
+
+// ---------------------------------------------------------
+// Musica di sottofondo — solo nella pagina della voce, non
+// autoparte mai con l'audio, l'utente deve attivarla col toggle;
+// i browser bloccherebbero comunque l'autoplay con suono.
+// ---------------------------------------------------------
+function getTrackList(entry){
+  if(!entry || !entry.tracks || !entry.tracks.length) return [];
+  return entry.tracks;
+}
+
+function updateMusicPlayback(){
+  const entry = currentEntry();
+  const inEntryView = state.view === "entry";
+  el.musicToggle.hidden = !inEntryView;
+  el.musicToggle.setAttribute("aria-pressed", String(state.musicOn));
+
+  const tracks = getTrackList(entry);
+  const hasTracks = inEntryView && tracks.length > 0;
+
+  if(!hasTracks || !state.musicOn){
+    el.bgMusic.pause();
+    el.trackInfo.hidden = true;
+    return;
+  }
+
+  if(state.trackIndex >= tracks.length) state.trackIndex = 0;
+  const track = tracks[state.trackIndex];
+
+  if(track.title){
+    el.trackInfo.hidden = false;
+    el.trackTitle.textContent = track.title;
+    el.trackGame.textContent = track.game || "";
+    el.trackSkipBtn.hidden = tracks.length <= 1;
+  } else {
+    el.trackInfo.hidden = true;
+  }
+
+  if(!el.bgMusic.src || !el.bgMusic.src.endsWith(track.src)){
+    el.bgMusic.src = track.src;
+  }
+  el.bgMusic.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click del toggle stesso lo è */ });
+}
+
+function advanceTrack(){
+  const tracks = getTrackList(currentEntry());
+  if(tracks.length === 0) return;
+  state.trackIndex = (state.trackIndex + 1) % tracks.length;
+  updateMusicPlayback();
+}
+el.bgMusic.addEventListener("ended", advanceTrack);
+el.bgMusic.addEventListener("timeupdate", () => {
+  if(el.bgMusic.duration){
+    el.trackProgressFill.style.width = (el.bgMusic.currentTime / el.bgMusic.duration * 100) + "%";
+  }
+});
+el.bgMusic.addEventListener("loadedmetadata", () => {
+  el.trackProgressFill.style.width = "0%";
+});
+el.trackSkipBtn.addEventListener("click", advanceTrack);
+
+el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+el.volumeSlider.addEventListener("input", () => {
+  el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+});
+
+el.musicToggle.addEventListener("click", () => {
+  state.musicOn = !state.musicOn;
+  updateMusicPlayback();
+});
 
 // ---------------------------------------------------------
 // Cambio lingua
