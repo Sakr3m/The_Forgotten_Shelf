@@ -497,6 +497,12 @@ const GAMES = {
     },
     palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
     accentColor: "#0f9b8e",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Unflinchable%20Courage.mp3", title: "Unyielding Courage", game: "Dragon Quest XI" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Overture.mp3", title: "Overture", game: "Dragon Quest I" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Violent%20Enemies.mp3", title: "Violent Enemies", game: "Dragon Quest II" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Fighting%20Spirit.mp3", title: "Fighting Spirit", game: "Dragon Quest III" }
+    ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",

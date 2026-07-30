@@ -12,6 +12,11 @@ const TEORIE = {
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
     bannerOffset: 75,
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" }
+    ],
     title: {
       it: "Clair Obscur: Expedition 33\nChi è quel Bambino?",
       en: "Clair Obscur: Expedition 33\nWho is that Boy?"
@@ -63,6 +68,11 @@ A small detail. One of the most powerful images in the entire game.`
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     bannerOffset: 65,
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Liberi%20Fatali.mp3", title: "Liberi Fatali", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Eyes%20on%20Me.mp3", title: "Eyes on Me", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20The%20Man%20with%20the%20Machine%20Gun.mp3", title: "The Man with the Machine Gun", game: "Final Fantasy VIII" }
+    ],
     title: {
       it: "Final Fantasy 8\nLa Vera Identità di Artemisia",
       en: "Final Fantasy 8\nUltimecia's True Identity"
