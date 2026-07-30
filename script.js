@@ -429,8 +429,6 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
-    const count = uni.entries.length;
-
     // Fixed rail rule: 42px in from the sidebar's game-list rows on the left
     // (already true as-is: h-timeline sits flush at the stage's own content
     // edge, which is naturally 42px from the sidebar rows) and 42px in from
@@ -442,32 +440,25 @@ function renderGamePanel(){
     const isDesktop = window.matchMedia("(min-width: 761px)").matches;
     const RIGHT_INSET = isDesktop ? 42 : 0;
     const naturalWidth = liveTimeline.clientWidth;
-    const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
+    const baseAvailableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
-    const BASE_SCALE = 0.9025;      // global ~9.75% reduction (two compounding 5% cuts) applied everywhere
-    const AVATAR_FLOOR = 0.9;        // avatars/titles never go below this (90px)
-    const DOT_TARGET = 0.55;        // dots always render at this size — never compensate for avatars
+    // Every game, every universe: same fixed sizes, no more dynamic fitting.
+    // avatarScale 1 = 100px avatar/node; dotScale 0.625 = 15px dot (the CSS
+    // formulas are max(8px, 24px*dotScale) / max(3px, 7px*dotScale), so this
+    // one constant also keeps the dot's border proportionally correct).
+    const avatarScale = 1;
+    const dotScale = 0.625;
 
-    // PC-only manual switch (button added below): OFF (default) tries to fit
-    // every entry on screen, shrinking avatars down to their floor if needed;
-    // dots/spacing always stay at their normal target regardless, never
-    // shrinking further to compensate — if it doesn't all fit, that's what
-    // the scroll switch below is for. ON locks avatars at their comfortable
-    // target size too — never shrinking — lets the actual gap between them
-    // stretch dynamically to whatever room the screen gives (space-between,
-    // so wider screens naturally get more breathing room), and switches on
-    // drag-to-scroll for whatever doesn't fit. Mobile never uses this mode.
+    // PC-only manual switch (button above): OFF (default) keeps the line at
+    // its normal length, just 5% shorter than the full 42px-ruled width —
+    // the dots are never artificially moved to make this true, they're
+    // anchored to their own real rendered position below, so shrinking the
+    // box can never leave them misaligned with the line. ON drops the 5%
+    // cut and the width constraint entirely, letting the row grow to its
+    // natural size and switches on drag-to-scroll for whatever doesn't fit.
+    // Mobile never uses either of these.
     const freeScrollMode = isDesktop && state.timelineScrollMode;
-
-    const dotScale = DOT_TARGET;
-    const gapPx = 26 * dotScale;
-    let avatarScale;
-    if(freeScrollMode){
-      avatarScale = BASE_SCALE;
-    } else {
-      avatarScale = count > 0 ? Math.min(BASE_SCALE, (availableWidth - Math.max(0, count - 1) * gapPx) / (count * 100)) : BASE_SCALE;
-      if(avatarScale < AVATAR_FLOOR) avatarScale = AVATAR_FLOOR;
-    }
+    const availableWidth = freeScrollMode ? baseAvailableWidth : baseAvailableWidth * 0.95;
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
