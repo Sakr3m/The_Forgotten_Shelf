@@ -62,7 +62,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* ============================================================
    Brand (sidebar) + stage controls (universe picker, language)
    ============================================================ */
-.brand{ display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+.brand{ display:flex; align-items:center; gap:22px; margin-bottom:22px; }
 .brand-icon{ display:flex; cursor:pointer; transition:transform var(--dur-fast) var(--ease); }
 .brand-icon:hover{ transform:scale(1.08); }
 .brand-text{
@@ -268,7 +268,7 @@ body[data-state="landing"] .music-control{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
 }
 .kofi-link{
-  position:absolute; top:0; right:0;
+  position:absolute; top:0; right:-56px;
   display:flex; align-items:center; gap:8px;
   padding:9px 16px;
   border:1px solid var(--line);
@@ -280,13 +280,13 @@ body[data-state="landing"] .music-control{ display:none; }
 .kofi-link:hover{ border-color:#ff5e5b; color:var(--text); }
 .kofi-link svg{ width:16px; height:16px; color:#ff5e5b; flex-shrink:0; }
 
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:20px; }
-.landing-title{ font-size:2.6rem; margin-top:22px; color:var(--text); }
-.landing-intro{ margin-top:32px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
+.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:32px; }
+.landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
+.landing-intro{ margin-top:52px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
 
 .spoiler-alert{
   display:flex; align-items:flex-start; gap:12px;
-  margin-top:36px; padding:16px 20px;
+  margin-top:56px; padding:16px 20px;
   max-width:640px;
   border:1px solid rgba(250,204,21,.35);
   background:rgba(250,204,21,.08);
@@ -296,7 +296,7 @@ body[data-state="landing"] .music-control{ display:none; }
 .spoiler-alert__icon{ font-size:1.1rem; color:#facc15; flex-shrink:0; line-height:1.4; }
 .spoiler-alert p{ font-size:.88rem; line-height:1.55; color:var(--text-dim); margin:0; }
 
-.landing-sub{ margin-top:40px; color:var(--text-faint); font-size:.88rem; }
+.landing-sub{ margin-top:60px; color:var(--text-faint); font-size:.88rem; }
 
 .case-grid{
   margin-top:48px;
@@ -403,7 +403,7 @@ body[data-state="landing"] .music-control{ display:none; }
 .universe-stage.no-timeline{ justify-content:flex-start; align-items:flex-start; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }
 .canon-watermark{
-  position:fixed; top:300px; bottom:40px; right:40px; width:38vw;
+  position:fixed; top:300px; bottom:40px; right:0; width:38vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 40%);
   mask-image:linear-gradient(90deg, transparent, black 40%);
