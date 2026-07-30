@@ -105,6 +105,13 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .track-progress__fill{ background:var(--item-accent, var(--cyan)); }
 .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
 
+/* Qui, a differenza di timeline.html, la colonna destra resta visibile
+   anche in home: l'asimmetria da correggere è quindi diversa.
+   (310 - 260) / 2 = +25px, in verso opposto rispetto a timeline.html. */
+@media (min-width:761px){
+  .landing{ transform:translateX(25px); }
+}
+
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
 
