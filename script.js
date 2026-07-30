@@ -433,8 +433,6 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
-    const count = uni.entries.length;
-
     // Fixed rail rule: 42px in from the sidebar's game-list rows on the left
     // (already true as-is: h-timeline sits flush at the stage's own content
     // edge, which is naturally 42px from the sidebar rows) and 42px in from
@@ -457,28 +455,38 @@ function renderGamePanel(){
     const dotScale = 0.625;
 
     // PC-only manual switch (button above): OFF (default) keeps the line at
-    // its normal length, just 5% shorter than the full 42px-ruled width —
-    // the dots are never artificially moved to make this true, they're
-    // anchored to their own real rendered position below, so shrinking the
-    // box can never leave them misaligned with the line. ON drops the 5%
-    // cut and the width constraint entirely, letting the row grow to its
-    // natural size and switches on drag-to-scroll for whatever doesn't fit.
-    // Mobile never uses either of these.
+    // exactly the same length as every other timeline (the full 42px-ruled
+    // width, no cut) — the dots are never artificially moved to make this
+    // true, they're anchored to their own real rendered position below, so
+    // this can never leave them misaligned with the line. ON drops the
+    // width constraint entirely, letting the row grow to its natural size
+    // and switches on drag-to-scroll for whatever doesn't fit. Mobile never
+    // uses either of these.
     const freeScrollMode = isDesktop && state.timelineScrollMode;
-    const availableWidth = freeScrollMode ? baseAvailableWidth : baseAvailableWidth * 0.95;
+    const availableWidth = baseAvailableWidth;
 
-    // Sizes are fixed, but the SPACE BETWEEN nodes isn't: with the switch
-    // off, when there are enough entries that the normal gap wouldn't let
-    // them all fit, the gap shrinks (down to touching, if it must) so as
-    // many titles as possible stay on screen — scrolling is the very last
-    // resort, only for whatever still doesn't fit at zero gap.
-    const targetGapPx = 26 * dotScale;
-    let gapPx = targetGapPx;
-    if(!freeScrollMode && count > 1){
-      const idealGap = (availableWidth - count * 100) / (count - 1);
-      gapPx = Math.max(0, Math.min(targetGapPx, idealGap));
+    const nodes = Array.from(liveTimeline.querySelectorAll(".h-node"));
+    if(freeScrollMode){
+      // Natural flex spacing: fixed target gap, space-between fills any
+      // extra room, and whatever doesn't fit simply scrolls.
+      liveTimeline.style.justifyContent = "";
+      liveTimeline.style.gap = (26 * dotScale).toFixed(2) + "px";
+      nodes.forEach(node => { node.style.marginLeft = ""; });
+    } else {
+      // Sizes are fixed (100px avatar/node), but titles alternate above/below
+      // the line, so adjacent nodes never actually collide even when their
+      // boxes overlap horizontally. So: every entry is spaced out evenly
+      // across the exact same line length as always — first node flush at
+      // the start, each next one placed via an explicit margin (negative
+      // when the count is high enough that nodes must overlap to all fit),
+      // rather than leaving anything to an automatic gap or to scrolling.
+      liveTimeline.style.justifyContent = "flex-start";
+      liveTimeline.style.gap = "0px";
+      const spacing = nodes.length > 1 ? (availableWidth - 100) / (nodes.length - 1) : 0;
+      nodes.forEach((node, i) => {
+        node.style.marginLeft = i === 0 ? "0px" : (spacing - 100).toFixed(2) + "px";
+      });
     }
-    liveTimeline.style.gap = gapPx.toFixed(2) + "px";
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
