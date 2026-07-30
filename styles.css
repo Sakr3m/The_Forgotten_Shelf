@@ -223,7 +223,6 @@ body[data-state="landing"] .brand{ display:none; }
   font-size:.9rem; font-weight:500; color:var(--text-dim);
   transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.game-list button:hover{ background:var(--panel); color:var(--text); }
 .game-list button.is-active{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--cyan) 14%, transparent), rgba(232,121,249,.06));
