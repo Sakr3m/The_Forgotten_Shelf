@@ -15,7 +15,8 @@ const STRINGS = {
     backToIndexLabel: "Torna all'index",
     universeLabel: "Universo",
     backToTimeline: "Torna alla linea temporale",
-    canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:"
+    canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
+    timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale"
   },
   en: {
     brand: "Timeline",
@@ -29,7 +30,8 @@ const STRINGS = {
     backToIndexLabel: "Back to index",
     universeLabel: "Universe",
     backToTimeline: "Back to the timeline",
-    canonTitlesLabel: "The most widely accepted progression follows these titles, in order:"
+    canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
+    timelineScrollToggle: "Toggle timeline scrolling"
   }
 };
 
@@ -40,7 +42,8 @@ const state = {
   universeIndex: 0,
   entryId: null,
   musicOn: true,
-  trackIndex: 0
+  trackIndex: 0,
+  timelineScrollMode: false   // PC only: off = fit everything on screen, on = free spacing + drag-to-scroll
 };
 
 const el = {
@@ -71,6 +74,22 @@ const el = {
   railLabel: document.getElementById("railLabel"),
   railTrack: document.getElementById("railTrack"),
 };
+
+// Drag-to-scroll for the horizontal timeline, active only when the manual
+// scroll toggle is on. Attached once here (not per-render) to avoid piling
+// up duplicate window/document listeners every time the panel re-renders;
+// the actual timeline element is swapped in via dragState.el on mousedown.
+const dragState = { active: false, el: null, startX: 0, startScrollLeft: 0 };
+document.addEventListener("mousemove", (e) => {
+  if(!dragState.active || !dragState.el) return;
+  e.preventDefault();
+  dragState.el.scrollLeft = dragState.startScrollLeft - (e.pageX - dragState.startX);
+});
+document.addEventListener("mouseup", () => {
+  if(dragState.el) dragState.el.classList.remove("is-dragging");
+  dragState.active = false;
+  dragState.el = null;
+});
 
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
@@ -387,6 +406,18 @@ function renderGamePanel(){
 
   el.universesRow.appendChild(buildUniverseTrack(uni, prevBtn, nextBtn));
 
+  const scrollToggle = document.createElement("button");
+  scrollToggle.type = "button";
+  scrollToggle.className = "timeline-scroll-toggle";
+  scrollToggle.setAttribute("aria-pressed", String(state.timelineScrollMode));
+  scrollToggle.setAttribute("aria-label", t("timelineScrollToggle"));
+  scrollToggle.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h16M2 10l4-4M2 10l4 4M18 10l-4-4M18 10l-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  scrollToggle.addEventListener("click", () => {
+    state.timelineScrollMode = !state.timelineScrollMode;
+    renderGamePanel();
+  });
+  el.universesRow.appendChild(scrollToggle);
+
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
     const count = uni.entries.length;
@@ -395,14 +426,10 @@ function renderGamePanel(){
     // (already true as-is: h-timeline sits flush at the stage's own content
     // edge, which is naturally 42px from the sidebar rows) and 42px in from
     // the stage's content edge on the right too. So the usable width is
-    // simply the natural full width minus that 42px right inset. Avatar/dot
-    // scale is computed directly against this final width (not adjusted
-    // afterwards), so with space-between the first node always sits exactly
-    // on the left tip and the last exactly on the right tip, whatever the
-    // entry count (2, 3, 15, 16, 20...).
-    // The 42px rule is a desktop concept (distance from the sidebar rows,
-    // which don't exist as a static column on mobile — there it's a hidden
-    // drawer). On mobile, keep the original full-width behaviour untouched.
+    // simply the natural full width minus that 42px right inset. The 42px
+    // rule is a desktop concept (distance from the sidebar rows, which don't
+    // exist as a static column on mobile — there it's a hidden drawer). On
+    // mobile, keep the original full-width behaviour untouched.
     const isDesktop = window.matchMedia("(min-width: 761px)").matches;
     const RIGHT_INSET = isDesktop ? 42 : 0;
     const naturalWidth = liveTimeline.clientWidth;
@@ -413,38 +440,44 @@ function renderGamePanel(){
     const DOT_TARGET = 0.55;        // dots aim for a clearly visible size, not just a bare minimum
     const DOT_FLOOR = 0.2;          // absolute last resort
 
-    // Reserve room for dots/gap at their target size first...
-    let dotScale = DOT_TARGET;
-    let gapPx = 26 * dotScale;
-    let avatarScale = count > 0 ? Math.min(BASE_SCALE, (availableWidth - Math.max(0, count - 1) * gapPx) / (count * 100)) : BASE_SCALE;
+    // PC-only manual switch (button added below): OFF (default) tries to fit
+    // every entry on screen, shrinking avatars/dots down to their floor if
+    // needed, same as always. ON locks avatars/dots at their comfortable
+    // target size — never shrinking — lets the actual gap between them
+    // stretch dynamically to whatever room the screen gives (space-between,
+    // so wider screens naturally get more breathing room), and switches on
+    // drag-to-scroll for whatever doesn't fit. Mobile never uses this mode.
+    const freeScrollMode = isDesktop && state.timelineScrollMode;
 
-    if(avatarScale < AVATAR_FLOOR){
-      // Avatars would get too small at the dot target: give avatars their
-      // floor instead, and let dots shrink further to make room.
-      avatarScale = AVATAR_FLOOR;
-      const remaining = availableWidth - count * 100 * avatarScale;
-      gapPx = count > 1 ? Math.max(26 * DOT_FLOOR, remaining / (count - 1)) : 26 * DOT_TARGET;
-      dotScale = Math.max(DOT_FLOOR, Math.min(DOT_TARGET, gapPx / 26));
+    let dotScale, gapPx, avatarScale;
+    if(freeScrollMode){
+      avatarScale = BASE_SCALE;
+      dotScale = DOT_TARGET;
+      gapPx = 26 * dotScale;
+    } else {
+      // Reserve room for dots/gap at their target size first...
+      dotScale = DOT_TARGET;
+      gapPx = 26 * dotScale;
+      avatarScale = count > 0 ? Math.min(BASE_SCALE, (availableWidth - Math.max(0, count - 1) * gapPx) / (count * 100)) : BASE_SCALE;
+
+      if(avatarScale < AVATAR_FLOOR){
+        // Avatars would get too small at the dot target: give avatars their
+        // floor instead, and let dots shrink further to make room.
+        avatarScale = AVATAR_FLOOR;
+        const remaining = availableWidth - count * 100 * avatarScale;
+        gapPx = count > 1 ? Math.max(26 * DOT_FLOOR, remaining / (count - 1)) : 26 * DOT_TARGET;
+        dotScale = Math.max(DOT_FLOOR, Math.min(DOT_TARGET, gapPx / 26));
+      }
     }
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
 
-    // Scrolling is a last resort for desktop windows that are ridiculously
-    // small for 2026 — the trigger is the screen resolution itself, not
-    // whether this particular universe's content happens to fit. The
-    // threshold is calculated, not guessed: 1761px is the narrowest window
-    // in which the densest timeline on the site (Castlevania's IGA universe,
-    // 16 entries) still fits even at floor avatar/dot sizes. Above it,
-    // current lines are left completely untouched: overflow stays "visible"
-    // (the CSS default), no scrollbar, no scroll capability, not even a hint
-    // of one. Below it, scrolling switches on silently.
-    const RIDICULOUSLY_SMALL_DESKTOP = 1761;
-    if(isDesktop){
-      liveTimeline.style.overflowX = window.innerWidth < RIDICULOUSLY_SMALL_DESKTOP ? "auto" : "visible";
-    } else {
-      liveTimeline.style.overflowX = "";
-    }
+    // Scrolling only ever exists while the manual switch is on: no automatic
+    // resolution-based trigger, no trace of it (scrollbar, cursor, anything)
+    // when it's off.
+    liveTimeline.style.overflowX = freeScrollMode ? "auto" : (isDesktop ? "visible" : "");
+    liveTimeline.classList.toggle("is-scrollable", freeScrollMode);
 
     // Constrain the box itself to that same final width so the nodes
     // (space-between) pack exactly into it, first flush left / last flush
@@ -453,6 +486,15 @@ function renderGamePanel(){
     liveTimeline.style.flexShrink = "0";
     liveTimeline.style.flexBasis = availableWidth.toFixed(2) + "px";
     liveTimeline.style.width = availableWidth.toFixed(2) + "px";
+
+    liveTimeline.addEventListener("mousedown", (e) => {
+      if(!freeScrollMode) return;
+      dragState.active = true;
+      dragState.el = liveTimeline;
+      dragState.startX = e.pageX;
+      dragState.startScrollLeft = liveTimeline.scrollLeft;
+      liveTimeline.classList.add("is-dragging");
+    });
 
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
 
