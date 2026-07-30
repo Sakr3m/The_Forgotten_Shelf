@@ -132,11 +132,7 @@ function renderEntry(){
     <span class="entry-tag">${tag}</span>
     <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-body">${tf(entry.body)}</p>
-    <div class="entry-back">
-      <button type="button" class="title-back" id="entryBackBtn">${arrowIcon("left")}<span>${t("backLabel")}</span></button>
-    </div>
   `;
-  document.getElementById("entryBackBtn").addEventListener("click", () => setState("landing"));
 
   // riavvia l'animazione d'ingresso
   el.entryContent.style.animation = "none";
