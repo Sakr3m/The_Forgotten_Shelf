@@ -562,9 +562,46 @@ const GAMES = {
     listTitle: { it: "Dying Light", en: "Dying Light" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dying Light", en: "Dying Light" },
-    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    blurb: {
+      it: "Una saga survival-horror in prima persona, tra parkour<br>su tetti infestati e un virus capace di ridurre<br>la civiltà in rovina, dal focolaio locale al collasso globale.",
+      en: "A first-person survival horror saga of rooftop parkour<br>and a virus capable of reducing civilization<br>to ruin, from a local outbreak to global collapse."
+    },
     universes: [
-      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+      {
+        id: "main",
+        name: { it: "Continuità Unica", en: "Single Continuity" },
+        span: { it: "2015 – 2036", en: "2015 – 2036" },
+        entries: [
+          { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015",
+            title: { it: "Dying Light", en: "Dying Light" },
+            synopsis: {
+              it: "Kyle Crane, agente del GRE, viene paracadutato nella città di Harran in quarantena per recuperare un file rubato da Kadir Suleiman, detto Rais, ex colonnello militare che lo usa come merce di scambio per farsi estrarre dalla città. Il file contiene prove del piano del GRE di usare un virus come arma biologica. Crane tradisce l'organizzazione e sceglie di restare con i sopravvissuti, collaborando con i ricercatori locali Dr. Zere e Dr. Camden nel tentativo di sviluppare una cura. Scopre inoltre che il Ministero della Difesa intende bombardare Harran sostenendo che non ci siano sopravvissuti: riattiva una torre radio e fa sapere al mondo della loro esistenza, bloccando il bombardamento. Quando Rais uccide il Dr. Zere prima che possa consegnare le sue ricerche, Crane si assicura che arrivino comunque al Dr. Camden. Affronta infine Rais, a cui aveva già tagliato una mano durante una fuga precedente, e lo elimina.\nNel DLC The Following, la cura stenta ad arrivare e le scorte di Antizin si esauriscono. Crane si avventura nelle campagne fuori Harran in cerca di una cura, trovando un culto che adora una creatura chiamata la Madre, un'ibrida umano-volatile.\nEnding canonico: Crane sconfigge la Madre ma è costretto a bere il siero che lo trasforma in un volatile senziente. Scappa dalla zona di quarantena diffondendo involontariamente il virus nel mondo.",
+              en: "Kyle Crane, a GRE agent, is airdropped into the quarantined city of Harran to recover a stolen file from Kadir Suleiman, known as Rais — a former military colonel who uses it as leverage to negotiate his own extraction from the city. The file contains evidence of the GRE's plan to weaponize a virus as a biological weapon. Crane betrays the organisation and chooses to stay with the survivors, working alongside local researchers Dr. Zere and Dr. Camden in an attempt to develop a cure. He also discovers that the Ministry of Defence intends to firebomb Harran, claiming there are no survivors: he reactivates a radio tower and alerts the outside world to their existence, preventing the bombing. When Rais kills Dr. Zere before he can deliver his research, Crane ensures it reaches Dr. Camden regardless. He then confronts Rais — whose hand he had already cut off during a previous escape — and kills him.\nIn the DLC The Following, the cure proves elusive and Antizin supplies run out. Crane ventures into the countryside outside Harran in search of a cure, discovering a cult that worships a creature called the Mother — a human-Volatile hybrid.\nCanonical ending: Crane defeats the Mother but is forced to drink a serum that transforms him into a sentient Volatile. He escapes the quarantine zone, unknowingly spreading the virus to the rest of the world."
+            }
+          },
+          { id: "banshee-comic", type: "FUMETTO", typeEn: "COMIC", year: "~2021",
+            title: { it: "Banshee: I Am The Cure", en: "Banshee: I Am The Cure" },
+            synopsis: {
+              it: "Fumetto digitale gratuito rilasciato da Techland in collaborazione con Dynamite Entertainment. Segue una dottoressa che sta lavorando a un vaccino contro il THV, la variante mutata del virus di Harran sviluppata segretamente dal GRE per scopi militari e fuggita da un laboratorio di Ginevra nel 2021. Racconta gli eventi del \"Fall\": il collasso globale della civiltà causato dalla diffusione del THV, inclusi i bombardamenti del Black Monday su Villedor che decimano metà della popolazione della città. La dottoressa viene infettata e si trasforma in un Banshee, una nuova variante di infetto presente in DL2. Ponte narrativo tra DL1 e DL2.",
+              en: "Free digital comic released by Techland in collaboration with Dynamite Entertainment. It follows a doctor working on a vaccine against the THV — the mutated variant of the Harran Virus secretly developed by the GRE for military purposes, which escaped from a laboratory in Geneva in 2021. It depicts the events of the Fall: the global collapse of civilisation caused by the spread of the THV, including the Black Monday bombings over Villedor that wipe out half the city's population. The doctor is infected and transforms into a Banshee, a new type of infected present in DL2. A narrative bridge between DL1 and DL2."
+            }
+          },
+          { id: "dying-light-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2036",
+            title: { it: "Dying Light 2: Stay Human", en: "Dying Light 2: Stay Human" },
+            synopsis: {
+              it: "Quindici anni dopo il Fall, la civiltà si è ridotta a pochi insediamenti sparsi. Aiden Caldwell, un Pellegrino nomade e ibrido volatile senziente risultato di esperimenti del GRE subiti da bambino, raggiunge Villedor, l'ultima grande città rimasta, in cerca della sorella Mia. L'antagonista principale è Waltz, lo scienziato del GRE che li ha usati come cavie e che ora vuole riattivare un protocollo di emergenza che scatenerebbe missili su Villedor. Aiden si muove tra la guerra civile dei Pacificatori e i Sopravvissuti del Bazaar mentre affronta il suo passato e tenta di fermare Waltz. Crane viene menzionato dai personaggi come figura leggendaria del passato.",
+              en: "Fifteen years after the Fall, civilisation has been reduced to a handful of scattered settlements. Aiden Caldwell — a nomadic Pilgrim and sentient Volatile hybrid, the result of GRE experiments he was subjected to as a child — reaches Villedor, the last major city still standing, in search of his sister Mia. The main antagonist is Waltz, the GRE scientist who used them as test subjects and who now wants to reactivate an emergency protocol that would trigger missile strikes on Villedor. Aiden moves between the civil war between the Peacekeepers and the Bazaar Survivors while confronting his past and attempting to stop Waltz. Crane is mentioned by various characters as a legendary figure from the past."
+            }
+          },
+          { id: "dying-light-beast", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "~13 anni dopo The Following", yearEn: "~13 years after The Following",
+            title: { it: "Dying Light: The Beast", en: "Dying Light: The Beast" },
+            synopsis: {
+              it: "Crane, trasformatosi in volatile senziente dopo The Following, viene catturato dal GRE e poi ceduto al Barone, un biologo spietato che lo usa come cavia per 13 anni nel tentativo di creare un esercito di volatili senzienti usando il siero della Madre. Crane riesce a fuggire nel caos scatenato da Aiden Caldwell, un'altra cavia che sfonda la contenzione, e cerca vendetta contro il Barone scoprendo nel finale che il GRE stava finanziando gli esperimenti dall'ombra. Crane uccide il Barone e dichiara il GRE il suo prossimo obiettivo.",
+              en: "Crane, having transformed into a sentient Volatile after The Following, is captured by the GRE and handed over to the Baron — a ruthless biologist who uses him as a test subject for 13 years in an attempt to create an army of sentient Volatiles using the Mother's serum. Crane manages to escape in the chaos triggered by Aiden Caldwell, another test subject who breaches containment, and seeks revenge against the Baron, discovering in the finale that the GRE has been funding the experiments from the shadows. Crane kills the Baron and declares the GRE his next target."
+            }
+          }
+        ]
+      }
     ]
   },
 
