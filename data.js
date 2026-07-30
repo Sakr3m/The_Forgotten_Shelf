@@ -481,6 +481,7 @@ const GAMES = {
       it: "Una saga RPG che segue una stirpe di eroi leggendari,<br>discendenti di Erdrick, chiamati a fermare demoni,<br>draghi e signori oscuri in mondi che rinascono nel tempo.",
       en: "An RPG saga following a lineage of legendary heroes,<br>descendants of Erdrick, called to stop demons,<br>dragons, and dark lords in worlds reborn across time."
     },
+    palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
     universes: [
       {
         id: "erdrick",
