@@ -146,6 +146,7 @@ function renderEntry(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
+  randomizeLangSwitchColor();
   if(view === "landing"){
     state.column = null; state.entryId = null;
     el.body.style.removeProperty("--item-accent");
@@ -243,8 +244,19 @@ el.musicToggle.addEventListener("click", () => {
 // ---------------------------------------------------------
 // Cambio lingua
 // ---------------------------------------------------------
+function randomizeLangSwitchColor(){
+  if(state.view !== "landing"){
+    el.langSwitch.style.borderColor = "";
+    return;
+  }
+  const hue = Math.floor(Math.random() * 360);
+  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
+}
+randomizeLangSwitchColor();
+
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
+  randomizeLangSwitchColor();
   paintStaticText();
   renderLists();
   if(state.view === "entry") renderEntry();
