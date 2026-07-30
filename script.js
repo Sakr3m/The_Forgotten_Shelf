@@ -167,8 +167,10 @@ function renderCaseGrid(){
     const card = document.createElement("button");
     card.type = "button";
     card.className = "case-card";
-    const uCount = g.universes.length;
-    const uLabel = uCount === 1
+    const uCount = g.universes ? g.universes.length : 0;
+    const uLabel = g.noTimeline
+      ? (state.lang === "it" ? "Continuità non confermata" : "Unconfirmed continuity")
+      : uCount === 1
       ? (state.lang === "it" ? "1 continuità" : "1 continuity")
       : (state.lang === "it" ? uCount + " universi" : uCount + " universes");
     card.style.setProperty("--card-accent", g.accentColor || "#6b7280");
@@ -188,7 +190,7 @@ function renderCaseGrid(){
 // ---------------------------------------------------------
 function renderUniversePicker(){
   const g = currentGame();
-  if(!g){ el.universePicker.hidden = true; return; }
+  if(!g || g.noTimeline){ el.universePicker.hidden = true; return; }
   el.universePicker.hidden = false;
   const u = currentUniverse();
   el.universeTriggerLabel.textContent = tf(u.name);
@@ -322,6 +324,12 @@ function renderGamePanel(){
       <p class="game-header__blurb">${tf(g.blurb)}</p>
     </div>
   `;
+
+  if(g.noTimeline){
+    el.universesRow.className = "universe-stage no-timeline";
+    el.universesRow.innerHTML = `<div class="canon-note">${tf(g.canonNote).replace(/\n/g, "<br><br>")}</div>`;
+    return;
+  }
 
   const universes = g.universes;
   const idx = state.universeIndex;
