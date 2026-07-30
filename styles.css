@@ -56,18 +56,18 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
    ============================================================ */
 .seal{ --size:30px; width:var(--size); height:var(--size); position:relative; flex-shrink:0; display:inline-flex; }
 .seal svg{ width:100%; height:100%; }
-.seal--mini{ --size:24px; }
+.seal--mini{ --size:30px; }
 .seal__crack{ display:none; }
 
 /* ============================================================
    Brand (sidebar) + stage controls (universe picker, language)
    ============================================================ */
 body[data-state="landing"] .brand{ display:none; }
-.brand{ position:fixed; top:44px; left:255px; z-index:5; display:flex; align-items:center; gap:22px; }
+.brand{ position:fixed; top:44px; left:283px; z-index:5; display:flex; align-items:center; gap:22px; }
 .brand-icon{ display:flex; cursor:pointer; transition:transform var(--dur-fast) var(--ease); }
 .brand-icon:hover{ transform:scale(1.08); }
 .brand-text{
-  font-size:1.15rem; font-weight:800; letter-spacing:-.01em; color:var(--text);
+  font-size:1.32rem; font-weight:800; letter-spacing:-.01em; color:var(--text);
   background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
 }
 
@@ -349,7 +349,7 @@ body[data-state="landing"] .music-control{ display:none; }
 .game-header{
   position:relative;
   display:flex; gap:24px; align-items:center;
-  padding:45px 28px 45px;
+  padding:55px 28px 35px;
   margin-bottom:40px;
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
