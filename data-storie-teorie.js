@@ -11,8 +11,8 @@ const TEORIE = {
   clair_obscur_chi_e_quel_bambino: {
     accentColor: "#c9a24b",
     title: {
-      it: "Clair Obscur: Expedition 33 - Chi è quel bambino?",
-      en: "Clair Obscur: Expedition 33 - Who is that boy?"
+      it: "Clair Obscur: Expedition 33\nChi è quel Bambino?",
+      en: "Clair Obscur: Expedition 33\nWho is that Boy?"
     },
     body: {
       it: `Se hai completato il finale di Maelle in Clair Obscur: Expedition 33, probabilmente ricordi la scena: lei varca la soglia del Théâtre Majestic, e lì trova tutti quanti, ridisegnati, compresi Gustave e Sophie. È un momento carico di emozione, quasi sopraffacente.
@@ -60,8 +60,8 @@ A small detail. One of the most powerful images in the entire game.`
   ff8_vera_identita_artemisia: {
     accentColor: "#ff3b30",
     title: {
-      it: "Final Fantasy 8 - La Vera Identità di Artemisia (smentita)",
-      en: "Final Fantasy 8 - Ultimecia's True Identity (debunked)"
+      it: "Final Fantasy 8\nLa Vera Identità di Artemisia",
+      en: "Final Fantasy 8\nUltimecia's True Identity"
     },
     body: {
       it: `Oggi vi parlo di una delle teorie fan più longeve e discusse dell'intera storia dei videogiochi. Non è nuova, circola dai tempi della PS1, ma nel corso degli anni ha accumulato prove, smentite e mezze ammissioni degli stessi sviluppatori che la rendono ancora oggi impossibile da ignorare del tutto.
