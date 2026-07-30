@@ -5,15 +5,52 @@
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
-/* Colonna destra "Storie Nascoste" — clone di .timeline-rail ma
-   senza le regole di visibilità legate agli stati game/title,
-   così resta visibile anche nella landing insieme alla sinistra. */
+/* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
+   rispetto alle misure di base condivise con timeline.html — solo su
+   desktop, sul mobile la sidebar resta il drawer con la sua larghezza. */
+@media (min-width:761px){
+  #sidebar{ width:260px; }
+}
 .side-rail{
-  width:280px; flex-shrink:0;
-  padding:30px 20px;
+  width:310px; flex-shrink:0;
+  padding:24px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
   overflow-y:auto;
+}
+
+/* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
+   posizione in alto (niente più brand sopra la colonna sinistra) e
+   stessa colorazione/dimensione dell'etichetta "Teorie". */
+.rail-label{
+  font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text-faint); margin-bottom:14px; padding:0 8px 0;
+  border-bottom:none;
+}
+
+/* Header in cima allo stage: icona + nome pagina a sinistra, pronto
+   ad ospitare in futuro un banner come nelle pagine con la linea
+   temporale di timeline.html. */
+.page-header{
+  position:relative;
+  height:108px; flex-shrink:0;
+  margin-bottom:30px;
+  padding:0 28px;
+  display:flex; align-items:center;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.page-header__banner{
+  position:absolute; inset:0; z-index:0;
+  background-repeat:no-repeat; background-size:cover; background-position:center;
+}
+.page-header__overlay{
+  position:absolute; inset:0; z-index:0;
+  background:linear-gradient(90deg, rgba(10,14,23,.85), rgba(10,14,23,.35));
+}
+.page-header__brand{
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:14px;
 }
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
@@ -48,8 +85,10 @@
 
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
+body[data-state="landing"] .page-header{ display:none; }
 
 @media (max-width:760px){
+  .page-header{ height:84px; padding:0 16px; margin-bottom:20px; }
   .side-rail{
     width:100%; border-left:none; border-top:1px solid var(--line);
     padding:16px;
