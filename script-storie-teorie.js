@@ -149,6 +149,9 @@ function setState(view){
   if(view === "landing"){
     state.column = null; state.entryId = null;
     el.body.style.removeProperty("--item-accent");
+    el.body.style.setProperty("--cyan", "#6b7280");
+  } else {
+    el.body.style.removeProperty("--cyan");
   }
 
   el.landingPanel.hidden = view !== "landing";
