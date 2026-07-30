@@ -388,7 +388,23 @@ function renderGamePanel(){
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
     const count = uni.entries.length;
-    const availableWidth = liveTimeline.clientWidth; // verified via real bounding boxes to fit without the old safety margin
+
+    // The rail's length is anchored to a real, fixed reference point rather
+    // than "whatever space happens to be free": it must run from the left
+    // edge of the first avatar to the right edge of the language-switch
+    // button, on every card that has a timeline. liveTimeline's own left
+    // edge is stable (flush-left in its row) regardless of any width we set
+    // on it afterwards, so this single measurement is enough.
+    const langSwitch = document.getElementById("langSwitch");
+    const naturalWidth = liveTimeline.clientWidth; // fallback if the button isn't found for any reason
+    let availableWidth = naturalWidth;
+    if(langSwitch){
+      const langRect = langSwitch.getBoundingClientRect();
+      const timelineRect = liveTimeline.getBoundingClientRect();
+      const measured = langRect.right - timelineRect.left;
+      if(measured > 0) availableWidth = measured;
+    }
+
     const BASE_SCALE = 0.9025;      // global ~9.75% reduction (two compounding 5% cuts) applied everywhere
     const AVATAR_FLOOR = 0.85;      // avatars/titles can dip toward this before dots give up more room
     const DOT_TARGET = 0.55;        // dots aim for a clearly visible size, not just a bare minimum
@@ -410,6 +426,15 @@ function renderGamePanel(){
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
+
+    // Constrain the box itself to that same measured length so the nodes
+    // (space-between) actually pack into it instead of stretching to fill
+    // whatever room the container naturally has.
+    liveTimeline.style.flexGrow = "0";
+    liveTimeline.style.flexShrink = "0";
+    liveTimeline.style.flexBasis = availableWidth.toFixed(2) + "px";
+    liveTimeline.style.width = availableWidth.toFixed(2) + "px";
+
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
   }
 }
