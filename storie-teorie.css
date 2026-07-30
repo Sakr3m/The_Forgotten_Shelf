@@ -73,7 +73,9 @@ body[data-state="landing"] #pageHeader{ display:none; }
 }
 .entry-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
+  color:var(--item-accent, var(--cyan));
+  border:1px solid color-mix(in srgb, var(--item-accent, var(--cyan)) 40%, transparent);
+  border-radius:999px; padding:4px 12px;
 }
 .entry-title{ font-size:2.2rem; margin-top:16px; color:var(--text); max-width:1080px; }
 .entry-body{

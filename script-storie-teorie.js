@@ -85,6 +85,7 @@ function renderLists(){
     btn.type = "button";
     btn.textContent = tf(item.title);
     btn.classList.toggle("is-active", state.column === "teorie" && state.entryId === id);
+    btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("teorie", id));
     li.appendChild(btn);
     el.teorieList.appendChild(li);
@@ -98,6 +99,7 @@ function renderLists(){
     btn.type = "button";
     btn.textContent = tf(item.title);
     btn.classList.toggle("is-active", state.column === "storie" && state.entryId === id);
+    btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("storie", id));
     li.appendChild(btn);
     el.storieList.appendChild(li);
@@ -115,6 +117,7 @@ function renderEntry(){
   if(!entry){ el.entryContent.innerHTML = ""; return; }
   const tag = state.column === "teorie" ? t("tagTeoria") : t("tagStoria");
 
+  el.entryContent.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   el.entryContent.innerHTML = `
     <span class="entry-tag">${tag}</span>
     <h1 class="entry-title">${tf(entry.title)}</h1>
