@@ -410,24 +410,6 @@ function renderGamePanel(){
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
-
-    // Shrink the rail by 2%: constrain the box's own width so the very same
-    // nodes/gaps (sizes above are untouched) pack into a slightly shorter
-    // span. justify-content:space-between then keeps the first node flush
-    // on the box's left edge, the last flush on its right edge, and all
-    // others evenly spaced between them, exactly as before, just tighter.
-    // Safety: if a very dense universe wouldn't actually fit at 98% without
-    // overflowing (which would push the last node past the line's end),
-    // fall back to the full width for that universe only.
-    const TRACK_RATIO = 0.98;
-    const neededWidth = count * 100 * avatarScale + Math.max(0, count - 1) * gapPx;
-    const trackWidth = availableWidth * TRACK_RATIO;
-    const finalTrackWidth = neededWidth <= trackWidth ? trackWidth : availableWidth;
-    liveTimeline.style.flexGrow = "0";
-    liveTimeline.style.flexShrink = "0";
-    liveTimeline.style.flexBasis = finalTrackWidth.toFixed(2) + "px";
-    liveTimeline.style.width = finalTrackWidth.toFixed(2) + "px";
-
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
   }
 }
