@@ -108,8 +108,16 @@ body[data-state="landing"] #pageHeader{ display:none; }
    legati allo .stage, quindi scorrevano via con la pagina — e nel
    farlo passavano per un istante SOPRA l'header sticky (z-index più
    alto) prima di sparire del tutto. Ora restano fissi in schermo
-   insieme all'header, invece di scorrere e sparire. */
+   insieme all'header, invece di scorrere e sparire.
+   Essendo ora fixed (relativo alla finestra, non più allo .stage),
+   il valore "right" condiviso non teneva conto della side-rail da
+   310px: lo correggo qui perché finiva dentro la tabella Storie
+   Nascoste invece di fermarsi prima del suo bordo. */
 .stage-controls{ position:fixed; }
+@media (min-width:761px){
+  .stage-controls{ right:350px; }
+  .index-link{ left:300px; }
+}
 
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
