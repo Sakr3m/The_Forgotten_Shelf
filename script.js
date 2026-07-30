@@ -389,21 +389,18 @@ function renderGamePanel(){
   if(liveTimeline){
     const count = uni.entries.length;
 
-    // The rail's length is anchored to a real, fixed reference point rather
-    // than "whatever space happens to be free": it must run from the left
-    // edge of the first avatar to the right edge of the language-switch
-    // button, on every card that has a timeline. liveTimeline's own left
-    // edge is stable (flush-left in its row) regardless of any width we set
-    // on it afterwards, so this single measurement is enough.
-    const langSwitch = document.getElementById("langSwitch");
-    const naturalWidth = liveTimeline.clientWidth; // fallback if the button isn't found for any reason
-    let availableWidth = naturalWidth;
-    if(langSwitch){
-      const langRect = langSwitch.getBoundingClientRect();
-      const timelineRect = liveTimeline.getBoundingClientRect();
-      const measured = langRect.right - timelineRect.left;
-      if(measured > 0) availableWidth = measured;
-    }
+    // Fixed rail rule: 42px in from the sidebar's game-list rows on the left
+    // (already true as-is: h-timeline sits flush at the stage's own content
+    // edge, which is naturally 42px from the sidebar rows) and 42px in from
+    // the stage's content edge on the right too. So the usable width is
+    // simply the natural full width minus that 42px right inset. Avatar/dot
+    // scale is computed directly against this final width (not adjusted
+    // afterwards), so with space-between the first node always sits exactly
+    // on the left tip and the last exactly on the right tip, whatever the
+    // entry count (2, 3, 15, 16, 20...).
+    const RIGHT_INSET = 42;
+    const naturalWidth = liveTimeline.clientWidth;
+    const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
     const BASE_SCALE = 0.9025;      // global ~9.75% reduction (two compounding 5% cuts) applied everywhere
     const AVATAR_FLOOR = 0.85;      // avatars/titles can dip toward this before dots give up more room
@@ -427,9 +424,9 @@ function renderGamePanel(){
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
 
-    // Constrain the box itself to that same measured length so the nodes
-    // (space-between) actually pack into it instead of stretching to fill
-    // whatever room the container naturally has.
+    // Constrain the box itself to that same final width so the nodes
+    // (space-between) pack exactly into it, first flush left / last flush
+    // right, instead of stretching to fill the container's full natural width.
     liveTimeline.style.flexGrow = "0";
     liveTimeline.style.flexShrink = "0";
     liveTimeline.style.flexBasis = availableWidth.toFixed(2) + "px";
