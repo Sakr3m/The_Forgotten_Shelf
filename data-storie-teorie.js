@@ -11,6 +11,7 @@ const TEORIE = {
   clair_obscur_chi_e_quel_bambino: {
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
+    bannerOffset: 75,
     title: {
       it: "Clair Obscur: Expedition 33\nChi è quel Bambino?",
       en: "Clair Obscur: Expedition 33\nWho is that Boy?"
