@@ -405,7 +405,7 @@ body[data-state="landing"] .kofi-link{ display:flex; }
 .universe-stage.no-timeline{ justify-content:flex-start; align-items:flex-start; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }
 .canon-watermark{
-  position:fixed; top:300px; bottom:40px; right:0; width:38vw;
+  position:fixed; top:245px; bottom:40px; right:0; width:38vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 40%);
   mask-image:linear-gradient(90deg, transparent, black 40%);
