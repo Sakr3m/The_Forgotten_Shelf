@@ -640,8 +640,8 @@ const GAMES = {
       it: "Una saga open world action-crime che segue<br>criminali, rapinatori e trafficanti attraverso due<br>linee temporali distinte e incompatibili tra loro.",
       en: "An open-world action-crime saga following<br>criminals, robbers, and traffickers across two<br>separate, mutually incompatible timelines."
     },
-    palette: ["#1a1a1a", "#f2b705", "#8b8b8b"],
-    accentColor: "#f2b705",
+    palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
+    accentColor: "#ff4fa3",
     universes: [
       {
         id: "3d-universe",
