@@ -8,7 +8,7 @@ const STRINGS = {
     sidebarEyebrow: "Libreria Timeline",
     landingEyebrow: "Benvenuto nell'archivio Timeline",
     landingTitle: "The Forgotten Shelf",
-    landingIntro: "The Forgotten Shelf raccoglie e riordina le linee temporali di alcune delle saghe videoludiche più amate, ricostruendo l'ordine cronologico degli eventi capitolo per capitolo — tra continuità ufficiali e progressioni ricostruite dai fan quando un canon dichiarato non esiste. Un archivio pensato per chi vuole orientarsi tra spin-off, reboot e universi paralleli senza perdersi.",
+    landingIntro: "The Forgotten Shelf raccoglie e riordina le linee temporali di alcune delle saghe videoludiche più amate, ricostruendo l'ordine cronologico degli eventi capitolo per capitolo, tra continuità ufficiali e progressioni ricostruite dai fan quando un canon dichiarato non esiste. Un archivio pensato per chi vuole orientarsi tra spin-off, reboot e universi paralleli senza perdersi.",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona un titolo dalla libreria a sinistra per esplorarne la linea temporale.",
     kofiLabel: "Sostienimi su Ko-fi",
