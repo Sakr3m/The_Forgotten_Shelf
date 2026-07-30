@@ -253,8 +253,7 @@ function randomizeLangSwitchColor(){
     el.langSwitch.style.borderColor = "";
     return;
   }
-  const hue = Math.floor(Math.random() * 360);
-  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
+  el.langSwitch.style.borderColor = "#ef4444";
 }
 randomizeLangSwitchColor();
 
