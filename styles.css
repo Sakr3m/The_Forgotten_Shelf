@@ -796,17 +796,49 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .carousel-arrow__label{ display:none; }
   .universe-stage .u-track{ margin-top:66px; }
 
-  /* --- Horizontal timeline: everything resized to fit a phone --- */
-  .h-timeline{ padding:32px 0; }
-  .h-timeline::before{ left:var(--tl-line-left, 47px); width:var(--tl-line-width, calc(var(--tl-content-width, 100%) - 94px)); top:139.5px; height:5px; }
-  .h-node{ width:94px; grid-template-rows:101px 16px 101px; }
-  .h-node__top{ padding-bottom:8px; }
-  .h-node__bottom{ padding-top:8px; }
+  /* --- Vertical timeline: the line runs top-to-bottom, nodes stack
+     vertically, avatar/title alternate left/right of it instead of
+     above/below it. The page's own vertical scroll handles any length,
+     no width-fitting or scroll-toggle machinery needed here. --- */
+  .h-timeline{
+    display:flex; flex-direction:column; align-items:center;
+    padding:20px 0; gap:36px;
+    transform:none;
+  }
+  .h-timeline::before{
+    left:50%; top:var(--tl-line-top, 0px); width:5px;
+    height:var(--tl-line-height, 100%);
+    transform:translateX(-50%);
+  }
+  .h-node{
+    width:100%; flex-shrink:1;
+    grid-template-columns:1fr 24px 1fr; grid-template-rows:auto;
+    justify-items:stretch;
+  }
+  .h-node__top{
+    grid-column:1; align-self:center; justify-self:end;
+    align-items:flex-end; text-align:right;
+    padding-bottom:0; padding-right:14px;
+  }
+  .h-node__bottom{
+    grid-column:3; align-self:center; justify-self:start;
+    align-items:flex-start; text-align:left;
+    padding-top:0; padding-left:14px;
+  }
+  .h-node__marker{ grid-column:2; grid-row:1; }
   .h-node__tile{ width:63px; height:80px; }
-  .h-node__title{ font-size:.7rem; height:35px; width:80px; }
+  .h-node__title{ font-size:.7rem; height:auto; width:80px; }
   .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
-  .h-node--down .h-node__marker::after,
-  .h-node--up .h-node__marker::before{ height:7px; }
+  .h-node--down .h-node__marker::after{
+    top:50%; left:100%; bottom:auto; transform:translateY(-50%);
+    margin-top:0; margin-left:8px;
+    width:7px; height:2px;
+  }
+  .h-node--up .h-node__marker::before{
+    top:50%; right:100%; bottom:auto; left:auto; transform:translateY(-50%);
+    margin-bottom:0; margin-right:8px;
+    width:7px; height:2px;
+  }
 
   /* --- Title detail page --- */
   .title-panel{ margin-top:44px; }

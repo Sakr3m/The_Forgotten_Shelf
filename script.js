@@ -422,40 +422,64 @@ function renderGamePanel(){
   // Vertical: same height as the universe carousel arrows — measured off
   // .u-track__head itself (the row that holds them), so it's correct even
   // for single-universe games where no arrows actually exist.
+  // Uses translate(-50%,-50%) so the browser does the actual centering
+  // against the button's real rendered size at paint time, instead of a
+  // manual half-width/half-height subtraction that can be a few px off.
   const langRect = el.langSwitch.getBoundingClientRect();
   const stageRect = el.universesRow.getBoundingClientRect();
-  const toggleRect = scrollToggle.getBoundingClientRect();
   const trackHead = el.universesRow.querySelector(".u-track__head");
   const headRect = trackHead ? trackHead.getBoundingClientRect() : langRect;
   const langCenterX = (langRect.left + langRect.right) / 2;
   const headCenterY = (headRect.top + headRect.bottom) / 2;
-  const toggleLeft = langCenterX - stageRect.left - toggleRect.width / 2;
-  const toggleTop = headCenterY - stageRect.top - toggleRect.height / 2;
-  scrollToggle.style.left = toggleLeft.toFixed(2) + "px";
-  scrollToggle.style.top = toggleTop.toFixed(2) + "px";
+  scrollToggle.style.left = (langCenterX - stageRect.left).toFixed(2) + "px";
+  scrollToggle.style.top = (headCenterY - stageRect.top).toFixed(2) + "px";
+  scrollToggle.style.transform = "translate(-50%, -50%)";
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
+    const isDesktop = window.matchMedia("(min-width: 761px)").matches;
+    const avatarScale = 1;
+    const dotScale = 0.625;
+    liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
+    liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
+
+    if(!isDesktop){
+      // Mobile: the timeline is vertical (line runs top-to-bottom, nodes
+      // stacked, avatar/title alternating left/right of it instead of
+      // above/below). The page itself already scrolls vertically, so there's
+      // no need for any of the desktop's width-fitting/overlap/scroll-toggle
+      // machinery — just a comfortable fixed gap between stacked nodes.
+      liveTimeline.style.justifyContent = "";
+      liveTimeline.style.gap = "36px";
+      liveTimeline.style.overflowX = "";
+      liveTimeline.style.flexGrow = "";
+      liveTimeline.style.flexShrink = "";
+      liveTimeline.style.flexBasis = "";
+      liveTimeline.style.width = "";
+      liveTimeline.classList.remove("is-scrollable");
+      Array.from(liveTimeline.querySelectorAll(".h-node")).forEach(node => { node.style.marginLeft = ""; });
+
+      const dots = liveTimeline.querySelectorAll(".h-node__dot");
+      if(dots.length){
+        const timelineRect = liveTimeline.getBoundingClientRect();
+        const firstDot = dots[0].getBoundingClientRect();
+        const lastDot = dots[dots.length - 1].getBoundingClientRect();
+        const lineTop = (firstDot.top + firstDot.bottom) / 2 - timelineRect.top;
+        const lineBottom = (lastDot.top + lastDot.bottom) / 2 - timelineRect.top;
+        liveTimeline.style.setProperty("--tl-line-top", lineTop.toFixed(2) + "px");
+        liveTimeline.style.setProperty("--tl-line-height", Math.max(0, lineBottom - lineTop).toFixed(2) + "px");
+      }
+      return;
+    }
+
     // Fixed rail rule: 42px in from the sidebar's game-list rows on the left
     // (already true as-is: h-timeline sits flush at the stage's own content
     // edge, which is naturally 42px from the sidebar rows) and 42px in from
     // the stage's content edge on the right too. So the usable width is
-    // simply the natural full width minus that 42px right inset. The 42px
-    // rule is a desktop concept (distance from the sidebar rows, which don't
-    // exist as a static column on mobile — there it's a hidden drawer). On
-    // mobile, keep the original full-width behaviour untouched.
-    const isDesktop = window.matchMedia("(min-width: 761px)").matches;
-    const RIGHT_INSET = isDesktop ? 42 : 0;
+    // simply the natural full width minus that 42px right inset.
+    const RIGHT_INSET = 42;
     const naturalWidth = liveTimeline.clientWidth;
-    const baseAvailableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
-
-    // Every game, every universe: same fixed sizes, no more dynamic fitting
-    // for avatar/dot/title. avatarScale 1 = 100px avatar/node; dotScale
-    // 0.625 = 15px dot (the CSS formulas are max(8px, 24px*dotScale) /
-    // max(3px, 7px*dotScale), so this one constant also keeps the dot's
-    // border proportionally correct).
-    const avatarScale = 1;
-    const dotScale = 0.625;
+    const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
     // PC-only manual switch (button above): OFF (default) keeps the line at
     // exactly the same length as every other timeline (the full 42px-ruled
@@ -463,17 +487,19 @@ function renderGamePanel(){
     // true, they're anchored to their own real rendered position below, so
     // this can never leave them misaligned with the line. ON drops the
     // width constraint entirely, letting the row grow to its natural size
-    // and switches on drag-to-scroll for whatever doesn't fit. Mobile never
-    // uses either of these.
-    const freeScrollMode = isDesktop && state.timelineScrollMode;
-    const availableWidth = baseAvailableWidth;
+    // and switches on drag-to-scroll for whatever doesn't fit.
+    const freeScrollMode = state.timelineScrollMode;
 
     const nodes = Array.from(liveTimeline.querySelectorAll(".h-node"));
     if(freeScrollMode){
-      // Natural flex spacing: fixed target gap, space-between fills any
-      // extra room, and whatever doesn't fit simply scrolls.
+      // Free/breathing spacing: the gap is sized so at most 8 nodes are
+      // visible in the available width at once — everything past that
+      // scrolls. Never smaller than the normal minimum gap, so on a narrow
+      // desktop window it doesn't accidentally cram in more than 8.
       liveTimeline.style.justifyContent = "";
-      liveTimeline.style.gap = (26 * dotScale).toFixed(2) + "px";
+      const minGap = 26 * dotScale;
+      const gapFor8 = (availableWidth - 8 * 100) / 7;
+      liveTimeline.style.gap = Math.max(minGap, gapFor8).toFixed(2) + "px";
       nodes.forEach(node => { node.style.marginLeft = ""; });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
@@ -491,13 +517,10 @@ function renderGamePanel(){
       });
     }
 
-    liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
-    liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
-
     // Scrolling only ever exists while the manual switch is on: no automatic
     // resolution-based trigger, no trace of it (scrollbar, cursor, anything)
     // when it's off.
-    liveTimeline.style.overflowX = freeScrollMode ? "auto" : (isDesktop ? "visible" : "");
+    liveTimeline.style.overflowX = freeScrollMode ? "auto" : "visible";
     liveTimeline.classList.toggle("is-scrollable", freeScrollMode);
 
     // Constrain the box itself to that same final width so the nodes
