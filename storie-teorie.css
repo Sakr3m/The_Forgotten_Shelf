@@ -36,10 +36,11 @@
 body[data-state="landing"] #pageHeader{ display:none; }
 
 /* Overlay fisso tazza+testo: stessa classe .brand di timeline.html
-   (stessa altezza, stessa animazione), solo spostata un po' più a
-   destra perché qui la sidebar è più larga (260px invece di 230px). */
+   (stessa altezza, stessa animazione), ma senza il box a larghezza
+   fissa (140px, pensato per allinearsi all'avatar del gioco che qui
+   non esiste) — la scritta resta libera di estendersi a destra. */
 @media (min-width:761px){
-  .brand{ left:313px; }
+  .brand{ left:313px; width:auto; justify-content:flex-start; gap:14px; }
 }
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
