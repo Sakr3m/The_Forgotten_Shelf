@@ -433,6 +433,8 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
+    const count = uni.entries.length;
+
     // Fixed rail rule: 42px in from the sidebar's game-list rows on the left
     // (already true as-is: h-timeline sits flush at the stage's own content
     // edge, which is naturally 42px from the sidebar rows) and 42px in from
@@ -446,10 +448,11 @@ function renderGamePanel(){
     const naturalWidth = liveTimeline.clientWidth;
     const baseAvailableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
-    // Every game, every universe: same fixed sizes, no more dynamic fitting.
-    // avatarScale 1 = 100px avatar/node; dotScale 0.625 = 15px dot (the CSS
-    // formulas are max(8px, 24px*dotScale) / max(3px, 7px*dotScale), so this
-    // one constant also keeps the dot's border proportionally correct).
+    // Every game, every universe: same fixed sizes, no more dynamic fitting
+    // for avatar/dot/title. avatarScale 1 = 100px avatar/node; dotScale
+    // 0.625 = 15px dot (the CSS formulas are max(8px, 24px*dotScale) /
+    // max(3px, 7px*dotScale), so this one constant also keeps the dot's
+    // border proportionally correct).
     const avatarScale = 1;
     const dotScale = 0.625;
 
@@ -463,6 +466,19 @@ function renderGamePanel(){
     // Mobile never uses either of these.
     const freeScrollMode = isDesktop && state.timelineScrollMode;
     const availableWidth = freeScrollMode ? baseAvailableWidth : baseAvailableWidth * 0.95;
+
+    // Sizes are fixed, but the SPACE BETWEEN nodes isn't: with the switch
+    // off, when there are enough entries that the normal gap wouldn't let
+    // them all fit, the gap shrinks (down to touching, if it must) so as
+    // many titles as possible stay on screen — scrolling is the very last
+    // resort, only for whatever still doesn't fit at zero gap.
+    const targetGapPx = 26 * dotScale;
+    let gapPx = targetGapPx;
+    if(!freeScrollMode && count > 1){
+      const idealGap = (availableWidth - count * 100) / (count - 1);
+      gapPx = Math.max(0, Math.min(targetGapPx, idealGap));
+    }
+    liveTimeline.style.gap = gapPx.toFixed(2) + "px";
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
