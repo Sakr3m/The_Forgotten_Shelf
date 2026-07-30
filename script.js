@@ -63,7 +63,6 @@ const el = {
   universeTriggerLabel: document.getElementById("universeTriggerLabel"),
   universeMenu: document.getElementById("universeMenu"),
   gameList: document.getElementById("gameList"),
-  caseGrid: document.getElementById("caseGrid"),
   landingPanel: document.getElementById("landingPanel"),
   gamePanel: document.getElementById("gamePanel"),
   gameHeader: document.getElementById("gameHeader"),
@@ -96,12 +95,6 @@ document.addEventListener("mouseup", () => {
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
-function stripLinks(html){
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  div.querySelectorAll("a").forEach(a => { a.replaceWith(document.createTextNode(a.textContent)); });
-  return div.innerHTML;
-}
 
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
@@ -179,7 +172,7 @@ function paintStaticText(){
 }
 
 // ---------------------------------------------------------
-// Sidebar + landing case grid
+// Sidebar
 // ---------------------------------------------------------
 function renderSidebar(){
   el.gameList.innerHTML = "";
@@ -194,31 +187,6 @@ function renderSidebar(){
     btn.addEventListener("click", () => selectGame(id));
     li.appendChild(btn);
     el.gameList.appendChild(li);
-  });
-}
-
-function renderCaseGrid(){
-  el.caseGrid.innerHTML = "";
-  GAME_ORDER.forEach(id => {
-    const g = GAMES[id];
-    const card = document.createElement("button");
-    card.type = "button";
-    card.className = "case-card";
-    const uCount = g.universes ? g.universes.length : 0;
-    const uLabel = g.noTimeline
-      ? (state.lang === "it" ? "Continuità non confermata" : "Unconfirmed continuity")
-      : uCount === 1
-      ? (state.lang === "it" ? "1 continuità" : "1 continuity")
-      : (state.lang === "it" ? uCount + " universi" : uCount + " universes");
-    card.style.setProperty("--card-accent", g.accentColor || "#6b7280");
-    card.innerHTML = `
-      <span class="seal" aria-hidden="true"><span class="seal__crack"></span></span>
-      <h3>${tf(g.listTitle)}</h3>
-      <p class="case-count">${uLabel}</p>
-      <p class="case-blurb">${stripLinks(tf(g.blurb))}</p>
-    `;
-    card.addEventListener("click", () => selectGame(id));
-    el.caseGrid.appendChild(card);
   });
 }
 

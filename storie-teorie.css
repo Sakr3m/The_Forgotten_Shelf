@@ -88,7 +88,6 @@ body[data-state="landing"] #pageHeader{ display:none; }
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:center; max-width:1080px;
 }
-.entry-back{ margin-top:36px; }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
    esteso anche ai controlli in alto: switch lingua, pulsante volume,

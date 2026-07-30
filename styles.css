@@ -57,7 +57,6 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .seal{ --size:30px; width:var(--size); height:var(--size); position:relative; flex-shrink:0; display:inline-flex; }
 .seal svg{ width:100%; height:100%; }
 .seal--mini{ --size:30px; }
-.seal__crack{ display:none; }
 
 /* ============================================================
    Brand (sidebar) + stage controls (universe picker, language)
@@ -237,14 +236,6 @@ body[data-state="landing"] .brand{ display:none; }
 }
 
 
-.sidebar-group{
-  margin-top:22px; padding-top:16px; border-top:1px solid var(--line);
-}
-.sidebar-group__label{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:6px 8px; font-size:.82rem; font-weight:600; color:var(--text-faint);
-}
-
 .stage{ position:relative; flex:1; min-width:0; padding:15px 25px 80px; display:flex; flex-direction:column; }
 
 .timeline-rail{
@@ -327,45 +318,6 @@ body[data-state="landing"] .index-link{ display:flex; }
 
 .landing-sub{ margin-top:60px; color:var(--text-faint); font-size:.88rem; }
 
-.case-grid{
-  margin-top:48px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  gap:20px;
-}
-.case-card{
-  position:relative;
-  padding:22px 20px 20px;
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  cursor:pointer;
-  text-align:left;
-  transition:transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-  opacity:0; animation:cardIn .5s var(--ease) forwards;
-}
-.case-card:nth-child(1){ animation-delay:.05s; }
-.case-card:nth-child(2){ animation-delay:.13s; }
-.case-card:nth-child(3){ animation-delay:.21s; }
-.case-card:nth-child(4){ animation-delay:.29s; }
-@keyframes cardIn{ from{ opacity:0; transform:translateY(12px);} to{ opacity:1; transform:translateY(0);} }
-.case-card::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:3px;
-  background:var(--gradient);
-  border-radius:var(--radius) var(--radius) 0 0;
-  opacity:0; transition:opacity var(--dur) var(--ease);
-}
-.case-card:hover, .case-card:focus-visible{
-  transform:translateY(-4px);
-  border-color:color-mix(in srgb, var(--card-accent, var(--cyan)) 40%, transparent);
-  box-shadow:0 16px 32px rgba(0,0,0,.35);
-}
-.case-card:hover::before, .case-card:focus-visible::before{ opacity:1; }
-.case-card .seal{ margin-bottom:14px; }
-.case-card h3{ font-size:1.15rem; color:var(--text); }
-.case-card .case-count{ margin-top:5px; font-size:.72rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--text-faint); }
-.case-card p.case-blurb{ margin-top:16px; font-size:.82rem; color:var(--text-dim); line-height:1.5; }
-
 /* ============================================================
    Game panel — header + proportional timelines
    ============================================================ */
@@ -417,15 +369,14 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .game-header__cover img{ width:100%; height:100%; object-fit:cover; }
 .game-header__cover .monogram{ font-size:2.4rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.game-header__eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); }
 .game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
 .game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
-.game-header__blurb a, .case-blurb a{
+.game-header__blurb a{
   color:var(--cyan); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--cyan) 35%, transparent);
   text-underline-offset:2px;
   transition:color var(--dur-fast) var(--ease);
 }
-.game-header__blurb a:hover, .case-blurb a:hover{ color:var(--text); }
+.game-header__blurb a:hover{ color:var(--text); }
 
 /* Universes: a single centered track, same fixed length regardless of entry count */
 .universe-stage{ position:relative; display:flex; justify-content:center; flex:1; min-height:0; }
@@ -667,8 +618,6 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-year{ font-size:.8rem; font-weight:600; color:var(--text-faint); margin-left:10px; }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
 .title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
-.title-media{ margin-top:24px; width:100%; max-width:360px; border-radius:var(--radius); border:1px solid var(--line); overflow:hidden; }
-.title-media img{ width:100%; display:block; }
 .title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
 .title-note{
   margin-top:20px; padding:14px 18px;
@@ -774,7 +723,6 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   .landing{ margin-top:44px; }
   .landing-title{ font-size:1.7rem; }
-  .case-grid{ grid-template-columns:1fr; gap:14px; }
 
   /* --- Game header --- */
   .game-header{

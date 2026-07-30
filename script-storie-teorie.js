@@ -14,7 +14,6 @@ const STRINGS = {
     landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
-    backLabel: "Torna all'archivio",
     tagTeoria: "Teoria",
     tagStoria: "Storia Nascosta"
   },
@@ -29,7 +28,6 @@ const STRINGS = {
     landingSub: "Select an entry from the Theories column or from the Hidden Stories column to dive in.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
-    backLabel: "Back to the archive",
     tagTeoria: "Theory",
     tagStoria: "Hidden Story"
   }
@@ -66,12 +64,6 @@ const el = {
 
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
-
-function arrowIcon(dir){
-  return dir === "left"
-    ? `<svg viewBox="0 0 12 10" aria-hidden="true"><path d="M5 1L1 5l4 4M1.4 5H11" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-    : `<svg viewBox="0 0 12 10" aria-hidden="true"><path d="M7 1l4 4-4 4M10.6 5H1" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-}
 
 // ---------------------------------------------------------
 // Static text (i18n) painting
