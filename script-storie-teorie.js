@@ -249,7 +249,12 @@ el.musicToggle.addEventListener("click", () => {
 // Cambio lingua
 // ---------------------------------------------------------
 function randomizeLangSwitchColor(){
-  el.langSwitch.style.borderColor = "";
+  if(state.view !== "landing"){
+    el.langSwitch.style.borderColor = "";
+    return;
+  }
+  const hue = Math.floor(Math.random() * 360);
+  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
 }
 randomizeLangSwitchColor();
 

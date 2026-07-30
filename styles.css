@@ -121,7 +121,6 @@ body[data-state="landing"] .brand{ display:none; }
   transition:border-color .3s var(--ease);
 }
 .lang-switch:hover{ border-color:var(--cyan); filter:brightness(1.15); }
-body[data-state="landing"] .lang-switch:hover{ border-color:#ef4444; filter:none; }
 .lang-option{ color:var(--text-faint); padding:2px 3px; transition:color var(--dur-fast) var(--ease); }
 .lang-option.is-active{ color:var(--cyan); }
 .lang-sep{ color:var(--line); }
