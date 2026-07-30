@@ -28,30 +28,16 @@
   border-bottom:none;
 }
 
-/* Header in cima allo stage: icona + nome pagina a sinistra, pronto
-   ad ospitare in futuro un banner come nelle pagine con la linea
-   temporale di timeline.html. */
-.page-header{
-  position:relative;
-  height:108px; flex-shrink:0;
-  margin-bottom:30px;
-  padding:0 28px;
-  display:flex; align-items:center;
-  border-bottom:1px solid var(--line);
-  overflow:hidden;
-}
-.page-header__banner{
-  position:absolute; inset:0; z-index:0;
-  background-repeat:no-repeat; background-size:cover; background-position:center;
-}
-.page-header__overlay{
-  position:absolute; inset:0; z-index:0;
-  background:linear-gradient(90deg, rgba(10,14,23,.85), rgba(10,14,23,.35));
-}
+/* Header in cima allo stage: stesso game-header di timeline.html
+   (riusa le classi condivise .game-header/.game-header__banner/
+   .game-header__banner-overlay già definite in styles.css), ma dato
+   che qui non c'è cover/titolo/blurb, l'icona+testo si centrano da
+   soli verticalmente grazie all'align-items:center ereditato. */
 .page-header__brand{
   position:relative; z-index:1;
   display:flex; align-items:center; gap:14px;
 }
+body[data-state="landing"] #pageHeader{ display:none; }
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
    centrale — solo su desktop, sul mobile la sidebar resta il drawer
@@ -67,7 +53,7 @@
 /* Pannello voce (teoria o storia nascosta) — stessa impaginazione
    del title-panel/title-content, ma testo centrato invece che
    allineato a sinistra. */
-.entry-panel{ width:100%; max-width:1350px; margin:110px auto 0; }
+.entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
 .entry-content{
   opacity:0; animation:fadeUp .45s var(--ease) forwards;
   display:flex; flex-direction:column; align-items:center; text-align:center;
@@ -85,15 +71,13 @@
 
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
-body[data-state="landing"] .page-header{ display:none; }
 
 @media (max-width:760px){
-  .page-header{ height:84px; padding:0 16px; margin-bottom:20px; }
   .side-rail{
     width:100%; border-left:none; border-top:1px solid var(--line);
     padding:16px;
   }
-  .entry-panel{ margin-top:44px; max-width:100%; }
+  .entry-panel{ margin-top:16px; max-width:100%; }
   .entry-title{ font-size:1.5rem; max-width:100%; }
   .entry-body{ max-width:100%; }
 }
