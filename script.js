@@ -166,6 +166,7 @@ function renderSidebar(){
     btn.type = "button";
     btn.textContent = tf(g.listTitle);
     btn.classList.toggle("is-active", state.gameId === id);
+    btn.style.setProperty("--item-accent", g.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectGame(id));
     li.appendChild(btn);
     el.gameList.appendChild(li);
@@ -549,8 +550,15 @@ function selectEntry(entryId){
 // ---------------------------------------------------------
 // Language switch
 // ---------------------------------------------------------
+function randomizeLangSwitchColor(){
+  const hue = Math.floor(Math.random() * 360);
+  el.langSwitch.style.setProperty("--lang-random-color", `hsl(${hue}, 75%, 60%)`);
+}
+randomizeLangSwitchColor();
+
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
+  randomizeLangSwitchColor();
   paintStaticText();
   if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderUniversePicker(); renderGamePanel(); }

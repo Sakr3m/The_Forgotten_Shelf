@@ -108,12 +108,13 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .lang-switch{
   display:flex; align-items:center; gap:6px;
   padding:9px 14px;
-  border:1px solid var(--line);
+  border:1px solid var(--lang-random-color, var(--line));
   background:var(--panel);
   border-radius:999px;
   font-size:.78rem; font-weight:600;
+  transition:border-color .3s var(--ease);
 }
-.lang-switch:hover{ border-color:var(--cyan); }
+.lang-switch:hover{ border-color:var(--lang-random-color, var(--cyan)); }
 .lang-option{ color:var(--text-faint); padding:2px 3px; transition:color var(--dur-fast) var(--ease); }
 .lang-option.is-active{ color:var(--cyan); }
 .lang-sep{ color:var(--line); }
@@ -212,8 +213,8 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 }
 .game-list button:hover{
   color:var(--text); font-weight:600;
-  background:linear-gradient(90deg, color-mix(in srgb, var(--cyan) 14%, transparent), rgba(232,121,249,.06));
-  box-shadow:inset 2px 0 0 var(--cyan);
+  background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
+  box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
 
 
@@ -242,6 +243,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 /* ============================================================
    Landing — case grid
    ============================================================ */
+body[data-state="landing"] .music-control{ display:none; }
 .landing{
   position:relative;
   width:100%; max-width:760px; margin:66px auto 0;
@@ -260,13 +262,13 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .kofi-link:hover{ border-color:#ff5e5b; color:var(--text); }
 .kofi-link svg{ width:16px; height:16px; color:#ff5e5b; flex-shrink:0; }
 
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:8px; }
-.landing-title{ font-size:2.6rem; margin-top:14px; color:var(--text); }
-.landing-intro{ margin-top:20px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
+.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:20px; }
+.landing-title{ font-size:2.6rem; margin-top:22px; color:var(--text); }
+.landing-intro{ margin-top:32px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
 
 .spoiler-alert{
   display:flex; align-items:flex-start; gap:12px;
-  margin-top:28px; padding:16px 20px;
+  margin-top:36px; padding:16px 20px;
   max-width:640px;
   border:1px solid rgba(250,204,21,.35);
   background:rgba(250,204,21,.08);
@@ -276,7 +278,7 @@ button{ font-family:inherit; color:inherit; background:none; border:none; cursor
 .spoiler-alert__icon{ font-size:1.1rem; color:#facc15; flex-shrink:0; line-height:1.4; }
 .spoiler-alert p{ font-size:.88rem; line-height:1.55; color:var(--text-dim); margin:0; }
 
-.landing-sub{ margin-top:28px; color:var(--text-faint); font-size:.88rem; }
+.landing-sub{ margin-top:40px; color:var(--text-faint); font-size:.88rem; }
 
 .case-grid{
   margin-top:48px;
