@@ -51,6 +51,7 @@ const el = {
   trackTitle: document.getElementById("trackTitle"),
   trackGame: document.getElementById("trackGame"),
   trackSkipBtn: document.getElementById("trackSkipBtn"),
+  trackProgressFill: document.getElementById("trackProgressFill"),
   volumeSlider: document.getElementById("volumeSlider"),
   universePicker: document.getElementById("universePicker"),
   universeTrigger: document.getElementById("universeTrigger"),
@@ -499,6 +500,7 @@ function renderRail(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
+  randomizeLangSwitchColor();
 
   el.landingPanel.hidden = view !== "landing";
   el.gamePanel.hidden = view !== "game";
@@ -551,8 +553,12 @@ function selectEntry(entryId){
 // Language switch
 // ---------------------------------------------------------
 function randomizeLangSwitchColor(){
+  if(state.view !== "landing"){
+    el.langSwitch.style.borderColor = "";
+    return;
+  }
   const hue = Math.floor(Math.random() * 360);
-  el.langSwitch.style.setProperty("--lang-random-color", `hsl(${hue}, 75%, 60%)`);
+  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
 }
 randomizeLangSwitchColor();
 
@@ -617,6 +623,14 @@ function advanceTrack(){
   updateMusicPlayback();
 }
 el.bgMusic.addEventListener("ended", advanceTrack);
+el.bgMusic.addEventListener("timeupdate", () => {
+  if(el.bgMusic.duration){
+    el.trackProgressFill.style.width = (el.bgMusic.currentTime / el.bgMusic.duration * 100) + "%";
+  }
+});
+el.bgMusic.addEventListener("loadedmetadata", () => {
+  el.trackProgressFill.style.width = "0%";
+});
 el.trackSkipBtn.addEventListener("click", advanceTrack);
 
 // ---------------------------------------------------------
