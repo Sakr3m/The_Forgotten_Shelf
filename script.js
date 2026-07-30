@@ -445,7 +445,7 @@ function renderGamePanel(){
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
     const BASE_SCALE = 0.9025;      // global ~9.75% reduction (two compounding 5% cuts) applied everywhere
-    const AVATAR_FLOOR = 0.85;      // avatars/titles can dip toward this before dots give up more room
+    const AVATAR_FLOOR = 0.9;        // avatars/titles can dip toward this (90px) before dots give up more room
     const DOT_TARGET = 0.55;        // dots aim for a clearly visible size, not just a bare minimum
     const DOT_FLOOR = 0.2;          // absolute last resort
 
