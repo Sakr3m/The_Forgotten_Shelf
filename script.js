@@ -445,38 +445,28 @@ function renderGamePanel(){
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
     const BASE_SCALE = 0.9025;      // global ~9.75% reduction (two compounding 5% cuts) applied everywhere
-    const AVATAR_FLOOR = 0.9;        // avatars/titles can dip toward this (90px) before dots give up more room
-    const DOT_TARGET = 0.55;        // dots aim for a clearly visible size, not just a bare minimum
-    const DOT_FLOOR = 0.2;          // absolute last resort
+    const AVATAR_FLOOR = 0.9;        // avatars/titles never go below this (90px)
+    const DOT_TARGET = 0.55;        // dots always render at this size — never compensate for avatars
 
     // PC-only manual switch (button added below): OFF (default) tries to fit
-    // every entry on screen, shrinking avatars/dots down to their floor if
-    // needed, same as always. ON locks avatars/dots at their comfortable
-    // target size — never shrinking — lets the actual gap between them
+    // every entry on screen, shrinking avatars down to their floor if needed;
+    // dots/spacing always stay at their normal target regardless, never
+    // shrinking further to compensate — if it doesn't all fit, that's what
+    // the scroll switch below is for. ON locks avatars at their comfortable
+    // target size too — never shrinking — lets the actual gap between them
     // stretch dynamically to whatever room the screen gives (space-between,
     // so wider screens naturally get more breathing room), and switches on
     // drag-to-scroll for whatever doesn't fit. Mobile never uses this mode.
     const freeScrollMode = isDesktop && state.timelineScrollMode;
 
-    let dotScale, gapPx, avatarScale;
+    const dotScale = DOT_TARGET;
+    const gapPx = 26 * dotScale;
+    let avatarScale;
     if(freeScrollMode){
       avatarScale = BASE_SCALE;
-      dotScale = DOT_TARGET;
-      gapPx = 26 * dotScale;
     } else {
-      // Reserve room for dots/gap at their target size first...
-      dotScale = DOT_TARGET;
-      gapPx = 26 * dotScale;
       avatarScale = count > 0 ? Math.min(BASE_SCALE, (availableWidth - Math.max(0, count - 1) * gapPx) / (count * 100)) : BASE_SCALE;
-
-      if(avatarScale < AVATAR_FLOOR){
-        // Avatars would get too small at the dot target: give avatars their
-        // floor instead, and let dots shrink further to make room.
-        avatarScale = AVATAR_FLOOR;
-        const remaining = availableWidth - count * 100 * avatarScale;
-        gapPx = count > 1 ? Math.max(26 * DOT_FLOOR, remaining / (count - 1)) : 26 * DOT_TARGET;
-        dotScale = Math.max(DOT_FLOOR, Math.min(DOT_TARGET, gapPx / 26));
-      }
+      if(avatarScale < AVATAR_FLOOR) avatarScale = AVATAR_FLOOR;
     }
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
