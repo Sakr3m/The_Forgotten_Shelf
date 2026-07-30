@@ -410,9 +410,6 @@ function renderGamePanel(){
 
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
-    // Shrink the actual track by 5% (nodes stay flush-left, line/dots recompute
-    // against this narrower box) without touching avatar/dot/title sizes above.
-    liveTimeline.style.flex = "0 0 " + (availableWidth * 0.95).toFixed(2) + "px";
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
   }
 }
