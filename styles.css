@@ -560,7 +560,7 @@ body[data-state="landing"] .kofi-link{ display:flex; }
 .h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--cyan)); }
 .h-node__title{
   font-size:calc(.78rem * var(--avatar-scale, 1)); font-weight:600; text-align:center; color:var(--text-dim);
-  line-height:1.3; height:calc(48px * var(--avatar-scale, 1)); width:100%;
+  line-height:1.3; height:calc(52px * var(--avatar-scale, 1)); width:calc(126px * var(--avatar-scale, 1));
   display:flex; flex-direction:column;
 }
 .h-node__title--top{ justify-content:flex-start; }
@@ -755,7 +755,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .h-node__top{ padding-bottom:8px; }
   .h-node__bottom{ padding-top:8px; }
   .h-node__tile{ width:63px; height:80px; }
-  .h-node__title{ font-size:.7rem; height:32px; }
+  .h-node__title{ font-size:.7rem; height:35px; width:80px; }
   .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
   .h-node--down .h-node__marker::after,
   .h-node--up .h-node__marker::before{ height:7px; }
