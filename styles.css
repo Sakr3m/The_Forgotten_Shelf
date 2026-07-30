@@ -437,7 +437,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    controls bar. Off by default: the line tries to fit every entry on
    screen; on, it switches to free/dynamic spacing with drag-to-scroll. */
 .timeline-scroll-toggle{
-  position:absolute; top:0; right:0; z-index:3;
+  position:absolute; top:0; left:0; z-index:3;
   display:flex; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:50%;
   border:1px solid var(--line); background:var(--panel); color:var(--text-dim);
@@ -608,7 +608,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--cyan)); }
 .h-node__title{
   font-size:calc(.78rem * var(--avatar-scale, 1)); font-weight:600; text-align:center; color:var(--text-dim);
-  line-height:1.3; height:calc(52px * var(--avatar-scale, 1)); width:calc(115px * var(--avatar-scale, 1));
+  line-height:1.3; height:calc(52px * var(--avatar-scale, 1)); width:calc(130px * var(--avatar-scale, 1));
   display:flex; flex-direction:column;
 }
 .h-node__title--top{ justify-content:flex-start; }

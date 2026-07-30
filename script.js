@@ -418,13 +418,17 @@ function renderGamePanel(){
   });
   el.universesRow.appendChild(scrollToggle);
 
-  // Vertically center the button on the real, measured lang-switch button
-  // instead of guessing a top offset — robust to any future change in
-  // either element's height.
+  // Horizontally centered on the real, measured lang-switch button, but
+  // sitting below it with a clear gap — not at its same height, which was
+  // making the two overlap (the lang-switch, painted after/above, hid ours
+  // completely).
   const langRect = el.langSwitch.getBoundingClientRect();
   const stageRect = el.universesRow.getBoundingClientRect();
   const toggleRect = scrollToggle.getBoundingClientRect();
-  const toggleTop = (langRect.top + langRect.bottom) / 2 - stageRect.top - toggleRect.height / 2;
+  const langCenterX = (langRect.left + langRect.right) / 2;
+  const toggleLeft = langCenterX - stageRect.left - toggleRect.width / 2;
+  const toggleTop = langRect.bottom - stageRect.top + 14; // clear gap below the lang-switch
+  scrollToggle.style.left = toggleLeft.toFixed(2) + "px";
   scrollToggle.style.top = toggleTop.toFixed(2) + "px";
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
