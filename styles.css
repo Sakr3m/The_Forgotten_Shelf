@@ -193,7 +193,7 @@ body[data-state="landing"] .brand{ display:none; }
   color:var(--text-faint);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.music-toggle:hover{ border-color:var(--cyan); color:var(--text); }
+.music-toggle:hover{ border-color:#ff3b30; color:var(--text); }
 .music-toggle svg{ width:18px; height:18px; }
 .music-toggle__icon-off{ display:none; }
 .music-toggle[aria-pressed="true"]{ color:var(--cyan); border-color:color-mix(in srgb, var(--cyan) 40%, transparent); }
@@ -279,8 +279,8 @@ body[data-state="landing"] .stage{ justify-content:center; }
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 body[data-state="landing"] .kofi-link{ display:flex; }
-.kofi-link:hover{ border-color:#ff5e5b; color:var(--text); }
-.kofi-link svg{ width:16px; height:16px; color:#ff5e5b; flex-shrink:0; }
+.kofi-link:hover{ border-color:#ff3b30; color:var(--text); }
+.kofi-link svg{ width:16px; height:16px; color:#ff3b30; flex-shrink:0; }
 
 .landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:44px; }
 .landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
