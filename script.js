@@ -84,7 +84,7 @@ document.addEventListener("mousemove", (e) => {
   if(!dragState.active || !dragState.el) return;
   e.preventDefault();
   const dx = e.pageX - dragState.startX;
-  if(Math.abs(dx) > 4) dragState.moved = true;
+  if(Math.abs(dx) > 5) dragState.moved = true;
   dragState.el.scrollLeft = dragState.startScrollLeft - dx;
 });
 document.addEventListener("mouseup", () => {
@@ -439,7 +439,7 @@ function renderGamePanel(){
   if(liveTimeline){
     const isDesktop = window.matchMedia("(min-width: 761px)").matches;
     const avatarScale = 1;
-    const dotScale = 5 / 24; // 5px dot
+    const dotScale = 0.625; // 15px dot
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
 
