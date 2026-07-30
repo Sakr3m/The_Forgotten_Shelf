@@ -400,7 +400,11 @@ function renderGamePanel(){
     // afterwards), so with space-between the first node always sits exactly
     // on the left tip and the last exactly on the right tip, whatever the
     // entry count (2, 3, 15, 16, 20...).
-    const RIGHT_INSET = 42;
+    // The 42px rule is a desktop concept (distance from the sidebar rows,
+    // which don't exist as a static column on mobile — there it's a hidden
+    // drawer). On mobile, keep the original full-width behaviour untouched.
+    const isDesktop = window.matchMedia("(min-width: 761px)").matches;
+    const RIGHT_INSET = isDesktop ? 42 : 0;
     const naturalWidth = liveTimeline.clientWidth;
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
