@@ -79,11 +79,13 @@ const el = {
 // scroll toggle is on. Attached once here (not per-render) to avoid piling
 // up duplicate window/document listeners every time the panel re-renders;
 // the actual timeline element is swapped in via dragState.el on mousedown.
-const dragState = { active: false, el: null, startX: 0, startScrollLeft: 0 };
+const dragState = { active: false, el: null, startX: 0, startScrollLeft: 0, moved: false };
 document.addEventListener("mousemove", (e) => {
   if(!dragState.active || !dragState.el) return;
   e.preventDefault();
-  dragState.el.scrollLeft = dragState.startScrollLeft - (e.pageX - dragState.startX);
+  const dx = e.pageX - dragState.startX;
+  if(Math.abs(dx) > 4) dragState.moved = true;
+  dragState.el.scrollLeft = dragState.startScrollLeft - dx;
 });
 document.addEventListener("mouseup", () => {
   if(dragState.el) dragState.el.classList.remove("is-dragging");
@@ -435,6 +437,20 @@ function renderGamePanel(){
   scrollToggle.style.top = (headCenterY - stageRect.top).toFixed(2) + "px";
   scrollToggle.style.transform = "translate(-50%, -50%)";
 
+  // Self-correct: measure where the button actually landed and nudge it by
+  // whatever residual gap remains, instead of trusting the calculation
+  // alone — this cancels out any box-model/rounding quirk regardless of
+  // its cause.
+  const checkRect = scrollToggle.getBoundingClientRect();
+  const actualCenterX = (checkRect.left + checkRect.right) / 2;
+  const actualCenterY = (checkRect.top + checkRect.bottom) / 2;
+  const errorX = langCenterX - actualCenterX;
+  const errorY = headCenterY - actualCenterY;
+  if(Math.abs(errorX) > 0.4 || Math.abs(errorY) > 0.4){
+    scrollToggle.style.left = (parseFloat(scrollToggle.style.left) + errorX).toFixed(2) + "px";
+    scrollToggle.style.top = (parseFloat(scrollToggle.style.top) + errorY).toFixed(2) + "px";
+  }
+
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
     const isDesktop = window.matchMedia("(min-width: 761px)").matches;
@@ -537,8 +553,20 @@ function renderGamePanel(){
       dragState.el = liveTimeline;
       dragState.startX = e.pageX;
       dragState.startScrollLeft = liveTimeline.scrollLeft;
+      dragState.moved = false;
       liveTimeline.classList.add("is-dragging");
     });
+
+    // A drag that actually moved the mouse shouldn't also count as a click
+    // on whichever title happens to be under the cursor on release —
+    // capture phase, so it stops the node's own click handler before it runs.
+    liveTimeline.addEventListener("click", (e) => {
+      if(dragState.moved){
+        e.stopPropagation();
+        e.preventDefault();
+        dragState.moved = false;
+      }
+    }, true);
 
     liveTimeline.style.setProperty("--tl-content-width", liveTimeline.scrollWidth + "px");
 
