@@ -432,11 +432,14 @@ function renderGamePanel(){
 
     // Scrolling is a last resort for desktop windows that are ridiculously
     // small for 2026 — the trigger is the screen resolution itself, not
-    // whether this particular universe's content happens to fit. Above the
-    // threshold, current lines are left completely untouched: overflow stays
-    // "visible" (the CSS default), no scrollbar, no scroll capability, not
-    // even a hint of one. Below it, scrolling switches on silently.
-    const RIDICULOUSLY_SMALL_DESKTOP = 1024;
+    // whether this particular universe's content happens to fit. The
+    // threshold is calculated, not guessed: 1761px is the narrowest window
+    // in which the densest timeline on the site (Castlevania's IGA universe,
+    // 16 entries) still fits even at floor avatar/dot sizes. Above it,
+    // current lines are left completely untouched: overflow stays "visible"
+    // (the CSS default), no scrollbar, no scroll capability, not even a hint
+    // of one. Below it, scrolling switches on silently.
+    const RIDICULOUSLY_SMALL_DESKTOP = 1761;
     if(isDesktop){
       liveTimeline.style.overflowX = window.innerWidth < RIDICULOUSLY_SMALL_DESKTOP ? "auto" : "visible";
     } else {
