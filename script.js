@@ -418,16 +418,19 @@ function renderGamePanel(){
   });
   el.universesRow.appendChild(scrollToggle);
 
-  // Horizontally centered on the real, measured lang-switch button, but
-  // sitting below it with a clear gap — not at its same height, which was
-  // making the two overlap (the lang-switch, painted after/above, hid ours
-  // completely).
+  // Horizontal: centered on the real, measured lang-switch button.
+  // Vertical: same height as the universe carousel arrows — measured off
+  // .u-track__head itself (the row that holds them), so it's correct even
+  // for single-universe games where no arrows actually exist.
   const langRect = el.langSwitch.getBoundingClientRect();
   const stageRect = el.universesRow.getBoundingClientRect();
   const toggleRect = scrollToggle.getBoundingClientRect();
+  const trackHead = el.universesRow.querySelector(".u-track__head");
+  const headRect = trackHead ? trackHead.getBoundingClientRect() : langRect;
   const langCenterX = (langRect.left + langRect.right) / 2;
+  const headCenterY = (headRect.top + headRect.bottom) / 2;
   const toggleLeft = langCenterX - stageRect.left - toggleRect.width / 2;
-  const toggleTop = langRect.bottom - stageRect.top + 14; // clear gap below the lang-switch
+  const toggleTop = headCenterY - stageRect.top - toggleRect.height / 2;
   scrollToggle.style.left = toggleLeft.toFixed(2) + "px";
   scrollToggle.style.top = toggleTop.toFixed(2) + "px";
 
