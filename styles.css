@@ -106,6 +106,8 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar .brand{
     position:static; width:auto; left:auto; top:auto; z-index:auto;
     justify-content:flex-start; gap:14px;
+    margin-left:-50px; /* dai 100px del bordo della barra a 50px, senza
+      toccare il padding condiviso (che sposterebbe anche index-link) */
   }
   .stage-topbar .brand-icon{ position:static; left:auto; }
   .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
@@ -367,7 +369,9 @@ body[data-state="landing"] .index-link{ display:flex; }
 .game-header{
   position:relative;
   display:flex; gap:24px; align-items:center;
-  padding:55px 28px 35px;
+  padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
+    di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
+    l'altezza totale dell'header restano invariati */
   margin-bottom:40px;
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
