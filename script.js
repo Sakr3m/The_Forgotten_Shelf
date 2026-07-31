@@ -6,7 +6,7 @@ const STRINGS = {
   it: {
     brand: "Timeline",
     sidebarEyebrow: "Libreria Timeline",
-    landingEyebrow: "Benvenuto nell'archivio Timeline",
+    landingEyebrow: "Benvenuto nell'archivio\nTimeline",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie e riordina le linee temporali di alcune delle saghe videoludiche più amate, ricostruendo l'ordine cronologico degli eventi capitolo per capitolo, tra continuità ufficiali e progressioni ricostruite dai fan quando un canon dichiarato non esiste. Un archivio pensato per chi vuole orientarsi tra spin-off, reboot e universi paralleli senza perdersi.",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
@@ -21,7 +21,7 @@ const STRINGS = {
   en: {
     brand: "Timeline",
     sidebarEyebrow: "Timeline Library",
-    landingEyebrow: "Welcome to the Timeline archive",
+    landingEyebrow: "Welcome to the\nTimeline archive",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf collects and reorders the timelines of some of the most beloved video game sagas, reconstructing the chronological order of events chapter by chapter — spanning official continuities and fan-reconstructed progressions where no declared canon exists. An archive built for anyone who wants to navigate spin-offs, reboots, and parallel universes without getting lost.",
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
