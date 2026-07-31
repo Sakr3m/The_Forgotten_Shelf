@@ -91,17 +91,18 @@ body[data-state="landing"] .brand{ display:none; }
 @media (min-width:761px){
   .stage-topbar{
     position:sticky; top:0; z-index:10;
-    height:0; overflow:visible; /* non riserva spazio nel flusso: i
-      figli sporgono comunque grazie a overflow:visible, quindi la
-      barra resta visibile e "attaccata" in alto scorrendo, ma senza
-      spingere giù game-header/landing/title-panel come faceva prima
-      con min-height:68px. Niente sfondo pieno: coprirebbe/taglierebbe
-      la banner sotto (vedi nota più sotto), i singoli pulsanti hanno
-      già il proprio sfondo. */
-    display:flex; align-items:flex-start; justify-content:space-between;
+    height:68px; /* 15px margine sopra + 38px pulsante più alto
+      (music-toggle) + 15px margine sotto: altezza reale, non più il
+      trucco "altezza zero" (probabile causa del movimento incoerente
+      dei pulsanti durante lo scroll). Il browser gestisce lo sticky
+      in modo standard su un box con altezza vera. */
+    display:flex; align-items:center; justify-content:space-between;
     padding:0 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
+    background:var(--bg); /* sfondo diretto sul box reale: copre il testo
+      che scorre sotto senza bisogno di pseudo-elementi né z-index
+      particolari, perché uno sfondo normale dipinge sempre sotto
+      TUTTI i figli del suo stesso box, statici o meno. */
   }
-  .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, la barra stessa resta a altezza zero */
   .stage-topbar .brand{
     position:static; width:auto; left:auto; top:auto; z-index:auto;
     justify-content:flex-start; gap:14px;
@@ -111,26 +112,19 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar .brand-icon{ position:static; left:auto; }
   .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
   .stage-topbar .stage-controls{ position:static; top:auto; right:auto; z-index:auto; }
+  .stage:has(.stage-topbar){ padding-top:0; } /* la barra ora occupa
+    spazio reale (68px), quindi il padding-top dello stage (15px) va
+    tolto per non sommarsi e spingere tutto troppo in basso */
 
   /* In home, Ko-fi non segue il flusso del gruppo insieme allo
      switch: va centrato esattamente a metà tra "torna all'index" e
      lo switch lingua. Dato che entrambi stanno a 100px dal proprio
      bordo, il centro esatto tra i due coincide sempre col centro
-     della barra stessa, qualunque sia la larghezza dello schermo.
-     Verticalmente si allinea agli altri pulsanti con lo stesso
-     margin-top:15px, non serve piu centrarlo su un contenitore che
-     ora ha altezza zero. */
+     della barra stessa, qualunque sia la larghezza dello schermo. */
   body[data-state="landing"] .kofi-link{
-    position:absolute; left:50%; top:15px;
-    transform:translateX(-50%);
-    margin-top:0;
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
   }
-}
-/* Solo nella schermata "gioco" (timeline/universi, o le pagine tipo
-   Doom senza timeline) switch lingua e volume si spostano un po' più
-   a sinistra — non nella schermata del singolo titolo scelto. */
-@media (min-width:761px){
-  body[data-state="game"] .stage-controls{ right:55px; }
 }
 
 .lang-switch{
@@ -376,7 +370,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
 
 .game-header{
-  position:sticky; top:15px; z-index:4;
+  position:sticky; top:68px; z-index:4;
   background:var(--bg);
   display:flex; gap:24px; align-items:center;
   padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
@@ -659,7 +653,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 /* ============================================================
    Title panel — full detail
    ============================================================ */
-.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:100px; }
+.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:47px; }
 .title-watermark{
   position:fixed; top:0; bottom:0; right:var(--rail-width); width:42vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
