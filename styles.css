@@ -27,6 +27,13 @@
   --dur-fast: 150ms;
   --dur: 300ms;
   --ease: cubic-bezier(.22,.68,.36,1);
+
+  /* Larghezza della colonna timeline-rail (destra, visibile solo
+     nella vista "titolo"): unica fonte di verità, così qualunque
+     altro elemento che deve lasciarle spazio (es. la filigrana del
+     titolo) si aggiorna da solo invece di avere lo stesso numero
+     ricopiato a mano in due punti diversi. */
+  --rail-width: 280px;
 }
 
 *{ box-sizing:border-box; }
@@ -233,7 +240,7 @@ body[data-state="landing"] .brand{ display:none; }
 .stage{ position:relative; flex:1; min-width:0; padding:15px 25px 80px; display:flex; flex-direction:column; }
 
 .timeline-rail{
-  width:280px; flex-shrink:0;
+  width:var(--rail-width); flex-shrink:0;
   padding:30px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
@@ -619,7 +626,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    ============================================================ */
 .title-panel{ width:100%; max-width:1860px; position:relative; margin-top:37px; }
 .title-watermark{
-  position:fixed; top:0; bottom:0; right:280px; width:42vw;
+  position:fixed; top:0; bottom:0; right:var(--rail-width); width:42vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
   mask-image:linear-gradient(90deg, transparent, black 35%);
