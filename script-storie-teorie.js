@@ -88,7 +88,7 @@ function renderLists(){
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.textContent = `${tf(item.gameLabel)}\n${tf(item.title)}`;
+    btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "teorie" && state.entryId === id);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("teorie", id));
@@ -102,7 +102,7 @@ function renderLists(){
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.textContent = `${tf(item.gameLabel)}\n${tf(item.title)}`;
+    btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "storie" && state.entryId === id);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("storie", id));

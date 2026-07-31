@@ -102,10 +102,17 @@ body[data-state="landing"] .brand{ display:none; }
      background diretto, così non conta nel flusso (la barra resta ad
      altezza zero) ma copre comunque il testo che scorre sotto di lei —
      altrimenti, senza nessuno sfondo, il titolo che sale si intravedeva
-     dietro ai pulsanti invece di sparire correttamente. */
+     dietro ai pulsanti invece di sparire correttamente.
+     z-index:-1: i pulsanti dentro la barra sono position:static, quindi
+     senza questo dipingerebbero PRIMA di un elemento posizionato come
+     questo pseudo-elemento (le regole di sovrapposizione del browser
+     mettono gli elementi statici dietro a quelli posizionati, a parità
+     di tutto il resto) — finendo dietro allo sfondo invece che sopra.
+     Il negativo li riporta davanti, restando comunque sopra al testo
+     grazie allo z-index:10 dell'intero contenitore .stage-topbar. */
   .stage-topbar::before{
     content:""; position:absolute; top:0; left:0; right:0; height:70px;
-    background:var(--bg);
+    background:var(--bg); z-index:-1;
   }
   .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, la barra stessa resta a altezza zero */
   .stage-topbar .brand{
