@@ -110,7 +110,15 @@ body[data-state="landing"] .brand{ display:none; }
   }
   .stage-topbar .brand-icon{ position:static; left:auto; }
   .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
-  .stage-topbar .stage-controls{ position:static; top:auto; right:auto; z-index:auto; }
+  .stage-topbar .stage-controls{
+    position:static; top:auto; right:auto; z-index:auto;
+    min-height:38px; /* = altezza di music-toggle, il pulsante più alto.
+      Senza questo, l'altezza di .stage-controls dipende da quali figli
+      sono visibili — in home c'è solo lo switch lingua (più basso),
+      nelle altre pagine anche il volume (38px, il più alto) — e lo
+      switch lingua, centrato dentro questo contenitore, finisce a
+      un'altezza leggermente diversa a seconda dei casi. */
+  }
 
   /* Elemento indipendente (non dentro .stage-topbar apposta): copre
      la zona vuota tra il vero bordo alto della pagina e dove iniziano
