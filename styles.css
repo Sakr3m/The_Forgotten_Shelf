@@ -244,7 +244,9 @@ body[data-state="landing"] .brand{ display:none; }
   color:var(--text-faint);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.music-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-faint)); }
+@media (hover:hover) and (pointer:fine){
+  .music-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-faint)); }
+}
 .music-toggle svg{ width:18px; height:18px; }
 .music-toggle__icon-off{ display:none; }
 .music-toggle[aria-pressed="true"]{ color:var(--cyan); }

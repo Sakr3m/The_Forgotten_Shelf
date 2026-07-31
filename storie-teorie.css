@@ -139,7 +139,9 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .lang-switch{ border-color:var(--item-accent, var(--cyan)); }
 .lang-switch .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
 .music-toggle{ border-color:var(--item-accent, var(--cyan)); }
-.music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
+@media (hover:hover) and (pointer:fine){
+  .music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
+}
 .music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
 .track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
 .track-info{ border-color:var(--item-accent, var(--cyan)); }
