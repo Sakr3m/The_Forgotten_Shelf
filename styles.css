@@ -870,7 +870,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     transform:translate(-50%, -50%);
   }
 
-  .landing{ margin-top:10px; }
+  .landing{ margin-top:0; }
   .landing-title{ font-size:1.45rem; }
   .landing-eyebrow{ margin-top:20px; font-size:.7rem; max-width:220px; white-space:pre-line; }
   .landing-intro{ margin-top:24px; font-size:.92rem; }
