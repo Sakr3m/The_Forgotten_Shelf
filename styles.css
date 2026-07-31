@@ -101,7 +101,15 @@ body[data-state="landing"] .brand{ display:none; }
   }
   .stage:has(.stage-topbar){ padding-top:0; } /* i 15px li fornisce ora
     la barra stessa (altezza reale), non più il padding dello stage */
-  .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, coerente con l'altezza reale della barra */
+  .stage-topbar > *{ margin-top:15px; height:38px; } /* i pulsanti scendono di
+    15px dal bordo, coerente con l'altezza reale della barra. Altezza
+    esplicita (38px, quella di music-toggle, il piu alto in natura) su
+    OGNI figlio diretto: senza questo, brand/index-link/stage-controls
+    avrebbero ciascuno l'altezza dettata dal proprio contenuto (icona+
+    testo variano leggermente da uno all'altro), risultando allineati
+    per il bordo sopra ma leggermente diversi al centro — con
+    align-items:center sul contenuto interno di ciascuno, ora anche il
+    centro combacia sempre, identico in ogni schermata. */
   .stage-topbar .brand{
     position:static; width:auto; left:auto; top:auto; z-index:auto;
     justify-content:flex-start; gap:14px;
@@ -112,12 +120,12 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
   .stage-topbar .stage-controls{
     position:static; top:auto; right:auto; z-index:auto;
-    min-height:38px; /* = altezza di music-toggle, il pulsante più alto.
-      Senza questo, l'altezza di .stage-controls dipende da quali figli
-      sono visibili — in home c'è solo lo switch lingua (più basso),
-      nelle altre pagine anche il volume (38px, il più alto) — e lo
-      switch lingua, centrato dentro questo contenitore, finisce a
-      un'altezza leggermente diversa a seconda dei casi. */
+    height:38px; /* = altezza di music-toggle. Prima era min-height, che
+      da solo non bastava: qui serve altezza esatta (non minima) perche
+      quando c'e solo lo switch lingua (home) senza il volume, il
+      contenuto piu corto lascerebbe comunque uno spazio diverso da
+      quando c'e anche il volume — con height fissa invece il box e
+      sempre identico, e lo switch si centra sempre alla stessa altezza. */
   }
 
   /* Elemento indipendente (non dentro .stage-topbar apposta): copre
@@ -146,20 +154,13 @@ body[data-state="landing"] .brand{ display:none; }
      lo switch lingua. Dato che entrambi stanno a 100px dal proprio
      bordo, il centro esatto tra i due coincide sempre col centro
      della barra stessa, qualunque sia la larghezza dello schermo.
-     Verticalmente si allinea agli altri pulsanti con lo stesso
-     margin-top:15px, non serve piu centrarlo su un contenitore che
-     ora ha altezza zero. */
+     Altezza esplicita (38px, come tutti gli altri) cosi il suo centro
+     combacia esattamente con quello di index-link e dello switch. */
   body[data-state="landing"] .kofi-link{
-    position:absolute; left:50%; top:15px;
+    position:absolute; left:50%; top:15px; height:38px;
     transform:translateX(-50%);
     margin-top:0;
   }
-}
-/* Solo nella schermata "gioco" (timeline/universi, o le pagine tipo
-   Doom senza timeline) switch lingua e volume si spostano un po' più
-   a sinistra — non nella schermata del singolo titolo scelto. */
-@media (min-width:761px){
-  body[data-state="game"] .stage-controls{ right:55px; }
 }
 
 .lang-switch{
