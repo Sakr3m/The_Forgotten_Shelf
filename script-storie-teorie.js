@@ -12,6 +12,7 @@ const STRINGS = {
     landingIntro: "Storie & Teorie raccoglie riflessioni, teorie dei fan e retroscena nascosti dentro alcune delle saghe videoludiche più amate: dettagli che sfuggono a una prima lettura, indizi lasciati dagli sviluppatori, ipotesi che il tempo non ha ancora del tutto confermato né smentito. Un angolo pensato per chi ama guardare oltre la superficie della trama.",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
+    landingSubMobile: "Seleziona una voce dalla finestra Teorie o da quella delle Storie Nascoste per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index"
   },
@@ -24,6 +25,7 @@ const STRINGS = {
     landingIntro: "Stories & Theories collects fan theories, reflections, and hidden details buried inside some of the most beloved video game sagas — clues that slip past a first playthrough, threads left behind by developers, ideas time hasn't fully confirmed or debunked. A corner built for anyone who loves looking past the surface of the plot.",
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     landingSub: "Select an entry from the Theories column or from the Hidden Stories column to dive in.",
+    landingSubMobile: "Select an entry from the Theories screen or from the Hidden Stories screen to dive in.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index"
   }
@@ -70,7 +72,10 @@ function tf(field){ return field ? (field[state.lang] || field.en || field.it ||
 // ---------------------------------------------------------
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
-    node.textContent = t(node.getAttribute("data-i18n"));
+    const key = node.getAttribute("data-i18n");
+    const mobileKey = key + "Mobile";
+    const useMobile = mobileBreakpoint.matches && STRINGS[state.lang][mobileKey];
+    node.textContent = useMobile ? t(mobileKey) : t(key);
   });
   document.documentElement.lang = state.lang;
   el.langSwitch.querySelectorAll(".lang-option").forEach(opt => {
@@ -313,6 +318,7 @@ el.langSwitch.addEventListener("click", () => {
 // Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
 const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+mobileBreakpoint.addEventListener("change", paintStaticText);
 const stageEl = document.getElementById("stage");
 
 function scrollCarouselToStage(){
