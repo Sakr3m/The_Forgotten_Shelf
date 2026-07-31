@@ -20,8 +20,8 @@ const TEORIE = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" }
     ],
     title: {
-      it: "Clair Obscur: Expedition 33\nChi è quel Bambino?",
-      en: "Clair Obscur: Expedition 33\nWho is that Boy?"
+      it: "Chi è quel Bambino?",
+      en: "Who is that Boy?"
     },
     body: {
       it: `Se hai completato il finale di Maelle in Clair Obscur: Expedition 33, probabilmente ricordi la scena: lei varca la soglia del Théâtre Majestic, e lì trova tutti quanti, ridisegnati, compresi Gustave e Sophie. È un momento carico di emozione, quasi sopraffacente.
@@ -68,7 +68,7 @@ A small detail. One of the most powerful images in the entire game.`
   },
   ff8_vera_identita_artemisia: {
     game: "ff8",
-    gameLabel: { it: "Final Fantasy 8", en: "Final Fantasy 8" },
+    gameLabel: { it: "Final Fantasy VIII", en: "Final Fantasy VIII" },
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     bannerOffset: 65,
@@ -78,8 +78,8 @@ A small detail. One of the most powerful images in the entire game.`
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20The%20Man%20with%20the%20Machine%20Gun.mp3", title: "The Man with the Machine Gun", game: "Final Fantasy VIII" }
     ],
     title: {
-      it: "Final Fantasy 8\nLa Vera Identità di Artemisia",
-      en: "Final Fantasy 8\nUltimecia's True Identity"
+      it: "La Vera Identità di Artemisia",
+      en: "Ultimecia's True Identity"
     },
     body: {
       it: `Oggi vi parlo di una delle teorie fan più longeve e discusse dell'intera storia dei videogiochi. Non è nuova, circola dai tempi della PS1, ma nel corso degli anni ha accumulato prove, smentite e mezze ammissioni degli stessi sviluppatori che la rendono ancora oggi impossibile da ignorare del tutto.

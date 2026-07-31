@@ -94,12 +94,18 @@ body[data-state="landing"] .brand{ display:none; }
     height:0; overflow:visible; /* non riserva spazio nel flusso: i
       figli sporgono comunque grazie a overflow:visible, quindi la
       barra resta visibile e "attaccata" in alto scorrendo, ma senza
-      spingere giù game-header/landing/title-panel come faceva prima
-      con min-height:68px. Niente sfondo pieno: coprirebbe/taglierebbe
-      la banner sotto (vedi nota più sotto), i singoli pulsanti hanno
-      già il proprio sfondo. */
+      spingere giù game-header/landing/title-panel. */
     display:flex; align-items:flex-start; justify-content:space-between;
     padding:0 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
+  }
+  /* Sfondo della barra: uno pseudo-elemento assoluto invece di un
+     background diretto, così non conta nel flusso (la barra resta ad
+     altezza zero) ma copre comunque il testo che scorre sotto di lei —
+     altrimenti, senza nessuno sfondo, il titolo che sale si intravedeva
+     dietro ai pulsanti invece di sparire correttamente. */
+  .stage-topbar::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:70px;
+    background:var(--bg);
   }
   .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, la barra stessa resta a altezza zero */
   .stage-topbar .brand{
@@ -232,6 +238,17 @@ body[data-state="landing"] .brand{ display:none; }
   padding:24px 16px;
   border-right:1px solid var(--line);
   background:var(--bg-soft);
+}
+/* Sidebar e colonna della linea temporale: scroll indipendente dal
+   testo centrale, su desktop — ognuna scorre per conto suo, non
+   insieme al resto della pagina. Stesso schema già usato per le
+   colonne di storie-teorie.html. */
+@media (min-width:761px){
+  .sidebar, .timeline-rail{
+    position:sticky; top:0; align-self:flex-start;
+    height:100vh;
+    overflow-y:auto;
+  }
 }
 .sidebar-eyebrow{
   font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
