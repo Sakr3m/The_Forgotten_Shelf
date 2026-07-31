@@ -253,6 +253,8 @@ body[data-state="landing"] .brand{ display:none; }
 .music-toggle[aria-pressed="false"] .music-toggle__icon-on{ display:none; }
 .music-toggle[aria-pressed="false"] .music-toggle__icon-off{ display:block; }
 
+.swipe-hint{ display:none; }
+
 /* ============================================================
    Layout
    ============================================================ */
@@ -404,6 +406,8 @@ body[data-state="landing"] .index-link{ display:flex; }
 
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
+@keyframes swipeHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
+@keyframes swipeHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
 
 .game-header{
   position:sticky; top:15px; z-index:4;
@@ -766,6 +770,26 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
    ============================================================ */
 @media (max-width: 760px){
 
+  /* Sfondo monocromatico in home: niente sfumature colorate di sfondo,
+     solo il colore pieno — più pulito su schermo piccolo. */
+  body[data-state="landing"]{ background:var(--bg); }
+
+  /* Freccette animate che suggeriscono lo swipe verso la colonna
+     laterale — solo nelle direzioni dove esiste davvero una colonna
+     da raggiungere (l'HTML le include solo dove serve: sinistra su
+     entrambe le pagine, destra anche su Storie & Teorie ma non su
+     timeline.html, che in home non ha una colonna a destra). Piccole,
+     poco sotto la barra dei 3 pulsanti. */
+  body[data-state="landing"] .swipe-hint{
+    display:block;
+    position:fixed; top:82px; z-index:20;
+    color:var(--text-faint);
+    pointer-events:none;
+  }
+  body[data-state="landing"] .swipe-hint svg{ width:16px; height:16px; display:block; }
+  body[data-state="landing"] .swipe-hint--left{ left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite; }
+  body[data-state="landing"] .swipe-hint--right{ right:14px; animation:swipeHintRight 1.6s ease-in-out infinite; }
+
   /* --- Carosello sidebar/stage --- */
   .layout{
     display:flex; overflow-x:auto; overflow-y:hidden;
@@ -818,24 +842,39 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   /* In home, i 3 pulsanti (home, Ko-fi al centro, switch) diventano
      una barra unica a tutta larghezza con sfondo pieno e riga sotto
      a fare da divisore: il testo che scorre scompare dietro questa
-     barra invece di intravedersi nei vuoti tra i pulsanti fluttuanti. */
-  body[data-state="landing"] .stage-controls{
-    position:fixed; top:0; left:0; right:0;
-    width:100%;
-    display:flex; justify-content:space-between; align-items:center;
+     barra invece di intravedersi nei vuoti tra i pulsanti fluttuanti.
+     "Torna all'index" prima restava fuori da questa barra (era
+     position:static per conto suo), quindi Ko-fi non era mai stato
+     davvero centrato tra i due — ora .stage-topbar stesso diventa la
+     barra (invece di sparire con display:contents come nelle altre
+     schermate), con index-link e stage-controls come suoi estremi
+     sinistro/destro, e Ko-fi centrato in modo indipendente in mezzo. */
+  body[data-state="landing"] .stage-topbar{
+    display:flex; position:fixed; top:0; left:0; right:0;
+    align-items:center; justify-content:space-between;
     padding:14px 16px;
     background:var(--bg);
     border-bottom:1px solid var(--line);
     z-index:50;
   }
+  body[data-state="landing"] .stage-topbar .index-link{ margin-top:0; }
+  body[data-state="landing"] .stage-topbar .stage-controls{
+    position:static; top:auto; right:auto; left:auto; width:auto;
+    padding:0; border:none; background:none; z-index:auto;
+    margin-top:0;
+  }
+  body[data-state="landing"] .stage-topbar .kofi-link{
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+  }
 
-  .landing{ margin-top:36px; }
+  .landing{ margin-top:30px; }
   .landing-title{ font-size:1.45rem; }
-  .landing-eyebrow{ margin-top:32px; font-size:.7rem; }
-  .landing-intro{ margin-top:36px; font-size:.92rem; }
-  .spoiler-alert{ margin-top:36px; }
+  .landing-eyebrow{ margin-top:20px; font-size:.7rem; }
+  .landing-intro{ margin-top:24px; font-size:.92rem; }
+  .spoiler-alert{ margin-top:24px; }
   .spoiler-alert p{ font-size:.82rem; }
-  .landing-sub{ margin-top:40px; font-size:.82rem; }
+  .landing-sub{ margin-top:24px; font-size:.82rem; }
 
   /* --- Game header --- */
   .game-header{
