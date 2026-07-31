@@ -151,6 +151,6 @@ body[data-state="entry"] .landing{ display:none; }
   .track-info__game{ display:none; }
 
   .entry-panel{ margin-top:16px; max-width:100%; }
-  .entry-title{ font-size:1.5rem; max-width:100%; }
-  .entry-body{ max-width:100%; }
+  .entry-title{ font-size:1.3rem; max-width:100%; }
+  .entry-body{ max-width:100%; font-size:.92rem; }
 }
