@@ -402,14 +402,14 @@ body[data-state="landing"] .index-link{ display:flex; }
     della banner. Ora parte subito sotto, e la soglia sticky (top)
     è stata alzata della stessa quantità per restare coerente. */
   display:flex; gap:24px; align-items:center;
-  padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
-    di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
-    l'altezza totale dell'header restano invariati */
+  padding:65px 28px 12px; /* sotto ridotto di 13px insieme all'altezza
+    totale, cosi lo spazio per la cover (140px) resta invariato */
   margin-bottom:40px;
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
   overflow:hidden;
-  height:230px; max-height:230px;
+  height:217px; max-height:217px; /* -13px (era 230): gap (53, invariato)
+    + altezza = 270px totali fino alla riga, come richiesto */
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
 .game-header__banner{
