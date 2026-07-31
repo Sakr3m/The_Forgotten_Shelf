@@ -94,6 +94,9 @@ body[data-state="landing"] .brand{ display:none; }
     position:sticky; top:0; z-index:10;
     display:flex; align-items:center; justify-content:space-between;
     padding:15px 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
+    min-height:68px; /* fissa, cosi la barra e sempre alta uguale in ogni
+      schermata (prima poteva variare in base a quali pulsanti erano
+      visibili al suo interno, spingendo la home un po' piu in basso) */
     background:var(--bg);
   }
   .stage-topbar .brand{
