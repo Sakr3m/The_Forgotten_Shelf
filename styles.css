@@ -108,6 +108,14 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar .stage-controls{ position:static; top:auto; right:auto; z-index:auto; }
   .stage:has(.stage-topbar){ padding-top:0; }
 
+  /* La barra ora occupa spazio reale (min-height:68px), cosa che
+     prima non faceva (i pulsanti erano fissi/assoluti, non
+     spingevano nulla). Tiro su game-panel di conseguenza, cosi il
+     game-header torna allo stesso spazio dal margine alto che ha
+     su storie-teorie.html (15px, il padding originale dello stage):
+     68 (altezza barra) - 15 (spazio voluto) = 53px da recuperare. */
+  body[data-state="game"] .game-panel{ margin-top:-53px; }
+
   /* In home, Ko-fi non segue il flusso del gruppo insieme allo
      switch: va centrato esattamente a metà tra "torna all'index" e
      lo switch lingua. Dato che entrambi stanno a 100px dal proprio
