@@ -796,26 +796,19 @@ el.musicToggle.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
-// Mobile sidebar drawer (hamburger). Inert on desktop, where the
-// button stays hidden via CSS and the sidebar is always visible inline.
+// Mobile: niente più hamburger/cassetto. Sidebar e stage sono due
+// pannelli affiancati (vedi CSS, scroll-snap orizzontale); questa
+// funzione riporta lo scroll sullo stage, es. dopo aver scelto un
+// gioco dalla sidebar. Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+const stageEl = document.getElementById("stage");
 
-function openMobileSidebar(){
-  el.body.classList.add("sidebar-open");
-  sidebarBackdrop.hidden = false;
-  mobileMenuBtn.setAttribute("aria-expanded", "true");
+function scrollCarouselToStage(){
+  if(!mobileBreakpoint.matches) return;
+  stageEl.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
 }
-function closeMobileSidebar(){
-  el.body.classList.remove("sidebar-open");
-  sidebarBackdrop.hidden = true;
-  mobileMenuBtn.setAttribute("aria-expanded", "false");
-}
-mobileMenuBtn.addEventListener("click", () => {
-  el.body.classList.contains("sidebar-open") ? closeMobileSidebar() : openMobileSidebar();
-});
-sidebarBackdrop.addEventListener("click", closeMobileSidebar);
+function closeMobileSidebar(){ scrollCarouselToStage(); }
 
 el.brandBtn.addEventListener("click", () => setState("landing"));
 
@@ -824,3 +817,4 @@ el.brandBtn.addEventListener("click", () => setState("landing"));
 // ---------------------------------------------------------
 paintStaticText();
 setState("landing");
+if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });

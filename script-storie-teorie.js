@@ -275,49 +275,21 @@ el.langSwitch.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
-// Drawer mobile: due cassetti simmetrici, uno per colonna —
-// Teorie a sinistra (hamburger esistente), Storie Nascoste a
-// destra (nuovo pulsante). Un solo cassetto aperto alla volta,
-// stesso backdrop condiviso per entrambi.
+// Mobile: niente più hamburger/cassetti. Teorie, stage e Storie
+// Nascoste sono tre pannelli affiancati (vedi CSS, scroll-snap
+// orizzontale); questa funzione riporta lo scroll sullo stage,
+// es. dopo aver scelto una voce da uno dei due elenchi laterali.
+// Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const railMenuBtn = document.getElementById("railMenuBtn");
-const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+const stageEl = document.getElementById("stage");
 
-function openMobileSidebar(){
-  el.body.classList.remove("rail-open");
-  railMenuBtn.setAttribute("aria-expanded", "false");
-  el.body.classList.add("sidebar-open");
-  sidebarBackdrop.hidden = false;
-  mobileMenuBtn.setAttribute("aria-expanded", "true");
+function scrollCarouselToStage(){
+  if(!mobileBreakpoint.matches) return;
+  stageEl.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
 }
-function closeMobileSidebar(){
-  el.body.classList.remove("sidebar-open");
-  mobileMenuBtn.setAttribute("aria-expanded", "false");
-  if(!el.body.classList.contains("rail-open")) sidebarBackdrop.hidden = true;
-}
-function openRailDrawer(){
-  el.body.classList.remove("sidebar-open");
-  mobileMenuBtn.setAttribute("aria-expanded", "false");
-  el.body.classList.add("rail-open");
-  sidebarBackdrop.hidden = false;
-  railMenuBtn.setAttribute("aria-expanded", "true");
-}
-function closeRailDrawer(){
-  el.body.classList.remove("rail-open");
-  railMenuBtn.setAttribute("aria-expanded", "false");
-  if(!el.body.classList.contains("sidebar-open")) sidebarBackdrop.hidden = true;
-}
-mobileMenuBtn.addEventListener("click", () => {
-  el.body.classList.contains("sidebar-open") ? closeMobileSidebar() : openMobileSidebar();
-});
-railMenuBtn.addEventListener("click", () => {
-  el.body.classList.contains("rail-open") ? closeRailDrawer() : openRailDrawer();
-});
-sidebarBackdrop.addEventListener("click", () => {
-  closeMobileSidebar();
-  closeRailDrawer();
-});
+function closeMobileSidebar(){ scrollCarouselToStage(); }
+function closeRailDrawer(){ /* stesso pannello stage, nessuna azione separata */ }
 
 el.brandBtn.addEventListener("click", () => setState("landing"));
 
@@ -338,3 +310,4 @@ document.addEventListener("click", (e) => {
 // ---------------------------------------------------------
 paintStaticText();
 setState("landing");
+if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });

@@ -7,7 +7,7 @@
 
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con timeline.html — solo su
-   desktop, sul mobile la sidebar resta il drawer con la sua larghezza. */
+   desktop, sul mobile sono pannelli del carosello a scorrimento. */
 @media (min-width:761px){
   #sidebar{ width:260px; }
 }
@@ -59,8 +59,8 @@ body[data-state="landing"] #pageHeader{ display:none; }
 }
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
-   centrale — solo su desktop, sul mobile la sidebar resta il drawer
-   e la side-rail resta la striscia sotto lo stage. */
+   centrale — solo su desktop, sul mobile sono pannelli del carosello
+   a scorrimento orizzontale (vedi sezione mobile più sotto). */
 @media (min-width:761px){
   #sidebar, #storieRail{
     position:sticky; top:0; align-self:flex-start;
@@ -123,47 +123,22 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (max-width:760px){
 
-  /* --- Secondo hamburger (destra) per il cassetto Storie Nascoste,
-     stessa base visiva del primo, solo specchiato --- */
-  .mobile-topbar__hamburger--rail{ left:auto; right:14px; }
-
-  /* Il pulsante appena aggiunto occupa lo stesso angolo in alto a
-     destra di Ko-fi/switch lingua: sposto la riga dei controlli
-     più in basso per non farli sovrapporre. */
-  .stage-controls{ top:64px; }
-
-  /* --- Storie Nascoste diventa un cassetto a destra, simmetrico
-     al cassetto Teorie a sinistra, invece di una striscia sotto
-     lo stage: così tutto il testo resta raggiungibile senza dover
-     scorrere oltre la voce aperta. --- */
+  /* --- Storie Nascoste diventa un terzo pannello del carosello
+     orizzontale (sidebar | stage | side-rail), raggiungibile
+     scorrendo verso destra dallo stage, invece di un cassetto
+     aperto da un secondo hamburger (rimosso). --- */
   .side-rail{
-    position:fixed; top:0; right:0; bottom:0; z-index:45;
-    width:80vw; max-width:300px;
-    transform:translateX(100%);
-    transition:transform .25s var(--ease);
-    border-left:1px solid var(--line); border-top:none;
-    padding:24px 16px;
-    overflow-y:auto;
+    flex:0 0 100vw; width:100vw; max-width:none;
+    height:100vh; overflow-y:auto; scroll-snap-align:start;
+    border-left:none; border-top:none;
+    padding:76px 16px 24px;
   }
-  body.rail-open .side-rail{ transform:translateX(0); }
 
-  /* --- Tazza + "Storie & Teorie": si sposta accanto all'hamburger
-     sinistro invece di restare al punto pensato per il desktop
-     (che su schermi stretti la spingerebbe fuori dallo schermo).
-     Riprendo qui anche la larghezza libera (altrimenti sul mobile
-     tornerebbe al box fisso da 140px pensato per l'avatar). --- */
-  .brand{ left:64px; top:17px; width:auto; justify-content:flex-start; gap:8px; }
+  /* --- Tazza + "Storie & Teorie": allineata alla stessa posizione
+     del pulsante home in home (niente più hamburger da scansare). --- */
+  .brand{ left:12px; top:17px; width:auto; justify-content:flex-start; gap:8px; }
   .brand .seal--mini{ --size:20px; }
   .brand-text{ font-size:1rem; }
-
-  /* --- Ko-fi diventa un'iconcina tonda, come il pulsante volume
-     di cui occupa lo slot: il testo "Sostienimi su Ko-fi" non
-     ci starebbe accanto allo switch lingua su uno schermo stretto. --- */
-  .kofi-link{
-    width:34px; height:34px; padding:0;
-    justify-content:center; border-radius:50%;
-  }
-  .kofi-link span{ display:none; }
 
   /* --- Header: niente più altezza fissa da 230px pensata per il
      banner desktop, ma un minimo che lo renda comunque visibile
