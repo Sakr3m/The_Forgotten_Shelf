@@ -56,6 +56,10 @@ const el = {
   trackProgressFill: document.getElementById("trackProgressFill"),
   volumeSlider: document.getElementById("volumeSlider"),
   musicToggle: document.getElementById("musicToggle"),
+  entryGamePicker: document.getElementById("entryGamePicker"),
+  entryGameTrigger: document.getElementById("entryGameTrigger"),
+  entryGameTriggerLabel: document.getElementById("entryGameTriggerLabel"),
+  entryGameMenu: document.getElementById("entryGameMenu"),
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -129,7 +133,62 @@ function renderEntry(){
   el.entryContent.style.animation = "none";
   void el.entryContent.offsetWidth;
   el.entryContent.style.animation = "";
+
+  renderGamePicker(entry);
 }
+
+// ---------------------------------------------------------
+// Menu a tendina con le altre teorie/storie dello stesso gioco
+// (per ora una sola voce per gioco, pronto per quando ce ne
+// saranno di più).
+// ---------------------------------------------------------
+function getEntriesForGame(gameId){
+  const list = [];
+  TEORIE_ORDER.forEach(id => {
+    if(TEORIE[id].game === gameId) list.push({ column: "teorie", id, title: TEORIE[id].title });
+  });
+  STORIE_ORDER.forEach(id => {
+    if(STORIE[id].game === gameId) list.push({ column: "storie", id, title: STORIE[id].title });
+  });
+  return list;
+}
+
+function renderGamePicker(entry){
+  el.entryGameTriggerLabel.textContent = tf(entry.gameLabel);
+
+  el.entryGameMenu.innerHTML = "";
+  getEntriesForGame(entry.game).forEach(item => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("role", "option");
+    btn.classList.toggle("is-active", item.column === state.column && item.id === state.entryId);
+    btn.textContent = tf(item.title);
+    btn.addEventListener("click", () => {
+      closeGameMenu();
+      selectEntry(item.column, item.id);
+    });
+    li.appendChild(btn);
+    el.entryGameMenu.appendChild(li);
+  });
+}
+
+function openGameMenu(){
+  el.entryGameMenu.hidden = false;
+  el.entryGamePicker.classList.add("is-open");
+  el.entryGameTrigger.setAttribute("aria-expanded", "true");
+}
+function closeGameMenu(){
+  el.entryGameMenu.hidden = true;
+  el.entryGamePicker.classList.remove("is-open");
+  el.entryGameTrigger.setAttribute("aria-expanded", "false");
+}
+el.entryGameTrigger.addEventListener("click", () => {
+  el.entryGameMenu.hidden ? openGameMenu() : closeGameMenu();
+});
+document.addEventListener("click", (ev) => {
+  if(!el.entryGamePicker.contains(ev.target)) closeGameMenu();
+});
 
 // ---------------------------------------------------------
 // Transizioni di stato

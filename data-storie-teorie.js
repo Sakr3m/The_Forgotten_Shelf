@@ -9,6 +9,8 @@ const TEORIE_ORDER = [
 
 const TEORIE = {
   clair_obscur_chi_e_quel_bambino: {
+    game: "expedition33",
+    gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
     bannerOffset: 75,
@@ -65,6 +67,8 @@ A small detail. One of the most powerful images in the entire game.`
     }
   },
   ff8_vera_identita_artemisia: {
+    game: "ff8",
+    gameLabel: { it: "Final Fantasy 8", en: "Final Fantasy 8" },
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     bannerOffset: 65,

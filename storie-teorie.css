@@ -51,6 +51,68 @@
 }
 body[data-state="landing"] #pageHeader{ display:none; }
 
+/* Menu a tendina con le altre teorie/storie dello stesso gioco (per
+   ora una sola per gioco, ma pronto per quando ce ne saranno di più).
+   Non è dentro #pageHeader: quel box ha overflow:hidden (serve per
+   ritagliare la banner), quindi un menu a tendina lì dentro verrebbe
+   tagliato via. Sta invece subito dopo, come fratello, e si sovrappone
+   alla parte bassa dell'header con un margine negativo — 36px di
+   altezza del pulsante + 15px di margine dalla riga sotto, la stessa
+   distanza che c'è tra i pulsanti sopra e il bordo alto della pagina.
+   Si apre sempre verso il basso (top:100% sul menu). */
+.entry-game-picker{ display:none; }
+@media (min-width:761px){
+  .entry-game-picker{
+    position:relative; z-index:5;
+    align-self:flex-end;
+    margin-top:-51px;
+    margin-right:25px; /* + i 25px di padding dello stage = 50px dal bordo,
+      come switch/volume nella pagina di una voce */
+  }
+  body[data-state="entry"] .entry-game-picker{ display:block; }
+}
+.entry-game-trigger{
+  display:flex; align-items:center; gap:8px;
+  height:36px; padding:0 16px;
+  border:1px solid var(--item-accent, var(--cyan));
+  background:var(--panel);
+  border-radius:999px;
+  font-size:.82rem; font-weight:600;
+  color:var(--text-dim);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.entry-game-trigger:hover, .entry-game-trigger:focus-visible{
+  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+  background:var(--panel-raised);
+}
+.entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
+.entry-game-trigger .chevron{ width:10px; height:7px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
+.entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
+
+.entry-game-menu{
+  position:absolute; top:calc(100% + 8px); right:0;
+  min-width:240px;
+  background:var(--panel-raised);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  box-shadow:0 16px 32px rgba(0,0,0,.5);
+  overflow:hidden;
+  animation:menuIn var(--dur-fast) var(--ease);
+}
+.entry-game-menu li button{
+  display:block; width:100%; text-align:left;
+  padding:12px 16px;
+  font-size:.84rem; font-weight:500;
+  color:var(--text-dim);
+  border-bottom:1px solid var(--line);
+}
+.entry-game-menu li:last-child button{ border-bottom:none; }
+.entry-game-menu li button:hover, .entry-game-menu li button:focus-visible{
+  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 8%, transparent);
+  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+}
+.entry-game-menu li button.is-active{ color:var(--item-accent, var(--cyan)); }
+
 /* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
    in styles.css (stesso di timeline.html) — niente più larghezza fissa
    da 140px, il gap:14/justify-content/margin-left arrivano da lì. */
