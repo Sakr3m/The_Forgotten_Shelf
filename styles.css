@@ -93,7 +93,7 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar{
     position:sticky; top:0; z-index:10;
     display:flex; align-items:center; justify-content:space-between;
-    padding:15px 40px 15px 25px;
+    padding:15px 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
     background:var(--bg);
   }
   .stage-topbar .brand{
@@ -103,8 +103,17 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar .brand-icon{ position:static; left:auto; }
   .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
   .stage-topbar .stage-controls{ position:static; top:auto; right:auto; z-index:auto; }
-  body[data-state="game"] .stage-topbar .stage-controls{ margin-right:15px; }
   .stage:has(.stage-topbar){ padding-top:0; }
+
+  /* In home, Ko-fi non segue il flusso del gruppo insieme allo
+     switch: va centrato esattamente a metà tra "torna all'index" e
+     lo switch lingua. Dato che entrambi stanno a 100px dal proprio
+     bordo, il centro esatto tra i due coincide sempre col centro
+     della barra stessa, qualunque sia la larghezza dello schermo. */
+  body[data-state="landing"] .kofi-link{
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+  }
 }
 /* Solo nella schermata "gioco" (timeline/universi, o le pagine tipo
    Doom senza timeline) switch lingua e volume si spostano un po' più
@@ -340,7 +349,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 /* ============================================================
    Game panel — header + proportional timelines
    ============================================================ */
-.game-panel{ width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
+.game-panel{ position:relative; width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
 
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
@@ -398,7 +407,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .game-header__blurb a:hover{ color:var(--text); }
 
 /* Universes: a single centered track, same fixed length regardless of entry count */
-.universe-stage{ position:relative; display:flex; justify-content:center; flex:1; min-height:0; }
+.universe-stage{ display:flex; justify-content:center; flex:1; min-height:0; }
 .universe-stage.no-timeline{ justify-content:flex-start; align-items:flex-start; }
 
 /* Manual scroll toggle for the horizontal timeline: PC only (hidden on
@@ -406,13 +415,15 @@ body[data-state="landing"] .index-link{ display:flex; }
    game avatar/header, within the timeline area itself, not in the top
    controls bar. Off by default: the line tries to fit every entry on
    screen; on, it switches to free/dynamic spacing with drag-to-scroll. */
-/* La sua posizione (left/top) NON è qui: viene calcolata a runtime in
-   script.js (buildUniverseTrack), centrandolo 15px a destra del
-   centro reale dello switch lingua e alla stessa altezza della riga
-   del carosello universi — così resta allineato correttamente anche
-   se lo switch si sposta (es. nella schermata "gioco"). */
+/* La posizione verticale (top) viene calcolata a runtime in
+   script.js (buildUniverseTrack), alla stessa altezza della riga
+   del carosello universi — così resta allineato anche quando quella
+   riga non è alta sempre uguale (es. giochi a universo singolo).
+   L'orizzontale invece è un valore fisso qui: 100px dal bordo destro
+   di game-panel, lo stesso riquadro usato da game-header, così è
+   sempre calcolabile senza bisogno di misurare nient'altro. */
 .timeline-scroll-toggle{
-  position:absolute; z-index:3;
+  position:absolute; right:100px; z-index:3;
   display:flex; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:50%;
   border:1px solid var(--cyan); background:var(--panel); color:var(--text-dim);

@@ -336,20 +336,16 @@ function renderGamePanel(){
   });
   el.universesRow.appendChild(scrollToggle);
 
-  // Horizontal: centered on the real, measured lang-switch button, nudged
-  // 15px to the right by hand per direct visual check. Vertical: same
-  // height as the universe carousel arrows — measured off .u-track__head
-  // itself (the row that holds them), so it's correct even for
-  // single-universe games where no arrows actually exist.
-  const langRect = el.langSwitch.getBoundingClientRect();
-  const stageRect = el.universesRow.getBoundingClientRect();
+  // Verticale: stessa altezza della riga del carosello universi
+  // (.u-track__head), misurata a runtime così resta corretta anche
+  // per i giochi a universo singolo, dove le frecce non esistono.
+  // L'orizzontale è fisso via CSS (right:100px, vedi styles.css).
+  const panelRect = el.gamePanel.getBoundingClientRect();
   const trackHead = el.universesRow.querySelector(".u-track__head");
-  const headRect = trackHead ? trackHead.getBoundingClientRect() : langRect;
-  const langCenterX = (langRect.left + langRect.right) / 2;
+  const headRect = trackHead ? trackHead.getBoundingClientRect() : panelRect;
   const headCenterY = (headRect.top + headRect.bottom) / 2;
-  scrollToggle.style.left = (langCenterX - stageRect.left + 15).toFixed(2) + "px";
-  scrollToggle.style.top = (headCenterY - stageRect.top).toFixed(2) + "px";
-  scrollToggle.style.transform = "translate(-50%, -50%)";
+  scrollToggle.style.top = (headCenterY - panelRect.top).toFixed(2) + "px";
+  scrollToggle.style.transform = "translateY(-50%)";
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
