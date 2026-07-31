@@ -98,9 +98,12 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
 .music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
 .track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
+.track-info{ border-color:var(--item-accent, var(--cyan)); }
 .track-info__title{ color:var(--item-accent, var(--text)); }
+.track-skip{ border-color:var(--item-accent, var(--cyan)); }
 .track-progress__fill{ background:var(--item-accent, var(--cyan)); }
 .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
+.volume-panel{ border-color:var(--item-accent, var(--cyan)); }
 
 /* Switch lingua e controlli musica: erano ancora position:absolute
    legati allo .stage, quindi scorrevano via con la pagina — e nel
