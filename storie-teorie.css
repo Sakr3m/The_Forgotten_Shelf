@@ -226,38 +226,28 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Banner tolto del tutto (stava facendo casino): l'header si
-     azzera, non riserva più spazio. */
+  /* Banner tolto del tutto: l'header si azzera, non riserva più
+     spazio. */
   body[data-state="entry"] .game-header__banner,
   body[data-state="entry"] .game-header__banner-overlay{ display:none; }
   body[data-state="entry"] #pageHeader{
-    height:0; min-height:0; max-height:none; overflow:visible;
+    position:static; /* niente più sticky: qui è solo un guscio vuoto */
+    height:auto; min-height:0; max-height:none; overflow:visible;
     margin:0; padding:0; border:none; background:none;
   }
 
-  /* Volume: riga propria fissa subito sotto la barra. Non può stare
-     in flusso normale (è dentro .stage-controls, che è dentro la
-     barra fissa in alto) quindi è anche lei una riga fissa, con la
-     sua stessa altezza (60px) usata per calcolare dove inizia la
-     riga successiva. */
-  body[data-state="entry"] .music-control{
-    display:flex; justify-content:center; align-items:center;
-    position:fixed; top:60px; left:0; right:0; z-index:45;
-    padding:10px 16px;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
-  }
+  /* Musica: tolta da qui per ora (va ricollocata altrove, non ancora
+     deciso dove — non può restare "fuori dall'header" restando
+     dentro la barra fissa in alto, quindi per adesso è nascosta). */
+  body[data-state="entry"] .music-control{ display:none; }
 
-  /* Tendina: riga propria fissa subito sotto quella del volume. */
+  /* Tendina: in flusso normale, subito sopra il testo — non più una
+     riga fissa a parte. */
   body[data-state="entry"] .entry-game-picker{
-    display:flex; justify-content:center; align-items:center;
-    position:fixed; top:120px; left:0; right:0; z-index:44;
-    padding:10px 16px;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
+    display:flex; justify-content:center;
+    position:static; margin:0 0 16px;
   }
 
-  /* Il testo parte dopo le tre righe fisse (barra + volume + tendina
-     = 60+60+60 = 180px). */
-  body[data-state="entry"] .stage{ padding-top:180px; }
+  /* Il testo parte subito dopo la sola barra in alto (60px). */
+  body[data-state="entry"] .stage{ padding-top:60px; }
 }
