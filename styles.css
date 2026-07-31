@@ -76,10 +76,10 @@ body[data-state="landing"] .brand{ display:none; }
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 /* ============================================================
-   Stage topbar (solo timeline.html) — brand, index-link e
-   stage-controls uniti in un'unica barra a scorrimento naturale
-   (flex), sticky in cima allo stage. Prima brand era fisso alla
-   finestra (numeri come left:283 calcolati a mano sommando la
+   Stage topbar (timeline.html e storie-teorie.html) — brand,
+   index-link e stage-controls uniti in un'unica barra a scorrimento
+   naturale (flex), sticky in cima allo stage. Prima brand era fisso
+   alla finestra (numeri come left:283 calcolati a mano sommando la
    larghezza della sidebar) mentre stage-controls era assoluto
    rispetto allo stage: due sistemi di riferimento diversi, quindi
    la posizione reciproca dei pulsanti non era calcolabile senza
@@ -87,8 +87,7 @@ body[data-state="landing"] .brand{ display:none; }
    contenitore flex: la loro posizione la calcola il browser, non
    più numeri fissi scollegati tra loro. Scoped a min-width:761px
    e alla classe .stage-topbar: il mobile (carosello, pulsanti
-   fissi) e storie-teorie.html (non ancora ristrutturata) restano
-   invariati. */
+   fissi) resta invariato su entrambe le pagine. */
 @media (min-width:761px){
   .stage-topbar{
     position:sticky; top:0; z-index:10;

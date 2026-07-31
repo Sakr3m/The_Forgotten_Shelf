@@ -39,24 +39,21 @@
    .game-header__banner-overlay già definite in styles.css), vuoto
    e pronto ad ospitare un banner in futuro. Nascosto in home come
    il game-header originale.
-   Reso sticky con sfondo pagina: la tazza sopra è fissa (position:
-   fixed) e non scorre mai, quindi anche l'header doveva restare
-   fermo con lei — altrimenti la riga dell'header scorreva via da
-   sola e il testo, salendo, spariva dietro la tazza immobile senza
-   più nessun bordo/sfondo a "coprirlo" correttamente. */
+   Reso sticky con sfondo pagina: la barra in cima (tazza/switch/
+   volume) è anche lei sticky (vedi .stage-topbar in styles.css),
+   quindi l'header doveva restare fermo con lei — altrimenti la riga
+   dell'header scorreva via da sola e il testo, salendo, spariva
+   dietro la barra immobile senza più nessun bordo/sfondo a
+   "coprirlo" correttamente. */
 #pageHeader{
   position:sticky; top:0; z-index:4;
   background:var(--bg);
 }
 body[data-state="landing"] #pageHeader{ display:none; }
 
-/* Overlay fisso tazza+testo: stessa classe .brand di timeline.html
-   (stessa altezza, stessa animazione), ma senza il box a larghezza
-   fissa (140px, pensato per allinearsi all'avatar del gioco che qui
-   non esiste) — la scritta resta libera di estendersi a destra. */
-@media (min-width:761px){
-  .brand{ left:313px; width:auto; justify-content:flex-start; gap:14px; }
-}
+/* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
+   in styles.css (stesso di timeline.html) — niente più larghezza fissa
+   da 140px, il gap:14/justify-content/margin-left arrivano da lì. */
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
    centrale — solo su desktop, sul mobile sono pannelli del carosello
@@ -105,20 +102,10 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
 .volume-panel{ border-color:var(--item-accent, var(--cyan)); }
 
-/* Switch lingua e controlli musica: erano ancora position:absolute
-   legati allo .stage, quindi scorrevano via con la pagina — e nel
-   farlo passavano per un istante SOPRA l'header sticky (z-index più
-   alto) prima di sparire del tutto. Ora restano fissi in schermo
-   insieme all'header, invece di scorrere e sparire.
-   Essendo ora fixed (relativo alla finestra, non più allo .stage),
-   il valore "right" condiviso non teneva conto della side-rail da
-   310px: lo correggo qui perché finiva dentro la tabella Storie
-   Nascoste invece di fermarsi prima del suo bordo. */
-.stage-controls{ position:fixed; }
-@media (min-width:761px){
-  .stage-controls{ right:350px; }
-  .index-link{ left:300px; }
-}
+/* Switch lingua e controlli musica: ora fanno parte del sistema
+   condiviso .stage-topbar in styles.css (stesso di timeline.html),
+   che li rende "senza peso" nel flusso e a 100px dal bordo destro —
+   niente più regole fixed/right specifiche di questa pagina. */
 
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
