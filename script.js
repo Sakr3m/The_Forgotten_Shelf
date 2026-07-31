@@ -210,8 +210,8 @@ function renderUniversePicker(){
     btn.classList.toggle("is-active", idx === state.universeIndex);
     const count = uni.entries.length;
     const countLabel = state.lang === "it"
-      ? `${count} ${count === 1 ? "episodio" : "episodi"}`
-      : `${count} ${count === 1 ? "episode" : "episodes"}`;
+      ? `${count} ${count === 1 ? "voce" : "voci"}`
+      : `${count} ${count === 1 ? "entry" : "entries"}`;
     btn.innerHTML = `${tf(uni.name)} · ${countLabel}<span class="u-span">${tf(uni.span)}</span>`;
     btn.addEventListener("click", () => {
       closeUniverseMenu();

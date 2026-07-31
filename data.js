@@ -321,7 +321,7 @@ const GAMES = {
       en: "A flashy, over-the-top action saga following the demon<br>hunters of Sparda's bloodline through legendary swords<br>and twin pistols, between human blood and demon blood."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
-    accentColor: "#9ca3af",
+    accentColor: "#c4cbd4",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Avatar.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Banner.jpg",
