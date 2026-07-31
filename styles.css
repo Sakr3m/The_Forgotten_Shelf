@@ -67,6 +67,38 @@ body[data-state="landing"] .brand{ display:none; }
 }
 
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
+
+/* ============================================================
+   Stage topbar (solo timeline.html) — brand, index-link e
+   stage-controls uniti in un'unica barra a scorrimento naturale
+   (flex), sticky in cima allo stage. Prima brand era fisso alla
+   finestra (numeri come left:283 calcolati a mano sommando la
+   larghezza della sidebar) mentre stage-controls era assoluto
+   rispetto allo stage: due sistemi di riferimento diversi, quindi
+   la posizione reciproca dei pulsanti non era calcolabile senza
+   rifare i conti ogni volta. Ora sono tutti figli dello stesso
+   contenitore flex: la loro posizione la calcola il browser, non
+   più numeri fissi scollegati tra loro. Scoped a min-width:761px
+   e alla classe .stage-topbar: il mobile (carosello, pulsanti
+   fissi) e storie-teorie.html (non ancora ristrutturata) restano
+   invariati. */
+@media (min-width:761px){
+  .stage-topbar{
+    position:sticky; top:0; z-index:10;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:15px 40px 15px 25px;
+    background:var(--bg);
+  }
+  .stage-topbar .brand{
+    position:static; width:auto; left:auto; top:auto; z-index:auto;
+    justify-content:flex-start; gap:14px;
+  }
+  .stage-topbar .brand-icon{ position:static; left:auto; }
+  .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
+  .stage-topbar .stage-controls{ position:static; top:auto; right:auto; z-index:auto; }
+  body[data-state="game"] .stage-topbar .stage-controls{ margin-right:15px; }
+  .stage:has(.stage-topbar){ padding-top:0; }
+}
 /* Solo nella schermata "gioco" (timeline/universi, o le pagine tipo
    Doom senza timeline) switch lingua e volume si spostano un po' più
    a sinistra — non nella schermata del singolo titolo scelto. */
@@ -257,6 +289,13 @@ body[data-state="landing"] .index-link{ display:flex; }
 .index-link svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
 
 @media (max-width:760px){
+  /* Su mobile la nuova .stage-topbar (introdotta per il desktop di
+     timeline.html) sparisce come contenitore: i suoi figli restano
+     posizionati esattamente come prima (brand fisso, index-link e
+     stage-controls con le loro regole mobile dedicate), senza che
+     il wrapper interferisca. */
+  .stage-topbar{ display:contents; }
+
   .index-link{
     position:static; top:auto; left:auto;
     width:37px; height:37px; padding:0;
@@ -360,8 +399,13 @@ body[data-state="landing"] .index-link{ display:flex; }
    game avatar/header, within the timeline area itself, not in the top
    controls bar. Off by default: the line tries to fit every entry on
    screen; on, it switches to free/dynamic spacing with drag-to-scroll. */
+/* La sua posizione (left/top) NON è qui: viene calcolata a runtime in
+   script.js (buildUniverseTrack), centrandolo 15px a destra del
+   centro reale dello switch lingua e alla stessa altezza della riga
+   del carosello universi — così resta allineato correttamente anche
+   se lo switch si sposta (es. nella schermata "gioco"). */
 .timeline-scroll-toggle{
-  position:absolute; top:0; right:0; z-index:3;
+  position:absolute; z-index:3;
   display:flex; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:50%;
   border:1px solid var(--cyan); background:var(--panel); color:var(--text-dim);
