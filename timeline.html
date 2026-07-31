@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Timeline</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body data-state="landing" data-lang="it">
@@ -68,14 +68,6 @@
               <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="Volume">
             </div>
           </div>
-        </div>
-
-        <div class="universe-picker" id="universePicker" hidden>
-          <button class="universe-trigger" id="universeTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-            <span id="universeTriggerLabel">—</span>
-            <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <ul class="universe-menu" id="universeMenu" role="listbox" hidden></ul>
         </div>
 
         <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">

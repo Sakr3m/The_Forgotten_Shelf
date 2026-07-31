@@ -58,10 +58,6 @@ const el = {
   trackSkipBtn: document.getElementById("trackSkipBtn"),
   trackProgressFill: document.getElementById("trackProgressFill"),
   volumeSlider: document.getElementById("volumeSlider"),
-  universePicker: document.getElementById("universePicker"),
-  universeTrigger: document.getElementById("universeTrigger"),
-  universeTriggerLabel: document.getElementById("universeTriggerLabel"),
-  universeMenu: document.getElementById("universeMenu"),
   gameList: document.getElementById("gameList"),
   landingPanel: document.getElementById("landingPanel"),
   gamePanel: document.getElementById("gamePanel"),
@@ -192,54 +188,6 @@ function renderSidebar(){
 }
 
 // ---------------------------------------------------------
-// Universe picker (top bar)
-// ---------------------------------------------------------
-function renderUniversePicker(){
-  const g = currentGame();
-  if(!g || g.noTimeline){ el.universePicker.hidden = true; return; }
-  el.universePicker.hidden = false;
-  const u = currentUniverse();
-  el.universeTriggerLabel.textContent = tf(u.name);
-
-  el.universeMenu.innerHTML = "";
-  g.universes.forEach((uni, idx) => {
-    const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.setAttribute("role", "option");
-    btn.classList.toggle("is-active", idx === state.universeIndex);
-    const count = uni.entries.length;
-    const countLabel = state.lang === "it"
-      ? `${count} ${count === 1 ? "voce" : "voci"}`
-      : `${count} ${count === 1 ? "entry" : "entries"}`;
-    btn.innerHTML = `${tf(uni.name)} · ${countLabel}<span class="u-span">${tf(uni.span)}</span>`;
-    btn.addEventListener("click", () => {
-      closeUniverseMenu();
-      selectUniverse(idx);
-    });
-    li.appendChild(btn);
-    el.universeMenu.appendChild(li);
-  });
-}
-
-function openUniverseMenu(){
-  el.universeMenu.hidden = false;
-  el.universePicker.classList.add("is-open");
-  el.universeTrigger.setAttribute("aria-expanded", "true");
-}
-function closeUniverseMenu(){
-  el.universeMenu.hidden = true;
-  el.universePicker.classList.remove("is-open");
-  el.universeTrigger.setAttribute("aria-expanded", "false");
-}
-
-el.universeTrigger.addEventListener("click", () => {
-  el.universeMenu.hidden ? openUniverseMenu() : closeUniverseMenu();
-});
-document.addEventListener("click", (ev) => {
-  if(!el.universePicker.contains(ev.target)) closeUniverseMenu();
-});
-
 function selectUniverse(idx){
   state.universeIndex = idx;
   if(state.view === "title"){
@@ -248,7 +196,6 @@ function selectUniverse(idx){
     const u = g.universes[idx];
     if(u.entries.length) selectEntry(u.entries[0].id);
   } else {
-    renderUniversePicker();
     renderGamePanel();
   }
 }
@@ -638,17 +585,14 @@ function setState(view){
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
     document.body.style.setProperty("--cyan", LANDING_COLOR);
     renderSidebar();
-    renderUniversePicker();
   } else if(view === "game"){
     state.entryId = null;
     applyPaletteToCSS();
     renderSidebar();
-    renderUniversePicker();
     renderGamePanel();
   } else if(view === "title"){
     applyPaletteToCSS();
     renderSidebar();
-    renderUniversePicker();
     renderTitlePanel();
     renderRail();
     el.timelineRail.hidden = false;
@@ -680,8 +624,8 @@ el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   paintStaticText();
   if(state.view === "landing"){ renderSidebar(); }
-  else if(state.view === "game"){ renderSidebar(); renderUniversePicker(); renderGamePanel(); }
-  else if(state.view === "title"){ renderSidebar(); renderUniversePicker(); renderTitlePanel(); renderRail(); }
+  else if(state.view === "game"){ renderSidebar(); renderGamePanel(); }
+  else if(state.view === "title"){ renderSidebar(); renderTitlePanel(); renderRail(); }
 });
 
 // ---------------------------------------------------------

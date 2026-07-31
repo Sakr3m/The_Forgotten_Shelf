@@ -67,45 +67,12 @@ body[data-state="landing"] .brand{ display:none; }
 }
 
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
-
-.universe-picker{ position:relative; }
-.universe-trigger{
-  display:flex; align-items:center; gap:8px;
-  padding:9px 16px;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:999px;
-  font-size:.82rem; font-weight:600;
-  color:var(--text-dim);
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+/* Solo nella schermata "gioco" (timeline/universi, o le pagine tipo
+   Doom senza timeline) switch lingua e volume si spostano un po' più
+   a sinistra — non nella schermata del singolo titolo scelto. */
+@media (min-width:761px){
+  body[data-state="game"] .stage-controls{ right:55px; }
 }
-.universe-trigger:hover, .universe-trigger:focus-visible{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); background:var(--panel-raised); }
-.universe-picker.is-open .universe-trigger{ color:var(--cyan); }
-.chevron{ width:10px; height:7px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
-.universe-picker.is-open .chevron{ transform:rotate(180deg); }
-
-.universe-menu{
-  position:absolute; top:calc(100% + 8px); right:0;
-  min-width:240px;
-  background:var(--panel-raised);
-  border:1px solid var(--line);
-  border-radius:var(--radius-sm);
-  box-shadow:0 16px 32px rgba(0,0,0,.5);
-  overflow:hidden;
-  animation:menuIn var(--dur-fast) var(--ease);
-}
-@keyframes menuIn{ from{ opacity:0; transform:scale(.96) translateY(-4px);} to{ opacity:1; transform:scale(1) translateY(0);} }
-.universe-menu li button{
-  display:block; width:100%; text-align:left;
-  padding:12px 16px;
-  font-size:.84rem; font-weight:500;
-  color:var(--text-dim);
-  border-bottom:1px solid var(--line);
-}
-.universe-menu li:last-child button{ border-bottom:none; }
-.universe-menu li button:hover, .universe-menu li button:focus-visible{ background:color-mix(in srgb, var(--cyan) 8%, transparent); color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); }
-.universe-menu li button.is-active{ color:var(--cyan); }
-.universe-menu .u-span{ display:block; font-size:.7rem; color:var(--text-faint); margin-top:2px; font-weight:400; }
 
 .lang-switch{
   display:flex; align-items:center; gap:6px;
@@ -729,7 +696,6 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .stage-controls{ top:14px; right:12px; gap:8px; }
   .kofi-link{ padding:8px 13px; gap:6px; }
   .kofi-link svg{ width:15px; height:15px; }
-  .universe-trigger{ padding:8px 11px; font-size:.79rem; }
   .lang-switch{ padding:8px 11px; font-size:.79rem; }
   .music-toggle{ width:37px; height:37px; }
 
