@@ -37,29 +37,32 @@
 /* Header in cima allo stage: stesso game-header di timeline.html
    (riusa le classi condivise .game-header/.game-header__banner/
    .game-header__banner-overlay già definite in styles.css, sticky
-   compreso), vuoto e pronto ad ospitare un banner in futuro.
-   Nascosto in home come il game-header originale. */
+   compreso). Qui contiene solo il banner (nessun avatar/titolo come
+   in timeline.html) — ingrandito e centrato, quasi amalgamato con lo
+   sfondo. Nascosto in home. */
 body[data-state="landing"] #pageHeader{ display:none; }
+#pageHeader{ height:460px; max-height:460px; } /* 200% dei 230px condivisi con timeline.html
+  — solo qui, via ID: la regola di base in styles.css (.game-header)
+  resta invariata per timeline.html */
+#pageHeaderBanner{ background-position:center center; } /* centrato,
+  invece del calc() con offset per-voce pensato per l'avatar di
+  timeline.html (qui non esiste nulla con cui allinearsi) */
+.game-header__banner-overlay{ background:rgba(10,14,23,.45); } /* piu
+  leggero del default: il banner deve amalgamarsi con lo sfondo, non
+  esserne nettamente distinto */
 
-/* Pulsante a tendina con le altre teorie/storie dello stesso gioco
-   (per ora una sola per gioco, ma pronto per quando ce ne saranno
-   di più). Il pulsante sta dentro #pageHeader (si muove con lui,
-   che è sticky) — 15px sopra la riga di confine, la stessa distanza
-   che c'è tra i pulsanti sopra e il bordo alto della pagina.
-   Il MENU invece non è dentro #pageHeader: quel box ha
-   overflow:hidden (serve per ritagliare la banner), quindi un menu
-   a tendina lì dentro verrebbe tagliato via appena esce dal bordo
-   basso. È un elemento a parte, posizionato via JS (position:fixed,
-   coordinate prese dal trigger reale) così scavalca il ritaglio.
-   Si apre sempre verso il basso. */
-.entry-game-picker{ display:none; }
-@media (min-width:761px){
-  body[data-state="entry"] .entry-game-picker{
-    display:block;
-    position:absolute; right:25px; bottom:15px; z-index:2;
-    /* +25px di padding destro dell'header = 50px dal bordo, come
-       switch/volume nella pagina di una voce */
-  }
+/* Riga con pulsante a tendina (teorie/storie dello stesso gioco, per
+   ora una sola per gioco) e controllo musica, subito sotto il banner,
+   prima del testo. Non più annidata dentro #pageHeader: quel box ha
+   overflow:hidden (serve solo per ritagliare la banner ora, non più
+   per contenere pulsanti), quindi tenerli fuori evita del tutto il
+   problema del menu a tendina tagliato via — che infatti resta un
+   elemento a parte, posizionato via JS (position:fixed, coordinate
+   prese dal trigger reale), e si apre sempre verso il basso. */
+.entry-controls-row{ display:none; }
+body[data-state="entry"] .entry-controls-row{
+  display:flex; align-items:center; justify-content:space-between;
+  width:100%; max-width:1350px; margin:20px auto 0;
 }
 .entry-game-trigger{
   display:flex; align-items:center; gap:8px;
@@ -181,11 +184,6 @@ body[data-state="entry"] .landing{ display:none; }
   .brand .seal--mini{ --size:20px; }
   .brand-text{ font-size:1rem; }
 
-  /* --- Header: niente più altezza fissa da 230px pensata per il
-     banner desktop, ma un minimo che lo renda comunque visibile
-     come fascia, pronto a crescere quando arriverà un'immagine. --- */
-  #pageHeader{ min-height:90px; }
-
   /* --- Musica: meno spazio per titolo/gioco del brano, il nome
      del gioco si nasconde per lasciare leggibile solo il titolo. --- */
   .track-info{ max-width:150px; }
@@ -199,52 +197,32 @@ body[data-state="entry"] .landing{ display:none; }
   .volume-panel{ display:none; }
 
   /* ==========================================================
-     Pagina di una voce (teoria/storia) su mobile: barra a due
-     righe fissa (tazza+testo sopra, volume+switch sotto), banner
-     ingrandito subito dopo, poi il pulsante a tendina in flusso
-     normale, poi il testo. Sostituisce del tutto il posizionamento
-     "ad angolo" pensato per desktop.
+     Pagina di una voce (teoria/storia) su mobile: tazza+switch in
+     un'unica riga fissa in alto (il volume non c'è più qui, quindi
+     una riga sola basta, stesso schema della home), banner
+     ingrandito subito sotto, poi la riga con tendina+volume in
+     flusso normale, poi il testo.
      ========================================================== */
   body[data-state="entry"] .stage-topbar{
-    display:flex; flex-direction:column;
+    display:flex; align-items:center; justify-content:space-between;
     position:fixed; top:0; left:0; right:0;
+    padding:14px 16px;
     background:var(--bg);
     border-bottom:1px solid var(--line);
     z-index:50;
   }
-  body[data-state="entry"] .brand{
-    position:static; width:100%; left:auto; top:auto;
-    justify-content:space-between;
-    padding:14px 16px 10px;
-  }
+  body[data-state="entry"] .brand{ position:static; width:auto; left:auto; top:auto; }
   body[data-state="entry"] .stage-controls{
-    position:static; width:100%; top:auto; right:auto; left:auto;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:0 16px 14px;
-  }
-  /* Il volume sta a sinistra: capovolgo l'ordine visivo (il DOM resta
-     invariato) così il titolo del brano, quando appare, si apre verso
-     destra invece che verso il centro dello schermo. */
-  body[data-state="entry"] .music-control{ flex-direction:row-reverse; }
-
-  /* Banner ingrandito e più visibile — quasi amalgamato con lo sfondo
-     invece che nettamente distinto da esso. Sticky riallineato alla
-     nuova altezza reale della barra sopra (95px), stessa logica già
-     usata altrove per evitare il "recupero" scorrendo. */
-  body[data-state="entry"] .stage{ padding-top:95px; }
-  body[data-state="entry"] #pageHeader{
-    top:95px; min-height:220px;
-    justify-content:flex-end;
-  }
-  body[data-state="entry"] .game-header__banner-overlay{
-    background:rgba(10,14,23,.45);
+    position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Pulsante a tendina: in flusso normale subito sotto il banner,
-     non più ad angolo sovrapposto (lì su mobile non compariva
-     nemmeno, essendo la regola che lo abilita scoped al desktop). */
-  body[data-state="entry"] .entry-game-picker{
-    display:flex; justify-content:center;
-    position:static; margin:14px 0 0;
+  /* Banner ingrandito (200% del minimo mobile precedente) e più
+     visibile, la soglia sticky riallineata alla nuova altezza reale
+     della barra sopra (65px, la stessa della home). */
+  body[data-state="entry"] .stage{ padding-top:65px; }
+  body[data-state="entry"] #pageHeader{ top:65px; height:440px; }
+
+  body[data-state="entry"] .entry-controls-row{
+    max-width:100%; margin:16px 0 0; padding:0 16px;
   }
 }

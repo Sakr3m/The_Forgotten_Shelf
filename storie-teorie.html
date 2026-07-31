@@ -46,32 +46,6 @@
             <span class="kofi-link__short">KoFi</span>
           </a>
 
-          <div class="music-control" id="musicControl">
-            <div class="track-info" id="trackInfo" hidden>
-              <div class="track-info__row">
-                <span class="track-info__text">
-                  <span class="track-info__title" id="trackTitle"></span>
-                  <span class="track-info__game" id="trackGame"></span>
-                </span>
-                <button class="track-skip" id="trackSkipBtn" type="button" aria-label="Prossimo brano">
-                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l7 5-7 5V3z" fill="currentColor"/><rect x="11" y="3" width="2" height="10" fill="currentColor"/></svg>
-                </button>
-              </div>
-              <div class="track-progress"><div class="track-progress__fill" id="trackProgressFill"></div></div>
-            </div>
-
-            <div class="volume-control" id="volumeControl">
-              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-pressed="false" hidden>
-                <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-                <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-              </button>
-
-              <div class="volume-panel" id="volumePanel">
-                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="Volume">
-              </div>
-            </div>
-          </div>
-
           <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
             <span class="lang-option is-active" data-lang-option="it">IT</span>
             <span class="lang-sep">/</span>
@@ -92,12 +66,40 @@
       <div class="game-header" id="pageHeader">
         <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
         <div class="game-header__banner-overlay" aria-hidden="true"></div>
+      </div>
 
+      <div class="entry-controls-row">
         <div class="entry-game-picker" id="entryGamePicker">
           <button class="entry-game-trigger" id="entryGameTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
             <span id="entryGameTriggerLabel">—</span>
             <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
+        </div>
+
+        <div class="music-control" id="musicControl">
+          <div class="track-info" id="trackInfo" hidden>
+            <div class="track-info__row">
+              <span class="track-info__text">
+                <span class="track-info__title" id="trackTitle"></span>
+                <span class="track-info__game" id="trackGame"></span>
+              </span>
+              <button class="track-skip" id="trackSkipBtn" type="button" aria-label="Prossimo brano">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l7 5-7 5V3z" fill="currentColor"/><rect x="11" y="3" width="2" height="10" fill="currentColor"/></svg>
+              </button>
+            </div>
+            <div class="track-progress"><div class="track-progress__fill" id="trackProgressFill"></div></div>
+          </div>
+
+          <div class="volume-control" id="volumeControl">
+            <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-pressed="false" hidden>
+              <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+              <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+            </button>
+
+            <div class="volume-panel" id="volumePanel">
+              <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="Volume">
+            </div>
+          </div>
         </div>
       </div>
 
