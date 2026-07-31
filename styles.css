@@ -827,7 +827,13 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      proprio colore (opacità ridotta, non l'intensità piena dell'hover). */
   .game-list button{
     box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    padding:12px 14px; /* +20% rispetto ai 10px/12px di base (font invariato,
+      solo l'area colorata/toccabile cresce) */
   }
+  .game-list li:first-child{ margin-top:21px; } /* meta dell'altezza di una
+    voce (~42px con il nuovo padding), cosi la prima non parte a filo del
+    bordo alto */
+  .sidebar-eyebrow, .rail-label{ text-align:center; }
 
   /* --- Stage --- */
   .stage{
@@ -835,6 +841,9 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     height:100vh; overflow-y:auto; scroll-snap-align:start;
     padding:72px 16px 48px;
   }
+  /* La home non deve scorrere verticalmente: e una schermata fissa,
+     ci si muove solo in orizzontale (swipe) verso le colonne laterali. */
+  body[data-state="landing"] .stage{ overflow-y:hidden; }
   .stage-controls{ top:14px; right:12px; gap:8px; }
   .kofi-link{ padding:8px 13px; gap:6px; }
   .kofi-link svg{ width:15px; height:15px; }

@@ -725,6 +725,20 @@ function scrollCarouselToStage(){
 }
 function closeMobileSidebar(){ scrollCarouselToStage(); }
 
+// Freccette di swipe: nascosta quella che punta verso un bordo già
+// raggiunto (non c'è altro da quel lato), visibile l'altra.
+const layoutEl = document.querySelector(".layout");
+const swipeLeftEl = document.querySelector(".swipe-hint--left");
+const swipeRightEl = document.querySelector(".swipe-hint--right");
+function updateSwipeHints(){
+  if(!mobileBreakpoint.matches || !layoutEl) return;
+  const w = window.innerWidth;
+  const maxScroll = layoutEl.scrollWidth - w;
+  if(swipeLeftEl) swipeLeftEl.style.visibility = layoutEl.scrollLeft <= w * 0.5 ? "hidden" : "visible";
+  if(swipeRightEl) swipeRightEl.style.visibility = layoutEl.scrollLeft >= maxScroll - w * 0.5 ? "hidden" : "visible";
+}
+if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
+
 el.brandBtn.addEventListener("click", () => setState("landing"));
 
 // ---------------------------------------------------------
@@ -733,3 +747,4 @@ el.brandBtn.addEventListener("click", () => setState("landing"));
 paintStaticText();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+updateSwipeHints();
