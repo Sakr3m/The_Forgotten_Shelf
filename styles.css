@@ -248,6 +248,11 @@ body[data-state="landing"] .brand{ display:none; }
 .music-toggle svg{ width:18px; height:18px; }
 .music-toggle__icon-off{ display:none; }
 .music-toggle[aria-pressed="true"]{ color:var(--cyan); }
+.music-toggle[aria-pressed="false"]{ color:var(--text-faint); } /* esplicito
+  invece di lasciarlo al default implicito: un utente ha segnalato
+  l'icona rossastra invece che grigia da spento (tornava grigia solo
+  dopo un cambio lingua) — non ho trovato la causa esatta leggendo il
+  codice, questa regola forza comunque il colore giusto */
 .music-toggle[aria-pressed="true"] .music-toggle__icon-on{ display:block; }
 .music-toggle[aria-pressed="true"] .music-toggle__icon-off{ display:none; }
 .music-toggle[aria-pressed="false"] .music-toggle__icon-on{ display:none; }
