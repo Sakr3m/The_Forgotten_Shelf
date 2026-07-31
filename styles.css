@@ -361,7 +361,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    controls bar. Off by default: the line tries to fit every entry on
    screen; on, it switches to free/dynamic spacing with drag-to-scroll. */
 .timeline-scroll-toggle{
-  position:absolute; top:0; left:0; z-index:3;
+  position:absolute; top:0; right:0; z-index:3;
   display:flex; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:50%;
   border:1px solid var(--cyan); background:var(--panel); color:var(--text-dim);
