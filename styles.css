@@ -95,28 +95,11 @@ body[data-state="landing"] .brand{ display:none; }
       figli sporgono comunque grazie a overflow:visible, quindi la
       barra resta visibile e "attaccata" in alto scorrendo, ma senza
       spingere giù game-header/landing/title-panel come faceva prima
-      con min-height:68px. */
+      con min-height:68px. Niente sfondo pieno: coprirebbe/taglierebbe
+      la banner sotto (vedi nota più sotto), i singoli pulsanti hanno
+      già il proprio sfondo. */
     display:flex; align-items:flex-start; justify-content:space-between;
     padding:0 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
-  }
-  /* Il testo che scorre sotto la barra non deve intravedersi nei
-     vuoti tra i pulsanti. Invece di un blocco netto (che deve
-     combaciare esattamente con l'header sotto, altrimenti lo taglia
-     o lascia uno spazio vuoto — il problema di tutti i tentativi
-     precedenti), una DISSOLVENZA: piena opacità sulla zona dei
-     pulsanti (0-53px), poi sfuma fino a trasparente entro metà
-     altezza dell'header (15px di partenza header + metà di 230px =
-     130px). Un gradiente non ha bisogno di precisione al pixel: se i
-     conti sono leggermente imprecisi si sposta solo dove finisce la
-     sfumatura, non taglia mai nulla di netto sul banner.
-     z-index:-1 per lo stesso motivo di sempre: i pulsanti dentro la
-     barra sono position:static e dipingerebbero PRIMA di un elemento
-     posizionato come questo; il negativo li riporta sopra, restando
-     comunque sopra al testo grazie allo z-index:10 del contenitore. */
-  .stage-topbar::before{
-    content:""; position:absolute; top:0; left:0; right:0; height:130px;
-    background:linear-gradient(to bottom, var(--bg) 53px, transparent 130px);
-    z-index:-1;
   }
   .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, la barra stessa resta a altezza zero */
   .stage-topbar .brand{
