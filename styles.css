@@ -775,6 +775,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   /* Sfondo monocromatico in home: niente sfumature colorate di sfondo,
      solo il colore pieno — più pulito su schermo piccolo. */
   body[data-state="landing"]{ background:var(--bg); }
+  body[data-state="entry"]{ background:var(--bg); }
 
   /* Freccette animate che suggeriscono lo swipe verso la colonna
      laterale — solo nelle direzioni dove esiste davvero una colonna

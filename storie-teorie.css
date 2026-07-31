@@ -194,4 +194,57 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-panel{ margin-top:16px; max-width:100%; }
   .entry-title{ font-size:1.3rem; max-width:100%; }
   .entry-body{ max-width:100%; font-size:.92rem; }
+
+  /* Niente slider del volume su mobile, solo il pulsante toggle. */
+  .volume-panel{ display:none; }
+
+  /* ==========================================================
+     Pagina di una voce (teoria/storia) su mobile: barra a due
+     righe fissa (tazza+testo sopra, volume+switch sotto), banner
+     ingrandito subito dopo, poi il pulsante a tendina in flusso
+     normale, poi il testo. Sostituisce del tutto il posizionamento
+     "ad angolo" pensato per desktop.
+     ========================================================== */
+  body[data-state="entry"] .stage-topbar{
+    display:flex; flex-direction:column;
+    position:fixed; top:0; left:0; right:0;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    z-index:50;
+  }
+  body[data-state="entry"] .brand{
+    position:static; width:100%; left:auto; top:auto;
+    justify-content:space-between;
+    padding:14px 16px 10px;
+  }
+  body[data-state="entry"] .stage-controls{
+    position:static; width:100%; top:auto; right:auto; left:auto;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 16px 14px;
+  }
+  /* Il volume sta a sinistra: capovolgo l'ordine visivo (il DOM resta
+     invariato) così il titolo del brano, quando appare, si apre verso
+     destra invece che verso il centro dello schermo. */
+  body[data-state="entry"] .music-control{ flex-direction:row-reverse; }
+
+  /* Banner ingrandito e più visibile — quasi amalgamato con lo sfondo
+     invece che nettamente distinto da esso. Sticky riallineato alla
+     nuova altezza reale della barra sopra (95px), stessa logica già
+     usata altrove per evitare il "recupero" scorrendo. */
+  body[data-state="entry"] .stage{ padding-top:95px; }
+  body[data-state="entry"] #pageHeader{
+    top:95px; min-height:220px;
+    justify-content:flex-end;
+  }
+  body[data-state="entry"] .game-header__banner-overlay{
+    background:rgba(10,14,23,.45);
+  }
+
+  /* Pulsante a tendina: in flusso normale subito sotto il banner,
+     non più ad angolo sovrapposto (lì su mobile non compariva
+     nemmeno, essendo la regola che lo abilita scoped al desktop). */
+  body[data-state="entry"] .entry-game-picker{
+    display:flex; justify-content:center;
+    position:static; margin:14px 0 0;
+  }
 }
