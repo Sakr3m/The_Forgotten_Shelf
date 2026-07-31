@@ -92,13 +92,17 @@ body[data-state="landing"] .brand{ display:none; }
 @media (min-width:761px){
   .stage-topbar{
     position:sticky; top:0; z-index:10;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:15px 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
-    min-height:68px; /* fissa, cosi la barra e sempre alta uguale in ogni
-      schermata (prima poteva variare in base a quali pulsanti erano
-      visibili al suo interno, spingendo la home un po' piu in basso) */
-    background:var(--bg);
+    height:0; overflow:visible; /* non riserva spazio nel flusso: i
+      figli sporgono comunque grazie a overflow:visible, quindi la
+      barra resta visibile e "attaccata" in alto scorrendo, ma senza
+      spingere giù game-header/landing/title-panel come faceva prima
+      con min-height:68px. Niente sfondo pieno: coprirebbe/taglierebbe
+      la banner sotto (vedi nota più sotto), i singoli pulsanti hanno
+      già il proprio sfondo. */
+    display:flex; align-items:flex-start; justify-content:space-between;
+    padding:0 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
   }
+  .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, la barra stessa resta a altezza zero */
   .stage-topbar .brand{
     position:static; width:auto; left:auto; top:auto; z-index:auto;
     justify-content:flex-start; gap:14px;
@@ -106,24 +110,19 @@ body[data-state="landing"] .brand{ display:none; }
   .stage-topbar .brand-icon{ position:static; left:auto; }
   .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
   .stage-topbar .stage-controls{ position:static; top:auto; right:auto; z-index:auto; }
-  .stage:has(.stage-topbar){ padding-top:0; }
-
-  /* La barra ora occupa spazio reale (min-height:68px), cosa che
-     prima non faceva (i pulsanti erano fissi/assoluti, non
-     spingevano nulla). Tiro su game-panel di conseguenza, cosi il
-     game-header torna allo stesso spazio dal margine alto che ha
-     su storie-teorie.html (15px, il padding originale dello stage):
-     68 (altezza barra) - 15 (spazio voluto) = 53px da recuperare. */
-  body[data-state="game"] .game-panel{ margin-top:-53px; }
 
   /* In home, Ko-fi non segue il flusso del gruppo insieme allo
      switch: va centrato esattamente a metà tra "torna all'index" e
      lo switch lingua. Dato che entrambi stanno a 100px dal proprio
      bordo, il centro esatto tra i due coincide sempre col centro
-     della barra stessa, qualunque sia la larghezza dello schermo. */
+     della barra stessa, qualunque sia la larghezza dello schermo.
+     Verticalmente si allinea agli altri pulsanti con lo stesso
+     margin-top:15px, non serve piu centrarlo su un contenitore che
+     ora ha altezza zero. */
   body[data-state="landing"] .kofi-link{
-    position:absolute; left:50%; top:50%;
-    transform:translate(-50%, -50%);
+    position:absolute; left:50%; top:15px;
+    transform:translateX(-50%);
+    margin-top:0;
   }
 }
 /* Solo nella schermata "gioco" (timeline/universi, o le pagine tipo
