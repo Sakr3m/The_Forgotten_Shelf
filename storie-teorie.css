@@ -200,12 +200,14 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* ==========================================================
      Pagina di una voce (teoria/storia) su mobile: un'unica riga
-     (scritta a sinistra, tazza al centro, switch a destra — tutti
-     alla stessa altezza dello switch), poi il banner a pelo sotto,
-     ingrandito del 500% per una prova diagnostica.
+     in alto (scritta a sinistra, tazza ESATTAMENTE a metà dello
+     spazio tra la fine della scritta e l'inizio dello switch —
+     flex + justify-content:space-between con 3 elementi fa
+     esattamente questo, non un centraggio sull'intera riga), niente
+     banner, poi volume e tendina come righe proprie, poi il testo.
      ========================================================== */
   body[data-state="entry"] .stage-topbar{
-    display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+    display:flex; align-items:center; justify-content:space-between;
     position:fixed; top:0; left:0; right:0;
     padding:14px 16px;
     background:var(--bg);
@@ -214,34 +216,48 @@ body[data-state="entry"] .landing{ display:none; }
   }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
-    order:1; justify-self:start;
+    order:1;
     font-size:1.15rem; /* stessa altezza (circa) dello switch lingua */
   }
-  body[data-state="entry"] .brand-icon{ order:2; justify-self:center; }
+  body[data-state="entry"] .brand-icon{ order:2; }
   body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; } /* = altezza dello switch lingua mobile */
   body[data-state="entry"] .stage-controls{
-    order:3; justify-self:end;
+    order:3;
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
-  /* Volume tolto da qui insieme alla vecchia seconda riga: va
-     ricollocato altrove, non ancora deciso dove. */
-  body[data-state="entry"] .music-control{ display:none; }
 
-  /* Banner a pelo con la riga sopra (nessun gap), ingrandito del
-     500% (220px -> 1100px) apposta per vedere il problema. */
-  body[data-state="entry"] .stage{ padding-top:60px; }
+  /* Banner tolto del tutto (stava facendo casino): l'header si
+     azzera, non riserva più spazio. */
+  body[data-state="entry"] .game-header__banner,
+  body[data-state="entry"] .game-header__banner-overlay{ display:none; }
   body[data-state="entry"] #pageHeader{
-    top:60px; min-height:1100px;
-    justify-content:flex-end;
-  }
-  body[data-state="entry"] .game-header__banner-overlay{
-    background:rgba(10,14,23,.45);
+    height:0; min-height:0; max-height:none; overflow:visible;
+    margin:0; padding:0; border:none; background:none;
   }
 
-  /* Pulsante a tendina: resta ancorato in basso dentro l'header
-     per ora, non toccato in questo giro. */
-  body[data-state="entry"] .entry-game-picker{
-    display:flex; justify-content:center;
-    position:static; margin:14px 0 0;
+  /* Volume: riga propria fissa subito sotto la barra. Non può stare
+     in flusso normale (è dentro .stage-controls, che è dentro la
+     barra fissa in alto) quindi è anche lei una riga fissa, con la
+     sua stessa altezza (60px) usata per calcolare dove inizia la
+     riga successiva. */
+  body[data-state="entry"] .music-control{
+    display:flex; justify-content:center; align-items:center;
+    position:fixed; top:60px; left:0; right:0; z-index:45;
+    padding:10px 16px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
   }
+
+  /* Tendina: riga propria fissa subito sotto quella del volume. */
+  body[data-state="entry"] .entry-game-picker{
+    display:flex; justify-content:center; align-items:center;
+    position:fixed; top:120px; left:0; right:0; z-index:44;
+    padding:10px 16px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Il testo parte dopo le tre righe fisse (barra + volume + tendina
+     = 60+60+60 = 180px). */
+  body[data-state="entry"] .stage{ padding-top:180px; }
 }
