@@ -228,28 +228,41 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Banner tolto del tutto: l'header si azzera, non riserva più
-     spazio. */
-  body[data-state="entry"] .game-header__banner,
-  body[data-state="entry"] .game-header__banner-overlay{ display:none; }
+  /* Sotto-header, riga propria (60-140px): volume a sinistra, spazio
+     banner del gioco a destra. Musica e banner sono entrambi
+     "intrappolati" dentro contenitori già fixed nel DOM (il volume
+     dentro la barra in alto, il banner dentro #pageHeader) — l'unico
+     modo per farli condividere una riga sotto la barra, senza toccare
+     l'HTML condiviso col desktop, è renderli entrambi fixed a loro
+     volta, ciascuno per metà larghezza. */
+  body[data-state="entry"] .music-control{
+    display:flex; justify-content:center; align-items:center;
+    position:fixed; top:60px; left:0; width:50%; height:80px; z-index:45;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
   body[data-state="entry"] #pageHeader{
-    position:static; /* niente più sticky: qui è solo un guscio vuoto */
-    height:auto; min-height:0; max-height:none; overflow:visible;
-    margin:0; padding:0; border:none; background:none;
+    position:fixed; top:60px; right:0; left:50%; z-index:44;
+    height:80px; min-height:0; max-height:none;
+    margin:0; padding:0; border:none; border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
+  body[data-state="entry"] .game-header__banner-overlay{
+    background:rgba(10,14,23,.45);
   }
 
-  /* Musica: tolta da qui per ora (va ricollocata altrove, non ancora
-     deciso dove — non può restare "fuori dall'header" restando
-     dentro la barra fissa in alto, quindi per adesso è nascosta). */
-  body[data-state="entry"] .music-control{ display:none; }
-
-  /* Tendina: in flusso normale, subito sopra il testo — non più una
-     riga fissa a parte. */
+  /* Tendina: riga propria fissa, centrata, subito sotto il
+     sotto-header (60 + 80 = 140px). */
   body[data-state="entry"] .entry-game-picker{
-    display:flex; justify-content:center;
-    position:static; margin:0 0 16px;
+    display:flex; justify-content:center; align-items:center;
+    position:fixed; top:140px; left:0; right:0; z-index:43;
+    padding:10px 16px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
   }
 
-  /* Il testo parte subito dopo la sola barra in alto (60px). */
-  body[data-state="entry"] .stage{ padding-top:60px; }
+  /* Il testo parte poco sotto la tendina (barra 60 + sotto-header 80
+     + tendina 60 = 200px). */
+  body[data-state="entry"] .stage{ padding-top:200px; }
 }
