@@ -111,7 +111,12 @@ body[data-state="landing"] .brand{ display:none; }
      Il negativo li riporta davanti, restando comunque sopra al testo
      grazie allo z-index:10 dell'intero contenitore .stage-topbar. */
   .stage-topbar::before{
-    content:""; position:absolute; top:0; left:0; right:0; height:70px;
+    content:""; position:absolute; top:0; left:0; right:0; height:53px;
+    /* 53px = 15px di margine + 38px di altezza del pulsante più alto
+       (music-toggle): la stessa misura esatta usata per far partire
+       l'header sotto la barra. Prima era 70px, un valore "abbondante"
+       scelto senza calcolarlo — quei 17px di troppo si sovrapponevano
+       all'header (sticky anche lui) tagliandogli la parte alta. */
     background:var(--bg); z-index:-1;
   }
   .stage-topbar > *{ margin-top:15px; } /* i pulsanti scendono di 15px dal bordo, la barra stessa resta a altezza zero */
