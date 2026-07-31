@@ -36,40 +36,30 @@
 
 /* Header in cima allo stage: stesso game-header di timeline.html
    (riusa le classi condivise .game-header/.game-header__banner/
-   .game-header__banner-overlay già definite in styles.css), vuoto
-   e pronto ad ospitare un banner in futuro. Nascosto in home come
-   il game-header originale.
-   Reso sticky con sfondo pagina: la barra in cima (tazza/switch/
-   volume) è anche lei sticky (vedi .stage-topbar in styles.css),
-   quindi l'header doveva restare fermo con lei — altrimenti la riga
-   dell'header scorreva via da sola e il testo, salendo, spariva
-   dietro la barra immobile senza più nessun bordo/sfondo a
-   "coprirlo" correttamente. */
-#pageHeader{
-  position:sticky; top:15px; z-index:4;
-  background:var(--bg);
-}
+   .game-header__banner-overlay già definite in styles.css, sticky
+   compreso), vuoto e pronto ad ospitare un banner in futuro.
+   Nascosto in home come il game-header originale. */
 body[data-state="landing"] #pageHeader{ display:none; }
 
-/* Menu a tendina con le altre teorie/storie dello stesso gioco (per
-   ora una sola per gioco, ma pronto per quando ce ne saranno di più).
-   Non è dentro #pageHeader: quel box ha overflow:hidden (serve per
-   ritagliare la banner), quindi un menu a tendina lì dentro verrebbe
-   tagliato via. Sta invece subito dopo, come fratello, e si sovrappone
-   alla parte bassa dell'header con un margine negativo — 36px di
-   altezza del pulsante + 15px di margine dalla riga sotto, la stessa
-   distanza che c'è tra i pulsanti sopra e il bordo alto della pagina.
-   Si apre sempre verso il basso (top:100% sul menu). */
+/* Pulsante a tendina con le altre teorie/storie dello stesso gioco
+   (per ora una sola per gioco, ma pronto per quando ce ne saranno
+   di più). Il pulsante sta dentro #pageHeader (si muove con lui,
+   che è sticky) — 15px sopra la riga di confine, la stessa distanza
+   che c'è tra i pulsanti sopra e il bordo alto della pagina.
+   Il MENU invece non è dentro #pageHeader: quel box ha
+   overflow:hidden (serve per ritagliare la banner), quindi un menu
+   a tendina lì dentro verrebbe tagliato via appena esce dal bordo
+   basso. È un elemento a parte, posizionato via JS (position:fixed,
+   coordinate prese dal trigger reale) così scavalca il ritaglio.
+   Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
 @media (min-width:761px){
-  .entry-game-picker{
-    position:relative; z-index:5;
-    align-self:flex-end;
-    margin-top:-51px;
-    margin-right:25px; /* + i 25px di padding dello stage = 50px dal bordo,
-      come switch/volume nella pagina di una voce */
+  body[data-state="entry"] .entry-game-picker{
+    display:block;
+    position:absolute; right:25px; bottom:15px; z-index:2;
+    /* +25px di padding destro dell'header = 50px dal bordo, come
+       switch/volume nella pagina di una voce */
   }
-  body[data-state="entry"] .entry-game-picker{ display:block; }
 }
 .entry-game-trigger{
   display:flex; align-items:center; gap:8px;
@@ -90,13 +80,14 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
 
 .entry-game-menu{
-  position:absolute; top:calc(100% + 8px); right:0;
+  position:fixed;
   min-width:240px;
   background:var(--panel-raised);
   border:1px solid var(--line);
   border-radius:var(--radius-sm);
   box-shadow:0 16px 32px rgba(0,0,0,.5);
   overflow:hidden;
+  z-index:30;
   animation:menuIn var(--dur-fast) var(--ease);
 }
 .entry-game-menu li button{

@@ -174,6 +174,9 @@ function renderGamePicker(entry){
 }
 
 function openGameMenu(){
+  const rect = el.entryGameTrigger.getBoundingClientRect();
+  el.entryGameMenu.style.top = (rect.bottom + 8).toFixed(2) + "px";
+  el.entryGameMenu.style.right = (window.innerWidth - rect.right).toFixed(2) + "px";
   el.entryGameMenu.hidden = false;
   el.entryGamePicker.classList.add("is-open");
   el.entryGameTrigger.setAttribute("aria-expanded", "true");
@@ -183,6 +186,7 @@ function closeGameMenu(){
   el.entryGamePicker.classList.remove("is-open");
   el.entryGameTrigger.setAttribute("aria-expanded", "false");
 }
+window.addEventListener("scroll", () => { if(!el.entryGameMenu.hidden) closeGameMenu(); }, true);
 el.entryGameTrigger.addEventListener("click", () => {
   el.entryGameMenu.hidden ? openGameMenu() : closeGameMenu();
 });
