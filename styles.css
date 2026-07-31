@@ -389,8 +389,13 @@ body[data-state="landing"] .index-link{ display:flex; }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
 
 .game-header{
-  position:sticky; top:15px; z-index:4;
+  position:sticky; top:53px; z-index:4;
   background:var(--bg);
+  margin-top:38px; /* 38px = altezza del pulsante più alto della barra
+    sopra (music-toggle); prima l'header partiva alla stessa altezza
+    dei pulsanti (15px) e ci si sovrapponeva, tagliando la parte alta
+    della banner. Ora parte subito sotto, e la soglia sticky (top)
+    è stata alzata della stessa quantità per restare coerente. */
   display:flex; gap:24px; align-items:center;
   padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
     di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
@@ -823,6 +828,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   /* --- Game header --- */
   .game-header{
     position:relative;
+    margin-top:0;
     flex-direction:column; align-items:center; text-align:center;
     height:auto; max-height:none; overflow:visible;
     padding:20px 16px; gap:12px;
