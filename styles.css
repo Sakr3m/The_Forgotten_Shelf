@@ -336,6 +336,8 @@ body[data-state="landing"] .kofi-link{ display:flex; }
 .kofi-link:hover{ color:var(--text); }
 .kofi-link svg{ width:16px; height:16px; color:var(--text-dim); flex-shrink:0; transition:color var(--dur-fast) var(--ease); }
 .kofi-link:hover svg{ color:var(--text); }
+body[data-state="landing"] .kofi-link svg{ color:#ef4444; }
+body[data-state="landing"] .kofi-link:hover svg{ color:#ef4444; }
 .kofi-link__short{ display:none; }
 
 /* Pulsante "torna all'index": stessa estetica del pill di Ko-fi
