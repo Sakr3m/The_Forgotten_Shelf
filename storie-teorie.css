@@ -102,10 +102,15 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
 .volume-panel{ border-color:var(--item-accent, var(--cyan)); }
 
-/* Switch lingua e controlli musica: ora fanno parte del sistema
-   condiviso .stage-topbar in styles.css (stesso di timeline.html),
-   che li rende "senza peso" nel flusso e a 100px dal bordo destro —
-   niente più regole fixed/right specifiche di questa pagina. */
+/* Switch lingua e controlli musica: fanno parte del sistema condiviso
+   .stage-topbar in styles.css (stesso di timeline.html), che li rende
+   "senza peso" nel flusso e a 100px dal bordo destro di default.
+   Solo qui, dentro la pagina di una voce (non in home, dove restano
+   a 100px), li riporto a 50px: la colonna Storie Nascoste riduce
+   ulteriormente lo spazio disponibile, quindi 100px sarebbe troppo. */
+@media (min-width:761px){
+  body[data-state="entry"] .stage-topbar .stage-controls{ margin-right:-50px; }
+}
 
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
