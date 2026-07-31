@@ -46,7 +46,7 @@
    dietro la barra immobile senza più nessun bordo/sfondo a
    "coprirlo" correttamente. */
 #pageHeader{
-  position:sticky; top:0; z-index:4;
+  position:sticky; top:15px; z-index:4;
   background:var(--bg);
 }
 body[data-state="landing"] #pageHeader{ display:none; }
