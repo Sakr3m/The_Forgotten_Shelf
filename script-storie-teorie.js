@@ -13,9 +13,7 @@ const STRINGS = {
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
-    backToIndexLabel: "Torna all'index",
-    tagTeoria: "Teoria",
-    tagStoria: "Storia Nascosta"
+    backToIndexLabel: "Torna all'index"
   },
   en: {
     brand: "Stories & Theories",
@@ -27,9 +25,7 @@ const STRINGS = {
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     landingSub: "Select an entry from the Theories column or from the Hidden Stories column to dive in.",
     kofiLabel: "Support me on Ko-fi",
-    backToIndexLabel: "Back to index",
-    tagTeoria: "Theory",
-    tagStoria: "Hidden Story"
+    backToIndexLabel: "Back to index"
   }
 };
 
@@ -120,13 +116,11 @@ function currentEntry(){
 function renderEntry(){
   const entry = currentEntry();
   if(!entry){ el.entryContent.innerHTML = ""; return; }
-  const tag = state.column === "teorie" ? t("tagTeoria") : t("tagStoria");
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   el.pageHeaderBanner.style.backgroundImage = entry.banner ? `url('${entry.banner}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
-    <span class="entry-tag">${tag}</span>
     <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-body">${tf(entry.body)}</p>
   `;

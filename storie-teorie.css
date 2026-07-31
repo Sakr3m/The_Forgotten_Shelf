@@ -74,13 +74,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
   opacity:0; animation:fadeUp .45s var(--ease) forwards;
   display:flex; flex-direction:column; align-items:center; text-align:center;
 }
-.entry-tag{
-  display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--item-accent, var(--cyan));
-  border:1px solid color-mix(in srgb, var(--item-accent, var(--cyan)) 40%, transparent);
-  border-radius:999px; padding:4px 12px;
-}
-.entry-title{ font-size:2.2rem; margin-top:16px; color:var(--text); max-width:1080px; }
+.entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; }
 .entry-body{
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:center; max-width:1080px;
