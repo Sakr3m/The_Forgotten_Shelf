@@ -12,7 +12,7 @@
   --text-dim:#9aa4b7;
   --text-faint:#5b6478;
 
-  --cyan:#22d3ee;
+  --cyan:#ffffff;
   --magenta:#e879f9;
   --orange:#fb923c;
   --tl-1:#00f0ff;
@@ -431,7 +431,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .canon-note p{ margin-bottom:20px; }
 .canon-note__titles-label{
   font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:8px !important;
+  color:var(--text-faint); margin-bottom:8px;
 }
 .canon-note__titles{
   font-size:1rem; font-weight:600; color:var(--text);
