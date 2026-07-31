@@ -143,11 +143,10 @@ function renderEntry(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
-  randomizeLangSwitchColor();
   if(view === "landing"){
     state.column = null; state.entryId = null;
     el.body.style.removeProperty("--item-accent");
-    el.body.style.setProperty("--cyan", "#6b7280");
+    el.body.style.setProperty("--cyan", "#ffffff");
   } else {
     el.body.style.removeProperty("--cyan");
   }
@@ -242,33 +241,8 @@ el.musicToggle.addEventListener("click", () => {
 // ---------------------------------------------------------
 // Cambio lingua
 // ---------------------------------------------------------
-function randomizeLangSwitchColor(){
-  if(state.view !== "landing"){
-    el.langSwitch.style.borderColor = "";
-    return;
-  }
-  const hue = Math.floor(Math.random() * 360);
-  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
-}
-randomizeLangSwitchColor();
-
-// Index-link and Ko-fi link: random color on hover (instead of a fixed
-// red), same random-hue mechanic as the lang switch, just triggered by
-// mouseenter instead of always-on.
-function addRandomHoverColor(node){
-  if(!node) return;
-  node.addEventListener("mouseenter", () => {
-    const hue = Math.floor(Math.random() * 360);
-    node.style.borderColor = `hsl(${hue}, 75%, 60%)`;
-  });
-  node.addEventListener("mouseleave", () => { node.style.borderColor = ""; });
-}
-addRandomHoverColor(document.querySelector(".index-link"));
-addRandomHoverColor(document.querySelector(".kofi-link"));
-
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
-  randomizeLangSwitchColor();
   paintStaticText();
   renderLists();
   if(state.view === "entry") renderEntry();

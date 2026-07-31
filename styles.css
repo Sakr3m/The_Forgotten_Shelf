@@ -76,14 +76,15 @@ body[data-state="landing"] .brand{ display:none; }
 .universe-trigger{
   display:flex; align-items:center; gap:8px;
   padding:9px 16px;
-  border:1px solid var(--line);
+  border:1px solid var(--cyan);
   background:var(--panel);
   border-radius:999px;
   font-size:.82rem; font-weight:600;
   color:var(--text-dim);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
-.universe-trigger:hover, .universe-trigger:focus-visible{ border-color:var(--cyan); color:var(--text); background:var(--panel-raised); }
+.universe-trigger:hover, .universe-trigger:focus-visible{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); background:var(--panel-raised); }
+.universe-picker.is-open .universe-trigger{ color:var(--cyan); }
 .chevron{ width:10px; height:7px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
 .universe-picker.is-open .chevron{ transform:rotate(180deg); }
 
@@ -106,7 +107,7 @@ body[data-state="landing"] .brand{ display:none; }
   border-bottom:1px solid var(--line);
 }
 .universe-menu li:last-child button{ border-bottom:none; }
-.universe-menu li button:hover, .universe-menu li button:focus-visible{ background:color-mix(in srgb, var(--cyan) 8%, transparent); color:var(--text); }
+.universe-menu li button:hover, .universe-menu li button:focus-visible{ background:color-mix(in srgb, var(--cyan) 8%, transparent); color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); }
 .universe-menu li button.is-active{ color:var(--cyan); }
 .universe-menu .u-span{ display:block; font-size:.7rem; color:var(--text-faint); margin-top:2px; font-weight:400; }
 
@@ -119,9 +120,9 @@ body[data-state="landing"] .brand{ display:none; }
   font-size:.78rem; font-weight:600;
   transition:border-color .3s var(--ease);
 }
-.lang-switch:hover{ border-color:var(--cyan); filter:brightness(1.15); }
 .lang-option{ color:var(--text-faint); padding:2px 3px; transition:color var(--dur-fast) var(--ease); }
 .lang-option.is-active{ color:var(--cyan); }
+.lang-switch:hover .lang-option{ color:var(--text); }
 .lang-sep{ color:var(--line); }
 
 .music-control{ position:relative; display:flex; align-items:center; gap:10px; }
@@ -186,16 +187,16 @@ body[data-state="landing"] .brand{ display:none; }
 .music-toggle{
   display:flex; align-items:center; justify-content:center;
   width:38px; height:38px; flex-shrink:0;
-  border:1px solid var(--line);
+  border:1px solid var(--cyan);
   background:var(--panel);
   border-radius:999px;
   color:var(--text-faint);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.music-toggle:hover{ border-color:#ef4444; color:var(--text); }
+.music-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-faint)); }
 .music-toggle svg{ width:18px; height:18px; }
 .music-toggle__icon-off{ display:none; }
-.music-toggle[aria-pressed="true"]{ color:var(--cyan); border-color:color-mix(in srgb, var(--cyan) 40%, transparent); }
+.music-toggle[aria-pressed="true"]{ color:var(--cyan); }
 .music-toggle[aria-pressed="true"] .music-toggle__icon-on{ display:block; }
 .music-toggle[aria-pressed="true"] .music-toggle__icon-off{ display:none; }
 .music-toggle[aria-pressed="false"] .music-toggle__icon-on{ display:none; }
@@ -262,7 +263,7 @@ body[data-state="landing"] .stage{ justify-content:center; }
 .kofi-link{
   display:none; align-items:center; gap:8px;
   padding:9px 16px;
-  border:1px solid var(--line);
+  border:1px solid var(--cyan);
   background:var(--panel);
   border-radius:999px;
   font-size:.8rem; font-weight:600; color:var(--text-dim);
@@ -270,18 +271,20 @@ body[data-state="landing"] .stage{ justify-content:center; }
 }
 body[data-state="landing"] .kofi-link{ display:flex; }
 .kofi-link:hover{ color:var(--text); }
-.kofi-link svg{ width:16px; height:16px; color:#ef4444; flex-shrink:0; }
+.kofi-link svg{ width:16px; height:16px; color:var(--text-dim); flex-shrink:0; transition:color var(--dur-fast) var(--ease); }
+.kofi-link:hover svg{ color:var(--text); }
 .kofi-link__short{ display:none; }
 
 /* Pulsante "torna all'index": stessa estetica del pill di Ko-fi
-   (bordo neutro, rosso in hover), ma sul lato opposto (sinistra)
-   dello spazio in alto, indipendente da stage-controls perché deve
-   restare a sinistra invece che unirsi al gruppo a destra. */
+   (bordo sempre del colore della schermata, testo grigio->bianco in
+   hover), ma sul lato opposto (sinistra) dello spazio in alto,
+   indipendente da stage-controls perché deve restare a sinistra
+   invece che unirsi al gruppo a destra. */
 .index-link{
   display:none; align-items:center; gap:8px;
   position:fixed; top:15px; left:270px; z-index:5;
   padding:9px 16px;
-  border:1px solid var(--line);
+  border:1px solid var(--cyan);
   background:var(--panel);
   border-radius:999px;
   font-size:.8rem; font-weight:600; color:var(--text-dim);
@@ -296,8 +299,13 @@ body[data-state="landing"] .index-link{ display:flex; }
     position:static; top:auto; left:auto;
     width:37px; height:37px; padding:0;
     justify-content:center; border-radius:50%;
+    color:#fff;
   }
+  .index-link:hover{ color:#fff; }
   .index-link span{ display:none; }
+
+  .kofi-link svg{ color:#ef4444; }
+  .kofi-link:hover svg{ color:#ef4444; }
 
   .kofi-link__full{ display:none; }
   .kofi-link__short{ display:inline; }
@@ -394,12 +402,12 @@ body[data-state="landing"] .index-link{ display:flex; }
   position:absolute; top:0; left:0; z-index:3;
   display:flex; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:50%;
-  border:1px solid var(--line); background:var(--panel); color:var(--text-dim);
+  border:1px solid var(--cyan); background:var(--panel); color:var(--text-dim);
   cursor:pointer;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.timeline-scroll-toggle:hover{ border-color:var(--cyan); color:var(--text); }
-.timeline-scroll-toggle[aria-pressed="true"]{ border-color:var(--cyan); color:var(--cyan); }
+.timeline-scroll-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); }
+.timeline-scroll-toggle[aria-pressed="true"]{ color:var(--cyan); }
 .timeline-scroll-toggle svg{ width:16px; height:16px; }
 @media (max-width:760px){ .timeline-scroll-toggle{ display:none; } }
 
@@ -453,7 +461,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   display:flex; align-items:center; gap:8px;
   flex-shrink:0;
   padding:9px 16px;
-  border:1px solid var(--line);
+  border:1px solid var(--cyan);
   border-radius:999px;
   background:var(--panel);
   color:var(--text-dim);
@@ -462,7 +470,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .carousel-arrow:hover, .carousel-arrow:focus-visible{
-  border-color:var(--cyan); color:var(--text);
+  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
 }
 .carousel-arrow__icon{ width:12px; height:14px; color:var(--cyan); flex-shrink:0; }
 .carousel-arrow__label{ line-height:1.2; }
@@ -708,6 +716,13 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   }
   body[data-state="title"] .stage{
     flex:none; width:100%; max-width:none; height:auto; overflow-y:visible;
+  }
+
+  /* Le voci in lista si evidenziano solo in hover su PC: sul mobile,
+     non essendoci hover, restano sempre con un contornino sottile del
+     proprio colore (opacità ridotta, non l'intensità piena dell'hover). */
+  .game-list button{
+    box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
   }
 
   /* --- Stage --- */

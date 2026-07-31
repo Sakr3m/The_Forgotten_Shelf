@@ -99,7 +99,8 @@ function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
 const DEFAULT_PALETTE = ["#00f0ff", "#ff2ec4", "#a742ff"];
-const DEFAULT_ACCENT = "#6b7280"; // neutral gray on landing until a game "owns" this slot
+const DEFAULT_ACCENT = "#6b7280"; // fallback per giochi senza accento proprio in lista
+const LANDING_COLOR = "#ffffff"; // colore della schermata Home
 
 function hexToRgb(hex){
   const n = parseInt(hex.replace("#",""), 16);
@@ -123,7 +124,7 @@ function applyPaletteToCSS(){
   document.body.style.setProperty("--tl-2", palette[1]);
   document.body.style.setProperty("--tl-3", palette[2]);
   document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`);
-  document.body.style.setProperty("--cyan", (g && g.accentColor) || DEFAULT_ACCENT);
+  document.body.style.setProperty("--cyan", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
   const bannerOffset = (g && g.bannerOffset != null) ? g.bannerOffset : 125;
   document.body.style.setProperty("--banner-x-offset", bannerOffset + "px");
 }
@@ -624,7 +625,6 @@ function renderRail(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
-  randomizeLangSwitchColor();
 
   el.landingPanel.hidden = view !== "landing";
   el.gamePanel.hidden = view !== "game";
@@ -636,7 +636,7 @@ function setState(view){
     document.body.style.setProperty("--tl-2", DEFAULT_PALETTE[1]);
     document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
-    document.body.style.setProperty("--cyan", DEFAULT_ACCENT);
+    document.body.style.setProperty("--cyan", LANDING_COLOR);
     renderSidebar();
     renderUniversePicker();
   } else if(view === "game"){
@@ -676,33 +676,8 @@ function selectEntry(entryId){
 // ---------------------------------------------------------
 // Language switch
 // ---------------------------------------------------------
-function randomizeLangSwitchColor(){
-  if(state.view !== "landing"){
-    el.langSwitch.style.borderColor = "";
-    return;
-  }
-  const hue = Math.floor(Math.random() * 360);
-  el.langSwitch.style.borderColor = `hsl(${hue}, 75%, 60%)`;
-}
-randomizeLangSwitchColor();
-
-// Index-link and Ko-fi link: random color on hover (instead of a fixed
-// red), same random-hue mechanic as the lang switch, just triggered by
-// mouseenter instead of always-on.
-function addRandomHoverColor(node){
-  if(!node) return;
-  node.addEventListener("mouseenter", () => {
-    const hue = Math.floor(Math.random() * 360);
-    node.style.borderColor = `hsl(${hue}, 75%, 60%)`;
-  });
-  node.addEventListener("mouseleave", () => { node.style.borderColor = ""; });
-}
-addRandomHoverColor(document.querySelector(".index-link"));
-addRandomHoverColor(document.querySelector(".kofi-link"));
-
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
-  randomizeLangSwitchColor();
   paintStaticText();
   if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderUniversePicker(); renderGamePanel(); }

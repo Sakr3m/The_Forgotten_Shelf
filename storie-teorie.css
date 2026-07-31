@@ -94,10 +94,9 @@ body[data-state="landing"] #pageHeader{ display:none; }
    skip e titolo del brano — non solo al tag sopra il titolo. */
 .lang-switch{ border-color:var(--item-accent, var(--cyan)); }
 .lang-switch .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
-.music-toggle[aria-pressed="true"]{
-  color:var(--item-accent, var(--cyan));
-  border-color:color-mix(in srgb, var(--item-accent, var(--cyan)) 40%, transparent);
-}
+.music-toggle{ border-color:var(--item-accent, var(--cyan)); }
+.music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
+.music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
 .track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
 .track-info__title{ color:var(--item-accent, var(--text)); }
 .track-progress__fill{ background:var(--item-accent, var(--cyan)); }
