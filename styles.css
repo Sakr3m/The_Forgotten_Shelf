@@ -648,7 +648,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 /* ============================================================
    Title panel — full detail
    ============================================================ */
-.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:50px; }
+.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:100px; }
 .title-watermark{
   position:fixed; top:0; bottom:0; right:var(--rail-width); width:42vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
