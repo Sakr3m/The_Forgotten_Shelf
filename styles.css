@@ -415,6 +415,16 @@ body[data-state="landing"] .index-link{ display:flex; }
    Game panel — header + proportional timelines
    ============================================================ */
 .game-panel{ position:relative; width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
+@media (min-width:761px){
+  /* Tutto il contenuto della voce (tag, titolo, blurb, timeline,
+     pulsanti del carosello) deve partire, orizzontalmente, da dove
+     inizia la tazzina del logo Ko-fi in alto (.brand-icon): 25px è
+     la distanza misurata fra il bordo dello stage e la tazzina,
+     costante su desktop a prescindere dalla larghezza finestra
+     (stage-topbar usa padding/margin fissi, non proporzionali al
+     viewport). Solo PC: su mobile il layout è tutt'altra cosa. */
+  .game-panel{ padding-left:25px; }
+}
 
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
@@ -706,6 +716,12 @@ body[data-state="landing"] .index-link{ display:flex; }
    Title panel — full detail
    ============================================================ */
 .title-panel{ width:100%; max-width:1860px; position:relative; margin-top:100px; }
+@media (min-width:761px){
+  /* Stesso allineamento del game-panel qui sopra: le voci senza
+     linea temporale (solo racconto singolo, es. Doom) partono
+     anch'esse dalla tazzina. */
+  .title-panel{ padding-left:25px; }
+}
 .title-watermark{
   position:fixed; top:0; bottom:0; right:var(--rail-width); width:42vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;

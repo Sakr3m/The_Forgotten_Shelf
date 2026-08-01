@@ -139,6 +139,15 @@ body[data-state="landing"] #pageHeader{ display:none; }
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:center; max-width:1080px;
 }
+@media (min-width:761px){
+  /* Il testo qui è centrato (non a sinistra come in racconti.css):
+     il limite di espansione, cioè fin dove può arrivare il bordo del
+     testo quando riempie tutta la riga, deve coincidere con la
+     tazzina del logo Ko-fi in alto. 25px di padding per lato (misura
+     costante su desktop, vedi nota in racconti.css) inseriscono il
+     testo esattamente fino a quel punto, in modo simmetrico. */
+  .entry-body{ padding-left:25px; padding-right:25px; }
+}
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
    esteso anche ai controlli in alto: switch lingua, pulsante volume,

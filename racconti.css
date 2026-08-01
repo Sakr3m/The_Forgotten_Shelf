@@ -177,6 +177,17 @@ body[data-state="landing"] #pageHeader{ display:none; }
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:left; max-width:1080px;
 }
+@media (min-width:761px){
+  /* Il testo a sinistra deve partire esattamente da dove inizia la
+     tazzina del logo Ko-fi in alto (.brand-icon), non dal bordo dello
+     stage: 25px è la distanza misurata fra i due, costante su desktop
+     a prescindere dalla larghezza finestra (sidebar e padding dello
+     stage sono entrambi fissi, non proporzionali al viewport). Solo
+     PC: su mobile la tazzina segue una formula di posizionamento
+     diversa (regola .brand non sovrascritta da .stage-topbar .brand),
+     quindi lo stesso offset lì non varrebbe. */
+  .entry-body{ padding-left:25px; }
+}
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
    esteso anche ai controlli in alto: switch lingua, pulsante volume,
