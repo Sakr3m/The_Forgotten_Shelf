@@ -1,0 +1,272 @@
+/* ============================================================
+   STORIE & TEORIE — stili aggiuntivi sopra styles.css
+   Pagina gemella di timeline.html: stessa struttura, doppia
+   colonna di voci (Teorie a sinistra, Storie Nascoste a destra)
+   invece di libreria + rail dei capitoli.
+   ============================================================ */
+
+/* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
+   rispetto alle misure di base condivise con timeline.html — solo su
+   desktop, sul mobile sono pannelli del carosello a scorrimento. */
+@media (min-width:761px){
+  #sidebar{ width:260px; }
+}
+.side-rail{
+  width:310px; flex-shrink:0;
+  padding:24px 20px;
+  border-left:1px solid var(--line);
+  background:var(--bg-soft);
+  overflow-y:auto;
+}
+
+/* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
+   posizione in alto (niente più brand sopra la colonna sinistra) e
+   stessa colorazione/dimensione dell'etichetta "Teorie". */
+.rail-label{
+  font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text-faint); margin-bottom:14px; padding:0 8px 0;
+  border-bottom:none;
+}
+
+/* I titoli delle voci possono contenere un "a capo" manuale (\n)
+   tra il nome del gioco e il sottotitolo: va rispettato sia nei
+   bottoni della lista sia nel titolo grande della voce. */
+.game-list button{ white-space:pre-line; line-height:1.3; }
+.entry-title{ white-space:pre-line; }
+
+/* Header in cima allo stage: stesso game-header di timeline.html
+   (riusa le classi condivise .game-header/.game-header__banner/
+   .game-header__banner-overlay già definite in styles.css, sticky
+   compreso), vuoto e pronto ad ospitare un banner in futuro.
+   Nascosto in home come il game-header originale. */
+body[data-state="landing"] #pageHeader{ display:none; }
+
+/* Pulsante a tendina con le altre teorie/storie dello stesso gioco
+   (per ora una sola per gioco, ma pronto per quando ce ne saranno
+   di più). Il pulsante sta dentro #pageHeader (si muove con lui,
+   che è sticky) — 15px sopra la riga di confine, la stessa distanza
+   che c'è tra i pulsanti sopra e il bordo alto della pagina.
+   Il MENU invece non è dentro #pageHeader: quel box ha
+   overflow:hidden (serve per ritagliare la banner), quindi un menu
+   a tendina lì dentro verrebbe tagliato via appena esce dal bordo
+   basso. È un elemento a parte, posizionato via JS (position:fixed,
+   coordinate prese dal trigger reale) così scavalca il ritaglio.
+   Si apre sempre verso il basso. */
+.entry-game-picker{ display:none; }
+@media (min-width:761px){
+  body[data-state="entry"] .entry-game-picker{
+    display:block;
+    position:absolute; right:25px; bottom:15px; z-index:2;
+    /* +25px di padding destro dell'header = 50px dal bordo, come
+       switch/volume nella pagina di una voce */
+  }
+}
+.entry-game-trigger{
+  display:flex; align-items:center; gap:8px;
+  height:36px; padding:0 16px;
+  border:1px solid var(--item-accent, var(--cyan));
+  background:var(--panel);
+  border-radius:999px;
+  font-size:.82rem; font-weight:600;
+  color:var(--text-dim);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+@media (hover:hover) and (pointer:fine){
+  .entry-game-trigger:hover, .entry-game-trigger:focus-visible{
+    color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+    background:var(--panel-raised);
+  }
+}
+.entry-game-trigger:focus-visible{
+  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+  background:var(--panel-raised);
+}
+.entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
+.entry-game-trigger .chevron{ width:10px; height:7px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
+.entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
+
+.entry-game-menu{
+  position:fixed;
+  width:max-content; max-width:min(90vw, 420px);
+  background:var(--panel-raised);
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:var(--radius-sm);
+  box-shadow:0 16px 32px rgba(0,0,0,.5);
+  overflow:hidden;
+  z-index:30;
+  animation:menuIn var(--dur-fast) var(--ease);
+}
+.entry-game-menu li button{
+  display:block; width:100%; text-align:left;
+  white-space:nowrap;
+  padding:12px 16px;
+  font-size:.84rem; font-weight:500;
+  color:var(--text-dim);
+  border-bottom:1px solid var(--line);
+}
+.entry-game-menu li:last-child button{ border-bottom:none; }
+.entry-game-menu li button:hover, .entry-game-menu li button:focus-visible{
+  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 8%, transparent);
+  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+}
+.entry-game-menu li button.is-active{ color:var(--item-accent, var(--cyan)); }
+
+/* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
+   in styles.css (stesso di timeline.html) — niente più larghezza fissa
+   da 140px, il gap:14/justify-content/margin-left arrivano da lì. */
+
+/* Le due colonne restano fisse in vista durante lo scroll del testo
+   centrale — solo su desktop, sul mobile sono pannelli del carosello
+   a scorrimento orizzontale (vedi sezione mobile più sotto). */
+@media (min-width:761px){
+  #sidebar, #storieRail{
+    position:sticky; top:0; align-self:flex-start;
+    height:100vh;
+    overflow-y:auto;
+  }
+}
+
+/* Pannello voce (teoria o storia nascosta) — stessa impaginazione
+   del title-panel/title-content, ma testo centrato invece che
+   allineato a sinistra. */
+.entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
+.entry-content{
+  opacity:0; animation:fadeUp .45s var(--ease) forwards;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-body{
+  margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
+  white-space:pre-line; text-align:center; max-width:1080px;
+}
+
+/* Colore accento della voce selezionata (impostato sul body via JS)
+   esteso anche ai controlli in alto: switch lingua, pulsante volume,
+   skip e titolo del brano — non solo al tag sopra il titolo. */
+.lang-switch{ border-color:var(--item-accent, var(--cyan)); }
+.lang-switch .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
+.music-toggle{ border-color:var(--item-accent, var(--cyan)); }
+@media (hover:hover) and (pointer:fine){
+  .music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
+}
+.music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
+.track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
+.track-info{ border-color:var(--item-accent, var(--cyan)); }
+.track-info__title{ color:var(--item-accent, var(--text)); }
+.track-skip{ border-color:var(--item-accent, var(--cyan)); }
+.track-progress__fill{ background:var(--item-accent, var(--cyan)); }
+.volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
+.volume-panel{ border-color:var(--item-accent, var(--cyan)); }
+
+/* Switch lingua e controlli musica: fanno parte del sistema condiviso
+   .stage-topbar in styles.css (stesso di timeline.html), che li rende
+   "senza peso" nel flusso e a 100px dal bordo destro di default.
+   Solo qui, dentro la pagina di una voce (non in home, dove restano
+   a 100px), li riporto a 50px: la colonna Storie Nascoste riduce
+   ulteriormente lo spazio disponibile, quindi 100px sarebbe troppo. */
+@media (min-width:761px){
+  body[data-state="entry"] .stage-topbar .stage-controls{ margin-right:-50px; }
+}
+
+body[data-state="landing"] .entry-panel{ display:none; }
+body[data-state="entry"] .landing{ display:none; }
+
+@media (max-width:760px){
+
+  /* --- Storie Nascoste diventa un terzo pannello del carosello
+     orizzontale (sidebar | stage | side-rail), raggiungibile
+     scorrendo verso destra dallo stage, invece di un cassetto
+     aperto da un secondo hamburger (rimosso). --- */
+  .side-rail{
+    flex:0 0 100vw; width:100vw; max-width:none;
+    height:100vh; overflow-y:auto; scroll-snap-align:start;
+    border-left:none; border-top:none;
+    padding:76px 16px 24px;
+  }
+
+  /* --- Tazza + "Storie & Teorie": allineata alla stessa posizione
+     del pulsante home in home (niente più hamburger da scansare). --- */
+  .brand{ left:12px; top:17px; width:auto; justify-content:flex-start; gap:8px; }
+  .brand .seal--mini{ --size:20px; }
+  .brand-text{ font-size:1rem; }
+
+  /* --- Musica: meno spazio per titolo/gioco del brano, il nome
+     del gioco si nasconde per lasciare leggibile solo il titolo. --- */
+  .track-info{ max-width:150px; }
+  .track-info__game{ display:none; }
+
+  .entry-panel{ margin-top:16px; max-width:100%; }
+  .entry-title{ font-size:1.3rem; max-width:100%; }
+  .entry-body{ max-width:100%; font-size:.92rem; }
+
+  /* Niente slider del volume su mobile, solo il pulsante toggle. */
+  .volume-panel{ display:none; }
+
+  /* ==========================================================
+     Pagina di una voce (teoria/storia) su mobile: un'unica riga
+     in alto (scritta a sinistra, tazza ESATTAMENTE a metà dello
+     spazio tra la fine della scritta e l'inizio dello switch —
+     flex + justify-content:space-between con 3 elementi fa
+     esattamente questo, non un centraggio sull'intera riga), poi
+     il banner, poi il testo. Ripulito totalmente: niente tendina,
+     niente controllo musica per ora, solo queste 3 cose.
+     ========================================================== */
+  body[data-state="entry"] .stage-topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    position:fixed; top:0; left:0; right:0;
+    padding:14px 16px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    z-index:50;
+  }
+  body[data-state="entry"] .brand{ display:contents; }
+  body[data-state="entry"] .brand-text{
+    order:1;
+    font-size:1.15rem; /* stessa altezza (circa) dello switch lingua */
+  }
+  body[data-state="entry"] .brand-icon{ order:2; }
+  body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; } /* = altezza dello switch lingua mobile */
+  body[data-state="entry"] .stage-controls{
+    order:3;
+    position:static; width:auto; top:auto; right:auto; left:auto;
+  }
+
+  /* Niente banner in questa vista. */
+  body[data-state="entry"] #pageHeader{
+    display:block;
+    position:absolute; top:65px; left:0; right:0; height:135px;
+    margin:0; padding:0; border:none;
+    overflow:hidden;
+    z-index:1;
+  }
+  body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
+  body[data-state="entry"] .game-header__banner-overlay{
+    background:rgba(10,14,23,.45);
+  }
+
+  /* Tendina e controllo musica: spostati via JS dentro #entryPanel
+     (vedi positionMobileEntryRow in script-storie-teorie.js), in una
+     riga propria sopra il testo — tendina a sinistra, volume a destra. */
+  body[data-state="entry"] .entry-panel{
+    position:relative;
+    margin-top:30px;
+    padding-top:132px;
+  }
+  body[data-state="entry"] .entry-game-picker{
+    display:flex;
+    position:absolute; top:70px; right:0; z-index:2;
+  }
+  body[data-state="entry"] .entry-game-trigger{
+    height:32px; padding:0 12px; font-size:.76rem;
+  }
+  body[data-state="entry"] .music-control{
+    display:flex;
+    position:absolute; top:0; right:0; z-index:2;
+  }
+  body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
+
+  /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
+     e testo sono di nuovo in flusso normale, non servono più calcoli
+     per righe aggiuntive. */
+  body[data-state="entry"] .stage{ padding-top:60px; }
+}
