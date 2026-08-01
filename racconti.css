@@ -126,9 +126,10 @@ body[data-state="landing"] #pageHeader{ display:none; }
   }
 }
 
-/* Pannello voce (teoria o storia nascosta) — stessa impaginazione
-   del title-panel/title-content, ma testo centrato invece che
-   allineato a sinistra. */
+/* Pannello voce (racconto breve o libro) — stessa impaginazione
+   del title-panel/title-content; titolo centrato come nelle altre
+   sezioni, ma corpo del testo allineato a sinistra invece che
+   centrato (differenza rispetto a storie-teorie.css). */
 .entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
 .entry-content{
   opacity:0; animation:fadeUp .45s var(--ease) forwards;
@@ -137,7 +138,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-body{
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
-  white-space:pre-line; text-align:center; max-width:1080px;
+  white-space:pre-line; text-align:left; max-width:1080px;
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
