@@ -184,10 +184,10 @@ function renderEntry(){
 function getEntriesForGame(gameId){
   const list = [];
   RACCONTI_ORDER.forEach(id => {
-    if(RACCONTI[id].game === gameId) list.push({ column: "teorie", id, title: RACCONTI[id].title });
+    if(RACCONTI[id].game === gameId) list.push({ column: "teorie", id, title: RACCONTI[id].dropdownLabel || RACCONTI[id].title });
   });
   LIBRI_ORDER.forEach(id => {
-    if(LIBRI[id].game === gameId) list.push({ column: "storie", id, title: LIBRI[id].title });
+    if(LIBRI[id].game === gameId) list.push({ column: "storie", id, title: LIBRI[id].dropdownLabel || LIBRI[id].title });
   });
   return list;
 }
@@ -197,9 +197,13 @@ function renderGamePicker(entry){
 
   // La tendina ha senso solo se ci sono altre voci collegate allo
   // stesso "game" (es. più capitoli di uno stesso racconto/libro);
-  // per una voce isolata come "Cinere" resta nascosta.
-  el.entryGamePicker.classList.toggle("is-single-entry", related.length <= 1);
-  if(related.length <= 1) return;
+  // per una voce isolata come "Cinere" resta nascosta. Una voce può
+  // forzarne comunque la comparsa (entry.forceGamePicker) anche da
+  // sola, in previsione di futuri capitoli collegati (es. "L'Ora
+  // Sbagliata", pensata come "versione 1.0" di più varianti).
+  const showPicker = related.length > 1 || entry.forceGamePicker;
+  el.entryGamePicker.classList.toggle("is-single-entry", !showPicker);
+  if(!showPicker) return;
 
   el.entryGameTriggerLabel.textContent = tf(entry.gameLabel);
 

@@ -7,7 +7,8 @@ const RACCONTI_ORDER = [
   "cinere",
   "diario-nuovo-assunto",
   "il-posto-preferito",
-  "il-testimone"
+  "il-testimone",
+  "l-ora-sbagliata"
 ];
 
 const RACCONTI = {
@@ -288,6 +289,208 @@ Answer me. Answer me as soon as you can. I'm on my way."
 Jul replied about an hour later.
 They never got a response.
 And no one ever showed up at their door.`
+    }
+  },
+  "l-ora-sbagliata": {
+    game: "l-ora-sbagliata",
+    forceGamePicker: true,
+    gameLabel: { it: "L'Ora Sbagliata", en: "The Wrong Hour" },
+    accentColor: "#faebd7",
+    title: {
+      it: "L'Ora Sbagliata",
+      en: "The Wrong Hour"
+    },
+    dropdownLabel: {
+      it: "L'Ora Sbagliata versione 1.0",
+      en: "The Wrong Hour version 1.0"
+    },
+    tag: {
+      it: "surreale",
+      en: "surreal"
+    },
+    body: {
+      it: `La sveglia suonò alle 7:00.
+
+Si girò dall'altra parte. Troppo presto. Ancora cinque minuti, forse dieci. Si riaddormentò prima ancora di aver finito il pensiero.
+
+Suonò di nuovo. 7:15.
+
+"Ancora?"
+
+Allungò la mano, occhi ancora chiusi, e non si limitò a rimandare: disattivò tutto. Allarme, ripetizione, backup. Finito.
+
+Silenzio.
+
+Poi suonò di nuovo.
+
+Questa volta si svegliò di scatto. Rimase fermo un secondo, la mano ancora sul comodino. Non era possibile. L'aveva spenta, l'aveva spenta davvero.
+
+Si girò verso la radiosveglia. Il display lampeggiava rosso.
+
+7:00.
+
+Di nuovo.
+
+"Deve essersi rotta."
+
+La prese. Staccò la spina dal muro. Si spense di colpo, il display nero in un istante. Controllò le batterie per sicurezza, ma non ce n'erano nemmeno quelle. Prese il cellulare e impostò una sveglia per le 8:00, controllò due volte, poi posò tutto sul comodino e si rimise sotto le coperte.
+
+"Buonanotte a tutti," disse sottovoce, con l'ironia stanca di chi ha già perso.
+
+Suonò il cellulare.
+
+Lo guardò con un'espressione che non era ancora rabbia, ma ci si avvicinava. Lo schermo diceva 6:00.
+
+Si alzò, trascinandosi fino alla finestra, e aprì la tenda.
+
+Fuori, l'alba. Appena accennata, timida, il tipo di luce che non ha ancora deciso se restare.
+
+Quindi le 6:00 erano giuste. Il cellulare non era rotto. Era lui che si era perso da qualche parte tra una sveglia e l'altra.
+
+"Va bene," disse al vetro. "Due ore ancora e poi mi alzo per davvero."
+
+Questa volta fu preciso. Impostò le 8:15, così da recuperare i minuti persi nel litigio con gli allarmi. Controllò tre volte. Si rimise a letto con la determinazione di chi ha risolto un problema.
+
+La sveglia suonò. 8:15.
+
+Si alzò con la lentezza soddisfatta di chi ha vinto. Andò in bagno, si lavò il viso, tornò in camera a vestirsi.
+
+Fu allora che guardò la finestra.
+
+La luce era sbagliata.
+
+Non riuscì a spiegarlo meglio di così, almeno non subito. Era semplicemente sbagliata, il tipo di luce che appartiene ad orari più piccoli, non alle otto e un quarto.
+
+Guardò il cellulare.
+
+5:59.
+
+Lo tenne in mano mentre il display scorreva verso le 6:00. E in quel preciso momento, dalla postazione sul comodino, la radiosveglia suonò. Quella che aveva staccato. Quella senza batterie.
+
+Rimase fermo in mezzo alla stanza, vestito, sveglio, con la radiosveglia che suonava e il sole che stava ancora decidendo se alzarsi.
+
+Poi smise di ragionare su cosa stesse succedendo e decise semplicemente di aspettare. Si sedette sul bordo del letto, il telefono in mano, e guardò il tempo passare. Le 7:00. Le 7:30. Le 8:00.
+
+Quando il display segnò le 8:15 per la seconda volta, la luce fuori era finalmente quella giusta. Si alzò, finì di prepararsi, uscì di casa senza voltarsi indietro.
+
+Il sole era al suo posto, la strada aveva il rumore giusto, tutto sembrava tornato nell'ordine corretto delle cose.
+
+Arrivò al lavoro.
+
+Nessuno.
+
+Il parcheggio vuoto, le luci spente, la porta chiusa. Si guardò intorno come se si aspettasse che qualcuno sbucasse da dietro un angolo a spiegargli lo scherzo.
+
+Il cielo era strano. Non nuvoloso, non sereno. Il sole sembrava stanco, come se stesse scivolando nella direzione sbagliata.
+
+Tenne il telefono in tasca il più a lungo possibile. Poi lo tirò fuori.
+
+5:30.
+
+Rimase sul marciapiede, immobile, per circa venti minuti. Il traffico intorno a lui si assottigliava invece di crescere. Le macchine diminuivano. Il rumore della città si ritirava, piano, come un mare che si allontana dalla riva.
+
+Poi vide una figura in fondo al marciapiede. Un uomo anziano, passo lento, che camminava nella sua direzione. Strano trovarne uno in giro a quell'ora, o almeno a quella che sembrava essere l'ora.
+
+Gli andò incontro.
+
+"Scusi," disse. "Mi sa dire che ore sono?"
+
+Il vecchio si fermò. Lo guardò. Sorrise, di quel tipo di sorriso che non ha bisogno di spiegazioni. Poi abbassò gli occhi verso la sua tasca, quella dove teneva il telefono.
+
+Lui lo capì. Lo tirò fuori, guardò lo schermo, e lesse.
+
+8:15.`,
+      en: `The alarm went off at 7:00.
+
+He rolled over. Too early. Five more minutes, maybe ten. He was asleep again before he'd finished the thought.
+
+It went off again. 7:15.
+
+"Again?"
+
+He reached out, eyes still closed, and didn't just snooze it — he turned everything off. Alarm, repeat, backup. Done.
+
+Silence.
+
+Then it went off again.
+
+This time he sat up. He stayed still for a second, hand still on the nightstand. It wasn't possible. He'd turned it off, he'd really turned it off.
+
+He looked at the clock radio. The display was flashing red.
+
+7:00.
+
+Again.
+
+"It must be broken."
+
+He picked it up. Pulled the plug from the wall. It went dark instantly, the display black. He checked for batteries just to be sure — there weren't any. He grabbed his phone, set an alarm for 8:00, checked it twice, put it down on the nightstand and got back under the covers.
+
+"Goodnight everyone," he said quietly, with the weary irony of someone who's already lost.
+
+His phone went off.
+
+He looked at it with an expression that wasn't quite anger yet, but was getting there. The screen said 6:00.
+
+He got up, shuffled to the window, and opened the curtain.
+
+Outside, dawn. Barely there, hesitant, the kind of light that hasn't decided yet whether to stay.
+
+So 6:00 was right. The phone wasn't broken. He was the one who'd gotten lost somewhere between one alarm and the next.
+
+"Fine," he said to the glass. "Two more hours and then I'm actually getting up."
+
+This time he was precise. He set it for 8:15, to make up for the minutes lost fighting with the alarms. He checked three times. He got back into bed with the resolve of someone who has solved a problem.
+
+The alarm went off. 8:15.
+
+He got up with the slow satisfaction of someone who has won. Went to the bathroom, washed his face, came back to get dressed.
+
+That's when he looked at the window.
+
+The light was wrong.
+
+He couldn't explain it any better than that, at least not right away. It was simply wrong — the kind of light that belongs to earlier hours, not to eight fifteen.
+
+He looked at his phone.
+
+5:59.
+
+He held it as the display ticked over to 6:00. And at that exact moment, from its spot on the nightstand, the clock radio went off. The one he'd unplugged. The one with no batteries.
+
+He stood in the middle of the room, dressed, awake, the clock radio sounding and the sun still making up its mind.
+
+Then he stopped trying to make sense of it and decided simply to wait. He sat on the edge of the bed, phone in hand, and watched the time pass. 7:00. 7:30. 8:00.
+
+When the display read 8:15 for the second time, the light outside was finally right. He got up, finished getting ready, left the house without looking back.
+
+The sun was where it should be, the street had the right kind of noise, everything seemed to have returned to the correct order of things.
+
+He arrived at work.
+
+No one.
+
+Empty car park, lights off, door locked. He looked around as if expecting someone to step out from behind a corner and explain the joke.
+
+The sky was strange. Not cloudy, not clear. The sun looked tired, as if it were sliding in the wrong direction.
+
+He kept his phone in his pocket as long as he could. Then he took it out.
+
+5:30.
+
+He stood on the pavement, motionless, for about twenty minutes. The traffic around him thinned instead of growing. Cars disappeared. The noise of the city pulled back, slowly, like a sea retreating from the shore.
+
+Then he saw a figure at the far end of the pavement. An elderly man, slow steps, walking in his direction. Strange to find one out for a walk at that hour — or at least, at whatever hour it seemed to be.
+
+He went toward him.
+
+"Excuse me," he said. "Could you tell me what time it is?"
+
+The old man stopped. Looked at him. Smiled — the kind of smile that doesn't need explaining. Then he lowered his eyes toward his pocket, the one where he kept his phone.
+
+He understood. He took it out, looked at the screen, and read.
+
+8:15.`
     }
   }
 };
