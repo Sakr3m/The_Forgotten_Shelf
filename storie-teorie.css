@@ -183,11 +183,6 @@ body[data-state="entry"] .landing{ display:none; }
   .brand .seal--mini{ --size:20px; }
   .brand-text{ font-size:1rem; }
 
-  /* --- Header: niente più altezza fissa da 230px pensata per il
-     banner desktop, ma un minimo che lo renda comunque visibile
-     come fascia, pronto a crescere quando arriverà un'immagine. --- */
-  #pageHeader{ min-height:90px; }
-
   /* --- Musica: meno spazio per titolo/gioco del brano, il nome
      del gioco si nasconde per lasciare leggibile solo il titolo. --- */
   .track-info{ max-width:150px; }
