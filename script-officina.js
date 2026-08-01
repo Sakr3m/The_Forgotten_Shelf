@@ -57,13 +57,3 @@ el.langSwitch.addEventListener("click", () => {
 el.brandBtn.addEventListener("click", () => {});
 
 paintStaticText();
-
-// Su mobile la pagina deve aprirsi sulla home (stage), non su uno dei
-// due pannelli di Mathemory: forzato esplicitamente, non lasciato
-// allo scroll di default del browser (che in alcuni casi può
-// atterrare sul primo pannello del carosello invece che al centro).
-const mobileBreakpoint = window.matchMedia("(max-width:760px)");
-if (mobileBreakpoint.matches) {
-  const stageEl = document.getElementById("stage");
-  if (stageEl) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
-}
