@@ -230,7 +230,7 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] #pageHeader{
     position:relative;
     height:72px; min-height:0; max-height:none;
-    margin:100px 0 0; padding:0; border:none;
+    margin:500px 0 0; padding:0; border:none;
     border-bottom:1px solid var(--line);
     overflow:hidden;
     background:red !important; /* TEST DIAGNOSTICO: se non vedi rosso, il selettore non sta scattando */
