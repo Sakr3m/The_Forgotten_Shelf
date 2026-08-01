@@ -134,7 +134,7 @@
     position:relative;
     top:-55px;
     width:min(77.9vw, 285px);
-    transform:rotate(-5deg);
+    transform:rotate(0deg);
   }
   /* Sempre espansa: niente clip, niente opacita a zero — su mobile
      non esiste l'hover che la farebbe crescere, quindi mostra tutto
