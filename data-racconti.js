@@ -10,11 +10,7 @@ const RACCONTI_ORDER = [
   "il-testimone",
   "l-ora-sbagliata",
   "lo-specchio-cieco",
-  "parole-senza-fiato",
-  "il-chiamato-1",
-  "il-chiamato-2",
-  "il-chiamato-3",
-  "il-chiamato-4"
+  "parole-senza-fiato"
 ];
 
 const RACCONTI = {
@@ -668,7 +664,14 @@ Neither.
 
 Their lips were sealed, as is right. But their hearts, in the moment they found each other, pronounced those words silently in their place.`
     }
-  },
+  }
+};
+
+const LIBRI_ORDER = [
+  "il-chiamato-1"
+];
+
+const LIBRI = {
   "il-chiamato-1": {
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
@@ -3306,7 +3309,3 @@ Then outside.`
     }
   }
 };
-
-const LIBRI_ORDER = [];
-
-const LIBRI = {};

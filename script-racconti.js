@@ -183,10 +183,14 @@ function renderEntry(){
 // ---------------------------------------------------------
 function getEntriesForGame(gameId){
   const list = [];
-  RACCONTI_ORDER.forEach(id => {
+  // Scansiona le chiavi delle tabelle (non i *_ORDER): un capitolo
+  // può esistere nei dati senza comparire come voce a sé nella
+  // sidebar (es. "Il Chiamato", dove solo il capitolo 1 è elencato
+  // ma capitolo 2/3/4 restano raggiungibili dalla tendina).
+  Object.keys(RACCONTI).forEach(id => {
     if(RACCONTI[id].game === gameId) list.push({ column: "teorie", id, title: RACCONTI[id].dropdownLabel || RACCONTI[id].title });
   });
-  LIBRI_ORDER.forEach(id => {
+  Object.keys(LIBRI).forEach(id => {
     if(LIBRI[id].game === gameId) list.push({ column: "storie", id, title: LIBRI[id].dropdownLabel || LIBRI[id].title });
   });
   return list;
