@@ -232,8 +232,8 @@ body[data-state="entry"] .landing{ display:none; }
      riga propria sopra il testo — tendina a sinistra, volume a destra. */
   body[data-state="entry"] .entry-panel{
     position:relative;
-    margin-top:24px;
-    padding-top:48px;
+    margin-top:30px;
+    padding-top:67px;
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
