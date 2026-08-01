@@ -71,7 +71,13 @@ body[data-state="landing"] #pageHeader{ display:none; }
   color:var(--text-dim);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
-.entry-game-trigger:hover, .entry-game-trigger:focus-visible{
+@media (hover:hover) and (pointer:fine){
+  .entry-game-trigger:hover, .entry-game-trigger:focus-visible{
+    color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+    background:var(--panel-raised);
+  }
+}
+.entry-game-trigger:focus-visible{
   color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
   background:var(--panel-raised);
 }
@@ -81,7 +87,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
 
 .entry-game-menu{
   position:fixed;
-  width:max-content; min-width:240px; max-width:min(90vw, 420px);
+  width:max-content; max-width:min(90vw, 420px);
   background:var(--panel-raised);
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:var(--radius-sm);
