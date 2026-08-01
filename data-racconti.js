@@ -9,7 +9,8 @@ const RACCONTI_ORDER = [
   "il-posto-preferito",
   "il-testimone",
   "l-ora-sbagliata",
-  "lo-specchio-cieco"
+  "lo-specchio-cieco",
+  "parole-senza-fiato"
 ];
 
 const RACCONTI = {
@@ -633,6 +634,35 @@ The mother stood still for a moment. Then she looked at her daughter, walking ah
 She said nothing.
 
 She walked on.`
+    }
+  },
+  "parole-senza-fiato": {
+    game: "parole-senza-fiato",
+    gameLabel: { it: "Parole Senza Fiato", en: "Breathless Words" },
+    accentColor: "#e8112d",
+    title: {
+      it: "Parole Senza Fiato",
+      en: "Breathless Words"
+    },
+    tag: {
+      it: "romantico",
+      en: "romance"
+    },
+    body: {
+      it: `"Ti amo," disse.
+
+"Chi?" chiese una voce. "Lui o lei?"
+
+Nessuno dei due.
+
+Le labbra erano serrate, come è giusto che sia. Ma i cuori, nell'istante in cui si trovarono, pronunciarono silenti quelle parole al posto loro.`,
+      en: `"I love you," it said.
+
+"Who?" asked a voice. "Him or her?"
+
+Neither.
+
+Their lips were sealed, as is right. But their hearts, in the moment they found each other, pronounced those words silently in their place.`
     }
   }
 };
