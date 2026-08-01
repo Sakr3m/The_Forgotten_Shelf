@@ -243,7 +243,11 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
     order:1;
-    font-size:1.15rem; /* stessa altezza (circa) dello switch lingua */
+    font-size:.62rem; line-height:1.15; white-space:pre-line;
+    /* Prima era una riga sola a 1.15rem (~22px di altezza); ora può
+       andare a capo (vedi \n nella stringa in script-storie-teorie.js)
+       ma il blocco risultante, su due righe, deve restare alto
+       uguale: da qui il font molto più piccolo. */
   }
   body[data-state="entry"] .brand-icon{ order:2; }
   body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; } /* = altezza dello switch lingua mobile */

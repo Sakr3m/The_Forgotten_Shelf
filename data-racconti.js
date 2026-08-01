@@ -16,6 +16,10 @@ const RACCONTI = {
       it: "Cinere",
       en: "Ashes"
     },
+    tag: {
+      it: "leggenda oscura di fantasia",
+      en: "dark fantasy legend"
+    },
     body: {
       it: `In alcuni borghi orientali si racconta di lei.
 

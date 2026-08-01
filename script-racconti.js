@@ -4,7 +4,7 @@
 
 const STRINGS = {
   it: {
-    brand: "Racconti Brevi & Libri",
+    brand: "Racconti Brevi\n& Libri",
     sidebarEyebrow: "Racconti brevi",
     railLabel: "Libri",
     landingEyebrow: "Benvenuto nell'archivio\ndi storie nascoste e teorie",
@@ -17,7 +17,7 @@ const STRINGS = {
     backToIndexLabel: "Torna all'index"
   },
   en: {
-    brand: "Short Stories & Books",
+    brand: "Short Stories\n& Books",
     sidebarEyebrow: "Short Stories",
     railLabel: "Books",
     landingEyebrow: "Welcome to the archive\nof hidden stories and theories",
@@ -164,6 +164,7 @@ function renderEntry(){
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
+    ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
     <p class="entry-body">${tf(entry.body)}</p>
   `;
 
