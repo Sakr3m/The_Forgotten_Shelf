@@ -5,7 +5,8 @@
 
 const RACCONTI_ORDER = [
   "cinere",
-  "diario-nuovo-assunto"
+  "diario-nuovo-assunto",
+  "il-posto-preferito"
 ];
 
 const RACCONTI = {
@@ -161,6 +162,89 @@ I was told not to look.
 But they'll never know, will they?
 
 On March 15, a new employee arrived.`
+    }
+  },
+  "il-posto-preferito": {
+    game: "il-posto-preferito",
+    gameLabel: { it: "Il Posto Preferito", en: "The Favourite Place" },
+    accentColor: "#b08a97",
+    title: {
+      it: "Il Posto Preferito",
+      en: "The Favourite Place"
+    },
+    tag: {
+      it: "elegia",
+      en: "melancholic romance"
+    },
+    body: {
+      it: `Accostò la vettura al margine della strada.
+Le ruote si fermarono sull'erba corta di una piccola altura. Davanti a lui, un albero solitario sul bordo di un dirupo. Oltre, un orizzonte aperto, largo, da togliere il fiato.
+L'uomo, sulla trentina, rimase un momento in macchina, gli occhi sull'albero. Poi aprì lo sportello e scese, con la lentezza di chi porta qualcosa di pesante.
+Si avvicinò all'albero.
+"Quanti ricordi."
+Disse quasi tra sé e sé, senza distogliere lo sguardo.
+Con un movimento un po' goffo si sedette, schiena alla corteccia, lo sguardo rivolto all'orizzonte.
+"Mnea."
+Sussurrò con un filo di voce. Il nome rimase nell'aria un momento, poi il vento lo portò via.
+Restò lì ancora un'ora. Poi si rialzò, tornò alla macchina e ripartì.
+
+Una settimana esatta dopo, tornò.
+Parcheggiò nello stesso punto. Scese. Si avviò, come si fa con le cose a cui si è abituati, quelle che si ripetono non perché si vuole, ma perché non si riesce a smettere.
+Nuovamente, si sedette sotto l'albero. Schiena alla corteccia, ginocchia piegate, sguardo all'orizzonte.
+Rimase così, in silenzio.
+Fu il rumore di un motore a riportarlo al presente.
+Un'altra macchina si era fermata poco più in là. Dentro c'era una famiglia. Due adulti davanti, un bambino sul sedile posteriore con il naso già schiacciato contro il finestrino. La madre indicò qualcosa fuori. Il padre sorrise. Il bambino sgranò gli occhi verso quell'orizzonte con la meraviglia di chi lo vede per la prima volta.
+Rimasero qualche minuto. Scambiarono qualche parola, bevvero qualcosa, poi ripartirono.
+Lui rimase a guardarli andare.
+Poi si alzò anche lui, e se ne andò.
+
+Ancora una settimana.
+Parcheggiò. Quel posto sembrava aspettare solo lui. Scese. Si avviò verso l'albero.
+Questa volta, avvicinandosi, allungò una mano e lo toccò. Il palmo sulla corteccia, un momento solo. Come un saluto.
+Poi si voltò verso l'orizzonte.
+"Era bello questo posto insieme a te."
+Le parole uscirono da sole. Piano, nell'aria ferma.
+Rimase lì, in piedi, gli occhi lontani.
+Poi sentì qualcosa. Passi, leggeri, dall'altro lato dell'albero.
+Girò attorno al tronco.
+Una figura femminile, sulla sua età. Ferma, gli occhi sull'orizzonte.
+La vide.
+Sgranò gli occhi.
+"Mnea."`,
+      en: `He pulled the car over to the edge of the road.
+The wheels came to rest on the short grass of a small hill. In front of him, a solitary tree on the edge of a drop. Beyond it, an open horizon, wide, breathtaking.
+The man, in his thirties, stayed in the car for a moment, eyes on the tree. Then he opened the door and got out, with the slowness of someone carrying something heavy.
+He walked toward the tree.
+"So many memories."
+He said it almost to himself, without looking away.
+He sat down with a slightly clumsy movement, back against the bark, eyes toward the horizon.
+"Mnea."
+He whispered it with a thread of voice. The name lingered in the air for a moment, then the wind carried it away.
+He stayed there for another hour. Then he got up, went back to the car, and left.
+
+Exactly one week later, he came back.
+He parked in the same spot. Got out. Set off, the way you do with things you're used to — things that repeat themselves not because you want them to, but because you can't seem to stop.
+Again, he sat under the tree. Back against the bark, knees bent, eyes on the horizon.
+He stayed like that, in silence.
+It was the sound of an engine that brought him back.
+Another car had stopped a little further along. Inside was a family. Two adults in front, a child in the back seat with his nose already pressed against the window. The mother pointed at something outside. The father smiled. The child's eyes went wide at that horizon with the wonder of someone seeing it for the first time.
+They stayed a few minutes. Exchanged a few words, had something to drink, then left.
+He watched them go.
+Then he got up too, and left.
+
+Another week.
+He parked. The place seemed to be waiting just for him. He got out. He walked toward the tree.
+This time, as he approached, he reached out and touched it. Palm flat against the bark, just for a moment. Like a greeting.
+Then he turned toward the horizon.
+"This place was beautiful with you."
+The words came out on their own. Quietly, in the still air.
+He stood there, eyes far away.
+Then he heard something. Footsteps, light, from the other side of the tree.
+He walked around the trunk.
+A female figure, around his age. Still, her eyes on the horizon.
+He saw her.
+His eyes went wide.
+"Mnea."`
     }
   }
 };
