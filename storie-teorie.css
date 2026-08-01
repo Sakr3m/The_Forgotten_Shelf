@@ -258,7 +258,7 @@ body[data-state="entry"] .landing{ display:none; }
      basso dei due, quindi restano sopra), non arriva al testo. */
   body[data-state="entry"] .stage::before{
     content:"";
-    position:absolute; top:65px; left:0; right:0; height:140px;
+    position:absolute; top:65px; left:0; right:0; height:135px;
     border:2px dashed #22d3ee;
     background:rgba(34,211,238,.08);
     z-index:1;
