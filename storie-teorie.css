@@ -137,16 +137,28 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-body{
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
-  white-space:pre-line; text-align:center; max-width:1080px;
+  white-space:pre-line; text-align:center;
 }
 @media (min-width:761px){
+  /* .entry-panel di per sé è "width:100%; max-width:1350px;
+     margin:auto" — su schermi larghi (container > 1350px) questo lo
+     CENTRA nello stage, staccando l'intero blocco dalla tazzina. Qui
+     lo rendiamo sempre pieno/flush a sinistra: il vincolo di
+     larghezza e la simmetria dei margini li dà da qui in poi
+     entry-body con i suoi padding di 25px per lato. */
+  .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
+
   /* Il testo qui è centrato (non a sinistra come in racconti.css):
-     il limite di espansione, cioè fin dove può arrivare il bordo del
-     testo quando riempie tutta la riga, deve coincidere con la
-     tazzina del logo Ko-fi in alto. 25px di padding per lato (misura
-     costante su desktop, vedi nota in racconti.css) inseriscono il
-     testo esattamente fino a quel punto, in modo simmetrico. */
-  .entry-body{ padding-left:25px; padding-right:25px; }
+     il box che lo contiene deve avere come margine sinistro la
+     tazzina del logo Ko-fi in alto, ed estendersi fino al suo
+     corrispettivo simmetrico a destra — non più fermarsi a un
+     max-width fisso (1080px) indipendente dallo schermo.
+     width:100% + padding di 25px per lato (misura costante su
+     desktop, vedi nota in racconti.css) ottengono esattamente
+     questo: senza width:100% esplicito, su schermi larghi il box si
+     restringe al contenuto e .entry-content lo CENTRA, staccandolo
+     dalla tazzina invece di usarla come margine. */
+  .entry-body{ width:100%; padding-left:25px; padding-right:25px; }
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)

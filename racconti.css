@@ -123,7 +123,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
   width:max-content; max-width:min(90vw, 320px);
   max-height:min(70vh, 420px); overflow-y:auto;
   background:var(--panel-raised);
-  border:1px solid var(--cyan);
+  border:1px solid var(--item-accent, var(--cyan));
   border-radius:var(--radius-sm);
   box-shadow:0 16px 32px rgba(0,0,0,.5);
   z-index:30;
@@ -144,8 +144,8 @@ body[data-state="landing"] #pageHeader{ display:none; }
 }
 .playlist-menu li:last-child button{ border-bottom:none; }
 .playlist-menu li button:hover, .playlist-menu li button:focus-visible{
-  background:color-mix(in srgb, var(--cyan) 8%, transparent);
-  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
+  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 8%, transparent);
+  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
 }
 
 /* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
@@ -178,6 +178,14 @@ body[data-state="landing"] #pageHeader{ display:none; }
   white-space:pre-line; text-align:left; max-width:1080px;
 }
 @media (min-width:761px){
+  /* .entry-panel di per sé è "width:100%; max-width:1350px;
+     margin:auto" — su schermi larghi (container > 1350px) questo lo
+     CENTRA nello stage, staccando l'intero blocco (non solo il
+     testo) dalla tazzina. Qui lo rendiamo sempre pieno/flush a
+     sinistra: il vincolo di larghezza e la simmetria dei margini li
+     danno da qui in poi entry-body con i suoi padding di 25px. */
+  .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
+
   /* Il testo a sinistra deve partire esattamente da dove inizia la
      tazzina del logo Ko-fi in alto (.brand-icon), non dal bordo dello
      stage: 25px è la distanza misurata fra i due, costante su desktop
@@ -185,8 +193,13 @@ body[data-state="landing"] #pageHeader{ display:none; }
      stage sono entrambi fissi, non proporzionali al viewport). Solo
      PC: su mobile la tazzina segue una formula di posizionamento
      diversa (regola .brand non sovrascritta da .stage-topbar .brand),
-     quindi lo stesso offset lì non varrebbe. */
-  .entry-body{ padding-left:25px; }
+     quindi lo stesso offset lì non varrebbe.
+     width:100% esplicito è necessario: senza, su schermi larghi (dove
+     lo spazio disponibile supera i 1080px di max-width) il box si
+     restringe al contenuto e .entry-content lo CENTRA, staccandolo
+     dal bordo sinistro — il padding da solo non basta a farlo partire
+     dalla tazzina in quel caso. */
+  .entry-body{ width:100%; align-self:flex-start; padding-left:25px; }
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)

@@ -11,7 +11,7 @@ const RACCONTI = {
   cinere: {
     game: "cinere",
     gameLabel: { it: "Cinere", en: "Ashes" },
-    accentColor: "#8a1f2b",
+    accentColor: "#9a958c",
     title: {
       it: "Cinere",
       en: "Ashes"
