@@ -668,7 +668,8 @@ Their lips were sealed, as is right. But their hearts, in the moment they found 
 };
 
 const LIBRI_ORDER = [
-  "il-chiamato-1"
+  "il-chiamato-1",
+  "il-custode-del-vuoto-1"
 ];
 
 const LIBRI = {
@@ -3306,6 +3307,635 @@ He left the cave. Crossed the forest. The trees closed around him once more — 
 Then the edge.
 
 Then outside.`
+    }
+  },
+  "il-custode-del-vuoto-1": {
+    game: "il-custode-del-vuoto",
+    gameLabel: { it: "Il Custode del Vuoto", en: "The Keeper of the Void" },
+    accentColor: "#8a7a5a",
+    title: {
+      it: "Il Custode del Vuoto",
+      en: "The Keeper of the Void"
+    },
+    dropdownLabel: {
+      it: "Capitolo 1",
+      en: "Chapter 1"
+    },
+    tag: {
+      it: "horror psicologico",
+      en: "psychological horror"
+    },
+    body: {
+      it: `Il legno della soglia cedette leggermente sotto il primo passo, come fanno le cose che reggono da troppo tempo senza che nessuno se ne preoccupi.
+
+Sef entrò, si guardò intorno e disse, a nessuno in particolare: "Qualcuno ci teneva a fare bella figura."
+
+Le pareti erano in legno scuro, il tipo che in un'altra epoca doveva sembrare importante e adesso sembrava solo stanco. Soffitti alti per essere quello che era, cornici elaborate su porte che non portavano da nessuna parte di importante. Qualcuno aveva costruito questo posto con delle ambizioni, e il posto le aveva usurate tutte, una per una, con pazienza.
+
+Posò la borsa. Tirò fuori il foglio.
+
+Le istruzioni erano poche e scritte senza fronzoli: tenere d'occhio la stanza in fondo al corridoio, non aprire la porta, ricevere lo stipendio il primo del mese. Sef lo lesse una volta, lo girò per controllare che il retro fosse vuoto. "Concisi," disse sottovoce. Non era un complimento, non era una critica. Era solo un'osservazione.
+
+Si affacciò sul corridoio senza percorrerlo. Era stretto e lungo, il legno del pavimento segnato da anni di passi che non c'erano più. In fondo c'era una porta. Sef la guardò da dove stava. Anche a quella distanza si capiva che era diversa dal resto: più scura, più compatta, con una solidità che il resto dell'edificio non aveva mai avuto. Si fermò lì, senza avvicinarsi.
+
+"Interessante," disse, e tornò indietro.
+
+L'unica sedia disponibile era vicino alla finestra. Cigolò quando ci si sedette. Sef abbassò lo sguardo: sul pavimento, sotto le gambe posteriori, c'erano dei solchi nel legno. Li guardò un momento, poi alzò gli occhi verso il corridoio.
+
+Qualcuno aveva passato molto tempo su quella sedia.
+
+La luce di metà pomeriggio entrava storta attraverso il vetro.
+
+"Poteva andare peggio," concluse.
+
+Due giorni dopo, durante il turno di notte, arrivò il silenzio.
+
+Non il silenzio a cui era abituato, quello delle città che non dormono mai del tutto. Questo era diverso, compatto, il tipo che non lascia spazio a niente di esterno e amplifica tutto quello che resta.
+
+Sef era seduto da circa un'ora quando lo sentì.
+
+Un rumore dalla porta.
+
+Sordo, continuo, senza variazioni. Sef rimase fermo ad ascoltarlo, la testa inclinata di lato. "Non sono le tubature," disse dopo un po', con lo stesso tono con cui si correggono i propri appunti. "E non è il legno."
+
+Il legno che si assesta ha un ritmo, scricchiola e si ferma, riprende e si ferma. Questo non si fermava.
+
+Si alzò. Rimase in piedi a metà corridoio, senza avvicinarsi alla porta. Il rumore era uguale da lì, né più forte né più debole. Come se la distanza non facesse nessuna differenza.
+
+"Strano," disse Sef.
+
+Fece qualche passo verso la porta. Ne fece altri. E fu lì che se ne accorse: non stava andando a controllare. Stava andando ad aprire.
+
+Si fermò.
+
+Rimase fermo qualche secondo, poi tornò alla sedia senza dire niente.
+
+Il rumore continuò ancora un po', poi smise. Sef rimase seduto al buio, sveglio, ad aspettare che tornasse.
+
+Non tornò.
+
+Qualche giorno dopo, durante il turno pomeridiano, il posto sembrava diverso.
+
+Non diverso in modo misurabile, niente era cambiato di posizione. Era più una questione di proporzioni, come quando una stanza che conosci bene ti sembra improvvisamente più piccola senza che tu riesca a spiegare perché. Sef lo notò, lo registrò, e decise che per il momento non era abbastanza per trarne conclusioni.
+
+Fece il giro con più attenzione del solito. Trovò il bagno, in fondo a un corridoio laterale. Piccolo, essenziale. Ci entrò, fece quello che doveva fare, e mentre si lavava le mani si ritrovò a fissare il muro davanti a sé senza un motivo preciso.
+
+Uscì nel corridoio, la testa ancora altrove.
+
+Non era nelle sue intenzioni avvicinarsi alla porta. Eppure, quando se ne accorse, era già lì, a pochi passi, con gli occhi sulla superficie del legno. Da vicino raccontava qualcosa di diverso rispetto a quello che si vedeva in fondo al corridoio. Il tempo l'aveva toccata, certo, ma in modo diverso dal resto: niente crepe, niente cedimenti, solo un invecchiamento lento e dignitoso che il legno intorno non si era potuto permettere. La maniglia era in ottone, come quelle delle altre porte, con la stessa fattura, quasi identica. Quasi.
+
+E poi li vide.
+
+Segni nel legno, centrali, quasi all'altezza degli occhi. Non fatti con un attrezzo, con qualcosa di più piccolo e più improvvisato. Profondi, nel senso che chi li aveva fatti ci aveva messo impegno, ma non abbastanza da attraversare il legno dall'altra parte. La porta aveva tenuto, anche lì.
+
+Sef rimase immobile a guardarli.
+
+Poi tornò a sedersi. La sedia cigolò. "Lo so," disse Sef.
+
+La seconda notte il rumore tornò, ma non era lo stesso.
+
+Più intenso, più presente, il tipo di suono che smette di essere sottofondo e diventa qualcosa a cui il corpo reagisce prima che la testa abbia il tempo di decidere. Sef rimase seduto, fermo, ad ascoltarlo con la mascella stretta. Stava pensando. Non alla porta, non al rumore, ma ai pezzi che aveva raccolto in quei giorni e a come non tornassero.
+
+Tirò fuori un foglio e scrisse. Contratto senza mittente verificabile. Nessun collega, nessun responsabile nominato. Solchi sul pavimento consumati da chissà quante persone. Segni sulla porta che non erano arrivati da nessuna parte. Un rumore che di giorno non esisteva e di notte sì, e che adesso era diventato qualcosa che non si ignorava più.
+
+Si fermò. Rilesse quello che aveva scritto. "Non è abbastanza," disse.
+
+Aggiunse una riga sola, in fondo.
+
+Chi mi ha assunto?
+
+Il rumore cresceva. Sef rimase seduto ancora qualche minuto, poi tirò fuori il cellulare e compose il numero del contratto.
+
+Squillò.
+
+Squillò a lungo, mentre dall'altra parte del corridoio il rumore continuava, costante, senza pause, senza variazioni, come se sapesse che qualcuno stava cercando aiuto e trovasse la cosa irrilevante.
+
+Nessuna risposta.
+
+Sef abbassò il cellulare. Rimase con la schiena alla sedia, gli occhi sulla porta in fondo al corridoio.
+
+Poi il rumore smise.`,
+      en: `The wood of the threshold gave slightly under the first step, the way things do when they've been holding on for too long without anyone noticing.
+
+Sef stepped inside, looked around, and said, to no one in particular: "Someone really wanted to make an impression."
+
+The walls were dark wood — the kind that must have seemed important in another era and now just seemed tired. Ceilings too high for what the place was, elaborate cornices on doors that led nowhere significant. Someone had built this place with ambitions, and the place had worn them all down, one by one, with patience.
+
+He set down his bag. Pulled out the sheet.
+
+The instructions were few and written without frills: keep an eye on the room at the end of the corridor, do not open the door, receive payment on the first of the month. Sef read it once, turned it over to check the back was blank. "Concise," he said quietly. Not a compliment, not a criticism. Just an observation.
+
+He looked down the corridor without entering it. Narrow and long, the floorboards marked by years of footsteps that were no longer there. At the far end, a door. Sef looked at it from where he stood. Even from that distance it was clear it didn't belong with the rest — darker, more compact, with a solidity the surrounding building had never managed. He stayed where he was, without moving closer.
+
+"Interesting," he said, and turned back.
+
+The only available chair was by the window. It creaked when he sat down. Sef looked at the floor: beneath the rear legs, there were grooves worn into the wood. He looked at them for a moment, then raised his eyes toward the corridor.
+
+Someone had spent a great deal of time in that chair.
+
+The mid-afternoon light came in crooked through the glass.
+
+"Could be worse," he concluded.
+
+Two days later, during the night shift, the silence arrived.
+
+Not the silence he was used to — the kind cities produce, never quite complete. This was different. Dense. The kind that leaves no room for anything external and amplifies everything that remains.
+
+Sef had been sitting for about an hour when he heard it.
+
+A sound from the door.
+
+Low, continuous, without variation. Sef stayed still and listened, head tilted slightly to one side. "Not the pipes," he said after a moment, in the same tone one uses to correct one's own notes. "And not the wood."
+
+Wood settling has a rhythm — it creaks and stops, resumes and stops. This didn't stop.
+
+He stood up. Stayed at the midpoint of the corridor, without moving closer to the door. The sound was the same from there — neither louder nor quieter. As if distance made no difference at all.
+
+"Strange," said Sef.
+
+He took a few steps toward the door. Then a few more. And that's when he realised: he wasn't going to check. He was going to open it.
+
+He stopped.
+
+He stood still for a few seconds, then walked back to the chair without saying anything.
+
+The sound continued for a while, then stopped. Sef stayed seated in the dark, awake, waiting for it to return.
+
+It didn't.
+
+A few days later, during the afternoon shift, the place seemed different.
+
+Not different in any measurable way — nothing had changed position. It was more a question of proportions, like when a room you know well suddenly feels smaller without you being able to explain why. Sef noticed it, filed it away, and decided it wasn't enough to draw conclusions from. Not yet.
+
+He did a more careful circuit of the accessible rooms. Found the bathroom at the end of a side corridor — small, functional, the kind of place that exists out of necessity rather than comfort. He went in, did what he needed to do, and while washing his hands found himself staring at the wall in front of him for no particular reason.
+
+He stepped back into the corridor, his mind still elsewhere.
+
+It hadn't been his intention to approach the door. And yet, when he became aware of himself, he was already there — a few steps away, eyes on the surface of the wood. Up close it told a different story from what he'd seen at the end of the corridor. Time had touched it, yes, but differently from everything else: no cracks, no give, just a slow and dignified ageing that the surrounding wood hadn't been able to afford. The handle was brass, like those on the other doors — same craftsmanship, almost identical.
+
+Almost.
+
+Then he saw them.
+
+Marks in the wood — central, roughly at eye level. Not made with a tool, but with something smaller and more improvised. Deep, in the sense that whoever made them had put in effort, but not deep enough to pass through to the other side. The door had held, even there.
+
+Sef stood still, looking at them.
+
+Then he went back to his chair. It creaked. "I know," said Sef.
+
+The second night the sound came back, but it wasn't the same.
+
+More intense, more present — the kind of sound that stops being background noise and becomes something the body reacts to before the mind has time to decide. Sef sat still, jaw tight, listening. He was thinking. Not about the door, not about the sound, but about the pieces he'd gathered over those days and how they didn't add up.
+
+He took out a sheet of paper and wrote. Contract with no verifiable sender. No colleagues, no named supervisor. Grooves in the floor worn down by God knows how many people. Marks on the door that hadn't gotten anyone anywhere. A sound that didn't exist during the day and did at night — and that had now become something that couldn't be ignored.
+
+He stopped. Read back what he'd written. "It's not enough," he said.
+
+He added a single line at the bottom.
+
+Who hired me?
+
+The sound kept growing. Sef sat for another few minutes, then took out his phone and dialled the number from the contract.
+
+It rang.
+
+It rang for a long time — while from the other end of the corridor the sound continued, steady, without pause, without variation, as if it knew someone was trying to reach help and found the whole thing irrelevant.
+
+No answer.
+
+Sef lowered the phone. Stayed with his back against the chair, eyes on the door at the end of the corridor.
+
+Then the sound stopped.`
+    }
+  },
+  "il-custode-del-vuoto-2": {
+    game: "il-custode-del-vuoto",
+    gameLabel: { it: "Il Custode del Vuoto", en: "The Keeper of the Void" },
+    accentColor: "#8a7a5a",
+    title: {
+      it: "Il Custode del Vuoto",
+      en: "The Keeper of the Void"
+    },
+    dropdownLabel: {
+      it: "Capitolo 2",
+      en: "Chapter 2"
+    },
+    tag: {
+      it: "horror psicologico",
+      en: "psychological horror"
+    },
+    body: {
+      it: `Turno pomeridiano. Sef lasciò la borsa vicino alla sedia e non ci tornò. Aveva cose da fare.
+
+Quella notte col rumore e il cellulare in mano gli aveva lasciato una cosa sola in testa: qualcuno era stato lì prima di lui. Forse tanti. E i posti come questo non mollano le persone senza lasciare un segno.
+
+"Vediamo cosa mi nasconde questo posto," disse, e si mise in moto.
+
+Iniziò dalle stanze più lontane dalla porta, metodicamente, come chi esclude le variabili una per una. Il legno delle pareti era pieno di segni, ma la maggior parte erano quello che sembravano: usura, tempo, abbandono. Uno stipite con il bordo consumato sempre nello stesso punto. Una finestra che aveva ceduto e poi era stata richiusa con qualcosa che non era la chiusura originale. Cose che i posti vecchi accumulano senza motivo particolare.
+
+Niente che non avesse una spiegazione.
+
+Arrivò al bagno quasi per esclusione. Aprì la porta, accese la luce. Il solito specchio opaco, il solito lavandino. Stava per uscire quando si fermò.
+
+Sulla parete interna, accanto all'uscita, c'erano delle ammaccature nel legno. Piccole, raggruppate senza ordine apparente, alla stessa altezza. L'età del posto avrebbe potuto spiegarle, e probabilmente era quello che chiunque altro avrebbe pensato fermandosi un secondo a guardarle.
+
+Sef ci rimase sopra molto più di un secondo.
+
+Uscì e percorse il corridoio principale che dava alla porta, con più lentezza del solito, guardando le pareti. C'era un punto, a circa due terzi della lunghezza, dove la luce del pomeriggio arrivava diversamente. Una zona d'ombra che le finestre laterali non riuscivano a raggiungere del tutto. Con quella luce, e solo con quella, si vedevano dei segni nel legno. Simili alle ammaccature del bagno ma diversi nel carattere: meno concentrati, più dispersi, come se chi li aveva fatti si fosse mosso mentre li faceva.
+
+O come se stesse cercando di non avvicinarsi a qualcosa che stava davanti a lui.
+
+Dieci minuti dopo la luce era cambiata e i segni erano spariti di nuovo.
+
+Sef tornò alla sedia. Ci si sedette, la lasciò cigolare, e rimase a fissare il corridoio.
+
+La notte successiva il rumore era lo stesso di sempre, ma Sef non riusciva a stare fermo. Si alzò prima ancora di averne deciso il motivo.
+
+Fece il giro della villa al buio, stanza per stanza, con il cellulare come unica fonte di luce. Stavolta non si limitava a guardare: spostava, apriva, tirava. Sedie, ante, qualsiasi cosa che potesse nascondere qualcosa dietro.
+
+Lo trovò in una stanza non troppo distante, più vicina del bagno, più vicina a quella della sua postazione. Un armadio vecchio, spinto contro la parete, il tipo di mobile che sta lì da così tanto tempo che smette di sembrare spostabile. Sef ci mise un po', ma lo spostò.
+
+Dietro, sul legno della parete, c'erano delle incisioni. Non segni casuali, non graffi. Linee verticali raggruppate nel modo in cui si contano i giorni quando non si ha carta, quando si è prigionieri. Sef le contò due volte.
+
+Otto.
+
+Rimase a fissarle un momento, la luce del cellulare ferma stavolta.
+
+Qualcuno aveva resistito otto turni in quel posto, nascondendo persino il modo in cui li contava. Lui era al sesto.
+
+Non disse niente.
+
+Rimise l'armadio contro la parete e tornò alla sedia.
+
+Due giorni dopo, di pomeriggio, Sef si buttò sulla sedia non appena entrò.
+
+Rimase lì a fissare il soffitto, con il foglio in mano, a rileggere quello che aveva scritto nei giorni precedenti. Contratto senza mittente. Nessun responsabile. Solchi, segni, ammaccature, incisioni. Un rumore notturno senza fonte identificabile. E una regola sola, scritta senza spiegazioni: non aprire la porta.
+
+Non la porta come pericolo. La porta come confine.
+
+Sef rilesse il foglio un'ultima volta, poi lo rimise in tasca. Era certo di aver cercato tutto quello che c'era da cercare. Rimase solo un posto che non aveva ancora esplorato.
+
+Si diresse verso l'ingresso.
+
+Il legno della soglia cedette leggermente sotto il passo, come aveva fatto il primo giorno. Sef aprì la porta e si fermò.
+
+Fuori non c'era niente.
+
+Non nel senso del buio, non nel senso del vuoto. C'era qualcosa, ma solo a tratti: un pezzo di cielo nel punto esatto in cui si vedeva dalla finestra di destra, un lembo di terra nel punto in cui si vedeva da quella del corridoio. Il resto era assenza. Non oscurità, non nebbia. Semplicemente il niente di ciò che non è stato costruito perché nessuno ci doveva arrivare.
+
+Sef si tenne forte allo stipite. Non cadde, non indietreggiò. Rimase lì, impietrito, a guardare.
+
+Poi mosse un piede oltre la soglia. Reggeva. Mosse l'altro. Reggeva anche quello. Si fermò lì, in piedi su qualcosa che non riusciva a vedere, con intorno un'ambientazione a pezzi e il resto che non esisteva.
+
+Rimase fermo ancora qualche secondo, poi rientrò.
+
+Percorse il corridoio con la testa che non riusciva ancora a stare dietro a quello che aveva visto. Si fermò all'ingresso della stanza della sedia, alzò gli occhi, e si bloccò.
+
+Sulla sedia c'era qualcuno.
+
+Sulla sedia c'era lui.
+
+Seduto nella stessa posizione, con la stessa borsa ai piedi, gli occhi fissi sul corridoio e la porta in fondo.
+
+Poi quegli occhi si spostarono su di lui. La testa si girò lentamente. La bocca si aprì, le mani si alzarono dalla borsa, il corpo si mosse in avanti come se stesse per alzarsi, come se avesse qualcosa di urgente da dire.
+
+Nessun suono uscì.
+
+Un momento dopo non c'era più nessuno sulla sedia.
+
+E improvvisamente calò la notte.`,
+      en: `Afternoon shift. Sef left his bag by the chair and didn't go back to it. He had things to do.
+
+That night with the noise and the phone in his hand had left him with one thing stuck in his head: someone had been there before him. Maybe many. And places like this don't let people go without leaving a mark.
+
+"Let's see what this place is hiding from me," he said, and got moving.
+
+He started with the rooms furthest from the door, methodically, the way someone works who eliminates variables one by one. The wood of the walls was full of marks, but most of them were what they looked like: wear, time, abandonment. A doorframe with its edge worn down always in the same spot. A window that had given way and been closed again with something that wasn't the original latch. The kind of things old places accumulate for no particular reason.
+
+Nothing that didn't have an explanation.
+
+He reached the bathroom almost by process of elimination. Opened the door, switched on the light. The usual cloudy mirror, the usual sink. He was about to leave when he stopped.
+
+On the inner wall, next to the exit, there were dents in the wood. Small, clustered without any apparent order, all at the same height. The age of the place could have explained them, and that's probably what anyone else would have thought after spending a second looking at them.
+
+Sef spent considerably more than a second.
+
+He stepped out and walked down the main corridor — the one leading to the door — more slowly than usual, studying the walls. There was a point, about two thirds of the way along, where the afternoon light arrived differently. A patch of shadow that the side windows couldn't quite reach. With that light, and only with that light, marks were visible in the wood. Similar to the dents in the bathroom but different in character: less concentrated, more scattered, as if whoever made them had been moving while they made them.
+
+Or as if they were trying not to get any closer to something that stood ahead of them.
+
+Ten minutes later the light had shifted and the marks were gone again.
+
+Sef went back to the chair. Sat down, let it creak, and stared at the corridor.
+
+The following night the noise was the same as always, but Sef couldn't stay still. He was on his feet before he'd decided why.
+
+He made his way through the villa in the dark, room by room, his phone the only source of light. This time he wasn't just looking — he was moving things, opening things, pulling things. Chairs, cabinet doors, anything that might be hiding something behind it.
+
+He found it in a room not too far away, closer than the bathroom, closer to his own post. An old wardrobe pushed against the wall — the kind of furniture that's been there so long it stops seeming moveable. Sef took a while, but he moved it.
+
+Behind it, on the wood of the wall, there were incisions. Not random marks, not scratches. Vertical lines grouped in the way people count days when they have no paper, when they are prisoners. Sef counted them twice.
+
+Eight.
+
+He stood there looking at them, the phone light steady this time.
+
+Someone had held out for eight shifts in that place, hiding even the way they kept count. He was on his sixth.
+
+He said nothing.
+
+He pushed the wardrobe back against the wall and returned to his chair.
+
+Two days later, in the afternoon, Sef dropped into the chair the moment he walked in.
+
+He lay there staring at the ceiling, sheet in hand, rereading what he'd written over the previous days. Contract with no verifiable sender. No colleagues, no named supervisor. Grooves, marks, dents, incisions. An unidentifiable noise that only existed at night. And one rule, written without explanation: do not open the door.
+
+Not the door as a danger. The door as a boundary.
+
+Sef read the sheet one last time, then put it back in his pocket. He was certain he'd looked for everything there was to find inside. There was only one place he hadn't explored yet.
+
+He headed for the entrance.
+
+The wood of the threshold gave slightly under his step, the way it had on the first day. Sef opened the door and stopped.
+
+Outside there was nothing.
+
+Not in the sense of darkness, not in the sense of emptiness. There was something, but only in patches — a piece of sky exactly where it could be seen from the right-hand window, a strip of ground exactly where it could be seen from the corridor window. The rest was absence. Not darkness, not fog. Simply the nothing of what hasn't been built because no one was ever supposed to get there.
+
+Sef gripped the doorframe. He didn't fall, didn't step back. He stood there, frozen, looking.
+
+Then he moved one foot beyond the threshold. It held. He moved the other. That held too. He stopped there, standing on something he couldn't see, surrounded by an scenery that existed only in fragments and a rest that simply wasn't there.
+
+He stayed still for a few more seconds, then went back inside.
+
+He walked down the corridor, his head still struggling to catch up with what he'd seen. He stopped at the entrance to the room with the chair, looked up, and froze.
+
+There was someone in the chair.
+
+There was him in the chair.
+
+Sitting in the same position, his bag at his feet, eyes fixed on the corridor and the door at the far end.
+
+Then those eyes moved to him. The head turned slowly. The mouth opened, the hands lifted from the bag, the body leaned forward as if about to stand — as if there was something urgent to say.
+
+No sound came out.
+
+A moment later there was no one in the chair.
+
+And suddenly night fell.`
+    }
+  },
+  "il-custode-del-vuoto-3": {
+    game: "il-custode-del-vuoto",
+    gameLabel: { it: "Il Custode del Vuoto", en: "The Keeper of the Void" },
+    accentColor: "#8a7a5a",
+    title: {
+      it: "Il Custode del Vuoto",
+      en: "The Keeper of the Void"
+    },
+    dropdownLabel: {
+      it: "Capitolo 3",
+      en: "Chapter 3"
+    },
+    tag: {
+      it: "horror psicologico",
+      en: "psychological horror"
+    },
+    body: {
+      it: `Sef era ancora lì.
+
+Non ricordava di essersi seduto, ma era sulla sedia, nel punto dov'era prima il suo clone, con la schiena dritta e gli occhi aperti nel buio. La testa gli girava ancora, non per il sonno, per tutto il resto. Si passò una mano sul viso e guardò fuori dalla finestra.
+
+Era notte fonda.
+
+Tirò fuori il cellulare. Le dita si mossero quasi da sole verso l'orario, poi si fermarono sulla data.
+
+29 Marzo.
+
+Rimase a fissarla un momento. Poi lo rimise in tasca, lentamente, come si fa quando le cose hanno bisogno di tempo prima di essere elaborate.
+
+Due giorni. Ne erano saltati due, di colpo, senza che lui se ne accorgesse. Eppure non era la prima volta che succedeva, lo capì adesso: i turni erano sempre stati ogni due giorni, pomeriggio e notte alternati, mai consecutivi. Lo aveva notato fin dall'inizio, lo aveva quasi liquidato come una stranezza del contratto. Adesso non sembrava più una stranezza.
+
+Sembrava una regola.
+
+Si alzò.
+
+Il rumore dalla porta era iniziato già da un pezzo, più insistente del solito, senza le pause a cui si era abituato. Sef lo sentiva come si sente il traffico quando si abita vicino a una strada grande: sempre lì, sempre uguale, impossibile da ignorare davvero.
+
+Percorse il corridoio con passo deciso, si fermò davanti alla porta e posò la mano sulla maniglia.
+
+Si bloccò.
+
+Non per paura. Per qualcosa di più preciso: il ricordo di tutto quello che aveva vissuto in quei giorni, i rumori, il fuori inesistente, il doppio sulla sedia, e il fatto che in nessun momento, nemmeno uno, si era trovato in pericolo reale. Spaventato, disorientato, ma mai in pericolo.
+
+Abbassò la mano.
+
+Tornò a metà corridoio e rimase lì in piedi, a pensare. Il rumore continuava, costante, senza pietà. Sef lo lasciò andare sullo sfondo e si concentrò su quello che sapeva.
+
+Un luogo mistico, o qualcosa che ci assomigliava. Regole scritte senza spiegazioni. E lui che le aveva rispettate tutte, tranne una: era uscito. Aveva abbandonato la postazione.
+
+E il posto aveva rimpiazzato la sua assenza.
+
+Si fermò su quel pensiero.
+
+Il secondo Sef non era apparso per caso, era apparso perché qualcuno doveva stare sulla sedia. Tenere d'occhio la porta. Era la mansione, l'unica mansione, e il posto non poteva permettersi di lasciarla scoperta nemmeno per il tempo di una passeggiata oltre la soglia. Appena era tornato, il secondo Sef non aveva avuto più ragione di esistere.
+
+"Ecco perché non ci sono colleghi," disse sottovoce.
+
+Non perché non fossero necessari. Perché non era possibile che ce ne fossero.
+
+Tornò alla sedia e si sedette. La lasciò cigolare.
+
+Quel lavoro era forzatamente suo, e solo suo. Ma fino a quando?
+
+Pensò all'armadio. Agli otto segni sul muro. L'ottavo turno era quello in cui si trovava adesso, e chi li aveva fatti era sparito senza lasciare altro. Aveva aperto la porta? Si era arreso? O aveva semplicemente contato fino a otto come si dà una scadenza, e poi aveva scelto?
+
+Sembrava uno metodico, uno che non avrebbe mollato facilmente. Forse quei segni non erano disperazione. Forse erano una sfida che si era dato, e al termine aveva preso una decisione.
+
+Sef non sapeva quale.
+
+Il rumore continuava. Lui rimase seduto ad ascoltarlo, stavolta con attenzione diversa, cercando qualcosa che prima non aveva cercato. E dopo un po', in mezzo al caos sordo e continuo, lo trovò.
+
+Suoni. Piccoli, quasi impercettibili, sepolti sotto tutto il resto.
+
+Sef si alzò lentamente, percorse il corridoio, e appoggiò l'orecchio alla porta.
+
+Non rumori generici, non il legno o le tubature. Qualcosa di più riconoscibile: voci lontane, un motore, qualcosa che cadeva, qualcosa che si apriva. Il suono confuso e sovrapposto di un posto vivo, di tante cose che accadono insieme nello stesso momento.
+
+Il suono di una città. Forse.
+
+Il caos non cambiò. Ma adesso lo sentiva meglio, tutti quei suoni insieme, reali, concreti, il tipo di suoni che non si inventano e non si costruiscono. Erano lì, dall'altra parte, come se la porta fosse l'unica cosa che li separava da lui.
+
+Si staccò dal legno e rimase fermo nel corridoio buio.
+
+Quello in cui si trovava non era la realtà. Non era nemmeno qualcosa di digitale o costruito. Era il niente, un luogo che esisteva solo perché qualcuno doveva starci, un confine tenuto in piedi dalla presenza di chi lo presidiava. Un posto che non era un posto, abitato da chi non sapeva di abitarci.
+
+E la porta era il confine con l'altra parte.
+
+Con la realtà.
+
+Rimase in piedi ancora qualche minuto, con tutti questi pensieri che giravano senza trovare un posto dove fermarsi. Poi il corpo decise per lui: le gambe tornarono alla sedia, la schiena si appoggiò allo schienale, gli occhi si chiusero.
+
+L'ultimo pensiero, prima di addormentarsi, fu che l'indomani avrebbe capito cosa fare.
+
+La luce era già alta quando Sef aprì gli occhi.
+
+Rimase fermo un momento, la schiena sulla sedia, il soffitto sopra di lui. Poi tirò fuori il cellulare.
+
+31 Marzo.
+
+Due giorni. Di nuovo.
+
+Si alzò, si stiracchiò, e rimase in piedi nel silenzio della villa.
+
+Rimase a guardare il corridoio per un lungo momento.
+
+Poi scosse la testa.
+
+"Al diavolo quasi duemilacinquecento euro."
+
+Prese la borsa. Tirò fuori il foglio delle istruzioni, lo posò sul tavolo vicino alla sedia, pronto ad andarsene senza aggiungere altro. Poi si fermò.
+
+Sul foglio c'era una scritta che non c'era prima.
+
+La lesse.
+
+Posizione: Il Custode del Vuoto.
+
+Sef rimase immobile a fissarla per qualche secondo. Poi rise. Non una risata nervosa, non una risata amara. Una risata vera, corta, il tipo che esce quando una cosa è così assurda da diventare quasi comica.
+
+Lasciò il foglio sul tavolo.
+
+Si diresse verso la porta in fondo al corridoio, quella che non aveva mai aperto, quella che era più vecchia di tutto il resto, quella che aveva resistito a tutto. La aprì.
+
+Sef attraversò la soglia senza voltarsi. La porta si richiuse dietro di lui con uno schianto sordo, automatico, definitivo.
+
+Nel corridoio tornò il silenzio.
+
+Poi, nella stanza della sedia, Sef, così sembrava, si alzò.
+
+Si mosse lentamente verso il tavolo. Prese qualcosa di vagamente appuntito che aveva visto lì fin dal primo giorno senza mai raccoglierlo. Poi proseguì verso il corridoio laterale, oltre il bagno, fino alla stanza con l'armadio. Lo spostò con la stessa fatica di sempre.
+
+Appoggiò la punta al muro, accanto agli otto segni.
+
+E aggiunse il nono.`,
+      en: `Sef was still there.
+
+He didn't remember sitting down, but he was in the chair — in the same spot where his double had been — back straight, eyes open in the dark. His head was still spinning, not from sleep, from everything else. He ran a hand over his face and looked out the window.
+
+It was the middle of the night.
+
+He took out his phone. His fingers moved almost on their own toward the time, then stopped on the date.
+
+March 29.
+
+He stared at it for a moment. Then put the phone back in his pocket, slowly, the way you do when something needs time before it can be processed.
+
+Two days. Two had vanished, all at once, without him noticing. And yet it wasn't the first time, he understood that now: the shifts had always been every two days, afternoons and nights alternating, never consecutive. He'd noticed it from the beginning, had almost written it off as a quirk of the contract. Now it didn't seem like a quirk anymore.
+
+It seemed like a rule.
+
+He stood up.
+
+The sound from the door had been going for a while already — more insistent than usual, without the pauses he'd gotten used to. Sef heard it the way you hear traffic when you live near a busy road: always there, always the same, impossible to truly ignore.
+
+He walked down the corridor with a steady step, stopped in front of the door, and placed his hand on the handle.
+
+He stopped.
+
+Not out of fear. Out of something more precise: the memory of everything he'd lived through in those days — the sounds, the nonexistent outside, the double in the chair — and the fact that at no point, not once, had he been in any real danger. Frightened, disoriented, but never in danger.
+
+He lowered his hand.
+
+He went back to the middle of the corridor and stood there, thinking. The sound continued, constant, relentless. Sef let it recede into the background and focused on what he knew.
+
+A mystical place, or something that resembled one. Rules written without explanation. And him having followed all of them — except one: he'd gone outside. He'd abandoned his post.
+
+And the place had replaced his absence.
+
+He held onto that thought.
+
+The second Sef hadn't appeared by chance — he'd appeared because someone needed to be in the chair. To keep an eye on the door. That was the job, the only job, and the place couldn't afford to leave it uncovered even for the time it took to take a walk beyond the threshold. The moment he'd come back, the second Sef had no longer had any reason to exist.
+
+"That's why there are no colleagues," he said quietly.
+
+Not because they weren't needed. Because it wasn't possible for there to be any.
+
+He went back to the chair and sat down. Let it creak.
+
+That job was his, and his alone. But for how long?
+
+He thought about the wardrobe. The eight marks on the wall. The eighth shift was the one he was in now, and whoever had made them had disappeared without leaving anything else. Had they opened the door? Given up? Or had they simply counted to eight the way you set yourself a deadline, and then made a choice?
+
+They seemed like a methodical person, someone who wouldn't give up easily. Maybe those marks weren't desperation. Maybe they were a challenge they'd set themselves, and at the end they'd made a decision.
+
+Sef didn't know which one.
+
+The sound continued. He sat and listened to it, this time with a different kind of attention, looking for something he hadn't looked for before. And after a while, buried inside the low continuous chaos, he found it.
+
+Sounds. Small, almost imperceptible, buried beneath everything else.
+
+Sef stood up slowly, walked down the corridor, and pressed his ear to the door.
+
+Not generic noises, not the wood or the pipes. Something more recognisable: distant voices, an engine, something falling, something opening. The confused, overlapping sound of a living place — many things happening at once, all at the same time.
+
+The sound of a city. Perhaps.
+
+The chaos didn't change. But now he could hear it better — all those sounds together, real, concrete, the kind that can't be invented or constructed. They were there, on the other side, as if the door were the only thing separating them from him.
+
+He pulled away from the wood and stood still in the dark corridor.
+
+What he was in was not reality. It wasn't something digital or constructed either. It was nothing — a place that existed only because someone had to be in it, a boundary held up by the presence of whoever was keeping watch. A place that wasn't a place, inhabited by those who didn't know they were inhabiting it.
+
+And the door was the boundary with the other side.
+
+With reality.
+
+He stood there for a few more minutes, all these thoughts circling without finding anywhere to settle. Then his body decided for him: his legs carried him back to the chair, his back found the backrest, his eyes closed.
+
+His last thought, before falling asleep, was that tomorrow he would figure out what to do.
+
+The light was already high when Sef opened his eyes.
+
+He stayed still for a moment, back against the chair, ceiling above him. Then he took out his phone.
+
+March 31.
+
+Two days. Again.
+
+He stood up, stretched, and remained on his feet in the silence of the villa.
+
+He stared down the corridor for a long moment.
+
+Then he shook his head.
+
+"To hell with nearly two thousand five hundred euros."
+
+He picked up his bag. Pulled out the instruction sheet, set it on the table next to the chair, ready to leave without adding anything else. Then he stopped.
+
+On the sheet there was writing that hadn't been there before.
+
+He read it.
+
+Position: The Keeper of the Void.
+
+Sef stood motionless, staring at it for a few seconds. Then he laughed. Not a nervous laugh, not a bitter one. A real laugh — short, the kind that comes out when something is so absurd it becomes almost funny.
+
+He left the sheet on the table.
+
+He walked toward the door at the end of the corridor — the one he had never opened, the one that was older than everything else, the one that had held against everything. He opened it.
+
+Sef crossed the threshold without looking back. The door closed behind him with a dull, automatic, definitive bang.
+
+In the corridor, silence returned.
+
+Then, in the room with the chair, Sef — or so it seemed — stood up.
+
+He moved slowly toward the table. Picked up something vaguely sharp that he had seen there since the first day without ever picking it up. Then he continued toward the side corridor, past the bathroom, to the room with the wardrobe. He moved it aside with the same effort as always.
+
+He pressed the point against the wall, next to the eight marks.
+
+And added the ninth.`
     }
   }
 };
