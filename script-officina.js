@@ -1,25 +1,28 @@
 // ============================================================
-// OFFICINA — logica di stato e rendering
+// OFFICINA — per ora solo la home (stato landing): niente voci,
+// niente colonne. Stessa logica minima di i18n/cambio lingua
+// delle altre pagine, senza lo stato "entry" (qui non esiste
+// ancora nulla da aprire).
 // ============================================================
 
 const STRINGS = {
   it: {
     brand: "Officina",
-    eyebrow: "Officina",
-    title: "Cose in lavorazione",
-    lede: "Progetti che vivono altrove, ma partono da qui. Piccoli, grezzi, in corso d'opera.",
+    landingEyebrow: "Benvenuto nell'officina",
+    landingTitle: "The Forgotten Shelf",
+    landingIntro: "The Forgotten Shelf raccoglie anche i progetti che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
+    landingSub: "(contenuto in arrivo)",
     kofiLabel: "Sostienimi su Ko-fi",
-    backToIndexLabel: "Torna all'index",
-    openLabel: "Apri"
+    backToIndexLabel: "Torna all'index"
   },
   en: {
     brand: "Workshop",
-    eyebrow: "Workshop",
-    title: "Work in progress",
-    lede: "Projects that live elsewhere, but start from here. Small, rough, still being built.",
+    landingEyebrow: "Welcome to the workshop",
+    landingTitle: "The Forgotten Shelf",
+    landingIntro: "The Forgotten Shelf also collects projects that live elsewhere: games and tools in progress, linked from here.",
+    landingSub: "(content coming soon)",
     kofiLabel: "Support me on Ko-fi",
-    backToIndexLabel: "Back to index",
-    openLabel: "Open"
+    backToIndexLabel: "Back to index"
   }
 };
 
@@ -28,16 +31,11 @@ const state = { lang: "it" };
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
-  langSwitch: document.getElementById("langSwitch"),
-  board: document.getElementById("officinaBoard")
+  langSwitch: document.getElementById("langSwitch")
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
-function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 
-// ---------------------------------------------------------
-// Static text (i18n) painting
-// ---------------------------------------------------------
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
     const key = node.getAttribute("data-i18n");
@@ -49,46 +47,15 @@ function paintStaticText(){
   });
 }
 
-// ---------------------------------------------------------
-// Bacheca dei progetti
-// ---------------------------------------------------------
-function renderBoard(){
-  el.board.innerHTML = "";
-  OFFICINA_PROJECTS.forEach(project => {
-    const card = document.createElement("a");
-    card.className = "officina-card";
-    card.href = project.url;
-    card.target = "_blank";
-    card.rel = "noopener";
-
-    const coverStyle = project.cover ? ` style="background-image:url('${project.cover}')"` : "";
-    card.innerHTML = `
-      <span class="officina-card__pin" aria-hidden="true"></span>
-      <span class="officina-card__corner officina-card__corner--bl" aria-hidden="true"></span>
-      <span class="officina-card__corner officina-card__corner--br" aria-hidden="true"></span>
-      <div class="officina-card__cover"${coverStyle}>${project.cover ? "" : "copertina"}</div>
-      <span class="officina-card__status">${tf(project.status)}</span>
-      <h3 class="officina-card__title">${tf(project.title)}</h3>
-      <p class="officina-card__tagline">${tf(project.tagline)}</p>
-      <span class="officina-card__cta">${t("openLabel")} ${tf(project.title)} ↗</span>
-    `;
-    el.board.appendChild(card);
-  });
-}
-
-// ---------------------------------------------------------
-// Cambio lingua
-// ---------------------------------------------------------
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   el.body.dataset.lang = state.lang;
   paintStaticText();
-  renderBoard();
 });
 
-// Il brand qui non ha una "home" interna diversa da sé stesso:
-// riporta semplicemente all'index del sito.
-el.brandBtn.addEventListener("click", () => { window.location.href = "index.html"; });
+// Nessuno stato diverso da "landing" esiste ancora: il brand qui
+// non ha nulla da resettare, ma lascio l'handler per coerenza col
+// resto del sito (torna comunque utile quando arriverà "il resto").
+el.brandBtn.addEventListener("click", () => {});
 
 paintStaticText();
-renderBoard();
