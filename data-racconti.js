@@ -105,7 +105,7 @@ And no one knows why.`
   "diario-nuovo-assunto": {
     game: "diario-nuovo-assunto",
     gameLabel: { it: "Diario di un Nuovo Assunto", en: "Diary of a New Employee" },
-    accentColor: "#5b6b57",
+    accentColor: "#8a7a5a",
     title: {
       it: "Diario di un Nuovo Assunto",
       en: "Diary of a New Employee"
