@@ -233,11 +233,11 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:120px;
+    padding-top:127px;
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:53px; right:0; z-index:2;
+    position:absolute; top:60px; right:0; z-index:2;
   }
   body[data-state="entry"] .entry-game-trigger{
     height:32px; padding:0 12px; font-size:.76rem;
