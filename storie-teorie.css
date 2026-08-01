@@ -237,12 +237,12 @@ body[data-state="entry"] .landing{ display:none; }
      volta, ciascuno per metà larghezza. */
   body[data-state="entry"] .music-control{
     display:flex; justify-content:center; align-items:center;
-    position:fixed; top:60px; left:0; width:50%; height:80px; z-index:45;
+    position:fixed; top:60px; right:0; width:50%; height:80px; z-index:45;
     background:var(--bg);
     border-bottom:1px solid var(--line);
   }
   body[data-state="entry"] #pageHeader{
-    position:fixed; top:60px; right:0; left:50%; z-index:44;
+    position:fixed; top:60px; left:0; right:50%; z-index:44;
     height:80px; min-height:0; max-height:none;
     margin:0; padding:0; border:none; border-bottom:1px solid var(--line);
     overflow:hidden;
