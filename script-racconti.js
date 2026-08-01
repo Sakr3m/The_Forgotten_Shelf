@@ -5,27 +5,27 @@
 const STRINGS = {
   it: {
     brand: "Racconti",
-    sidebarEyebrow: "Teorie",
-    railLabel: "Storie Nascoste",
+    sidebarEyebrow: "Racconti brevi",
+    railLabel: "Libri",
     landingEyebrow: "Benvenuto nell'archivio\ndi storie nascoste e teorie",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "Storie & Teorie raccoglie riflessioni, teorie dei fan e retroscena nascosti dentro alcune delle saghe videoludiche più amate: dettagli che sfuggono a una prima lettura, indizi lasciati dagli sviluppatori, ipotesi che il tempo non ha ancora del tutto confermato né smentito. Un angolo pensato per chi ama guardare oltre la superficie della trama.",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
-    landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
-    landingSubMobile: "Seleziona una voce dalla finestra Teorie o da quella delle Storie Nascoste per approfondire.",
+    landingSub: "Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.",
+    landingSubMobile: "Seleziona una voce dalla finestra Racconti brevi o da quella dei Libri per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index"
   },
   en: {
     brand: "Racconti",
-    sidebarEyebrow: "Theories",
-    railLabel: "Hidden Stories",
+    sidebarEyebrow: "Short Stories",
+    railLabel: "Books",
     landingEyebrow: "Welcome to the archive\nof hidden stories and theories",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "Stories & Theories collects fan theories, reflections, and hidden details buried inside some of the most beloved video game sagas — clues that slip past a first playthrough, threads left behind by developers, ideas time hasn't fully confirmed or debunked. A corner built for anyone who loves looking past the surface of the plot.",
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
-    landingSub: "Select an entry from the Theories column or from the Hidden Stories column to dive in.",
-    landingSubMobile: "Select an entry from the Theories screen or from the Hidden Stories screen to dive in.",
+    landingSub: "Select an entry from the Short Stories column or from the Books column to dive in.",
+    landingSubMobile: "Select an entry from the Short Stories screen or from the Books screen to dive in.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index"
   }
