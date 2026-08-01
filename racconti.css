@@ -53,6 +53,9 @@ body[data-state="landing"] #pageHeader{ display:none; }
    coordinate prese dal trigger reale) così scavalca il ritaglio.
    Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
+/* Nascosto anche quando la voce non ha altri capitoli collegati
+   (impostato via JS in renderGamePicker), a prescindere da PC/mobile. */
+.entry-game-picker.is-single-entry{ display:none !important; }
 @media (min-width:761px){
   body[data-state="entry"] .entry-game-picker{
     display:block;
@@ -110,6 +113,40 @@ body[data-state="landing"] #pageHeader{ display:none; }
   color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
 }
 .entry-game-menu li button.is-active{ color:var(--item-accent, var(--cyan)); }
+
+/* Popup di selezione playlist (attivato dal pulsante volume): stesso
+   trattamento del menu a tendina qui sopra, posizionato via JS
+   (position:fixed, coordinate prese dal pulsante reale) per non
+   essere ritagliato da eventuali overflow:hidden dei contenitori. */
+.playlist-menu{
+  position:fixed;
+  width:max-content; max-width:min(90vw, 320px);
+  max-height:min(70vh, 420px); overflow-y:auto;
+  background:var(--panel-raised);
+  border:1px solid var(--cyan);
+  border-radius:var(--radius-sm);
+  box-shadow:0 16px 32px rgba(0,0,0,.5);
+  z-index:30;
+  animation:menuIn var(--dur-fast) var(--ease);
+}
+.playlist-menu__group-label{
+  padding:10px 16px 6px;
+  font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-faint);
+}
+.playlist-menu li button{
+  display:block; width:100%; text-align:left;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  padding:10px 16px;
+  font-size:.84rem; font-weight:500;
+  color:var(--text-dim);
+  border-bottom:1px solid var(--line);
+}
+.playlist-menu li:last-child button{ border-bottom:none; }
+.playlist-menu li button:hover, .playlist-menu li button:focus-visible{
+  background:color-mix(in srgb, var(--cyan) 8%, transparent);
+  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
+}
 
 /* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
    in styles.css (stesso di timeline.html) — niente più larghezza fissa

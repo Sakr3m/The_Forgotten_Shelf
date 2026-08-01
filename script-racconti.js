@@ -1,5 +1,5 @@
 // ============================================================
-// STORIE & TEORIE — logica di stato e rendering
+// RACCONTI — logica di stato e rendering
 // ============================================================
 
 const STRINGS = {
@@ -36,7 +36,8 @@ const state = {
   view: "landing",   // landing | entry
   column: null,      // teorie | storie
   entryId: null,
-  musicOn: true,
+  musicOn: false,    // parte sempre muto: va scelta una playlist dal popup
+  playlist: null,    // { label:{it,en}, tracks:[...] } scelta dal popup del volume
   trackIndex: 0
 };
 
@@ -58,6 +59,7 @@ const el = {
   trackProgressFill: document.getElementById("trackProgressFill"),
   volumeSlider: document.getElementById("volumeSlider"),
   musicToggle: document.getElementById("musicToggle"),
+  playlistMenu: document.getElementById("playlistMenu"),
   entryGamePicker: document.getElementById("entryGamePicker"),
   entryGameTrigger: document.getElementById("entryGameTrigger"),
   entryGameTriggerLabel: document.getElementById("entryGameTriggerLabel"),
@@ -117,8 +119,8 @@ function paintStaticText(){
 // ---------------------------------------------------------
 function renderLists(){
   el.teorieList.innerHTML = "";
-  TEORIE_ORDER.forEach(id => {
-    const item = TEORIE[id];
+  RACCONTI_ORDER.forEach(id => {
+    const item = RACCONTI[id];
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
@@ -131,8 +133,8 @@ function renderLists(){
   });
 
   el.storieList.innerHTML = "";
-  STORIE_ORDER.forEach(id => {
-    const item = STORIE[id];
+  LIBRI_ORDER.forEach(id => {
+    const item = LIBRI[id];
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
@@ -147,7 +149,7 @@ function renderLists(){
 
 function currentEntry(){
   if(!state.entryId) return null;
-  const table = state.column === "teorie" ? TEORIE : STORIE;
+  const table = state.column === "teorie" ? RACCONTI : LIBRI;
   return table[state.entryId] || null;
 }
 
@@ -180,20 +182,28 @@ function renderEntry(){
 // ---------------------------------------------------------
 function getEntriesForGame(gameId){
   const list = [];
-  TEORIE_ORDER.forEach(id => {
-    if(TEORIE[id].game === gameId) list.push({ column: "teorie", id, title: TEORIE[id].title });
+  RACCONTI_ORDER.forEach(id => {
+    if(RACCONTI[id].game === gameId) list.push({ column: "teorie", id, title: RACCONTI[id].title });
   });
-  STORIE_ORDER.forEach(id => {
-    if(STORIE[id].game === gameId) list.push({ column: "storie", id, title: STORIE[id].title });
+  LIBRI_ORDER.forEach(id => {
+    if(LIBRI[id].game === gameId) list.push({ column: "storie", id, title: LIBRI[id].title });
   });
   return list;
 }
 
 function renderGamePicker(entry){
+  const related = getEntriesForGame(entry.game);
+
+  // La tendina ha senso solo se ci sono altre voci collegate allo
+  // stesso "game" (es. più capitoli di uno stesso racconto/libro);
+  // per una voce isolata come "Cinere" resta nascosta.
+  el.entryGamePicker.classList.toggle("is-single-entry", related.length <= 1);
+  if(related.length <= 1) return;
+
   el.entryGameTriggerLabel.textContent = tf(entry.gameLabel);
 
   el.entryGameMenu.innerHTML = "";
-  getEntriesForGame(entry.game).forEach(item => {
+  related.forEach(item => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
@@ -238,6 +248,8 @@ function setState(view){
   el.body.dataset.state = view;
   if(view === "landing"){
     state.column = null; state.entryId = null;
+    state.musicOn = false; state.playlist = null; state.trackIndex = 0;
+    closePlaylistMenu();
     el.body.style.removeProperty("--item-accent");
     el.body.style.setProperty("--cyan", "#ffffff");
   } else {
@@ -254,7 +266,6 @@ function setState(view){
 }
 
 function selectEntry(column, id){
-  if(state.column !== column || state.entryId !== id) state.trackIndex = 0;
   state.column = column;
   state.entryId = id;
   setState("entry");
@@ -263,25 +274,106 @@ function selectEntry(column, id){
 }
 
 // ---------------------------------------------------------
-// Musica di sottofondo — solo nella pagina della voce, non
-// autoparte mai con l'audio, l'utente deve attivarla col toggle;
-// i browser bloccherebbero comunque l'autoplay con suono.
+// Musica di sottofondo — playlist globale, indipendente dalla
+// singola voce. Parte sempre muta: il pulsante apre un popup con
+// tutte le playlist disponibili (Saghe da Timeline, Titoli
+// videoludici da Storie & Teorie), raggruppate per provenienza.
+// Una volta scelta, la musica prosegue cambiando voce fra Racconti
+// brevi e Libri; si ferma solo tornando alla home o rispegnendo il
+// pulsante — e in quel caso va riscelta da capo. Non autoparte mai
+// con l'audio: i browser bloccherebbero comunque l'autoplay con
+// suono, e il click del pulsante/popup è di per sé un gesto utente.
 // ---------------------------------------------------------
-function getTrackList(entry){
-  if(!entry || !entry.tracks || !entry.tracks.length) return [];
-  return entry.tracks;
+function buildPlaylistLibrary(){
+  const groups = [];
+
+  const saghe = [];
+  if(typeof GAME_ORDER !== "undefined" && typeof GAMES !== "undefined"){
+    GAME_ORDER.forEach(id => {
+      const g = GAMES[id];
+      if(g && g.tracks && g.tracks.length) saghe.push({ label: g.listTitle || g.title, tracks: g.tracks });
+    });
+  }
+  if(saghe.length) groups.push({ label: { it: "Saghe", en: "Sagas" }, items: saghe });
+
+  const titoli = [];
+  const seen = new Set();
+  const collectFrom = (order, table) => {
+    if(typeof order === "undefined" || typeof table === "undefined") return;
+    order.forEach(id => {
+      const it = table[id];
+      if(!it || !it.tracks || !it.tracks.length) return;
+      const key = it.game || id;
+      if(seen.has(key)) return;
+      seen.add(key);
+      titoli.push({ label: it.gameLabel, tracks: it.tracks });
+    });
+  };
+  collectFrom(typeof TEORIE_ORDER !== "undefined" ? TEORIE_ORDER : undefined, typeof TEORIE !== "undefined" ? TEORIE : undefined);
+  collectFrom(typeof STORIE_ORDER !== "undefined" ? STORIE_ORDER : undefined, typeof STORIE !== "undefined" ? STORIE : undefined);
+  if(titoli.length) groups.push({ label: { it: "Titoli videoludici", en: "Video Game Titles" }, items: titoli });
+
+  return groups;
+}
+
+function renderPlaylistMenu(){
+  el.playlistMenu.innerHTML = "";
+  buildPlaylistLibrary().forEach(group => {
+    const groupLabel = document.createElement("li");
+    groupLabel.className = "playlist-menu__group-label";
+    groupLabel.textContent = tf(group.label);
+    el.playlistMenu.appendChild(groupLabel);
+
+    group.items.forEach(item => {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("role", "option");
+      btn.textContent = tf(item.label);
+      btn.addEventListener("click", () => choosePlaylist(item));
+      li.appendChild(btn);
+      el.playlistMenu.appendChild(li);
+    });
+  });
+}
+
+function openPlaylistMenu(){
+  renderPlaylistMenu();
+  const rect = el.musicToggle.getBoundingClientRect();
+  el.playlistMenu.style.top = (rect.bottom + 8).toFixed(2) + "px";
+  el.playlistMenu.style.right = (document.documentElement.clientWidth - rect.right).toFixed(2) + "px";
+  el.playlistMenu.hidden = false;
+  el.musicToggle.setAttribute("aria-expanded", "true");
+}
+function closePlaylistMenu(){
+  if(!el.playlistMenu) return;
+  el.playlistMenu.hidden = true;
+  el.musicToggle.setAttribute("aria-expanded", "false");
+}
+window.addEventListener("scroll", () => { if(!el.playlistMenu.hidden) closePlaylistMenu(); }, true);
+document.addEventListener("click", (ev) => {
+  if(el.playlistMenu.hidden) return;
+  if(!el.playlistMenu.contains(ev.target) && !el.musicToggle.contains(ev.target)) closePlaylistMenu();
+});
+
+function choosePlaylist(item){
+  state.playlist = item;
+  state.trackIndex = 0;
+  state.musicOn = true;
+  closePlaylistMenu();
+  updateMusicPlayback();
 }
 
 function updateMusicPlayback(){
-  const entry = currentEntry();
   const inEntryView = state.view === "entry";
   el.musicToggle.hidden = !inEntryView;
   el.musicToggle.setAttribute("aria-pressed", String(state.musicOn));
+  if(!inEntryView) closePlaylistMenu();
 
-  const tracks = getTrackList(entry);
-  const hasTracks = inEntryView && tracks.length > 0;
+  const tracks = state.playlist ? state.playlist.tracks : [];
+  const hasTracks = inEntryView && state.musicOn && tracks.length > 0;
 
-  if(!hasTracks || !state.musicOn){
+  if(!hasTracks){
     el.bgMusic.pause();
     el.trackInfo.hidden = true;
     return;
@@ -302,11 +394,11 @@ function updateMusicPlayback(){
   if(!el.bgMusic.src || !el.bgMusic.src.endsWith(track.src)){
     el.bgMusic.src = track.src;
   }
-  el.bgMusic.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click del toggle stesso lo è */ });
+  el.bgMusic.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click del toggle/popup stesso lo è */ });
 }
 
 function advanceTrack(){
-  const tracks = getTrackList(currentEntry());
+  const tracks = state.playlist ? state.playlist.tracks : [];
   if(tracks.length === 0) return;
   state.trackIndex = (state.trackIndex + 1) % tracks.length;
   updateMusicPlayback();
@@ -327,9 +419,19 @@ el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
 });
 
-el.musicToggle.addEventListener("click", () => {
-  state.musicOn = !state.musicOn;
-  updateMusicPlayback();
+el.musicToggle.addEventListener("click", (ev) => {
+  ev.stopPropagation();
+  if(state.musicOn){
+    // Spegnimento: la playlist si "dimentica", la prossima riattivazione
+    // richiede una nuova scelta dal popup.
+    state.musicOn = false;
+    state.playlist = null;
+    state.trackIndex = 0;
+    closePlaylistMenu();
+    updateMusicPlayback();
+  } else {
+    el.playlistMenu.hidden ? openPlaylistMenu() : closePlaylistMenu();
+  }
 });
 
 // ---------------------------------------------------------

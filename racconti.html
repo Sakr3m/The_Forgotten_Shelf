@@ -61,7 +61,7 @@
             </div>
 
             <div class="volume-control" id="volumeControl">
-              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-pressed="false" hidden>
+              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-haspopup="listbox" aria-expanded="false" aria-pressed="false" hidden>
                 <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
                 <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
               </button>
@@ -103,6 +103,8 @@
 
       <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>
 
+      <ul class="playlist-menu" id="playlistMenu" role="listbox" hidden></ul>
+
       <audio id="bgMusic" preload="none"></audio>
 
       <section class="landing" id="landingPanel">
@@ -132,6 +134,8 @@
     </aside>
   </div>
 
+  <script src="data.js"></script>
+  <script src="data-storie-teorie.js"></script>
   <script src="data-racconti.js"></script>
   <script src="script-racconti.js"></script>
 </body>

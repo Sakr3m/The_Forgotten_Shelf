@@ -3,11 +3,11 @@
 // data-storie-teorie.js, per ora vuota: solo lo scheletro)
 // ============================================================
 
-const TEORIE_ORDER = [
+const RACCONTI_ORDER = [
   "cinere"
 ];
 
-const TEORIE = {
+const RACCONTI = {
   cinere: {
     game: "cinere",
     gameLabel: { it: "Cinere", en: "Ashes" },
@@ -99,6 +99,6 @@ And no one knows why.`
   }
 };
 
-const STORIE_ORDER = [];
+const LIBRI_ORDER = [];
 
-const STORIE = {};
+const LIBRI = {};
