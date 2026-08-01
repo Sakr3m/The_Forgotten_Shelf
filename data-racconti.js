@@ -4,7 +4,8 @@
 // ============================================================
 
 const RACCONTI_ORDER = [
-  "cinere"
+  "cinere",
+  "diario-nuovo-assunto"
 ];
 
 const RACCONTI = {
@@ -99,6 +100,67 @@ The worst part is that it continues.
 For centuries, it continues. And every time the ash drifts away on the wind — silent, weightless — as if that man had never existed at all.
 
 And no one knows why.`
+    }
+  },
+  "diario-nuovo-assunto": {
+    game: "diario-nuovo-assunto",
+    gameLabel: { it: "Diario di un Nuovo Assunto", en: "Diary of a New Employee" },
+    accentColor: "#5b6b57",
+    title: {
+      it: "Diario di un Nuovo Assunto",
+      en: "Diary of a New Employee"
+    },
+    tag: {
+      it: "horror psicologico",
+      en: "psychological horror"
+    },
+    body: {
+      it: `7 Marzo
+Sedia che cigola. Bella partenza.
+Ho trovato lavoro. Il posto dall'esterno sembra una piccola villa, ma villa è una parola grossa: è un rudere con le pretese. Non me ne pento comunque, la paga è ottima: 2370 euro puliti per fare sostanzialmente niente. L'unica cosa che mi chiedono è tenere d'occhio una stanza qui vicina. Tutto il giorno, ogni giorno. Nessun collega, nessun turno. Solo io e la porta.
+Non ho ancora capito cosa ci sia dentro.
+
+9 Marzo
+Prima notte qui.
+La zona di per sé non è male. Di giorno è sopportabile. Ma di notte il silenzio diventa strano, amplifica tutto, e da quella porta si sente un rumore. Non so come descriverlo. Non ci provo.
+Mi hanno detto di non sbirciare. Ho obbedito.
+Ho passato tre ore a fissare quella porta.
+
+11 Marzo
+Niente turno notturno stavolta.
+Ho notato una cosa: lavoro solo i giorni dispari. Probabilmente mi sto inventando schemi per ammazzare il tempo. Ho ritrovato un libro in fondo alla borsa, uno di quelli comprati con le migliori intenzioni e mai aperti. Momento giusto, forse.
+Non ricordo neanche perché avessi smesso di leggere.
+
+13 Marzo
+Altra notte.
+La stanza fa sempre rumore, ma stanotte era diverso. Più insistente. Come se aspettasse qualcosa.
+Mi hanno detto di non guardare.
+Ma tanto non lo sapranno mai, no?
+
+Il 15 marzo arrivò un nuovo dipendente.`,
+      en: `March 7
+Creaking chair. Great start.
+Found a job. The place looks like a small villa from the outside, but villa is a generous word: it's a ruin with ambitions. No regrets though, the pay is good — really good: 2,370 euros clean for doing basically nothing. The only thing they ask is to keep an eye on a room just down the hall. All day, every day. No colleagues, no shifts. Just me and the door.
+I still haven't figured out what's inside.
+
+March 9
+First night here.
+The area itself isn't bad. During the day it's bearable. But at night the silence gets strange, amplifies everything, and from behind that door there's a sound. I don't know how to describe it. I'm not going to try.
+I was told not to peek. I obeyed.
+I spent three hours staring at that door.
+
+March 11
+No night shift this time.
+I noticed something: I only work on odd days. Probably making up patterns to kill time. Found a book at the bottom of my bag, one of those bought with the best intentions and never opened. Maybe now's the time.
+I don't even remember why I stopped reading.
+
+March 13
+Another night.
+The room is always making noise, but tonight it was different. More insistent. Like it was waiting for something.
+I was told not to look.
+But they'll never know, will they?
+
+On March 15, a new employee arrived.`
     }
   }
 };
