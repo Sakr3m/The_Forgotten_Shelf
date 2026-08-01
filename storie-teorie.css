@@ -232,7 +232,17 @@ body[data-state="entry"] .landing{ display:none; }
   }
 
   /* Niente banner in questa vista. */
-  body[data-state="entry"] #pageHeader{ display:none; }
+  body[data-state="entry"] #pageHeader{
+    display:block;
+    position:absolute; top:65px; left:0; right:0; height:135px;
+    margin:0; padding:0; border:none;
+    overflow:hidden;
+    z-index:1;
+  }
+  body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
+  body[data-state="entry"] .game-header__banner-overlay{
+    background:rgba(10,14,23,.45);
+  }
 
   /* Tendina e controllo musica: spostati via JS dentro #entryPanel
      (vedi positionMobileEntryRow in script-storie-teorie.js), in una
@@ -259,16 +269,4 @@ body[data-state="entry"] .landing{ display:none; }
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
   body[data-state="entry"] .stage{ padding-top:60px; }
-
-  /* TEST: box visibile per verificare la posizione — raso linea header,
-     larghezza piena, alto 125px. Ingloba volume+tendina (z-index più
-     basso dei due, quindi restano sopra), non arriva al testo. */
-  body[data-state="entry"] .stage::before{
-    content:"";
-    position:absolute; top:65px; left:0; right:0; height:135px;
-    border:2px dashed #22d3ee;
-    background:rgba(34,211,238,.08);
-    z-index:1;
-    pointer-events:none;
-  }
 }
