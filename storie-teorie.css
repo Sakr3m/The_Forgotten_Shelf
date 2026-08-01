@@ -268,5 +268,5 @@ body[data-state="entry"] .landing{ display:none; }
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
-  body[data-state="entry"] .stage{ padding-top:60px; }
+  body[data-state="entry"] .stage{ padding-top:60px; background:lime !important; }
 }
