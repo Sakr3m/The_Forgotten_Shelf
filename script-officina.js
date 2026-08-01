@@ -57,3 +57,13 @@ el.langSwitch.addEventListener("click", () => {
 el.brandBtn.addEventListener("click", () => {});
 
 paintStaticText();
+
+// Su mobile la pagina deve aprirsi sulla card di Mathemory (pannello
+// sinistro del carosello), non sulla home: forzato esplicitamente,
+// non lasciato allo scroll di default del browser (che in alcuni casi
+// può comunque atterrare altrove).
+const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+if (mobileBreakpoint.matches) {
+  const leftPanel = document.querySelector(".mathemory-panel--left");
+  if (leftPanel) leftPanel.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+}
