@@ -383,8 +383,8 @@ body[data-state="landing"] .index-link{ display:flex; }
   .index-link:hover{ color:#fff; }
   .index-link span{ display:none; }
 
-  .kofi-link svg{ color:#ef4444; }
-  .kofi-link:hover svg{ color:#ef4444; }
+  .kofi-link svg{ color:#22c55e; }
+  .kofi-link:hover svg{ color:#22c55e; }
 
   .kofi-link__full{ display:none; }
   .kofi-link__short{ display:inline; }
