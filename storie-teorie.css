@@ -233,6 +233,7 @@ body[data-state="entry"] .landing{ display:none; }
     margin:0; padding:0; border:none;
     border-bottom:1px solid var(--line);
     overflow:hidden;
+    background:red !important; /* TEST DIAGNOSTICO: se non vedi rosso, il selettore non sta scattando */
   }
   body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
   body[data-state="entry"] .game-header__banner-overlay{
