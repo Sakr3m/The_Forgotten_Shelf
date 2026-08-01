@@ -77,7 +77,7 @@ body[data-state="landing"] .brand{ display:none; }
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 /* ============================================================
-   Stage topbar (timeline.html e storie-teorie.html) — brand,
+   Stage topbar (timeline.html, storie.html e racconti.html) — brand,
    index-link e stage-controls uniti in un'unica barra a scorrimento
    naturale (flex), sticky in cima allo stage. Prima brand era fisso
    alla finestra (numeri come left:283 calcolati a mano sommando la
@@ -276,7 +276,7 @@ body[data-state="landing"] .brand{ display:none; }
 /* Sidebar e colonna della linea temporale: scroll indipendente dal
    testo centrale, su desktop — ognuna scorre per conto suo, non
    insieme al resto della pagina. Stesso schema già usato per le
-   colonne di storie-teorie.html. */
+   colonne di storie.html. */
 @media (min-width:761px){
   .sidebar, .timeline-rail{
     position:sticky; top:0; align-self:flex-start;
