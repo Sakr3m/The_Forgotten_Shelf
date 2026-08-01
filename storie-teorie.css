@@ -200,8 +200,9 @@ body[data-state="entry"] .landing{ display:none; }
      in alto (scritta a sinistra, tazza ESATTAMENTE a metà dello
      spazio tra la fine della scritta e l'inizio dello switch —
      flex + justify-content:space-between con 3 elementi fa
-     esattamente questo, non un centraggio sull'intera riga), niente
-     banner, poi volume e tendina come righe proprie, poi il testo.
+     esattamente questo, non un centraggio sull'intera riga), poi
+     il banner, poi il testo. Ripulito totalmente: niente tendina,
+     niente controllo musica per ora, solo queste 3 cose.
      ========================================================== */
   body[data-state="entry"] .stage-topbar{
     display:flex; align-items:center; justify-content:space-between;
@@ -224,9 +225,7 @@ body[data-state="entry"] .landing{ display:none; }
   }
 
   /* Banner: compatto (circa quanto la barra sopra), sfondo che si
-     estende subito sotto la barra principale, in flusso normale.
-     Tendina e controllo musica sono sovrapposti direttamente sopra di
-     esso (angolo sinistro/destro), non più righe separate sotto. */
+     estende subito sotto la barra principale, in flusso normale. */
   body[data-state="entry"] #pageHeader{
     position:relative;
     height:72px; min-height:0; max-height:none;
@@ -239,29 +238,12 @@ body[data-state="entry"] .landing{ display:none; }
     background:rgba(10,14,23,.45);
   }
 
-  /* Tendina: sovrapposta all'angolo sinistro del banner, centrata
-     verticalmente su di esso. */
-  body[data-state="entry"] .entry-game-picker{
-    display:flex;
-    position:absolute; top:50%; left:14px; z-index:2;
-    transform:translateY(-50%);
-  }
-  body[data-state="entry"] .entry-game-trigger{
-    height:32px; padding:0 12px; font-size:.76rem;
-  }
-
-  /* Musica: spostata via JS dentro #pageHeader solo qui (vedi
-     positionMusicControlForMobileEntry in script-storie-teorie.js),
-     sovrapposta all'angolo destro del banner, centrata verticalmente. */
-  body[data-state="entry"] #pageHeader .music-control{
-    position:absolute; top:50%; right:14px; z-index:2;
-    transform:translateY(-50%);
-  }
-  body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
+  /* Niente tendina, niente controllo musica in questa vista per ora. */
+  body[data-state="entry"] .entry-game-picker{ display:none; }
+  body[data-state="entry"] .music-control{ display:none; }
 
   /* Il testo segue il banner nel flusso normale, con un margine che
-     lo stacca comodamente (non serve più compensare nessuna riga
-     fissa aggiuntiva). */
+     lo stacca comodamente. */
   body[data-state="entry"] .entry-panel{ margin-top:24px; }
 
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
