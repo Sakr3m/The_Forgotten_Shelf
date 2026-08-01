@@ -222,6 +222,18 @@ function renderGamePicker(entry){
     li.appendChild(btn);
     el.entryGameMenu.appendChild(li);
   });
+
+  // Voce finale non cliccabile ("in arrivo"/"coming soon"), per
+  // capitoli futuri non ancora pubblicati collegati allo stesso
+  // "game" (es. "Il Chiamato").
+  if(entry.comingSoon){
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.className = "entry-game-menu__coming-soon";
+    span.textContent = tf(entry.comingSoon);
+    li.appendChild(span);
+    el.entryGameMenu.appendChild(li);
+  }
 }
 
 function openGameMenu(){

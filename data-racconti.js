@@ -10,7 +10,11 @@ const RACCONTI_ORDER = [
   "il-testimone",
   "l-ora-sbagliata",
   "lo-specchio-cieco",
-  "parole-senza-fiato"
+  "parole-senza-fiato",
+  "il-chiamato-1",
+  "il-chiamato-2",
+  "il-chiamato-3",
+  "il-chiamato-4"
 ];
 
 const RACCONTI = {
@@ -663,6 +667,2642 @@ Le labbra erano serrate, come è giusto che sia. Ma i cuori, nell'istante in cui
 Neither.
 
 Their lips were sealed, as is right. But their hearts, in the moment they found each other, pronounced those words silently in their place.`
+    }
+  },
+  "il-chiamato-1": {
+    game: "il-chiamato",
+    gameLabel: { it: "Il Chiamato", en: "The Called" },
+    accentColor: "#6a0dad",
+    title: {
+      it: "Il Chiamato",
+      en: "The Called"
+    },
+    dropdownLabel: {
+      it: "Capitolo 1",
+      en: "Chapter 1"
+    },
+    tag: {
+      it: "dark fantasy viscerale",
+      en: "visceral dark fantasy"
+    },
+    comingSoon: {
+      it: "In arrivo",
+      en: "Coming soon"
+    },
+    body: {
+      it: `Tuk… tuk…
+
+Detriti. Pietra che rotola nel buio.
+
+Silenzio.
+
+Freddo dal pavimento. Umido, vecchio. L'aria pesante, immobile. Odore di chiuso. E altro: ferro, acre.
+
+Buio. Completo.
+
+No.
+
+Una luce. Fioca, lontana. Tremola.
+
+Sopra di lui, pietra screpolata. Crepe ramificate, vene nere sulla superficie antica. La testa pulsava. Dolore sordo, profondo. Premeva dietro gli occhi.
+
+Poi.
+
+Non un suono. Non una voce.
+
+Qualcosa dentro.
+
+«Chiamato.»
+
+Si irrigidì.
+
+Il pensiero non era suo. Era lì, pesante. Un'ombra che si muove dove non dovrebbe. Vibrava nelle ossa.
+
+«Chiamato.»
+
+Di nuovo.
+
+Un brivido. Freddo. Profondo.
+
+Cercò di muoversi.
+
+Il dolore esplose. Non acuto. Costante. Pesante. Le mani trovarono il pavimento. Umido. Viscido in alcuni punti. Si sollevò lentamente. Il corpo reagiva prima della mente.
+
+Peso distribuito. Equilibrio. Controllo.
+
+Le dita obbedirono. La spalla destra tirò appena. Ignorabile. Il campo visivo si adattò: mura, angoli, distanza. Il cuore batteva basso, regolare. Nessun panico. Solo precisione.
+
+Restò in ginocchio. Assestò il peso. Testò l'equilibrio senza alzarsi del tutto.
+
+Il corpo sapeva.
+
+La mente no.
+
+Pronto a reagire. Prima ancora di capire a cosa.
+
+Poi l'odore lo investì davvero.
+
+Sangue.
+
+Molto sangue.
+
+E altro. Carne aperta. Viscere esposte. L'aria pesante, satura. Irrespirabile.
+
+Si fermò. Portò una mano al viso. Coprì naso e bocca. Inutile. L'odore era ovunque. Dentro le narici. Sulla lingua.
+
+Abbassò la mano. Si abituò.
+
+Guardò le mani. Sporche. Il pavimento scuro, bagnato.
+
+Un dolore acuto al fianco. Si portò la mano alla stoffa. Strappata. Qualcosa di caldo, appiccicoso.
+
+Sangue. Suo.
+
+Non profondo. Ma bruciava.
+
+Accanto a lui, a pochi centimetri, una spada.
+
+Spezzata.
+
+Solo un moncone oltre l'elsa. Il metallo fratturato. Spezzato da una forza immensa. Il filo rimanente rifletteva appena la luce. Torce, da qualche parte. Morenti.
+
+La fissò. Poi si alzò. Lentamente.
+
+Il dolore si fece più intenso. Ignorabile. Il corpo si mosse con precisione. Peso distribuito. Equilibrio controllato. Sapeva già cosa fare.
+
+E li vide.
+
+Corpi.
+
+Ovunque.
+
+Guerrieri in armatura. Riversi. Schiantati contro le pareti. Braccia piegate all'indietro. Elmi sfondati. Dentro, carne che traboccava dalle fessure. Piastroni squarciati. Mantelli rigidi di sangue secco.
+
+Non civili.
+
+Soldati. Addestrati.
+
+Morti. Tutti.
+
+Guardò la stanza.
+
+Le pareti segnate da crepe profonde. Ramificate sulla pietra. Schegge e polvere ovunque. Al centro, dove avrebbe dovuto esserci pietra liscia, crepe a raggiera. Larghe. Profonde. Devastanti.
+
+Non sembrava una battaglia.
+
+Sembrava un'esplosione.
+
+Alcuni cadaveri erano troppo lontani. Non erano caduti. Erano stati lanciati. Scagliati contro i muri. Violenza che nessuna lama poteva infliggere.
+
+Cosa era successo?
+
+Cercò di ricordare.
+
+Niente.
+
+Buio. Il dolore al fianco.
+
+Guardò di nuovo la spada spezzata.
+
+La raccolse.
+
+Il cuoio dell'elsa aderiva alla mano. Familiare. Giusto.
+
+Sua?
+
+Forse.
+
+Ma rotta. E lui ancora vivo. Tutti gli altri no.
+
+Perché?
+
+Poi un respiro.
+
+Debole. Rauco.
+
+Si voltò.
+
+Al centro della carneficina, una figura.
+
+Esile. Riversa. Capelli scuri incollati al viso. Sudore. Sangue. Vesti bianche, un tempo. Ora lacerate. Intrise di rosso scuro.
+
+Una donna. Giovane. Morente.
+
+Lo guardò.
+
+Nessuna paura.
+
+Qualcosa d'altro. Che lui non capiva.
+
+Consapevolezza? Rassegnazione?
+
+La conosceva.
+
+O credeva di conoscerla.
+
+Non ricordava.
+
+Si avvicinò.
+
+Respirava a fatica. Il petto a scatti irregolari. Il sangue colava lento da una ferita al fianco. Scivolava sulla pietra fredda. Piccoli tremiti. Ma gli occhi fissi su di lui.
+
+Nessuno parlò.
+
+Poi lei strinse i denti. Il dolore le increspò il volto.
+
+«Ascolta.»
+
+La voce un filo sottile. Spezzato.
+
+Lui rimase in silenzio.
+
+«Il re…»
+
+Tossì. Sangue sulle labbra. Respirò a fatica.
+
+«…va fermato.»
+
+Silenzio.
+
+«Di cosa parli?»
+
+La sua voce. Roca. Sconosciuta persino a sé.
+
+Lei non rispose subito. Gli occhi si socchiusero. Ogni parola costava tutto.
+
+«Il regno…»
+
+Pausa. Il petto si sollevò a scatti.
+
+«…muore.»
+
+La fissò. Le parole non avevano senso. Regno. Re.
+
+Niente.
+
+«Chi sei?»
+
+Lei non rispose. Chiuse gli occhi. Il respiro sempre più irregolare.
+
+«Se non lo fermi…»
+
+La voce si spezzò. Un sussurro.
+
+«…nulla.»
+
+Le torce tremolarono. Le ombre danzarono.
+
+«Perché io?»
+
+La voce fredda.
+
+Lei riaprì gli occhi. Lo guardò davvero. Per un istante qualcosa di antico attraversò quello sguardo.
+
+«Ti ho chiamato.»
+
+Pausa lunga. Tremava.
+
+«…per questo.»
+
+Chiamato.
+
+Quella parola. Di nuovo.
+
+Un brivido.
+
+Aprì la bocca. Ma lei sollevò la mano sinistra. Uno sforzo immenso. Tremava. Il sangue le colava lungo il braccio.
+
+«Taglialo.»
+
+Aggrottò la fronte. «Cosa?»
+
+«Il mio dito.»
+
+La voce piatta. Priva di emozione. Non le restava nulla oltre a quell'ordine.
+
+«Mozzalo.»
+
+Esitò. Non per pietà. Per incomprensione.
+
+«Perché?»
+
+Gli occhi di lei si fecero duri. Freddi. L'ultima scintilla di volontà.
+
+«Adesso.»
+
+Pausa.
+
+Non c'era supplica. Era un ordine.
+
+Distolse lo sguardo. Scrutò i cadaveri. La sua spada era rotta. Inutile. Ne serviva un'altra.
+
+Guardò i corpi vicini. Uno con la spada scheggiata. Un altro l'aveva persa. Il terzo: una lama integra.
+
+Scelse quello. La strappò alla presa irrigidita del morto.
+
+Fredda. Pesante. Ma quando la impugnò, la mano si chiuse sull'elsa. Naturale.
+
+Il corpo ricordava.
+
+La mente no.
+
+Tornò da lei. La donna aveva già posato la mano sinistra sul pavimento. Il mignolo teso. Le dita rigide. Pronte.
+
+Serrò la mascella.
+
+«Fallo.»
+
+Sollevò la lama. La posizionò. Un movimento netto.
+
+Il metallo affondò. Taglio pulito.
+
+Il dito cadde.
+
+Un filo di sangue colò sulla pietra.
+
+Il corpo di lei si irrigidì. Nessun suono. Solo un respiro trattenuto. Strozzato.
+
+Poi sollevò la mano destra. Uno sforzo tremendo. La posò sopra il dito reciso.
+
+E iniziò.
+
+Una luce avvolse il frammento di carne. Debole. Scura. Color bordeaux.
+
+Indietreggiò.
+
+La luce non scaldava. Non illuminava. Era fredda. Spenta. Bruciava dal di dentro.
+
+Il dito mutò.
+
+Le unghie si fusero. Il sangue risucchiato dentro. La carne si strinse, si contorse. Crepitio. Ossa che si spezzano. Odore di ferro ossidato. Non sangue. Metallo morto da tempo.
+
+La luce svanì.
+
+Ciò che rimase fu un anello.
+
+Grezzo. Scuro. Imperfetto.
+
+Con le ultime forze, lo raccolse. Glielo porse.
+
+«Mettilo.»
+
+Lo prese. Lo osservò. Pesante. Freddo. Vivo, in un modo che non sapeva spiegare.
+
+«A cosa serve?»
+
+Il respiro di lei più debole. Lo sguardo già lontano. Velato.
+
+«Mettilo… e non toglierlo mai.»
+
+Le dita si allentarono.
+
+Il petto smise di muoversi.
+
+Il sangue si fermò.
+
+Silenzio.
+
+Non respirava più.
+
+La osservò. Lungo istante.
+
+Non provava nulla.
+
+Nessun dolore. Nessuna perdita.
+
+Solo vuoto.
+
+Ma qualcosa lo fermò. Un pensiero.
+
+Chi era? Perché era morta? Perché lui no?
+
+Le domande non avevano risposte.
+
+Si alzò.
+
+Il rumore dei suoi passi l'unico suono.
+
+La spada che aveva preso restò nella sua mano. Un peso non scelto. Ma giusto. Pulì il filo sul mantello rigido di un soldato. Una volta. Controllò il filo contro la luce fioca. Aggiustò l'elsa. Provò il baricentro. Un mezzo colpo nell'aria.
+
+Il braccio ricordava la traiettoria.
+
+La mente no.
+
+Un passaggio sul fondo. Arco spezzato. Scale che salivano.
+
+Si avvicinò. Iniziò a salire.
+
+Le pietre irregolari. Consunte. Il primo gradino cedette sotto il peso. Spostò l'equilibrio. Un sasso rotolò giù. Tre rimbalzi. Silenzio. Una lastra scheggiata. Salto breve. Le dita trovarono presa nella pietra viva. Il dolore al fianco pulsava. Ignorabile. Il respiro costante.
+
+Continuò.
+
+Raggiunse l'uscita.
+
+La luce lo colpì.
+
+Non forte. Non calda.
+
+Spenta.
+
+Cielo coperto da nuvole dense. Gonfie. Color cenere. Nessun sole. Solo una luminosità diffusa. Malata.
+
+Il vento portava un odore. Dolce e marcio insieme. Putrefazione mascherata da altro. Innaturale.
+
+Davanti a lui il paesaggio si estendeva.
+
+Una ferita aperta.
+
+Rovine. Detriti. Terra spaccata. Pietre che cedevano a valle. Strati irregolari. Alberi spogli, contorti, neri. Edifici crollati. Strade spezzate.
+
+Quel regno era morto.
+
+O stava morendo.
+
+Abbassò lo sguardo.
+
+L'anello.
+
+Lo fissò. Poi lo infilò lentamente al dito.
+
+Freddo.
+
+Un brivido violento percorse il braccio. Risalì alla spalla. Esplose nel petto. Per un istante vide qualcosa. Non con gli occhi. Più in fondo.
+
+Frammenti. Un volto? Una voce? Un nome? Impossibile distinguerli.
+
+Poi nulla.
+
+Troppo veloce. Troppo lontano.
+
+Strinse il pugno. L'anello aderì perfettamente. Era sempre stato lì.
+
+Guardò di nuovo l'orizzonte. Il regno devastato.
+
+Parlò. La voce roca. Ancora estranea.
+
+«Non ricordo chi sono.»
+
+Il vento soffiò più forte.
+
+«Ma sento… che questa non è casa mia.»
+
+Strinse l'elsa della spada.
+
+«Allora perché… sono qui?»`,
+      en: `Tuk… tuk…
+
+Debris. Stone rolling in the dark.
+
+Silence.
+
+Cold rising from the floor. Damp. Old. The air heavy, still. Smell of something closed. And something else: iron, acrid.
+
+Darkness. Complete.
+
+No.
+
+A light. Faint, distant. Flickering.
+
+Above him, cracked stone. Veins branching black across the ancient surface. His head throbbed. Dull pain. Deep. Pressing behind his eyes.
+
+Then.
+
+Not a sound. Not a voice.
+
+Something inside.
+
+"Called."
+
+He stiffened.
+
+The thought wasn't his. It was there. Heavy. A shadow moving where it shouldn't. Vibrating in his bones.
+
+"Called."
+
+Again.
+
+A shiver. Cold. Deep.
+
+He tried to move.
+
+Pain exploded. Not sharp. Constant. Heavy. His hands found the floor. Damp. Slick in places. He rose slowly. His body reacting before his mind.
+
+Weight distributed. Balance. Control.
+
+His fingers obeyed. His right shoulder pulled slightly. Ignorable. His vision adjusted: walls, angles, distance. His heart beat low, steady. No panic. Only precision.
+
+He stayed on his knees. Settled his weight. Tested his balance without rising fully.
+
+His body knew.
+
+His mind didn't.
+
+Ready to react. Before understanding what.
+
+Then the smell hit him fully.
+
+Blood.
+
+A lot of blood.
+
+And something else. Open flesh. Exposed viscera. The air heavy, thick. Unbreathable.
+
+He stopped. Brought a hand to his face. Covered nose and mouth. Useless. The smell was everywhere. In his nostrils. On his tongue.
+
+He lowered his hand. Got used to it.
+
+He looked at his hands. Dirty. The floor dark, wet.
+
+Sharp pain in his side. He brought his hand to the fabric. Torn. Something warm, sticky.
+
+Blood. His.
+
+Not deep. But it burned.
+
+Beside him, inches away, a sword.
+
+Broken.
+
+Only a stump beyond the hilt. The metal fractured. Snapped by immense force. The remaining edge barely reflected the light. Torches, somewhere. Dying.
+
+He stared at it. Then rose. Slowly.
+
+The pain grew stronger. Ignorable. His body moved with precision. Weight distributed. Balance controlled. Already knowing what to do.
+
+And he saw them.
+
+Bodies.
+
+Everywhere.
+
+Warriors in armor. Sprawled. Smashed against walls. Arms bent backward. Helms caved in. Inside, flesh spilling from the cracks. Breastplates split. Cloaks stiff with dried blood.
+
+Not civilians.
+
+Soldiers. Trained.
+
+Dead. All of them.
+
+He looked at the room.
+
+Walls marked with deep cracks. Branching across stone. Splinters and dust everywhere. In the center, where there should have been smooth stone, cracks radiating outward. Wide. Deep. Devastating.
+
+It didn't look like a battle.
+
+It looked like an explosion.
+
+Some corpses were too far away. They hadn't fallen. They'd been thrown. Hurled against the walls. Violence no blade could inflict.
+
+What happened here?
+
+He tried to remember.
+
+Nothing.
+
+Darkness. The pain in his side.
+
+He looked at the broken sword again.
+
+He picked it up.
+
+The leather hilt fit his hand. Familiar. Right.
+
+His?
+
+Maybe.
+
+But broken. And him still alive. Everyone else dead.
+
+Why?
+
+Then a breath.
+
+Weak. Ragged.
+
+He turned.
+
+In the center of the carnage, a figure.
+
+Slender. Prone. Dark hair stuck to her face. Sweat. Blood. White robes, once. Now torn. Soaked in dark red.
+
+A woman. Young. Dying.
+
+She looked at him.
+
+No fear.
+
+Something else. That he didn't understand.
+
+Awareness? Resignation?
+
+He knew her.
+
+Or thought he did.
+
+Didn't remember.
+
+He approached.
+
+She breathed with difficulty. Her chest rising in broken rhythm. Blood flowing slow from a wound in her side. Sliding across cold stone. Small tremors. But her eyes fixed on him.
+
+No one spoke.
+
+Then she gritted her teeth. Pain crossed her face.
+
+"Listen."
+
+Her voice a thin thread. Broken.
+
+He stayed silent.
+
+"The king…"
+
+She coughed. Blood on her lips. Breathing hard.
+
+"…must be stopped."
+
+Silence.
+
+"What are you talking about?"
+
+His voice. Hoarse. Unknown even to himself.
+
+She didn't answer immediately. Her eyes narrowed. Each word costing everything.
+
+"The kingdom…"
+
+Pause. Her chest rose in stutters.
+
+"…is dying."
+
+He stared at her. The words made no sense. Kingdom. King.
+
+Nothing.
+
+"Who are you?"
+
+She didn't answer. Closed her eyes. Breathing more irregular.
+
+"If you don't stop him…"
+
+Her voice broke. A whisper.
+
+"…nothing."
+
+The torches flickered. Shadows danced.
+
+"Why me?"
+
+Cold voice.
+
+She opened her eyes again. Really looked at him. For an instant something ancient crossed that gaze.
+
+"I called you."
+
+Long pause. Trembling.
+
+"…for this."
+
+Called.
+
+That word. Again.
+
+A shiver.
+
+He opened his mouth. But she raised her left hand. Immense effort. Trembling. Blood running down her arm.
+
+"Cut it."
+
+He frowned. "What?"
+
+"My finger."
+
+Flat voice. No emotion. Nothing left but that command.
+
+"Cut it off."
+
+He hesitated. Not from pity. From incomprehension.
+
+"Why?"
+
+Her eyes turned hard. Cold. The last spark of will.
+
+"Now."
+
+Pause.
+
+No pleading. An order.
+
+He looked away. Scanned the corpses. His sword was broken. Useless. He needed another.
+
+He looked at the nearby bodies. One with a chipped sword. Another had lost theirs. The third: an intact blade.
+
+He chose that one. Tore it from the stiffened grip of the dead.
+
+Cold. Heavy. But when he gripped it, his hand closed around the hilt. Natural.
+
+His body remembered.
+
+His mind didn't.
+
+He returned to her. The woman had already placed her left hand on the floor. Little finger extended. Fingers rigid. Ready.
+
+She clenched her jaw.
+
+"Do it."
+
+He raised the blade. Positioned it. One clean motion.
+
+The metal sank. Clean cut.
+
+The finger fell.
+
+A thread of blood dripped onto stone.
+
+Her body stiffened. No sound. Only a held breath. Choked.
+
+Then she raised her right hand. Tremendous effort. Placed it over the severed finger.
+
+And it began.
+
+A light wrapped the fragment of flesh. Faint. Dark. Burgundy.
+
+He stepped back.
+
+The light didn't warm. Didn't illuminate. It was cold. Dead. Burning from within.
+
+The finger changed.
+
+The nails fused. Blood sucked inward. Flesh compressed, twisted. Crackling. Bones breaking. Smell of oxidized iron. Not blood. Metal dead for ages.
+
+The light faded.
+
+What remained was a ring.
+
+Crude. Dark. Imperfect.
+
+With her last strength, she picked it up. Held it out to him.
+
+"Put it on."
+
+He took it. Examined it. Heavy. Cold. Alive, in a way he couldn't explain.
+
+"What does it do?"
+
+Her breathing weaker. Her gaze already distant. Veiled.
+
+"Put it on… and never take it off."
+
+Her fingers loosened.
+
+Her chest stopped moving.
+
+The blood stopped.
+
+Silence.
+
+She wasn't breathing anymore.
+
+He watched her. Long moment.
+
+He felt nothing.
+
+No pain. No loss.
+
+Only emptiness.
+
+But something stopped him. A thought.
+
+Who was she? Why was she dead? Why wasn't he?
+
+The questions had no answers.
+
+He stood.
+
+The sound of his own steps the only sound.
+
+The sword he'd taken stayed in his hand. A weight not chosen. But right. He cleaned the blade on the stiff cloak of a soldier. Once. Checked the edge against the faint light. Adjusted the hilt. Tested the balance. Half a swing in the air.
+
+His arm remembered the trajectory.
+
+His mind didn't.
+
+A passage at the back. Broken arch. Stairs leading up.
+
+He approached. Started climbing.
+
+Irregular stones. Worn. The first step gave slightly under his weight. He shifted his balance. A stone rolled down. Three bounces. Silence. A chipped slab. Short jump. His fingers found purchase in living stone. The pain in his side pulsed. Ignorable. His breathing steady.
+
+He continued.
+
+He reached the exit.
+
+Light hit him.
+
+Not strong. Not warm.
+
+Dead.
+
+Sky covered with dense clouds. Swollen. Ash-colored. No sun. Only diffuse brightness. Sickly.
+
+The wind carried a smell. Sweet and rotten together. Decay masked by something else. Unnatural.
+
+Before him the landscape stretched out.
+
+An open wound.
+
+Ruins. Debris. Broken earth. Stones giving way downslope. Irregular layers. Bare trees, twisted, black. Collapsed buildings. Shattered roads.
+
+That kingdom was dead.
+
+Or dying.
+
+He lowered his gaze.
+
+The ring.
+
+He stared at it. Then slid it slowly onto his finger.
+
+Cold.
+
+A violent shiver ran up his arm. Climbed to his shoulder. Exploded in his chest. For an instant he saw something. Not with his eyes. Deeper.
+
+Fragments. A face? A voice? A name? Impossible to distinguish.
+
+Then nothing.
+
+Too fast. Too far.
+
+He clenched his fist. The ring fit perfectly. Had always been there.
+
+He looked at the horizon again. The devastated kingdom.
+
+He spoke. Voice hoarse. Still foreign.
+
+"I don't remember who I am."
+
+The wind blew harder.
+
+"But I feel… this is not my home."
+
+He gripped the sword hilt.
+
+"Then why… am I here?"`
+    }
+  },
+  "il-chiamato-2": {
+    game: "il-chiamato",
+    gameLabel: { it: "Il Chiamato", en: "The Called" },
+    accentColor: "#6a0dad",
+    title: {
+      it: "Il Chiamato",
+      en: "The Called"
+    },
+    dropdownLabel: {
+      it: "Capitolo 2",
+      en: "Chapter 2"
+    },
+    tag: {
+      it: "dark fantasy viscerale",
+      en: "visceral dark fantasy"
+    },
+    comingSoon: {
+      it: "In arrivo",
+      en: "Coming soon"
+    },
+    body: {
+      it: `Silenzio.
+
+No. Non silenzio.
+
+Qualcosa di peggio.
+
+Un'assenza.
+
+Nessun uccello. Nessun insetto. Nessun fruscio di foglie. Solo il vento che portava quell'odore: dolce, marcio.
+
+Si fermò.
+
+Niente.
+
+Solo desolazione.
+
+Cosa aveva fatto questo?
+
+Cercò di ricordare se la ragazza avesse detto altro. Un nome. Una spiegazione.
+
+Niente.
+
+Solo: il regno muore.
+
+Si rialzò.
+
+Di nuovo il paesaggio. Desolazione. Morte.
+
+Qualcosa stava uccidendo tutto.
+
+Non sapeva cosa.
+
+Ma lo vedeva.
+
+Davanti a lui, il paesaggio continuava: rovine che si perdevano all'orizzonte. A destra, nulla. A sinistra, i resti di una strada.
+
+Scelse la strada.
+
+Iniziò a camminare.
+
+---
+
+Il dolore al fianco era ancora lì. Ma più debole. Non pulsava a ogni passo. Solo un fastidio sordo. Quasi ignorabile.
+
+La spada nella mano destra pesava. Non molto. Ma dopo un po', anche il peso leggero si fa sentire.
+
+Cambiò presa. Provò l'equilibrio.
+
+Continuò.
+
+Il paesaggio non cambiava. Terra nera. Pietre sparse. Vuoto.
+
+Niente edifici. Niente macerie.
+
+Proseguì.
+
+Il tempo sembrava fermo. La luce non cambiava. Il cielo color cenere immobile.
+
+Le gambe iniziavano a farsi sentire. Il fianco pulsava più forte.
+
+Si fermò. Guardò indietro.
+
+L'uscita di quella cripta lontana. Forse. Non riusciva più a vederla. Solo terra nera all'orizzonte.
+
+Poi avanti.
+
+Lì, in lontananza, forme più grandi. Più dense.
+
+Edifici. Rovine.
+
+Un villaggio. Forse una città.
+
+Riprese a camminare.
+
+---
+
+La strada divenne più dissestata. Pietre smosse, buche, crepe larghe quanto un braccio. In alcuni punti, melma viscida copriva la pietra. Terreno instabile.
+
+Passò accanto a una casa crollata. Le pareti implose verso l'interno, il tetto sprofondato. La porta pendeva da un cardine solo, cigolando piano al vento.
+
+Si fermò.
+
+Dentro, buio. Macerie. Nient'altro.
+
+Proseguì.
+
+Più avanti, un carro rovesciato. Ruote spezzate, legno marcio. Accanto, ossa. Non molte. Forse un animale. Forse no.
+
+Il vento soffiò più forte. L'odore si fece più intenso.
+
+Strinse la presa sulla spada.
+
+Rallentò il passo. I muscoli si tesero. Una reazione che non capiva, ma che non ignorò.
+
+Gli occhi scrutarono i dintorni. Rovine. Macerie. Silenzio.
+
+Poi lo vide.
+
+Dietro la casa crollata, parzialmente nascosto dalle macerie. Non un corpo. Non completamente.
+
+Troppo grande per essere umano. Troppo deforme.
+
+Si avvicinò con cautela. La spada pronta.
+
+La cosa era immobile. Contorta su se stessa.
+
+La pelle… se era pelle… di un colore indefinito tra il grigio e il nero. Quasi traslucida. Tirata su ossa troppo lunghe, troppo sottili. Arti piegati in angoli impossibili.
+
+La testa… se era una testa… schiacciata contro la pietra.
+
+Nessun pelo. Nessuna piuma. Solo carne nuda, viscida.
+
+Si fermò a due passi di distanza.
+
+Studiò la creatura.
+
+Morta. Doveva esserlo.
+
+Non si muoveva. Non respirava.
+
+Ma l'odore era più forte qui. Dolce. Marcio.
+
+Abbassò leggermente la guardia.
+
+Poi la cosa si contrasse.
+
+Non molto. Solo un tremito. Un muscolo che si tende.
+
+Scattò indietro, spada alzata.
+
+La creatura rimase immobile per un istante. Poi gli arti iniziarono a muoversi. Lenti. Scricchiolanti.
+
+Un suono. Basso. Gutturale. Non animale. Non umano.
+
+E altro. Uno strappo. Pelle bagnata che si lacera. O carne che si consuma dall'interno.
+
+La testa si sollevò. Lenta. Troppo lenta.
+
+E poi… gli occhi.
+
+Non aveva occhi.
+
+Solo cavità vuote. Nere. Profonde.
+
+E da quelle cavità colava melma scura. Lenta. Densa. Scivolava lungo quello che forse era stato un volto.
+
+Ma nel fondo delle cavità brillava una luce. Spenta. Malata.
+
+La creatura si alzò.
+
+Non si sollevò. Si raddrizzò. Gli arti si tesero, il corpo si sbilanciò in avanti. Alta quanto un uomo. Forse di più.
+
+Ogni movimento accompagnato da quel suono: scricchiolio di ossa che si adattano, raschio di carne viscida che scivola.
+
+La bocca si aprì. Non c'erano denti. Solo un buco nero, profondo.
+
+Un gemito rauco.
+
+Poi si mosse.
+
+Non si lanciò. Avanzò. Lenta. Barcollante. Non abituata a stare in piedi.
+
+Lui indietreggiò. Mantenne la distanza. La spada pronta.
+
+La creatura fece un altro passo. Poi un altro. Più veloce. Più sicura.
+
+Emise un altro verso. Strozzato. Rauco.
+
+Poi si fermò.
+
+Per un istante, nulla.
+
+Poi scattò.
+
+Veloce. Molto più veloce di prima.
+
+Lui reagì.
+
+Spostò il peso di lato. La creatura passò accanto a lui, gli arti che graffiavano l'aria.
+
+Ruotò. Colpì.
+
+La spada affondò nel fianco. Carne che cedette. Nessun osso. Solo molle.
+
+La creatura emise un verso acuto. Si girò, un arto si alzò, artigli scuri saettarono verso di lui.
+
+Deviò con la spada. Il metallo vibrò. Gli artigli erano duri. Troppo duri.
+
+Il fianco bruciò. Ignorò.
+
+Indietreggiò. La creatura avanzò. Colpì di nuovo.
+
+Lui schivò. Portò la spada verso l'alto. Un taglio netto al collo.
+
+Il metallo affondò. La testa si piegò di lato. Non si staccò, ma la creatura si fermò.
+
+Un rantolo. Lungo. Strozzato.
+
+Poi crollò.
+
+Gli arti cedettero. Il corpo si afflosciò sulla pietra. Si contrasse per un istante. Poi… nulla.
+
+Immobile.
+
+Silenzio.
+
+Rimase fermo, spada alzata, respiro pesante.
+
+Il corpo. Deforme. Immobile.
+
+Morto.
+
+Abbassò la spada. Lentamente.
+
+Cosa era quella cosa?
+
+Non lo sapeva.
+
+Ma il corpo aveva reagito. Sapeva come muoversi. Come colpire.
+
+La mente no.
+
+Di nuovo la creatura. Poi intorno.
+
+Altri movimenti.
+
+Lontani. Tra le rovine.
+
+Ombre che si muovevano. Lente. Innaturali.
+
+Altre creature.
+
+Strinse la spada.
+
+Non sapeva se poteva affrontarle tutte.
+
+Avanti. La strada continuava. Ma tra le rovine, altre ombre si muovevano.
+
+A sinistra. Più rovine. Più movimento.
+
+Poi a destra.
+
+Lì, oltre il carro rovesciato, oltre le macerie.
+
+Lontano. Molto lontano.
+
+Ma diverso.
+
+Verde.
+
+Strinse gli occhi.
+
+Alberi.
+
+Una foresta.
+
+Lontana. Ma visibile.
+
+Diversa dal resto. Più viva.
+
+Lì non vedeva ombre muoversi. Nessuna creatura.
+
+Non sapeva cosa ci fosse dentro. Ma qui… qui era peggio.
+
+Scelse.
+
+Iniziò a camminare. Veloce. La spada in pugno.
+
+Dietro di lui, i versi si fecero più forti.
+
+Altre creature si stavano alzando.
+
+Accelerò il passo.
+
+I versi si moltiplicarono.
+
+Corse.
+
+Pietre che cedevano. Respiro bruciante. Fianco che pulsava.
+
+Alcuni versi dietro di lui si fecero più deboli.
+
+Altri continuavano. Più vicini.
+
+Ma poi anche quelli si allontanarono.
+
+Silenzio.
+
+---
+
+Il paesaggio cambiava. Lentamente.
+
+La terra sotto i piedi non era più solo nera. Qua e là, chiazze di marrone. Di grigio. La morte non aveva preso completamente.
+
+A destra. A sinistra.
+
+Meno melma. Meno steli rinsecchiti.
+
+E poi.
+
+Un ciuffo d'erba.
+
+Piccolo. Pallido. Quasi grigio. Ma erba.
+
+Viva.
+
+Si fermò. Lo osservò.
+
+Com'era possibile?
+
+Proseguì.
+
+Altri ciuffi. Poi una pianta bassa. Rami spogli, ma non neri. Solo secchi.
+
+Il verde era ancora lontano. Ma qui c'era meno morte.
+
+Avanti.
+
+La foresta più vicina. Ancora lontana, ma più visibile.
+
+Gli alberi erano alti. Le chiome verdi. Davvero verdi.
+
+Non morte. Non nere.
+
+Vive.
+
+Quando raggiunse il limitare della foresta, si fermò.
+
+Indietro.
+
+Le rovine. Lontane.
+
+Le creature vagavano tra le macerie. Nessuna si avvicinava agli alberi. Passavano accanto alla foresta senza guardarla. Quel punto della mappa non esisteva per loro.
+
+Una di loro si avvicinò ancora. Barcollò. Dieci passi, forse meno.
+
+Non girò la testa.
+
+Non lo vide.
+
+Continuò a vagare. Verso le rovine.
+
+Lui rimase fermo. Spada pronta.
+
+La creatura si allontanò.
+
+Di nuovo indietro. Le creature. Il regno morto.
+
+Poi avanti. Gli alberi. Il verde.
+
+I rami intrecciati sopra di lui formavano una volta oscura. La luce del giorno filtrava appena. Se così poteva chiamarsi.
+
+Dentro era buio. Fresco.
+
+Silenzio.
+
+Ma non come prima.
+
+Questo era un silenzio diverso. Vivo.
+
+Fece un passo. Poi un altro.
+
+Il terreno sotto i piedi cambiò. Non più pietra. Terra. Morbida. Muschio.
+
+L'odore cambiò. Non più dolce e marcio. Solo terra. Umido. Legno vecchio.
+
+Un altro passo.
+
+Gli alberi lo circondarono. I rami sopra di lui. La luce che filtrava appena.
+
+E cambiò.
+
+Non sapeva cosa. Ma si sentiva diverso.
+
+Protetto.
+
+Al sicuro.
+
+Quasi.
+
+Poi entrò più a fondo.
+
+Gli alberi lo inghiottirono.`,
+      en: `Silence.
+
+No. Not silence.
+
+Something worse.
+
+An absence.
+
+No birds. No insects. No rustling leaves. Only the wind carrying that smell: sweet, rotten.
+
+He stopped.
+
+Nothing.
+
+Only desolation.
+
+What had done this?
+
+He tried to remember if the girl had said anything else. A name. An explanation.
+
+Nothing.
+
+Only: the kingdom is dying.
+
+He stood.
+
+The landscape again. Desolation. Death.
+
+Something was killing everything.
+
+He didn't know what.
+
+But he could see it.
+
+Before him, the landscape continued: ruins fading into the horizon. To the right, nothing. To the left, remains of what looked like a road.
+
+He chose the road.
+
+Started walking.
+
+---
+
+The pain in his side was still there. But weaker. Not pulsing with each step. Only a dull ache. Almost ignorable.
+
+The sword in his right hand weighed. Not much. But after a while, even light weight makes itself known.
+
+He changed his grip. Tested the balance.
+
+Continued.
+
+The landscape didn't change. Black earth. Scattered stones. Emptiness.
+
+No buildings. No rubble.
+
+He kept going.
+
+Time seemed frozen. The light didn't change. The ash-colored sky motionless.
+
+His legs were starting to feel it. His side pulsed harder.
+
+He stopped. Looked back.
+
+The exit of that crypt, distant. Maybe. He couldn't see it anymore. Only black earth on the horizon.
+
+Then ahead.
+
+There, in the distance, larger shapes. Denser.
+
+Buildings. Ruins.
+
+A village. Maybe a city.
+
+He resumed walking.
+
+---
+
+The road became more broken. Loose stones, holes, cracks wide as an arm. In some places, viscous slime covered the stone. Unstable ground.
+
+He passed a collapsed house. Walls imploded inward, roof caved in. The door hung from a single hinge, creaking softly in the wind.
+
+He stopped.
+
+Inside, darkness. Rubble. Nothing else.
+
+He kept going.
+
+Further ahead, an overturned cart. Broken wheels, rotten wood. Beside it, bones. Not many. Maybe an animal. Maybe not.
+
+The wind blew harder. The smell grew stronger.
+
+He tightened his grip on the sword.
+
+He slowed his pace. His muscles tensed. A reaction he didn't understand, but didn't ignore.
+
+His eyes scanned the surroundings. Ruins. Rubble. Silence.
+
+Then he saw it.
+
+Behind the collapsed house, partially hidden by debris. Not a body. Not completely.
+
+Too large to be human. Too deformed.
+
+He approached cautiously. Sword ready.
+
+The thing was motionless. Twisted in on itself.
+
+The skin… if it was skin… an indefinite color between gray and black. Almost translucent. Stretched over bones too long, too thin. Limbs bent at impossible angles.
+
+The head… if it was a head… crushed against the stone.
+
+No hair. No feathers. Only naked flesh, slick.
+
+He stopped two steps away.
+
+Studied the creature.
+
+Dead. Had to be.
+
+It wasn't moving. Wasn't breathing.
+
+But the smell was stronger here. Sweet. Rotten.
+
+He lowered his guard slightly.
+
+Then the thing contracted.
+
+Not much. Just a tremor. A muscle tensing.
+
+He leapt back, sword raised.
+
+The creature remained still for an instant. Then the limbs began to move. Slow. Creaking.
+
+A sound. Low. Guttural. Not animal. Not human.
+
+And something else. A tearing. Wet skin ripping. Or flesh consuming itself from within.
+
+The head lifted. Slow. Too slow.
+
+And then… the eyes.
+
+It had no eyes.
+
+Only empty sockets. Black. Deep.
+
+And from those sockets dark slime dripped. Slow. Thick. Sliding down what might have been a face.
+
+But at the bottom of the sockets a light gleamed. Dead. Sickly.
+
+The creature rose.
+
+Didn't lift itself. Straightened. Limbs tensed, body tilted forward. Tall as a man. Maybe more.
+
+Every movement accompanied by that sound: cracking of adapting bones, scraping of slick flesh sliding.
+
+The mouth opened. No teeth. Only a black hole, deep.
+
+A hoarse moan.
+
+Then it moved.
+
+Didn't lunge. Advanced. Slow. Staggering. Not used to standing.
+
+He backed away. Kept distance. Sword ready.
+
+The creature took another step. Then another. Faster. Surer.
+
+It made another sound. Choked. Raspy.
+
+Then stopped.
+
+For an instant, nothing.
+
+Then it lunged.
+
+Fast. Much faster than before.
+
+He reacted.
+
+Shifted his weight sideways. The creature passed beside him, limbs clawing air.
+
+He spun. Struck.
+
+The sword sank into its flank. Flesh yielding. No bone. Only soft.
+
+The creature made a sharp sound. Turned, a limb rose, dark claws shot toward him.
+
+He deflected with the sword. The metal vibrated. The claws were hard. Too hard.
+
+His side burned. He ignored it.
+
+He backed away. The creature advanced. Struck again.
+
+He dodged. Brought the sword upward. Clean cut to the neck.
+
+The metal sank. The head tilted sideways. Didn't detach, but the creature stopped.
+
+A death rattle. Long. Choked.
+
+Then it collapsed.
+
+Limbs gave out. Body slumped onto stone. Contracted for an instant. Then… nothing.
+
+Motionless.
+
+Silence.
+
+He stood still, sword raised, breathing heavy.
+
+The body. Deformed. Motionless.
+
+Dead.
+
+He lowered the sword. Slowly.
+
+What was that thing?
+
+He didn't know.
+
+But his body had reacted. Knew how to move. How to strike.
+
+His mind didn't.
+
+The creature again. Then around.
+
+Other movements.
+
+Distant. Among the ruins.
+
+Shadows moving. Slow. Unnatural.
+
+More creatures.
+
+He gripped the sword.
+
+He didn't know if he could face them all.
+
+Ahead. The road continued. But among the ruins, other shadows moved.
+
+To the left. More ruins. More movement.
+
+Then to the right.
+
+There, beyond the overturned cart, beyond the rubble.
+
+Distant. Very distant.
+
+But different.
+
+Green.
+
+He squinted.
+
+Trees.
+
+A forest.
+
+Distant. But visible.
+
+Different from the rest. More alive.
+
+There he saw no shadows moving. No creatures.
+
+He didn't know what was inside. But here… here was worse.
+
+He chose.
+
+Started walking. Fast. Sword in fist.
+
+Behind him, the sounds grew louder.
+
+More creatures rising.
+
+He quickened his pace.
+
+The sounds multiplied.
+
+He ran.
+
+Stones giving way. Burning breath. Side pulsing.
+
+Some sounds behind him grew fainter.
+
+Others continued. Closer.
+
+But then those too faded.
+
+Silence.
+
+---
+
+The landscape changed. Slowly.
+
+The earth underfoot was no longer only black. Here and there, patches of brown. Of gray. Death hadn't fully taken hold.
+
+To the right. To the left.
+
+Less slime. Fewer withered stalks.
+
+And then.
+
+A tuft of grass.
+
+Small. Pale. Almost gray. But grass.
+
+Alive.
+
+He stopped. Observed it.
+
+How was that possible?
+
+He kept going.
+
+More tufts. Then a low plant. Bare branches, but not black. Just dry.
+
+The green was still distant. But here there was less death.
+
+Ahead.
+
+The forest closer. Still far, but more visible.
+
+The trees were tall. The canopies green. Truly green.
+
+Not dead. Not black.
+
+Alive.
+
+When he reached the forest's edge, he stopped.
+
+Back.
+
+The ruins. Distant.
+
+The creatures wandered among the rubble. None approached the trees. They passed beside the forest without looking at it. That point on the map didn't exist for them.
+
+One of them approached closer. Staggered. Ten paces, maybe less.
+
+Didn't turn its head.
+
+Didn't see him.
+
+Kept wandering. Toward the ruins.
+
+He stood still. Sword ready.
+
+The creature moved away.
+
+Back again. The creatures. The dead kingdom.
+
+Then ahead. The trees. The green.
+
+Branches woven above him formed a dark vault. Daylight filtered barely. If it could be called that.
+
+Inside was dark. Cool.
+
+Silence.
+
+But not like before.
+
+This was a different silence. Alive.
+
+He took a step. Then another.
+
+The ground beneath his feet changed. No longer stone. Earth. Soft. Moss.
+
+The smell changed. No longer sweet and rotten. Only earth. Damp. Old wood.
+
+Another step.
+
+The trees surrounded him. Branches above him. Light barely filtering.
+
+And it changed.
+
+He didn't know what. But he felt different.
+
+Protected.
+
+Safe.
+
+Almost.
+
+Then he went deeper.
+
+The trees swallowed him.`
+    }
+  },
+  "il-chiamato-3": {
+    game: "il-chiamato",
+    gameLabel: { it: "Il Chiamato", en: "The Called" },
+    accentColor: "#6a0dad",
+    title: {
+      it: "Il Chiamato",
+      en: "The Called"
+    },
+    dropdownLabel: {
+      it: "Capitolo 3",
+      en: "Chapter 3"
+    },
+    tag: {
+      it: "dark fantasy viscerale",
+      en: "visceral dark fantasy"
+    },
+    comingSoon: {
+      it: "In arrivo",
+      en: "Coming soon"
+    },
+    body: {
+      it: `La luce filtrava tra i rami a chiazze irregolari.
+
+Non calda. Non malata.
+
+Solo luce, neutra, senza colore preciso.
+
+Camminava da un po'. Il fianco tirava appena, meno di prima.
+
+Gli alberi erano alti, i tronchi spessi, la corteccia scura e rugosa. I rami si intrecciavano in alto formando una volta fitta. Ogni tanto una folata spostava qualcosa lassù e un fascio di luce scivolava sul terreno, poi spariva.
+
+Nessun verso. Nessun movimento.
+
+Solo il suono sordo dei suoi passi sulla terra.
+
+Poi si fermò.
+
+Un albero. Poco più avanti. Alla sua destra. Il tronco più largo degli altri, la corteccia segnata da qualcosa che non era naturale.
+
+Si avvicinò.
+
+Un simbolo.
+
+Intagliato nella corteccia. Profondo ma impreciso, i bordi irregolari, come se la lama avesse ceduto a metà. Due archi che si incrociavano ai lati, formando al centro una forma allungata, come un occhio, o una bocca spalancata. Le code si aprivano da entrambe le parti, curve, asimmetriche.
+
+Al centro, un buco.
+
+Da lì colava linfa. Lenta, densa, scura.
+
+L'odore era acre. Quasi medicinale.
+
+Tese una mano. Sfiorò la corteccia ai bordi del simbolo.
+
+Fredda. Viscida.
+
+Ritirò la mano. La strofinò sulla coscia. Rimase qualcosa, appena, appiccicoso sulle dita.
+
+Scrutò gli alberi intorno.
+
+Nessun altro simbolo. Solo quello.
+
+Riprese a camminare.
+
+---
+
+Qualcosa cambiò.
+
+Non un suono. Non un movimento.
+
+Qualcosa di più vecchio. Più profondo. Un senso che non aveva nome ma che il corpo riconosceva senza bisogno di spiegazioni.
+
+Non rallentò. Stesso passo. Stesso ritmo.
+
+Il dardo arrivò senza avviso.
+
+Un sibilo secco. Quasi niente. Gli passò raso alla guancia sinistra, così vicino che sentì l'aria spostarsi.
+
+Il corpo reagì prima della mente. Si gettò di lato, spada in pugno.
+
+Silenzio.
+
+Gli occhi scorsero i rami sopra di lui. Foglie. Ombre. Luce che filtrava a strappi. Nessuna sagoma. Nessun movimento.
+
+Poi un altro sibilo.
+
+Corse. Il dardo sfiorò la spalla, si conficcò nel tronco alle sue spalle con un colpo secco.
+
+Un terzo. Un quarto.
+
+Veloci. Da punti diversi.
+
+Troppo diversi. Troppo veloci per essere una sola posizione.
+
+Teneva la testa bassa, gli occhi che cercavano in alto qualcosa, un'ombra, un ramo che si piegava sotto un peso. Niente. Solo i dardi che continuavano ad arrivare, sempre da un posto diverso.
+
+Si gettò dietro un tronco largo. Si appiattì contro la corteccia.
+
+Respiro controllato.
+
+Nel legno, alla sua sinistra, un dardo era rimasto incastrato a metà. La coda tremava ancora.
+
+Aspettò.
+
+Si spostava tra i rami. Veloce. Silenziosa. Ogni volta che sparava era già altrove.
+
+Poi una voce.
+
+«Esci.»
+
+Femminile. Veniva dall'alto, leggermente a destra. Tranquilla. Quasi annoiata.
+
+«Non hai via d'uscita. Ogni albero che vedi è mio.»
+
+Pausa.
+
+«O esci e ti arrendi, o il prossimo sarà l'ultimo.»
+
+Lui non rispose.
+
+Ascoltò il tono. La direzione. Quella calma di chi è certo di avere il vantaggio.
+
+Troppa calma.
+
+Le parole erano fatte per tenerlo fermo, gli occhi puntati a destra. Mentre si spostava già, più avanti, in posizione per colpirlo quando fosse uscito.
+
+Il corpo sapeva già cosa fare.
+
+Sfilò il dardo dalla corteccia. Lo scagliò verso destra, secco, nella direzione della voce.
+
+Non aspettò.
+
+Corse nella direzione quasi opposta. Gli alberi sfrecciarono ai lati. Il tronco designato era lì, poco più avanti. Non era largo. Ma era un albero.
+
+Impugnò la spada con entrambe le mani. Caricò il fendente con tutto il peso del corpo, spalle, schiena, gambe.
+
+Stava per colpire un albero con una spada. Non era chiaro nemmeno a lui cosa si aspettasse.
+
+Il metallo affondò nel legno con uno schianto sordo. Resistenza. Poi cedimento. La lama passò dall'altra parte, si fermò a metà aria, il braccio che vibrava per l'impatto.
+
+I rami si aprirono.
+
+La luce entrò di colpo dove prima non arrivava. Uno squarcio nella volta fitta degli alberi, e lì, nel vuoto che il tronco abbattuto aveva lasciato, una figura. Aggrappata ai rami dell'arbusto accanto, immobile per una frazione di secondo.
+
+Scoperta.
+
+La figura alzò il braccio. Un congegno di legno puntato su di lui, piccolo, preciso.
+
+Lui alzò le mani lentamente. La spada ancora stretta in pugno, il dorso rivolto verso di lei.
+
+Silenzio.
+
+La figura abbassò il braccio.
+
+Scese. Senza dire nulla.
+
+Toccò terra leggera, quasi senza rumore. E prima ancora che lui potesse reagire, si mosse.
+
+Veloce. Molto più veloce di quanto si aspettasse.
+
+Qualcosa di affilato guizzò verso di lui. Deviò di istinto, la spada che intercettò il colpo a metà. Il metallo cantò. Si spostò di lato, cercò distanza.
+
+Non gliela diede.
+
+Pressione costante. Colpi rapidi, precisi, da angoli diversi. Il corpo rispose da solo, bloccò, schivò, contrattaccò. Senza pensare. Senza capire.
+
+Poi lo stallo.
+
+Lei con una lama al suo petto. Lui con la spada alla sua gola.
+
+Nessuno si mosse.
+
+Il respiro di entrambi. Pesante. Controllato.
+
+Lei lo guardò. Lui la guardò.
+
+Silenzio.
+
+Poi lei parlò. La voce piatta. Quasi secca.
+
+«Tu sei più veloce.»
+
+Pausa.
+
+«Di un pelo.»`,
+      en: `The light filtered through the branches in irregular patches.
+
+Not warm. Not sickly.
+
+Just light — neutral, without precise color.
+
+He had been walking for a while. His side pulled slightly, less than before.
+
+The trees were tall, the trunks thick, the bark dark and rough. The branches intertwined above him, forming a dense vault. Every now and then a gust shifted something up there and a shaft of light slid across the ground, then vanished.
+
+No sounds. No movement.
+
+Only the dull thud of his footsteps on the earth.
+
+Then he stopped.
+
+A tree. Just ahead. To his right. The trunk wider than the others, the bark marked by something unnatural.
+
+He moved closer.
+
+A symbol.
+
+Carved into the bark. Deep but imprecise, the edges irregular, as if the blade had given way halfway through. Two arcs crossing at the sides, forming an elongated shape at the center — like an eye, or a gaping mouth. The tails spread open on both sides, curved, asymmetrical.
+
+At the center, a hole.
+
+From it oozed sap. Slow, dense, dark.
+
+The smell was sharp. Almost medicinal.
+
+He reached out a hand. Brushed the bark at the edges of the symbol.
+
+Cold. Viscous.
+
+He pulled his hand back. Wiped it on his thigh. Something remained — barely, sticky on his fingers.
+
+He scanned the trees around him.
+
+No other symbol. Just that one.
+
+He walked on.
+
+---
+
+Something shifted.
+
+Not a sound. Not a movement.
+
+Something older. Deeper. A sense with no name, but one the body recognized without needing an explanation.
+
+He didn't slow down. Same pace. Same rhythm.
+
+The dart came without warning.
+
+A sharp hiss. Almost nothing. It grazed his left cheek — so close he felt the air move.
+
+His body reacted before his mind. He threw himself sideways, sword in hand.
+
+Silence.
+
+His eyes swept the branches above him. Leaves. Shadows. Light filtering in fragments. No silhouette. No movement.
+
+Then another hiss.
+
+He ran. The dart grazed his shoulder, burying itself into the trunk behind him with a dry thud.
+
+A third. A fourth.
+
+Fast. From different directions.
+
+Too different. Too fast for a single position.
+
+He kept his head low, eyes scanning above for something — a shadow, a branch bending under weight. Nothing. Only darts kept coming, always from a different spot.
+
+He threw himself behind a wide trunk. Pressed flat against the bark.
+
+Controlled breathing.
+
+In the wood to his left, a dart had lodged itself halfway in. Its tail still trembling.
+
+He waited.
+
+She moved through the branches. Fast. Silent. Every time she fired, she was already somewhere else.
+
+Then a voice.
+
+"Come out."
+
+Female. Coming from above, slightly to the right. Calm. Almost bored.
+
+"You have no way out. Every tree you see is mine."
+
+A pause.
+
+"Either come out and surrender — or the next one won't miss."
+
+He didn't answer.
+
+He listened instead. The tone. The direction. That calm of someone certain they have the advantage.
+
+Too certain.
+
+The words were meant to hold him still, eyes fixed to the right. While she was already moving — ahead, into position to strike when he stepped out.
+
+His body already knew what to do.
+
+He pulled the dart from the bark. Hurled it to the right, sharp, toward where the voice had come from.
+
+He didn't wait.
+
+He ran in nearly the opposite direction. Trees blurred past on either side. The target trunk was there, just ahead. Not wide. But it was a tree.
+
+He gripped the sword with both hands. Drove the blow with his full body weight — shoulders, back, legs.
+
+He was about to strike a tree with a sword. It wasn't clear even to him what he expected.
+
+The metal bit into the wood with a dull crack. Resistance. Then surrender. The blade passed through the other side, stopped mid-air — his arm vibrating from the impact.
+
+The branches opened.
+
+Light flooded in where none had reached before. A gash in the dense canopy, and there — in the void left by the fallen trunk — a figure. Clinging to the branches of the tree beside it, frozen for a fraction of a second.
+
+Exposed.
+
+The figure raised its arm. A small wooden mechanism aimed at him — compact, precise.
+
+He raised his hands slowly. Sword still gripped, the flat of the blade turned toward her.
+
+Silence.
+
+The figure lowered its arm.
+
+She dropped down. Without a word.
+
+She landed light — almost without sound. And before he could react, she moved.
+
+Fast. Much faster than he expected.
+
+Something sharp flashed toward him. He deflected by instinct — sword catching the blow halfway. Metal rang. He shifted sideways, tried to create distance.
+
+She didn't give it to him.
+
+Constant pressure. Quick, precise strikes from different angles. His body responded on its own — blocking, dodging, countering. Without thinking. Without understanding.
+
+Then the standstill.
+
+Her blade at his chest. His sword at her throat.
+
+Neither moved.
+
+Both breathing hard. Controlled.
+
+She looked at him. He looked at her.
+
+Silence.
+
+Then she spoke. Her voice flat. Almost dry.
+
+"You're faster."
+
+A pause.
+
+"By a hair."`
+    }
+  },
+  "il-chiamato-4": {
+    game: "il-chiamato",
+    gameLabel: { it: "Il Chiamato", en: "The Called" },
+    accentColor: "#6a0dad",
+    title: {
+      it: "Il Chiamato",
+      en: "The Called"
+    },
+    dropdownLabel: {
+      it: "Capitolo 4",
+      en: "Chapter 4"
+    },
+    tag: {
+      it: "dark fantasy viscerale",
+      en: "visceral dark fantasy"
+    },
+    comingSoon: {
+      it: "In arrivo",
+      en: "Coming soon"
+    },
+    body: {
+      it: `Non parlarono.
+
+Non subito.
+
+Lei si mosse per prima. Raccolse qualcosa da terra, un dardo, poi un altro. Li infilò in un fodero stretto legato alla coscia senza guardarlo. Come se non fosse lì.
+
+Lui la seguì.
+
+La foresta si fece più densa man mano che il cielo, quel poco che si vedeva tra i rami, virava verso qualcosa di più scuro. Non notte. Ma ci si avvicinava.
+
+Lei si fermò in un punto che sembrava uguale agli altri.
+
+Eppure no.
+
+Le radici formavano una specie di conca naturale. Tre tronchi larghi la chiudevano su un lato. Il terreno era asciutto, piatto. Riparato.
+
+Si abbassò. Iniziò a raccogliere rami secchi.
+
+Lui rimase in piedi. La osservò.
+
+«Aiuti o guardi?»
+
+Non lo guardò mentre lo diceva.
+
+Lui si abbassò. Raccolse rami.
+
+Il falò prese in pochi minuti. Piccolo. Controllato. Lei sapeva quello che faceva.
+
+Si sedettero. Il fuoco tra loro.
+
+La luce del falò le cadeva sul viso. Pelle bronzea, lineamenti netti. Capelli scuri, corti, mossi, che le ricadevano sul viso senza ordine particolare. Gli occhi color nocciola, tenuti fissi sul fuoco.
+
+Indossava poco e in modo pratico. Una fascia scura che le avvolgeva il torso, logora ai bordi. Pantaloni corti, stretti, fermati sotto il ginocchio da strisce di cuoio intrecciate. Ai piedi, stivali di cuoio grezzo, consumati, che stringevano la caviglia senza stringerla troppo. La pelle esposta mostrava segni sottili, non cicatrici, più simili a decorazioni, linee scure tracciate sulle braccia e sulle spalle.
+
+Il congegno da braccio era ancora legato all'avambraccio destro. Non lo aveva tolto.
+
+Il silenzio durò ancora un po'. Poi lei parlò.
+
+«Sei un Chiamato.»
+
+Non era una domanda.
+
+Lui non rispose subito. Guardò il fuoco.
+
+«Forse.»
+
+Lei alzò gli occhi. Lo studiò.
+
+«Forse.»
+
+Ripeté la parola come se avesse un sapore strano.
+
+«Come ti chiami?»
+
+«Drianel.»
+
+Disse il nome senza esitazione. Poi lo guardò.
+
+«Tu?»
+
+Lui aprì la bocca.
+
+Niente.
+
+Non era un vuoto come gli altri. Era diverso. Come cercare qualcosa in una stanza buia sapendo che dovrebbe essere lì, e non trovarlo.
+
+«Non lo so.»
+
+Drianel lo fissò. Un secondo. Due.
+
+«Non lo sai.»
+
+«No.»
+
+Silenzio.
+
+«Comodo.»
+
+La parola era piatta. Né accusa né battuta. Qualcosa nel mezzo.
+
+Il fuoco si abbassò leggermente. Lei aggiunse un ramo senza guardarlo.
+
+«Il simbolo sull'albero» disse lui. «L'hai fatto tu.»
+
+Non era una domanda neanche quella.
+
+«Sì.»
+
+«Per proteggere la foresta.»
+
+«Per crearla.»
+
+Lui alzò gli occhi.
+
+Lei incontrò il suo sguardo. Stavolta non lo distolse.
+
+«Gli alberi che vedi non sono del tutto reali. Li ho generati con i Sigilli. Il Sigillo non protegge la foresta dalla Corruzione.»
+
+Una pausa.
+
+«La nasconde ai loro occhi.»
+
+Lui non disse niente.
+
+Lo studiò. Cercava qualcosa in quello che aveva detto.
+
+«Sapevi.»
+
+«Non esattamente.»
+
+«Hai scelto quel tronco. Non un altro.»
+
+Lei rimase in silenzio un momento.
+
+«Un albero vero avrebbe resistito.»
+
+Una pausa.
+
+Lei tornò a guardare il fuoco.
+
+Non era una sconfitta. Era qualcosa di più fastidioso.
+
+---
+
+Il cielo tra i rami era diventato nero.
+
+Il falò teneva. Piccolo, costante.
+
+Lui non aveva fame.
+
+Non ci aveva pensato fino a quel momento. Non da quando si era svegliato nella cripta. Nessuna sete. Nessun bisogno. Il corpo funzionava, combatteva, guariva. Ma non chiedeva nulla.
+
+Lo disse.
+
+Lei non sembrò sorpresa.
+
+«I Chiamati non mangiano.»
+
+Si irrigidì appena.
+
+«Non bevono. Non dormono. Non nel senso in cui lo facevi prima.»
+
+Prima.
+
+Una parola strana. Come se ci fosse stato un prima.
+
+Silenzio.
+
+Lui guardò le proprie mani. L'anello al dito. Freddo, anche vicino al fuoco.
+
+«Da quanto tempo lo sai?»
+
+«Da subito.» Una pausa. «Colei che mi ha evocato, rendendomi una Chiamata, non me lo ha tenuto nascosto neanche per un istante.»
+
+Un momento.
+
+«Una Figlia del Re.»
+
+Lui non rispose.
+
+La sua, se era stata davvero lei a chiamarlo, non aveva avuto il tempo.
+
+Il falò crepitò.
+
+Lei lo guardò per un momento. Poi tornò al fuoco.
+
+«Domani puoi conoscerla.»
+
+Non era un invito. Non esattamente. Era qualcosa di più cauto. Come aprire una porta senza sapere se l'altro avrebbe attraversato la soglia.
+
+Lui non rispose subito.
+
+«Perché?»
+
+Lei non rispose.
+
+C'era qualcosa in lui che non riusciva a inquadrare. Non diffidenza. Qualcosa di diverso. Come guardare qualcuno che si muoveva, reagiva, sopravviveva. Ma senza capire davvero dentro cosa si era svegliato.
+
+«Perché ha risposte che forse io non posso darti.»
+
+Silenzio.
+
+Il fuoco si abbassò ancora. Nessuno aggiunse legna.
+
+---
+
+Si fece mattina piano.
+
+La luce tornò tra i rami a chiazze, come il giorno prima.
+
+Uguale. Silenziosa.
+
+Lei era sdraiata sul fianco, vicino ai resti del falò. Immobile. Come se il terreno fosse il posto più naturale del mondo dove dormire.
+
+Lui era seduto. Schiena contro un tronco. Occhi aperti.
+
+Quando lei si mosse, lui era già sveglio da un pezzo.
+
+Lei lo vide e si irrigidì appena. Non se lo aspettava.
+
+Non disse niente. Si alzò, si spolverò le mani sui pantaloni.
+
+«Muoviti.»
+
+Lui si alzò.
+
+Partirono.
+
+---
+
+La foresta era uguale a se stessa. Densa, silenziosa. Lui camminava un passo indietro rispetto a lei. Si guardava intorno.
+
+Gli stessi alberi. Gli stessi tronchi scuri. Le stesse radici che serpeggiavano sotto i piedi.
+
+Poi lo vide.
+
+Un altro simbolo.
+
+Stesso tronco largo. Stessa forma incisa nella corteccia, i due archi che si incrociavano, le code asimmetriche. Al centro, il buco. La linfa scura che colava lenta.
+
+Rallentò un istante. Un secondo simbolo significava una cosa sola.
+
+Non dovette aspettare a lungo.
+
+«Eccola.»
+
+La voce di lei, davanti a lui. Quasi tra sé.
+
+Oltre gli alberi, una parete di roccia. Scura, umida. Al centro, un'apertura stretta. Una grotta.
+
+Entrarono.
+
+---
+
+Poco oltre l'entrata, la visibilità era ancora ottima. La roccia tratteneva qualcosa dell'esterno, una luce fioca che scivolava lungo le pareti umide. L'odore era diverso. Pietra antica. Qualcosa di più dolce, appena, che lui non riuscì a nominare.
+
+La grotta si allargava verso il fondo. Soffitto basso, pareti irregolari. Qualcosa di sistemato con cura: foglie secche ammucchiate in un angolo, un telo scuro piegato, resti di un fuoco piccolo al centro.
+
+Qualcuno ci viveva.
+
+Dentro, il buio non era completo. Alcune rocce lungo le pareti emanavano una luce fioca, fredda, senza calore. Non tutte. Qua e là chiazze di pietra spenta, scura, come se qualcosa si stesse esaurendo.
+
+Lei si fermò un istante. Passò una mano su una di quelle rocce spente.
+
+«Stavano perdendo forza.»
+
+Quasi tra sé. Non a lui.
+
+Lei si fermò all'ingresso del fondo.
+
+«Aena.»
+
+Silenzio.
+
+«Aena.»
+
+Di nuovo. La voce più bassa. Qualcosa che non era ancora paura ma ci si avvicinava.
+
+Si mossero insieme verso il fondo.
+
+E la videro.
+
+Una figura. Riversa sul fianco, le vesti bianche sparse intorno a lei come petali. Immobile. Il volto sconvolto, gli occhi semichiusi. Le mani aperte sul fianco della roccia.
+
+Drianel cadde in ginocchio.
+
+«Aena...»
+
+La scosse per le spalle. Piano. Poi più forte.
+
+Nessuna risposta.
+
+Le prese il viso tra le mani. La chiamò ancora. La voce che si spezzava a metà, cercando di restare intera.
+
+Lui rimase in piedi, qualche passo indietro.
+
+Immobile.
+
+Il silenzio della grotta era totale.
+
+Drianel smise di chiamarla.
+
+Rimase in ginocchio, le mani ancora sul viso di lei. Le spalle che tremavano appena. Poi una lacrima. Poi un'altra.
+
+Non piangeva come chi si arrende. Piangeva come chi non capisce.
+
+Passò un momento.
+
+Poi lei si girò.
+
+Lo guardò.
+
+Qualcosa era cambiato nei suoi occhi. Il dolore era ancora lì, ma dietro c'era altro. Qualcosa che cercava un posto dove andare.
+
+«Un Chiamato.» La voce piatta. Spezzata. «Uno che non sa nulla di questo regno. Che non ricorda nemmeno il proprio nome.»
+
+Una pausa.
+
+«Dov'è la tua Figlia del Re? Almeno questo lo ricordi?»
+
+Lui non rispose.
+
+Lei non sapeva. Non poteva sapere.
+
+Ma nel silenzio di lui, nelle cose che non ricordava, in tutto quello che non era riuscito a darle, trovò qualcosa a cui aggrapparsi. Non una certezza. Un sospetto.
+
+«E la prima cosa che ho fatto è stata incontrare te.»
+
+Si alzò. Lentamente.
+
+«E lei è morta.»
+
+Silenzio.
+
+«Vattene.»
+
+Le mani di lei stringevano ancora le vesti di Aena.
+
+«Vattene.»
+
+Lui si girò.
+
+Uscì dalla grotta. Attraversò la foresta. Gli alberi lo circondarono ancora una volta, i simboli sui tronchi, la luce a chiazze.
+
+Poi il limitare.
+
+Poi fuori.`,
+      en: `They didn't speak.
+
+Not right away.
+
+She moved first. Picked something up from the ground — a dart, then another. Tucked them into a narrow sheath strapped to her thigh without looking at him. As if he wasn't there.
+
+He followed.
+
+The forest grew denser as the sky — what little was visible through the branches — shifted toward something darker. Not night. But getting there.
+
+She stopped at a spot that looked like any other.
+
+Yet it wasn't.
+
+The roots formed a kind of natural hollow. Three wide trunks closed it off on one side. The ground was dry, flat. Sheltered.
+
+She crouched down. Started gathering dry branches.
+
+He stayed standing. Watching her.
+
+"Are you helping or just watching?"
+
+She didn't look at him when she said it.
+
+He crouched down. Gathered branches.
+
+The fire caught in a few minutes. Small. Controlled. She knew what she was doing.
+
+They sat. The fire between them.
+
+The firelight fell across her face. Bronze skin, sharp features. Dark hair, short, tousled, falling across her face without any particular order. Hazel eyes, fixed on the fire.
+
+She wore little and wore it practically. A dark wrap around her torso, frayed at the edges. Short trousers, fitted, held below the knee by interwoven leather straps. On her feet, rough leather boots, worn, that gripped the ankle without gripping too hard. The exposed skin showed faint marks — not scars, more like decorations, dark lines traced along her arms and shoulders.
+
+The arm-mounted device was still strapped to her right forearm. She hadn't taken it off.
+
+The silence held a little longer. Then she spoke.
+
+"You're a Called."
+
+It wasn't a question.
+
+He didn't answer right away. Looked at the fire.
+
+"Maybe."
+
+She raised her eyes. Studied him.
+
+"Maybe."
+
+She repeated the word as if it had a strange taste.
+
+"What's your name?"
+
+"Drianel."
+
+She said it without hesitation. Then looked at him.
+
+"Yours?"
+
+He opened his mouth.
+
+Nothing.
+
+It wasn't like the other voids. This was different. Like searching for something in a dark room knowing it should be there — and finding nothing.
+
+"I don't know."
+
+Drianel stared at him. One second. Two.
+
+"You don't know."
+
+"No."
+
+Silence.
+
+"Convenient."
+
+The word was flat. Neither accusation nor jest. Something in between.
+
+The fire dipped slightly. She added a branch without looking at him.
+
+"The symbol on the tree," he said. "You made it."
+
+That wasn't a question either.
+
+"Yes."
+
+"To protect the forest."
+
+"To create it."
+
+He looked up.
+
+She met his gaze. This time she didn't look away.
+
+"The trees you see aren't entirely real. I generated them with the Seals. The Seal doesn't protect the forest from the Corruption."
+
+A pause.
+
+"It hides it from their eyes."
+
+He said nothing.
+
+She studied him. Looking for something in what he'd said.
+
+"You knew."
+
+"Not exactly."
+
+"You chose that trunk. Not another one."
+
+She was silent for a moment.
+
+"A real tree would have held."
+
+A pause.
+
+She looked back at the fire.
+
+It wasn't a defeat. It was something more irritating than that.
+
+---
+
+The sky through the branches had turned black.
+
+The fire held. Small. Steady.
+
+He wasn't hungry.
+
+He hadn't thought about it until that moment. Not since he'd woken in the crypt. No thirst. No need. The body functioned, fought, healed. But it asked for nothing.
+
+He said so.
+
+She didn't seem surprised.
+
+"The Called don't eat."
+
+He stiffened slightly.
+
+"They don't drink. They don't sleep. Not the way you used to."
+
+Before.
+
+A strange word. As if there had been a before.
+
+Silence.
+
+He looked at his hands. The ring on his finger. Cold, even beside the fire.
+
+"How long have you known?"
+
+"From the start." A pause. "The one who summoned me — who made me a Called — didn't hide it from me for even a moment."
+
+A beat.
+
+"A Daughter of the King."
+
+He didn't answer.
+
+His, if she had truly been the one to call him, had not had the time.
+
+The fire crackled.
+
+She looked at him for a moment. Then turned back to the fire.
+
+"Tomorrow you can meet her."
+
+It wasn't an invitation. Not exactly. It was something more cautious — like opening a door without knowing whether the other person would cross the threshold.
+
+He didn't answer right away.
+
+"Why?"
+
+She didn't answer.
+
+There was something in him she couldn't place. Not suspicion. Something different. Like looking at someone who moved, reacted, survived — but didn't truly understand what they had woken up inside.
+
+"Because she has answers I may not be able to give you."
+
+Silence.
+
+The fire dropped lower. Neither of them added wood.
+
+---
+
+Morning came slowly.
+
+The light returned through the branches in patches, like the day before.
+
+The same. Silent.
+
+She was lying on her side, close to the remains of the fire. Still. As if the ground were the most natural place in the world to sleep.
+
+He was sitting. Back against a trunk. Eyes open.
+
+By the time she stirred, he had been awake for a while.
+
+She saw him and tensed slightly. She hadn't expected it.
+
+She said nothing. Got up, brushed her hands on her trousers.
+
+"Move."
+
+He stood.
+
+They left.
+
+---
+
+The forest was the same as itself. Dense, silent. He walked a step behind her. Looking around.
+
+The same trees. The same dark trunks. The same roots snaking underfoot.
+
+Then he saw it.
+
+Another symbol.
+
+Same wide trunk. Same shape carved into the bark — the two arcs crossing at the sides, the asymmetrical tails. At the center, the hole. Dark sap oozing slowly.
+
+He slowed for an instant. A second symbol meant one thing.
+
+He didn't have to wait long.
+
+"There."
+
+Her voice, ahead of him. Almost to herself.
+
+Beyond the trees, a rock face. Dark, damp. At the center, a narrow opening. A cave.
+
+They went in.
+
+---
+
+Just past the entrance, visibility was still good. The rock held something of the outside — a faint light that slid along the damp walls. The smell was different. Ancient stone. Something sweeter, barely, that he couldn't name.
+
+The cave widened toward the back. Low ceiling, irregular walls. Something arranged with care: dry leaves piled in one corner, a dark cloth folded, the remains of a small fire at the center.
+
+Someone lived here.
+
+The darkness wasn't complete. Some rocks along the walls gave off a faint light — cold, without warmth. Not all of them. Here and there, patches of dead stone, dark, as if something were running out.
+
+She stopped for a moment. Ran a hand over one of the spent rocks.
+
+"They were losing their strength."
+
+Almost to herself. Not to him.
+
+She stopped at the entrance to the back.
+
+"Aena."
+
+Silence.
+
+"Aena."
+
+Again. Her voice lower. Something that wasn't quite fear yet but was getting there.
+
+They moved together toward the back.
+
+And they saw her.
+
+A figure. Lying on her side, white robes spread around her like petals. Still. Her face twisted, eyes half-open. Hands open against the rock face.
+
+Drianel fell to her knees.
+
+"Aena..."
+
+She shook her by the shoulders. Gently. Then harder.
+
+No response.
+
+She took her face in her hands. Called her name again. Her voice splitting down the middle, trying to hold itself together.
+
+He stayed standing, a few steps back.
+
+Still.
+
+The silence of the cave was total.
+
+Drianel stopped calling her name.
+
+She stayed on her knees, hands still cupping Aena's face. Her shoulders trembling slightly. Then a tear. Then another.
+
+She wasn't crying like someone who surrenders. She was crying like someone who doesn't understand.
+
+A moment passed.
+
+Then she turned.
+
+Looked at him.
+
+Something had changed in her eyes. The pain was still there, but behind it was something else. Something looking for somewhere to go.
+
+"A Called." Her voice flat. Broken. "Someone who knows nothing of this kingdom. Who can't even remember his own name."
+
+A pause.
+
+"Where is your Daughter of the King? Do you at least remember that?"
+
+He didn't answer.
+
+She didn't know. She couldn't know.
+
+But in his silence, in everything he couldn't remember, in everything he hadn't been able to give her, she found something to hold onto. Not a certainty. A suspicion.
+
+"And the first thing I did was meet you."
+
+She stood. Slowly.
+
+"And she is dead."
+
+Silence.
+
+"Get out."
+
+Her hands were still gripping Aena's robes.
+
+"Get out."
+
+He turned.
+
+He left the cave. Crossed the forest. The trees closed around him once more — the symbols on the trunks, the light in patches.
+
+Then the edge.
+
+Then outside.`
     }
   }
 };
