@@ -6,7 +6,8 @@
 const RACCONTI_ORDER = [
   "cinere",
   "diario-nuovo-assunto",
-  "il-posto-preferito"
+  "il-posto-preferito",
+  "il-testimone"
 ];
 
 const RACCONTI = {
@@ -245,6 +246,48 @@ A female figure, around his age. Still, her eyes on the horizon.
 He saw her.
 His eyes went wide.
 "Mnea."`
+    }
+  },
+  "il-testimone": {
+    game: "il-testimone",
+    gameLabel: { it: "Il Testimone", en: "The Witness" },
+    accentColor: "#c470e0",
+    title: {
+      it: "Il Testimone",
+      en: "The Witness"
+    },
+    tag: {
+      it: "thriller psicologico",
+      en: "psychological thriller"
+    },
+    body: {
+      it: `Messaggio vocale — durata: 1:43
+
+"Jul! Jul ascoltami.
+So cosa è successo. Ho appena visto una televisione accesa in un negozio qui vicino, stavano dando la notizia. Quello che stanno dicendo è falso. Tutto falso. Quell'uomo, quello dell'incidente, non è stato un incidente. Non lo è stato.
+Io ero lì. Ero lì vicino, ho visto tutto, e adesso non so cosa fare, non riesco a pensare, sto camminando da ore e non so nemmeno bene dove sto andando. Sto venendo da te, ho bisogno di vederti, ho bisogno di parlare con qualcuno che...
+Scusa. Scusa, mi fermo un secondo.
+Quell'uomo è stato ucciso. L'hanno ucciso. E chi l'ha fatto sa che c'ero. Non lo so con certezza, non lo so, ma lo sento, sento che qualcuno mi stava guardando mentre me ne andavo. Forse sto esagerando, forse non mi ha visto davvero, ma non riesco a smettere di girarmi.
+Non so se chiamare la polizia. Ho paura anche di quello. Ho paura di tutto in questo momento.
+Rispondimi. Rispondimi appena puoi. Sto arrivando."
+
+Jul rispose circa un'ora dopo.
+Non ricevette mai risposta.
+E nessuno si fece vivo alla sua porta.`,
+      en: `Voice message — duration: 1:43
+
+"Jul! Jul, listen to me.
+I just saw a TV on in a shop window, they were running the story. They're lying. Everything they're saying is false.
+I was there. I was right there, I saw everything. That man didn't die in an accident — they killed him. They killed him and I was there.
+I don't know what to do, I can't think straight, I've been walking for hours and I don't even know where I'm going. I'm coming to you, I need to see you, I need to talk to someone who...
+Sorry. Sorry, give me a second.
+Whoever did it knows I was there. I'm not certain, I don't know, but I can feel it — I could feel someone watching me as I walked away. Maybe I'm overreacting, maybe they didn't really see me, but I can't stop looking over my shoulder.
+I don't know whether to call the police. I'm scared of that too. I'm scared of everything right now.
+Answer me. Answer me as soon as you can. I'm on my way."
+
+Jul replied about an hour later.
+They never got a response.
+And no one ever showed up at their door.`
     }
   }
 };
