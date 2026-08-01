@@ -30,7 +30,7 @@
 @media (min-width:761px){
   .card{
     display:block;
-    position:absolute; left:110px; top:250px;
+    position:absolute; left:110px; top:280px;
     width:280px;
     background:var(--panel);
     border:1px solid var(--line);
