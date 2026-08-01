@@ -11,7 +11,6 @@ const STRINGS = {
     landingEyebrow: "Benvenuto nell'officina",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche i progetti che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
-    landingSub: "(contenuto in arrivo)",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index"
   },
@@ -20,7 +19,6 @@ const STRINGS = {
     landingEyebrow: "Welcome to the workshop",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects projects that live elsewhere: games and tools in progress, linked from here.",
-    landingSub: "(content coming soon)",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index"
   }
