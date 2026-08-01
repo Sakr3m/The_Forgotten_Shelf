@@ -26,9 +26,19 @@
     border-radius:999px;
     transition:border-color .2s ease, color .2s ease;
   }
-  a.entry:hover, a.entry:focus-visible{
+  a.entry:focus-visible{
     border-color:#a9863f;
     color:#c7a25c;
+  }
+  /* Stesso criterio usato nel resto del sito: l'hover si attiva solo
+     sui dispositivi che hanno davvero un puntatore (mouse), non sul
+     touch — dove :hover senza questa guardia resterebbe "incollato"
+     dopo un tap finché non se ne tocca un altro. */
+  @media (hover:hover){
+    a.entry:hover{
+      border-color:#a9863f;
+      color:#c7a25c;
+    }
   }
 </style>
 </head>
