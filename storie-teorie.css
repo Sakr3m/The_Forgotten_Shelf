@@ -252,4 +252,16 @@ body[data-state="entry"] .landing{ display:none; }
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
   body[data-state="entry"] .stage{ padding-top:60px; }
+
+  /* TEST: box visibile per verificare la posizione — raso linea header,
+     larghezza piena, alto 125px. Ingloba volume+tendina (z-index più
+     basso dei due, quindi restano sopra), non arriva al testo. */
+  body[data-state="entry"] .stage::before{
+    content:"";
+    position:absolute; top:60px; left:0; right:0; height:125px;
+    border:2px dashed #22d3ee;
+    background:rgba(34,211,238,.08);
+    z-index:1;
+    pointer-events:none;
+  }
 }
