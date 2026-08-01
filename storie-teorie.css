@@ -230,10 +230,9 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] #pageHeader{
     position:relative;
     height:72px; min-height:0; max-height:none;
-    margin:500px 0 0; padding:0; border:none;
+    margin:0; padding:0; border:none;
     border-bottom:1px solid var(--line);
     overflow:hidden;
-    background:red !important; /* TEST DIAGNOSTICO: se non vedi rosso, il selettore non sta scattando */
   }
   body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
   body[data-state="entry"] .game-header__banner-overlay{
@@ -268,5 +267,5 @@ body[data-state="entry"] .landing{ display:none; }
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
-  body[data-state="entry"] .stage{ padding-top:60px; background:lime !important; }
+  body[data-state="entry"] .stage{ padding-top:60px; }
 }
