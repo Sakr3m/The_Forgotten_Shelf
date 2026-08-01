@@ -112,3 +112,38 @@
 }
 .cta:hover{ color:#e8b64b; border-color:#e8b64b; }
 
+/* ============================================================
+   Mobile — niente più pin fluttuante sopra il testo (era un
+   trucco solo-desktop): la card di Mathemory diventa un vero e
+   proprio pannello del carosello orizzontale (sinistra e destra
+   portano entrambe li, come se ci fosse una sola destinazione
+   sia a sinistra che a destra). Lì la card è sempre espansa
+   (niente hover su mobile) e resta storta.
+   ============================================================ */
+.mathemory-panel{ display:none; }
+@media (max-width:760px){
+  .mathemory-panel{
+    display:flex; align-items:center; justify-content:center;
+    flex:0 0 100vw; width:100vw; max-width:none;
+    height:100vh; overflow-y:auto; scroll-snap-align:start;
+    padding:76px 24px 24px;
+  }
+
+  .card.card--mobile{
+    display:block;
+    position:relative;
+    width:min(82vw, 300px);
+    transform:rotate(-1.4deg);
+  }
+  /* Sempre espansa: niente clip, niente opacita a zero — su mobile
+     non esiste l'hover che la farebbe crescere, quindi mostra tutto
+     da subito, ma resta storta (non si raddrizza mai, a differenza
+     della versione desktop). */
+  .card.card--mobile .card__body{ max-height:none; }
+  .card.card--mobile .card__body .status,
+  .card.card--mobile .card__body .tagline,
+  .card.card--mobile .card__body .cta{
+    opacity:1; pointer-events:auto;
+  }
+}
+
