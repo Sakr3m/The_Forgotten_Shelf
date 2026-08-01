@@ -228,13 +228,14 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Banner: torna a piena larghezza, come sfondo che si estende
-     subito sotto la barra principale, in flusso normale (non più
-     fixed, non più diviso a metà con un "sotto-header"). */
+  /* Banner: compatto (circa quanto la barra sopra), sfondo che si
+     estende subito sotto la barra principale, in flusso normale.
+     Tendina e controllo musica sono sovrapposti direttamente sopra di
+     esso (angolo sinistro/destro), non più righe separate sotto. */
   body[data-state="entry"] #pageHeader{
     position:relative;
-    height:180px; min-height:0; max-height:none;
-    margin:0 0 60px; padding:0; border:none;
+    height:72px; min-height:0; max-height:none;
+    margin:0; padding:0; border:none;
     border-bottom:1px solid var(--line);
     overflow:hidden;
   }
@@ -243,23 +244,30 @@ body[data-state="entry"] .landing{ display:none; }
     background:rgba(10,14,23,.45);
   }
 
-  /* Musica: tolta da qui per ora (non specificato dove deve andare
-     con questo nuovo layout, va decisa in un prossimo giro). */
-  body[data-state="entry"] .music-control{ display:none; }
-
-  /* Tendina: riga propria fissa, centrata, subito sotto il banner
-     (60px di barra + 180px di banner = 240px). */
+  /* Tendina: sovrapposta all'angolo sinistro del banner, centrata
+     verticalmente su di esso. */
   body[data-state="entry"] .entry-game-picker{
-    display:flex; justify-content:center; align-items:center;
-    position:fixed; top:240px; left:0; right:0; z-index:43;
-    padding:10px 16px;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
+    display:flex;
+    position:absolute; top:50%; left:14px; z-index:2;
+    transform:translateY(-50%);
+  }
+  body[data-state="entry"] .entry-game-trigger{
+    height:32px; padding:0 12px; font-size:.76rem;
   }
 
-  /* Il testo (.entry-panel) segue #pageHeader nel flusso normale: il
-     suo margine sotto (60px, sopra) gli lascia già lo spazio della
-     riga tendina, non serve nessun calcolo aggiuntivo qui. */
+  /* Musica: spostata via JS dentro #pageHeader solo qui (vedi
+     positionMusicControlForMobileEntry in script-storie-teorie.js),
+     sovrapposta all'angolo destro del banner, centrata verticalmente. */
+  body[data-state="entry"] #pageHeader .music-control{
+    position:absolute; top:50%; right:14px; z-index:2;
+    transform:translateY(-50%);
+  }
+  body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
+
+  /* Il testo segue il banner nel flusso normale, con un margine che
+     lo stacca comodamente (non serve più compensare nessuna riga
+     fissa aggiuntiva). */
+  body[data-state="entry"] .entry-panel{ margin-top:24px; }
 
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli

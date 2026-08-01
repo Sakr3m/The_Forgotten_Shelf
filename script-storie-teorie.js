@@ -62,7 +62,28 @@ const el = {
   entryGameTrigger: document.getElementById("entryGameTrigger"),
   entryGameTriggerLabel: document.getElementById("entryGameTriggerLabel"),
   entryGameMenu: document.getElementById("entryGameMenu"),
+  musicControl: document.getElementById("musicControl"),
+  pageHeader: document.getElementById("pageHeader"),
 };
+
+// On mobile, the entry view overlays the music control on top of the
+// banner (like the game picker) instead of leaving it in the top bar.
+// Since it needs position:absolute against #pageHeader, and it isn't a
+// descendant of it in the markup, it's physically moved there for that
+// one case and moved back everywhere else — desktop's own layout/CSS for
+// .music-control is never touched.
+const musicControlHome = { parent: el.musicControl ? el.musicControl.parentNode : null, next: el.musicControl ? el.musicControl.nextSibling : null };
+function positionMusicControlForMobileEntry(){
+  const mc = el.musicControl;
+  if(!mc || !el.pageHeader) return;
+  const isMobileEntry = window.matchMedia("(max-width:760px)").matches && state.view === "entry";
+  if(isMobileEntry){
+    if(mc.parentNode !== el.pageHeader) el.pageHeader.appendChild(mc);
+  } else if(musicControlHome.parent && mc.parentNode !== musicControlHome.parent){
+    musicControlHome.parent.insertBefore(mc, musicControlHome.next);
+  }
+}
+window.addEventListener("resize", positionMusicControlForMobileEntry);
 
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
@@ -219,6 +240,7 @@ function setState(view){
   renderLists();
   if(view === "entry") renderEntry();
   updateMusicPlayback();
+  positionMusicControlForMobileEntry();
 }
 
 function selectEntry(column, id){
