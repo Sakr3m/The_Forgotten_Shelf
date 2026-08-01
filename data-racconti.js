@@ -669,7 +669,8 @@ Their lips were sealed, as is right. But their hearts, in the moment they found 
 
 const LIBRI_ORDER = [
   "il-chiamato-1",
-  "il-custode-del-vuoto-1"
+  "il-custode-del-vuoto-1",
+  "l-ultimo-piano-1"
 ];
 
 const LIBRI = {
@@ -3936,6 +3937,268 @@ He moved slowly toward the table. Picked up something vaguely sharp that he had 
 He pressed the point against the wall, next to the eight marks.
 
 And added the ninth.`
+    }
+  },
+  "l-ultimo-piano-1": {
+    game: "l-ultimo-piano",
+    forceGamePicker: true,
+    gameLabel: { it: "L'Ultimo Piano", en: "The Last Floor" },
+    accentColor: "#cc9a3a",
+    title: {
+      it: "L'Ultimo Piano",
+      en: "The Last Floor"
+    },
+    dropdownLabel: {
+      it: "Capitolo S",
+      en: "Chapter S"
+    },
+    tag: {
+      it: "horror psicologico",
+      en: "psychological horror"
+    },
+    comingSoon: {
+      it: "In arrivo",
+      en: "Coming soon"
+    },
+    body: {
+      it: `Finalmente era finita.
+
+Una di quelle giornate che ti consumano senza un motivo preciso, ora dopo ora, fino a lasciarti con le gambe pesanti e la testa altrove.
+
+Caelen camminava verso il portone del palazzo in cui abitava come se il marciapiede fosse in salita.
+
+Lo aprì di schiena, ricordandosi solo in quel momento della macchina. Tastò il telecomando in tasca e premette senza guardarsi indietro. Il bip lo raggiunse da fuori mentre la porta si richiudeva alle sue spalle.
+
+Il piano terra era quello di sempre: pareti color avana, silenzio che rimbombava, portineria vuota. Caelen la guardò di passaggio. Chissà se il portiere lavorasse ancora, o se fosse una figura puramente decorativa come il vaso di fiori finti all'ingresso.
+
+Si trascinò verso l'ascensore e premette il tasto per chiamarlo.
+
+Il ronzio familiare. La porta che si apriva con quel leggero ritardo a cui si era abituato da anni.
+
+Entrò, premette l'8 e tirò fuori il telefono dalla tasca per distrarsi un po'.
+
+Le porte si chiusero.
+
+L'ascensore salì.
+
+Pochi secondi dopo, si fermò inaspettatamente al primo piano.
+
+Caelen alzò gli occhi dal telefono. Le porte si aprirono su un corridoio vuoto: la stessa tinta alle pareti, la stessa luce al neon che tremolava leggermente nell'angolo destro, le stesse porte degli alloggi disposte identiche a quelle di ogni altro piano, tranne il piano terra.
+
+Nessuno entrò.
+
+Le porte si richiusero dopo un momento, più lungo del necessario.
+
+Caelen fissò i tasti. L'8 era ancora illuminato, imperturbabile, come se niente fosse successo. Scrollò le spalle, rimise gli occhi sul telefono.
+
+Probabilmente qualcuno aveva chiamato l'ascensore e poi aveva preso le scale. Succedeva.
+
+L'ascensore riprese a salire.
+
+Poco dopo si fermò di nuovo, ma non all'ottavo.
+
+Settimo piano.
+
+Caelen alzò gli occhi. Il display mostrava qualcosa che assomigliava a un 7, o almeno così lo lesse: gli angoli erano storti, il tratto orizzontale troppo marcato, quasi una T. Ma era un ascensore, non aveva senso leggere altro.
+
+Eppure il tasto dell'8 era ancora illuminato, solo quello, nessun 7 premuto, nessuna spiegazione. Le porte erano aperte sul solito corridoio vuoto, identico agli altri, e lui rimase lì a fissarlo con l'espressione di chi sta cercando di capire cosa stia succedendo.
+
+Non uscì.
+
+Rimise il telefono in tasca, tanto mancava poco. Si passò una mano sul viso, guardò i tasti, guardò il corridoio, guardò di nuovo i tasti. Fece anche un respiro profondo, come se questo potesse aiutare in qualche modo. Non aiutò.
+
+Un guasto. Probabilmente un guasto. Non c'era altra spiegazione, e lui era troppo stanco per cercarne una migliore.
+
+"Ok," disse sottovoce, con il tono di chi sta negoziando con l'universo. "Ok."
+
+Premette di nuovo l'8. Le porte si richiusero quasi come a rispondere al nuovo comando, senza mai aver dimenticato quello vecchio.
+
+L'ascensore riprese a salire.
+
+Caelen rimase in piedi, le braccia lungo i fianchi.
+
+Un piano. Doveva fare un piano solo. Eppure i secondi passavano, e l'ascensore continuava a salire, e lui cominciò a guardare i tasti, poi il soffitto, poi di nuovo i tasti.
+
+Stava salendo da troppo tempo.
+
+Premette ripetutamente il tasto dell'8, anche se non aveva mai smesso di essere illuminato. Poi quello di apertura porte. L'ascensore non rispose, continuò imperterrito.
+
+Caelen appoggiò la schiena alla parete e aspettò.
+
+Le porte si aprirono. Ma il display segnava 40.
+
+Rimase immobile a fissarlo. Poi guardò il corridoio davanti a lui. Poi di nuovo il display.
+
+"Quaranta?"
+
+Si sporse verso l'apertura. Il piano era buio, quasi impossibile da vedere bene. L'unica fonte di luce proveniva dall'ascensore stesso. Da quel poco che riusciva a intravedere però, non c'era niente di anomalo, niente tranne il buio e la sua stessa esistenza in quel posto.
+
+Le porte si richiusero nuovamente, prima che potesse capire in che posto fosse finito.
+
+Caelen si passò una mano tra i capelli e rimase a fissare la parete di metallo davanti a lui.
+
+Non poteva essere al piano quaranta. Lui lo sapeva benissimo, ci viveva da anni. Un palazzo da massimo otto piani, non quaranta.
+
+"Okay," disse, con un tono decisamente meno filosofico di prima. "Okay no, questo non va bene."
+
+L'ascensore rimase fermo un momento, poi riprese a salire.
+
+Caelen cominciò a premere tutto quello che c'era da premere: l'8, il piano terra, l'apertura porte, la chiusura porte, l'allarme. L'allarme suonò, un trillo metallico e sordo che rimase dentro la cabina senza andare da nessuna parte. Nessuno rispose.
+
+Poi l'ascensore si fermò. Di nuovo.
+
+Il display segnava N.
+
+Le porte si aprirono. Caelen fissò la lettera sul display. Non era un piano. Non era niente che avesse senso in un ascensore di un palazzo residenziale.
+
+Il corridoio assomigliava agli altri, ma solo in superficie. Le distanze erano sbagliate: troppo spazio tra una porta e l'altra. Le porte degli alloggi leggermente fuori asse, come se qualcuno avesse ricostruito il piano a memoria senza averlo mai visto davvero.
+
+Caelen rimase sulla soglia senza uscire, gli occhi che cercavano qualcosa a cui aggrapparsi e non trovavano niente di abbastanza solido.
+
+Le porte si richiusero.
+
+Rimase in silenzio. Non aveva più niente da dire, e non era sicuro che parlare servisse a qualcosa in quel posto. L'ascensore riprese a salire, e questa volta lui non premette niente. Rimase immobile al centro della cabina, gli occhi sul display, aspettando.
+
+Non appena l'ascensore si fermò all'ennesima destinazione, il display segnò diversi numeri e lettere in modo caotico, fino a fermarsi su una che sembrava presa a caso.
+
+La H.
+
+Le porte si aprirono.
+
+Il corridoio aveva una luce soffusa che rendeva tutto appena visibile. Le pareti sembravano muoversi, un fremito sottile, e un vento strano percorreva il corridoio senza una fonte apparente. Le porte degli alloggi non c'erano: al loro posto, incastrate nei vani, stavano delle assi singole di legno marrone scuro, senza maniglie, senza cornici. Solo il legno. E in sottofondo, un mormorio basso e continuo, il tipo di suono che non appartiene a nessuna bocca.
+
+Caelen, ormai arreso, aspettò che le porte si richiudessero.
+
+Non si richiusero.
+
+Premette il tasto per la chiusura. Niente. Premette l'8. Niente. Premette tutti i pulsanti in ordine sparso, una, due, tre volte. L'ascensore rimase immobile, le porte aperte, il corridoio davanti a lui.
+
+Rimase fermo ancora qualche secondo, gli occhi sul corridoio che non offriva niente e non prometteva niente.
+
+Poi uscì.
+
+Le porte si richiusero dietro di lui con uno schianto secco, definitivo.
+
+E Caelen rimase solo, in quello strano piano.`,
+      en: `It was finally over.
+
+One of those days that wears you down for no particular reason, hour after hour, until it leaves you with heavy legs and a mind that's somewhere else entirely.
+
+Caelen was walking toward the entrance of the building he lived in as if the pavement were uphill.
+
+He opened it with his back, remembering only in that moment about the car. He felt for the remote in his pocket and pressed it without looking back. The beep reached him from outside as the door closed behind him.
+
+The ground floor was the same as always: walls the colour of tan, echoing silence, empty porter's lodge. Caelen glanced at it as he passed. Who knew if the porter still worked there, or if he was a purely decorative figure like the vase of fake flowers by the entrance.
+
+He dragged himself to the lift and pressed the call button.
+
+The familiar hum. The door opening with that slight delay he'd grown used to over the years.
+
+He stepped in, pressed 8, and pulled his phone out of his pocket to take his mind off things.
+
+The doors closed.
+
+The lift rose.
+
+A few seconds later, it stopped unexpectedly at the first floor.
+
+Caelen looked up from his phone. The doors opened onto an empty corridor: the same paint on the walls, the same fluorescent light flickering slightly in the right-hand corner, the same apartment doors arranged identically to those on every other floor, except the ground floor.
+
+No one got in.
+
+The doors closed after a moment — longer than necessary.
+
+Caelen stared at the buttons. The 8 was still lit, imperturbable, as if nothing had happened. He shrugged, put his eyes back on his phone.
+
+Probably someone had called the lift and then taken the stairs. It happened.
+
+The lift started moving again.
+
+Shortly after, it stopped again — but not at the eighth.
+
+Seventh floor.
+
+Caelen looked up. The display showed something that looked like a 7, or at least that's how he read it: the angles were off, the horizontal stroke too pronounced, almost a T. But it was a lift — there was no sense reading anything else into it.
+
+And yet the 8 button was still lit, just that one, no 7 pressed, no explanation. The doors were open onto the usual empty corridor, identical to the others, and he stood there staring at it with the expression of someone trying to figure out what was going on.
+
+He didn't get out.
+
+He put his phone in his pocket — it wasn't far now. He ran a hand over his face, looked at the buttons, looked at the corridor, looked at the buttons again. He even took a deep breath, as if that might help somehow. It didn't.
+
+A fault. Probably a fault. There was no other explanation, and he was too tired to look for a better one.
+
+"Ok," he said quietly, in the tone of someone negotiating with the universe. "Ok."
+
+He pressed 8 again. The doors closed almost as if responding to the new command, without ever having forgotten the old one.
+
+The lift started moving again.
+
+Caelen stayed on his feet, arms at his sides.
+
+One floor. He had one floor to go. And yet the seconds kept passing, and the lift kept rising, and he started looking at the buttons, then the ceiling, then the buttons again.
+
+It had been going up for too long.
+
+He pressed the 8 button repeatedly, even though it had never stopped being lit. Then the door-open button. The lift didn't respond, kept going regardless.
+
+Caelen leaned his back against the wall and waited.
+
+The doors opened. But the display read 40.
+
+He stood motionless, staring at it. Then looked at the corridor in front of him. Then at the display again.
+
+"Forty?"
+
+He leaned toward the opening. The floor was dark, almost impossible to make out clearly. The only source of light came from the lift itself. From what little he could make out, there was nothing unusual — nothing except the darkness and his own existence in that place.
+
+The doors closed again before he could figure out where he'd ended up.
+
+Caelen ran a hand through his hair and stood staring at the metal wall in front of him.
+
+He couldn't be on the fortieth floor. He knew perfectly well — he'd lived there for years. A building with eight floors at most. Not forty.
+
+"Okay," he said, in a tone considerably less philosophical than before. "Okay no, this is not good."
+
+The lift stayed still for a moment, then started moving again.
+
+Caelen began pressing everything there was to press: 8, ground floor, door open, door close, alarm. The alarm sounded — a metallic, muffled ring that stayed inside the cabin and went nowhere. No one responded.
+
+Then the lift stopped. Again.
+
+The display read N.
+
+The doors opened. Caelen stared at the letter on the display. It wasn't a floor. It wasn't anything that made sense in the lift of a residential building.
+
+The corridor looked like the others, but only on the surface. The distances were wrong: too much space between one door and the next. The apartment doors slightly out of alignment, as if someone had reconstructed the floor from memory without ever having seen it.
+
+Caelen stayed on the threshold without getting out, his eyes searching for something solid to hold onto and finding nothing solid enough.
+
+The doors closed.
+
+He stayed silent. He had nothing left to say, and he wasn't sure talking served any purpose in that place. The lift started moving again, and this time he pressed nothing. He stood motionless in the centre of the cabin, eyes on the display, waiting.
+
+As soon as the lift stopped at yet another destination, the display flickered through numbers and letters chaotically, until it settled on one that seemed chosen at random.
+
+The H.
+
+The doors opened.
+
+The corridor had a dim light that made everything barely visible. The walls seemed to move — a subtle tremor — and a strange wind ran through the corridor without any apparent source. The apartment doors were gone: in their place, fitted into the frames, were single planks of dark brown wood, no handles, no frames. Just the wood. And underneath it all, a low continuous murmur — the kind of sound that belongs to no mouth.
+
+Caelen, by now resigned, waited for the doors to close.
+
+They didn't close.
+
+He pressed the close button. Nothing. He pressed 8. Nothing. He pressed every button in random order, once, twice, three times. The lift stayed still, doors open, the corridor in front of him.
+
+He stood there a few more seconds, eyes on the corridor that offered nothing and promised nothing.
+
+Then he stepped out.
+
+The doors closed behind him with a dry, definitive bang.
+
+And Caelen was alone, on that strange floor.`
     }
   }
 };
