@@ -228,23 +228,14 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Sotto-header, riga propria (60-140px): volume a sinistra, spazio
-     banner del gioco a destra. Musica e banner sono entrambi
-     "intrappolati" dentro contenitori già fixed nel DOM (il volume
-     dentro la barra in alto, il banner dentro #pageHeader) — l'unico
-     modo per farli condividere una riga sotto la barra, senza toccare
-     l'HTML condiviso col desktop, è renderli entrambi fixed a loro
-     volta, ciascuno per metà larghezza. */
-  body[data-state="entry"] .music-control{
-    display:flex; justify-content:center; align-items:center;
-    position:fixed; top:60px; right:0; width:50%; height:80px; z-index:45;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
-  }
+  /* Banner: torna a piena larghezza, come sfondo che si estende
+     subito sotto la barra principale, in flusso normale (non più
+     fixed, non più diviso a metà con un "sotto-header"). */
   body[data-state="entry"] #pageHeader{
-    position:fixed; top:60px; left:0; right:50%; z-index:44;
-    height:80px; min-height:0; max-height:none;
-    margin:0; padding:0; border:none; border-bottom:1px solid var(--line);
+    position:relative;
+    height:180px; min-height:0; max-height:none;
+    margin:0 0 60px; padding:0; border:none;
+    border-bottom:1px solid var(--line);
     overflow:hidden;
   }
   body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
@@ -252,17 +243,26 @@ body[data-state="entry"] .landing{ display:none; }
     background:rgba(10,14,23,.45);
   }
 
-  /* Tendina: riga propria fissa, centrata, subito sotto il
-     sotto-header (60 + 80 = 140px). */
+  /* Musica: tolta da qui per ora (non specificato dove deve andare
+     con questo nuovo layout, va decisa in un prossimo giro). */
+  body[data-state="entry"] .music-control{ display:none; }
+
+  /* Tendina: riga propria fissa, centrata, subito sotto il banner
+     (60px di barra + 180px di banner = 240px). */
   body[data-state="entry"] .entry-game-picker{
     display:flex; justify-content:center; align-items:center;
-    position:fixed; top:140px; left:0; right:0; z-index:43;
+    position:fixed; top:240px; left:0; right:0; z-index:43;
     padding:10px 16px;
     background:var(--bg);
     border-bottom:1px solid var(--line);
   }
 
-  /* Il testo parte poco sotto la tendina (barra 60 + sotto-header 80
-     + tendina 60 = 200px). */
-  body[data-state="entry"] .stage{ padding-top:200px; }
+  /* Il testo (.entry-panel) segue #pageHeader nel flusso normale: il
+     suo margine sotto (60px, sopra) gli lascia già lo spazio della
+     riga tendina, non serve nessun calcolo aggiuntivo qui. */
+
+  /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
+     e testo sono di nuovo in flusso normale, non servono più calcoli
+     per righe aggiuntive. */
+  body[data-state="entry"] .stage{ padding-top:60px; }
 }
