@@ -233,7 +233,7 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:142px;
+    padding-top:137px;
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
