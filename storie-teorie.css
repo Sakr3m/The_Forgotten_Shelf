@@ -226,17 +226,7 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* Banner: compatto (circa quanto la barra sopra), sfondo che si
      estende subito sotto la barra principale, in flusso normale. */
-  body[data-state="entry"] #pageHeader{
-    position:relative;
-    height:72px; min-height:0; max-height:none;
-    margin:0; padding:0; border:none;
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-  }
-  body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
-  body[data-state="entry"] .game-header__banner-overlay{
-    background:rgba(10,14,23,.45);
-  }
+  body[data-state="entry"] #pageHeader{ display:none; }
 
   /* Niente tendina, niente controllo musica in questa vista per ora. */
   body[data-state="entry"] .entry-game-picker{ display:none; }
