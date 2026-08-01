@@ -2,6 +2,14 @@
    TIMELINE — token system (ChronoSLICE-aligned)
    ============================================================ */
 :root{
+  /* Il sito e' gia' scuro di suo: questo dice al browser di non
+     applicare la sua "dark mode forzata" (che altrimenti reinverte
+     colori pensati per essere gia' scuri, storpiandoli). Vale per
+     tutte le pagine che caricano questo file (timeline/storie/
+     racconti/officina); index.html ha il suo CSS a parte, stessa
+     dichiarazione aggiunta li'. */
+  color-scheme: dark;
+
   --bg:#0a0e17;
   --bg-soft:#0d1220;
   --panel:#111726;
