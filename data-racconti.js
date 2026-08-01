@@ -301,8 +301,8 @@ And no one ever showed up at their door.`
       en: "The Wrong Hour"
     },
     dropdownLabel: {
-      it: "L'Ora Sbagliata versione 1.0",
-      en: "The Wrong Hour version 1.0"
+      it: "Versione 1.0",
+      en: "Version 1.0"
     },
     tag: {
       it: "surreale",
