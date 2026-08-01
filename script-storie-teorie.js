@@ -62,7 +62,33 @@ const el = {
   entryGameTrigger: document.getElementById("entryGameTrigger"),
   entryGameTriggerLabel: document.getElementById("entryGameTriggerLabel"),
   entryGameMenu: document.getElementById("entryGameMenu"),
+  musicControl: document.getElementById("musicControl"),
 };
+
+// On mobile, the entry view puts the game picker and the music control
+// in a row above the text (tendina left, volume right) instead of their
+// normal spots (header / top bar). Neither is a descendant of #entryPanel
+// in the markup, so they're physically moved there for that one case and
+// moved back everywhere else — desktop's own layout/CSS is never touched.
+const mobileEntryRowHomes = {
+  gamePicker: { parent: el.entryGamePicker ? el.entryGamePicker.parentNode : null, next: el.entryGamePicker ? el.entryGamePicker.nextSibling : null },
+  musicControl: { parent: el.musicControl ? el.musicControl.parentNode : null, next: el.musicControl ? el.musicControl.nextSibling : null }
+};
+function positionMobileEntryRow(){
+  const picker = el.entryGamePicker, mc = el.musicControl, panel = el.entryPanel;
+  if(!picker || !mc || !panel) return;
+  const isMobileEntry = window.matchMedia("(max-width:760px)").matches && state.view === "entry";
+  if(isMobileEntry){
+    panel.insertBefore(picker, panel.firstChild);
+    panel.insertBefore(mc, panel.firstChild);
+  } else {
+    const gp = mobileEntryRowHomes.gamePicker;
+    const mcHome = mobileEntryRowHomes.musicControl;
+    if(gp.parent && picker.parentNode !== gp.parent) gp.parent.insertBefore(picker, gp.next);
+    if(mcHome.parent && mc.parentNode !== mcHome.parent) mcHome.parent.insertBefore(mc, mcHome.next);
+  }
+}
+window.addEventListener("resize", positionMobileEntryRow);
 
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
@@ -219,6 +245,7 @@ function setState(view){
   renderLists();
   if(view === "entry") renderEntry();
   updateMusicPlayback();
+  positionMobileEntryRow();
 }
 
 function selectEntry(column, id){

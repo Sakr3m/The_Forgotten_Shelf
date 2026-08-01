@@ -224,17 +224,29 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Banner: compatto (circa quanto la barra sopra), sfondo che si
-     estende subito sotto la barra principale, in flusso normale. */
+  /* Niente banner in questa vista. */
   body[data-state="entry"] #pageHeader{ display:none; }
 
-  /* Niente tendina, niente controllo musica in questa vista per ora. */
-  body[data-state="entry"] .entry-game-picker{ display:none; }
-  body[data-state="entry"] .music-control{ display:none; }
-
-  /* Il testo segue il banner nel flusso normale, con un margine che
-     lo stacca comodamente. */
-  body[data-state="entry"] .entry-panel{ margin-top:24px; }
+  /* Tendina e controllo musica: spostati via JS dentro #entryPanel
+     (vedi positionMobileEntryRow in script-storie-teorie.js), in una
+     riga propria sopra il testo — tendina a sinistra, volume a destra. */
+  body[data-state="entry"] .entry-panel{
+    position:relative;
+    margin-top:24px;
+    padding-top:48px;
+  }
+  body[data-state="entry"] .entry-game-picker{
+    display:flex;
+    position:absolute; top:0; left:0; z-index:2;
+  }
+  body[data-state="entry"] .entry-game-trigger{
+    height:32px; padding:0 12px; font-size:.76rem;
+  }
+  body[data-state="entry"] .music-control{
+    display:flex;
+    position:absolute; top:0; right:0; z-index:2;
+  }
+  body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
 
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli
