@@ -8,7 +8,8 @@ const RACCONTI_ORDER = [
   "diario-nuovo-assunto",
   "il-posto-preferito",
   "il-testimone",
-  "l-ora-sbagliata"
+  "l-ora-sbagliata",
+  "lo-specchio-cieco"
 ];
 
 const RACCONTI = {
@@ -491,6 +492,147 @@ The old man stopped. Looked at him. Smiled — the kind of smile that doesn't ne
 He understood. He took it out, looked at the screen, and read.
 
 8:15.`
+    }
+  },
+  "lo-specchio-cieco": {
+    game: "lo-specchio-cieco",
+    gameLabel: { it: "Lo Specchio Cieco", en: "The Blind Mirror" },
+    accentColor: "#87ceeb",
+    title: {
+      it: "Lo Specchio Cieco",
+      en: "The Blind Mirror"
+    },
+    tag: {
+      it: "psicologico",
+      en: "psychological"
+    },
+    body: {
+      it: `Al numero 22 di Viale dei Sogni c'è un antiquariato.
+
+Un posto tranquillo, di quelli che esistono da sempre e nessuno sa bene perché. Mobili vecchi, quadri dimenticati, oggetti che hanno perso il loro proprietario originale e aspettano pazientemente il prossimo. Niente di straordinario, in apparenza.
+
+Se non fosse per lo specchio in vetrina.
+
+La cornice è dorata, elaborata, il tipo di lavoro che fa rallentare il passo anche a chi ha fretta. Forme tondeggianti che si intrecciano con una pazienza che oggi nessuno ha più. Vale la pena fermarcisi davanti, anche solo per quello.
+
+Ma sotto la cornice, un cartellino scritto a mano recita con tono lapidario:
+
+"Questa è la prova che siete vampiri."
+
+Già.
+
+Il problema è che non riflette nessuno. Nemmeno voi. Nemmeno adesso che vi siete avvicinati per controllare. La superficie è liscia, intatta, perfettamente indifferente alla vostra esistenza.
+
+I passanti si fermano. Si guardano intorno, come a cercare una telecamera nascosta. Qualcuno ride, nervoso. Qualcuno entra nel negozio per protestare con il proprietario, un uomo anziano dall'aria placida che ascolta tutto con la stessa espressione di chi ha già sentito ogni versione possibile di quella conversazione. Qualcun altro tenta approcci più creativi: un passo indietro, due passi di lato, le braccia allargate, la faccia incollata al vetro. Una signora, un martedì mattina, ha insultato lo specchio a voce alta per quasi tre minuti. Lo specchio non ha commentato.
+
+Alla fine, tutti si arrendono. Si rimettono in cammino con l'aria vagamente offesa di chi ha perso una discussione con un oggetto inanimato.
+
+Il proprietario, dal fondo del negozio, osserva. Non dice niente. A volte sorride, ma così poco che potrebbe anche essere un'impressione.
+
+Poi, un pomeriggio qualunque, passa una famiglia.
+
+Padre, madre, un bambino addormentato nel passeggino e un figlio più grande che li segue a piedi. Sette anni, forse, le scarpe slacciate, lo sguardo di chi sta pensando a qualcosa di completamente diverso da dove sta andando.
+
+Si ferma davanti allo specchio.
+
+Ci rimane fermo qualche secondo. Immobile, lo sguardo fisso sulla superficie. Poi sulle sue labbra si apre un sorriso largo, soddisfatto, il tipo di sorriso che non ha bisogno di pubblico. Non dice niente. Non chiama i genitori. Gira sui tacchi e riprende a seguire la famiglia che intanto si è già allontanata.
+
+Il proprietario, che aveva visto tutto, rimase a fissare il punto in cui il bambino era stato. Perplesso, per la prima volta da molto tempo.
+
+Passarono diversi giorni.
+
+Poi arrivò la bambina.
+
+Sei anni, occhi svegli, il passo deciso di chi sa già dove vuole arrivare nella vita, anche se non lo sa ancora. Si fermò davanti allo specchio quasi per caso, trascinata dall'istinto di fermarsi davanti a qualcosa di lucido.
+
+E sgranò gli occhi.
+
+"Mamma!" gridò, con l'urgenza di chi ha appena fatto una scoperta che non può aspettare. "Mamma guarda, sono diventata un avvocato!"
+
+La madre si girò. Guardò lo specchio. Non vide niente, né sé stessa né sua figlia. Quel genere di niente che non è tranquillizzante.
+
+Entrò nel negozio con la bambina al seguito, ancora raggiante della sua nuova carriera legale. Raccontò tutto al proprietario, che ascoltò con attenzione, annuendo ogni tanto. Quando la donna finì di parlare, lui rimase un momento immobile. Poi volse lo sguardo verso lo specchio, poi verso la bambina, poi verso la madre.
+
+La ringraziò. Senza spiegare niente.
+
+Le due uscirono. La madre stranita, la bambina già oltre, probabilmente a pianificare il suo primo caso.
+
+Sul marciapiede, la donna si girò verso la vetrina un'ultima volta. Ma non fu lo specchio a catturare la sua attenzione.
+
+Fu il cartellino.
+
+La scritta era cambiata.
+
+"Lo specchio è cieco solo per coloro che non sanno vedere."
+
+La madre rimase ferma un momento. Poi guardò sua figlia, che camminava avanti senza voltarsi, le scarpe che battevano sul marciapiede con la certezza allegra di chi non ha ancora imparato a dubitare di quello che vede.
+
+Non disse niente.
+
+Riprese a camminare.`,
+      en: `At number 22 of Dream Avenue there is an antique shop.
+
+A quiet place, the kind that has always been there and no one quite knows why. Old furniture, forgotten paintings, objects that have outlived their original owners and wait patiently for the next. Nothing extraordinary, on the surface.
+
+Except for the mirror in the window.
+
+The frame is golden, elaborate, the kind of craftsmanship that slows your step even when you are in a hurry. Rounded shapes intertwining with a patience no one has anymore. Worth stopping for, if only for that.
+
+But beneath the frame, a handwritten card reads with blunt authority:
+
+"This is proof that you are vampires."
+
+Right.
+
+The problem is that it reflects no one. Not even you. Not even now that you have stepped closer to check. The surface is smooth, intact, perfectly indifferent to your existence.
+
+Passersby stop. They glance around, as if looking for a hidden camera. Some laugh, nervously. Some walk into the shop to complain to the owner — a calm, elderly man who listens to every version of that conversation with the expression of someone who has already heard them all. Others try more creative approaches: one step back, two steps to the side, arms spread wide, face pressed against the glass. One woman, on a Tuesday morning, spent nearly three minutes insulting the mirror out loud. The mirror had no comment.
+
+In the end, everyone gives up. They walk away with the vaguely offended air of someone who has just lost an argument with an inanimate object.
+
+The owner, from the back of the shop, watches. He says nothing. Sometimes he smiles, but so slightly it could just as easily be imagined.
+
+Then, one unremarkable afternoon, a family walks by.
+
+Father, mother, a sleeping child in the pushchair, and an older boy following on foot. Seven years old, perhaps, shoes untied, the look of someone thinking about something entirely unrelated to where he is going.
+
+He stops in front of the mirror.
+
+He stays there for a few seconds. Still, gaze fixed on the surface. Then a wide, satisfied smile spreads across his face — the kind of smile that does not need an audience. He says nothing. He does not call his parents. He turns on his heel and goes back to following the family, who have already drifted ahead.
+
+The owner, who had watched the whole thing, stood staring at the spot where the boy had been. Puzzled, for the first time in a long while.
+
+Several days passed.
+
+Then the little girl arrived.
+
+Six years old, bright eyes, the purposeful stride of someone who already knows where she wants to end up in life, even if she doesn't know it yet. She stopped in front of the mirror almost by accident, drawn by the instinct to pause in front of anything shiny.
+
+And her eyes went wide.
+
+"Mummy!" she called out, with the urgency of someone who has just made a discovery that cannot wait. "Mummy look, I've become a lawyer!"
+
+Her mother turned. She looked at the mirror. She saw nothing — not herself, not her daughter. The kind of nothing that is not reassuring.
+
+She went into the shop with the girl close behind, still beaming about her new legal career. She told the owner everything, who listened carefully, nodding here and there. When she finished, he stayed still for a moment. Then he turned his gaze to the mirror, then to the girl, then back to the mother.
+
+He thanked her. Without explaining anything.
+
+The two of them left. The mother baffled, the girl already elsewhere, probably planning her first case.
+
+On the pavement, the woman turned back toward the window one last time. But it was not the mirror that caught her attention.
+
+It was the card.
+
+The writing had changed.
+
+"The mirror is blind only to those who have forgotten how to see."
+
+The mother stood still for a moment. Then she looked at her daughter, walking ahead without turning back, shoes striking the pavement with the cheerful certainty of someone who has not yet learned to doubt what she sees.
+
+She said nothing.
+
+She walked on.`
     }
   }
 };
