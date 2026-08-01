@@ -10,11 +10,11 @@ const RACCONTI_ORDER = [
 const RACCONTI = {
   cinere: {
     game: "cinere",
-    gameLabel: { it: "Cinere", en: "Ashes" },
+    gameLabel: { it: "Cinere", en: "Cinere" },
     accentColor: "#9a958c",
     title: {
       it: "Cinere",
-      en: "Ashes"
+      en: "Cinere"
     },
     tag: {
       it: "leggenda oscura di fantasia",
