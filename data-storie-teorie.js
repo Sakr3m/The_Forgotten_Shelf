@@ -13,6 +13,7 @@ const TEORIE = {
     gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Mobile.jpg",
     bannerOffset: 75,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
@@ -71,6 +72,7 @@ A small detail. One of the most powerful images in the entire game.`
     gameLabel: { it: "Final Fantasy VIII", en: "Final Fantasy VIII" },
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile.jpg",
     bannerOffset: 65,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Liberi%20Fatali.mp3", title: "Liberi Fatali", game: "Final Fantasy VIII" },

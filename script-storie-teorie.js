@@ -88,7 +88,10 @@ function positionMobileEntryRow(){
     if(mcHome.parent && mc.parentNode !== mcHome.parent) mcHome.parent.insertBefore(mc, mcHome.next);
   }
 }
-window.addEventListener("resize", positionMobileEntryRow);
+window.addEventListener("resize", () => {
+  positionMobileEntryRow();
+  if(state.view === "entry") renderEntry();
+});
 
 function t(key){ return STRINGS[state.lang][key]; }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
@@ -153,7 +156,9 @@ function renderEntry(){
   if(!entry){ el.entryContent.innerHTML = ""; return; }
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
-  el.pageHeaderBanner.style.backgroundImage = entry.banner ? `url('${entry.banner}')` : "";
+  const isMobile = window.matchMedia("(max-width:760px)").matches;
+  const bannerUrl = (isMobile && entry.mobileBanner) ? entry.mobileBanner : entry.banner;
+  el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
