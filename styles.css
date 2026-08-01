@@ -94,10 +94,11 @@ body[data-state="landing"] .brand{ display:none; }
    la posizione reciproca dei pulsanti non era calcolabile senza
    rifare i conti ogni volta. Ora sono tutti figli dello stesso
    contenitore flex: la loro posizione la calcola il browser, non
-   più numeri fissi scollegati tra loro. Scoped a min-width:761px
+   più numeri fissi scollegati tra loro. Scoped a "non è un
+   dispositivo touch senza hover" (non più una soglia di larghezza)
    e alla classe .stage-topbar: il mobile (carosello, pulsanti
    fissi) resta invariato su entrambe le pagine. */
-@media (min-width:761px){
+@media (hover:hover), (pointer:fine){
   .stage-topbar{
     position:sticky; top:0; z-index:10;
     height:15px; overflow:visible; /* prova: altezza reale minima
@@ -285,7 +286,7 @@ body[data-state="landing"] .brand{ display:none; }
    testo centrale, su desktop — ognuna scorre per conto suo, non
    insieme al resto della pagina. Stesso schema già usato per le
    colonne di storie.html. */
-@media (min-width:761px){
+@media (hover:hover), (pointer:fine){
   .sidebar, .timeline-rail{
     position:sticky; top:0; align-self:flex-start;
     height:100vh;
@@ -377,7 +378,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .index-link:hover{ color:var(--text); }
 .index-link svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
 
-@media (max-width:760px){
+@media (hover:none) and (pointer:coarse){
   /* Su mobile la nuova .stage-topbar (introdotta per il desktop di
      timeline.html) sparisce come contenitore: i suoi figli restano
      posizionati esattamente come prima (brand fisso, index-link e
@@ -424,7 +425,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    Game panel — header + proportional timelines
    ============================================================ */
 .game-panel{ position:relative; width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
-@media (min-width:761px){
+@media (hover:hover), (pointer:fine){
   /* Tutto il contenuto della voce (tag, titolo, blurb, timeline,
      pulsanti del carosello) deve partire, orizzontalmente, da dove
      inizia la tazzina del logo Ko-fi in alto (.brand-icon): 25px è
@@ -522,7 +523,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .timeline-scroll-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); }
 .timeline-scroll-toggle[aria-pressed="true"]{ color:var(--cyan); }
 .timeline-scroll-toggle svg{ width:16px; height:16px; }
-@media (max-width:760px){ .timeline-scroll-toggle{ display:none; } }
+@media (hover:none) and (pointer:coarse){ .timeline-scroll-toggle{ display:none; } }
 
 .h-timeline.is-scrollable{ cursor:grab; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
@@ -725,7 +726,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    Title panel — full detail
    ============================================================ */
 .title-panel{ width:100%; max-width:1860px; position:relative; margin-top:100px; }
-@media (min-width:761px){
+@media (hover:hover), (pointer:fine){
   /* Stesso allineamento del game-panel qui sopra: le voci senza
      linea temporale (solo racconto singolo, es. Doom) partono
      anch'esse dalla tazzina. */
@@ -805,7 +806,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
    Mobile (phone) redesign — scoped entirely to this breakpoint,
    the desktop layout above is untouched.
    ============================================================ */
-@media (max-width: 760px){
+@media (hover:none) and (pointer:coarse){
   /* Serve solo su desktop per coprire il testo che scorre dietro la
      barra sticky; su mobile la barra è fixed e comporta un problema
      diverso, quindi qui va tolto invece di riadattato. */

@@ -11,7 +11,7 @@
    Solo desktop: su mobile racconti.html non ha comunque sidebar/
    rail fissi (sono pannelli del carosello), quindi lì non serve
    nessuna correzione. */
-@media (min-width:761px){
+@media (hover:hover), (pointer:fine){
   .stage{
     flex:none;
     margin-left:260px;
@@ -27,7 +27,7 @@
    su quel punto medio reale, non a occhio). Solo desktop.
    ============================================================ */
 .card{ display:none; }
-@media (min-width:761px){
+@media (hover:hover), (pointer:fine){
   .card{
     display:block;
     position:absolute; left:90px; top:290px;
@@ -121,7 +121,7 @@
    (niente hover su mobile) e resta storta.
    ============================================================ */
 .mathemory-panel{ display:none; }
-@media (max-width:760px){
+@media (hover:none) and (pointer:coarse){
   .mathemory-panel{
     display:flex; align-items:center; justify-content:center;
     flex:0 0 100vw; width:100vw; max-width:none;

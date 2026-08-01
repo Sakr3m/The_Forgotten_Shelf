@@ -349,7 +349,7 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
-    const isDesktop = window.matchMedia("(min-width: 761px)").matches;
+    const isDesktop = window.matchMedia("(hover:hover), (pointer:fine)").matches;
     const avatarScale = 1;
     const dotScale = 0.625; // 15px dot
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
@@ -716,7 +716,7 @@ el.musicToggle.addEventListener("click", () => {
 // funzione riporta lo scroll sullo stage, es. dopo aver scelto un
 // gioco dalla sidebar. Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
 const stageEl = document.getElementById("stage");
 
 function scrollCarouselToStage(){

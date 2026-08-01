@@ -56,7 +56,7 @@ el.langSwitch.addEventListener("click", () => {
 // resto del sito (torna comunque utile quando arriverà "il resto").
 el.brandBtn.addEventListener("click", () => {});
 
-const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
 const stageEl = document.getElementById("stage");
 
 paintStaticText();

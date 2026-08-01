@@ -77,7 +77,7 @@ const mobileEntryRowHomes = {
 function positionMobileEntryRow(){
   const picker = el.entryGamePicker, mc = el.musicControl, panel = el.entryPanel;
   if(!picker || !mc || !panel) return;
-  const isMobileEntry = window.matchMedia("(max-width:760px)").matches && state.view === "entry";
+  const isMobileEntry = window.matchMedia("(hover:none) and (pointer:coarse)").matches && state.view === "entry";
   if(isMobileEntry){
     panel.insertBefore(picker, panel.firstChild);
     panel.insertBefore(mc, panel.firstChild);
@@ -156,7 +156,7 @@ function renderEntry(){
   if(!entry){ el.entryContent.innerHTML = ""; return; }
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
-  const isMobile = window.matchMedia("(max-width:760px)").matches;
+  const isMobile = window.matchMedia("(hover:none) and (pointer:coarse)").matches;
   const bannerUrl = (isMobile && entry.mobileBanner) ? entry.mobileBanner : entry.banner;
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
@@ -349,7 +349,7 @@ el.langSwitch.addEventListener("click", () => {
 // es. dopo aver scelto una voce da uno dei due elenchi laterali.
 // Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-const mobileBreakpoint = window.matchMedia("(max-width:760px)");
+const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
 mobileBreakpoint.addEventListener("change", paintStaticText);
 const stageEl = document.getElementById("stage");
 
