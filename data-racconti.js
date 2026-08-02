@@ -118,6 +118,7 @@ And no one knows why.`
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
+    bannerOffset: 95,
     title: {
       it: "Diario di un Nuovo Assunto",
       en: "Diary of a New Employee"
