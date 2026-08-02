@@ -114,8 +114,17 @@ if(mobileBreakpoint.matches && el.layout){
     syncMobileAudio();
   }
 
-  el.screenPrevBtn.addEventListener("click", () => goToScreen(currentScreen - 1));
-  el.screenNextBtn.addEventListener("click", () => goToScreen(currentScreen + 1));
+  // Carosello "a cerchio": da qualunque pannello di Mathemory,
+  // premere una freccia (destra o sinistra) torna sempre alla home;
+  // dalla home, ogni freccia va verso il proprio Mathemory. Così
+  // andando ripetutamente nella stessa direzione si alterna
+  // all'infinito Home->Mathemory->Home->Mathemory->...
+  el.screenPrevBtn.addEventListener("click", () => {
+    goToScreen(currentScreen === SCREEN_HOME ? 0 : SCREEN_HOME);
+  });
+  el.screenNextBtn.addEventListener("click", () => {
+    goToScreen(currentScreen === SCREEN_HOME ? 2 : SCREEN_HOME);
+  });
 
   el.mobileAudioBtns.forEach(btn => {
     btn.addEventListener("click", (ev) => {
@@ -125,6 +134,10 @@ if(mobileBreakpoint.matches && el.layout){
       syncMobileAudio();
     });
   });
+
+  // Blocco extra dello swipe a livello JS (oltre a touch-action:none
+  // in CSS): la navigazione deve avvenire SOLO tramite le frecce.
+  el.layout.addEventListener("touchmove", (ev) => ev.preventDefault(), { passive: false });
 
   setAudioBtnsUI();
   goToScreen(SCREEN_HOME, true);
