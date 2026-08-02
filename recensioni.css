@@ -1,0 +1,95 @@
+/* ============================================================
+   RECENSIONI — per la home usa lo stile condiviso di styles.css.
+   Stessa correzione di officina.css: senza sidebar/rail, .stage
+   va vincolato alla stessa fascia orizzontale di racconti.html
+   (260px da sinistra, 310px da destra) cosi' i pulsanti in alto
+   finiscono nella stessa posizione reale su schermo. Copiata
+   identica da officina.css su richiesta esplicita.
+   ============================================================ */
+@media (hover:hover), (pointer:fine){
+  .stage{
+    flex:none;
+    margin-left:260px;
+    width:calc(100% - 570px);
+  }
+}
+
+/* ============================================================
+   Il "cancello" — pulsante a sinistra sempre visibile (anche a
+   tendina aperta, serve anche per richiuderla) e la tendina vera
+   e propria, che scende dall'alto coprendo la home fino a ~78%
+   dell'altezza dello stage, "apertura elettrica" con transizione
+   lenta e meccanica invece dello scatto veloce usato altrove nel
+   sito. Solo desktop per ora.
+   ============================================================ */
+.gate-handle{ display:none; }
+.reviews-gate{ display:none; }
+
+@media (hover:hover), (pointer:fine){
+  .gate-handle{
+    display:flex; align-items:center; justify-content:center;
+    position:absolute; left:0; top:50%; transform:translateY(-50%);
+    width:34px; height:64px;
+    background:var(--panel); border:1px solid var(--line); border-left:none;
+    border-radius:0 8px 8px 0;
+    color:var(--text-dim);
+    cursor:pointer;
+    z-index:15; /* sempre sopra tutto (topbar compresa, z-index:10):
+      deve restare cliccabile anche a tendina aperta, per richiuderla */
+    transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .gate-handle:hover{ color:var(--cyan); border-color:var(--cyan); }
+  .gate-handle__arrow{
+    width:16px; height:16px;
+    transition:transform .5s cubic-bezier(.4,0,.2,1);
+  }
+  .gate-handle[aria-expanded="true"] .gate-handle__arrow{ transform:rotate(180deg); }
+
+  .reviews-gate{
+    display:block;
+    position:absolute; top:0; left:0; right:0;
+    height:0; overflow:hidden;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
+      i pulsanti in alto restano sempre usabili anche a tendina aperta */
+    transition:height .55s cubic-bezier(.4,0,.2,1);
+  }
+  .reviews-gate.is-open{ height:78%; }
+
+  .reviews-grid{
+    height:100%; overflow-y:auto;
+    padding:80px 40px 40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+    gap:20px;
+    align-content:start;
+  }
+
+  .review-tile{
+    position:relative; display:block;
+    border-radius:6px; overflow:hidden;
+    background:var(--panel-raised);
+    border:1px solid var(--line);
+    text-decoration:none;
+    aspect-ratio:3/4;
+    transition:transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .review-tile:hover{ transform:translateY(-4px); border-color:var(--cyan); }
+
+  .review-tile__cover{
+    position:absolute; inset:0;
+    background:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+  }
+
+  .review-tile__title{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:10px 10px 8px;
+    background:linear-gradient(to top, rgba(10,14,23,.92), transparent);
+    color:var(--text); font-size:.78rem; font-weight:600;
+    opacity:0; transform:translateY(6px);
+    transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  }
+  .review-tile:hover .review-tile__title{ opacity:1; transform:translateY(0); }
+}
