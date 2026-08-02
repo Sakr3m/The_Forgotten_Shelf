@@ -10,7 +10,7 @@ const STRINGS = {
     brand: "Officina",
     landingEyebrow: "Benvenuto nell'officina",
     landingTitle: "The Forgotten Shelf",
-    landingIntro: "The Forgotten Shelf raccoglie anche i progetti che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
+    landingIntro: "The Forgotten Shelf raccoglie anche i progetti personali che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
     showProjects: "Mostra progetti",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index"
@@ -19,7 +19,7 @@ const STRINGS = {
     brand: "Workshop",
     landingEyebrow: "Welcome to the workshop",
     landingTitle: "The Forgotten Shelf",
-    landingIntro: "The Forgotten Shelf also collects projects that live elsewhere: games and tools in progress, linked from here.",
+    landingIntro: "The Forgotten Shelf also collects personal projects that live elsewhere: games and tools in progress, linked from here.",
     showProjects: "Show projects",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index"
