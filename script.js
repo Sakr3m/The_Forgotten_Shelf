@@ -282,7 +282,7 @@ function renderGamePanel(){
     el.universesRow.className = "universe-stage no-timeline";
     el.universesRow.innerHTML = `
       <div class="canon-page">
-        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}')"></div>` : ""}
+        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}"></div>` : ""}
         <div class="canon-note">
           <p>${tf(g.canonNote.intro)}</p>
           <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
@@ -529,6 +529,8 @@ function renderTitlePanel(){
       el.titlePanel.insertBefore(watermark, el.titleContent);
     }
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
+    watermark.style.backgroundSize = g.watermarkSize || "";
+    watermark.style.backgroundPosition = g.watermarkPosition || "";
   } else if(watermark){
     watermark.remove();
   }
