@@ -3324,6 +3324,12 @@ Then outside.`
     game: "il-custode-del-vuoto",
     gameLabel: { it: "Il Custode del Vuoto", en: "The Keeper of the Void" },
     accentColor: "#8a7a5a",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
+    filigranaBottomFade: true,
+    filigranaOpacity: 0.30,
+    bannerOffset: 55,
     title: {
       it: "Il Custode del Vuoto",
       en: "The Keeper of the Void"
@@ -3523,6 +3529,12 @@ Then the sound stopped.`
     game: "il-custode-del-vuoto",
     gameLabel: { it: "Il Custode del Vuoto", en: "The Keeper of the Void" },
     accentColor: "#8a7a5a",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
+    filigranaBottomFade: true,
+    filigranaOpacity: 0.30,
+    bannerOffset: 55,
     title: {
       it: "Il Custode del Vuoto",
       en: "The Keeper of the Void"
@@ -3700,6 +3712,12 @@ And suddenly night fell.`
     game: "il-custode-del-vuoto",
     gameLabel: { it: "Il Custode del Vuoto", en: "The Keeper of the Void" },
     accentColor: "#8a7a5a",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
+    filigranaBottomFade: true,
+    filigranaOpacity: 0.30,
+    bannerOffset: 55,
     title: {
       it: "Il Custode del Vuoto",
       en: "The Keeper of the Void"
