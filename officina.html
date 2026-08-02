@@ -71,6 +71,10 @@
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
 
+      <button class="mobile-audio-toggle" id="mobileAudioToggle" type="button" aria-pressed="false" aria-label="Attiva/disattiva audio di Mathemory">
+        <span class="mobile-audio-toggle__dot" aria-hidden="true"></span>
+      </button>
+
       <div class="card" id="mathemoryPin">
         <div class="pin"></div>
         <div class="corner-bl"></div><div class="corner-br"></div>
@@ -107,6 +111,9 @@
       </div>
     </aside>
   </div>
+
+  <audio id="eratosteneAudio" preload="none" loop
+    src="https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/eratostene_index.mp3"></audio>
 
   <script src="script-officina.js"></script>
 </body>
