@@ -36,11 +36,15 @@
     border:1px solid var(--line);
     transform:translate(-50%,-50%) rotate(-1.4deg) scale(1);
     box-shadow:0 18px 34px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.02) inset;
-    transition:transform .3s ease, box-shadow .3s ease;
+    transition:transform .3s ease, box-shadow .3s ease, opacity .3s ease;
     z-index:20; /* sempre sopra tutto: la stage-topbar sticky sta a
       z-index:10 in styles.css, quindi qui deve superarla per non
       finire sotto ai pulsanti se la card ci finisce sopra */
+    opacity:0; pointer-events:none; /* trasparente e non interagibile
+      finché non si preme "Mostra progetti": un hover su una card
+      invisibile non deve comunque attivare l'audio */
   }
+  .card.is-revealed{ opacity:1; pointer-events:auto; }
   /* Effetto "zoom in avanti": non solo si raddrizza, si ingrandisce
      leggermente e si solleva, sia da compatta che da espansa —
      spilla e angoli (fuori da .card__body, vedi sotto) restano
@@ -209,4 +213,34 @@
    riusa .music-toggle così com'è (stessa icona, stessa
    dimensione delle altre pagine).
    ============================================================ */
+
+/* ============================================================
+   Pulsante "Mostra progetti" — SOLO PC. La card parte trasparente
+   (vedi sopra); un hover da solo non basta come "gesto esplicito"
+   per far suonare l'audio in alcuni browser, quindi questo
+   pulsante fa da apripista: un click vero, dopo il quale l'hover
+   sulla card funziona normalmente. Solo "on", nessuno stato spento.
+   ============================================================ */
+.show-projects-btn{ display:none; }
+@media (hover:hover), (pointer:fine){
+  .show-projects-btn{
+    display:inline-block;
+    margin-top:36px;
+    padding:12px 28px;
+    background:var(--panel);
+    border:1px solid var(--text-faint);
+    border-radius:999px;
+    color:var(--text);
+    font-size:.88rem; font-weight:600;
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .show-projects-btn:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+  }
+  .show-projects-btn[aria-pressed="true"]{
+    color:var(--text-faint); border-color:var(--line); cursor:default;
+  }
+}
 

@@ -11,6 +11,7 @@ const STRINGS = {
     landingEyebrow: "Benvenuto nell'officina",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche i progetti che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
+    showProjects: "Mostra progetti",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index"
   },
@@ -19,6 +20,7 @@ const STRINGS = {
     landingEyebrow: "Welcome to the workshop",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects projects that live elsewhere: games and tools in progress, linked from here.",
+    showProjects: "Show projects",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index"
   }
@@ -32,6 +34,7 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   eratosteneAudio: document.getElementById("eratosteneAudio"),
   mathemoryPin: document.getElementById("mathemoryPin"),
+  showProjectsBtn: document.getElementById("showProjectsBtn"),
   layout: document.querySelector(".layout"),
   screenPrevBtn: document.getElementById("screenPrevBtn"),
   screenNextBtn: document.getElementById("screenNextBtn"),
@@ -89,6 +92,19 @@ if(window.matchMedia("(hover:hover)").matches){
   el.mathemoryPin.addEventListener("mouseleave", () => {
     el.eratosteneAudio.pause();
   });
+
+  // La card parte trasparente: un semplice hover non è un gesto
+  // abbastanza "esplicito" per alcuni browser, che bloccano
+  // comunque l'audio finché non c'è un click vero da qualche
+  // parte sulla pagina. Questo pulsante lo fornisce. Solo "on":
+  // una volta rivelata la card, resta rivelata — nessuna logica
+  // di spegnimento.
+  if(el.showProjectsBtn){
+    el.showProjectsBtn.addEventListener("click", () => {
+      el.mathemoryPin.classList.add("is-revealed");
+      el.showProjectsBtn.setAttribute("aria-pressed", "true");
+    });
+  }
 }
 
 if(mobileBreakpoint.matches && el.layout){
