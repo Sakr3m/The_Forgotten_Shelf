@@ -175,7 +175,7 @@
   .card.card--mobile{
     display:block;
     position:relative;
-    top:-25px;
+    top:-5px;
     width:min(77.9vw, 285px);
     transform:rotate(0deg);
   }

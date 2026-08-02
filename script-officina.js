@@ -114,16 +114,27 @@ if(mobileBreakpoint.matches && el.layout){
     syncMobileAudio();
   }
 
-  // Carosello "a cerchio": da qualunque pannello di Mathemory,
-  // premere una freccia (destra o sinistra) torna sempre alla home;
-  // dalla home, ogni freccia va verso il proprio Mathemory. Così
-  // andando ripetutamente nella stessa direzione si alterna
-  // all'infinito Home->Mathemory->Home->Mathemory->...
+  // Carosello "a cerchio": premendo la STESSA freccia che ha
+  // portato su un Mathemory, si continua nella stessa direzione
+  // (salto istantaneo, invisibile, al pannello gemello — contenuto
+  // identico — poi scorrimento morbido verso la home dall'altro
+  // lato) invece di tornare indietro. Premendo la freccia opposta,
+  // si torna semplicemente indietro verso la home.
+  function jumpThenGoHome(mirrorIndex){
+    currentScreen = mirrorIndex;
+    el.layout.scrollTo({ left: mirrorIndex * window.innerWidth, behavior: "instant" });
+    requestAnimationFrame(() => goToScreen(SCREEN_HOME));
+  }
+
   el.screenPrevBtn.addEventListener("click", () => {
-    goToScreen(currentScreen === SCREEN_HOME ? 0 : SCREEN_HOME);
+    if(currentScreen === SCREEN_HOME) goToScreen(0);
+    else if(currentScreen === 0) jumpThenGoHome(2);
+    else goToScreen(SCREEN_HOME);
   });
   el.screenNextBtn.addEventListener("click", () => {
-    goToScreen(currentScreen === SCREEN_HOME ? 2 : SCREEN_HOME);
+    if(currentScreen === SCREEN_HOME) goToScreen(2);
+    else if(currentScreen === 2) jumpThenGoHome(0);
+    else goToScreen(SCREEN_HOME);
   });
 
   el.mobileAudioBtns.forEach(btn => {
