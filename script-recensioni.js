@@ -6,7 +6,7 @@
 
 const STRINGS = {
   it: {
-    brand: "Recensioni",
+    brand: "Diari di Gioco",
     landingEyebrow: "Benvenuto nelle recensioni",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche impressioni oneste sui giochi che ho giocato — completati, platinati o amati senza motivo — senza pretese di essere una guida.",
@@ -20,7 +20,7 @@ const STRINGS = {
     gateSideToggleOn: "Apri il cancello da destra"
   },
   en: {
-    brand: "Reviews",
+    brand: "Game Diaries",
     landingEyebrow: "Welcome to the reviews",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects honest impressions on the games I've played — completed, platinumed, or loved for no good reason — with no pretense of being a guide.",

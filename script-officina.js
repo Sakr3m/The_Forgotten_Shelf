@@ -7,7 +7,7 @@
 
 const STRINGS = {
   it: {
-    brand: "Officina",
+    brand: "L'Officina Grezza",
     landingEyebrow: "Benvenuto nell'officina",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche i progetti personali che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
@@ -16,7 +16,7 @@ const STRINGS = {
     backToIndexLabel: "Torna all'index"
   },
   en: {
-    brand: "Workshop",
+    brand: "The Raw Workshop",
     landingEyebrow: "Welcome to the workshop",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects personal projects that live elsewhere: games and tools in progress, linked from here.",

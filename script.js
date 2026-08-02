@@ -4,7 +4,7 @@
 
 const STRINGS = {
   it: {
-    brand: "Timeline",
+    brand: "La Traccia del Tempo",
     sidebarEyebrow: "Libreria Timeline",
     landingEyebrow: "Benvenuto nell'archivio\nTimeline",
     landingTitle: "The Forgotten Shelf",
@@ -19,7 +19,7 @@ const STRINGS = {
     timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale"
   },
   en: {
-    brand: "Timeline",
+    brand: "The Trace of Time",
     sidebarEyebrow: "Timeline Library",
     landingEyebrow: "Welcome to the\nTimeline archive",
     landingTitle: "The Forgotten Shelf",

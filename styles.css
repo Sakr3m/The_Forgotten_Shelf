@@ -814,6 +814,17 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      solo il colore pieno — più pulito su schermo piccolo. */
   body[data-state="landing"]{ background:var(--bg); }
   body[data-state="entry"]{ background:var(--bg); }
+  /* Brand più piccolo e su più righe in vista voce: senza, un
+     titolo lungo (come i nuovi nomi delle pagine) sborda e finisce
+     addosso ai pulsanti a destra. Serve soprattutto a timeline.html
+     (che usa lo stato "game", non "entry" come le altre pagine, e
+     non ha un CSS proprio con questa regola) — qui il fallback
+     condiviso, che le altre pagine comunque sovrascrivono con la
+     propria versione più su misura. */
+  body[data-state="entry"] .brand-text,
+  body[data-state="game"] .brand-text{
+    font-size:.62rem; line-height:1.15; white-space:pre-line;
+  }
 
   /* Freccette animate che suggeriscono lo swipe verso la colonna
      laterale — solo nelle direzioni dove esiste davvero una colonna

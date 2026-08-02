@@ -4,7 +4,7 @@
 
 const STRINGS = {
   it: {
-    brand: "Teorie &\nStorie Nascoste",
+    brand: "Il Filo Nascosto",
     sidebarEyebrow: "Teorie",
     railLabel: "Storie Nascoste",
     landingEyebrow: "Benvenuto nell'archivio\ndi storie nascoste e teorie",
@@ -17,7 +17,7 @@ const STRINGS = {
     backToIndexLabel: "Torna all'index"
   },
   en: {
-    brand: "Theories &\nHidden Stories",
+    brand: "The Hidden Thread",
     sidebarEyebrow: "Theories",
     railLabel: "Hidden Stories",
     landingEyebrow: "Welcome to the archive\nof hidden stories and theories",
