@@ -441,8 +441,14 @@ el.trackSkipBtn.addEventListener("click", advanceTrack);
 // (non solo mobile — vale anche cambiando scheda su desktop).
 // Niente ripresa automatica al ritorno.
 // ---------------------------------------------------------
+let musicWasPlayingBeforeHidden = false;
 document.addEventListener("visibilitychange", () => {
-  if(document.hidden) el.bgMusic.pause();
+  if(document.hidden){
+    musicWasPlayingBeforeHidden = !el.bgMusic.paused;
+    el.bgMusic.pause();
+  } else if(musicWasPlayingBeforeHidden){
+    el.bgMusic.play().catch(() => {});
+  }
 });
 
 el.bgMusic.volume = parseFloat(el.volumeSlider.value);

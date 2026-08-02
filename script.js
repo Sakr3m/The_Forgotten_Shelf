@@ -531,6 +531,19 @@ function renderTitlePanel(){
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
     watermark.style.backgroundSize = g.watermarkSize || "";
     watermark.style.backgroundPosition = g.watermarkPosition || "";
+    if(g.watermarkBottomFade){
+      // Combina la sfumatura orizzontale di sempre con una verticale
+      // in più, verso il basso: ammorbidisce il taglio netto in
+      // fondo all'immagine invece di lasciarlo di scatto.
+      const fadeMask = "linear-gradient(90deg, transparent, black 35%), linear-gradient(180deg, black 75%, transparent)";
+      watermark.style.webkitMaskImage = fadeMask; /* fallback Safari piu' vecchie senza mask-image non prefissata */
+      watermark.style.maskImage = fadeMask;
+      watermark.style.maskComposite = "intersect";
+    } else {
+      watermark.style.webkitMaskImage = "";
+      watermark.style.maskImage = "";
+      watermark.style.maskComposite = "";
+    }
   } else if(watermark){
     watermark.remove();
   }
@@ -693,8 +706,14 @@ el.trackSkipBtn.addEventListener("click", advanceTrack);
 // (non solo mobile — vale anche cambiando scheda su desktop).
 // Niente ripresa automatica al ritorno.
 // ---------------------------------------------------------
+let musicWasPlayingBeforeHidden = false;
 document.addEventListener("visibilitychange", () => {
-  if(document.hidden) el.bgMusic.pause();
+  if(document.hidden){
+    musicWasPlayingBeforeHidden = !el.bgMusic.paused;
+    el.bgMusic.pause();
+  } else if(musicWasPlayingBeforeHidden){
+    el.bgMusic.play().catch(() => {});
+  }
 });
 
 // ---------------------------------------------------------

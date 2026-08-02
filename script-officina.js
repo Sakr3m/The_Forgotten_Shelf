@@ -124,6 +124,14 @@ if(mobileBreakpoint.matches && el.layout){
     }
   }
 
+  // Ripresa al ritorno sulla scheda: la pausa la fa già il listener
+  // globale qui sopra, qui basta ri-sincronizzare in base allo stato
+  // attuale (mobileAudioOn + schermata corrente), che già sa da solo
+  // se in quel momento dovrebbe suonare o no.
+  document.addEventListener("visibilitychange", () => {
+    if(!document.hidden) syncMobileAudio();
+  });
+
   // Cambio schermata SOLO tramite queste due funzioni, chiamate
   // dai pulsanti freccia — .layout non è più scorrevole col dito
   // (touch-action:none in CSS), quindi questa è l'unica via.
