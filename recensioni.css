@@ -15,10 +15,14 @@
 }
 
 /* ============================================================
-   Il "cancello" — pulsante a sinistra sempre visibile (anche a
-   tendina aperta, serve anche per richiuderla) e la tendina vera
-   e propria, che scende dall'alto coprendo la home fino a ~78%
-   dell'altezza dello stage, "apertura elettrica" con transizione
+   Il "cancello" — una tendina larga l'80% dello stage, ancorata al
+   margine sinistro, che si apre scorrendo orizzontalmente da
+   sinistra (translateX, non un semplice allargamento) partendo da
+   poco sotto la riga dei pulsanti in alto. Il pulsante che la
+   apre/chiude è suo figlio nel markup: eredita lo stesso transform,
+   quindi si muove insieme a lei (resta al margine sinistro da
+   chiusa, arriva al bordo destro della tendina da aperta) senza
+   bisogno di sincronizzarli a mano. "Apertura elettrica": transizione
    lenta e meccanica invece dello scatto veloce usato altrove nel
    sito. Solo desktop per ora.
    ============================================================ */
@@ -26,16 +30,28 @@
 .reviews-gate{ display:none; }
 
 @media (hover:hover), (pointer:fine){
+  .reviews-gate{
+    display:block;
+    position:absolute; top:68px; left:0; bottom:0;
+    width:80%;
+    background:var(--bg);
+    border-right:1px solid var(--line);
+    box-shadow:20px 0 40px rgba(0,0,0,.5);
+    z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
+      i pulsanti in alto restano sempre usabili anche a tendina aperta */
+    transform:translateX(-100%);
+    transition:transform .55s cubic-bezier(.4,0,.2,1);
+  }
+  .reviews-gate.is-open{ transform:translateX(0); }
+
   .gate-handle{
     display:flex; align-items:center; justify-content:center;
-    position:absolute; left:0; top:50%; transform:translateY(-50%);
+    position:absolute; left:100%; top:50%; transform:translateY(-50%);
     width:34px; height:64px;
     background:var(--panel); border:1px solid var(--line); border-left:none;
     border-radius:0 8px 8px 0;
     color:var(--text-dim);
     cursor:pointer;
-    z-index:15; /* sempre sopra tutto (topbar compresa, z-index:10):
-      deve restare cliccabile anche a tendina aperta, per richiuderla */
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
   .gate-handle:hover{ color:var(--cyan); border-color:var(--cyan); }
@@ -45,22 +61,9 @@
   }
   .gate-handle[aria-expanded="true"] .gate-handle__arrow{ transform:rotate(180deg); }
 
-  .reviews-gate{
-    display:block;
-    position:absolute; top:0; left:0; right:0;
-    height:0; overflow:hidden;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
-    box-shadow:0 20px 40px rgba(0,0,0,.5);
-    z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
-      i pulsanti in alto restano sempre usabili anche a tendina aperta */
-    transition:height .55s cubic-bezier(.4,0,.2,1);
-  }
-  .reviews-gate.is-open{ height:78%; }
-
   .reviews-grid{
     height:100%; overflow-y:auto;
-    padding:80px 40px 40px;
+    padding:32px 40px 40px;
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
     gap:20px;
