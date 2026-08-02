@@ -799,8 +799,6 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
    due pannelli affiancati a schermo intero, si passa dall'uno
    all'altro scorrendo orizzontalmente (scroll-snap nativo).
    ============================================================ */
-.mobile-topbar__hamburger{ display:none; }
-.sidebar-backdrop{ display:none; }
 
 /* ============================================================
    Mobile (phone) redesign — scoped entirely to this breakpoint,
