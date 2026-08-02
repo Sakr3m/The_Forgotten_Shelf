@@ -41,9 +41,28 @@
     }
   }
 
+  /* Switch lingua — stessa forma a pillola delle altre pagine, ma
+     con la palette propria di questa pagina (ambra/crema) invece
+     del ciano usato altrove, per restare coerente con lo stile
+     già presente qui. Angolo in alto a destra, sempre visibile. */
+  .lang-switch{
+    position:fixed; top:24px; right:24px; z-index:20;
+    display:flex; align-items:center; gap:6px;
+    padding:9px 14px;
+    border:1px solid #a9863f;
+    background:#14161b;
+    border-radius:999px;
+    font-size:.78rem; font-weight:600;
+    cursor:pointer;
+    transition:border-color .2s ease;
+  }
+  .lang-option{ color:#6b6b6b; padding:2px 3px; transition:color .2s ease; }
+  .lang-option.is-active{ color:#c7a25c; }
+  .lang-sep{ color:#2a2e35; }
+
   /* Stesso blocco orientamento orizzontale delle altre pagine (qui
-     non condivide styles.css, quindi ripetuto): niente switch
-     lingua su questa pagina, testo italiano fisso. */
+     non condivide styles.css, quindi ripetuto), ora bilingue come
+     nelle altre pagine (html[lang] è lo stesso meccanismo condiviso). */
   @media (hover:none) and (pointer:coarse) and (orientation:landscape){
     body::before{
       content:"Ruota il dispositivo in verticale per continuare.";
@@ -54,16 +73,40 @@
       font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-size:1rem; line-height:1.6;
     }
+    html[lang="en"] body::before{
+      content:"Please rotate your device back to portrait to continue.";
+    }
   }
 </style>
 </head>
 <body>
+  <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
+    <span class="lang-option is-active" data-lang-option="it">IT</span>
+    <span class="lang-sep">/</span>
+    <span class="lang-option" data-lang-option="en">EN</span>
+  </button>
+
   <div class="entries">
-    <a class="entry" href="timeline.html">Timeline</a>
-    <a class="entry" href="storie.html">Storie & Teorie</a>
-    <a class="entry" href="racconti.html">Racconti</a>
-    <a class="entry" href="officina.html">Officina</a>
-    <a class="entry" href="recensioni.html">Recensioni</a>
+    <a class="entry" href="timeline.html" data-it="Timeline" data-en="Timeline">Timeline</a>
+    <a class="entry" href="storie.html" data-it="Storie & Teorie" data-en="Theories & Hidden Stories">Storie & Teorie</a>
+    <a class="entry" href="racconti.html" data-it="Racconti" data-en="Short Stories & Books">Racconti</a>
+    <a class="entry" href="officina.html" data-it="Officina" data-en="Workshop">Officina</a>
+    <a class="entry" href="recensioni.html" data-it="Recensioni" data-en="Reviews">Recensioni</a>
   </div>
+
+  <script>
+    const langSwitch = document.getElementById("langSwitch");
+    let lang = "it";
+    langSwitch.addEventListener("click", () => {
+      lang = lang === "it" ? "en" : "it";
+      document.documentElement.lang = lang;
+      document.querySelectorAll(".entry").forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+      langSwitch.querySelectorAll(".lang-option").forEach(opt => {
+        opt.classList.toggle("is-active", opt.dataset.langOption === lang);
+      });
+    });
+  </script>
 </body>
 </html>
