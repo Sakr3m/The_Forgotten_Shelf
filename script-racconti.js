@@ -435,6 +435,23 @@ el.bgMusic.addEventListener("loadedmetadata", () => {
 });
 el.trackSkipBtn.addEventListener("click", advanceTrack);
 
+// ---------------------------------------------------------
+// Standby/scheda in background: la musica va in pausa (non solo
+// mobile — vale anche cambiando scheda su desktop) e riprende da
+// sola, dallo stesso punto, quando il dispositivo/la scheda torna
+// attivo. Non tocca lo stato "acceso/spento" scelto dall'utente:
+// se la musica non stava suonando, resta spenta al ritorno.
+// ---------------------------------------------------------
+let musicWasPlayingBeforeHidden = false;
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden){
+    musicWasPlayingBeforeHidden = !el.bgMusic.paused;
+    el.bgMusic.pause();
+  } else if(musicWasPlayingBeforeHidden){
+    el.bgMusic.play().catch(() => {});
+  }
+});
+
 el.bgMusic.volume = parseFloat(el.volumeSlider.value);
 el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
