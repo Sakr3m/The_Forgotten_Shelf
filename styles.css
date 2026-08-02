@@ -1048,3 +1048,30 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 }
 
 :focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+
+/* ============================================================
+   Blocco orientamento orizzontale su mobile — stesso escamotage
+   usato da Mathemory: un messaggio a schermo intero che chiede di
+   ruotare il dispositivo, invece di riadattare tutto il layout
+   mobile anche per l'orizzontale. Puro CSS (body::before), niente
+   HTML da aggiungere pagina per pagina: vale automaticamente su
+   ogni pagina presente e futura che carica questo file. Bilingue
+   via html[lang], il meccanismo che TUTTE le pagine impostano
+   davvero (document.documentElement.lang) — non body[data-lang],
+   che solo alcune pagine impostano anche loro, di riflesso.
+   ============================================================ */
+@media (hover:none) and (pointer:coarse) and (orientation:landscape){
+  body::before{
+    content:"Ruota il dispositivo in verticale per continuare.";
+    position:fixed; inset:0; z-index:9999;
+    display:flex; align-items:center; justify-content:center;
+    padding:40px; text-align:center;
+    background:var(--bg); color:var(--text);
+    font-family:'Inter', -apple-system, sans-serif;
+    font-size:1rem; line-height:1.6;
+  }
+  html[lang="en"] body::before{
+    content:"Please rotate your device back to portrait to continue.";
+  }
+}
+
