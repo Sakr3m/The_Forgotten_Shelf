@@ -162,6 +162,7 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.pageHeaderBanner.style.backgroundPosition = entry.bannerPosition || "";
   el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
+  el.entryWatermark.style.opacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : "";
   if(entry.filigranaBottomFade){
     // Combina la sfumatura orizzontale di sempre con una verticale
     // in più, verso il basso: stessa tecnica usata per la filigrana
