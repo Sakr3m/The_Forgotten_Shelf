@@ -85,6 +85,7 @@ if(window.matchMedia("(hover:hover)").matches){
 if(mobileBreakpoint.matches && el.mobileAudioToggle){
   let mobileAudioOn = true; // sempre acceso appena si arriva sul pannello
   let mathemoryPanelVisible = false;
+  let leftVisible = false, rightVisible = false;
 
   function setToggleUI(){
     el.mobileAudioToggle.setAttribute("aria-pressed", String(mobileAudioOn));
@@ -107,13 +108,19 @@ if(mobileBreakpoint.matches && el.mobileAudioToggle){
     syncMobileAudio();
   });
 
-  const panelObserver = new IntersectionObserver(() => {
-    const anyVisible = [el.mathemoryPanelLeft, el.mathemoryPanelRight]
-      .filter(Boolean)
-      .some(panel => {
-        const r = panel.getBoundingClientRect();
-        return r.width > 0 && r.left < window.innerWidth * 0.5 && r.right > window.innerWidth * 0.5;
-      });
+  // Uso solo entry.isIntersecting/intersectionRatio, calcolati
+  // dal browser contro il viewport reale — niente più
+  // getBoundingClientRect()/window.innerWidth ricalcolati a mano:
+  // su mobile vero 100vw (larghezza dei pannelli) e innerWidth
+  // possono non coincidere esattamente, ed è lì che il calcolo
+  // manuale sbagliava, lasciando il pulsante visibile sulla home.
+  const panelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const isVisible = entry.intersectionRatio >= 0.5;
+      if(entry.target === el.mathemoryPanelLeft) leftVisible = isVisible;
+      if(entry.target === el.mathemoryPanelRight) rightVisible = isVisible;
+    });
+    const anyVisible = leftVisible || rightVisible;
     const wasVisible = mathemoryPanelVisible;
     mathemoryPanelVisible = anyVisible;
     // Arrivo sul pannello (non ci si era prima): sempre acceso, a
