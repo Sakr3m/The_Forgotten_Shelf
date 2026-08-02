@@ -19,7 +19,7 @@ const RACCONTI = {
     gameLabel: { it: "Cinere", en: "Cinere" },
     accentColor: "#9a958c",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Banner.jpg",
-    bannerOffset: 75,
+    bannerOffset: 70,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Filigrana.jpg",
     title: {

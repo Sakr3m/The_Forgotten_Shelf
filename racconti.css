@@ -378,7 +378,7 @@ body[data-state="entry"] .landing{ display:none; }
     background-size:contain; background-repeat:no-repeat; background-position:center;
     -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
     mask-image:linear-gradient(90deg, transparent, black 35%);
-    opacity:.28;
+    opacity:.4;
     pointer-events:none;
     z-index:0;
   }
