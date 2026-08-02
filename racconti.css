@@ -378,7 +378,11 @@ body[data-state="entry"] .landing{ display:none; }
       bordo inferiore reale di #pageHeader (banner), misurato — prima
       partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
       al banner e al testo sotto, invece di fermarsi li' */
-    background-size:cover; background-repeat:no-repeat; background-position:55% top;
+    background-size:150% 150%; background-repeat:no-repeat; background-position:55% top; /* più
+      grande del minimo "cover", cosi' lo spostamento orizzontale ha
+      un margine reale su cui muoversi (con "cover" da solo, se le
+      proporzioni immagine/riquadro sono simili, il margine è quasi
+      nullo e la posizione non sposta quasi nulla visivamente) */
     -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
     mask-image:linear-gradient(90deg, transparent, black 35%);
     opacity:.35;
