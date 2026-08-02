@@ -176,6 +176,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
    centrato (differenza rispetto a storie-teorie.css). */
 .entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
 .entry-content{
+  position:relative; z-index:1;
   opacity:0; animation:fadeUp .45s var(--ease) forwards;
   display:flex; flex-direction:column; align-items:center; text-align:center;
 }
@@ -312,15 +313,23 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Niente banner in questa vista. */
+  /* Banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:65px; left:0; right:0; height:135px;
+    position:absolute; top:70px; left:0; right:0; height:130px;
     margin:0; padding:0; border:none;
     overflow:hidden;
     z-index:1;
   }
-  body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
+  body[data-state="entry"] #pageHeaderBanner{
+    background-position:center center;
+    /* Niente stretch: l'immagine si ingrandisce (mantenendo le sue
+       proporzioni) finché il bordo sopra e quello sotto toccano
+       esattamente i bordi del box; quello che sporge a destra/
+       sinistra viene tagliato dall'overflow:hidden già presente
+       su #pageHeader. Stessa correzione già fatta su storie.html. */
+    background-size:auto 100%;
+  }
   body[data-state="entry"] .game-header__banner-overlay{
     background:rgba(10,14,23,.45);
   }
@@ -350,4 +359,27 @@ body[data-state="entry"] .landing{ display:none; }
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
   body[data-state="entry"] .stage{ padding-top:60px; }
+}
+
+/* ============================================================
+   Filigrana — SOLO PC, stessa tecnica usata per il canone di Doom
+   su timeline.html (.title-watermark): grande immagine di sfondo,
+   sfumata verso il testo, molto trasparente, dietro al contenuto
+   (z-index:0, .entry-content sopra a z-index:1) e non interagibile.
+   Qui non c'è la dipendenza da --rail-width di Timeline (nessuna
+   colonna laterale su questa pagina in vista voce), quindi ancorata
+   direttamente al bordo destro della finestra.
+   ============================================================ */
+.entry-watermark{ display:none; }
+@media (hover:hover), (pointer:fine){
+  .entry-watermark{
+    display:block;
+    position:fixed; top:0; bottom:0; right:0; width:42vw;
+    background-size:contain; background-repeat:no-repeat; background-position:center;
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
+    mask-image:linear-gradient(90deg, transparent, black 35%);
+    opacity:.16;
+    pointer-events:none;
+    z-index:0;
+  }
 }

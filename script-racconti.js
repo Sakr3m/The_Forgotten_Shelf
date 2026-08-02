@@ -49,6 +49,7 @@ const el = {
   entryPanel: document.getElementById("entryPanel"),
   entryContent: document.getElementById("entryContent"),
   pageHeaderBanner: document.getElementById("pageHeaderBanner"),
+  entryWatermark: document.getElementById("entryWatermark"),
   bgMusic: document.getElementById("bgMusic"),
   trackInfo: document.getElementById("trackInfo"),
   trackTitle: document.getElementById("trackTitle"),
@@ -159,6 +160,7 @@ function renderEntry(){
   const isMobile = window.matchMedia("(hover:none) and (pointer:coarse)").matches;
   const bannerUrl = (isMobile && entry.mobileBanner) ? entry.mobileBanner : entry.banner;
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
+  el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
