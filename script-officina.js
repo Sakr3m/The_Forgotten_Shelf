@@ -65,11 +65,10 @@ el.brandBtn.addEventListener("click", () => {});
 const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
 const stageEl = document.getElementById("stage");
 
-// Scheda del browser in background (o dispositivo in standby): la
-// musica va sempre in pausa, che sia l'anteprima hover PC o quella
-// di sottofondo mobile — stesso elemento audio in entrambi i casi.
-// La ripresa per il caso mobile è gestita più sotto (dipende dallo
-// stato "schermata corrente", non ha senso qui fuori).
+// Scheda del browser non in primo piano (o dispositivo in standby):
+// la musica va sempre in pausa, che sia l'anteprima hover PC o
+// quella di sottofondo mobile — stesso elemento audio in entrambi
+// i casi. Niente ripresa automatica al ritorno.
 document.addEventListener("visibilitychange", () => {
   if(document.hidden) el.eratosteneAudio.pause();
 });
@@ -110,30 +109,6 @@ if(mobileBreakpoint.matches && el.layout){
     }
   }
 
-  // Pulsante volume a metà strada ESATTA tra la linea dell'header e
-  // il bordo alto della card: due punti senza una relazione fissa
-  // esprimibile in solo CSS (la posizione della card dipende
-  // dall'altezza reale dello schermo, via centraggio flex).
-  function positionMobileAudioBtn(){
-    const topbar = document.querySelector(".stage-topbar");
-    if(!topbar) return;
-    const topbarBottom = topbar.getBoundingClientRect().bottom;
-    el.mobileAudioBtns.forEach(btn => {
-      const card = btn.closest(".mathemory-panel")?.querySelector(".card--mobile");
-      if(!card) return;
-      const cardTop = card.getBoundingClientRect().top;
-      btn.style.top = ((topbarBottom + cardTop) / 2).toFixed(1) + "px";
-    });
-  }
-  window.addEventListener("resize", positionMobileAudioBtn);
-
-  // Riprende (se pertinente) quando si torna su questa scheda del
-  // browser: la pausa la fa già il listener globale qui sopra, qui
-  // basta ri-sincronizzare in base allo stato attuale.
-  document.addEventListener("visibilitychange", () => {
-    if(!document.hidden) syncMobileAudio();
-  });
-
   // Cambio schermata SOLO tramite queste due funzioni, chiamate
   // dai pulsanti freccia — .layout non è più scorrevole col dito
   // (touch-action:none in CSS), quindi questa è l'unica via.
@@ -145,7 +120,6 @@ if(mobileBreakpoint.matches && el.layout){
     if(currentScreen !== SCREEN_HOME) mobileAudioOn = true;
     setAudioBtnsUI();
     syncMobileAudio();
-    positionMobileAudioBtn();
   }
 
   // Carosello "a cerchio": premendo la STESSA freccia che ha

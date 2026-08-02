@@ -196,16 +196,16 @@
      elemento a sé — bottom:100%+margin lo ancora al bordo superiore
      della card e lo spinge su, invece di un top negativo fisso
      (funziona a prescindere dall'altezza reale del pulsante). */
+  /* Il pulsante volume adesso è dentro la card (nel DOM): esiste
+     solo lì, quindi non può mai comparire sulla home. Ancorato al
+     bordo superiore della card e spinto su di 40px (20 + i 20
+     ulteriori richiesti) — bottom:100%+margin funziona a
+     prescindere dall'altezza reale del pulsante. */
   .mobile-audio-btn{
-    position:fixed; left:50%;
-    transform:translate(-50%, -50%);
+    position:absolute; bottom:100%; left:50%;
+    transform:translateX(-50%);
+    margin-bottom:40px;
     z-index:2;
-    /* "top" reale calcolato via JS (vedi script-officina.js,
-       positionMobileAudioBtn): deve stare esattamente a metà
-       strada tra la linea dell'header e il bordo alto della card,
-       due punti che non hanno una relazione fissa/geometrica tra
-       loro esprimibile in solo CSS (la posizione della card dipende
-       dall'altezza reale dello schermo). */
   }
 }
 
