@@ -259,9 +259,9 @@ body[data-state="entry"] .landing{ display:none; }
   /* Niente banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:60px; left:0; right:0; height:150px; /* box
-      ingrandito: +5px sopra (top 65->60), +10px sotto (135->150px
-      di altezza totale) */
+    position:absolute; top:70px; left:0; right:0; height:130px; /* lato
+      sopra sceso di 10px (60->70), lato sotto salito di 10px
+      (210->200): altezza risultante 200-70=130px */
     margin:0; padding:0; border:none;
     overflow:hidden;
     z-index:1;

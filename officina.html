@@ -71,8 +71,9 @@
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
 
-      <button class="mobile-audio-toggle" id="mobileAudioToggle" type="button" aria-pressed="false" aria-label="Attiva/disattiva audio di Mathemory">
-        <span class="mobile-audio-toggle__dot" aria-hidden="true"></span>
+      <button class="music-toggle" id="mobileAudioToggle" type="button" aria-label="Attiva/disattiva audio di Mathemory" aria-pressed="true" hidden>
+        <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
       </button>
 
       <div class="card" id="mathemoryPin">

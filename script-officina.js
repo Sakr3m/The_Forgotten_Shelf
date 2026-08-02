@@ -83,10 +83,17 @@ if(window.matchMedia("(hover:hover)").matches){
 }
 
 if(mobileBreakpoint.matches && el.mobileAudioToggle){
-  let mobileAudioOn = false;
+  let mobileAudioOn = true; // sempre acceso appena si arriva sul pannello
   let mathemoryPanelVisible = false;
 
+  function setToggleUI(){
+    el.mobileAudioToggle.setAttribute("aria-pressed", String(mobileAudioOn));
+  }
+
   function syncMobileAudio(){
+    // Visibile SOLO sui pannelli di Mathemory, mai sulla home — stesso
+    // "hidden" usato per questo stesso pulsante nelle altre pagine.
+    el.mobileAudioToggle.hidden = !mathemoryPanelVisible;
     if(mobileAudioOn && mathemoryPanelVisible){
       el.eratosteneAudio.play().catch(() => {});
     } else {
@@ -96,27 +103,31 @@ if(mobileBreakpoint.matches && el.mobileAudioToggle){
 
   el.mobileAudioToggle.addEventListener("click", () => {
     mobileAudioOn = !mobileAudioOn;
-    el.mobileAudioToggle.setAttribute("aria-pressed", String(mobileAudioOn));
+    setToggleUI();
     syncMobileAudio();
   });
 
-  const panelObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) mathemoryPanelVisible = true;
-    });
-    // Nessuno dei due pannelli Mathemory è abbastanza in vista: siamo
-    // altrove (es. sulla home).
+  const panelObserver = new IntersectionObserver(() => {
     const anyVisible = [el.mathemoryPanelLeft, el.mathemoryPanelRight]
       .filter(Boolean)
       .some(panel => {
         const r = panel.getBoundingClientRect();
         return r.width > 0 && r.left < window.innerWidth * 0.5 && r.right > window.innerWidth * 0.5;
       });
+    const wasVisible = mathemoryPanelVisible;
     mathemoryPanelVisible = anyVisible;
+    // Arrivo sul pannello (non ci si era prima): sempre acceso, a
+    // prescindere da come l'avevi lasciato l'ultima volta.
+    if(anyVisible && !wasVisible){
+      mobileAudioOn = true;
+      setToggleUI();
+    }
     syncMobileAudio();
   }, { threshold: [0, 0.5, 1] });
 
   [el.mathemoryPanelLeft, el.mathemoryPanelRight].filter(Boolean).forEach(panel => panelObserver.observe(panel));
+
+  setToggleUI();
 }
 
 paintStaticText();

@@ -132,7 +132,7 @@
   .card.card--mobile{
     display:block;
     position:relative;
-    top:-35px;
+    top:-45px;
     width:min(77.9vw, 285px);
     transform:rotate(0deg);
   }
@@ -157,25 +157,22 @@
    attrezzature (titolo brano, skip) che il music-toggle ha
    altrove nel sito.
    ============================================================ */
-.mobile-audio-toggle{ display:none; }
+/* ============================================================
+   Audio Eratostene — su PC un'anteprima sonora in hover sulla
+   card; su mobile una musica di sottofondo che segue la
+   visualizzazione (vedi script-officina.js per la logica di
+   play/pausa in entrambi i casi). Il pulsante mobile riusa
+   .music-toggle così com'è (stessa icona, stessa dimensione delle
+   altre pagine) — qui solo il posizionamento fisso, che altrove è
+   dato dal contenitore .music-control/.volume-control che qui non
+   esiste. Visibile SOLO sui due pannelli di Mathemory (mostrato/
+   nascosto via JS con lo stesso "hidden" usato per questo
+   pulsante nelle altre pagine), mai sulla home.
+   ============================================================ */
 @media (hover:none) and (pointer:coarse){
-  .mobile-audio-toggle{
-    display:flex; align-items:center; justify-content:center;
-    position:fixed; top:118px; left:50%; transform:translateX(-50%);
+  #mobileAudioToggle{
+    position:fixed; top:108px; left:50%; transform:translateX(-50%);
     z-index:20;
-    width:30px; height:30px; padding:0;
-    border:1px solid var(--text-faint);
-    border-radius:50%;
-    background:var(--panel);
-  }
-  .mobile-audio-toggle__dot{
-    width:10px; height:10px; border-radius:50%;
-    background:var(--text-faint);
-    transition:background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-  }
-  .mobile-audio-toggle[aria-pressed="true"] .mobile-audio-toggle__dot{
-    background:#e8b64b;
-    box-shadow:0 0 8px color-mix(in srgb, #e8b64b 70%, transparent);
   }
 }
 
