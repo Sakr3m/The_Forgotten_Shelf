@@ -69,7 +69,9 @@
     height:100%; overflow-y:auto;
     padding:32px 40px 40px;
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns:repeat(7, 1fr); /* sempre 7 per riga, si
+      ridimensionano con lo spazio disponibile invece di andare a
+      capo prima; centrate per via del padding orizzontale simmetrico */
     gap:20px;
     align-content:start;
   }
