@@ -265,6 +265,9 @@ body[data-state="entry"] .landing{ display:none; }
     margin:0; padding:0; border:none;
     overflow:hidden;
     z-index:1;
+    outline:4px solid #ff2ec4; outline-offset:-2px; /* DEBUG TEMPORANEO:
+      contorno acceso per vedere a colpo d'occhio dove sta davvero
+      questo box sul dispositivo reale. Da togliere dopo la verifica. */
   }
   body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
   body[data-state="entry"] .game-header__banner-overlay{
