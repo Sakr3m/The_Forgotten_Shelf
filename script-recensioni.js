@@ -110,9 +110,18 @@ el.gateToggle.addEventListener("click", () => {
 // ---------------------------------------------------------
 if(el.gateSideToggle){
   el.gateSideToggle.addEventListener("click", () => {
-    const isLeft = el.reviewsGate.classList.toggle("side-left");
-    el.gateSideToggle.setAttribute("aria-pressed", String(isLeft));
-    el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
+    // Nasconde il cancello, cambia lato (il salto istantaneo di
+    // right/left avviene mentre è invisibile), poi lo rivela di
+    // nuovo — invece di far vedere lo scatto da un bordo all'altro.
+    el.reviewsGate.classList.add("is-switching");
+    setTimeout(() => {
+      const isLeft = el.reviewsGate.classList.toggle("side-left");
+      el.gateSideToggle.setAttribute("aria-pressed", String(isLeft));
+      el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
+      requestAnimationFrame(() => {
+        el.reviewsGate.classList.remove("is-switching");
+      });
+    }, 200);
   });
 }
 

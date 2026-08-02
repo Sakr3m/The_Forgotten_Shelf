@@ -44,9 +44,14 @@
     z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
       i pulsanti in alto restano sempre usabili anche a tendina aperta */
     transform:translateX(100%);
-    transition:transform .55s cubic-bezier(.4,0,.2,1);
+    transition:transform .55s cubic-bezier(.4,0,.2,1), opacity .2s ease;
   }
   .reviews-gate.is-open{ transform:translateX(0); }
+  /* Cambio lato (destra<->sinistra): per l'istante in cui la
+     posizione "salta" da un bordo all'altro (non è animabile,
+     right/left cambiano di scatto) il cancello diventa invisibile,
+     invece di far vedere il salto. Vedi script-recensioni.js. */
+  .reviews-gate.is-switching{ opacity:0; }
 
   /* Variante sinistra, attivata dal toggle sotto la scritta
      centrale: stesse proprietà ma specchiate. Il lato destro
@@ -147,7 +152,7 @@
 @media (hover:hover), (pointer:fine){
   .gate-side-toggle{
     display:inline-block;
-    margin-top:16px;
+    margin-top:32px;
     padding:12px 28px;
     background:var(--panel);
     border:1px solid var(--text-faint);
