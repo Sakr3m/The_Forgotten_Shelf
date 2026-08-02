@@ -191,16 +191,9 @@
   }
 
   /* Il pulsante volume adesso è dentro la card (nel DOM): esiste
-     solo lì, quindi non può mai comparire sulla home. Ma visivamente
-     galleggia staccato SOPRA la card, di almeno 20px, come fosse un
-     elemento a sé — bottom:100%+margin lo ancora al bordo superiore
-     della card e lo spinge su, invece di un top negativo fisso
-     (funziona a prescindere dall'altezza reale del pulsante). */
-  /* Il pulsante volume adesso è dentro la card (nel DOM): esiste
      solo lì, quindi non può mai comparire sulla home. Ancorato al
-     bordo superiore della card e spinto su di 40px (20 + i 20
-     ulteriori richiesti) — bottom:100%+margin funziona a
-     prescindere dall'altezza reale del pulsante. */
+     bordo superiore della card e spinto su di 40px — bottom:100%+
+     margin funziona a prescindere dall'altezza reale del pulsante. */
   .mobile-audio-btn{
     position:absolute; bottom:100%; left:50%;
     transform:translateX(-50%);
