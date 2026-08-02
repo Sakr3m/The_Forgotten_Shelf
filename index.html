@@ -22,12 +22,12 @@
     font-size:1.4rem;
     letter-spacing:.04em;
     padding:14px 28px;
-    border:1px solid #2a2e35;
+    border:1px solid #ffffff; /* bianco fisso, come i pulsanti nelle
+      home delle altre pagine (var(--cyan), che li' vale bianco) */
     border-radius:999px;
-    transition:border-color .2s ease, color .2s ease;
+    transition:color .2s ease;
   }
   a.entry:focus-visible{
-    border-color:#a9863f;
     color:#c7a25c;
   }
   /* Stesso criterio usato nel resto del sito: l'hover si attiva solo
@@ -36,7 +36,6 @@
      dopo un tap finché non se ne tocca un altro. */
   @media (hover:hover){
     a.entry:hover{
-      border-color:#a9863f;
       color:#c7a25c;
     }
   }
@@ -49,12 +48,12 @@
     position:fixed; top:24px; right:24px; z-index:20;
     display:flex; align-items:center; gap:6px;
     padding:9px 14px;
-    border:1px solid #a9863f;
+    border:1px solid #ffffff; /* bianco fisso, come lo switch lingua
+      nelle altre pagine (var(--cyan), che li' vale bianco) */
     background:#14161b;
     border-radius:999px;
     font-size:.78rem; font-weight:600;
     cursor:pointer;
-    transition:border-color .2s ease;
   }
   .lang-option{ color:#6b6b6b; padding:2px 3px; transition:color .2s ease; }
   .lang-option.is-active{ color:#c7a25c; }
