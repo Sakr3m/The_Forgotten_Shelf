@@ -374,7 +374,10 @@ body[data-state="entry"] .landing{ display:none; }
 @media (hover:hover), (pointer:fine){
   .entry-watermark{
     display:block;
-    position:fixed; top:0; bottom:0; right:0; width:42vw;
+    position:fixed; top:245px; bottom:0; right:0; width:42vw; /* 245px =
+      bordo inferiore reale di #pageHeader (banner), misurato — prima
+      partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
+      al banner e al testo sotto, invece di fermarsi li' */
     background-size:cover; background-repeat:no-repeat; background-position:top right;
     -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
     mask-image:linear-gradient(90deg, transparent, black 35%);
