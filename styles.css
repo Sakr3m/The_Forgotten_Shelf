@@ -920,7 +920,20 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     transform:translate(-50%, -50%);
   }
 
-  .landing{ margin-top:0; }
+  /* Testo della home centrato rispetto allo schermo intero (non più
+     in relazione alla barra in alto o alle freccette) — stessa
+     tecnica già usata su officina.html: posizionamento assoluto al
+     50%/50% di .stage (già position:relative di base), non più
+     centrato "nello spazio libero rimasto" via margin:auto in un
+     flex column, che lo spingeva verso l'alto per via del padding
+     asimmetrico sopra/sotto. Le freccette (.swipe-hint) non sono
+     toccate: restano dove sono sempre state. */
+  body[data-state="landing"] .landing{
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    width:calc(100% - 32px);
+    margin:0;
+  }
   .landing-title{ font-size:1.45rem; }
   .landing-eyebrow{ margin-top:10px; font-size:.7rem; max-width:220px; white-space:pre-line; }
   .landing-intro{ margin-top:24px; font-size:.92rem; }
