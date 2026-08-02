@@ -48,6 +48,17 @@
   }
   .reviews-gate.is-open{ transform:translateX(0); }
 
+  /* Variante sinistra, attivata dal toggle sotto la scritta
+     centrale: stesse proprietà ma specchiate. Il lato destro
+     resta il default. */
+  .reviews-gate.side-left{
+    right:auto; left:0;
+    border-left:none; border-right:1px solid var(--line);
+    box-shadow:20px 0 40px rgba(0,0,0,.5);
+    transform:translateX(-100%);
+  }
+  .reviews-gate.side-left.is-open{ transform:translateX(0); }
+
   .gate-handle{
     display:flex; align-items:center; justify-content:center;
     position:absolute; right:100%; top:50%; transform:translateY(-50%);
@@ -58,12 +69,22 @@
     cursor:pointer;
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
+  .reviews-gate.side-left .gate-handle{
+    right:auto; left:100%;
+    border-right:1px solid var(--line); border-left:none;
+    border-radius:0 8px 8px 0;
+  }
   .gate-handle:hover{ color:var(--cyan); border-color:var(--cyan); }
   .gate-handle__arrow{
     width:16px; height:16px;
     transition:transform .5s cubic-bezier(.4,0,.2,1);
   }
   .gate-handle[aria-expanded="true"] .gate-handle__arrow{ transform:rotate(180deg); }
+  /* Lato sinistro: la logica dell'icona si inverte (chiusa=ruotata,
+     aperta=non ruotata), perché ora "punta verso dove apre" è
+     l'opposto di prima. */
+  .reviews-gate.side-left .gate-handle:not([aria-expanded="true"]) .gate-handle__arrow{ transform:rotate(180deg); }
+  .reviews-gate.side-left .gate-handle[aria-expanded="true"] .gate-handle__arrow{ transform:rotate(0deg); }
 
   .reviews-grid{
     height:100%; overflow-y:auto;
@@ -115,4 +136,32 @@
     transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
   }
   .review-tile:hover .review-tile__title{ opacity:1; transform:translateY(0); }
+}
+
+/* ============================================================
+   Pulsante toggle lato del cancello — SOLO PC, sotto la scritta
+   centrale. Stile ripreso da "Mostra progetti" di Officina, ma qui
+   è un vero on/off (si può tornare indietro), non un solo "on".
+   ============================================================ */
+.gate-side-toggle{ display:none; }
+@media (hover:hover), (pointer:fine){
+  .gate-side-toggle{
+    display:inline-block;
+    margin-top:16px;
+    padding:12px 28px;
+    background:var(--panel);
+    border:1px solid var(--text-faint);
+    border-radius:999px;
+    color:var(--text);
+    font-size:.88rem; font-weight:600;
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .gate-side-toggle:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+  }
+  .gate-side-toggle[aria-pressed="true"]{
+    border-color:var(--cyan); color:var(--cyan);
+  }
 }

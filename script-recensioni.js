@@ -14,7 +14,10 @@ const STRINGS = {
     backToIndexLabel: "Torna all'index",
     gateToggleLabel: "Apri l'elenco delle recensioni",
     gateToggleLabelClose: "Chiudi l'elenco delle recensioni",
-    placeholderTile: "Titolo in arrivo"
+    placeholderTile: "Titolo in arrivo",
+    spoilerAlert: "Le recensioni possono contenere dettagli sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.",
+    gateSideToggleOff: "Apri il cancello da sinistra",
+    gateSideToggleOn: "Apri il cancello da destra"
   },
   en: {
     brand: "Reviews",
@@ -25,7 +28,10 @@ const STRINGS = {
     backToIndexLabel: "Back to index",
     gateToggleLabel: "Open the reviews list",
     gateToggleLabelClose: "Close the reviews list",
-    placeholderTile: "Title coming soon"
+    placeholderTile: "Title coming soon",
+    spoilerAlert: "Reviews may contain plot details, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
+    gateSideToggleOff: "Open the gate from the left",
+    gateSideToggleOn: "Open the gate from the right"
   }
 };
 
@@ -37,7 +43,8 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   gateToggle: document.getElementById("gateToggle"),
   reviewsGate: document.getElementById("reviewsGate"),
-  reviewsGrid: document.querySelector(".reviews-grid")
+  reviewsGrid: document.querySelector(".reviews-grid"),
+  gateSideToggle: document.getElementById("gateSideToggle")
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -53,6 +60,9 @@ function paintStaticText(){
   });
   const isOpen = el.gateToggle.getAttribute("aria-expanded") === "true";
   el.gateToggle.setAttribute("aria-label", isOpen ? t("gateToggleLabelClose") : t("gateToggleLabel"));
+
+  const isLeft = el.gateSideToggle.getAttribute("aria-pressed") === "true";
+  el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
 }
 
 el.langSwitch.addEventListener("click", () => {
@@ -91,5 +101,19 @@ el.gateToggle.addEventListener("click", () => {
     el.reviewsGrid.classList.remove("is-visible");
   }
 });
+
+// ---------------------------------------------------------
+// Toggle lato del cancello: destra di default, sinistra se
+// premuto. On/off vero (a differenza del pulsante "Mostra
+// progetti" di Officina, che è solo "on") — si può tornare
+// indietro. Solo desktop (su mobile è display:none via CSS).
+// ---------------------------------------------------------
+if(el.gateSideToggle){
+  el.gateSideToggle.addEventListener("click", () => {
+    const isLeft = el.reviewsGate.classList.toggle("side-left");
+    el.gateSideToggle.setAttribute("aria-pressed", String(isLeft));
+    el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
+  });
+}
 
 paintStaticText();
