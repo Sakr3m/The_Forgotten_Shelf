@@ -378,7 +378,7 @@ body[data-state="entry"] .landing{ display:none; }
       bordo inferiore reale di #pageHeader (banner), misurato — prima
       partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
       al banner e al testo sotto, invece di fermarsi li' */
-    background-size:cover; background-repeat:no-repeat; background-position:70% top;
+    background-size:cover; background-repeat:no-repeat; background-position:55% top;
     -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
     mask-image:linear-gradient(90deg, transparent, black 35%);
     opacity:.35;
