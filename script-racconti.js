@@ -162,6 +162,19 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.pageHeaderBanner.style.backgroundPosition = entry.bannerPosition || "";
   el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
+  if(entry.filigranaBottomFade){
+    // Combina la sfumatura orizzontale di sempre con una verticale
+    // in più, verso il basso: stessa tecnica usata per la filigrana
+    // di Dragon Quest su timeline.html.
+    const fadeMask = "linear-gradient(90deg, transparent, black 35%), linear-gradient(180deg, black 75%, transparent)";
+    el.entryWatermark.style.webkitMaskImage = fadeMask;
+    el.entryWatermark.style.maskImage = fadeMask;
+    el.entryWatermark.style.maskComposite = "intersect";
+  } else {
+    el.entryWatermark.style.webkitMaskImage = "";
+    el.entryWatermark.style.maskImage = "";
+    el.entryWatermark.style.maskComposite = "";
+  }
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
