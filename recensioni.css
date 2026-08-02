@@ -32,8 +32,12 @@
 @media (hover:hover), (pointer:fine){
   .reviews-gate{
     display:block;
-    position:absolute; top:68px; left:0; bottom:0;
-    width:80%;
+    /* position:fixed, non :absolute — cosi' "left:0" e' sempre il
+       vero bordo sinistro della FINESTRA, a qualunque risoluzione,
+       invece che del solo .stage (che e' spostato di 260px dal
+       trucco di allineamento condiviso con le altre pagine). */
+    position:fixed; top:68px; left:0; bottom:0;
+    width:85vw;
     background:var(--bg);
     border-right:1px solid var(--line);
     box-shadow:20px 0 40px rgba(0,0,0,.5);
