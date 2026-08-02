@@ -73,8 +73,17 @@
       ridimensionano con lo spazio disponibile invece di andare a
       capo prima; centrate per via del padding orizzontale simmetrico */
     gap:20px;
-    align-content:start;
+    align-content:center; /* centrate anche in verticale nel cancello,
+      finché il contenuto non riempie tutta l'altezza (quando saranno
+      troppe la barra di scorrimento comparirà sul lato sinistro,
+      perché il bordo destro del cancello è all'85vw, non al bordo
+      reale della finestra — di questo si terrà conto quando succederà) */
+    opacity:0; transition:opacity .4s ease; /* appaiono con un fade
+      solo a cancello già del tutto aperto (vedi script-recensioni.js),
+      non durante lo scorrimento orizzontale */
   }
+
+  .reviews-grid.is-visible{ opacity:1; }
 
   .review-tile{
     position:relative; display:block;
