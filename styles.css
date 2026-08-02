@@ -445,14 +445,15 @@ body[data-state="landing"] .index-link{ display:flex; }
   position:sticky; top:15px; z-index:4;
   background:var(--bg);
   display:flex; gap:24px; align-items:center;
-  padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
-    di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
-    l'altezza totale dell'header restano invariati */
+  padding:70px 28px 35px; /* box ingrandito: +5px sopra (65->70),
+    +10px sotto (25->35) rispetto a prima, cosi' anche i banner
+    (background-size:contain) hanno piu' spazio e si ingrandiscono
+    di conseguenza */
   margin-bottom:40px;
   border-bottom:1px solid var(--line);
   border-radius:var(--radius);
   overflow:hidden;
-  height:230px; max-height:230px;
+  height:245px; max-height:245px; /* 230px + 5px sopra + 10px sotto */
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
 .game-header__banner{
