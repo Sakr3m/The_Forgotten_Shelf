@@ -15,16 +15,16 @@
 }
 
 /* ============================================================
-   Il "cancello" — una tendina larga l'80% dello stage, ancorata al
-   margine sinistro, che si apre scorrendo orizzontalmente da
-   sinistra (translateX, non un semplice allargamento) partendo da
-   poco sotto la riga dei pulsanti in alto. Il pulsante che la
-   apre/chiude è suo figlio nel markup: eredita lo stesso transform,
-   quindi si muove insieme a lei (resta al margine sinistro da
-   chiusa, arriva al bordo destro della tendina da aperta) senza
-   bisogno di sincronizzarli a mano. "Apertura elettrica": transizione
-   lenta e meccanica invece dello scatto veloce usato altrove nel
-   sito. Solo desktop per ora.
+   Il "cancello" — una tendina larga l'85% dello schermo, ancorata al
+   margine DESTRO della finestra (come i pannelli laterali di Opera
+   GX e altri browser), che si apre scorrendo orizzontalmente da
+   destra verso sinistra, partendo da poco sotto la riga dei
+   pulsanti in alto. Il pulsante che la apre/chiude è suo figlio nel
+   markup: eredita lo stesso transform, quindi si muove insieme a
+   lei (resta al margine destro da chiusa, arriva al bordo sinistro
+   della tendina da aperta) senza bisogno di sincronizzarli a mano.
+   "Apertura elettrica": transizione lenta e meccanica invece dello
+   scatto veloce usato altrove nel sito. Solo desktop per ora.
    ============================================================ */
 .gate-handle{ display:none; }
 .reviews-gate{ display:none; }
@@ -32,28 +32,28 @@
 @media (hover:hover), (pointer:fine){
   .reviews-gate{
     display:block;
-    /* position:fixed, non :absolute — cosi' "left:0" e' sempre il
-       vero bordo sinistro della FINESTRA, a qualunque risoluzione,
-       invece che del solo .stage (che e' spostato di 260px dal
-       trucco di allineamento condiviso con le altre pagine). */
-    position:fixed; top:68px; left:0; bottom:0;
+    /* position:fixed, non :absolute — cosi' "right:0" e' sempre il
+       vero bordo destro della FINESTRA, a qualunque risoluzione,
+       invece che del solo .stage (che e' spostato dal trucco di
+       allineamento condiviso con le altre pagine). */
+    position:fixed; top:68px; right:0; bottom:0;
     width:85vw;
     background:var(--bg);
-    border-right:1px solid var(--line);
-    box-shadow:20px 0 40px rgba(0,0,0,.5);
+    border-left:1px solid var(--line);
+    box-shadow:-20px 0 40px rgba(0,0,0,.5);
     z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
       i pulsanti in alto restano sempre usabili anche a tendina aperta */
-    transform:translateX(-100%);
+    transform:translateX(100%);
     transition:transform .55s cubic-bezier(.4,0,.2,1);
   }
   .reviews-gate.is-open{ transform:translateX(0); }
 
   .gate-handle{
     display:flex; align-items:center; justify-content:center;
-    position:absolute; left:100%; top:50%; transform:translateY(-50%);
+    position:absolute; right:100%; top:50%; transform:translateY(-50%);
     width:34px; height:64px;
-    background:var(--panel); border:1px solid var(--line); border-left:none;
-    border-radius:0 8px 8px 0;
+    background:var(--panel); border:1px solid var(--line); border-right:none;
+    border-radius:8px 0 0 8px;
     color:var(--text-dim);
     cursor:pointer;
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
@@ -72,7 +72,14 @@
     grid-template-columns:repeat(7, 1fr); /* sempre 7 per riga, si
       ridimensionano con lo spazio disponibile invece di andare a
       capo prima; centrate per via del padding orizzontale simmetrico */
-    gap:20px;
+    column-gap:20px;
+    row-gap:50px; /* almeno 50px tra la fine di una riga e l'inizio
+      della successiva, non piu' lo stesso spazio usato in orizzontale */
+    grid-auto-rows:max-content; /* senza, le righe venivano
+      dimensionate piu' basse del reale (difetto noto di interazione
+      tra aspect-ratio sui figli e il dimensionamento automatico
+      "auto" delle righe), causando una sovrapposizione invece del
+      gap richiesto */
     align-content:start; /* partono dall'alto, come prima — la
       centratura richiesta era solo orizzontale (già garantita dal
       padding simmetrico + 7 colonne uguali), non verticale */
