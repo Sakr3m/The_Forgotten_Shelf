@@ -18,6 +18,10 @@
       <div class="card card--mobile">
         <div class="pin"></div>
         <div class="corner-bl"></div><div class="corner-br"></div>
+        <button class="music-toggle mobile-audio-btn" type="button" aria-label="Attiva/disattiva audio di Mathemory" aria-pressed="true">
+          <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        </button>
         <div class="card__body">
           <div class="cover" aria-label="Eratostene, il primo gioco di Mathemory"></div>
           <span class="status">In sviluppo · 1/12</span>
@@ -64,16 +68,11 @@
         </div>
       </div>
 
-      <span class="swipe-hint swipe-hint--left" aria-hidden="true">
+      <button class="swipe-hint swipe-hint--left" id="screenPrevBtn" type="button" aria-label="Schermata precedente">
         <svg viewBox="0 0 20 20"><path d="M12 3L5 10l7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="swipe-hint swipe-hint--right" aria-hidden="true">
+      </button>
+      <button class="swipe-hint swipe-hint--right" id="screenNextBtn" type="button" aria-label="Schermata successiva">
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-
-      <button class="music-toggle" id="mobileAudioToggle" type="button" aria-label="Attiva/disattiva audio di Mathemory" aria-pressed="true" hidden>
-        <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-        <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
       </button>
 
       <div class="card" id="mathemoryPin">
@@ -102,6 +101,10 @@
       <div class="card card--mobile">
         <div class="pin"></div>
         <div class="corner-bl"></div><div class="corner-br"></div>
+        <button class="music-toggle mobile-audio-btn" type="button" aria-label="Attiva/disattiva audio di Mathemory" aria-pressed="true">
+          <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        </button>
         <div class="card__body">
           <div class="cover" aria-label="Eratostene, il primo gioco di Mathemory"></div>
           <span class="status">In sviluppo · 1/12</span>

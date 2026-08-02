@@ -269,7 +269,15 @@ body[data-state="entry"] .landing{ display:none; }
       completata: reso invisibile ma lasciato qui, torna comodo se
       servirà di nuovo in futuro. */
   }
-  body[data-state="entry"] #pageHeaderBanner{ background-position:center center; }
+  body[data-state="entry"] #pageHeaderBanner{
+    background-position:center center;
+    /* Niente stretch: l'immagine si ingrandisce (mantenendo le sue
+       proporzioni) finché il bordo sopra e quello sotto toccano
+       esattamente i bordi del box; quello che sporge a destra/
+       sinistra viene tagliato dall'overflow:hidden già presente
+       su #pageHeader. */
+    background-size:auto 100%;
+  }
   body[data-state="entry"] .game-header__banner-overlay{
     background:rgba(10,14,23,.45);
   }

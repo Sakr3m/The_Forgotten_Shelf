@@ -32,9 +32,10 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   eratosteneAudio: document.getElementById("eratosteneAudio"),
   mathemoryPin: document.getElementById("mathemoryPin"),
-  mobileAudioToggle: document.getElementById("mobileAudioToggle"),
-  mathemoryPanelLeft: document.querySelector(".mathemory-panel--left"),
-  mathemoryPanelRight: document.querySelector(".mathemory-panel--right")
+  layout: document.querySelector(".layout"),
+  screenPrevBtn: document.getElementById("screenPrevBtn"),
+  screenNextBtn: document.getElementById("screenNextBtn"),
+  mobileAudioBtns: document.querySelectorAll(".mobile-audio-btn")
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -82,60 +83,51 @@ if(window.matchMedia("(hover:hover)").matches){
   });
 }
 
-if(mobileBreakpoint.matches && el.mobileAudioToggle){
-  let mobileAudioOn = true; // sempre acceso appena si arriva sul pannello
-  let mathemoryPanelVisible = false;
-  let leftVisible = false, rightVisible = false;
+if(mobileBreakpoint.matches && el.layout){
+  const SCREEN_HOME = 1; // 0 = Mathemory sinistra, 1 = home, 2 = Mathemory destra
+  let currentScreen = SCREEN_HOME;
+  let mobileAudioOn = true;
 
-  function setToggleUI(){
-    el.mobileAudioToggle.setAttribute("aria-pressed", String(mobileAudioOn));
+  function setAudioBtnsUI(){
+    el.mobileAudioBtns.forEach(btn => btn.setAttribute("aria-pressed", String(mobileAudioOn)));
   }
 
   function syncMobileAudio(){
-    // Visibile SOLO sui pannelli di Mathemory, mai sulla home — stesso
-    // "hidden" usato per questo stesso pulsante nelle altre pagine.
-    el.mobileAudioToggle.hidden = !mathemoryPanelVisible;
-    if(mobileAudioOn && mathemoryPanelVisible){
+    const onMathemory = currentScreen !== SCREEN_HOME;
+    if(mobileAudioOn && onMathemory){
       el.eratosteneAudio.play().catch(() => {});
     } else {
       el.eratosteneAudio.pause();
     }
   }
 
-  el.mobileAudioToggle.addEventListener("click", () => {
-    mobileAudioOn = !mobileAudioOn;
-    setToggleUI();
+  // Cambio schermata SOLO tramite queste due funzioni, chiamate
+  // dai pulsanti freccia — .layout non è più scorrevole col dito
+  // (touch-action:none in CSS), quindi questa è l'unica via.
+  function goToScreen(index, instant){
+    currentScreen = Math.max(0, Math.min(2, index));
+    el.layout.scrollTo({ left: currentScreen * window.innerWidth, behavior: instant ? "instant" : "smooth" });
+    // Arrivo su Mathemory (da un'altra schermata): sempre acceso,
+    // a prescindere da come l'avevi lasciato l'ultima volta.
+    if(currentScreen !== SCREEN_HOME) mobileAudioOn = true;
+    setAudioBtnsUI();
     syncMobileAudio();
+  }
+
+  el.screenPrevBtn.addEventListener("click", () => goToScreen(currentScreen - 1));
+  el.screenNextBtn.addEventListener("click", () => goToScreen(currentScreen + 1));
+
+  el.mobileAudioBtns.forEach(btn => {
+    btn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      mobileAudioOn = !mobileAudioOn;
+      setAudioBtnsUI();
+      syncMobileAudio();
+    });
   });
 
-  // Uso solo entry.isIntersecting/intersectionRatio, calcolati
-  // dal browser contro il viewport reale — niente più
-  // getBoundingClientRect()/window.innerWidth ricalcolati a mano:
-  // su mobile vero 100vw (larghezza dei pannelli) e innerWidth
-  // possono non coincidere esattamente, ed è lì che il calcolo
-  // manuale sbagliava, lasciando il pulsante visibile sulla home.
-  const panelObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const isVisible = entry.intersectionRatio >= 0.5;
-      if(entry.target === el.mathemoryPanelLeft) leftVisible = isVisible;
-      if(entry.target === el.mathemoryPanelRight) rightVisible = isVisible;
-    });
-    const anyVisible = leftVisible || rightVisible;
-    const wasVisible = mathemoryPanelVisible;
-    mathemoryPanelVisible = anyVisible;
-    // Arrivo sul pannello (non ci si era prima): sempre acceso, a
-    // prescindere da come l'avevi lasciato l'ultima volta.
-    if(anyVisible && !wasVisible){
-      mobileAudioOn = true;
-      setToggleUI();
-    }
-    syncMobileAudio();
-  }, { threshold: [0, 0.5, 1] });
-
-  [el.mathemoryPanelLeft, el.mathemoryPanelRight].filter(Boolean).forEach(panel => panelObserver.observe(panel));
-
-  setToggleUI();
+  setAudioBtnsUI();
+  goToScreen(SCREEN_HOME, true);
 }
 
 paintStaticText();
-if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
