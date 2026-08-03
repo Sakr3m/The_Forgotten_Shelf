@@ -187,6 +187,9 @@ On March 15, a new employee arrived.`
     game: "il-posto-preferito",
     gameLabel: { it: "Il Posto Preferito", en: "The Favourite Place" },
     accentColor: "#b08a97",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Posto%20Preferito%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Posto%20Preferito%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Posto%20Preferito%20Filigrana.jpg",
     title: {
       it: "Il Posto Preferito",
       en: "The Favourite Place"
