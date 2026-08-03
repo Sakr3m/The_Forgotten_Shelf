@@ -159,17 +159,23 @@ body[data-state="landing"] .brand{ display:none; }
     pointer-events:none;
   }
 
-  /* In home, Ko-fi non segue il flusso del gruppo insieme allo
-     switch: va centrato esattamente a metà tra "torna all'index" e
-     lo switch lingua. Dato che entrambi stanno a 100px dal proprio
-     bordo, il centro esatto tra i due coincide sempre col centro
-     della barra stessa, qualunque sia la larghezza dello schermo.
-     Altezza esplicita (38px, come tutti gli altri) cosi il suo centro
-     combacia esattamente con quello di index-link e dello switch. */
-  body[data-state="landing"] .kofi-link{
+  /* In home, il gruppo Discord+Ko-fi non segue il flusso insieme
+     allo switch: va centrato esattamente a metà tra "torna
+     all'index" e lo switch lingua (stessa logica di prima, ora sul
+     contenitore .social-links invece che sul solo kofi-link, cosi'
+     Discord si centra insieme a lui invece di dover calcolare a
+     mano la sua larghezza). Dato che entrambi stanno a 100px dal
+     proprio bordo, il centro esatto tra i due coincide sempre col
+     centro della barra stessa, qualunque sia la larghezza dello
+     schermo. */
+  .social-links{ display:contents; } /* fuori da home: nessuna
+    scatola/spaziatura propria, i figli (Discord/Ko-fi, gia' nascosti
+    di loro se non in home) si comportano come se fossero diretti
+    figli di .stage-controls */
+  body[data-state="landing"] .social-links{
+    display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:15px; height:38px;
     transform:translateX(-50%);
-    margin-top:0;
   }
 }
 
@@ -353,6 +359,24 @@ body[data-state="landing"] .music-control{ display:none; }
 }
 body[data-state="landing"] .kofi-link{ display:flex; }
 .kofi-link:hover{ color:var(--text); }
+
+/* Pulsante Discord — piccolo, solo icona (a differenza di Ko-fi che
+   ha anche il testo), stessa forma a pillola/cerchio e stessa
+   palette del resto del sito. Nascosto ovunque tranne che in home
+   (stesso criterio di .kofi-link), sempre a sinistra di lui grazie
+   all'ordine nel markup dentro .social-links. */
+.discord-link{
+  display:none; align-items:center; justify-content:center;
+  width:38px; height:38px;
+  border:1px solid var(--cyan);
+  background:var(--panel);
+  border-radius:50%;
+  color:var(--text-dim);
+  transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+body[data-state="landing"] .discord-link{ display:flex; }
+.discord-link:hover{ color:var(--text); }
+.discord-link svg{ width:18px; height:18px; }
 .kofi-link svg{ width:16px; height:16px; color:var(--text-dim); flex-shrink:0; transition:color var(--dur-fast) var(--ease); }
 .kofi-link:hover svg{ color:var(--text); }
 body[data-state="landing"] .kofi-link svg{ color:#ef4444; }
@@ -897,6 +921,8 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .stage-controls{ top:14px; right:12px; gap:8px; }
   .kofi-link{ padding:8px 13px; gap:6px; }
   .kofi-link svg{ width:15px; height:15px; }
+  .discord-link{ width:37px; height:37px; }
+  .discord-link svg{ width:17px; height:17px; }
   .lang-switch{ padding:8px 11px; font-size:.79rem; }
   .music-toggle{ width:37px; height:37px; }
 
@@ -924,7 +950,8 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     padding:0; border:none; background:none; z-index:auto;
     margin-top:0;
   }
-  body[data-state="landing"] .stage-topbar .kofi-link{
+  body[data-state="landing"] .stage-topbar .social-links{
+    display:flex; align-items:center; gap:8px;
     position:absolute; left:50%; top:50%;
     transform:translate(-50%, -50%);
   }
