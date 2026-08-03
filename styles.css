@@ -252,62 +252,38 @@ body[data-state="landing"] .brand{ display:none; }
 }
 
 /* ============================================================
-   "Gradiometro" — regola la luminosità (opacità) delle filigrane,
-   una prova richiesta dall'utente. Stesso meccanismo della barra
-   del volume (icona che rivela un pannello in hover), ma
-   esteticamente diverso: forma quadrata smussata invece che
-   circolare, icona a sole invece che ad altoparlante, e sempre
-   bordato nel colore accento della voce/pagina corrente
-   (var(--item-accent), non var(--cyan) fisso) invece del ciano
-   fisso della barra volume. Solo desktop, solo dove esiste
-   davvero una filigrana (mostrato/nascosto via JS).
+   Barra di luminosità delle filigrane — versione ridisegnata: via
+   il widget con icona/pannello, resta solo la funzione. Incassata
+   esattamente sulla riga che separa l'header dal contenuto sotto
+   (.game-header ha un border-bottom, condiviso da timeline.html e
+   racconti.html) — 5px di altezza visibile, compare solo in hover
+   su quella riga. position:sticky (come l'header stesso, top:245px
+   = 15px di sticky-offset + 230px di altezza header) cosi' segue
+   l'header durante lo scroll; i margini negativi (uguali e opposti
+   all'altezza della zona di hover) fanno si' che non aggiunga
+   spazio in più nel flusso normale, si limita a "sedersi" sulla
+   riga già esistente. Solo desktop, solo dove esiste davvero una
+   filigrana (mostrato/nascosto via JS). Valore di partenza (1,
+   cioè "usa l'opacità già impostata per la voce, invariata") messo
+   esattamente a metà della barra (range 0-2).
    ============================================================ */
-.watermark-brightness{ display:none; }
+.watermark-brightness-line{ display:none; }
 @media (hover:hover), (pointer:fine){
-  .watermark-brightness{
-    display:block;
-    position:relative;
-  }
-  .watermark-brightness__toggle{
+  .watermark-brightness-line{
     display:flex; align-items:center; justify-content:center;
-    width:36px; height:36px;
-    border:1px solid var(--item-accent, var(--cyan));
-    border-radius:8px;
-    background:var(--panel);
-    color:var(--text-faint);
+    position:fixed; top:235px; left:0; right:0; z-index:4;
+    height:20px;
     cursor:pointer;
-    transition:color var(--dur-fast) var(--ease);
   }
-  .watermark-brightness__toggle:hover{ color:var(--item-accent, var(--cyan)); }
-  .watermark-brightness__toggle svg{ width:17px; height:17px; }
-  .watermark-brightness__panel{
-    position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
-    margin-bottom:6px;
-    padding:12px 8px;
-    border:1px solid var(--item-accent, var(--cyan));
-    background:var(--panel);
-    border-radius:8px;
-    opacity:0; visibility:hidden;
-    transition:opacity .18s var(--ease), visibility 0s linear 1s;
-    z-index:20;
-  }
-  .watermark-brightness:hover .watermark-brightness__panel{
-    opacity:1; visibility:visible;
-    transition:opacity .18s var(--ease) 1s, visibility 0s linear 1s;
-  }
-  .watermark-brightness__slider{
-    writing-mode:vertical-lr; direction:rtl;
-    width:6px; height:90px;
+  .watermark-brightness-line__slider{
+    width:100%; max-width:900px;
+    height:5px;
+    opacity:0;
+    transition:opacity .2s ease;
     accent-color:var(--item-accent, var(--cyan));
     cursor:pointer;
   }
-
-  /* Posizione su timeline.html: in alto a destra, esattamente dove
-     andrebbe una tendina se questa pagina ne avesse una (qui non
-     c'è nulla da spostare, quindi prende direttamente quel posto). */
-  #watermarkBrightness{
-    position:fixed; top:80px; right:25px; z-index:6;
-  }
+  .watermark-brightness-line:hover .watermark-brightness-line__slider{ opacity:1; }
 }
 
 /* Su mobile la barra del volume (e la sua cornice, .volume-panel)

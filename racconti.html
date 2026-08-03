@@ -105,15 +105,10 @@
             <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
+      </div>
 
-        <div class="watermark-brightness" id="watermarkBrightness" hidden>
-          <button class="watermark-brightness__toggle" id="watermarkBrightnessToggle" type="button" aria-label="Regola la luminosità della filigrana">
-            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 1v3M10 16v3M19 10h-3M4 10H1M16.4 3.6l-2.1 2.1M5.7 14.3l-2.1 2.1M16.4 16.4l-2.1-2.1M5.7 5.7L3.6 3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </button>
-          <div class="watermark-brightness__panel" id="watermarkBrightnessPanel">
-            <input type="range" id="watermarkBrightnessSlider" class="watermark-brightness__slider" min="0.5" max="2" step="0.1" value="1" orient="vertical" aria-label="Luminosità filigrana">
-          </div>
-        </div>
+      <div class="watermark-brightness-line" id="watermarkBrightness" hidden>
+        <input type="range" id="watermarkBrightnessSlider" class="watermark-brightness-line__slider" min="0" max="2" step="0.05" value="1" aria-label="Luminosità filigrana">
       </div>
 
       <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>

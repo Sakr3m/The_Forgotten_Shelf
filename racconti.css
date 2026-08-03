@@ -63,12 +63,6 @@ body[data-state="landing"] #pageHeader{ display:none; }
     /* +25px di padding destro dell'header = 50px dal bordo, come
        switch/volume nella pagina di una voce */
   }
-
-  /* Gradiometro: dalla parte opposta alla tendina (che qui sta a
-     destra), stessa distanza speculare. */
-  body[data-state="entry"] #watermarkBrightness{
-    position:absolute; left:25px; bottom:15px; z-index:2;
-  }
 }
 .entry-game-trigger{
   display:flex; align-items:center; gap:8px;
