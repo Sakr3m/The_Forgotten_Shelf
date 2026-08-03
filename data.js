@@ -474,7 +474,7 @@ const GAMES = {
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     watermarkSize: "cover",
-    watermarkPosition: "top right",
+    watermarkPosition: "calc(100% + 25px) top",
     bannerOffset: 195,
     noTimeline: true,
     canonNote: {
@@ -512,7 +512,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
-    watermarkOpacity: 0.1,
+    watermarkOpacity: 0.13,
     watermarkBottomFade: true,
     bannerOffset: 195,
     universes: [
