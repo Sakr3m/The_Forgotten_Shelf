@@ -64,6 +64,8 @@ const el = {
   entryGameTriggerLabel: document.getElementById("entryGameTriggerLabel"),
   entryGameMenu: document.getElementById("entryGameMenu"),
   musicControl: document.getElementById("musicControl"),
+  watermarkBrightness: document.getElementById("watermarkBrightness"),
+  watermarkBrightnessSlider: document.getElementById("watermarkBrightnessSlider"),
 };
 
 // ---------------------------------------------------------
@@ -78,6 +80,14 @@ const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
+
+// "Gradiometro" — moltiplicatore di luminosità per le filigrane,
+// condiviso con timeline.html tramite la stessa chiave.
+const WATERMARK_BRIGHTNESS_KEY = "tfs-watermark-brightness";
+const storedWatermarkBrightness = localStorage.getItem(WATERMARK_BRIGHTNESS_KEY);
+let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 1;
+if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
+let currentWatermarkBaseOpacity = null;
 
 // On mobile, the entry view puts the game picker and the music control
 // in a row above the text (tendina left, volume right) instead of their
@@ -175,7 +185,9 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.pageHeaderBanner.style.backgroundPosition = entry.bannerPosition || "";
   el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
-  el.entryWatermark.style.opacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : "";
+  currentWatermarkBaseOpacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : 0.35;
+  el.entryWatermark.style.opacity = entry.filigrana ? Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness) : "";
+  el.watermarkBrightness.hidden = !entry.filigrana;
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
   const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
   if(entry.filigranaBottomFade){
@@ -494,6 +506,16 @@ el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
   localStorage.setItem(VOLUME_KEY, el.volumeSlider.value);
 });
+
+if(el.watermarkBrightnessSlider){
+  el.watermarkBrightnessSlider.addEventListener("input", () => {
+    watermarkBrightness = parseFloat(el.watermarkBrightnessSlider.value);
+    localStorage.setItem(WATERMARK_BRIGHTNESS_KEY, el.watermarkBrightnessSlider.value);
+    if(currentWatermarkBaseOpacity != null){
+      el.entryWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness);
+    }
+  });
+}
 
 el.musicToggle.addEventListener("click", (ev) => {
   ev.stopPropagation();

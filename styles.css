@@ -251,6 +251,65 @@ body[data-state="landing"] .brand{ display:none; }
   cursor:pointer;
 }
 
+/* ============================================================
+   "Gradiometro" — regola la luminosità (opacità) delle filigrane,
+   una prova richiesta dall'utente. Stesso meccanismo della barra
+   del volume (icona che rivela un pannello in hover), ma
+   esteticamente diverso: forma quadrata smussata invece che
+   circolare, icona a sole invece che ad altoparlante, e sempre
+   bordato nel colore accento della voce/pagina corrente
+   (var(--item-accent), non var(--cyan) fisso) invece del ciano
+   fisso della barra volume. Solo desktop, solo dove esiste
+   davvero una filigrana (mostrato/nascosto via JS).
+   ============================================================ */
+.watermark-brightness{ display:none; }
+@media (hover:hover), (pointer:fine){
+  .watermark-brightness{
+    display:block;
+    position:relative;
+  }
+  .watermark-brightness__toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:36px; height:36px;
+    border:1px solid var(--item-accent, var(--cyan));
+    border-radius:8px;
+    background:var(--panel);
+    color:var(--text-faint);
+    cursor:pointer;
+    transition:color var(--dur-fast) var(--ease);
+  }
+  .watermark-brightness__toggle:hover{ color:var(--item-accent, var(--cyan)); }
+  .watermark-brightness__toggle svg{ width:17px; height:17px; }
+  .watermark-brightness__panel{
+    position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
+    margin-bottom:6px;
+    padding:12px 8px;
+    border:1px solid var(--item-accent, var(--cyan));
+    background:var(--panel);
+    border-radius:8px;
+    opacity:0; visibility:hidden;
+    transition:opacity .18s var(--ease), visibility 0s linear 1s;
+    z-index:20;
+  }
+  .watermark-brightness:hover .watermark-brightness__panel{
+    opacity:1; visibility:visible;
+    transition:opacity .18s var(--ease) 1s, visibility 0s linear 1s;
+  }
+  .watermark-brightness__slider{
+    writing-mode:vertical-lr; direction:rtl;
+    width:6px; height:90px;
+    accent-color:var(--item-accent, var(--cyan));
+    cursor:pointer;
+  }
+
+  /* Posizione su timeline.html: in alto a destra, esattamente dove
+     andrebbe una tendina se questa pagina ne avesse una (qui non
+     c'è nulla da spostare, quindi prende direttamente quel posto). */
+  #watermarkBrightness{
+    position:fixed; top:80px; right:25px; z-index:6;
+  }
+}
+
 /* Su mobile la barra del volume (e la sua cornice, .volume-panel)
    non serve: l'apertura è comunque legata a :hover, che sul touch
    non esiste davvero e può restare "incollata" dopo un tocco. Resta

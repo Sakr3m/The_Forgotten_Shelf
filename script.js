@@ -68,6 +68,8 @@ const el = {
   timelineRail: document.getElementById("timelineRail"),
   railLabel: document.getElementById("railLabel"),
   railTrack: document.getElementById("railTrack"),
+  watermarkBrightness: document.getElementById("watermarkBrightness"),
+  watermarkBrightnessSlider: document.getElementById("watermarkBrightnessSlider"),
 };
 
 // ---------------------------------------------------------
@@ -84,6 +86,27 @@ const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
+
+// "Gradiometro" — moltiplicatore di luminosità per le filigrane,
+// una prova richiesta dall'utente: condiviso con racconti.html
+// tramite la stessa chiave, cosi' regolarlo su una pagina vale
+// anche sull'altra.
+const WATERMARK_BRIGHTNESS_KEY = "tfs-watermark-brightness";
+const storedWatermarkBrightness = localStorage.getItem(WATERMARK_BRIGHTNESS_KEY);
+let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 1;
+if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
+
+// Applica il moltiplicatore all'opacità base di una filigrana
+// (clampata a 1 come massimo reale, l'opacità CSS non va oltre).
+// currentWatermarkBaseOpacity tiene traccia dell'ultima base usata,
+// cosi' quando si muove lo slider si può ricalcolare senza dover
+// rifare tutto il render del pannello.
+let currentWatermarkBaseOpacity = null;
+function computeWatermarkOpacity(baseOpacity){
+  const base = baseOpacity != null ? baseOpacity : 0.16;
+  currentWatermarkBaseOpacity = base;
+  return Math.min(1, base * watermarkBrightness);
+}
 
 // Drag-to-scroll for the horizontal timeline, active only when the manual
 // scroll toggle is on. Attached once here (not per-render) to avoid piling
@@ -305,7 +328,7 @@ function renderGamePanel(){
     }
     el.universesRow.innerHTML = `
       <div class="canon-page">
-        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${g.watermarkOpacity != null ? `opacity:${g.watermarkOpacity};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
+        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}opacity:${computeWatermarkOpacity(g.watermarkOpacity)};${canonWatermarkExtraStyle}"></div>` : ""}
         <div class="canon-note">
           <p>${tf(g.canonNote.intro)}</p>
           <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
@@ -314,8 +337,11 @@ function renderGamePanel(){
         </div>
       </div>
     `;
+    el.watermarkBrightness.hidden = !g.watermark;
     return;
   }
+
+  el.watermarkBrightness.hidden = true;
 
   const universes = g.universes;
   const idx = state.universeIndex;
@@ -554,7 +580,7 @@ function renderTitlePanel(){
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
     watermark.style.backgroundSize = g.watermarkSize || "";
     watermark.style.backgroundPosition = g.watermarkPosition || "";
-    watermark.style.opacity = g.watermarkOpacity != null ? g.watermarkOpacity : "";
+    watermark.style.opacity = computeWatermarkOpacity(g.watermarkOpacity);
     if(g.watermarkBottomFade){
       // Combina la sfumatura orizzontale di sempre con una verticale
       // in più, verso il basso: ammorbidisce il taglio netto in
@@ -571,6 +597,7 @@ function renderTitlePanel(){
   } else if(watermark){
     watermark.remove();
   }
+  el.watermarkBrightness.hidden = !watermarkSrc;
 
   // restart entrance animation
   el.titleContent.style.animation = "none";
@@ -759,6 +786,17 @@ el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
   localStorage.setItem(VOLUME_KEY, el.volumeSlider.value);
 });
+
+if(el.watermarkBrightnessSlider){
+  el.watermarkBrightnessSlider.addEventListener("input", () => {
+    watermarkBrightness = parseFloat(el.watermarkBrightnessSlider.value);
+    localStorage.setItem(WATERMARK_BRIGHTNESS_KEY, el.watermarkBrightnessSlider.value);
+    if(currentWatermarkBaseOpacity != null){
+      const liveWatermark = document.querySelector(".title-watermark, .canon-watermark");
+      if(liveWatermark) liveWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness);
+    }
+  });
+}
 
 el.musicToggle.addEventListener("click", () => {
   state.musicOn = !state.musicOn;
