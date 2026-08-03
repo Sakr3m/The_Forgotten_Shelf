@@ -85,7 +85,7 @@ if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 // condiviso con timeline.html tramite la stessa chiave.
 const WATERMARK_BRIGHTNESS_KEY = "tfs-watermark-brightness";
 const storedWatermarkBrightness = localStorage.getItem(WATERMARK_BRIGHTNESS_KEY);
-let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 1;
+let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 0.5;
 if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
 let currentWatermarkBaseOpacity = null;
 
@@ -186,7 +186,7 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundPosition = entry.bannerPosition || "";
   el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
   currentWatermarkBaseOpacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : 0.35;
-  el.entryWatermark.style.opacity = entry.filigrana ? Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness) : "";
+  el.entryWatermark.style.opacity = entry.filigrana ? Math.min(1, currentWatermarkBaseOpacity * (watermarkBrightness * 2)) : "";
   el.watermarkBrightness.hidden = !entry.filigrana;
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
   const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
@@ -512,7 +512,7 @@ if(el.watermarkBrightnessSlider){
     watermarkBrightness = parseFloat(el.watermarkBrightnessSlider.value);
     localStorage.setItem(WATERMARK_BRIGHTNESS_KEY, el.watermarkBrightnessSlider.value);
     if(currentWatermarkBaseOpacity != null){
-      el.entryWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness);
+      el.entryWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * (watermarkBrightness * 2));
     }
   });
 }

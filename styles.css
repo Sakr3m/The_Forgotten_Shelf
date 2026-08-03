@@ -271,7 +271,7 @@ body[data-state="landing"] .brand{ display:none; }
 @media (hover:hover), (pointer:fine){
   .watermark-brightness-line{
     display:flex; align-items:center; justify-content:center;
-    position:fixed; top:232px; left:0; right:0; z-index:4;
+    position:fixed; top:235px; left:0; right:0; z-index:5;
     height:20px;
     cursor:pointer;
   }
@@ -802,7 +802,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   .title-panel{ padding-left:25px; }
 }
 .title-watermark{
-  position:fixed; top:15px; bottom:0; right:var(--rail-width); width:42vw;
+  position:fixed; top:70px; bottom:0; right:var(--rail-width); width:42vw;
   background-size:contain; background-repeat:no-repeat; background-position:center;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
   mask-image:linear-gradient(90deg, transparent, black 35%);

@@ -93,7 +93,7 @@ if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 // anche sull'altra.
 const WATERMARK_BRIGHTNESS_KEY = "tfs-watermark-brightness";
 const storedWatermarkBrightness = localStorage.getItem(WATERMARK_BRIGHTNESS_KEY);
-let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 1;
+let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 0.5;
 if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
 
 // Applica il moltiplicatore all'opacità base di una filigrana
@@ -105,7 +105,12 @@ let currentWatermarkBaseOpacity = null;
 function computeWatermarkOpacity(baseOpacity){
   const base = baseOpacity != null ? baseOpacity : 0.16;
   currentWatermarkBaseOpacity = base;
-  return Math.min(1, base * watermarkBrightness);
+  // Il moltiplicatore reale è il doppio del valore dello slider: a
+  // 0.5 (25% della barra, che va da 0 a 2) il moltiplicatore è
+  // esattamente 1, cioè "usa il valore già impostato per la voce,
+  // invariato" — i valori dati finora per ogni filigrana sono
+  // pensati per stare lì, non a metà barra.
+  return Math.min(1, base * (watermarkBrightness * 2));
 }
 
 // Drag-to-scroll for the horizontal timeline, active only when the manual
@@ -338,10 +343,12 @@ function renderGamePanel(){
       </div>
     `;
     el.watermarkBrightness.hidden = !g.watermark;
+    el.watermarkBrightness.style.top = ""; /* posizione standard (CSS, riga dell'header) */
     return;
   }
 
   el.watermarkBrightness.hidden = true;
+  el.watermarkBrightness.style.top = "";
 
   const universes = g.universes;
   const idx = state.universeIndex;
@@ -598,6 +605,10 @@ function renderTitlePanel(){
     watermark.remove();
   }
   el.watermarkBrightness.hidden = !watermarkSrc;
+  // Qui non c'è una riga di header a cui appoggiarsi (a differenza
+  // di Doom): la barra segue invece dove finisce, in alto, la
+  // filigrana stessa (stesso valore del suo "top" in CSS).
+  el.watermarkBrightness.style.top = watermarkSrc ? "70px" : "";
 
   // restart entrance animation
   el.titleContent.style.animation = "none";
@@ -793,7 +804,7 @@ if(el.watermarkBrightnessSlider){
     localStorage.setItem(WATERMARK_BRIGHTNESS_KEY, el.watermarkBrightnessSlider.value);
     if(currentWatermarkBaseOpacity != null){
       const liveWatermark = document.querySelector(".title-watermark, .canon-watermark");
-      if(liveWatermark) liveWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness);
+      if(liveWatermark) liveWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * (watermarkBrightness * 2));
     }
   });
 }
