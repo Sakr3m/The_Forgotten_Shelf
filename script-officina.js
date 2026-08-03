@@ -35,6 +35,7 @@ const el = {
   eratosteneAudio: document.getElementById("eratosteneAudio"),
   mathemoryPin: document.getElementById("mathemoryPin"),
   showProjectsBtn: document.getElementById("showProjectsBtn"),
+  desktopAudioToggle: document.getElementById("desktopAudioToggle"),
   layout: document.querySelector(".layout"),
   screenPrevBtn: document.getElementById("screenPrevBtn"),
   screenNextBtn: document.getElementById("screenNextBtn"),
@@ -84,13 +85,29 @@ document.addEventListener("visibilitychange", () => {
 // (es. tornando alla home).
 // ---------------------------------------------------------
 if(window.matchMedia("(hover:hover)").matches){
+  let desktopAudioOn = true;
+
   el.mathemoryPin.addEventListener("mouseenter", () => {
+    if(!desktopAudioOn) return;
     el.eratosteneAudio.currentTime = 0;
     el.eratosteneAudio.play().catch(() => {});
   });
   el.mathemoryPin.addEventListener("mouseleave", () => {
     el.eratosteneAudio.pause();
   });
+
+  // Pulsante volume della home: appena sotto "Mostra progetti",
+  // non "a lato" come nelle altre pagine. Vero on/off (a differenza
+  // del pulsante Mostra progetti, che è solo "on") — spegne anche
+  // l'audio già in corso se lo si preme mentre il mouse è ancora
+  // sopra la card.
+  if(el.desktopAudioToggle){
+    el.desktopAudioToggle.addEventListener("click", () => {
+      desktopAudioOn = !desktopAudioOn;
+      el.desktopAudioToggle.setAttribute("aria-pressed", String(desktopAudioOn));
+      if(!desktopAudioOn) el.eratosteneAudio.pause();
+    });
+  }
 
   // La card parte trasparente: un semplice hover non è un gesto
   // abbastanza "esplicito" per alcuni browser, che bloccano

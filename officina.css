@@ -222,6 +222,7 @@
    sulla card funziona normalmente. Solo "on", nessuno stato spento.
    ============================================================ */
 .show-projects-btn{ display:none; }
+.desktop-audio-btn{ display:none; }
 @media (hover:hover), (pointer:fine){
   .show-projects-btn{
     display:inline-block;
@@ -241,6 +242,16 @@
   }
   .show-projects-btn[aria-pressed="true"]{
     color:var(--text-faint); border-color:var(--line); cursor:default;
+  }
+
+  /* Pulsante volume della home desktop: appena sotto "Mostra
+     progetti" (non "a lato" come sulle altre pagine), centrato
+     come il resto della colonna. Controlla se l'anteprima sonora
+     in hover sulla card di Mathemory è attiva o no (vedi
+     script-officina.js). */
+  .desktop-audio-btn{
+    display:flex;
+    margin:20px auto 0;
   }
 }
 
