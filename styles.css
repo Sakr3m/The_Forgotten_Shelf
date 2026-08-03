@@ -271,7 +271,7 @@ body[data-state="landing"] .brand{ display:none; }
 @media (hover:hover), (pointer:fine){
   .watermark-brightness-line{
     display:flex; align-items:center; justify-content:center;
-    position:fixed; top:238px; left:230px; right:var(--rail-width); z-index:5;
+    position:fixed; top:237px; left:230px; right:var(--rail-width); z-index:5;
     height:20px;
     cursor:pointer;
   }
