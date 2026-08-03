@@ -271,19 +271,36 @@ body[data-state="landing"] .brand{ display:none; }
 @media (hover:hover), (pointer:fine){
   .watermark-brightness-line{
     display:flex; align-items:center; justify-content:center;
-    position:fixed; top:235px; left:0; right:0; z-index:5;
+    position:fixed; top:236px; left:0; right:0; z-index:5;
     height:20px;
     cursor:pointer;
   }
-  .watermark-brightness-line__slider{
+  .watermark-brightness-line[hidden]{ display:none; } /* l'attributo
+    hidden da solo non bastava: display:flex qui sopra ha la stessa
+    specificita' della regola predefinita del browser per [hidden] e
+    vinceva sempre lei, tenendo la barra visibile anche da nascosta */
+  .watermark-brightness-line__track{
+    position:relative;
     width:100%; max-width:900px;
+    display:flex; align-items:center;
+  }
+  .watermark-brightness-line__slider{
+    width:100%;
     height:5px;
     opacity:0;
     transition:opacity .2s ease;
     accent-color:var(--item-accent, var(--cyan));
     cursor:pointer;
   }
-  .watermark-brightness-line:hover .watermark-brightness-line__slider{ opacity:1; }
+  .watermark-brightness-line__tick{
+    position:absolute; top:50%; transform:translate(-50%, -50%);
+    width:1px; height:11px;
+    background:var(--item-accent, var(--cyan));
+    opacity:0; pointer-events:none;
+    transition:opacity .2s ease;
+  }
+  .watermark-brightness-line:hover .watermark-brightness-line__slider,
+  .watermark-brightness-line:hover .watermark-brightness-line__tick{ opacity:1; }
 }
 
 /* Su mobile la barra del volume (e la sua cornice, .volume-panel)
@@ -803,7 +820,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .title-watermark{
   position:fixed; top:70px; bottom:0; right:var(--rail-width); width:42vw;
-  background-size:contain; background-repeat:no-repeat; background-position:center;
+  background-size:contain; background-repeat:no-repeat; background-position:center top;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
   mask-image:linear-gradient(90deg, transparent, black 35%);
   opacity:.16;
