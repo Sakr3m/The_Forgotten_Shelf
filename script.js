@@ -612,7 +612,7 @@ function renderTitlePanel(){
   // Qui non c'è una riga di header a cui appoggiarsi (a differenza
   // di Doom): la barra segue invece dove finisce, in alto, la
   // filigrana stessa (stesso valore del suo "top" in CSS).
-  el.watermarkBrightness.style.top = watermarkSrc ? "92px" : ""; /* 70 di base
+  el.watermarkBrightness.style.top = watermarkSrc ? "97px" : ""; /* 70 di base
     +10px (stima dell'utente: l'immagine reale non è misurabile da qui, la
     rete del sandbox non arriva al bucket Cloudflare) +1px (stesso
     aggiustamento universale delle altre viste) */
