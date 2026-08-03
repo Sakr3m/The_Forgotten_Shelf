@@ -10,7 +10,7 @@
      dichiarazione aggiunta li'. */
   color-scheme: dark;
 
-  --bg:#0a0e17;
+  --bg:#000000;
   --bg-soft:#0d1220;
   --panel:#111726;
   --panel-raised:#161d2f;
@@ -60,7 +60,7 @@ h1,h2,h3{ font-weight:800; margin:0; letter-spacing:-.01em; }
 p{ margin:0; }
 ul{ list-style:none; margin:0; padding:0; }
 button{ font-family:inherit; color:inherit; background:none; border:none; cursor:pointer; }
-::selection{ background:var(--cyan); color:#0a0e17; }
+::selection{ background:var(--cyan); color:#000000; }
 
 /* ============================================================
    Brand mark — gradient hex logo
@@ -466,14 +466,14 @@ body[data-state="landing"] .index-link{ display:flex; }
   background:
     linear-gradient(90deg,
       var(--bg) 0%,
-      rgba(10,14,23,.88) 12%,
-      rgba(10,14,23,.68) 22%,
-      rgba(10,14,23,.44) 32%,
-      rgba(10,14,23,.2) 42%,
+      rgba(0,0,0,.88) 12%,
+      rgba(0,0,0,.68) 22%,
+      rgba(0,0,0,.44) 32%,
+      rgba(0,0,0,.2) 42%,
       transparent 50%,
       transparent 64%,
-      rgba(10,14,23,.3) 76%,
-      rgba(10,14,23,.65) 88%,
+      rgba(0,0,0,.3) 76%,
+      rgba(0,0,0,.65) 88%,
       var(--bg) 100%);
 }
 .game-header__cover, .game-header__info{ position:relative; z-index:1; }
@@ -958,7 +958,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     padding:20px 16px; gap:12px;
   }
   .game-header__banner{ position:absolute; }
-  .game-header__banner-overlay{ background:rgba(10,14,23,.74); }
+  .game-header__banner-overlay{ background:rgba(0,0,0,.74); }
   .game-header__cover{ width:88px; height:88px; }
   .game-header__info{ text-align:center; }
   .game-header__title{ font-size:1.3rem; }

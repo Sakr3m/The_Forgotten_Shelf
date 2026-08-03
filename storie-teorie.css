@@ -279,7 +279,7 @@ body[data-state="entry"] .landing{ display:none; }
     background-size:auto 100%;
   }
   body[data-state="entry"] .game-header__banner-overlay{
-    background:rgba(10,14,23,.45);
+    background:rgba(0,0,0,.45);
   }
 
   /* Tendina e controllo musica: spostati via JS dentro #entryPanel

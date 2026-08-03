@@ -135,7 +135,7 @@
   .review-tile__title{
     position:absolute; left:0; right:0; bottom:0;
     padding:10px 10px 8px;
-    background:linear-gradient(to top, rgba(10,14,23,.92), transparent);
+    background:linear-gradient(to top, rgba(0,0,0,.92), transparent);
     color:var(--text); font-size:.78rem; font-weight:600;
     opacity:0; transform:translateY(6px);
     transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
