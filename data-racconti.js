@@ -123,7 +123,7 @@ And no one knows why.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
     filigranaOpacity: 0.35,
-    filigranaPosition: "calc(50% + 50px) center",
+    filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
     bannerOffset: 55,
     title: {
@@ -3334,7 +3334,7 @@ Then outside.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
     filigranaOpacity: 0.35,
-    filigranaPosition: "calc(50% + 50px) center",
+    filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
     bannerOffset: 55,
     title: {
@@ -3541,7 +3541,7 @@ Then the sound stopped.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
     filigranaOpacity: 0.35,
-    filigranaPosition: "calc(50% + 50px) center",
+    filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
     bannerOffset: 55,
     title: {
@@ -3726,7 +3726,7 @@ And suddenly night fell.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
     filigranaOpacity: 0.35,
-    filigranaPosition: "calc(50% + 50px) center",
+    filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
     bannerOffset: 55,
     title: {
