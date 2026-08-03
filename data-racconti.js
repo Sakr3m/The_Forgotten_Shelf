@@ -277,6 +277,9 @@ His eyes went wide.
     game: "il-testimone",
     gameLabel: { it: "Il Testimone", en: "The Witness" },
     accentColor: "#c470e0",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Filigrana.jpg",
     title: {
       it: "Il Testimone",
       en: "The Witness"
