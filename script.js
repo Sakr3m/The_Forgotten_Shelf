@@ -344,11 +344,15 @@ function renderGamePanel(){
     `;
     el.watermarkBrightness.hidden = !g.watermark;
     el.watermarkBrightness.style.top = ""; /* posizione standard (CSS, riga dell'header) */
+    el.watermarkBrightness.style.right = "25px"; /* qui il rail non c'è (display:none),
+      il contenuto si estende fino al vero margine destro (25px), non fino a
+      var(--rail-width) come nelle pagine con rail visibile */
     return;
   }
 
   el.watermarkBrightness.hidden = true;
   el.watermarkBrightness.style.top = "";
+  el.watermarkBrightness.style.right = "";
 
   const universes = g.universes;
   const idx = state.universeIndex;
@@ -608,7 +612,11 @@ function renderTitlePanel(){
   // Qui non c'è una riga di header a cui appoggiarsi (a differenza
   // di Doom): la barra segue invece dove finisce, in alto, la
   // filigrana stessa (stesso valore del suo "top" in CSS).
-  el.watermarkBrightness.style.top = watermarkSrc ? "70px" : "";
+  el.watermarkBrightness.style.top = watermarkSrc ? "81px" : ""; /* 70 di base
+    +10px (stima dell'utente: l'immagine reale non è misurabile da qui, la
+    rete del sandbox non arriva al bucket Cloudflare) +1px (stesso
+    aggiustamento universale delle altre viste) */
+  el.watermarkBrightness.style.right = "";
 
   // restart entrance animation
   el.titleContent.style.animation = "none";
