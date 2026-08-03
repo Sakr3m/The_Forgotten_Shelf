@@ -295,9 +295,17 @@ function renderGamePanel(){
 
   if(g.noTimeline){
     el.universesRow.className = "universe-stage no-timeline";
+    let canonWatermarkExtraStyle = "";
+    if(g.watermarkBottomFade){
+      // Combina la sfumatura orizzontale di sempre (quella di
+      // .canon-watermark, 22%) con una verticale in più, verso il
+      // basso: stessa tecnica usata per Dragon Quest.
+      const fadeMask = "linear-gradient(90deg, transparent, black 22%), linear-gradient(180deg, black 75%, transparent)";
+      canonWatermarkExtraStyle = `-webkit-mask-image:${fadeMask};mask-image:${fadeMask};mask-composite:intersect;`;
+    }
     el.universesRow.innerHTML = `
       <div class="canon-page">
-        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${g.watermarkOpacity != null ? `opacity:${g.watermarkOpacity};` : ""}"></div>` : ""}
+        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${g.watermarkOpacity != null ? `opacity:${g.watermarkOpacity};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
         <div class="canon-note">
           <p>${tf(g.canonNote.intro)}</p>
           <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>

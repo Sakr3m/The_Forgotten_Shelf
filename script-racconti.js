@@ -177,11 +177,20 @@ function renderEntry(){
   el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
   el.entryWatermark.style.opacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : "";
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
+  const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
   if(entry.filigranaBottomFade){
-    // Combina la sfumatura orizzontale di sempre con una verticale
-    // in più, verso il basso: stessa tecnica usata per la filigrana
-    // di Dragon Quest su timeline.html.
-    const fadeMask = "linear-gradient(90deg, transparent, black 35%), linear-gradient(180deg, black 75%, transparent)";
+    // Sfumatura verticale in più, verso il basso: stessa tecnica
+    // usata per la filigrana di Dragon Quest su timeline.html.
+    fadeLayers.push("linear-gradient(180deg, black 75%, transparent)");
+  }
+  if(entry.filigranaLeftFade){
+    // Seconda sfumatura orizzontale, più ampia e a un ritmo diverso
+    // da quella di sempre: la scomparsa a sinistra risulta più
+    // graduale e meno uniforme di un singolo taglio netto.
+    fadeLayers.push("linear-gradient(90deg, transparent 12%, black 60%)");
+  }
+  if(fadeLayers.length > 1){
+    const fadeMask = fadeLayers.join(", ");
     el.entryWatermark.style.webkitMaskImage = fadeMask;
     el.entryWatermark.style.maskImage = fadeMask;
     el.entryWatermark.style.maskComposite = "intersect";

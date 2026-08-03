@@ -474,7 +474,8 @@ const GAMES = {
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     watermarkSize: "cover",
-    watermarkPosition: "calc(100% + 25px) top",
+    watermarkPosition: "calc(100% + 45px) top",
+    watermarkBottomFade: true,
     bannerOffset: 195,
     noTimeline: true,
     canonNote: {
