@@ -36,11 +36,29 @@ const el = {
   mathemoryPin: document.getElementById("mathemoryPin"),
   showProjectsBtn: document.getElementById("showProjectsBtn"),
   desktopAudioToggle: document.getElementById("desktopAudioToggle"),
+  desktopVolumeSlider: document.getElementById("desktopVolumeSlider"),
   layout: document.querySelector(".layout"),
   screenPrevBtn: document.getElementById("screenPrevBtn"),
   screenNextBtn: document.getElementById("screenNextBtn"),
   mobileAudioBtns: document.querySelectorAll(".mobile-audio-btn")
 };
+
+// ---------------------------------------------------------
+// Volume e stato on/off condivisi con le altre pagine (Timeline,
+// Storie & Teorie, Racconti) tramite localStorage: stesse chiavi,
+// lette qui prima di qualunque logica audio. Qui non c'è un'unica
+// "musica di sottofondo" continua come nelle altre pagine, ma due
+// controlli distinti (hover PC, ambient mobile) che condividono lo
+// stesso stato acceso/spento e lo stesso livello.
+// ---------------------------------------------------------
+const MUSIC_ON_KEY = "tfs-music-on";
+const VOLUME_KEY = "tfs-volume";
+const storedMusicOnRaw = localStorage.getItem(MUSIC_ON_KEY);
+const sharedMusicOn = storedMusicOnRaw === null ? true : storedMusicOnRaw === "true";
+const storedVolume = localStorage.getItem(VOLUME_KEY);
+const sharedVolume = storedVolume !== null ? parseFloat(storedVolume) : 0.7;
+el.eratosteneAudio.volume = sharedVolume;
+if(el.desktopVolumeSlider) el.desktopVolumeSlider.value = String(sharedVolume);
 
 function t(key){ return STRINGS[state.lang][key]; }
 
@@ -85,7 +103,8 @@ document.addEventListener("visibilitychange", () => {
 // (es. tornando alla home).
 // ---------------------------------------------------------
 if(window.matchMedia("(hover:hover)").matches){
-  let desktopAudioOn = true;
+  let desktopAudioOn = sharedMusicOn;
+  el.desktopAudioToggle?.setAttribute("aria-pressed", String(desktopAudioOn));
 
   el.mathemoryPin.addEventListener("mouseenter", () => {
     if(!desktopAudioOn) return;
@@ -100,12 +119,23 @@ if(window.matchMedia("(hover:hover)").matches){
   // non "a lato" come nelle altre pagine. Vero on/off (a differenza
   // del pulsante Mostra progetti, che è solo "on") — spegne anche
   // l'audio già in corso se lo si preme mentre il mouse è ancora
-  // sopra la card.
+  // sopra la card. Condiviso con le altre pagine tramite
+  // localStorage: muta qui, resta muto anche altrove (e viceversa).
   if(el.desktopAudioToggle){
     el.desktopAudioToggle.addEventListener("click", () => {
       desktopAudioOn = !desktopAudioOn;
+      localStorage.setItem(MUSIC_ON_KEY, String(desktopAudioOn));
       el.desktopAudioToggle.setAttribute("aria-pressed", String(desktopAudioOn));
       if(!desktopAudioOn) el.eratosteneAudio.pause();
+    });
+  }
+
+  // Barra del volume vera e propria, anche lei condivisa tramite
+  // localStorage con le altre pagine.
+  if(el.desktopVolumeSlider){
+    el.desktopVolumeSlider.addEventListener("input", () => {
+      el.eratosteneAudio.volume = parseFloat(el.desktopVolumeSlider.value);
+      localStorage.setItem(VOLUME_KEY, el.desktopVolumeSlider.value);
     });
   }
 
@@ -126,7 +156,7 @@ if(window.matchMedia("(hover:hover)").matches){
 if(mobileBreakpoint.matches && el.layout){
   const SCREEN_HOME = 1; // 0 = Mathemory sinistra, 1 = home, 2 = Mathemory destra
   let currentScreen = SCREEN_HOME;
-  let mobileAudioOn = true;
+  let mobileAudioOn = sharedMusicOn;
 
   function setAudioBtnsUI(){
     el.mobileAudioBtns.forEach(btn => btn.setAttribute("aria-pressed", String(mobileAudioOn)));
@@ -155,9 +185,9 @@ if(mobileBreakpoint.matches && el.layout){
   function goToScreen(index, instant){
     currentScreen = Math.max(0, Math.min(2, index));
     el.layout.scrollTo({ left: currentScreen * window.innerWidth, behavior: instant ? "instant" : "smooth" });
-    // Arrivo su Mathemory (da un'altra schermata): sempre acceso,
-    // a prescindere da come l'avevi lasciato l'ultima volta.
-    if(currentScreen !== SCREEN_HOME) mobileAudioOn = true;
+    // Non forza più acceso all'arrivo: rispetta lo stato condiviso
+    // con le altre pagine (localStorage), muto se era stato mutato
+    // altrove.
     setAudioBtnsUI();
     syncMobileAudio();
   }
@@ -189,6 +219,7 @@ if(mobileBreakpoint.matches && el.layout){
     btn.addEventListener("click", (ev) => {
       ev.stopPropagation();
       mobileAudioOn = !mobileAudioOn;
+      localStorage.setItem(MUSIC_ON_KEY, String(mobileAudioOn));
       setAudioBtnsUI();
       syncMobileAudio();
     });

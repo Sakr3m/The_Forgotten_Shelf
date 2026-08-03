@@ -251,6 +251,16 @@ body[data-state="landing"] .brand{ display:none; }
   cursor:pointer;
 }
 
+/* Su mobile la barra del volume (e la sua cornice, .volume-panel)
+   non serve: l'apertura è comunque legata a :hover, che sul touch
+   non esiste davvero e può restare "incollata" dopo un tocco. Resta
+   solo il pulsante on/off (.music-toggle). Vale per ogni pagina che
+   condivide queste classi (Timeline/Storie & Teorie/Racconti/
+   Officina). */
+@media (hover:none) and (pointer:coarse){
+  .volume-panel{ display:none; }
+}
+
 .music-toggle{
   display:flex; align-items:center; justify-content:center;
   width:38px; height:38px; flex-shrink:0;
