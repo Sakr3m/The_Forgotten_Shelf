@@ -70,6 +70,21 @@ const el = {
   railTrack: document.getElementById("railTrack"),
 };
 
+// ---------------------------------------------------------
+// Volume e stato on/off condivisi tra le pagine (Timeline, Storie &
+// Teorie, Racconti) tramite localStorage: letti qui, PRIMA di
+// qualunque render iniziale, cosi' lo stato ripristinato e' quello
+// visto fin dal primo disegno della pagina, non solo dopo. Scritti
+// a ogni modifica (vedi piu' sotto), cosi' restano coerenti
+// passando da una pagina all'altra (es. muto qui, resta muto li').
+// ---------------------------------------------------------
+const MUSIC_ON_KEY = "tfs-music-on";
+const VOLUME_KEY = "tfs-volume";
+const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
+if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
+const storedVolume = localStorage.getItem(VOLUME_KEY);
+if(storedVolume !== null) el.volumeSlider.value = storedVolume;
+
 // Drag-to-scroll for the horizontal timeline, active only when the manual
 // scroll toggle is on. Attached once here (not per-render) to avoid piling
 // up duplicate window/document listeners every time the panel re-renders;
@@ -733,10 +748,12 @@ document.addEventListener("click", (e) => {
 el.bgMusic.volume = parseFloat(el.volumeSlider.value);
 el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+  localStorage.setItem(VOLUME_KEY, el.volumeSlider.value);
 });
 
 el.musicToggle.addEventListener("click", () => {
   state.musicOn = !state.musicOn;
+  localStorage.setItem(MUSIC_ON_KEY, String(state.musicOn));
   updateMusicPlayback();
 });
 

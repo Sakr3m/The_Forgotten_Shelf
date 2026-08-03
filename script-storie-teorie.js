@@ -65,6 +65,19 @@ const el = {
   musicControl: document.getElementById("musicControl"),
 };
 
+// ---------------------------------------------------------
+// Volume e stato on/off condivisi tra le pagine (Timeline, Storie &
+// Teorie, Racconti) tramite localStorage: letti qui, PRIMA di
+// qualunque render iniziale. Scritti a ogni modifica (vedi piu'
+// sotto), cosi' restano coerenti passando da una pagina all'altra.
+// ---------------------------------------------------------
+const MUSIC_ON_KEY = "tfs-music-on";
+const VOLUME_KEY = "tfs-volume";
+const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
+if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
+const storedVolume = localStorage.getItem(VOLUME_KEY);
+if(storedVolume !== null) el.volumeSlider.value = storedVolume;
+
 // On mobile, the entry view puts the game picker and the music control
 // in a row above the text (tendina left, volume right) instead of their
 // normal spots (header / top bar). Neither is a descendant of #entryPanel
@@ -340,10 +353,12 @@ document.addEventListener("visibilitychange", () => {
 el.bgMusic.volume = parseFloat(el.volumeSlider.value);
 el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+  localStorage.setItem(VOLUME_KEY, el.volumeSlider.value);
 });
 
 el.musicToggle.addEventListener("click", () => {
   state.musicOn = !state.musicOn;
+  localStorage.setItem(MUSIC_ON_KEY, String(state.musicOn));
   updateMusicPlayback();
 });
 
