@@ -12,6 +12,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
+    watermarkOpacity: 0.2,
     palette: ["#c9a24b", "#4a9d6e", "#6b3fa0"],
     accentColor: "#6b3fa0",
     tracks: [
@@ -139,6 +140,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
     universes: [
       {
         id: "iga",
@@ -324,6 +326,7 @@ const GAMES = {
     accentColor: "#c4cbd4",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Avatar.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
+    watermarkOpacity: 0.16,
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Banner.jpg",
     bannerOffset: 265,
     tracks: [
@@ -469,6 +472,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
     watermarkSize: "cover",
     watermarkPosition: "top right",
     bannerOffset: 195,
@@ -508,6 +512,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+    watermarkOpacity: 0.1,
     watermarkBottomFade: true,
     bannerOffset: 195,
     universes: [

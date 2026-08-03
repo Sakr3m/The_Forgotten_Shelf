@@ -22,6 +22,7 @@ const RACCONTI = {
     bannerOffset: 70,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Filigrana.jpg",
+    filigranaOpacity: 0.4,
     title: {
       it: "Cinere",
       en: "Cinere"
@@ -119,7 +120,7 @@ And no one knows why.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
-    filigranaOpacity: 0.30,
+    filigranaOpacity: 0.35,
     bannerOffset: 55,
     title: {
       it: "Diario di un Nuovo Assunto",
@@ -3328,7 +3329,7 @@ Then outside.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
-    filigranaOpacity: 0.30,
+    filigranaOpacity: 0.35,
     bannerOffset: 55,
     title: {
       it: "Il Custode del Vuoto",
@@ -3533,7 +3534,7 @@ Then the sound stopped.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
-    filigranaOpacity: 0.30,
+    filigranaOpacity: 0.35,
     bannerOffset: 55,
     title: {
       it: "Il Custode del Vuoto",
@@ -3716,7 +3717,7 @@ And suddenly night fell.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
-    filigranaOpacity: 0.30,
+    filigranaOpacity: 0.35,
     bannerOffset: 55,
     title: {
       it: "Il Custode del Vuoto",

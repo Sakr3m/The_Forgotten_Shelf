@@ -297,7 +297,7 @@ function renderGamePanel(){
     el.universesRow.className = "universe-stage no-timeline";
     el.universesRow.innerHTML = `
       <div class="canon-page">
-        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}"></div>` : ""}
+        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${g.watermarkOpacity != null ? `opacity:${g.watermarkOpacity};` : ""}"></div>` : ""}
         <div class="canon-note">
           <p>${tf(g.canonNote.intro)}</p>
           <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
@@ -546,6 +546,7 @@ function renderTitlePanel(){
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
     watermark.style.backgroundSize = g.watermarkSize || "";
     watermark.style.backgroundPosition = g.watermarkPosition || "";
+    watermark.style.opacity = g.watermarkOpacity != null ? g.watermarkOpacity : "";
     if(g.watermarkBottomFade){
       // Combina la sfumatura orizzontale di sempre con una verticale
       // in più, verso il basso: ammorbidisce il taglio netto in
