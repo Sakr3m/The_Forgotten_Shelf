@@ -728,7 +728,7 @@ const LIBRI = {
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
-    bannerOffset: 65,
+    bannerOffset: 45,
     title: {
       it: "Il Chiamato",
       en: "The Called"
