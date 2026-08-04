@@ -149,11 +149,17 @@
     position:relative; z-index:1;
     writing-mode:vertical-rl;
     transform:rotate(180deg);
-    font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    font-size:.96rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
     color:var(--text-dim);
     background:var(--bg);
     padding:8px 4px;
     white-space:nowrap;
+  }
+  /* Pannello destro: stessa etichetta, ma ruotata di altri 180°
+     (quindi 360° totali, come non ruotata) su richiesta esplicita —
+     resta leggibile nell'altro verso rispetto al sinistro. */
+  .reviews-gate--right .reviews-genre__label{
+    transform:rotate(360deg);
   }
   /* Pannello sinistro: stessa idea specchiata — parentesi (ora "[")
      a sinistra delle card invece che a destra, come da richiesta. */
