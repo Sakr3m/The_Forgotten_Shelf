@@ -276,7 +276,7 @@ function openReview(id){
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
   crossfadeTo(entryEl);
   state.view = id;
-  el.body.dataset.state = "entry";
+  el.body.classList.add("is-review-open");
   updateIndexLink();
   updateMusicPlayback();
 }
@@ -284,7 +284,7 @@ function openReview(id){
 function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
-  el.body.dataset.state = "landing";
+  el.body.classList.remove("is-review-open");
   updateIndexLink();
   updateMusicPlayback();
 }

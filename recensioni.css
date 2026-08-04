@@ -272,7 +272,7 @@
      gestisce da sola lo scroll interno (solo .reading). Senza
      questa regola il padding sotto .stage (80px) fa comunque
      comparire una barra di scorrimento esterna inutile. */
-  body[data-state="entry"]{ overflow:hidden; }
+  body.is-review-open{ overflow:hidden; }
 
   .review-entry{
     display:flex; flex-direction:column;
@@ -308,7 +308,17 @@
   .review-entry .entry-header__title{
     font-size:2rem; color:var(--text); margin:0;
   }
+  /* Il controllo musica condiviso (styles.css) e' visibile solo su
+     data-state="landing" per le altre pagine, che hanno un ricambio
+     proprio in vista voce; qui non tocchiamo mai piu' data-state
+     (per non spegnere Discord/Ko-fi/index-link, gestiti dalla stessa
+     logica ma pensati solo per la landing di questa pagina), quindi
+     serve un interruttore indipendente: la classe is-review-open sul
+     body, aggiunta/tolta in apertura/chiusura di una recensione. */
   .review-entry .music-control{ flex-shrink:0; }
+  body.is-review-open .music-control{
+    display:flex; align-items:center; gap:10px;
+  }
   .review-entry .entry-header__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
   .review-entry .title-tag{
     padding:5px 12px;
