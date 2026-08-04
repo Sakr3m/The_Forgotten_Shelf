@@ -193,9 +193,9 @@ function renderEntry(){
   if(entry.filigranaBottomFade){
     // Sfumatura verticale in più, verso il basso: stessa tecnica
     // usata per la filigrana di Dragon Quest su timeline.html.
-    // Riapplicata/rinforzata (04/08): partiva a 75%, poi 60%, ora
-    // 45% - copre ancora piu' spazio, oscurita' piu' marcata.
-    fadeLayers.push("linear-gradient(180deg, black 45%, transparent)");
+    // Riapplicata/rinforzata (04/08): 75% -> 60% -> 45% (troppo,
+    // esagerato su Cinere) -> 50%, valore definitivo.
+    fadeLayers.push("linear-gradient(180deg, black 50%, transparent)");
   }
   if(entry.filigranaLeftFade){
     // Seconda sfumatura orizzontale, più ampia e a un ritmo diverso
