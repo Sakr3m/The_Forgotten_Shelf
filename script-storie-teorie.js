@@ -14,7 +14,8 @@ const STRINGS = {
     landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
     landingSubMobile: "Seleziona una voce dalla finestra Teorie o da quella delle Storie Nascoste per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
-    backToIndexLabel: "Torna all'index"
+    backToIndexLabel: "Torna all'index",
+    entryCopyright: "© 2026 Sakrem — Analisi e testo originali"
   },
   en: {
     brand: "The Hidden Thread",
@@ -27,7 +28,8 @@ const STRINGS = {
     landingSub: "Select an entry from the Theories column or from the Hidden Stories column to dive in.",
     landingSubMobile: "Select an entry from the Theories screen or from the Hidden Stories screen to dive in.",
     kofiLabel: "Support me on Ko-fi",
-    backToIndexLabel: "Back to index"
+    backToIndexLabel: "Back to index",
+    entryCopyright: "© 2026 Sakrem — Original analysis and text"
   }
 };
 
@@ -178,6 +180,7 @@ function renderEntry(){
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
+    ${state.column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
     <p class="entry-body">${tf(entry.body)}</p>
   `;
 

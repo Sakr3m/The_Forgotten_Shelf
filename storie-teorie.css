@@ -135,6 +135,11 @@ body[data-state="landing"] #pageHeader{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
 }
 .entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-copyright{
+  margin:10px auto 0; width:fit-content;
+  font-size:.7rem; color:var(--text-faint);
+  letter-spacing:.02em;
+}
 .entry-body{
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:center;
