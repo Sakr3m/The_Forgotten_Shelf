@@ -102,7 +102,6 @@ const el = {
   reviewsGateRight: document.getElementById("reviewsGateRight"),
   gateToggleLeft: document.getElementById("gateToggleLeft"),
   reviewsGateLeft: document.getElementById("reviewsGateLeft"),
-  stageContent: document.getElementById("stageContent"),
   landingPanel: document.getElementById("landingPanel"),
   reviewFfviii: document.getElementById("reviewFfviii"),
   reviewBackBtn: document.getElementById("reviewBackBtn"),

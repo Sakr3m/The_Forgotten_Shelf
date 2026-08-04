@@ -234,18 +234,17 @@
    out 1s -> pausa 0.5s a schermo vuoto -> fade in 1s. Vedi
    script-recensioni.js per i tempi esatti.
    ============================================================ */
-.stage-content{ position:relative; }
-.stage-content > .landing,
-.stage-content > .review-entry{
+.stage > .landing,
+.stage > .review-entry{
   transition:opacity 1s ease;
 }
-.stage-content > .is-fading{ opacity:0; }
-/* Stesso accorgimento del blocco .review-entry piu' sotto: .landing
-   arriva gia' con un display:flex da styles.css, che a parita' di
-   specificita' vincerebbe su [hidden] quando lo nascondiamo via JS
-   per il crossfade. Forziamo qui il caso nascosto. */
+.stage > .is-fading{ opacity:0; }
+/* .landing arriva gia' con un display:flex da styles.css, che a
+   parita' di specificita' vincerebbe su [hidden] quando lo
+   nascondiamo via JS per il crossfade. Forziamo qui il caso
+   nascosto. */
 @media (hover:hover), (pointer:fine){
-  .stage-content > .landing[hidden]{ display:none; }
+  .stage > .landing[hidden]{ display:none; }
 }
 
 /* ============================================================
@@ -339,10 +338,14 @@
   .review-entry .cover-slot{
     aspect-ratio:3/4;
     border-radius:8px; overflow:hidden;
-    background:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+    background-color:#161d2f;
+    background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+    background-size:cover; background-position:center; background-repeat:no-repeat;
     border:1px solid var(--line);
     margin-bottom:16px;
-    /* Segnaposto: qui va "Final Fantasy VIII Card.jpg" quando arriva. */
+    /* Il gradiente qui sopra e' solo il fallback quando manca
+       un'immagine: lo style inline in HTML (background-image) lo
+       sovrascrive con la copertina vera, stessa proprieta'. */
   }
   .review-entry .facts dl{ margin:0; }
   .review-entry .facts-eyebrow{

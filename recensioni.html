@@ -103,12 +103,13 @@
         </div>
       </div>
 
-      <!-- Contenitore del crossfade: landing e voce (recensione aperta)
-           condividono questo wrapper, cosi' lo script puo' far sparire
-           l'una e comparire l'altra con un fade in due tempi (0.5s buio
-           in mezzo), senza toccare cancello/topbar. Solo una delle due
-           e' presente per volta: l'altra resta "hidden". -->
-      <div class="stage-content" id="stageContent">
+      <!-- landing e voce (recensione aperta) sono figli diretti di
+           .stage (che e' flex), cosi' .landing mantiene la sua
+           centratura verticale via margin:auto (styles.css) — un
+           wrapper qui in mezzo la romperebbe. Solo una delle due e'
+           visibile per volta: l'altra resta "hidden". Il crossfade
+           (fade out 1s -> pausa 0.5s -> fade in 1s) si applica
+           direttamente a loro, vedi script-recensioni.js. -->
 
       <section class="landing" id="landingPanel">
         <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nelle recensioni</p>
@@ -154,7 +155,7 @@
         <div class="body-grid">
 
           <aside class="facts">
-            <div class="cover-slot" aria-hidden="true"></div>
+            <div class="cover-slot" style="background-image:url('https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Card.jpg')" aria-hidden="true"></div>
             <dl>
               <div class="facts-eyebrow" data-i18n="factsLabel">Scheda</div>
               <dt data-i18n="factDeveloper">Sviluppatore</dt><dd>Square Enix</dd>
@@ -190,8 +191,6 @@
 
         </div>
       </article>
-
-      </div>
 
     </main>
   </div>
