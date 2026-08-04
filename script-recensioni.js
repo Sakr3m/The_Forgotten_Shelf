@@ -43,7 +43,15 @@ const STRINGS = {
     ffviiDeepTitle2: "Personaggi e scelte di design",
     ffviiDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
     ffviiDeepTitle3: "Il finale",
-    ffviiDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
+    ffviiDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo.",
+    ffixHours: "~38 ore (storia) / 80-100+ ORE (completo)",
+    ffixCompleted: "Sì, 100%",
+    ffixDeepTitle1: "La trama, nel dettaglio",
+    ffixDeep1: "Testo segnaposto per l'analisi vera: eventi chiave, colpi di scena, scelte di scrittura specifiche.",
+    ffixDeepTitle2: "Personaggi e scelte di design",
+    ffixDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
+    ffixDeepTitle3: "Il finale",
+    ffixDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
   },
   en: {
     brand: "Game Diaries",
@@ -83,7 +91,15 @@ const STRINGS = {
     ffviiDeepTitle2: "Characters and design choices",
     ffviiDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
     ffviiDeepTitle3: "The ending",
-    ffviiDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
+    ffviiDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading.",
+    ffixHours: "~38 hours (story) / 80-100+ HOURS (100%)",
+    ffixCompleted: "Yes, 100%",
+    ffixDeepTitle1: "The plot, in detail",
+    ffixDeep1: "Placeholder text for the real analysis: key events, twists, specific writing choices.",
+    ffixDeepTitle2: "Characters and design choices",
+    ffixDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
+    ffixDeepTitle3: "The ending",
+    ffixDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
   }
 };
 
@@ -100,7 +116,9 @@ const FFVIII_TRACKS = [
 // assegnato ancora — il controllo musica resta funzionante ma senza
 // niente da riprodurre finche' non arrivano i brani veri.
 const FFVII_TRACKS = [];
-const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS };
+// Playlist di Final Fantasy IX: vuota per ora, come FFVII.
+const FFIX_TRACKS = [];
+const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS, ffix: FFIX_TRACKS };
 
 // Lingua condivisa con le altre pagine tramite localStorage: letta
 // prima di qualunque render iniziale.
@@ -137,9 +155,11 @@ const el = {
   landingPanel: document.getElementById("landingPanel"),
   reviewFfvii: document.getElementById("reviewFfvii"),
   reviewFfviii: document.getElementById("reviewFfviii"),
+  reviewFfix: document.getElementById("reviewFfix"),
   musicControl: document.getElementById("musicControl"),
   musicSlotFfvii: document.getElementById("musicSlotFfvii"),
   musicSlotFfviii: document.getElementById("musicSlotFfviii"),
+  musicSlotFfix: document.getElementById("musicSlotFfix"),
   bgMusic: document.getElementById("bgMusic"),
   musicToggle: document.getElementById("musicToggle"),
   volumeSlider: document.getElementById("volumeSlider"),
@@ -159,14 +179,16 @@ if(el.volumeSlider){
 // riga qui (e il markup nascosto della voce in recensioni.html).
 const REVIEWS = {
   ffvii: el.reviewFfvii,
-  ffviii: el.reviewFfviii
+  ffviii: el.reviewFfviii,
+  ffix: el.reviewFfix
 };
 
 // Slot dove va spostato il controllo musica condiviso quando quella
 // recensione e' quella aperta.
 const MUSIC_SLOTS = {
   ffvii: el.musicSlotFfvii,
-  ffviii: el.musicSlotFfviii
+  ffviii: el.musicSlotFfviii,
+  ffix: el.musicSlotFfix
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -345,6 +367,7 @@ function setupRevealButton(suffix){
   });
 }
 setupRevealButton("Ffvii");
+setupRevealButton("Ffix");
 setupRevealButton("");
 
 // ---------------------------------------------------------
