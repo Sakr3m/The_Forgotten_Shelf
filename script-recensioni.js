@@ -17,7 +17,28 @@ const STRINGS = {
     placeholderTile: "Titolo in arrivo",
     spoilerAlert: "Le recensioni possono contenere dettagli sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.",
     gateSideToggleOff: "Mostra il carrello da sinistra",
-    gateSideToggleOn: "Mostra il carrello da destra"
+    gateSideToggleOn: "Mostra il carrello da destra",
+    backToReviewsLabel: "Torna alle recensioni",
+    ffviiiVerdict: "Consigliato",
+    ffviiiEyebrow: "Diari di Gioco · Recensione N°1",
+    ffviiiHours: "~35 ore",
+    factsLabel: "Scheda",
+    factDeveloper: "Sviluppatore",
+    factRelease: "Uscita originale",
+    factCompleted: "Completato",
+    ffviiiCompleted: "Sì, 100%",
+    quickReadLabel: "Lettura veloce · senza spoiler",
+    ffviiiQuick1: "Testo segnaposto per il giudizio rapido: qui andrebbero due o tre frasi dirette sul tono generale del remaster, se il ritmo regge ancora oggi, se vale il tempo speso. Nessun nome, nessun evento di trama.",
+    ffviiiQuick2: "Seconda frase di chiusura per questa parte, ancora priva di dettagli specifici.",
+    thresholdText: "Da qui in poi si entra nel dettaglio della trama, incluso il finale. Continua solo se hai già giocato o non temi gli spoiler.",
+    thresholdBtn: "Entra nella zona spoiler",
+    ffviiiDeepTitle1: "La trama, nel dettaglio",
+    ffviiiDeep1: "Testo segnaposto per l'analisi vera: eventi chiave, colpi di scena, scelte di scrittura specifiche.",
+    noteLabel: "Nota personale: qui puoi isolare una riflessione più soggettiva, staccata dal corpo principale del testo.",
+    ffviiiDeepTitle2: "Personaggi e scelte di design",
+    ffviiiDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
+    ffviiiDeepTitle3: "Il finale",
+    ffviiiDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
   },
   en: {
     brand: "Game Diaries",
@@ -31,11 +52,32 @@ const STRINGS = {
     placeholderTile: "Title coming soon",
     spoilerAlert: "Reviews may contain plot details, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     gateSideToggleOff: "Show the cart from the left",
-    gateSideToggleOn: "Show the cart from the right"
+    gateSideToggleOn: "Show the cart from the right",
+    backToReviewsLabel: "Back to reviews",
+    ffviiiVerdict: "Recommended",
+    ffviiiEyebrow: "Game Diaries · Review No. 1",
+    ffviiiHours: "~35 hours",
+    factsLabel: "Facts",
+    factDeveloper: "Developer",
+    factRelease: "Original release",
+    factCompleted: "Completed",
+    ffviiiCompleted: "Yes, 100%",
+    quickReadLabel: "Quick read · spoiler-free",
+    ffviiiQuick1: "Placeholder text for the quick take: a couple of direct sentences on the remaster's overall tone, whether the pacing still holds up today, whether it's worth the time. No names, no plot events.",
+    ffviiiQuick2: "Second closing sentence for this part, still without specific details.",
+    thresholdText: "From here on it goes into plot detail, including the ending. Continue only if you've already played it or aren't worried about spoilers.",
+    thresholdBtn: "Enter the spoiler zone",
+    ffviiiDeepTitle1: "The plot, in detail",
+    ffviiiDeep1: "Placeholder text for the real analysis: key events, twists, specific writing choices.",
+    noteLabel: "Personal note: here you can isolate a more subjective reflection, separate from the main body of the text.",
+    ffviiiDeepTitle2: "Characters and design choices",
+    ffviiiDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
+    ffviiiDeepTitle3: "The ending",
+    ffviiiDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
   }
 };
 
-const state = { lang: "it", activeSide: "right" };
+const state = { lang: "it", activeSide: "right", view: "landing" };
 
 // Lingua condivisa con le altre pagine tramite localStorage: letta
 // prima di qualunque render iniziale.
@@ -59,7 +101,21 @@ const el = {
   gateToggleRight: document.getElementById("gateToggleRight"),
   reviewsGateRight: document.getElementById("reviewsGateRight"),
   gateToggleLeft: document.getElementById("gateToggleLeft"),
-  reviewsGateLeft: document.getElementById("reviewsGateLeft")
+  reviewsGateLeft: document.getElementById("reviewsGateLeft"),
+  stageContent: document.getElementById("stageContent"),
+  landingPanel: document.getElementById("landingPanel"),
+  reviewFfviii: document.getElementById("reviewFfviii"),
+  reviewBackBtn: document.getElementById("reviewBackBtn"),
+  revealBtn: document.getElementById("revealBtn"),
+  reviewThreshold: document.getElementById("reviewThreshold"),
+  reviewDeepContent: document.getElementById("reviewDeepContent")
+};
+
+// Mappa id-recensione -> elemento della voce corrispondente. Un solo
+// titolo per ora; aggiungerne altri significa solo aggiungere una
+// riga qui (e il markup nascosto della voce in recensioni.html).
+const REVIEWS = {
+  ffviii: el.reviewFfviii
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -99,26 +155,42 @@ el.brandBtn.addEventListener("click", () => {});
 // destra e quello di sinistra, richiamata due volte con i
 // riferimenti giusti invece di duplicare il codice. Solo desktop
 // (su mobile i pulsanti sono display:none via CSS, questi listener
-// restano innocui se mai venissero cliccati).
+// restano innocui se mai venissero cliccati). Espone anche una
+// chiusura "programmatica" (closeGate), riusata quando si seleziona
+// una card: il carrello si richiude da solo, non solo al click
+// sulla sua maniglia.
 // ---------------------------------------------------------
+const gateFadeTimers = new WeakMap();
+
+function closeGate(toggleBtn, gateEl){
+  if(!toggleBtn || !gateEl) return;
+  if(!gateEl.classList.contains("is-open")) return;
+  const grid = gateEl.querySelector(".reviews-grid");
+  gateEl.classList.remove("is-open");
+  toggleBtn.setAttribute("aria-expanded", "false");
+  gateEl.setAttribute("aria-hidden", "true");
+  toggleBtn.setAttribute("aria-label", t("gateToggleLabel"));
+  clearTimeout(gateFadeTimers.get(gateEl));
+  grid.classList.remove("is-visible");
+}
+
 function setupGateToggle(toggleBtn, gateEl){
   if(!toggleBtn || !gateEl) return;
   const grid = gateEl.querySelector(".reviews-grid");
-  let gridFadeTimer = null;
   toggleBtn.addEventListener("click", () => {
     const isOpen = gateEl.classList.toggle("is-open");
     toggleBtn.setAttribute("aria-expanded", String(isOpen));
     gateEl.setAttribute("aria-hidden", String(!isOpen));
     toggleBtn.setAttribute("aria-label", isOpen ? t("gateToggleLabelClose") : t("gateToggleLabel"));
 
-    clearTimeout(gridFadeTimer);
+    clearTimeout(gateFadeTimers.get(gateEl));
     if(isOpen){
       // Le card non si vedono mentre il carrello scorre: compaiono con
       // un fade solo mezzo secondo dopo, a battente già del tutto
       // aperto, invece di scorrere assieme a lui.
-      gridFadeTimer = setTimeout(() => {
+      gateFadeTimers.set(gateEl, setTimeout(() => {
         grid.classList.add("is-visible");
-      }, 500);
+      }, 500));
     } else {
       grid.classList.remove("is-visible");
     }
@@ -126,6 +198,71 @@ function setupGateToggle(toggleBtn, gateEl){
 }
 setupGateToggle(el.gateToggleRight, el.reviewsGateRight);
 setupGateToggle(el.gateToggleLeft, el.reviewsGateLeft);
+
+// ---------------------------------------------------------
+// Selezione di una card dal carrello: il carrello attivo si chiude
+// da solo (va riaperto a mano per scegliere un'altra voce), e
+// l'area centrale (landing o un'altra recensione già aperta) fa un
+// crossfade verso la recensione scelta — fade out 1s, mezzo
+// secondo di pausa, fade in 1s. Il pulsantino del carrello resta
+// al suo posto, non fa parte di questo crossfade.
+// ---------------------------------------------------------
+function currentCenterPanel(){
+  return state.view === "landing" ? el.landingPanel : REVIEWS[state.view];
+}
+
+function crossfadeTo(showEl){
+  const hideEl = currentCenterPanel();
+  if(hideEl === showEl) return;
+
+  hideEl.classList.add("is-fading");
+  setTimeout(() => {
+    hideEl.hidden = true;
+    hideEl.classList.remove("is-fading");
+    setTimeout(() => {
+      showEl.hidden = false;
+      // Forza un reflow cosi' la transizione parte da opacity:0
+      // invece di saltare direttamente a 1.
+      showEl.classList.add("is-fading");
+      void showEl.offsetWidth;
+      showEl.classList.remove("is-fading");
+    }, 500);
+  }, 1000);
+}
+
+function openReview(id){
+  const entryEl = REVIEWS[id];
+  if(!entryEl) return;
+  closeGate(el.gateToggleRight, el.reviewsGateRight);
+  closeGate(el.gateToggleLeft, el.reviewsGateLeft);
+  crossfadeTo(entryEl);
+  state.view = id;
+}
+
+function backToLanding(){
+  crossfadeTo(el.landingPanel);
+  state.view = "landing";
+}
+
+document.querySelectorAll("[data-review]").forEach(card => {
+  card.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    openReview(card.dataset.review);
+  });
+});
+
+if(el.reviewBackBtn){
+  el.reviewBackBtn.addEventListener("click", backToLanding);
+}
+
+// Soglia spoiler: un solo pulsante rivela il contenuto approfondito,
+// senza possibilita' di richiuderlo (come nel mockup di riferimento).
+if(el.revealBtn){
+  el.revealBtn.addEventListener("click", () => {
+    el.reviewThreshold.classList.add("is-crossed");
+    el.reviewDeepContent.classList.add("is-visible");
+  });
+}
 
 // ---------------------------------------------------------
 // Toggle centrale: NON sposta piu' un unico carrello da un lato

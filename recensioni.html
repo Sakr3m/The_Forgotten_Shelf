@@ -67,15 +67,48 @@
         <button class="gate-handle" id="gateToggleRight" type="button" aria-expanded="false" aria-controls="reviewsGateRight" aria-label="Apri l'elenco delle recensioni">
           <svg class="gate-handle__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="reviews-grid"></div>
+        <div class="reviews-grid">
+          <div class="reviews-genre">
+            <div class="reviews-genre__tiles">
+              <a class="review-tile" href="#" data-review="ffviii" aria-label="Final Fantasy VIII Remastered">
+                <div class="review-tile__cover" aria-hidden="true"></div>
+                <span class="review-tile__title">Final Fantasy VIII Remastered</span>
+              </a>
+            </div>
+            <div class="reviews-genre__bracket" aria-hidden="true">
+              <span class="reviews-genre__bracket-mark"></span>
+              <span class="reviews-genre__label">JRPG</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="reviews-gate reviews-gate--left side-hidden" id="reviewsGateLeft" aria-hidden="true">
         <button class="gate-handle" id="gateToggleLeft" type="button" aria-expanded="false" aria-controls="reviewsGateLeft" aria-label="Apri l'elenco delle recensioni">
           <svg class="gate-handle__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="reviews-grid"></div>
+        <div class="reviews-grid">
+          <div class="reviews-genre">
+            <div class="reviews-genre__tiles">
+              <a class="review-tile" href="#" data-review="ffviii" aria-label="Final Fantasy VIII Remastered">
+                <div class="review-tile__cover" aria-hidden="true"></div>
+                <span class="review-tile__title">Final Fantasy VIII Remastered</span>
+              </a>
+            </div>
+            <div class="reviews-genre__bracket" aria-hidden="true">
+              <span class="reviews-genre__bracket-mark"></span>
+              <span class="reviews-genre__label">JRPG</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Contenitore del crossfade: landing e voce (recensione aperta)
+           condividono questo wrapper, cosi' lo script puo' far sparire
+           l'una e comparire l'altra con un fade in due tempi (0.5s buio
+           in mezzo), senza toccare cancello/topbar. Solo una delle due
+           e' presente per volta: l'altra resta "hidden". -->
+      <div class="stage-content" id="stageContent">
 
       <section class="landing" id="landingPanel">
         <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nelle recensioni</p>
@@ -91,6 +124,74 @@
 
         <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" data-i18n="gateSideToggleOff">Apri il cancello da sinistra</button>
       </section>
+
+      <!-- Voce di recensione (Final Fantasy VIII Remastered): nascosta
+           finche' non selezionata dal carrello. Testo/immagini ancora
+           segnaposto: i box con classe *-slot sono pronti a ricevere
+           le immagini vere (es. "Final Fantasy VIII Card.jpg" per la
+           cover) quando arrivano. -->
+      <article class="review-entry" id="reviewFfviii" hidden>
+        <button class="review-entry__back" id="reviewBackBtn" type="button">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="backToReviewsLabel">Torna alle recensioni</span>
+        </button>
+
+        <div class="hero">
+          <div class="hero__banner-slot" aria-hidden="true"></div>
+          <div class="hero__fade"></div>
+          <div class="hero__verdict" data-i18n="ffviiiVerdict">Consigliato</div>
+          <div class="hero__content">
+            <div class="hero__eyebrow" data-i18n="ffviiiEyebrow">Diari di Gioco · Recensione N°1</div>
+            <h1 class="hero__title">Final Fantasy VIII Remastered</h1>
+            <div class="hero__meta">
+              <span class="title-tag">JRPG</span>
+              <span class="title-tag">PC · Switch · PS4</span>
+              <span class="title-tag" data-i18n="ffviiiHours">~35 ore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="body-grid">
+
+          <aside class="facts">
+            <div class="cover-slot" aria-hidden="true"></div>
+            <dl>
+              <div class="facts-eyebrow" data-i18n="factsLabel">Scheda</div>
+              <dt data-i18n="factDeveloper">Sviluppatore</dt><dd>Square Enix</dd>
+              <dt data-i18n="factRelease">Uscita originale</dt><dd>1999</dd>
+              <dt data-i18n="factCompleted">Completato</dt><dd data-i18n="ffviiiCompleted">Sì, 100%</dd>
+            </dl>
+          </aside>
+
+          <main class="reading">
+            <div class="section-eyebrow" data-i18n="quickReadLabel">Lettura veloce · senza spoiler</div>
+            <p data-i18n="ffviiiQuick1">Testo segnaposto per il giudizio rapido: qui andrebbero due o tre frasi dirette sul tono generale del remaster, se il ritmo regge ancora oggi, se vale il tempo speso. Nessun nome, nessun evento di trama.</p>
+            <p data-i18n="ffviiiQuick2">Seconda frase di chiusura per questa parte, ancora priva di dettagli specifici.</p>
+
+            <div class="threshold" id="reviewThreshold">
+              <div class="threshold__icon" aria-hidden="true">⚠</div>
+              <p data-i18n="thresholdText">Da qui in poi si entra nel dettaglio della trama, incluso il finale. Continua solo se hai già giocato o non temi gli spoiler.</p>
+              <button id="revealBtn" type="button" data-i18n="thresholdBtn">Entra nella zona spoiler</button>
+            </div>
+
+            <div class="deep" id="reviewDeepContent">
+              <h2 data-i18n="ffviiiDeepTitle1">La trama, nel dettaglio</h2>
+              <p data-i18n="ffviiiDeep1">Testo segnaposto per l'analisi vera: eventi chiave, colpi di scena, scelte di scrittura specifiche.</p>
+
+              <div class="note" data-i18n="noteLabel">Nota personale: qui puoi isolare una riflessione più soggettiva, staccata dal corpo principale del testo.</div>
+
+              <h2 data-i18n="ffviiiDeepTitle2">Personaggi e scelte di design</h2>
+              <p data-i18n="ffviiiDeep2">Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.</p>
+
+              <h2 data-i18n="ffviiiDeepTitle3">Il finale</h2>
+              <p data-i18n="ffviiiDeep3">Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo.</p>
+            </div>
+          </main>
+
+        </div>
+      </article>
+
+      </div>
 
     </main>
   </div>

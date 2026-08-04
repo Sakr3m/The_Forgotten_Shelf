@@ -172,9 +172,16 @@
     border:1px solid var(--line);
     text-decoration:none;
     aspect-ratio:3/4;
-    transition:transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    transition:transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), filter var(--dur-fast) var(--ease);
   }
-  .review-tile:hover{ transform:translateY(-4px); border-color:var(--cyan); }
+  /* Leggero zoom + illuminazione mentre il mouse resta sopra, oltre
+     al sollevamento gia' presente. Si applica solo mentre :hover e'
+     vero (il browser gestisce da solo il "ritorno" a mouse fuori). */
+  .review-tile:hover{
+    transform:translateY(-4px) scale(1.035);
+    border-color:var(--cyan);
+    filter:brightness(1.18);
+  }
 
   .review-tile__cover{
     position:absolute; inset:0;
@@ -217,5 +224,187 @@
   }
   .gate-side-toggle[aria-pressed="true"]{
     border-color:var(--cyan); color:var(--cyan);
+  }
+}
+
+/* ============================================================
+   Contenitore del crossfade tra landing e voce di recensione.
+   Solo landing/entry, non tocca il cancello ne' la topbar (che
+   restano fuori da questo wrapper). Sequenza gestita in JS: fade
+   out 1s -> pausa 0.5s a schermo vuoto -> fade in 1s. Vedi
+   script-recensioni.js per i tempi esatti.
+   ============================================================ */
+.stage-content{ position:relative; }
+.stage-content > .landing,
+.stage-content > .review-entry{
+  transition:opacity 1s ease;
+}
+.stage-content > .is-fading{ opacity:0; }
+/* Stesso accorgimento del blocco .review-entry piu' sotto: .landing
+   arriva gia' con un display:flex da styles.css, che a parita' di
+   specificita' vincerebbe su [hidden] quando lo nascondiamo via JS
+   per il crossfade. Forziamo qui il caso nascosto. */
+@media (hover:hover), (pointer:fine){
+  .stage-content > .landing[hidden]{ display:none; }
+}
+
+/* ============================================================
+   Voce di recensione (es. Final Fantasy VIII Remastered). Solo
+   desktop per ora, come il resto del carrello. Ispirata al mockup
+   fornito, adattata ai token del sito (styles.css) invece di una
+   palette a se stante.
+   ============================================================ */
+.review-entry{ display:none; }
+@media (hover:hover), (pointer:fine){
+  .review-entry{
+    display:block;
+    width:100%; max-width:1100px; margin:20px auto 60px;
+  }
+  /* Stesso accorgimento gia' usato altrove nel sito: [hidden] da
+     solo ha la stessa specificita' di .review-entry{display:block}
+     qui sopra e perderebbe per ordine di dichiarazione, restando
+     visibile anche da nascosto. Serve un selettore piu' specifico
+     che forzi display:none quando l'attributo e' presente. */
+  .review-entry[hidden]{ display:none; }
+
+  .review-entry__back{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-bottom:20px;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    border-radius:999px;
+    color:var(--text-dim);
+    font-size:.8rem; font-weight:600;
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .review-entry__back:hover{ border-color:var(--cyan); color:var(--text); }
+  .review-entry__back svg{ width:14px; height:14px; }
+
+  /* --- Hero: banner pieno, titolo appoggiato sul bordo basso,
+     verdetto "appuntato" in alto a destra. --- */
+  .review-entry .hero{
+    position:relative;
+    aspect-ratio:21/8;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--panel-raised);
+  }
+  .review-entry .hero__banner-slot{
+    position:absolute; inset:0;
+    background:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+    /* Segnaposto: qui va l'immagine banner vera quando arriva. */
+  }
+  .review-entry .hero__fade{
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.35) 45%, transparent 75%);
+  }
+  .review-entry .hero__verdict{
+    position:absolute; top:16px; right:16px; z-index:2;
+    padding:7px 16px;
+    background:var(--cyan); color:#000;
+    border-radius:999px;
+    font-size:.76rem; font-weight:700; letter-spacing:.03em;
+  }
+  .review-entry .hero__content{
+    position:absolute; left:0; right:0; bottom:0; z-index:1;
+    padding:22px 28px;
+  }
+  .review-entry .hero__eyebrow{
+    font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-dim); margin-bottom:8px;
+  }
+  .review-entry .hero__title{
+    font-size:2rem; color:var(--text); margin:0 0 12px;
+  }
+  .review-entry .hero__meta{ display:flex; flex-wrap:wrap; gap:8px; }
+  .review-entry .title-tag{
+    padding:5px 12px;
+    border:1px solid var(--cyan);
+    border-radius:999px;
+    font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--cyan);
+  }
+
+  /* --- Corpo: scheda a sinistra + testo a destra. --- */
+  .review-entry .body-grid{
+    display:grid; grid-template-columns:220px 1fr; gap:40px;
+    margin-top:32px; align-items:start;
+  }
+  .review-entry .facts{
+    position:sticky; top:88px;
+  }
+  .review-entry .cover-slot{
+    aspect-ratio:3/4;
+    border-radius:8px; overflow:hidden;
+    background:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+    border:1px solid var(--line);
+    margin-bottom:16px;
+    /* Segnaposto: qui va "Final Fantasy VIII Card.jpg" quando arriva. */
+  }
+  .review-entry .facts dl{ margin:0; }
+  .review-entry .facts-eyebrow{
+    font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:10px;
+    padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+  .review-entry .facts dt{
+    font-size:.7rem; color:var(--text-faint); margin-top:10px;
+  }
+  .review-entry .facts dd{
+    margin:2px 0 0; color:var(--text); font-size:.86rem; font-weight:600;
+  }
+
+  .review-entry .reading{ color:var(--text-dim); font-size:1rem; line-height:1.75; }
+  .review-entry .section-eyebrow{
+    font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--cyan); margin-bottom:14px;
+  }
+  .review-entry .reading p{ margin:0 0 16px; }
+  .review-entry .reading h2{
+    font-size:1.25rem; color:var(--text); margin:28px 0 12px;
+  }
+
+  /* --- Soglia spoiler: stesso concetto dell'avviso in home, ma
+     con un pulsante che rivela il contenuto sotto. --- */
+  .review-entry .threshold{
+    display:flex; flex-direction:column; align-items:flex-start; gap:12px;
+    margin:28px 0;
+    padding:18px 20px;
+    border:1px solid rgba(250,204,21,.35);
+    background:rgba(250,204,21,.06);
+    border-radius:var(--radius);
+  }
+  .review-entry .threshold__icon{ font-size:1.1rem; }
+  .review-entry .threshold p{ margin:0; color:var(--text-dim); font-size:.9rem; }
+  .review-entry .threshold button{
+    padding:10px 22px;
+    background:var(--panel);
+    border:1px solid var(--text-faint);
+    border-radius:999px;
+    color:var(--text); font-size:.85rem; font-weight:600;
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .review-entry .threshold button:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .review-entry .threshold.is-crossed{ opacity:.5; }
+
+  .review-entry .deep{
+    max-height:0; overflow:hidden; opacity:0;
+    transition:opacity .4s ease;
+  }
+  .review-entry .deep.is-visible{
+    max-height:none; opacity:1;
+  }
+
+  .review-entry .note{
+    margin:20px 0;
+    padding:14px 18px;
+    border-left:2px solid var(--cyan);
+    background:var(--panel);
+    color:var(--text-dim);
+    font-size:.88rem; font-style:italic;
   }
 }
