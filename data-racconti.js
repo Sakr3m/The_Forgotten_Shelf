@@ -124,7 +124,7 @@ And no one knows why.`
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
-    bannerOffset: 55,
+    bannerOffset: 75,
     title: {
       it: "Diario di un Nuovo Assunto",
       en: "Diary of a New Employee"
@@ -3372,7 +3372,7 @@ Then outside.`
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
-    bannerOffset: 55,
+    bannerOffset: 75,
     title: {
       it: "Il Custode del Vuoto",
       en: "The Keeper of the Void"
@@ -3579,7 +3579,7 @@ Then the sound stopped.`
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
-    bannerOffset: 55,
+    bannerOffset: 75,
     title: {
       it: "Il Custode del Vuoto",
       en: "The Keeper of the Void"
@@ -3764,7 +3764,7 @@ And suddenly night fell.`
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
-    bannerOffset: 55,
+    bannerOffset: 75,
     title: {
       it: "Il Custode del Vuoto",
       en: "The Keeper of the Void"
