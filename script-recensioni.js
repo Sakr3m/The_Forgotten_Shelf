@@ -218,15 +218,13 @@ function crossfadeTo(showEl){
   setTimeout(() => {
     hideEl.hidden = true;
     hideEl.classList.remove("is-fading");
-    setTimeout(() => {
-      showEl.hidden = false;
-      // Forza un reflow cosi' la transizione parte da opacity:0
-      // invece di saltare direttamente a 1.
-      showEl.classList.add("is-fading");
-      void showEl.offsetWidth;
-      showEl.classList.remove("is-fading");
-    }, 250);
-  }, 750);
+    showEl.hidden = false;
+    // Forza un reflow cosi' la transizione parte da opacity:0
+    // invece di saltare direttamente a 1.
+    showEl.classList.add("is-fading");
+    void showEl.offsetWidth;
+    showEl.classList.remove("is-fading");
+  }, 500);
 }
 
 function openReview(id){

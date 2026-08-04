@@ -247,7 +247,7 @@
    ============================================================ */
 .stage > .landing,
 .stage > .review-entry{
-  transition:opacity .75s ease;
+  transition:opacity .5s ease;
 }
 .stage > .is-fading{ opacity:0; }
 /* .landing arriva gia' con un display:flex da styles.css, che a
