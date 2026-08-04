@@ -23,6 +23,7 @@ const STRINGS = {
     factsLabel: "Scheda",
     factDeveloper: "Sviluppatore",
     factRelease: "Uscita originale/Remastered",
+    factReleaseOriginal: "Uscita originale",
     factCompleted: "Completato",
     ffviiiCompleted: "Sì, 100%",
     quickReadLabel: "Recensione veloce · spoiler minimi o assenti",
@@ -34,7 +35,15 @@ const STRINGS = {
     ffviiiDeepTitle2: "Personaggi e scelte di design",
     ffviiiDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
     ffviiiDeepTitle3: "Il finale",
-    ffviiiDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
+    ffviiiDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo.",
+    ffviiHours: "~38 ore (storia) / 80-100+ ORE (completo)",
+    ffviiCompleted: "Sì, 100%",
+    ffviiDeepTitle1: "La trama, nel dettaglio",
+    ffviiDeep1: "Testo segnaposto per l'analisi vera: eventi chiave, colpi di scena, scelte di scrittura specifiche.",
+    ffviiDeepTitle2: "Personaggi e scelte di design",
+    ffviiDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
+    ffviiDeepTitle3: "Il finale",
+    ffviiDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
   },
   en: {
     brand: "Game Diaries",
@@ -54,6 +63,7 @@ const STRINGS = {
     factsLabel: "Facts",
     factDeveloper: "Developer",
     factRelease: "Original/Remastered release",
+    factReleaseOriginal: "Original release",
     factCompleted: "Completed",
     ffviiiCompleted: "Yes, 100%",
     quickReadLabel: "Quick review · minimal or no spoilers",
@@ -65,7 +75,15 @@ const STRINGS = {
     ffviiiDeepTitle2: "Characters and design choices",
     ffviiiDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
     ffviiiDeepTitle3: "The ending",
-    ffviiiDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
+    ffviiiDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading.",
+    ffviiHours: "~38 hours (story) / 80-100+ HOURS (100%)",
+    ffviiCompleted: "Yes, 100%",
+    ffviiDeepTitle1: "The plot, in detail",
+    ffviiDeep1: "Placeholder text for the real analysis: key events, twists, specific writing choices.",
+    ffviiDeepTitle2: "Characters and design choices",
+    ffviiDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
+    ffviiDeepTitle3: "The ending",
+    ffviiDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
   }
 };
 
@@ -78,7 +96,11 @@ const FFVIII_TRACKS = [
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Eyes%20on%20Me.mp3", title: "Eyes on Me", game: "Final Fantasy VIII" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20The%20Man%20with%20the%20Machine%20Gun.mp3", title: "The Man with the Machine Gun", game: "Final Fantasy VIII" }
 ];
-const REVIEW_TRACKS = { ffviii: FFVIII_TRACKS };
+// Playlist di Final Fantasy VII: vuota per ora, nessun brano
+// assegnato ancora — il controllo musica resta funzionante ma senza
+// niente da riprodurre finche' non arrivano i brani veri.
+const FFVII_TRACKS = [];
+const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS };
 
 // Lingua condivisa con le altre pagine tramite localStorage: letta
 // prima di qualunque render iniziale.
@@ -113,10 +135,11 @@ const el = {
   gateToggleLeft: document.getElementById("gateToggleLeft"),
   reviewsGateLeft: document.getElementById("reviewsGateLeft"),
   landingPanel: document.getElementById("landingPanel"),
+  reviewFfvii: document.getElementById("reviewFfvii"),
   reviewFfviii: document.getElementById("reviewFfviii"),
-  revealBtn: document.getElementById("revealBtn"),
-  reviewThreshold: document.getElementById("reviewThreshold"),
-  reviewDeepContent: document.getElementById("reviewDeepContent"),
+  musicControl: document.getElementById("musicControl"),
+  musicSlotFfvii: document.getElementById("musicSlotFfvii"),
+  musicSlotFfviii: document.getElementById("musicSlotFfviii"),
   bgMusic: document.getElementById("bgMusic"),
   musicToggle: document.getElementById("musicToggle"),
   volumeSlider: document.getElementById("volumeSlider"),
@@ -135,7 +158,15 @@ if(el.volumeSlider){
 // titolo per ora; aggiungerne altri significa solo aggiungere una
 // riga qui (e il markup nascosto della voce in recensioni.html).
 const REVIEWS = {
+  ffvii: el.reviewFfvii,
   ffviii: el.reviewFfviii
+};
+
+// Slot dove va spostato il controllo musica condiviso quando quella
+// recensione e' quella aperta.
+const MUSIC_SLOTS = {
+  ffvii: el.musicSlotFfvii,
+  ffviii: el.musicSlotFfviii
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -276,7 +307,10 @@ function openReview(id){
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
   crossfadeTo(entryEl);
   state.view = id;
+  state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");
+  const slot = MUSIC_SLOTS[id];
+  if(slot && el.musicControl) slot.appendChild(el.musicControl);
   updateIndexLink();
   updateMusicPlayback();
 }
@@ -298,12 +332,20 @@ document.querySelectorAll("[data-review]").forEach(card => {
 
 // Soglia spoiler: un solo pulsante rivela il contenuto approfondito,
 // senza possibilita' di richiuderlo (come nel mockup di riferimento).
-if(el.revealBtn){
-  el.revealBtn.addEventListener("click", () => {
-    el.reviewThreshold.classList.add("is-crossed");
-    el.reviewDeepContent.classList.add("is-visible");
+// Generalizzato per funzionare su ogni recensione (i suffissi negli id
+// seguono lo stesso schema, es. "revealBtnFfvii"/"reviewThresholdFfvii").
+function setupRevealButton(suffix){
+  const btn = document.getElementById("revealBtn" + suffix);
+  const threshold = document.getElementById("reviewThreshold" + suffix);
+  const deep = document.getElementById("reviewDeepContent" + suffix);
+  if(!btn || !threshold || !deep) return;
+  btn.addEventListener("click", () => {
+    threshold.classList.add("is-crossed");
+    deep.classList.add("is-visible");
   });
 }
+setupRevealButton("Ffvii");
+setupRevealButton("");
 
 // ---------------------------------------------------------
 // Toggle centrale: NON sposta piu' un unico carrello da un lato
