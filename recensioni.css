@@ -277,21 +277,6 @@
      che forzi display:none quando l'attributo e' presente. */
   .review-entry[hidden]{ display:none; }
 
-  .review-entry__back{
-    display:inline-flex; align-items:center; gap:8px;
-    margin-bottom:20px;
-    padding:9px 16px;
-    border:1px solid var(--line);
-    background:var(--panel);
-    border-radius:999px;
-    color:var(--text-dim);
-    font-size:.8rem; font-weight:600;
-    cursor:pointer;
-    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  }
-  .review-entry__back:hover{ border-color:var(--cyan); color:var(--text); }
-  .review-entry__back svg{ width:14px; height:14px; }
-
   /* --- Header semplice al posto del banner: eyebrow, titolo,
      tag. Niente immagine, niente targhetta "verdetto" — tolti su
      richiesta esplicita (difficile reperire/scalare bene banner
@@ -357,18 +342,23 @@
     font-size:1.25rem; color:var(--text); margin:28px 0 12px;
   }
 
-  /* --- Soglia spoiler: stesso concetto dell'avviso in home, ma
-     con un pulsante che rivela il contenuto sotto. --- */
+  /* --- Soglia spoiler: ora e' la prima cosa nella colonna di
+     lettura, cosi' il suo bordo superiore parte alla stessa altezza
+     della scheda a sinistra (niente margin-top). Contenuto centrato
+     (icona/testo/pulsante), non piu' allineato a sinistra. --- */
   .review-entry .threshold{
-    display:flex; flex-direction:column; align-items:flex-start; gap:12px;
-    margin:28px 0;
-    padding:18px 20px;
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
+    margin:0 0 28px;
+    padding:22px 24px;
     border:1px solid rgba(250,204,21,.35);
     background:rgba(250,204,21,.06);
     border-radius:var(--radius);
   }
   .review-entry .threshold__icon{ font-size:1.1rem; }
-  .review-entry .threshold p{ margin:0; color:var(--text-dim); font-size:.9rem; }
+  .review-entry .threshold p{
+    margin:0; color:var(--text-dim); font-size:.9rem;
+    white-space:nowrap; /* una riga sola quando la risoluzione lo permette */
+  }
   .review-entry .threshold button{
     padding:10px 22px;
     background:var(--panel);

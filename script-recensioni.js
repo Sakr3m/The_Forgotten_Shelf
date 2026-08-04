@@ -12,24 +12,24 @@ const STRINGS = {
     landingIntro: "The Forgotten Shelf raccoglie anche impressioni oneste sui giochi che ho giocato — completati, platinati o amati senza motivo — senza pretese di essere una guida.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
+    backToHomeLabel: "Torna alla home",
     gateToggleLabel: "Apri l'elenco delle recensioni",
     gateToggleLabelClose: "Chiudi l'elenco delle recensioni",
     placeholderTile: "Titolo in arrivo",
     spoilerAlert: "Le recensioni possono contenere dettagli sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.",
     gateSideToggleOff: "Mostra il carrello da sinistra",
     gateSideToggleOn: "Mostra il carrello da destra",
-    backToReviewsLabel: "Torna alle recensioni",
     ffviiiHours: "~35 ore",
     factsLabel: "Scheda",
     factDeveloper: "Sviluppatore",
     factRelease: "Uscita originale",
     factCompleted: "Completato",
     ffviiiCompleted: "Sì, 100%",
-    quickReadLabel: "Lettura veloce · senza spoiler",
+    quickReadLabel: "Recensione veloce · spoiler minimi o assenti",
     ffviiiQuick1: "Testo segnaposto per il giudizio rapido: qui andrebbero due o tre frasi dirette sul tono generale del remaster, se il ritmo regge ancora oggi, se vale il tempo speso. Nessun nome, nessun evento di trama.",
     ffviiiQuick2: "Seconda frase di chiusura per questa parte, ancora priva di dettagli specifici.",
-    thresholdText: "Da qui in poi si entra nel dettaglio della trama, incluso il finale. Continua solo se hai già giocato o non temi gli spoiler.",
-    thresholdBtn: "Entra nella zona spoiler",
+    thresholdText: "Sotto, nella recensione completa: spoiler pesanti, finale incluso.",
+    thresholdBtn: "Leggi recensione completa",
     ffviiiDeepTitle1: "La trama, nel dettaglio",
     ffviiiDeep1: "Testo segnaposto per l'analisi vera: eventi chiave, colpi di scena, scelte di scrittura specifiche.",
     noteLabel: "Nota personale: qui puoi isolare una riflessione più soggettiva, staccata dal corpo principale del testo.",
@@ -45,24 +45,24 @@ const STRINGS = {
     landingIntro: "The Forgotten Shelf also collects honest impressions on the games I've played — completed, platinumed, or loved for no good reason — with no pretense of being a guide.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
+    backToHomeLabel: "Back to home",
     gateToggleLabel: "Open the reviews list",
     gateToggleLabelClose: "Close the reviews list",
     placeholderTile: "Title coming soon",
     spoilerAlert: "Reviews may contain plot details, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     gateSideToggleOff: "Show the cart from the left",
     gateSideToggleOn: "Show the cart from the right",
-    backToReviewsLabel: "Back to reviews",
     ffviiiHours: "~35 hours",
     factsLabel: "Facts",
     factDeveloper: "Developer",
     factRelease: "Original release",
     factCompleted: "Completed",
     ffviiiCompleted: "Yes, 100%",
-    quickReadLabel: "Quick read · spoiler-free",
+    quickReadLabel: "Quick review · minimal or no spoilers",
     ffviiiQuick1: "Placeholder text for the quick take: a couple of direct sentences on the remaster's overall tone, whether the pacing still holds up today, whether it's worth the time. No names, no plot events.",
     ffviiiQuick2: "Second closing sentence for this part, still without specific details.",
-    thresholdText: "From here on it goes into plot detail, including the ending. Continue only if you've already played it or aren't worried about spoilers.",
-    thresholdBtn: "Enter the spoiler zone",
+    thresholdText: "Below, in the full review: heavy spoilers, ending included.",
+    thresholdBtn: "Read the full review",
     ffviiiDeepTitle1: "The plot, in detail",
     ffviiiDeep1: "Placeholder text for the real analysis: key events, twists, specific writing choices.",
     noteLabel: "Personal note: here you can isolate a more subjective reflection, separate from the main body of the text.",
@@ -93,6 +93,7 @@ const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
   langSwitch: document.getElementById("langSwitch"),
+  indexLink: document.getElementById("indexLink"),
   gateSideToggle: document.getElementById("gateSideToggle"),
   gateToggleRight: document.getElementById("gateToggleRight"),
   reviewsGateRight: document.getElementById("reviewsGateRight"),
@@ -100,7 +101,6 @@ const el = {
   reviewsGateLeft: document.getElementById("reviewsGateLeft"),
   landingPanel: document.getElementById("landingPanel"),
   reviewFfviii: document.getElementById("reviewFfviii"),
-  reviewBackBtn: document.getElementById("reviewBackBtn"),
   revealBtn: document.getElementById("revealBtn"),
   reviewThreshold: document.getElementById("reviewThreshold"),
   reviewDeepContent: document.getElementById("reviewDeepContent")
@@ -132,6 +132,8 @@ function paintStaticText(){
   const isLeft = state.activeSide === "left";
   el.gateSideToggle.setAttribute("aria-pressed", String(isLeft));
   el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
+
+  updateIndexLink();
 }
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
@@ -206,6 +208,25 @@ function currentCenterPanel(){
   return state.view === "landing" ? el.landingPanel : REVIEWS[state.view];
 }
 
+// Il link "Torna all'index/Torna alla home" in alto e' lo stesso
+// elemento in entrambi i casi: sulla landing porta a index.html
+// (comportamento normale del link), su una recensione aperta cambia
+// testo e, invece di navigare, richiama il crossfade di ritorno.
+function updateIndexLink(){
+  const onReview = state.view !== "landing";
+  const label = el.indexLink.querySelector("span");
+  if(label) label.textContent = onReview ? t("backToHomeLabel") : t("backToIndexLabel");
+  else el.indexLink.setAttribute("data-i18n", onReview ? "backToHomeLabel" : "backToIndexLabel");
+}
+
+el.indexLink.addEventListener("click", (ev) => {
+  if(state.view !== "landing"){
+    ev.preventDefault();
+    backToLanding();
+  }
+  // altrimenti, lascia che il link navighi normalmente verso index.html
+});
+
 function crossfadeTo(showEl){
   const hideEl = currentCenterPanel();
   if(hideEl === showEl) return;
@@ -230,11 +251,13 @@ function openReview(id){
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
   crossfadeTo(entryEl);
   state.view = id;
+  updateIndexLink();
 }
 
 function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
+  updateIndexLink();
 }
 
 document.querySelectorAll("[data-review]").forEach(card => {
@@ -243,10 +266,6 @@ document.querySelectorAll("[data-review]").forEach(card => {
     openReview(card.dataset.review);
   });
 });
-
-if(el.reviewBackBtn){
-  el.reviewBackBtn.addEventListener("click", backToLanding);
-}
 
 // Soglia spoiler: un solo pulsante rivela il contenuto approfondito,
 // senza possibilita' di richiuderlo (come nel mockup di riferimento).

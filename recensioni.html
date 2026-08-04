@@ -30,7 +30,7 @@
           <button class="brand-text" id="brandBtn" type="button" data-i18n="brand" aria-label="Torna alla home">Diari di Gioco</button>
         </div>
 
-        <a class="index-link" href="index.html">
+        <a class="index-link" id="indexLink" href="index.html">
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2L2 9h2v8h5v-5h2v5h5V9h2L10 2z" fill="currentColor"/></svg>
           <span data-i18n="backToIndexLabel">Torna all'index</span>
         </a>
@@ -132,11 +132,6 @@
            le immagini vere (es. "Final Fantasy VIII Card.jpg" per la
            cover) quando arrivano. -->
       <article class="review-entry" id="reviewFfviii" hidden>
-        <button class="review-entry__back" id="reviewBackBtn" type="button">
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span data-i18n="backToReviewsLabel">Torna alle recensioni</span>
-        </button>
-
         <header class="entry-header">
           <h1 class="entry-header__title">Final Fantasy VIII Remastered</h1>
           <div class="entry-header__meta">
@@ -159,15 +154,16 @@
           </aside>
 
           <main class="reading">
-            <div class="section-eyebrow" data-i18n="quickReadLabel">Lettura veloce · senza spoiler</div>
+            <div class="threshold" id="reviewThreshold">
+              <div class="threshold__icon" aria-hidden="true">⚠</div>
+              <p data-i18n="thresholdText">Sotto, nella recensione completa: spoiler pesanti, finale incluso.</p>
+              <button id="revealBtn" type="button" data-i18n="thresholdBtn">Leggi recensione completa</button>
+            </div>
+
+            <div class="section-eyebrow" data-i18n="quickReadLabel">Recensione veloce · spoiler minimi o assenti</div>
             <p data-i18n="ffviiiQuick1">Testo segnaposto per il giudizio rapido: qui andrebbero due o tre frasi dirette sul tono generale del remaster, se il ritmo regge ancora oggi, se vale il tempo speso. Nessun nome, nessun evento di trama.</p>
             <p data-i18n="ffviiiQuick2">Seconda frase di chiusura per questa parte, ancora priva di dettagli specifici.</p>
 
-            <div class="threshold" id="reviewThreshold">
-              <div class="threshold__icon" aria-hidden="true">⚠</div>
-              <p data-i18n="thresholdText">Da qui in poi si entra nel dettaglio della trama, incluso il finale. Continua solo se hai già giocato o non temi gli spoiler.</p>
-              <button id="revealBtn" type="button" data-i18n="thresholdBtn">Entra nella zona spoiler</button>
-            </div>
 
             <div class="deep" id="reviewDeepContent">
               <h2 data-i18n="ffviiiDeepTitle1">La trama, nel dettaglio</h2>
