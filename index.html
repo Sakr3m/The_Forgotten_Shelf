@@ -61,6 +61,13 @@
     a.entry:hover{ color:#c7a25c; }
   }
 
+  .home-note{
+    margin-top:32px;
+    color:var(--text-faint);
+    font-size:.85rem;
+    text-align:center;
+  }
+
   /* Switch lingua — stessa forma a pillola delle altre pagine,
      stessa palette (var(--cyan)/var(--text-faint)) del resto del
      sito invece della precedente ambra/crema a se stante. */
@@ -143,6 +150,7 @@
     .home-title{ font-size:1.6rem; margin-bottom:32px; }
     .entries{ gap:24px; }
     a.entry{ font-size:1rem; padding:10px 20px; }
+    .home-note{ margin-top:22px; font-size:.75rem; }
   }
 
   @media (hover:none) and (pointer:coarse) and (orientation:landscape){
@@ -188,6 +196,8 @@
       <a class="entry" href="recensioni.html" data-it="🎮 Diari di Gioco 🎮" data-en="🎮 Game Diaries 🎮">🎮 Diari di Gioco 🎮</a>
       <a class="entry" href="officina.html" data-it="🔧 L'Officina Grezza 🔧" data-en="🔧 The Raw Workshop 🔧">🔧 L'Officina Grezza 🔧</a>
     </div>
+
+    <p class="home-note" data-it="In continuo aggiornamento" data-en="Continuously updated">In continuo aggiornamento</p>
   </div>
 
   <script>
@@ -198,7 +208,7 @@
 
     function paintLang(){
       document.documentElement.lang = lang;
-      document.querySelectorAll(".entry, .home-title, .kofi-link__full").forEach(el => {
+      document.querySelectorAll(".entry, .home-title, .kofi-link__full, .home-note").forEach(el => {
         el.textContent = el.dataset[lang];
       });
       langSwitch.querySelectorAll(".lang-option").forEach(opt => {
