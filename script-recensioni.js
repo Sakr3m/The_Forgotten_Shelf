@@ -225,8 +225,8 @@ function crossfadeTo(showEl){
       showEl.classList.add("is-fading");
       void showEl.offsetWidth;
       showEl.classList.remove("is-fading");
-    }, 500);
-  }, 1000);
+    }, 250);
+  }, 750);
 }
 
 function openReview(id){
