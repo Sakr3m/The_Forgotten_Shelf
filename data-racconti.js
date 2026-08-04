@@ -19,7 +19,7 @@ const RACCONTI = {
     gameLabel: { it: "Cinere", en: "Cinere" },
     accentColor: "#9a958c",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Banner.jpg",
-    bannerOffset: 70,
+    bannerOffset: -130,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Filigrana.jpg",
     filigranaOpacity: 0.8,
@@ -538,7 +538,7 @@ He understood. He took it out, looked at the screen, and read.
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
-    bannerOffset: 140,
+    bannerOffset: -60,
     title: {
       it: "Lo Specchio Cieco",
       en: "The Blind Mirror"
