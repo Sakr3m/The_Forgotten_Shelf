@@ -199,7 +199,7 @@ function renderEntry(){
   currentWatermarkBaseOpacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : 0.35;
   currentWatermarkEntryKey = watermarkBrightnessKeyFor(entry);
   const storedForThisEntry = entry.filigrana ? localStorage.getItem(currentWatermarkEntryKey) : null;
-  watermarkBrightness = storedForThisEntry !== null ? parseFloat(storedForThisEntry) : 1;
+  watermarkBrightness = storedForThisEntry !== null ? parseFloat(storedForThisEntry) : 0.5;
   if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
   el.entryWatermark.style.opacity = entry.filigrana ? Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness) : "";
   el.watermarkBrightness.hidden = !entry.filigrana;
