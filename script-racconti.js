@@ -100,6 +100,24 @@ function watermarkBrightnessKeyFor(entry){
   return WATERMARK_BRIGHTNESS_KEY_PREFIX + (entry && entry.game ? entry.game : "default");
 }
 
+// Curva a due fasi per lo slider 0-1: prima meta' (0-0.5) controlla
+// l'opacita' da 0 a 1; seconda meta' (0.5-1) tiene l'opacita' ferma
+// a 1 e fa salire filter:brightness() da 1 (normale) fino al tetto
+// WATERMARK_BRIGHTNESS_MAX (2 = doppia luminosita'), perche' CSS
+// opacity da sola non puo' andare oltre 1.
+const WATERMARK_BRIGHTNESS_MAX = 2;
+function applyWatermarkVisual(value){
+  if(value <= 0.5){
+    el.entryWatermark.style.opacity = value * 2;
+    el.entryWatermark.style.filter = "";
+  } else {
+    el.entryWatermark.style.opacity = 1;
+    const extra = (value - 0.5) * 2; // 0..1 nella seconda meta'
+    const brightness = 1 + extra * (WATERMARK_BRIGHTNESS_MAX - 1);
+    el.entryWatermark.style.filter = `brightness(${brightness})`;
+  }
+}
+
 // On mobile, the entry view puts the game picker and the music control
 // in a row above the text (tendina left, volume right) instead of their
 // normal spots (header / top bar). Neither is a descendant of #entryPanel
@@ -201,7 +219,7 @@ function renderEntry(){
   const storedForThisEntry = entry.filigrana ? localStorage.getItem(currentWatermarkEntryKey) : null;
   watermarkBrightness = storedForThisEntry !== null ? parseFloat(storedForThisEntry) : 0.5;
   if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
-  el.entryWatermark.style.opacity = entry.filigrana ? watermarkBrightness : "";
+  if(entry.filigrana){ applyWatermarkVisual(watermarkBrightness); } else { el.entryWatermark.style.opacity = ""; el.entryWatermark.style.filter = ""; }
   el.watermarkBrightness.hidden = !entry.filigrana;
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
   const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
@@ -545,7 +563,7 @@ if(el.watermarkBrightnessSlider){
       localStorage.setItem(currentWatermarkEntryKey, el.watermarkBrightnessSlider.value);
     }
     if(currentWatermarkBaseOpacity != null){
-      el.entryWatermark.style.opacity = watermarkBrightness;
+      applyWatermarkVisual(watermarkBrightness);
     }
   });
 }
