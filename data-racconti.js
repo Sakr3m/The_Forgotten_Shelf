@@ -538,7 +538,7 @@ He understood. He took it out, looked at the screen, and read.
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
-    bannerOffset: 10,
+    bannerOffset: 40,
     title: {
       it: "Lo Specchio Cieco",
       en: "The Blind Mirror"
@@ -685,7 +685,7 @@ She walked on.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
-    bannerOffset: 95,
+    bannerOffset: 55,
     title: {
       it: "Parole Senza Fiato",
       en: "Breathless Words"
