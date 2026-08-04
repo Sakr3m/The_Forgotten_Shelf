@@ -201,7 +201,7 @@ function renderEntry(){
   const storedForThisEntry = entry.filigrana ? localStorage.getItem(currentWatermarkEntryKey) : null;
   watermarkBrightness = storedForThisEntry !== null ? parseFloat(storedForThisEntry) : 0.5;
   if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
-  el.entryWatermark.style.opacity = entry.filigrana ? Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness) : "";
+  el.entryWatermark.style.opacity = entry.filigrana ? watermarkBrightness : "";
   el.watermarkBrightness.hidden = !entry.filigrana;
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
   const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
@@ -545,7 +545,7 @@ if(el.watermarkBrightnessSlider){
       localStorage.setItem(currentWatermarkEntryKey, el.watermarkBrightnessSlider.value);
     }
     if(currentWatermarkBaseOpacity != null){
-      el.entryWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * watermarkBrightness);
+      el.entryWatermark.style.opacity = watermarkBrightness;
     }
   });
 }
