@@ -292,44 +292,22 @@
   .review-entry__back:hover{ border-color:var(--cyan); color:var(--text); }
   .review-entry__back svg{ width:14px; height:14px; }
 
-  /* --- Hero: banner pieno, titolo appoggiato sul bordo basso,
-     verdetto "appuntato" in alto a destra. --- */
-  .review-entry .hero{
-    position:relative;
-    aspect-ratio:21/8;
-    border-radius:var(--radius);
-    overflow:hidden;
-    border:1px solid var(--line);
-    background:var(--panel-raised);
+  /* --- Header semplice al posto del banner: eyebrow, titolo,
+     tag. Niente immagine, niente targhetta "verdetto" — tolti su
+     richiesta esplicita (difficile reperire/scalare bene banner
+     cosi' grandi). --- */
+  .review-entry .entry-header{
+    padding-bottom:20px;
+    border-bottom:1px solid var(--line);
   }
-  .review-entry .hero__banner-slot{
-    position:absolute; inset:0;
-    background:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
-    /* Segnaposto: qui va l'immagine banner vera quando arriva. */
-  }
-  .review-entry .hero__fade{
-    position:absolute; inset:0;
-    background:linear-gradient(0deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.35) 45%, transparent 75%);
-  }
-  .review-entry .hero__verdict{
-    position:absolute; top:16px; right:16px; z-index:2;
-    padding:7px 16px;
-    background:var(--cyan); color:#000;
-    border-radius:999px;
-    font-size:.76rem; font-weight:700; letter-spacing:.03em;
-  }
-  .review-entry .hero__content{
-    position:absolute; left:0; right:0; bottom:0; z-index:1;
-    padding:22px 28px;
-  }
-  .review-entry .hero__eyebrow{
+  .review-entry .entry-header__eyebrow{
     font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
     color:var(--text-dim); margin-bottom:8px;
   }
-  .review-entry .hero__title{
+  .review-entry .entry-header__title{
     font-size:2rem; color:var(--text); margin:0 0 12px;
   }
-  .review-entry .hero__meta{ display:flex; flex-wrap:wrap; gap:8px; }
+  .review-entry .entry-header__meta{ display:flex; flex-wrap:wrap; gap:8px; }
   .review-entry .title-tag{
     padding:5px 12px;
     border:1px solid var(--cyan);
