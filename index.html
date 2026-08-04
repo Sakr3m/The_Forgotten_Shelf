@@ -5,81 +5,88 @@
 <meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Forgotten Shelf</title>
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/inter.css">
 <style>
-  html,body{
-    height:100%; margin:0;
-    background:#000000;
+  /* Stessa palette/token delle pagine interne (styles.css), ripetuti
+     qui perche' index.html resta un file a se' stante, senza il
+     resto dell'app (nessuna sidebar/side-rail, nessuno stato). */
+  :root{
     color-scheme: dark;
+    --bg:#000000;
+    --text:#e7ebf3;
+    --text-faint:#5b6478;
+    --cyan:#ffffff;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; margin:0; }
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(34,211,238,.08), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 100% 0%, rgba(232,121,249,.06), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font);
+    -webkit-font-smoothing:antialiased;
     display:flex; align-items:center; justify-content:center;
-    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  .entries{
-    display:flex; flex-direction:column; align-items:center; gap:18px;
-  }
-  .entry-wrap{
+
+  .home{
     display:flex; flex-direction:column; align-items:center;
+    padding:24px;
+  }
+  .home-title{
+    font-size:2.6rem; font-weight:800; letter-spacing:-.01em;
+    color:var(--text); margin:0 0 40px;
+    text-align:center;
+  }
+
+  .entries{
+    display:flex; flex-direction:column; align-items:center; gap:16px;
   }
   a.entry{
-    color:#e8e2d0;
+    color:var(--text);
     text-decoration:none;
     font-size:1.4rem;
     letter-spacing:.04em;
     padding:14px 28px;
-    border:1px solid #ffffff; /* bianco fisso, come i pulsanti nelle
-      home delle altre pagine (var(--cyan), che li' vale bianco) */
+    border:1px solid var(--cyan);
     border-radius:999px;
     transition:color .2s ease;
   }
-  a.entry:focus-visible{
-    color:#c7a25c;
-  }
-  /* Stesso criterio usato nel resto del sito: l'hover si attiva solo
-     sui dispositivi che hanno davvero un puntatore (mouse), non sul
-     touch — dove :hover senza questa guardia resterebbe "incollato"
-     dopo un tap finché non se ne tocca un altro. */
+  a.entry:focus-visible{ color:#c7a25c; }
   @media (hover:hover){
-    a.entry:hover{
-      color:#c7a25c;
-    }
+    a.entry:hover{ color:#c7a25c; }
   }
 
-  /* Descrizione che compare in hover sotto ogni pulsante — solo PC
-     (su mobile resta sempre nascosta, per ora lì bastano pulsanti
-     e switch, come richiesto). */
-  .entry-desc{
-    max-width:360px; margin:0; padding-top:0;
-    text-align:center; color:#9a958c; font-size:.85rem; line-height:1.5;
-    opacity:0; max-height:0; overflow:hidden;
-    transition:opacity .25s ease, max-height .25s ease, padding-top .25s ease;
-  }
-  @media (hover:hover){
-    .entry-wrap:hover .entry-desc{
-      opacity:1; max-height:80px; padding-top:10px;
-    }
-  }
-
-  /* Switch lingua — stessa forma a pillola delle altre pagine, ma
-     con la palette propria di questa pagina (ambra/crema) invece
-     del ciano usato altrove, per restare coerente con lo stile
-     già presente qui. Angolo in alto a destra, sempre visibile. */
+  /* Switch lingua — stessa forma a pillola delle altre pagine,
+     stessa palette (var(--cyan)/var(--text-faint)) del resto del
+     sito invece della precedente ambra/crema a se stante. */
   .lang-switch{
     position:fixed; top:24px; right:24px; z-index:20;
     display:flex; align-items:center; gap:6px;
     padding:9px 14px;
-    border:1px solid #ffffff; /* bianco fisso, come lo switch lingua
-      nelle altre pagine (var(--cyan), che li' vale bianco) */
-    background:#14161b;
+    border:1px solid var(--cyan);
+    background:#0d1220;
     border-radius:999px;
     font-size:.78rem; font-weight:600;
     cursor:pointer;
   }
-  .lang-option{ color:#6b6b6b; padding:2px 3px; transition:color .2s ease; }
+  .lang-option{ color:var(--text-faint); padding:2px 3px; transition:color .2s ease; }
   .lang-option.is-active{ color:#c7a25c; }
   .lang-sep{ color:#2a2e35; }
 
-  /* Stesso blocco orientamento orizzontale delle altre pagine (qui
-     non condivide styles.css, quindi ripetuto), ora bilingue come
-     nelle altre pagine (html[lang] è lo stesso meccanismo condiviso). */
+  /* Mobile: stessa home, pulsanti piu' piccoli di quanto non fossero
+     su desktop (richiesto esplicitamente), titolo scalato di
+     conseguenza. */
+  @media (hover:none) and (pointer:coarse){
+    .home-title{ font-size:1.6rem; margin-bottom:28px; }
+    .entries{ gap:12px; }
+    a.entry{ font-size:1rem; padding:10px 20px; }
+  }
+
   @media (hover:none) and (pointer:coarse) and (orientation:landscape){
     body::before{
       content:"Ruota il dispositivo in verticale per continuare.";
@@ -87,7 +94,7 @@
       display:flex; align-items:center; justify-content:center;
       padding:40px; text-align:center;
       background:#000000; color:#e8e2d0;
-      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family:var(--font);
       font-size:1rem; line-height:1.6;
     }
     html[lang="en"] body::before{
@@ -103,26 +110,15 @@
     <span class="lang-option" data-lang-option="en">EN</span>
   </button>
 
-  <div class="entries">
-    <div class="entry-wrap">
+  <div class="home">
+    <h1 class="home-title" data-it="The Forgotten Shelf" data-en="The Forgotten Shelf">The Forgotten Shelf</h1>
+
+    <div class="entries">
       <a class="entry" href="racconti.html" data-it="📖 Storie Senza Cornice 📖" data-en="📖 Unframed Stories 📖">📖 Storie Senza Cornice 📖</a>
-      <p class="entry-desc" data-it="Storie nate per esistere e basta. Solo un'idea portata fino in fondo." data-en="Stories born to exist and nothing more. Just an idea taken all the way.">Storie nate per esistere e basta. Solo un'idea portata fino in fondo.</p>
-    </div>
-    <div class="entry-wrap">
       <a class="entry" href="timeline.html" data-it="⏳ La Traccia del Tempo ⏳" data-en="⏳ The Trace of Time ⏳">⏳ La Traccia del Tempo ⏳</a>
-      <p class="entry-desc" data-it="Timeline e cronologie certe di mondi che sembrano già conosciuti. Per chi vuole i fatti, in ordine." data-en="Timelines and certain chronologies of worlds that seem already known. For those who want the facts, in order.">Timeline e cronologie certe di mondi che sembrano già conosciuti. Per chi vuole i fatti, in ordine.</p>
-    </div>
-    <div class="entry-wrap">
       <a class="entry" href="storie.html" data-it="🧩 Il Filo Nascosto 🧩" data-en="🧩 The Hidden Thread 🧩">🧩 Il Filo Nascosto 🧩</a>
-      <p class="entry-desc" data-it="Teorie, storie e contenuti nascosti dentro mondi che sembrano già conosciuti. Per chi guarda oltre la superficie." data-en="Theories, stories and hidden contents inside worlds that seem already known. For those who look beyond the surface.">Teorie, storie e contenuti nascosti dentro mondi che sembrano già conosciuti. Per chi guarda oltre la superficie.</p>
-    </div>
-    <div class="entry-wrap">
       <a class="entry" href="recensioni.html" data-it="🎮 Diari di Gioco 🎮" data-en="🎮 Game Diaries 🎮">🎮 Diari di Gioco 🎮</a>
-      <p class="entry-desc" data-it="Giochi completati, platinati o amati senza motivo. Qui finiscono le impressioni oneste, senza pretese di essere una guida." data-en="Games completed, platinumed, or loved for no good reason. Honest impressions end up here — no pretense of being a guide.">Giochi completati, platinati o amati senza motivo. Qui finiscono le impressioni oneste, senza pretese di essere una guida.</p>
-    </div>
-    <div class="entry-wrap">
       <a class="entry" href="officina.html" data-it="🔧 L'Officina Grezza 🔧" data-en="🔧 The Raw Workshop 🔧">🔧 L'Officina Grezza 🔧</a>
-      <p class="entry-desc" data-it="Prototipi, demo, giochi ancora in costruzione o già completi su Steam. Il percorso dallo sviluppo grezzo al prodotto finito, tutto in un posto solo." data-en="Prototypes, demos, games still in progress or already complete on Steam. From raw development to finished product, all in one place.">Prototipi, demo, giochi ancora in costruzione o già completi su Steam. Il percorso dallo sviluppo grezzo al prodotto finito, tutto in un posto solo.</p>
     </div>
   </div>
 
@@ -132,7 +128,7 @@
     langSwitch.addEventListener("click", () => {
       lang = lang === "it" ? "en" : "it";
       document.documentElement.lang = lang;
-      document.querySelectorAll(".entry, .entry-desc").forEach(el => {
+      document.querySelectorAll(".entry, .home-title").forEach(el => {
         el.textContent = el.dataset[lang];
       });
       langSwitch.querySelectorAll(".lang-option").forEach(opt => {
