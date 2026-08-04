@@ -99,28 +99,72 @@
 
   .reviews-grid{
     height:100%; overflow-y:auto;
-    padding:32px 40px 40px;
+    padding:32px 48px 40px; /* orizzontale aumentato 40->48px, insieme
+      alla colonna della parentesi (sotto) da' alle card un margine di
+      sicurezza in piu' su risoluzioni piccole rispetto a prima */
+    display:flex; flex-direction:column;
+    gap:56px; /* spazio tra un genere e il successivo, un po' piu'
+      ampio del row-gap interno a un genere (50px) per distinguerli */
+    opacity:0; transition:opacity .4s ease; /* appaiono con un fade
+      solo a carrello già del tutto aperto (vedi script-recensioni.js),
+      non durante lo scorrimento orizzontale */
+  }
+
+  .reviews-grid.is-visible{ opacity:1; }
+
+  /* Una sezione per genere: le sue card a sinistra (o a destra sul
+     pannello sinistro, vedi sotto) e la parentesi con l'etichetta
+     verticale del genere di fianco, alta quanto la sezione stessa. */
+  .reviews-genre{
+    display:flex; align-items:stretch; gap:18px;
+  }
+  .reviews-genre__tiles{
+    flex:1; min-width:0;
     display:grid;
     grid-template-columns:repeat(7, 1fr); /* sempre 7 per riga, si
       ridimensionano con lo spazio disponibile invece di andare a
-      capo prima; centrate per via del padding orizzontale simmetrico */
+      capo prima */
     column-gap:20px;
-    row-gap:50px; /* almeno 50px tra la fine di una riga e l'inizio
-      della successiva, non piu' lo stesso spazio usato in orizzontale */
+    row-gap:50px;
     grid-auto-rows:max-content; /* senza, le righe venivano
       dimensionate piu' basse del reale (difetto noto di interazione
       tra aspect-ratio sui figli e il dimensionamento automatico
       "auto" delle righe), causando una sovrapposizione invece del
       gap richiesto */
-    align-content:start; /* partono dall'alto, come prima — la
-      centratura richiesta era solo orizzontale (già garantita dal
-      padding simmetrico + 7 colonne uguali), non verticale */
-    opacity:0; transition:opacity .4s ease; /* appaiono con un fade
-      solo a cancello già del tutto aperto (vedi script-recensioni.js),
-      non durante lo scorrimento orizzontale */
+    align-content:start;
   }
-
-  .reviews-grid.is-visible{ opacity:1; }
+  .reviews-genre__bracket{
+    flex:0 0 60px;
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .reviews-genre__bracket-mark{
+    position:absolute; top:6px; bottom:6px; left:10px; right:0;
+    border-top:2px solid var(--text-faint);
+    border-right:2px solid var(--text-faint);
+    border-bottom:2px solid var(--text-faint);
+    border-radius:0 10px 10px 0;
+    pointer-events:none;
+  }
+  .reviews-genre__label{
+    position:relative; z-index:1;
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-dim);
+    background:var(--bg);
+    padding:8px 4px;
+    white-space:nowrap;
+  }
+  /* Pannello sinistro: stessa idea specchiata — parentesi (ora "[")
+     a sinistra delle card invece che a destra, come da richiesta. */
+  .reviews-gate--left .reviews-genre{ flex-direction:row-reverse; }
+  .reviews-gate--left .reviews-genre__bracket-mark{
+    left:0; right:10px;
+    border-right:none;
+    border-left:2px solid var(--text-faint);
+    border-radius:10px 0 0 10px;
+  }
 
   .review-tile{
     position:relative; display:block;
