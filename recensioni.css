@@ -267,6 +267,13 @@
    ============================================================ */
 .review-entry{ display:none; }
 @media (hover:hover), (pointer:fine){
+  /* Niente scroll esterno della pagina quando e' aperta una
+     recensione: .review-entry e' gia' alta quanto la viewport e
+     gestisce da sola lo scroll interno (solo .reading). Senza
+     questa regola il padding sotto .stage (80px) fa comunque
+     comparire una barra di scorrimento esterna inutile. */
+  body[data-state="entry"]{ overflow:hidden; }
+
   .review-entry{
     display:flex; flex-direction:column;
     width:100%; max-width:1100px; margin:70px auto 0;
