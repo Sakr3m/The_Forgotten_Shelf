@@ -66,6 +66,7 @@ const el = {
   musicControl: document.getElementById("musicControl"),
   watermarkBrightness: document.getElementById("watermarkBrightness"),
   watermarkBrightnessSlider: document.getElementById("watermarkBrightnessSlider"),
+  watermarkPresets: document.getElementById("watermarkPresets"),
 };
 
 // ---------------------------------------------------------
@@ -83,21 +84,24 @@ if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 
 // "Gradiometro" — moltiplicatore di luminosità per le filigrane.
 // Prima era un'unica chiave condivisa con timeline.html (stesso
-// valore per tutte le voci). Ora, solo su racconti.html (04/08),
-// ogni voce ha il proprio salvataggio personale: la chiave include
-// entry.game, quindi cambiando voce lo slider carica/salva il
-// valore specifico di quella voce, indipendente dalle altre.
-// Scala anche cambiata: 0 (buio totale) - 1 (opacita' piena, cioe'
-// l'opacita' di base della voce, senza moltiplicatori) invece della
-// vecchia 0-2 con moltiplicatore ×2. Il default per una voce mai
-// toccata e' 1 (opacita' piena, cioe' l'aspetto "normale" di prima).
+// valore per tutte le voci). Poi (04/08) diventata per-voce. Ora,
+// ulteriore livello: 3 preset (1/2/3), pensati per schermi diversi
+// con luminosità diversa — ogni preset e' un salvataggio indipendente
+// PER VOCE (es. "1" su Cinere puo' valere 0.45 e "1" su L'Ultimo
+// Piano puo' valere 0.5). Il preset attivo e' globale (rappresenta
+// "che schermo stai usando ora"), ricordato tra le voci e tra i
+// caricamenti di pagina; cambiare voce non lo tocca, cambiare
+// preset sì. Scala 0-1 (0=buio totale, 1=opacita' piena) con curva
+// a due fasi (vedi applyWatermarkVisual).
 const WATERMARK_BRIGHTNESS_KEY_PREFIX = "tfs-watermark-brightness:";
+const WATERMARK_ACTIVE_SLOT_KEY = "tfs-watermark-active-slot";
 let watermarkBrightness = 1;
 let currentWatermarkBaseOpacity = null;
 let currentWatermarkEntryKey = null;
+let activeWatermarkSlot = localStorage.getItem(WATERMARK_ACTIVE_SLOT_KEY) || "1";
 
 function watermarkBrightnessKeyFor(entry){
-  return WATERMARK_BRIGHTNESS_KEY_PREFIX + (entry && entry.game ? entry.game : "default");
+  return WATERMARK_BRIGHTNESS_KEY_PREFIX + (entry && entry.game ? entry.game : "default") + ":" + activeWatermarkSlot;
 }
 
 // Curva a due fasi per lo slider 0-1: prima meta' (0-0.5) controlla
@@ -116,6 +120,30 @@ function applyWatermarkVisual(value){
     const brightness = 1 + extra * (WATERMARK_BRIGHTNESS_MAX - 1);
     el.entryWatermark.style.filter = `brightness(${brightness})`;
   }
+}
+
+function updateWatermarkPresetButtons(){
+  if(!el.watermarkPresets) return;
+  el.watermarkPresets.querySelectorAll(".watermark-brightness-line__preset").forEach(btn => {
+    btn.classList.toggle("is-active", btn.dataset.preset === activeWatermarkSlot);
+  });
+}
+
+// Ricarica il valore salvato (preset attivo) per la voce corrente e
+// lo applica: usata sia al cambio voce sia al cambio preset, cosi'
+// la logica resta in un unico posto.
+let currentRenderedEntry = null;
+function loadWatermarkForCurrentEntry(){
+  if(!currentRenderedEntry || !currentRenderedEntry.filigrana){
+    if(el.entryWatermark){ el.entryWatermark.style.opacity = ""; el.entryWatermark.style.filter = ""; }
+    return;
+  }
+  currentWatermarkEntryKey = watermarkBrightnessKeyFor(currentRenderedEntry);
+  const stored = localStorage.getItem(currentWatermarkEntryKey);
+  watermarkBrightness = stored !== null ? parseFloat(stored) : 0.5;
+  if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
+  applyWatermarkVisual(watermarkBrightness);
+  updateWatermarkPresetButtons();
 }
 
 // On mobile, the entry view puts the game picker and the music control
@@ -215,11 +243,8 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundPosition = entry.bannerPosition || "";
   el.entryWatermark.style.backgroundImage = entry.filigrana ? `url('${entry.filigrana}')` : "";
   currentWatermarkBaseOpacity = entry.filigranaOpacity != null ? entry.filigranaOpacity : 0.35;
-  currentWatermarkEntryKey = watermarkBrightnessKeyFor(entry);
-  const storedForThisEntry = entry.filigrana ? localStorage.getItem(currentWatermarkEntryKey) : null;
-  watermarkBrightness = storedForThisEntry !== null ? parseFloat(storedForThisEntry) : 0.5;
-  if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
-  if(entry.filigrana){ applyWatermarkVisual(watermarkBrightness); } else { el.entryWatermark.style.opacity = ""; el.entryWatermark.style.filter = ""; }
+  currentRenderedEntry = entry;
+  loadWatermarkForCurrentEntry();
   el.watermarkBrightness.hidden = !entry.filigrana;
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
   const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
@@ -566,6 +591,17 @@ if(el.watermarkBrightnessSlider){
       applyWatermarkVisual(watermarkBrightness);
     }
   });
+}
+
+if(el.watermarkPresets){
+  el.watermarkPresets.querySelectorAll(".watermark-brightness-line__preset").forEach(btn => {
+    btn.addEventListener("click", () => {
+      activeWatermarkSlot = btn.dataset.preset;
+      localStorage.setItem(WATERMARK_ACTIVE_SLOT_KEY, activeWatermarkSlot);
+      loadWatermarkForCurrentEntry();
+    });
+  });
+  updateWatermarkPresetButtons();
 }
 
 el.musicToggle.addEventListener("click", (ev) => {

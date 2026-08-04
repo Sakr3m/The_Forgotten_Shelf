@@ -386,3 +386,36 @@ body[data-state="entry"] .landing{ display:none; }
     z-index:0;
   }
 }
+
+/* ============================================================
+   Preset di luminosità (1/2/3) — solo desktop, solo racconti.html.
+   Pulsantini a destra della barra di luminosità della filigrana:
+   ogni preset è un salvataggio indipendente per la voce corrente
+   (es. per schermi diversi con luminosità diverse), gestiti in
+   script-racconti.js. Dimensione: 6px in più dell'altezza della
+   barra (20px -> 26px), 3px sopra e 3px sotto.
+   ============================================================ */
+@media (hover:hover), (pointer:fine){
+  .watermark-brightness-line__presets{
+    display:flex; align-items:center; gap:4px;
+    margin-left:10px;
+  }
+  .watermark-brightness-line__preset{
+    width:22px; height:26px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--item-accent, var(--cyan));
+    border-radius:5px;
+    background:transparent;
+    color:var(--text-faint);
+    font-size:.68rem; font-weight:700;
+    opacity:0;
+    transition:opacity .2s ease, color .2s ease, background .2s ease;
+    cursor:pointer;
+  }
+  .watermark-brightness-line:hover .watermark-brightness-line__preset{ opacity:1; }
+  .watermark-brightness-line__preset:hover{ color:var(--text); }
+  .watermark-brightness-line__preset.is-active{
+    background:var(--item-accent, var(--cyan));
+    color:#000;
+  }
+}
