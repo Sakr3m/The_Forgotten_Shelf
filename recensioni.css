@@ -219,7 +219,8 @@
 @media (hover:hover), (pointer:fine){
   .gate-side-toggle{
     display:inline-block;
-    margin-top:32px;
+    margin-top:80px; /* 32px originali + una volta e mezzo quella
+      distanza (32*1.5=48) in piu', su richiesta */
     padding:12px 28px;
     background:var(--panel);
     border:1px solid var(--text-faint);
@@ -334,6 +335,15 @@
   }
 
   .review-entry .reading{ color:var(--text-dim); font-size:1rem; line-height:1.75; }
+  /* Il blocco "recensione veloce" fiancheggia la cover: stessa
+     altezza (293px, la cover e' 220px larga con aspect-ratio 3/4),
+     cosi' quello che segue (soglia spoiler) riparte esattamente
+     all'altezza di "Scheda", sotto la cover. Per ora vuoto (solo
+     l'etichetta), testo segnaposto tolto in attesa di quello vero. */
+  .review-entry .quick-take{
+    min-height:293px;
+    margin-bottom:16px;
+  }
   .review-entry .section-eyebrow{
     font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
     color:var(--cyan); margin-bottom:14px;
@@ -343,17 +353,13 @@
     font-size:1.25rem; color:var(--text); margin:28px 0 12px;
   }
 
-  /* --- Soglia spoiler: ora e' la prima cosa nella colonna di
-     lettura, cosi' il suo bordo superiore parte alla stessa altezza
-     della scheda a sinistra (niente margin-top). Contenuto centrato
-     (icona/testo/pulsante), non piu' allineato a sinistra. --- */
+  /* --- Soglia spoiler: segue subito il blocco "recensione veloce"
+     qui sopra, quindi riparte gia' all'altezza giusta (fianco a
+     fianco con "Scheda") senza bisogno di margini calcolati a
+     mano. --- */
   .review-entry .threshold{
     display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
-    /* Il box deve iniziare all'altezza della sezione "Scheda" (sotto
-       la cover a sinistra), non in cima alla colonna. La cover e'
-       220px larga con aspect-ratio 3/4 -> ~293px di altezza + 16px
-       di margine sotto = ~310px prima che inizi "Scheda". */
-    margin:310px 0 28px;
+    margin:0 0 28px;
     padding:22px 24px;
     border:1px solid rgba(250,204,21,.35);
     background:rgba(250,204,21,.06);
