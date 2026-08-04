@@ -78,6 +78,45 @@
   .lang-option.is-active{ color:#c7a25c; }
   .lang-sep{ color:#2a2e35; }
 
+  /* Ko-fi + Discord, stesso stile/posizione delle pagine interne
+     (icone in alto, gruppo a sinistra dello switch lingua). */
+  .top-controls{
+    position:fixed; top:24px; right:24px; z-index:20;
+    display:flex; align-items:center; gap:10px;
+  }
+  .lang-switch{ position:static; top:auto; right:auto; }
+  .kofi-link{
+    display:flex; align-items:center; gap:8px;
+    padding:9px 16px;
+    border:1px solid var(--cyan);
+    background:#111726;
+    border-radius:999px;
+    font-size:.8rem; font-weight:600; color:var(--text-faint);
+    text-decoration:none;
+    transition:color .2s ease;
+  }
+  .kofi-link:hover{ color:var(--text); }
+  .kofi-link svg{ width:16px; height:16px; color:#ef4444; flex-shrink:0; }
+  .kofi-link__short{ display:none; }
+  .discord-link{
+    display:flex; align-items:center; justify-content:center;
+    width:38px; height:38px;
+    border:1px solid var(--cyan);
+    background:#111726;
+    border-radius:50%;
+    color:var(--text-faint);
+    text-decoration:none;
+    transition:color .2s ease;
+  }
+  .discord-link:hover{ color:var(--text); }
+  .discord-link svg{ width:18px; height:18px; }
+
+  @media (hover:none) and (pointer:coarse){
+    .top-controls{ top:15px; right:15px; gap:8px; }
+    .kofi-link__full{ display:none; }
+    .kofi-link__short{ display:inline; }
+  }
+
   /* Mobile: stessa home, pulsanti piu' piccoli di quanto non fossero
      su desktop (richiesto esplicitamente), titolo scalato di
      conseguenza. */
@@ -104,11 +143,21 @@
 </style>
 </head>
 <body>
-  <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
-    <span class="lang-option is-active" data-lang-option="it">IT</span>
-    <span class="lang-sep">/</span>
-    <span class="lang-option" data-lang-option="en">EN</span>
-  </button>
+  <div class="top-controls">
+    <a class="discord-link" href="https://discord.gg/Vu7bxUPvgR" target="_blank" rel="noopener" aria-label="Unisciti al server Discord">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7362 19.7362 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.0991.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" fill="currentColor"/></svg>
+    </a>
+    <a class="kofi-link" href="https://ko-fi.com/the_forgotten_shelf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17.5s-6.5-4-8.2-8.1C.5 6.5 2 3.5 5 3.2c1.8-.2 3.4.7 4.3 2 .9-.3 1.6-1.2 3-2C15.5 2 18.8 4 18 8c-1 4.2-8 9.5-8 9.5z" fill="currentColor"/></svg>
+      <span class="kofi-link__full" data-it="Sostienimi su Ko-fi" data-en="Support me on Ko-fi">Sostienimi su Ko-fi</span>
+      <span class="kofi-link__short">KoFi</span>
+    </a>
+    <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
+      <span class="lang-option is-active" data-lang-option="it">IT</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-option" data-lang-option="en">EN</span>
+    </button>
+  </div>
 
   <div class="home">
     <h1 class="home-title" data-it="The Forgotten Shelf" data-en="The Forgotten Shelf">The Forgotten Shelf</h1>
@@ -128,7 +177,7 @@
     langSwitch.addEventListener("click", () => {
       lang = lang === "it" ? "en" : "it";
       document.documentElement.lang = lang;
-      document.querySelectorAll(".entry, .home-title").forEach(el => {
+      document.querySelectorAll(".entry, .home-title, .kofi-link__full").forEach(el => {
         el.textContent = el.dataset[lang];
       });
       langSwitch.querySelectorAll(".lang-option").forEach(opt => {
