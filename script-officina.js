@@ -28,6 +28,14 @@ const STRINGS = {
 
 const state = { lang: "it" };
 
+// Lingua condivisa con le altre pagine (Timeline, Storie & Teorie,
+// Racconti, Recensioni) tramite localStorage: letta qui, prima di
+// qualunque render iniziale, cosi' lo stato ripristinato e' quello
+// visto fin dal primo disegno della pagina.
+const LANG_KEY = "tfs-lang";
+const storedLang = localStorage.getItem(LANG_KEY);
+if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
@@ -68,6 +76,7 @@ function paintStaticText(){
     node.textContent = t(key);
   });
   document.documentElement.lang = state.lang;
+  el.body.dataset.lang = state.lang;
   el.langSwitch.querySelectorAll(".lang-option").forEach(opt => {
     opt.classList.toggle("is-active", opt.dataset.langOption === state.lang);
   });
@@ -75,6 +84,7 @@ function paintStaticText(){
 
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
+  localStorage.setItem(LANG_KEY, state.lang);
   el.body.dataset.lang = state.lang;
   paintStaticText();
 });

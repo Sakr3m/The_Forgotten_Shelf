@@ -192,9 +192,11 @@
 
   <script>
     const langSwitch = document.getElementById("langSwitch");
-    let lang = "it";
-    langSwitch.addEventListener("click", () => {
-      lang = lang === "it" ? "en" : "it";
+    const LANG_KEY = "tfs-lang";
+    const storedLang = localStorage.getItem(LANG_KEY);
+    let lang = (storedLang === "it" || storedLang === "en") ? storedLang : "it";
+
+    function paintLang(){
       document.documentElement.lang = lang;
       document.querySelectorAll(".entry, .home-title, .kofi-link__full").forEach(el => {
         el.textContent = el.dataset[lang];
@@ -202,7 +204,15 @@
       langSwitch.querySelectorAll(".lang-option").forEach(opt => {
         opt.classList.toggle("is-active", opt.dataset.langOption === lang);
       });
+    }
+
+    langSwitch.addEventListener("click", () => {
+      lang = lang === "it" ? "en" : "it";
+      localStorage.setItem(LANG_KEY, lang);
+      paintLang();
     });
+
+    paintLang();
   </script>
 </body>
 </html>

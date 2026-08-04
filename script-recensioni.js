@@ -37,6 +37,12 @@ const STRINGS = {
 
 const state = { lang: "it", activeSide: "right" };
 
+// Lingua condivisa con le altre pagine tramite localStorage: letta
+// prima di qualunque render iniziale.
+const LANG_KEY = "tfs-lang";
+const storedLang = localStorage.getItem(LANG_KEY);
+if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
@@ -70,6 +76,7 @@ function paintStaticText(){
 
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
+  localStorage.setItem(LANG_KEY, state.lang);
   el.body.dataset.lang = state.lang;
   paintStaticText();
 });

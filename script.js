@@ -82,10 +82,13 @@ const el = {
 // ---------------------------------------------------------
 const MUSIC_ON_KEY = "tfs-music-on";
 const VOLUME_KEY = "tfs-volume";
+const LANG_KEY = "tfs-lang";
 const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
+const storedLang = localStorage.getItem(LANG_KEY);
+if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
 
 // "Gradiometro" — moltiplicatore di luminosità per le filigrane,
 // una prova richiesta dall'utente: condiviso con racconti.html
@@ -703,6 +706,7 @@ function selectEntry(entryId){
 // ---------------------------------------------------------
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
+  localStorage.setItem(LANG_KEY, state.lang);
   paintStaticText();
   if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderGamePanel(); }
