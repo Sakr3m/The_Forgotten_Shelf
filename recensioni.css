@@ -297,6 +297,8 @@
      richiesta esplicita (difficile reperire/scalare bene banner
      cosi' grandi). --- */
   .review-entry .entry-header{
+    padding-top:22px; /* stesso spazio che occupava la riga eyebrow
+      rimossa, cosi' titolo e tag restano dove erano prima */
     padding-bottom:20px;
     border-bottom:1px solid var(--line);
   }
