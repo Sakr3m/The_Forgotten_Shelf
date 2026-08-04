@@ -13,7 +13,8 @@ const STRINGS = {
     landingIntro: "The Forgotten Shelf raccoglie anche i progetti personali che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
     showProjects: "Mostra progetti",
     kofiLabel: "Sostienimi su Ko-fi",
-    backToIndexLabel: "Torna all'index"
+    backToIndexLabel: "Torna all'index",
+    mathemoryCopyright: "© 2026 Sakrem"
   },
   en: {
     brand: "The Raw Workshop",
@@ -22,7 +23,8 @@ const STRINGS = {
     landingIntro: "The Forgotten Shelf also collects personal projects that live elsewhere: games and tools in progress, linked from here.",
     showProjects: "Show projects",
     kofiLabel: "Support me on Ko-fi",
-    backToIndexLabel: "Back to index"
+    backToIndexLabel: "Back to index",
+    mathemoryCopyright: "© 2026 Sakrem"
   }
 };
 

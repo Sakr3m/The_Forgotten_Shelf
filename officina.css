@@ -64,11 +64,11 @@
 }
 .card:hover .card__body{ max-height:400px; }
 
-.card__body .status, .card__body .tagline, .card__body .cta{
+.card__body .status, .card__body .tagline, .card__body .cta, .card__body .card-copyright{
   opacity:0; transition:opacity .15s ease;
   pointer-events:none;
 }
-.card:hover .card__body .status, .card:hover .card__body .tagline, .card:hover .card__body .cta{
+.card:hover .card__body .status, .card:hover .card__body .tagline, .card:hover .card__body .cta, .card:hover .card__body .card-copyright{
   opacity:1; transition:opacity .25s ease .15s;
   pointer-events:auto;
 }
@@ -106,6 +106,7 @@
 }
 
 .card h3{ margin:0 0 6px; font-size:1.15rem; font-weight:700; letter-spacing:-.01em; color:var(--text); }
+.card-copyright{ color:var(--text-faint); font-size:.66rem; margin:0 0 10px; letter-spacing:.02em; }
 .tagline{ color:var(--text-dim); font-size:.86rem; line-height:1.55; margin:0 0 20px; }
 
 .cta{
@@ -190,7 +191,8 @@
   .card.card--mobile .card__body{ max-height:none; }
   .card.card--mobile .card__body .status,
   .card.card--mobile .card__body .tagline,
-  .card.card--mobile .card__body .cta{
+  .card.card--mobile .card__body .cta,
+  .card.card--mobile .card__body .card-copyright{
     opacity:1; pointer-events:auto;
   }
 
