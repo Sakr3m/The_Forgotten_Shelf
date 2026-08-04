@@ -329,6 +329,9 @@ And no one ever showed up at their door.`
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Filigrana.jpg",
+    filigranaLeftFade: true,
+    filigranaBottomFade: true,
+    bannerOffset: 50,
     title: {
       it: "L'Ora Sbagliata",
       en: "The Wrong Hour"
