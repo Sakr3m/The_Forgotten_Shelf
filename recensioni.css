@@ -292,13 +292,18 @@
   .review-entry .entry-header__title{
     font-size:2rem; color:var(--text); margin:0 0 12px;
   }
-  .review-entry .entry-header__meta{ display:flex; flex-wrap:wrap; gap:8px; }
+  .review-entry .entry-header__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
   .review-entry .title-tag{
     padding:5px 12px;
     border:1px solid var(--cyan);
     border-radius:999px;
     font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
     color:var(--cyan);
+  }
+  .review-entry .tag-sep{
+    color:var(--text-faint);
+    font-weight:700;
+    align-self:center;
   }
 
   /* --- Corpo: scheda a sinistra + testo a destra. --- */
@@ -332,6 +337,12 @@
   }
   .review-entry .facts dd{
     margin:2px 0 0; color:var(--text); font-size:.86rem; font-weight:600;
+  }
+  .review-entry .fact-completed{
+    display:flex; align-items:center; gap:6px;
+  }
+  .review-entry .platinum-icon{
+    width:15px; height:15px; flex-shrink:0;
   }
 
   .review-entry .reading{ color:var(--text-dim); font-size:1rem; line-height:1.75; }
