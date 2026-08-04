@@ -78,11 +78,12 @@
   .lang-option.is-active{ color:#c7a25c; }
   .lang-sep{ color:#2a2e35; }
 
-  /* Ko-fi + Discord, stesso stile/posizione delle pagine interne
-     (icone in alto, gruppo a sinistra dello switch lingua). */
+  /* Ko-fi + Discord + switch lingua, in alto.
+     Desktop: centrati in alto (non piu' a destra), gap raddoppiato
+     rispetto a prima (10px -> 20px). */
   .top-controls{
-    position:fixed; top:24px; right:24px; z-index:20;
-    display:flex; align-items:center; gap:10px;
+    position:fixed; top:24px; left:50%; transform:translateX(-50%); z-index:20;
+    display:flex; align-items:center; gap:20px;
   }
   .lang-switch{ position:static; top:auto; right:auto; }
   .kofi-link{
@@ -111,16 +112,34 @@
   .discord-link:hover{ color:var(--text); }
   .discord-link svg{ width:18px; height:18px; }
 
+  /* Mobile: stessa disposizione a barra piena delle altre home del
+     sito (index-link/kofi-al-centro/switch), ma qui non c'e' un
+     "torna all'index" (siamo gia' in home) quindi Discord prende
+     quel posto a sinistra, e Ko-fi resta da solo al centro. */
   @media (hover:none) and (pointer:coarse){
-    .top-controls{ top:15px; right:15px; gap:8px; }
+    .top-controls{
+      position:fixed; top:0; left:0; right:0; transform:none;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px;
+      background:var(--bg);
+      border-bottom:1px solid #1f2738;
+      gap:0;
+    }
+    .discord-link{ width:37px; height:37px; }
+    .kofi-link{
+      position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+      padding:8px 13px; gap:6px;
+    }
     .kofi-link__full{ display:none; }
     .kofi-link__short{ display:inline; }
+    .lang-switch{ padding:8px 11px; font-size:.79rem; }
   }
 
   /* Mobile: stessa home, pulsanti piu' piccoli di quanto non fossero
      su desktop (richiesto esplicitamente), titolo scalato di
      conseguenza. */
   @media (hover:none) and (pointer:coarse){
+    .home{ padding-top:70px; }
     .home-title{ font-size:1.6rem; margin-bottom:28px; }
     .entries{ gap:12px; }
     a.entry{ font-size:1rem; padding:10px 20px; }
