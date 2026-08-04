@@ -69,13 +69,30 @@ const STRINGS = {
   }
 };
 
-const state = { lang: "it", activeSide: "right", view: "landing" };
+const state = { lang: "it", activeSide: "right", view: "landing", musicOn: false, trackIndex: 0 };
+
+// Stessa playlist usata per la voce "Final Fantasy VIII" in Il Filo
+// Nascosto (data-storie-teorie.js) — stesso gioco, stessi brani.
+const FFVIII_TRACKS = [
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Liberi%20Fatali.mp3", title: "Liberi Fatali", game: "Final Fantasy VIII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Eyes%20on%20Me.mp3", title: "Eyes on Me", game: "Final Fantasy VIII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20The%20Man%20with%20the%20Machine%20Gun.mp3", title: "The Man with the Machine Gun", game: "Final Fantasy VIII" }
+];
+const REVIEW_TRACKS = { ffviii: FFVIII_TRACKS };
 
 // Lingua condivisa con le altre pagine tramite localStorage: letta
 // prima di qualunque render iniziale.
 const LANG_KEY = "tfs-lang";
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+
+// Musica/volume condivisi con le altre pagine (stessa chiave usata
+// da Teorie, Timeline, Racconti): stesso stato acceso/spento e
+// stesso livello passando da una pagina all'altra.
+const MUSIC_ON_KEY = "tfs-music-on";
+const VOLUME_KEY = "tfs-volume";
+const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
+if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 
 // Lato del carrello (destra/sinistra): salvato per singolo
 // dispositivo, ricordato tra le visite. Letto qui, prima del primo
@@ -99,8 +116,20 @@ const el = {
   reviewFfviii: document.getElementById("reviewFfviii"),
   revealBtn: document.getElementById("revealBtn"),
   reviewThreshold: document.getElementById("reviewThreshold"),
-  reviewDeepContent: document.getElementById("reviewDeepContent")
+  reviewDeepContent: document.getElementById("reviewDeepContent"),
+  bgMusic: document.getElementById("bgMusic"),
+  musicToggle: document.getElementById("musicToggle"),
+  volumeSlider: document.getElementById("volumeSlider"),
+  trackInfo: document.getElementById("trackInfo"),
+  trackTitle: document.getElementById("trackTitle"),
+  trackGame: document.getElementById("trackGame"),
+  trackSkipBtn: document.getElementById("trackSkipBtn"),
+  trackProgressFill: document.getElementById("trackProgressFill")
 };
+if(el.volumeSlider){
+  const storedVolume = localStorage.getItem(VOLUME_KEY);
+  if(storedVolume !== null) el.volumeSlider.value = storedVolume;
+}
 
 // Mappa id-recensione -> elemento della voce corrispondente. Un solo
 // titolo per ora; aggiungerne altri significa solo aggiungere una
@@ -247,13 +276,17 @@ function openReview(id){
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
   crossfadeTo(entryEl);
   state.view = id;
+  el.body.dataset.state = "entry";
   updateIndexLink();
+  updateMusicPlayback();
 }
 
 function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
+  el.body.dataset.state = "landing";
   updateIndexLink();
+  updateMusicPlayback();
 }
 
 document.querySelectorAll("[data-review]").forEach(card => {
@@ -308,5 +341,82 @@ if(state.activeSide === "left"){
   el.reviewsGateRight.classList.add("side-hidden");
   el.reviewsGateLeft.classList.remove("side-hidden");
 }
+
+// ---------------------------------------------------------
+// Musica di sottofondo — stessa playlist di FFVIII usata in Il Filo
+// Nascosto. Solo nella pagina della recensione (non in landing), non
+// autoparte mai con l'audio: l'utente deve attivarla col toggle, i
+// browser bloccherebbero comunque l'autoplay con suono.
+// ---------------------------------------------------------
+function updateMusicPlayback(){
+  if(!el.bgMusic) return;
+  const inReview = state.view !== "landing";
+  el.musicToggle.setAttribute("aria-pressed", String(state.musicOn));
+
+  const tracks = inReview ? (REVIEW_TRACKS[state.view] || []) : [];
+
+  if(tracks.length === 0 || !state.musicOn){
+    el.bgMusic.pause();
+    el.trackInfo.hidden = true;
+    return;
+  }
+
+  if(state.trackIndex >= tracks.length) state.trackIndex = 0;
+  const track = tracks[state.trackIndex];
+
+  el.trackInfo.hidden = false;
+  el.trackTitle.textContent = track.title;
+  el.trackGame.textContent = track.game || "";
+  el.trackSkipBtn.hidden = tracks.length <= 1;
+
+  if(!el.bgMusic.src || !el.bgMusic.src.endsWith(track.src)){
+    el.bgMusic.src = track.src;
+  }
+  el.bgMusic.play().catch(() => { /* bloccato finche' non c'e' un gesto utente; il click del toggle stesso lo e' */ });
+}
+
+function advanceTrack(){
+  const tracks = state.view !== "landing" ? (REVIEW_TRACKS[state.view] || []) : [];
+  if(tracks.length === 0) return;
+  state.trackIndex = (state.trackIndex + 1) % tracks.length;
+  updateMusicPlayback();
+}
+
+if(el.bgMusic){
+  el.bgMusic.addEventListener("ended", advanceTrack);
+  el.bgMusic.addEventListener("timeupdate", () => {
+    if(el.bgMusic.duration){
+      el.trackProgressFill.style.width = (el.bgMusic.currentTime / el.bgMusic.duration * 100) + "%";
+    }
+  });
+  el.bgMusic.addEventListener("loadedmetadata", () => {
+    el.trackProgressFill.style.width = "0%";
+  });
+  el.trackSkipBtn.addEventListener("click", advanceTrack);
+  el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+  el.volumeSlider.addEventListener("input", () => {
+    el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+    localStorage.setItem(VOLUME_KEY, el.volumeSlider.value);
+  });
+  el.musicToggle.addEventListener("click", () => {
+    state.musicOn = !state.musicOn;
+    localStorage.setItem(MUSIC_ON_KEY, String(state.musicOn));
+    updateMusicPlayback();
+  });
+}
+
+// Standby/scheda non in primo piano: la musica va sempre in pausa
+// (non solo mobile — vale anche cambiando scheda su desktop).
+// Niente ripresa automatica al ritorno.
+let musicWasPlayingBeforeHidden = false;
+document.addEventListener("visibilitychange", () => {
+  if(!el.bgMusic) return;
+  if(document.hidden){
+    musicWasPlayingBeforeHidden = !el.bgMusic.paused;
+    el.bgMusic.pause();
+  } else if(musicWasPlayingBeforeHidden){
+    el.bgMusic.play().catch(() => {});
+  }
+});
 
 paintStaticText();
