@@ -43,6 +43,14 @@ const LANG_KEY = "tfs-lang";
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
 
+// Lato del carrello (destra/sinistra): salvato per singolo
+// dispositivo, ricordato tra le visite. Letto qui, prima del primo
+// paint, cosi' la pagina si apre gia' nel lato giusto invece di
+// mostrare prima quello di default e poi saltare.
+const GATE_SIDE_KEY = "tfs-recensioni-gate-side";
+const storedGateSide = localStorage.getItem(GATE_SIDE_KEY);
+if(storedGateSide === "left" || storedGateSide === "right") state.activeSide = storedGateSide;
+
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
@@ -70,10 +78,10 @@ function paintStaticText(){
     btn.setAttribute("aria-label", isOpen ? t("gateToggleLabelClose") : t("gateToggleLabel"));
   });
 
-  const isLeft = el.gateSideToggle.getAttribute("aria-pressed") === "true";
+  const isLeft = state.activeSide === "left";
+  el.gateSideToggle.setAttribute("aria-pressed", String(isLeft));
   el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
 }
-
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   localStorage.setItem(LANG_KEY, state.lang);
@@ -141,9 +149,19 @@ if(el.gateSideToggle){
     }, 500);
 
     state.activeSide = goingLeft ? "left" : "right";
+    localStorage.setItem(GATE_SIDE_KEY, state.activeSide);
     el.gateSideToggle.setAttribute("aria-pressed", String(goingLeft));
     el.gateSideToggle.textContent = goingLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
   });
+}
+
+// Sincronizza subito i due pannelli con la preferenza salvata (se
+// e' "left", il sinistro deve partire visibile e il destro nascosto
+// — l'opposto del default nel markup), senza passare dal crossfade
+// animato: solo al primo caricamento, deve essere istantaneo.
+if(state.activeSide === "left"){
+  el.reviewsGateRight.classList.add("side-hidden");
+  el.reviewsGateLeft.classList.remove("side-hidden");
 }
 
 paintStaticText();
