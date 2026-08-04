@@ -55,10 +55,136 @@
         </div>
       </div>
 
-      <!-- "Il cancello": pulsante a sinistra, sempre visibile, che apre/chiude
-           la tendina con la griglia dei giochi. Solo PC per ora. -->
-      <div class="reviews-gate" id="reviewsGate" aria-hidden="true">
-        <button class="gate-handle" id="gateToggle" type="button" aria-expanded="false" aria-controls="reviewsGate" aria-label="Apri l'elenco delle recensioni">
+      <!-- Il "carrello" (ex "cancello"): due pannelli indipendenti,
+           uno ancorato a destra e uno a sinistra, ognuno con la propria
+           maniglia per aprirsi/chiudersi. Solo uno dei due e' visibile
+           per volta (l'altro e' del tutto invisibile, non solo chiuso):
+           il toggle centrale nella landing decide quale, con un
+           crossfade in due tempi (vedi script-recensioni.js). Di
+           default e' visibile quello a destra, invisibile quello a
+           sinistra. Solo PC per ora. -->
+      <div class="reviews-gate reviews-gate--right" id="reviewsGateRight" aria-hidden="true">
+        <button class="gate-handle" id="gateToggleRight" type="button" aria-expanded="false" aria-controls="reviewsGateRight" aria-label="Apri l'elenco delle recensioni">
+          <svg class="gate-handle__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="reviews-grid">
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+          <a class="review-tile" href="#" aria-label="Segnaposto: titolo in arrivo">
+            <div class="review-tile__cover" aria-hidden="true"></div>
+            <span class="review-tile__title" data-i18n="placeholderTile">Titolo in arrivo</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="reviews-gate reviews-gate--left side-hidden" id="reviewsGateLeft" aria-hidden="true">
+        <button class="gate-handle" id="gateToggleLeft" type="button" aria-expanded="false" aria-controls="reviewsGateLeft" aria-label="Apri l'elenco delle recensioni">
           <svg class="gate-handle__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4L7 10l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="reviews-grid">

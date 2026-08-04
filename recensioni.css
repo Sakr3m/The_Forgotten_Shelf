@@ -15,16 +15,16 @@
 }
 
 /* ============================================================
-   Il "cancello" — una tendina larga l'85% dello schermo, ancorata al
-   margine DESTRO della finestra (come i pannelli laterali di Opera
-   GX e altri browser), che si apre scorrendo orizzontalmente da
-   destra verso sinistra, partendo da poco sotto la riga dei
-   pulsanti in alto. Il pulsante che la apre/chiude è suo figlio nel
-   markup: eredita lo stesso transform, quindi si muove insieme a
-   lei (resta al margine destro da chiusa, arriva al bordo sinistro
-   della tendina da aperta) senza bisogno di sincronizzarli a mano.
-   "Apertura elettrica": transizione lenta e meccanica invece dello
-   scatto veloce usato altrove nel sito. Solo desktop per ora.
+   Il "carrello" (ex "cancello") — due pannelli indipendenti, uno
+   ancorato a destra e uno a sinistra, ognuno largo l'85% dello
+   schermo, che si apre scorrendo orizzontalmente partendo da poco
+   sotto la riga dei pulsanti in alto. Ogni pannello ha la sua
+   maniglia (suo figlio nel markup: eredita lo stesso transform,
+   quindi si muove insieme a lui). "Apertura elettrica": transizione
+   lenta e meccanica invece dello scatto veloce usato altrove nel
+   sito. Solo uno dei due e' visibile per volta — vedi .side-hidden
+   piu' sotto e script-recensioni.js per il crossfade. Solo desktop
+   per ora.
    ============================================================ */
 .gate-handle{ display:none; }
 .reviews-gate{ display:none; }
@@ -32,51 +32,57 @@
 @media (hover:hover), (pointer:fine){
   .reviews-gate{
     display:block;
-    /* position:fixed, non :absolute — cosi' "right:0" e' sempre il
-       vero bordo destro della FINESTRA, a qualunque risoluzione,
+    /* position:fixed, non :absolute — cosi' "right:0"/"left:0" sono
+       sempre il vero bordo della FINESTRA, a qualunque risoluzione,
        invece che del solo .stage (che e' spostato dal trucco di
        allineamento condiviso con le altre pagine). */
-    position:fixed; top:68px; right:0; bottom:0;
+    position:fixed; top:68px; bottom:0;
     width:85vw;
     background:var(--bg);
-    border-left:1px solid var(--line);
-    box-shadow:-20px 0 40px rgba(0,0,0,.5);
     z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
       i pulsanti in alto restano sempre usabili anche a tendina aperta */
-    transform:translateX(100%);
-    transition:transform .55s cubic-bezier(.4,0,.2,1), opacity .2s ease;
+    transition:transform .55s cubic-bezier(.4,0,.2,1), opacity .5s ease;
   }
-  .reviews-gate.is-open{ transform:translateX(0); }
-  /* Cambio lato (destra<->sinistra): per l'istante in cui la
-     posizione "salta" da un bordo all'altro (non è animabile,
-     right/left cambiano di scatto) il cancello diventa invisibile,
-     invece di far vedere il salto. Vedi script-recensioni.js. */
-  .reviews-gate.is-switching{ opacity:0; }
+  /* Invisibile del tutto (non solo chiuso): usato dal toggle
+     centrale per mostrare un solo pannello per volta, con crossfade
+     in due tempi gestito via JS (fade out del pannello uscente,
+     poi fade in di quello entrante). pointer-events:none evita che
+     resti cliccabile mentre e' invisibile. */
+  .reviews-gate.side-hidden{ opacity:0; pointer-events:none; }
 
-  /* Variante sinistra, attivata dal toggle sotto la scritta
-     centrale: stesse proprietà ma specchiate. Il lato destro
-     resta il default. */
-  .reviews-gate.side-left{
-    right:auto; left:0;
-    border-left:none; border-right:1px solid var(--line);
+  .reviews-gate--right{
+    right:0;
+    border-left:1px solid var(--line);
+    box-shadow:-20px 0 40px rgba(0,0,0,.5);
+    transform:translateX(100%);
+  }
+  .reviews-gate--right.is-open{ transform:translateX(0); }
+
+  .reviews-gate--left{
+    left:0;
+    border-right:1px solid var(--line);
     box-shadow:20px 0 40px rgba(0,0,0,.5);
     transform:translateX(-100%);
   }
-  .reviews-gate.side-left.is-open{ transform:translateX(0); }
+  .reviews-gate--left.is-open{ transform:translateX(0); }
 
   .gate-handle{
     display:flex; align-items:center; justify-content:center;
-    position:absolute; right:100%; top:50%; transform:translateY(-50%);
+    position:absolute; top:50%; transform:translateY(-50%);
     width:34px; height:64px;
-    background:var(--panel); border:1px solid var(--line); border-right:none;
-    border-radius:8px 0 0 8px;
+    background:var(--panel); border:1px solid var(--line);
     color:var(--text-dim);
     cursor:pointer;
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
-  .reviews-gate.side-left .gate-handle{
-    right:auto; left:100%;
-    border-right:1px solid var(--line); border-left:none;
+  .reviews-gate--right .gate-handle{
+    right:100%;
+    border-right:none;
+    border-radius:8px 0 0 8px;
+  }
+  .reviews-gate--left .gate-handle{
+    left:100%;
+    border-left:none;
     border-radius:0 8px 8px 0;
   }
   .gate-handle:hover{ color:var(--cyan); border-color:var(--cyan); }
@@ -88,8 +94,8 @@
   /* Lato sinistro: la logica dell'icona si inverte (chiusa=ruotata,
      aperta=non ruotata), perché ora "punta verso dove apre" è
      l'opposto di prima. */
-  .reviews-gate.side-left .gate-handle:not([aria-expanded="true"]) .gate-handle__arrow{ transform:rotate(180deg); }
-  .reviews-gate.side-left .gate-handle[aria-expanded="true"] .gate-handle__arrow{ transform:rotate(0deg); }
+  .reviews-gate--left .gate-handle:not([aria-expanded="true"]) .gate-handle__arrow{ transform:rotate(180deg); }
+  .reviews-gate--left .gate-handle[aria-expanded="true"] .gate-handle__arrow{ transform:rotate(0deg); }
 
   .reviews-grid{
     height:100%; overflow-y:auto;
