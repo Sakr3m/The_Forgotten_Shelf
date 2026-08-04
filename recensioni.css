@@ -268,12 +268,15 @@
 .review-entry{ display:none; }
 @media (hover:hover), (pointer:fine){
   .review-entry{
-    display:block;
-    width:100%; max-width:1100px; margin:70px auto 60px; /* piu' spazio
-      sopra, il titolo era salito troppo vicino alla topbar */
+    display:flex; flex-direction:column;
+    width:100%; max-width:1100px; margin:70px auto 0;
+    /* Altezza vincolata alla viewport (meno lo spazio sopra e un
+       margine sotto): cosi' solo la colonna di lettura scorre al suo
+       interno, titolo/tag/volume/scheda restano fermi. */
+    height:calc(100vh - 70px - 30px);
   }
   /* Stesso accorgimento gia' usato altrove nel sito: [hidden] da
-     solo ha la stessa specificita' di .review-entry{display:block}
+     solo ha la stessa specificita' di .review-entry{display:flex}
      qui sopra e perderebbe per ordine di dichiarazione, restando
      visibile anche da nascosto. Serve un selettore piu' specifico
      che forzi display:none quando l'attributo e' presente. */
@@ -284,6 +287,8 @@
      richiesta esplicita (difficile reperire/scalare bene banner
      cosi' grandi). --- */
   .review-entry .entry-header{
+    flex-shrink:0; /* mai schiacciato dal flex, resta alla sua
+      altezza naturale — e non scorre, essendo fuori da .reading */
     padding-top:22px; /* stesso spazio che occupava la riga eyebrow
       rimossa, cosi' titolo e tag restano dove erano prima */
     padding-bottom:20px;
@@ -312,12 +317,24 @@
   }
 
   /* --- Corpo: scheda a sinistra + testo a destra. --- */
+  /* --- Corpo: scheda a sinistra (ferma) + testo a destra (unica
+     parte che scorre). flex:1/min-height:0 fa si' che questa riga
+     occupi tutto lo spazio restante dentro l'altezza fissa di
+     .review-entry, invece di crescere oltre lo schermo. --- */
   .review-entry .body-grid{
-    display:grid; grid-template-columns:220px 1fr; gap:40px;
-    margin-top:32px; align-items:start;
+    display:grid; grid-template-columns:220px 1fr;
+    grid-template-rows:minmax(0, 1fr); /* la riga unica riempie tutta
+      l'altezza disponibile, altrimenti si dimensiona sul contenuto
+      e height:100% sui figli sotto non avrebbe nulla da riempire */
+    gap:40px;
+    margin-top:32px; align-items:stretch;
+    flex:1; min-height:0;
   }
   .review-entry .facts{
-    position:sticky; top:88px;
+    /* Non serve piu' sticky: l'intero .review-entry e' gia' alto
+       quanto la viewport, quindi la scheda resta ferma per natura
+       (e' .reading, non la pagina, a scorrere). */
+    overflow-y:auto; max-height:100%;
   }
   .review-entry .cover-slot{
     aspect-ratio:3/4;
@@ -350,7 +367,12 @@
     width:17px; height:17px; flex-shrink:0;
   }
 
-  .review-entry .reading{ color:var(--text-dim); font-size:1rem; line-height:1.75; }
+  .review-entry .reading{
+    color:var(--text-dim); font-size:1rem; line-height:1.75;
+    height:100%; overflow-y:auto;
+    padding-right:12px; /* spazio per non far toccare il testo alla
+      scrollbar quando compare */
+  }
   /* Il blocco "recensione veloce" fiancheggia la cover: stessa
      altezza (293px, la cover e' 220px larga con aspect-ratio 3/4),
      cosi' quello che segue (soglia spoiler) riparte esattamente
