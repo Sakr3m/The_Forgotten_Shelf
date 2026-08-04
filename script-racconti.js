@@ -13,7 +13,8 @@ const STRINGS = {
     landingSub: "Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.",
     landingSubMobile: "Seleziona una voce dalla finestra Racconti brevi o da quella dei Libri per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
-    backToIndexLabel: "Torna all'index"
+    backToIndexLabel: "Torna all'index",
+    entryCopyright: "© 2026 Sakrem — Tutti i diritti riservati"
   },
   en: {
     brand: "Unframed Stories",
@@ -25,7 +26,8 @@ const STRINGS = {
     landingSub: "Select an entry from the Short Stories column or from the Books column to dive in.",
     landingSubMobile: "Select an entry from the Short Stories screen or from the Books screen to dive in.",
     kofiLabel: "Support me on Ko-fi",
-    backToIndexLabel: "Back to index"
+    backToIndexLabel: "Back to index",
+    entryCopyright: "© 2026 Sakrem — All rights reserved"
   }
 };
 
@@ -286,6 +288,7 @@ function renderEntry(){
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
   el.entryContent.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
+    <p class="entry-copyright">${t("entryCopyright")}</p>
     ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
     <p class="entry-body">${tf(entry.body)}</p>
   `;
