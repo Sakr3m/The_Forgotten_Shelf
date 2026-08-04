@@ -536,6 +536,9 @@ He understood. He took it out, looked at the screen, and read.
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Filigrana.jpg",
+    filigranaLeftFade: true,
+    filigranaBottomFade: true,
+    bannerOffset: 40,
     title: {
       it: "Lo Specchio Cieco",
       en: "The Blind Mirror"
