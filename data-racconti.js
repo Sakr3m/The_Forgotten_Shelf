@@ -24,6 +24,7 @@ const RACCONTI = {
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 65,
     title: {
       it: "Cinere",
       en: "Cinere"
@@ -121,6 +122,7 @@ And no one knows why.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
+    filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
@@ -191,6 +193,7 @@ On March 15, a new employee arrived.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Posto%20Preferito%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
     filigranaOpacity: 0.49,
     bannerOffset: 65,
     title: {
@@ -281,6 +284,7 @@ His eyes went wide.
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 55,
     bannerOffset: 55,
     title: {
       it: "Il Testimone",
@@ -330,6 +334,7 @@ And no one ever showed up at their door.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
     bannerOffset: 50,
     title: {
       it: "L'Ora Sbagliata",
@@ -537,6 +542,7 @@ He understood. He took it out, looked at the screen, and read.
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 40,
     bannerOffset: 60,
     title: {
       it: "Lo Specchio Cieco",
@@ -684,6 +690,7 @@ She walked on.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
     bannerOffset: -5,
     title: {
       it: "Parole Senza Fiato",
@@ -728,6 +735,7 @@ const LIBRI = {
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
     bannerOffset: 45,
     title: {
       it: "Il Chiamato",
@@ -3369,6 +3377,7 @@ Then outside.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
+    filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
@@ -3576,6 +3585,7 @@ Then the sound stopped.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
+    filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
@@ -3761,6 +3771,7 @@ And suddenly night fell.`
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diario%20di%20un%20Nuovo%20Assunto%20Filigrana.jpg",
     filigranaBottomFade: true,
+    filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
     filigranaPosition: "calc(50% + 40px) center",
     filigranaLeftFade: true,
@@ -4024,6 +4035,7 @@ And added the ninth.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
     bannerOffset: 35,
     title: {
       it: "L'Ultimo Piano",
