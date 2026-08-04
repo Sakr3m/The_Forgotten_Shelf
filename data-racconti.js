@@ -124,7 +124,7 @@ And no one knows why.`
     filigranaBottomFade: true,
     filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
-    filigranaPosition: "calc(50% + 40px) center",
+    filigranaPosition: "calc(50% + 40px) bottom",
     filigranaLeftFade: true,
     bannerOffset: 75,
     title: {
@@ -3379,7 +3379,7 @@ Then outside.`
     filigranaBottomFade: true,
     filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
-    filigranaPosition: "calc(50% + 40px) center",
+    filigranaPosition: "calc(50% + 40px) bottom",
     filigranaLeftFade: true,
     bannerOffset: 75,
     title: {
@@ -3587,7 +3587,7 @@ Then the sound stopped.`
     filigranaBottomFade: true,
     filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
-    filigranaPosition: "calc(50% + 40px) center",
+    filigranaPosition: "calc(50% + 40px) bottom",
     filigranaLeftFade: true,
     bannerOffset: 75,
     title: {
@@ -3773,7 +3773,7 @@ And suddenly night fell.`
     filigranaBottomFade: true,
     filigranaBottomLevel: 55,
     filigranaOpacity: 0.56,
-    filigranaPosition: "calc(50% + 40px) center",
+    filigranaPosition: "calc(50% + 40px) bottom",
     filigranaLeftFade: true,
     bannerOffset: 75,
     title: {

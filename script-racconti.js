@@ -248,18 +248,13 @@ function renderEntry(){
   el.watermarkBrightness.hidden = !entry.filigrana;
   el.entryWatermark.style.backgroundPosition = entry.filigranaPosition || "";
   const fadeLayers = ["linear-gradient(90deg, transparent, black 35%)"];
-  if(entry.filigranaBottomFade){
-    // Sfumatura verticale in più, verso il basso: stessa tecnica
-    // usata per la filigrana di Dragon Quest su timeline.html.
-    // Livello personalizzabile per singola voce (04/08): prima era
-    // un valore unico condiviso da tutte (75% -> 60% -> 45% -> 50%),
-    // ora ogni voce puo' avere il suo tramite filigranaBottomLevel
-    // (percentuale a cui inizia il nero/opaco: piu' basso = fade
-    // piu' ampio/marcato, piu' alto = fade piu' stretto/leggero).
-    // Default 50, invariato per tutte le voci finche' non specificato.
-    const bottomLevel = entry.filigranaBottomLevel != null ? entry.filigranaBottomLevel : 50;
-    fadeLayers.push(`linear-gradient(180deg, black ${bottomLevel}%, transparent)`);
-  }
+  // Sfumatura sotto RIMOSSA (04/08): l'immagine ora e' ancorata al
+  // fondo del box (background-position:center bottom in racconti.css)
+  // e il box stesso tocca gia' il bordo pagina, quindi non serve piu'
+  // una maschera artificiale per "far sparire" la parte inferiore.
+  // Resta solo la sfumatura sinistra qui sotto. I campi
+  // filigranaBottomFade/filigranaBottomLevel restano nei dati (non
+  // rimossi entry per entry) ma non hanno piu' alcun effetto.
   if(entry.filigranaLeftFade){
     // Seconda sfumatura orizzontale, più ampia e a un ritmo diverso
     // da quella di sempre: la scomparsa a sinistra risulta più
