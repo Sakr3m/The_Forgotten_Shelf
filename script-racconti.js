@@ -267,7 +267,7 @@ function renderEntry(){
     // inizia il nero/opaco pieno). Default 8/42, invariato per tutte
     // le voci finche' non specificato.
     const leftStart = entry.filigranaLeftStart != null ? entry.filigranaLeftStart : 10;
-    const leftEnd = entry.filigranaLeftEnd != null ? entry.filigranaLeftEnd : 35;
+    const leftEnd = entry.filigranaLeftEnd != null ? entry.filigranaLeftEnd : 30;
     fadeLayers.push(`linear-gradient(90deg, transparent ${leftStart}%, black ${leftEnd}%)`);
   }
   if(fadeLayers.length > 1){
