@@ -199,7 +199,9 @@ function renderEntry(){
     // Seconda sfumatura orizzontale, più ampia e a un ritmo diverso
     // da quella di sempre: la scomparsa a sinistra risulta più
     // graduale e meno uniforme di un singolo taglio netto.
-    fadeLayers.push("linear-gradient(90deg, transparent 12%, black 60%)");
+    // Alleggerita (04/08): estensione ridotta 12/60 -> 8/42, così
+    // l'oscuramento extra sul bordo sinistro copre meno spazio.
+    fadeLayers.push("linear-gradient(90deg, transparent 8%, black 42%)");
   }
   if(fadeLayers.length > 1){
     const fadeMask = fadeLayers.join(", ");
