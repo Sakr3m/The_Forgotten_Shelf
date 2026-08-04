@@ -22,8 +22,6 @@ const RACCONTI = {
     bannerOffset: 70,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Filigrana.jpg",
-    filigranaOpacity: 0.8,
-    filigranaPosition: "calc(50% + 25px) center",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
     title: {
@@ -4020,6 +4018,7 @@ And added the ninth.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
+    bannerOffset: 5,
     title: {
       it: "L'Ultimo Piano",
       en: "The Last Floor"
