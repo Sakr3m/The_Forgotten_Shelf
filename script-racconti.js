@@ -206,9 +206,16 @@ function renderEntry(){
     // Seconda sfumatura orizzontale, più ampia e a un ritmo diverso
     // da quella di sempre: la scomparsa a sinistra risulta più
     // graduale e meno uniforme di un singolo taglio netto.
-    // Alleggerita (04/08): estensione ridotta 12/60 -> 8/42, così
-    // l'oscuramento extra sul bordo sinistro copre meno spazio.
-    fadeLayers.push("linear-gradient(90deg, transparent 8%, black 42%)");
+    // Livello personalizzabile per singola voce (04/08), stesso
+    // criterio della sfumatura sotto: prima era un valore unico
+    // condiviso da tutte (12/60 -> alleggerito a 8/42), ora ogni
+    // voce puo' avere i suoi due estremi tramite filigranaLeftStart
+    // (dove finisce la trasparenza piena) e filigranaLeftEnd (dove
+    // inizia il nero/opaco pieno). Default 8/42, invariato per tutte
+    // le voci finche' non specificato.
+    const leftStart = entry.filigranaLeftStart != null ? entry.filigranaLeftStart : 8;
+    const leftEnd = entry.filigranaLeftEnd != null ? entry.filigranaLeftEnd : 42;
+    fadeLayers.push(`linear-gradient(90deg, transparent ${leftStart}%, black ${leftEnd}%)`);
   }
   if(fadeLayers.length > 1){
     const fadeMask = fadeLayers.join(", ");
