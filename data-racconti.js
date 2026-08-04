@@ -25,6 +25,7 @@ const RACCONTI = {
     filigranaOpacity: 0.8,
     filigranaPosition: "calc(50% + 25px) center",
     filigranaLeftFade: true,
+    filigranaBottomFade: true,
     title: {
       it: "Cinere",
       en: "Cinere"
@@ -685,7 +686,7 @@ She walked on.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
-    bannerOffset: -15,
+    bannerOffset: -5,
     title: {
       it: "Parole Senza Fiato",
       en: "Breathless Words"
