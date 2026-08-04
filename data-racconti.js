@@ -4018,7 +4018,7 @@ And added the ninth.`
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Filigrana.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
-    bannerOffset: 55,
+    bannerOffset: 35,
     title: {
       it: "L'Ultimo Piano",
       en: "The Last Floor"
