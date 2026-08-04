@@ -185,7 +185,12 @@
 
   .review-tile__cover{
     position:absolute; inset:0;
-    background:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+    background-color:#161d2f;
+    background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+    background-size:cover; background-position:center; background-repeat:no-repeat;
+    /* Il gradiente qui sopra e' solo il fallback quando manca
+       un'immagine: lo style inline in HTML (background-image) lo
+       sovrascrive con la copertina vera, stessa proprieta'. */
   }
 
   .review-tile__title{
