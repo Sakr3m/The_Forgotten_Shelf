@@ -271,8 +271,8 @@ function renderEntry(){
     // (dove finisce la trasparenza piena) e filigranaLeftEnd (dove
     // inizia il nero/opaco pieno). Default 8/42, invariato per tutte
     // le voci finche' non specificato.
-    const leftStart = entry.filigranaLeftStart != null ? entry.filigranaLeftStart : 8;
-    const leftEnd = entry.filigranaLeftEnd != null ? entry.filigranaLeftEnd : 42;
+    const leftStart = entry.filigranaLeftStart != null ? entry.filigranaLeftStart : 10;
+    const leftEnd = entry.filigranaLeftEnd != null ? entry.filigranaLeftEnd : 35;
     fadeLayers.push(`linear-gradient(90deg, transparent ${leftStart}%, black ${leftEnd}%)`);
   }
   if(fadeLayers.length > 1){
