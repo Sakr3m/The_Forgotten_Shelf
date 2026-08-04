@@ -398,7 +398,7 @@ body[data-state="entry"] .landing{ display:none; }
 @media (hover:hover), (pointer:fine){
   .watermark-brightness-line__presets{
     display:flex; align-items:center; gap:4px;
-    margin-left:10px;
+    margin-right:10px;
   }
   .watermark-brightness-line__preset{
     width:22px; height:26px;
