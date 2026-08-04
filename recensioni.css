@@ -300,10 +300,6 @@
     padding-bottom:20px;
     border-bottom:1px solid var(--line);
   }
-  .review-entry .entry-header__eyebrow{
-    font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--text-dim); margin-bottom:8px;
-  }
   .review-entry .entry-header__title{
     font-size:2rem; color:var(--text); margin:0 0 12px;
   }
