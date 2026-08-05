@@ -12,13 +12,13 @@ const TEORIE = {
     game: "expedition33",
     gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
     accentColor: "#c9a24b",
-    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Mobile.jpg",
     bannerOffset: 75,
     tracks: [
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" }
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscure%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" }
     ],
     title: {
       it: "Chi è quel Bambino?",
