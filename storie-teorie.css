@@ -199,6 +199,40 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
+  /* --- Blocco l'altezza che il browser ricalcola da solo quando
+     nasconde/mostra la propria barra degli indirizzi (stesso
+     accorgimento gia' su index.html/Storie Senza Cornice). --- */
+  html, body{ overflow:hidden; height:100%; }
+
+  /* --- "Teorie" (sidebar) e "Storie Nascoste" (side-rail): il
+     titolo resta fisso, SOLO la lista sotto scorre in verticale
+     quando le voci sono troppe. Limite di altezza sulla <ul> stessa
+     (non sul pannello, che gestisce lo scroll-snap del carosello e
+     non va toccato — causerebbe la stessa rottura gia' vista su
+     Storie Senza Cornice). 130px = 76px di padding sopra + 24px
+     sotto + l'etichetta col suo margine. --- */
+  .sidebar .game-list, .side-rail .game-list{
+    max-height:calc(100vh - 130px);
+    max-height:calc(100dvh - 130px);
+    overflow-y:auto;
+  }
+
+  /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
+     index-link e discord-link arrivano gia' dimensionati da
+     styles.css (37px condivisi), qui li porto entrambi a 35px senza
+     toccare il file comune. Tolta anche la sottolineatura di default
+     del link KoFi, e il testo "KoFi"/l'icona Discord colorati di
+     bianco come le cornici. Il cuoricino di Ko-fi resta rosso, e' il
+     suo colore voluto. --- */
+  .index-link{ width:35px; height:35px; }
+  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .kofi-link{
+    height:35px; box-sizing:border-box;
+    text-decoration:none;
+  }
+  .kofi-link__short{ color:var(--cyan); }
+  .lang-switch{ height:35px; box-sizing:border-box; }
+
   /* --- Storie Nascoste diventa un terzo pannello del carosello
      orizzontale (sidebar | stage | side-rail), raggiungibile
      scorrendo verso destra dallo stage, invece di un cassetto
@@ -229,13 +263,11 @@ body[data-state="entry"] .landing{ display:none; }
   .volume-panel{ display:none; }
 
   /* ==========================================================
-     Pagina di una voce (teoria/storia) su mobile: un'unica riga
-     in alto (scritta a sinistra, tazza ESATTAMENTE a metà dello
-     spazio tra la fine della scritta e l'inizio dello switch —
-     flex + justify-content:space-between con 3 elementi fa
-     esattamente questo, non un centraggio sull'intera riga), poi
-     il banner, poi il testo. Ripulito totalmente: niente tendina,
-     niente controllo musica per ora, solo queste 3 cose.
+     Pagina di una voce (teoria/storia) su mobile: scritta a
+     sinistra (pulsante alto 35px, niente bordo, su due righe),
+     tazzina nascosta, Ko-fi + Discord veri e centrati sullo
+     schermo, colorati con l'accento della voce aperta. Poi il
+     banner, poi il testo.
      ========================================================== */
   body[data-state="entry"] .stage-topbar{
     display:flex; align-items:center; justify-content:space-between;
@@ -248,14 +280,28 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
     order:1;
-    font-size:.62rem; line-height:1.15; white-space:pre-line;
-    /* Prima era una riga sola a 1.15rem (~22px di altezza); ora può
-       andare a capo (vedi \n nella stringa in script-storie-teorie.js)
-       ma il blocco risultante, su due righe, deve restare alto
-       uguale: da qui il font molto più piccolo. */
+    margin-right:auto;
+    height:35px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    padding:0;
+    border:none; background:none;
+    font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
+    color:var(--text-dim);
+    text-align:center;
   }
-  body[data-state="entry"] .brand-icon{ order:2; }
-  body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; } /* = altezza dello switch lingua mobile */
+  body[data-state="entry"] .brand-icon{ display:none; }
+  body[data-state="entry"] .kofi-link,
+  body[data-state="entry"] .discord-link{
+    display:flex;
+    border-color:var(--item-accent, var(--cyan));
+  }
+  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .social-links{
+    display:flex; align-items:center; gap:8px;
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+  }
   body[data-state="entry"] .stage-controls{
     order:3;
     position:static; width:auto; top:auto; right:auto; left:auto;

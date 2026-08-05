@@ -85,7 +85,7 @@ body[data-state="landing"] .brand{ display:none; }
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 /* ============================================================
-   Stage topbar (la_traccia_del_tempo.html, storie.html e storie_senza_cornice.html) — brand,
+   Stage topbar (la_traccia_del_tempo.html, il_filo_nascosto.html e storie_senza_cornice.html) — brand,
    index-link e stage-controls uniti in un'unica barra a scorrimento
    naturale (flex), sticky in cima allo stage. Prima brand era fisso
    alla finestra (numeri come left:283 calcolati a mano sommando la
@@ -353,7 +353,7 @@ body[data-state="landing"] .brand{ display:none; }
 /* Sidebar e colonna della linea temporale: scroll indipendente dal
    testo centrale, su desktop — ognuna scorre per conto suo, non
    insieme al resto della pagina. Stesso schema già usato per le
-   colonne di storie.html. */
+   colonne di il_filo_nascosto.html. */
 @media (hover:hover), (pointer:fine){
   .sidebar, .timeline-rail{
     position:sticky; top:0; align-self:flex-start;

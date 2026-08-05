@@ -396,7 +396,7 @@ body[data-state="entry"] .landing{ display:none; }
        proporzioni) finché il bordo sopra e quello sotto toccano
        esattamente i bordi del box; quello che sporge a destra/
        sinistra viene tagliato dall'overflow:hidden già presente
-       su #pageHeader. Stessa correzione già fatta su storie.html. */
+       su #pageHeader. Stessa correzione già fatta su il_filo_nascosto.html. */
     background-size:auto 100%;
   }
   body[data-state="entry"] .game-header__banner-overlay{

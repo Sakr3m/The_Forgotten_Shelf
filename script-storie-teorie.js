@@ -5,6 +5,7 @@
 const STRINGS = {
   it: {
     brand: "Il Filo Nascosto",
+    brandMobile: "Il Filo\nNascosto",
     sidebarEyebrow: "Teorie",
     railLabel: "Storie Nascoste",
     landingEyebrow: "Benvenuto nell'archivio\ndi storie nascoste e teorie",
@@ -19,6 +20,7 @@ const STRINGS = {
   },
   en: {
     brand: "The Hidden Thread",
+    brandMobile: "The Hidden\nThread",
     sidebarEyebrow: "Theories",
     railLabel: "Hidden Stories",
     landingEyebrow: "Welcome to the archive\nof hidden stories and theories",
@@ -411,7 +413,12 @@ function updateSwipeHints(){
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
-el.brandBtn.addEventListener("click", () => setState("landing"));
+el.brandBtn.addEventListener("click", () => {
+  setState("landing");
+  // Stesso fix gia' fatto per Storie Senza Cornice: riporta sempre
+  // allo stage indipendentemente da dove ci si trova nel carosello.
+  scrollCarouselToStage();
+});
 
 // ---------------------------------------------------------
 // Suono UI al tap, stesso comportamento di la_traccia_del_tempo.html
