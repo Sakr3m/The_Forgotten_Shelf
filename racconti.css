@@ -444,7 +444,7 @@ body[data-state="entry"] .landing{ display:none; }
 }
 
 /* ============================================================
-   Preset di luminosità (1/2/3) — solo desktop, solo racconti.html.
+   Preset di luminosità (1/2/3) — solo desktop, solo storie_senza_cornice.html.
    Pulsantini a destra della barra di luminosità della filigrana:
    ogni preset è un salvataggio indipendente per la voce corrente
    (es. per schermi diversi con luminosità diverse), gestiti in

@@ -91,7 +91,7 @@ const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
 
 // "Gradiometro" — moltiplicatore di luminosità per le filigrane,
-// una prova richiesta dall'utente: condiviso con racconti.html
+// una prova richiesta dall'utente: condiviso con storie_senza_cornice.html
 // tramite la stessa chiave, cosi' regolarlo su una pagina vale
 // anche sull'altra.
 const WATERMARK_BRIGHTNESS_KEY = "tfs-watermark-brightness";

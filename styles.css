@@ -85,7 +85,7 @@ body[data-state="landing"] .brand{ display:none; }
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 /* ============================================================
-   Stage topbar (timeline.html, storie.html e racconti.html) — brand,
+   Stage topbar (timeline.html, storie.html e storie_senza_cornice.html) — brand,
    index-link e stage-controls uniti in un'unica barra a scorrimento
    naturale (flex), sticky in cima allo stage. Prima brand era fisso
    alla finestra (numeri come left:283 calcolati a mano sommando la
@@ -256,7 +256,7 @@ body[data-state="landing"] .brand{ display:none; }
    il widget con icona/pannello, resta solo la funzione. Incassata
    esattamente sulla riga che separa l'header dal contenuto sotto
    (.game-header ha un border-bottom, condiviso da timeline.html e
-   racconti.html) — 5px di altezza visibile, compare solo in hover
+   storie_senza_cornice.html) — 5px di altezza visibile, compare solo in hover
    su quella riga. position:sticky (come l'header stesso, top:245px
    = 15px di sticky-offset + 230px di altezza header) cosi' segue
    l'header durante lo scroll; i margini negativi (uguali e opposti

@@ -3,12 +3,12 @@
    condiviso di styles.css. Un'unica correzione necessaria: senza
    sidebar/rail, .stage occuperebbe tutta la larghezza, e le
    formule dei pulsanti (100px di padding, centrato al 50%) li
-   spargerebbe molto più larghi che su racconti.html, dove quelle
+   spargerebbe molto più larghi che su storie_senza_cornice.html, dove quelle
    stesse formule si applicano a uno stage stretto tra sidebar
    (260px) e side-rail (310px). Qui rendiamo lo stage largo uguale
    a quella fascia (100% - 260 - 310), così i pulsanti finiscono
    nella stessa posizione reale sullo schermo, sidebar/rail o meno.
-   Solo desktop: su mobile racconti.html non ha comunque sidebar/
+   Solo desktop: su mobile storie_senza_cornice.html non ha comunque sidebar/
    rail fissi (sono pannelli del carosello), quindi lì non serve
    nessuna correzione. */
 @media (hover:hover), (pointer:fine){

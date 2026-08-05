@@ -1,7 +1,7 @@
 /* ============================================================
    RECENSIONI — per la home usa lo stile condiviso di styles.css.
    Stessa correzione di officina.css: senza sidebar/rail, .stage
-   va vincolato alla stessa fascia orizzontale di racconti.html
+   va vincolato alla stessa fascia orizzontale di storie_senza_cornice.html
    (260px da sinistra, 310px da destra) cosi' i pulsanti in alto
    finiscono nella stessa posizione reale su schermo. Copiata
    identica da officina.css su richiesta esplicita.
