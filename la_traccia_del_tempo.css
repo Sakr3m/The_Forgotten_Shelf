@@ -99,4 +99,51 @@
     order:3;
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
+
+  /* --- Banner della vista "game": stessa idea di Storie Senza
+     Cornice. Banner a piena larghezza, avatar quadrato in alto a
+     sinistra sopra di lui, pulsante musica in alto a destra sopra di
+     lui. Titolo/testo (blurb) sotto, in flusso normale, non piu'
+     accavallati al banner. Niente tendina di selezione voce qui
+     (non serve su mobile per questa pagina). --- */
+  body[data-state="game"] .game-header{
+    position:relative;
+    flex-direction:row; align-items:flex-start; text-align:left;
+    height:auto; max-height:none; overflow:visible;
+    padding:0; gap:0; margin-bottom:24px;
+  }
+  body[data-state="game"] .game-header__banner{
+    position:absolute; top:0; left:0; right:0; height:130px;
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  body[data-state="game"] .game-header__banner-overlay{
+    background:rgba(0,0,0,.45);
+  }
+  body[data-state="game"] .game-header__cover{
+    position:relative; z-index:2;
+    width:64px; height:64px;
+    margin:16px 0 0 16px;
+  }
+  body[data-state="game"] .game-header__cover .monogram{ font-size:1.6rem; }
+  body[data-state="game"] .game-header__info{
+    position:relative; z-index:1;
+    width:100%;
+    margin-top:146px; /* sotto al banner (130px + 16px di respiro) */
+    text-align:left;
+  }
+  body[data-state="game"] .game-header__title{ font-size:1.3rem; }
+  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; }
+  body[data-state="game"] .game-header__blurb br{ display:none; }
+  body[data-state="game"] .music-control{
+    display:flex;
+    position:absolute; top:16px; right:16px; z-index:2;
+  }
+  body[data-state="game"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
+  body[data-state="game"] .entry-game-picker{ display:none; }
+
+  /* --- Vista "title" (la timeline vera e propria di una saga): il
+     testo va sotto in flusso normale, niente filigrana su mobile
+     (resta un dettaglio solo desktop). --- */
+  body[data-state="title"] .title-watermark{ display:none; }
 }
