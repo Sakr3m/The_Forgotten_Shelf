@@ -664,38 +664,6 @@ function updateSwipeHints(){
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
-// ---------------------------------------------------------
-// Blocco JS del gesto verticale sulla home (mobile): il solo CSS
-// (overflow/touch-action/overscroll-behavior, provati tutti) non e'
-// bastato a impedire il rimbalzo/la barra del browser che si
-// nasconde su alcuni dispositivi. Qui intercettiamo il gesto a
-// mano: se il movimento e' piu' verticale che orizzontale, lo
-// blocchiamo (preventDefault), lasciando passare quelli orizzontali
-// (swipe verso le colonne laterali, che deve continuare a
-// funzionare). Attivo solo in home (data-state "landing"): la vista
-// voce deve invece scorrere normalmente in verticale. Il blocco
-// verticale si applica SOLO se il tocco parte dallo stage (la home
-// vera e propria): se parte da dentro sidebar o side-rail, le liste
-// li' dentro devono restare scorrevoli in verticale come sempre.
-if(layoutEl){
-  let touchStartX = 0, touchStartY = 0, touchStartedOnStage = false;
-  layoutEl.addEventListener("touchstart", (ev) => {
-    if(document.body.dataset.state !== "landing") return;
-    touchStartX = ev.touches[0].clientX;
-    touchStartY = ev.touches[0].clientY;
-    touchStartedOnStage = !!ev.target.closest(".stage");
-  }, { passive: true });
-  layoutEl.addEventListener("touchmove", (ev) => {
-    if(document.body.dataset.state !== "landing") return;
-    if(!touchStartedOnStage) return; // sidebar/side-rail: lascia scorrere la lista
-    const dx = ev.touches[0].clientX - touchStartX;
-    const dy = ev.touches[0].clientY - touchStartY;
-    if(Math.abs(dy) > Math.abs(dx)){
-      ev.preventDefault();
-    }
-  }, { passive: false });
-}
-
 el.brandBtn.addEventListener("click", () => setState("landing"));
 
 // ---------------------------------------------------------

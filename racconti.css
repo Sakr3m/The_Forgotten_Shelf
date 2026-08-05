@@ -256,6 +256,16 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
+  /* --- Blocco l'altezza che il browser ricalcola da solo quando
+     nasconde/mostra la propria barra degli indirizzi (stesso
+     accorgimento gia' su index.html): 100dvh sui pannelli (gia'
+     presente da styles.css) piu' html/body fissati qui, cosi' la
+     pagina non "respira" a ogni gesto verticale. Nessun blocco sul
+     TOUCH stesso: lo swipe orizzontale resta libero al 100%, e' il
+     browser che deve solo smettere di ridimensionarsi da solo, non
+     il gesto che va intercettato. */
+  html, body{ overflow:hidden; height:100%; }
+
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
      index-link e discord-link arrivano gia' dimensionati da
      styles.css (37px condivisi), qui li porto entrambi a 35px senza
