@@ -262,6 +262,23 @@ body[data-state="entry"] .landing{ display:none; }
      pagina non "respira" a ogni gesto verticale. --- */
   html, body{ overflow:hidden; height:100%; }
 
+  /* --- Titolo fisso, solo le voci scorrono: stavolta SENZA toccare
+     .sidebar/.side-rail (il pannello che contiene tutto) — quello
+     resta esattamente com'era quando lo swipe funzionava. Il limite
+     e lo scroll vanno solo sulla <ul> al suo interno, un elemento
+     annidato che non ha alcun ruolo nello scroll-snap del carosello:
+     tenendo il contenuto del pannello (etichetta + lista, ora capped)
+     sempre dentro l'altezza dello schermo, il pannello stesso non ha
+     mai bisogno di scorrere (il suo overflow-y:auto resta li' pronto
+     ma inattivo), solo la lista scorre quando le voci sono troppe.
+     130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
+     margine (~27px), gia' cosi' su entrambi i pannelli. --- */
+  .sidebar .game-list, .side-rail .game-list{
+    max-height:calc(100vh - 130px);
+    max-height:calc(100dvh - 130px);
+    overflow-y:auto;
+  }
+
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
      index-link e discord-link arrivano gia' dimensionati da
      styles.css (37px condivisi), qui li porto entrambi a 35px senza
