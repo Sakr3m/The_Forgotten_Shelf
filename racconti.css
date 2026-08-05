@@ -261,7 +261,7 @@ body[data-state="entry"] .landing{ display:none; }
      accorgimento gia' su index.html): html/body fissati, cosi' la
      pagina non "respira" a ogni gesto verticale. Nessun blocco sul
      touch: lo swipe orizzontale resta libero al 100%. --- */
-  html, body{ overflow:hidden; height:100%; }
+  html, body{ overflow:hidden; }
 
   /* --- Sidebar ("Racconti brevi") e side-rail ("Libri"): il titolo
      resta fisso, SOLO la lista sotto scorre in verticale quando le
