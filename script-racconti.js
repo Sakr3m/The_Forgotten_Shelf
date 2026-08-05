@@ -400,6 +400,11 @@ function setState(view){
     closePlaylistMenu();
     el.body.style.removeProperty("--item-accent");
     el.body.style.setProperty("--cyan", "#ffffff");
+    // Bug: la filigrana veniva impostata all'apertura di una voce ma
+    // mai ripulita tornando alla home — restava visibile li' sopra
+    // (l'elemento e' sempre display:block su desktop, position:fixed,
+    // solo il background-image la rende visibile o meno).
+    if(el.entryWatermark) el.entryWatermark.style.backgroundImage = "";
   } else {
     el.body.style.removeProperty("--cyan");
   }

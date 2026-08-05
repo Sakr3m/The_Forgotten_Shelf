@@ -295,7 +295,9 @@
    ============================================================ */
 .show-projects-btn{ display:none; }
 .desktop-audio-control{ display:none; }
+.landing-sub--desktop-only{ display:none; }
 @media (hover:hover), (pointer:fine){
+  .landing-sub--desktop-only{ display:block; }
   .show-projects-btn{
     display:inline-block;
     margin-top:36px;

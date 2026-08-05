@@ -216,7 +216,9 @@
    è un vero on/off (si può tornare indietro), non un solo "on".
    ============================================================ */
 .gate-side-toggle{ display:none; }
+.landing-sub--desktop-only{ display:none; }
 @media (hover:hover), (pointer:fine){
+  .landing-sub--desktop-only{ display:block; }
   .gate-side-toggle{
     display:inline-block;
     margin-top:80px; /* 32px originali + una volta e mezzo quella
