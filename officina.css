@@ -131,6 +131,7 @@
    non c'è.
    ============================================================ */
 .mathemory-panel{ display:none; }
+.landing-sub--mobile-only{ display:none; } /* su desktop c'e' gia' "Mostra progetti" a fare da invito; deve stare PRIMA del blocco mobile qui sotto, altrimenti (stessa specificita', dichiarata dopo) vincerebbe sempre lei nascondendo la nota anche li' */
 @media (hover:none) and (pointer:coarse){
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
@@ -262,6 +263,11 @@
     color:var(--text-dim);
     text-align:center;
   }
+  /* Mancava: senza un ordine esplicito piu' alto di quello del
+     pulsante (order:1 sopra), stage-controls restava al suo default
+     (order:0) e finiva PRIMA di lui invece che dopo — scritta e
+     switch lingua scambiati di posto rispetto al voluto. */
+  body.mathemory-open .stage-controls{ order:3; }
 
   /* Nota che invita a usare le frecce (uniche presenti qui: niente
      swipe, touch-action:none piu' su) — su desktop non serve, c'e'
@@ -289,7 +295,6 @@
    ============================================================ */
 .show-projects-btn{ display:none; }
 .desktop-audio-control{ display:none; }
-.landing-sub--mobile-only{ display:none; } /* su desktop c'e' gia' "Mostra progetti" a fare da invito */
 @media (hover:hover), (pointer:fine){
   .show-projects-btn{
     display:inline-block;
