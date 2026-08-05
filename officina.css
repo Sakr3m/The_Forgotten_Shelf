@@ -17,6 +17,18 @@
     margin-left:260px;
     width:calc(100% - 570px);
   }
+
+  /* --- Pulsanti in alto (casetta, Ko-fi, Discord, switch lingua):
+     qui sono sempre gli stessi, niente scambio "tazzina" - Officina
+     non ha stati diversi da landing sul desktop. Solo 3 cose da
+     sistemare: sottolineatura, altezza uniforme, colore grigio
+     "spento" coerente con index.html. --- */
+  .kofi-link, .index-link{ text-decoration:none; }
+  .kofi-link, .index-link, .discord-link{ color:var(--text-faint); }
+  .kofi-link, .index-link, .discord-link, .lang-switch{
+    height:38px; box-sizing:border-box;
+  }
+  .discord-link{ width:38px; }
 }
 
 /* ============================================================
