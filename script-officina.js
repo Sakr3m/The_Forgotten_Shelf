@@ -13,7 +13,7 @@ const STRINGS = {
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche i progetti personali che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
     showProjects: "Mostra progetti",
-    landingSub: "Usa le frecce ai lati per esplorare Mathemory.",
+    landingSub: "Usa le frecce ai lati per esplorare la selezione di progetti presenti.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     mathemoryCopyright: "© 2026 Sakrem"
@@ -25,7 +25,7 @@ const STRINGS = {
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects personal projects that live elsewhere: games and tools in progress, linked from here.",
     showProjects: "Show projects",
-    landingSub: "Use the side arrows to explore Mathemory.",
+    landingSub: "Use the side arrows to browse the projects available here.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     mathemoryCopyright: "© 2026 Sakrem"
