@@ -147,3 +147,71 @@
      (resta un dettaglio solo desktop). --- */
   body[data-state="title"] .title-watermark{ display:none; }
 }
+
+@media (hover:hover), (pointer:fine){
+  /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
+     link col trattino sotto di default). */
+  .kofi-link, .index-link{ text-decoration:none; }
+
+  /* --- Colore "spento" (fuori hover) uniformato al grigio di
+     index.html (--text-faint, non il --text-dim del foglio comune):
+     vale sia in home che nelle voci, testo e icone. Il cuoricino di
+     Ko-fi in home resta rosso come deciso in precedenza (non tocco
+     quella riga), qui e' solo testo/altre icone. --- */
+  .kofi-link, .index-link{ color:var(--text-faint); }
+  .discord-link{ color:var(--text-faint); }
+
+  /* --- Altezza uniforme di tutti i pulsanti (casetta, Ko-fi,
+     Discord, switch lingua), sia in home che nelle voci: qui si
+     allineano tutti a 38px netti con box-sizing:border-box. La forma
+     resta quella di ciascuno (pillola per Ko-fi/casetta/switch,
+     cerchio per Discord) — solo la LARGHEZZA di Ko-fi cambia un po'
+     (testo piu' corto nelle voci, "KoFi" invece del testo lungo). --- */
+  .kofi-link, .index-link, .discord-link, .lang-switch{
+    height:38px; box-sizing:border-box;
+  }
+  .discord-link{ width:38px; }
+
+  /* --- Vista "game"/"title" (l'equivalente qui della vista voce
+     delle altre pagine — questa non usa lo stato "entry"): la
+     tazzina lascia il posto ai pulsanti veri di Ko-fi (solo
+     cuoricino + "KoFi") e Discord, spostati fisicamente dentro
+     .brand da script.js. Ordine: Ko-fi, poi Discord alla sua destra,
+     poi la scritta. Nel DOM sono discord-poi-kofi, quindi qui li
+     giro con row-reverse invece di riscrivere il markup. Bordo del
+     colore della saga aperta - qui e' semplicemente var(--cyan),
+     che su questa pagina viene gia' sovrascritta col colore del
+     gioco corrente (vedi applyPaletteToCSS in script.js), non serve
+     un --item-accent separato con fallback come sulle altre due
+     pagine. Cuoricino/icona Discord grigi "spenti", colorati del
+     colore della saga solo in hover. --- */
+  body[data-state="game"] .brand-icon,
+  body[data-state="title"] .brand-icon{ display:none; }
+  body[data-state="game"] .brand,
+  body[data-state="title"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
+  body[data-state="game"] .brand .social-links,
+  body[data-state="title"] .brand .social-links{
+    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+  }
+  body[data-state="game"] .kofi-link,
+  body[data-state="game"] .discord-link,
+  body[data-state="title"] .kofi-link,
+  body[data-state="title"] .discord-link{
+    display:flex;
+    border-color:var(--cyan);
+  }
+  body[data-state="game"] .kofi-link,
+  body[data-state="title"] .kofi-link{ font-size:.76rem; }
+  body[data-state="game"] .kofi-link__full,
+  body[data-state="title"] .kofi-link__full{ display:none; }
+  body[data-state="game"] .kofi-link__short,
+  body[data-state="title"] .kofi-link__short{ display:inline; }
+  body[data-state="game"] .discord-link svg,
+  body[data-state="title"] .discord-link svg{ width:15px; height:15px; }
+  body[data-state="game"] .kofi-link svg,
+  body[data-state="title"] .kofi-link svg{ color:var(--text-faint); }
+  body[data-state="game"] .kofi-link:hover svg,
+  body[data-state="title"] .kofi-link:hover svg{ color:var(--cyan); }
+  body[data-state="game"] .discord-link:hover,
+  body[data-state="title"] .discord-link:hover{ color:var(--cyan); }
+}

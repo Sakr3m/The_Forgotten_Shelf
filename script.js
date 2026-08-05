@@ -51,6 +51,9 @@ const state = {
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
+  brand: document.querySelector(".brand"),
+  socialLinks: document.querySelector(".social-links"),
+  stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
   musicToggle: document.getElementById("musicToggle"),
   bgMusic: document.getElementById("bgMusic"),
@@ -661,6 +664,20 @@ function renderRail(){
 function setState(view){
   state.view = view;
   el.body.dataset.state = view;
+
+  // Ko-fi/Discord: nella home restano dove sono sempre stati
+  // (.stage-controls); in "game"/"title" (equivalente qui della
+  // vista voce delle altre pagine) si spostano dentro .brand, al
+  // posto della tazzina - stessa tecnica di Storie Senza Cornice/Il
+  // Filo Nascosto. Solo desktop, .social-links su mobile non si
+  // tocca (ha gia' un trattamento suo separato).
+  if(!mobileBreakpoint.matches && el.socialLinks){
+    if(view === "landing" && el.stageControls && el.socialLinks.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
+    } else if(view !== "landing" && el.brand && el.brandBtn && el.socialLinks.parentElement !== el.brand){
+      el.brand.insertBefore(el.socialLinks, el.brandBtn);
+    }
+  }
 
   el.landingPanel.hidden = view !== "landing";
   el.gamePanel.hidden = view !== "game";
