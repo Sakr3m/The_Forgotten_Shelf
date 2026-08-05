@@ -473,6 +473,12 @@
      solo la barra del browser stessa — vedi le altre pagine per lo
      stesso dietrofront). */
   html, body{ overflow:hidden; height:100%; }
+  /* Impedisce al browser di "compensare" da solo lo scroll quando la
+     tabella genere appare/scompare (scroll anchoring nativo: Chrome
+     a volte riaggiusta scrollLeft per tenere in vista lo stesso
+     contenuto quando qualcosa viene inserito prima di lui, vanificando
+     il trucco "diventa il primo figlio, la si vede subito"). */
+  .layout{ overflow-anchor:none; }
 
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px),
      stesso criterio delle altre pagine. Sottolineatura tolta da

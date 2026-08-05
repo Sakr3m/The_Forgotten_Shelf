@@ -270,6 +270,10 @@ function openGenreTable(genreName){
     el.mobileGenreListItems.appendChild(li);
   });
   document.documentElement.classList.add("mobile-table-open");
+  // Rete di sicurezza oltre a overflow-anchor:none in CSS: forza la
+  // posizione invece di sperare che resti a 0 da sola una volta che
+  // la tabella diventa il primo figlio del carosello.
+  if(el.layout) el.layout.scrollLeft = 0;
 }
 
 // Rilevamento "sono tornato sullo stage": quando lo scroll
