@@ -683,20 +683,5 @@ document.addEventListener("click", (e) => {
 // ---------------------------------------------------------
 paintStaticText();
 setState("landing");
-if(mobileBreakpoint.matches){
-  stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
-  // Doppio requestAnimationFrame: aspetta che il browser abbia
-  // davvero applicato lo scroll (un solo frame a volte non basta,
-  // il posizionamento "instant" puo' completarsi solo al frame
-  // successivo) prima di rendere visibili i pannelli — altrimenti
-  // rischio di rivelarli un istante prima che la posizione sia
-  // quella giusta, producendo comunque il lampo che dovrebbe evitare.
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.documentElement.classList.add("carousel-ready");
-    });
-  });
-} else {
-  document.documentElement.classList.add("carousel-ready");
-}
+if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
