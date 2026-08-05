@@ -90,7 +90,7 @@ const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
 
 // "Gradiometro" — moltiplicatore di luminosità per le filigrane.
-// Prima era un'unica chiave condivisa con timeline.html (stesso
+// Prima era un'unica chiave condivisa con la_traccia_del_tempo.html (stesso
 // valore per tutte le voci). Poi (04/08) diventata per-voce. Ora,
 // ulteriore livello: 3 preset (1/2/3), pensati per schermi diversi
 // con luminosità diversa — ogni preset e' un salvataggio indipendente
@@ -678,7 +678,7 @@ el.brandBtn.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
-// Suono UI al tap, stesso comportamento di timeline.html
+// Suono UI al tap, stesso comportamento di la_traccia_del_tempo.html
 // ---------------------------------------------------------
 const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
 document.addEventListener("click", (e) => {

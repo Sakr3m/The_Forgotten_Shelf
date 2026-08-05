@@ -5,6 +5,7 @@
 const STRINGS = {
   it: {
     brand: "La Traccia del Tempo",
+    brandMobile: "La Traccia\ndel Tempo",
     sidebarEyebrow: "Libreria Timeline",
     landingEyebrow: "Benvenuto nell'archivio\nTimeline",
     landingTitle: "The Forgotten Shelf",
@@ -20,6 +21,7 @@ const STRINGS = {
   },
   en: {
     brand: "The Trace of Time",
+    brandMobile: "The Trace\nof Time",
     sidebarEyebrow: "Timeline Library",
     landingEyebrow: "Welcome to the\nTimeline archive",
     landingTitle: "The Forgotten Shelf",
@@ -206,7 +208,10 @@ function findEntry(game, entryId){
 // ---------------------------------------------------------
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
-    node.textContent = t(node.getAttribute("data-i18n"));
+    const key = node.getAttribute("data-i18n");
+    const mobileKey = key + "Mobile";
+    const useMobile = mobileBreakpoint.matches && STRINGS[state.lang][mobileKey];
+    node.textContent = useMobile ? t(mobileKey) : t(key);
   });
   document.documentElement.lang = state.lang;
   el.langSwitch.querySelectorAll(".lang-option").forEach(opt => {
@@ -856,7 +861,12 @@ function updateSwipeHints(){
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
-el.brandBtn.addEventListener("click", () => setState("landing"));
+el.brandBtn.addEventListener("click", () => {
+  setState("landing");
+  // Stesso fix gia' fatto per Storie Senza Cornice: riporta sempre
+  // allo stage indipendentemente da dove ci si trova nel carosello.
+  scrollCarouselToStage();
+});
 
 // ---------------------------------------------------------
 // Boot

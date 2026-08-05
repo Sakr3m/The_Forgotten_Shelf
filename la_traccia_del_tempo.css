@@ -1,0 +1,102 @@
+/* ============================================================
+   La Traccia del Tempo — foglio di stile dedicato (prima non
+   esisteva, la pagina usava solo styles.css condiviso). Contiene
+   solo le modifiche specifiche di questa pagina, per non toccare
+   il file condiviso con le altre.
+   ============================================================ */
+
+@media (hover:none) and (pointer:coarse){
+
+  /* --- Blocco l'altezza che il browser ricalcola da solo quando
+     nasconde/mostra la propria barra degli indirizzi (stesso
+     accorgimento gia' su index.html/Storie Senza Cornice). Qui SOLO
+     in home: nello stato "title" lo stage diventa un blocco normale
+     che si affida allo scroll della pagina vera per il testo lungo
+     della timeline — bloccarlo li' avrebbe impedito di leggerla. --- */
+  body[data-state="landing"]{ overflow:hidden; height:100%; }
+  html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
+
+  /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
+     la lista dei giochi sotto scorre in verticale quando sono troppi
+     per stare tutti a video. Stessa tecnica di Storie Senza Cornice:
+     limite di altezza sulla <ul> stessa (non sul pannello, che
+     gestisce lo scroll-snap del carosello e non va toccato), cosi'
+     l'etichetta + lista (ora capped) restano sempre dentro lo
+     schermo e il pannello non ha mai bisogno di scorrere lui stesso.
+     130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
+     margine, stessi valori di base condivisi con Storie Senza
+     Cornice. --- */
+  .sidebar .game-list{
+    max-height:calc(100vh - 130px);
+    max-height:calc(100dvh - 130px);
+    overflow-y:auto;
+  }
+
+  /* --- home/discord/kofi/switch tutti alla stessa altezza (35px),
+     stesso criterio di index.html/Storie Senza Cornice. Sottolineatura
+     tolta da KoFi, testo/icona colorati di bianco come le cornici
+     (il cuoricino resta rosso, colore voluto). --- */
+  .index-link{ width:35px; height:35px; }
+  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .kofi-link{
+    height:35px; box-sizing:border-box;
+    text-decoration:none;
+  }
+  .kofi-link__short{ color:var(--cyan); }
+  .lang-switch{ height:35px; box-sizing:border-box; }
+
+  /* --- Topbar in vista "game"/"title" (l'equivalente qui della
+     "vista voce" delle altre pagine — questa pagina non usa lo stato
+     "entry", usa "game" poi "title"): stessa scritta a sinistra
+     (pulsante alto 35px, niente bordo, su due righe), tazzina
+     nascosta, Ko-fi + Discord veri e centrati sullo schermo, colorati
+     con l'accento proprio della saga aperta (--item-accent, ciano di
+     riserva). --- */
+  body[data-state="game"] .stage-topbar,
+  body[data-state="title"] .stage-topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    position:fixed; top:0; left:0; right:0;
+    padding:14px 16px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    z-index:50;
+  }
+  body[data-state="game"] .brand,
+  body[data-state="title"] .brand{ display:contents; }
+  body[data-state="game"] .brand-text,
+  body[data-state="title"] .brand-text{
+    order:1;
+    margin-right:auto;
+    height:35px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    padding:0;
+    border:none; background:none;
+    font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
+    color:var(--text-dim);
+    text-align:center;
+  }
+  body[data-state="game"] .brand-icon,
+  body[data-state="title"] .brand-icon{ display:none; }
+  body[data-state="game"] .kofi-link,
+  body[data-state="title"] .kofi-link,
+  body[data-state="game"] .discord-link,
+  body[data-state="title"] .discord-link{
+    display:flex;
+    border-color:var(--item-accent, var(--cyan));
+  }
+  body[data-state="game"] .discord-link,
+  body[data-state="title"] .discord-link{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="game"] .kofi-link svg,
+  body[data-state="title"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="game"] .social-links,
+  body[data-state="title"] .social-links{
+    display:flex; align-items:center; gap:8px;
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+  }
+  body[data-state="game"] .stage-controls,
+  body[data-state="title"] .stage-controls{
+    order:3;
+    position:static; width:auto; top:auto; right:auto; left:auto;
+  }
+}

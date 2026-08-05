@@ -1,12 +1,12 @@
 /* ============================================================
    STORIE & TEORIE — stili aggiuntivi sopra styles.css
-   Pagina gemella di timeline.html: stessa struttura, doppia
+   Pagina gemella di la_traccia_del_tempo.html: stessa struttura, doppia
    colonna di voci (Teorie a sinistra, Storie Nascoste a destra)
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
-   rispetto alle misure di base condivise con timeline.html — solo su
+   rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
 @media (hover:hover), (pointer:fine){
   #sidebar{ width:260px; }
@@ -34,7 +34,7 @@
 .game-list button{ white-space:pre-line; line-height:1.3; }
 .entry-title{ white-space:pre-line; }
 
-/* Header in cima allo stage: stesso game-header di timeline.html
+/* Header in cima allo stage: stesso game-header di la_traccia_del_tempo.html
    (riusa le classi condivise .game-header/.game-header__banner/
    .game-header__banner-overlay già definite in styles.css, sticky
    compreso), vuoto e pronto ad ospitare un banner in futuro.
@@ -156,7 +156,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
 }
 
 /* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
-   in styles.css (stesso di timeline.html) — niente più larghezza fissa
+   in styles.css (stesso di la_traccia_del_tempo.html) — niente più larghezza fissa
    da 140px, il gap:14/justify-content/margin-left arrivano da lì. */
 
 /* Le due colonne restano fisse in vista durante lo scroll del testo
@@ -242,7 +242,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
 .volume-panel{ border-color:var(--item-accent, var(--cyan)); }
 
 /* Switch lingua e controlli musica: fanno parte del sistema condiviso
-   .stage-topbar in styles.css (stesso di timeline.html), che li rende
+   .stage-topbar in styles.css (stesso di la_traccia_del_tempo.html), che li rende
    "senza peso" nel flusso e a 100px dal bordo destro di default.
    Solo qui, dentro la pagina di una voce (non in home, dove restano
    a 100px), li riporto a 50px: la colonna Storie Nascoste riduce
@@ -432,7 +432,7 @@ body[data-state="entry"] .landing{ display:none; }
 
 /* ============================================================
    Filigrana — SOLO PC, stessa tecnica usata per il canone di Doom
-   su timeline.html (.title-watermark): grande immagine di sfondo,
+   su la_traccia_del_tempo.html (.title-watermark): grande immagine di sfondo,
    sfumata verso il testo, molto trasparente, dietro al contenuto
    (z-index:0, .entry-content sopra a z-index:1) e non interagibile.
    Qui non c'è la dipendenza da --rail-width di Timeline (nessuna

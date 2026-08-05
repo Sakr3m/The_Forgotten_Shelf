@@ -414,7 +414,7 @@ if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: tr
 el.brandBtn.addEventListener("click", () => setState("landing"));
 
 // ---------------------------------------------------------
-// Suono UI al tap, stesso comportamento di timeline.html
+// Suono UI al tap, stesso comportamento di la_traccia_del_tempo.html
 // ---------------------------------------------------------
 const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
 document.addEventListener("click", (e) => {

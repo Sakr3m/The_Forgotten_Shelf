@@ -85,7 +85,7 @@ body[data-state="landing"] .brand{ display:none; }
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
 /* ============================================================
-   Stage topbar (timeline.html, storie.html e storie_senza_cornice.html) — brand,
+   Stage topbar (la_traccia_del_tempo.html, storie.html e storie_senza_cornice.html) — brand,
    index-link e stage-controls uniti in un'unica barra a scorrimento
    naturale (flex), sticky in cima allo stage. Prima brand era fisso
    alla finestra (numeri come left:283 calcolati a mano sommando la
@@ -255,7 +255,7 @@ body[data-state="landing"] .brand{ display:none; }
    Barra di luminosità delle filigrane — versione ridisegnata: via
    il widget con icona/pannello, resta solo la funzione. Incassata
    esattamente sulla riga che separa l'header dal contenuto sotto
-   (.game-header ha un border-bottom, condiviso da timeline.html e
+   (.game-header ha un border-bottom, condiviso da la_traccia_del_tempo.html e
    storie_senza_cornice.html) — 5px di altezza visibile, compare solo in hover
    su quella riga. position:sticky (come l'header stesso, top:245px
    = 15px di sticky-offset + 230px di altezza header) cosi' segue
@@ -466,7 +466,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 
 @media (hover:none) and (pointer:coarse){
   /* Su mobile la nuova .stage-topbar (introdotta per il desktop di
-     timeline.html) sparisce come contenitore: i suoi figli restano
+     la_traccia_del_tempo.html) sparisce come contenitore: i suoi figli restano
      posizionati esattamente come prima (brand fisso, index-link e
      stage-controls con le loro regole mobile dedicate), senza che
      il wrapper interferisca. */
@@ -902,7 +902,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   body[data-state="entry"]{ background:var(--bg); }
   /* Brand più piccolo e su più righe in vista voce: senza, un
      titolo lungo (come i nuovi nomi delle pagine) sborda e finisce
-     addosso ai pulsanti a destra. Serve soprattutto a timeline.html
+     addosso ai pulsanti a destra. Serve soprattutto a la_traccia_del_tempo.html
      (che usa lo stato "game", non "entry" come le altre pagine, e
      non ha un CSS proprio con questa regola) — qui il fallback
      condiviso, che le altre pagine comunque sovrascrivono con la
@@ -916,7 +916,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      laterale — solo nelle direzioni dove esiste davvero una colonna
      da raggiungere (l'HTML le include solo dove serve: sinistra su
      entrambe le pagine, destra anche su Storie & Teorie ma non su
-     timeline.html, che in home non ha una colonna a destra). Piccole,
+     la_traccia_del_tempo.html, che in home non ha una colonna a destra). Piccole,
      poco sotto la barra dei 3 pulsanti. */
   body[data-state="landing"] .swipe-hint{
     display:block;
