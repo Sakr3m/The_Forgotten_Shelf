@@ -256,6 +256,19 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
+  /* --- home/discord/kofi tutti alla stessa altezza (37px, come
+     index.html): index-link e discord-link erano gia' cosi' da
+     styles.css, kofi-link no (si dimensionava solo dal padding).
+     Tolta anche la sottolineatura di default del link, e il testo
+     "KoFi"/l'icona Discord colorati di bianco come le cornici. Il
+     cuoricino di Ko-fi resta rosso, e' il suo colore voluto. --- */
+  .kofi-link{
+    height:37px; box-sizing:border-box;
+    text-decoration:none;
+  }
+  .kofi-link__short{ color:var(--cyan); }
+  .discord-link{ color:var(--cyan); }
+
   /* --- Niente lampo iniziale del pannello sbagliato: come gia'
      risolto su Officina, il carosello di suo parte scrollato al
      primo pannello (sidebar) finche' lo script non lo riposiziona
