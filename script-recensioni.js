@@ -437,7 +437,7 @@ el.indexLink.addEventListener("click", (ev) => {
     // browser cambia pagina prima che il suono del tap (gia' gestito
     // dal listener generico piu' in basso) faccia in tempo a partire.
     ev.preventDefault();
-    setTimeout(() => { window.location.href = el.indexLink.href; }, 1000);
+    setTimeout(() => { window.location.href = el.indexLink.href; }, 750);
   }
 });
 
