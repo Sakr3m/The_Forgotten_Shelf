@@ -249,6 +249,32 @@ body[data-state="landing"] #pageHeader{ display:none; }
    ulteriormente lo spazio disponibile, quindi 100px sarebbe troppo. */
 @media (hover:hover), (pointer:fine){
   body[data-state="entry"] .stage-topbar .stage-controls{ margin-right:-50px; }
+
+  /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
+     link col trattino sotto di default, mai tolto su desktop - solo
+     su mobile in precedenza). */
+  .kofi-link, .index-link{ text-decoration:none; }
+
+  /* --- Vista voce: la tazzina (icona Ko-fi dentro .brand) lascia il
+     posto ai pulsanti veri di Ko-fi (solo cuoricino + "KoFi", non il
+     testo lungo) e Discord, spostati fisicamente dentro .brand da
+     script-racconti.js (vivono altrove nel markup, .stage-controls,
+     un riordino CSS da solo non li farebbe comparire qui). Ordine:
+     Ko-fi, poi Discord alla sua destra, poi la scritta. Nel DOM sono
+     discord-poi-kofi (per l'ordine in home), quindi qui li giro con
+     row-reverse invece di riscrivere il markup. --- */
+  body[data-state="entry"] .brand-icon{ display:none; }
+  body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
+  body[data-state="entry"] .brand .social-links{
+    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+  }
+  body[data-state="entry"] .kofi-link,
+  body[data-state="entry"] .discord-link{ display:flex; }
+  body[data-state="entry"] .kofi-link{ padding:7px 14px; font-size:.76rem; }
+  body[data-state="entry"] .kofi-link__full{ display:none; }
+  body[data-state="entry"] .kofi-link__short{ display:inline; }
+  body[data-state="entry"] .discord-link{ width:32px; height:32px; }
+  body[data-state="entry"] .discord-link svg{ width:15px; height:15px; }
 }
 
 body[data-state="landing"] .entry-panel{ display:none; }

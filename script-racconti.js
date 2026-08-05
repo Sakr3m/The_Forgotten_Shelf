@@ -46,6 +46,9 @@ const state = {
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
+  brand: document.querySelector(".brand"),
+  socialLinks: document.querySelector(".social-links"),
+  stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
@@ -405,8 +408,26 @@ function setState(view){
     // (l'elemento e' sempre display:block su desktop, position:fixed,
     // solo il background-image la rende visibile o meno).
     if(el.entryWatermark) el.entryWatermark.style.backgroundImage = "";
+    // Ko-fi/Discord tornano al loro posto originale (dentro
+    // .stage-controls, prima di tutto il resto) - li' dove stavano
+    // prima di essere spostati dentro .brand per la vista voce.
+    // Solo desktop: su mobile .social-links non viene mai spostato
+    // (ha gia' un suo trattamento apposito, diverso, in vista voce).
+    if(!mobileBreakpoint.matches && el.stageControls && el.socialLinks && el.socialLinks.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
+    }
   } else {
     el.body.style.removeProperty("--cyan");
+    // Solo desktop, solo vista voce: la tazzina (icona Ko-fi dentro
+    // .brand) lascia il posto ai pulsanti veri di Ko-fi e Discord -
+    // spostati fisicamente dentro .brand (prima della scritta), dato
+    // che vivono in un contenitore diverso (.stage-controls) e un
+    // semplice riordino CSS non basterebbe a farli comparire li'.
+    // Su mobile .social-links resta dov'e' (trattamento diverso,
+    // gia' costruito a parte per quella vista).
+    if(!mobileBreakpoint.matches && el.brand && el.socialLinks && el.brandBtn && el.socialLinks.parentElement !== el.brand){
+      el.brand.insertBefore(el.socialLinks, el.brandBtn);
+    }
   }
 
   el.landingPanel.hidden = view !== "landing";
