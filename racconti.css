@@ -346,14 +346,17 @@ body[data-state="entry"] .landing{ display:none; }
     order:1;
     margin-right:auto; /* ancora il pulsante a sinistra, qualunque cosa succeda al resto della riga */
     height:35px; box-sizing:border-box;
-    display:flex; align-items:center; justify-content:flex-start;
+    display:flex; align-items:center; justify-content:center;
     padding:0; /* niente padding extra: il gap dal bordo lo da' gia'
       .stage-topbar (16px), stessa distanza dello switch lingua dal
       bordo destro — un padding qui lo avrebbe solo raddoppiato */
     border:none; background:none;
     font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
     color:var(--text-dim);
-    text-align:left;
+    text-align:center; /* "Senza Cornice" (la riga piu' larga) tocca
+      cosi' il bordo del blocco, "Storie" si centra sopra di lei —
+      non deve allinearsi anche lei al margine, solo "Senza Cornice"
+      fa da riferimento per il bordo sinistro. */
   }
   /* La tazzina (icona Ko-fi dentro il brand) sparisce in vista voce:
      tornano invece i pulsanti veri Ko-fi + Discord, centrati come in
