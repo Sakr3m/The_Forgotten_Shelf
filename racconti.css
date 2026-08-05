@@ -308,14 +308,6 @@ body[data-state="entry"] .landing{ display:none; }
     overscroll-behavior:contain;
   }
 
-  /* --- Blocco scroll verticale sulla home: touch-action qui SOLO su
-     .stage (mai su .layout, che gestisce lo swipe nativo — toccarlo
-     la' e' la causa nota di una rottura precedente). Agisce a un
-     livello piu' basso del JS qui sotto (informa il browser prima
-     ancora che parta uno scroll nativo veloce), il JS fa da rete di
-     sicurezza aggiuntiva. */
-  body[data-state="landing"] .stage{ touch-action:pan-x; }
-
   /* --- Storie Nascoste diventa un terzo pannello del carosello
      orizzontale (sidebar | stage | side-rail), raggiungibile
      scorrendo verso destra dallo stage, invece di un cassetto

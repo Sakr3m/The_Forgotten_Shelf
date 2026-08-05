@@ -679,31 +679,18 @@ if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: tr
 // li' dentro devono restare scorrevoli in verticale come sempre.
 if(layoutEl){
   let touchStartX = 0, touchStartY = 0, touchStartedOnStage = false;
-  let gestureDecided = false, blockVertical = false;
   layoutEl.addEventListener("touchstart", (ev) => {
     if(document.body.dataset.state !== "landing") return;
     touchStartX = ev.touches[0].clientX;
     touchStartY = ev.touches[0].clientY;
     touchStartedOnStage = !!ev.target.closest(".stage");
-    gestureDecided = false;
-    blockVertical = false;
   }, { passive: true });
   layoutEl.addEventListener("touchmove", (ev) => {
     if(document.body.dataset.state !== "landing") return;
     if(!touchStartedOnStage) return; // sidebar/side-rail: lascia scorrere la lista
     const dx = ev.touches[0].clientX - touchStartX;
     const dy = ev.touches[0].clientY - touchStartY;
-    if(!gestureDecided){
-      // Decide solo quando il movimento e' abbastanza netto da non
-      // essere rumore (sotto i 6px potrebbe essere solo il dito che
-      // si assesta), poi la decisione resta fissa per tutto il resto
-      // del gesto — evita di "cambiare idea" a meta' swipe.
-      if(Math.abs(dx) > 6 || Math.abs(dy) > 6){
-        blockVertical = Math.abs(dy) > Math.abs(dx);
-        gestureDecided = true;
-      }
-    }
-    if(blockVertical){
+    if(Math.abs(dy) > Math.abs(dx)){
       ev.preventDefault();
     }
   }, { passive: false });
@@ -728,6 +715,20 @@ document.addEventListener("click", (e) => {
 // ---------------------------------------------------------
 paintStaticText();
 setState("landing");
-if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+if(mobileBreakpoint.matches){
+  stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+  // Doppio requestAnimationFrame: aspetta che il browser abbia
+  // davvero applicato lo scroll (un solo frame a volte non basta,
+  // il posizionamento "instant" puo' completarsi solo al frame
+  // successivo) prima di rendere visibili i pannelli — altrimenti
+  // rischio di rivelarli un istante prima che la posizione sia
+  // quella giusta, producendo comunque il lampo che dovrebbe evitare.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.classList.add("carousel-ready");
+    });
+  });
+} else {
+  document.documentElement.classList.add("carousel-ready");
+}
 updateSwipeHints();
-document.documentElement.classList.add("carousel-ready");
