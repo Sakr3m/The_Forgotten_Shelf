@@ -149,6 +149,22 @@
 }
 
 @media (hover:hover), (pointer:fine){
+  /* --- Sidebar allargata a 260px (com'era gia' su Storie Senza
+     Cornice/Il Filo Nascosto), da 230px. Contenuto centrale (.stage,
+     flex:1) si restringe di conseguenza per far posto: automatico,
+     nessun'altra regola da toccare per quello. Il pulsante volume e
+     il toggle della linea temporale (.stage-controls, right:40px)
+     restano fermi: sono ancorati al bordo DESTRO dello stage, non
+     influenzato dalla larghezza della sidebar a sinistra. --- */
+  #sidebar{ width:260px; }
+
+  /* La barra di luminosita' delle filigrane (.watermark-brightness-
+     line) ha invece un left:230px "duro" nel foglio comune, pensato
+     apposta per allinearsi al bordo della sidebar quando era 230px:
+     va spostato a 260px insieme a lei, altrimenti resterebbe
+     scollegato dal nuovo bordo. */
+  .watermark-brightness-line{ left:260px; }
+
   /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
      link col trattino sotto di default). */
   .kofi-link, .index-link{ text-decoration:none; }
