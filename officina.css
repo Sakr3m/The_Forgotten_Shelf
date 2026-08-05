@@ -262,6 +262,14 @@
     color:var(--text-dim);
     text-align:center;
   }
+
+  /* Nota che invita a usare le frecce (uniche presenti qui: niente
+     swipe, touch-action:none piu' su) — su desktop non serve, c'e'
+     gia' "Mostra progetti" a fare da invito. */
+  .landing-sub--mobile-only{
+    display:block;
+    margin-top:24px; font-size:.82rem;
+  }
 }
 
 /* ============================================================
@@ -281,6 +289,7 @@
    ============================================================ */
 .show-projects-btn{ display:none; }
 .desktop-audio-control{ display:none; }
+.landing-sub--mobile-only{ display:none; } /* su desktop c'e' gia' "Mostra progetti" a fare da invito */
 @media (hover:hover), (pointer:fine){
   .show-projects-btn{
     display:inline-block;
