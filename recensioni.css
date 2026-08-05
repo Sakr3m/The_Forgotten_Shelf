@@ -539,14 +539,20 @@
     list-style:none; margin:0; padding:0;
     display:flex; flex-direction:column; gap:2px;
   }
+  .mobile-genre-table__items li:first-child{ margin-top:21px; }
   .mobile-genre-table__items button{
     width:100%; text-align:left;
-    padding:12px 12px;
+    padding:12px 14px;
     border-radius:var(--radius-sm);
     background:none; border:none;
-    color:var(--text-dim); font-size:.95rem; font-weight:500;
+    box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    color:var(--text-dim); font-size:.9rem; font-weight:500;
   }
-  .mobile-genre-table__items button:active{ color:var(--text); font-weight:600; }
+  .mobile-genre-table__items button:active{
+    color:var(--text); font-weight:600;
+    background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
+    box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
+  }
 
   /* Freccetta animata (non un pulsante: e' solo un suggerimento
      visivo) che indica di scorrere verso destra per tornare alla

@@ -198,6 +198,17 @@ const MUSIC_SLOTS = {
   ffix: el.musicSlotFfix
 };
 
+// Colore proprio di ogni recensione (usato per bordi/icone di
+// Ko-fi/Discord in vista voce, e per la voce corrispondente nella
+// tabella genere su mobile). FFVIII riprende lo stesso rosso della
+// sua voce "teoria" su Il Filo Nascosto (accentColor in
+// data-storie-teorie.js), cosi' lo stesso gioco ha lo stesso colore
+// su entrambe le pagine. Le altre, per ora, restano sul ciano di
+// riserva (nessuna voce qui sotto).
+const REVIEW_ACCENTS = {
+  ffviii: "#ff3b30"
+};
+
 // ---------------------------------------------------------
 // SOLO MOBILE: barra generi (header bassa in home) + tabella titoli
 // (pannello del carosello a sinistra, come .sidebar nelle altre
@@ -260,6 +271,7 @@ function openGenreTable(genreName){
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = item.title;
+    if(REVIEW_ACCENTS[item.id]) btn.style.setProperty("--item-accent", REVIEW_ACCENTS[item.id]);
     btn.addEventListener("click", () => {
       openReview(item.id);
       // Scivola dalla tabella verso lo stage, dove la recensione e'
@@ -448,6 +460,13 @@ function openReview(id){
   state.view = id;
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");
+  // Colore proprio della voce (bordo/icone Ko-fi-Discord in vista
+  // voce mobile, e la voce corrispondente nella tabella genere).
+  if(REVIEW_ACCENTS[id]){
+    el.body.style.setProperty("--item-accent", REVIEW_ACCENTS[id]);
+  } else {
+    el.body.style.removeProperty("--item-accent");
+  }
   // Solo mobile: la topbar passa al trattamento "vista voce" (scritta
   // a sinistra, tazza al centro, switch a destra — stesso stile delle
   // altre pagine). Su desktop data-state resta sempre "landing" di
@@ -464,6 +483,7 @@ function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
   el.body.classList.remove("is-review-open");
+  el.body.style.removeProperty("--item-accent");
   // Solo mobile: se si stava guardando la tabella o una recensione,
   // torna a mostrare lo stage (home) nel carosello, e la tabella (se
   // era presente) torna assente — va ritoccato un genere per
