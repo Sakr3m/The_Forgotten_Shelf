@@ -979,28 +979,11 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   }
   /* La home non deve scorrere verticalmente: e una schermata fissa,
      ci si muove solo in orizzontale (swipe) verso le colonne laterali.
-     overflow:hidden da solo a volte non basta: .layout/.stage restano
-     contenitori "scrollabili" per costruzione (servono al carosello),
-     e un tocco verticale puo' comunque far scattare il rimbalzo/la
-     barra del browser anche se il contenuto non si sposta davvero.
-     touch-action:pan-x blocca il gesto verticale alla radice (permette
-     solo quello orizzontale, per lo swipe), invece di limitarsi a
-     nascondere l'overflow risultante. */
-  body[data-state="landing"] .stage{
-    overflow-y:hidden; touch-action:pan-x; overscroll-behavior:none;
-  }
-  body[data-state="landing"] .layout{ touch-action:pan-x; overscroll-behavior:none; }
-  html:has(body[data-state="landing"]){
-    overflow:hidden; height:100%; touch-action:pan-x; overscroll-behavior:none;
-  }
-  html:has(body[data-state="landing"]) body{
-    overflow:hidden; height:100%; touch-action:pan-x; overscroll-behavior:none;
-  }
-  /* La sidebar (lista voci) resta scorrevole in verticale anche
-     nello stato "landing" da cui e' raggiungibile via swipe: senza
-     questa riga erediterebbe il pan-x-only del genitore .layout,
-     bloccando anche lo scroll della lista stessa. */
-  body[data-state="landing"] .sidebar{ touch-action:pan-y; overscroll-behavior:auto; }
+     Solo overflow-y:hidden (niente touch-action): un tentativo
+     precedente di rinforzarlo con touch-action:pan-x ha rotto lo
+     swipe orizzontale stesso su queste pagine (Racconti/Teorie/
+     Timeline), quindi tolto — qui basta l'overflow. */
+  body[data-state="landing"] .stage{ overflow-y:hidden; }
   .stage-controls{ top:14px; right:12px; gap:8px; }
   .kofi-link{ padding:8px 13px; gap:6px; }
   .kofi-link svg{ width:15px; height:15px; }

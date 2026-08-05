@@ -466,16 +466,15 @@
 .mobile-genre-table{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
-  /* Blocco diretto e ridondante su html/body, oltre alla regola
-     condivisa su .stage: quella agisce su un contenitore interno,
-     questa toglie ogni dubbio impedendo lo scroll/il "rimbalzo" del
-     viewport stesso mentre si e' sulla home statica. Guidato da una
-     classe su <html> (script-recensioni.js): tolta appena si apre
-     la tabella o una recensione, rimessa tornando davvero alla home. */
-  html.mobile-lock-scroll{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:pan-x; }
-  html.mobile-lock-scroll body{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:pan-x; }
-  html.mobile-lock-scroll .layout{ touch-action:pan-x; overscroll-behavior:none; }
-  html.mobile-lock-scroll .stage{ touch-action:pan-x; overscroll-behavior:none; }
+  /* Niente swipe col dito da nessuna parte su questa pagina (stesso
+     criterio di Officina): la navigazione tra home e tabella genere
+     avviene SOLO tramite tocchi su pulsanti veri (barra generi,
+     freccia "indietro" nella tabella), mai trascinando. Risolve anche
+     lo scroll/rimbalzo verticale indesiderato della home, alla radice
+     invece che nascondendolo con overflow soltanto. */
+  .layout{ touch-action:none; scroll-snap-type:none; }
+  html.mobile-lock-scroll{ overflow:hidden; height:100%; overscroll-behavior:none; }
+  html.mobile-lock-scroll body{ overflow:hidden; height:100%; overscroll-behavior:none; }
 
   /* --- Barra generi: "header bassa" nella home, solo testo (niente
      cornici sui pulsanti) --- */
@@ -494,21 +493,27 @@
   }
   .mobile-genre-btn:active{ color:var(--cyan); }
 
-  /* --- Tabella titoli del genere: pannello del carosello a
-     sinistra, come .sidebar nelle altre pagine. Normalmente assente
-     dal flusso (display:none): niente da raggiungere scorrendo a
-     sinistra finche' non si tocca un genere. La classe che la
-     rivela (mobile-table-open) la rende anche il PRIMO figlio
-     "vero" di .layout — con lo scrollLeft gia' a 0 di suo, questo
-     basta a mostrarla subito, senza bisogno di uno scrollTo. --- */
-  html.mobile-table-open .mobile-genre-table{
+  /* --- Tabella titoli del genere: pannello del carosello a sinistra,
+     come .sidebar nelle altre pagine. Sempre presente nel flusso
+     (flex:0 0 100vw fisso, MAI display:none) — cosi' .layout e' gia'
+     largo 200vw fin dal primo render e i vari scrollTo via JS
+     funzionano subito, senza il bug gia' visto su Officina (nascondere
+     con display:none toglieva spazio al carosello, e il primo
+     scrollTo non aveva nulla su cui scorrere). Resta "invisibile" solo
+     finche' il posizionamento iniziale non e' confermato (classe
+     carousel-ready), poi rimane sempre visibile: non serve piu'
+     nasconderla dopo, dato che non e' raggiungibile col dito
+     (touch-action:none su .layout) — ci si arriva solo tramite i
+     pulsanti, mai per sbaglio. --- */
+  .mobile-genre-table{
     display:block; position:relative;
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; height:100dvh; overflow-y:auto;
-    scroll-snap-align:start;
     background:var(--bg);
     padding:78px 20px 40px;
+    visibility:hidden;
   }
+  html.carousel-ready .mobile-genre-table{ visibility:visible; }
   .mobile-genre-table__title{
     font-size:1.3rem; color:var(--text); margin:0 0 20px;
     padding-bottom:14px; border-bottom:1px solid var(--line);
@@ -525,32 +530,30 @@
   .mobile-genre-table__items button:active{ color:var(--cyan); }
   .mobile-genre-table__items button svg{ width:14px; height:14px; flex-shrink:0; opacity:.5; }
 
-  /* Freccetta animata sulla tabella: suggerisce di scorrere verso
-     destra per tornare alla home (o alla recensione, se era quella
-     aperta prima di passare di qui). Stessa animazione gia' usata
-     altrove (swipeHintRight), applicata qui a un elemento dedicato
-     invece che al .swipe-hint condiviso (quello vive sullo stage,
-     non sulla tabella). */
-  body[data-state="landing"] .swipe-hint--table-right{
-    display:block; position:fixed; top:50%; right:14px; z-index:20;
+  /* Pulsante "torna indietro" nella tabella: stessa freccia animata
+     di prima, ma ora e' un vero pulsante toccabile (niente piu' swipe
+     col dito da suggerire, si torna solo toccandolo). */
+  .mobile-genre-table__back{
+    display:flex; align-items:center; justify-content:center;
+    position:fixed; top:50%; right:14px; z-index:20;
     transform:translateY(-50%);
+    width:40px; height:40px;
+    background:var(--panel); border:1px solid var(--line); border-radius:50%;
     color:var(--text-faint);
-    animation:swipeHintRight 1.6s ease-in-out infinite;
-    pointer-events:none;
   }
-  .swipe-hint--table-right svg{ width:16px; height:16px; display:block; }
+  .mobile-genre-table__back svg{ width:16px; height:16px; display:block; }
+  .mobile-genre-table__back:active{ color:var(--cyan); border-color:var(--cyan); }
 
-  /* --- Voce di recensione: ora e' un normale figlio di .stage (come
-     .landing), NON piu' un overlay a se stante — cosi' lo swipe
-     orizzontale verso la tabella funziona anche a recensione aperta
-     (altrimenti un overlay fisso lo avrebbe intercettato/bloccato).
+  /* --- Voce di recensione: normale figlio di .stage (come .landing),
+     NON un overlay a se stante — cosi' si passa alla tabella con lo
+     stesso pulsante/goToScreen usato ovunque su questa pagina.
      Riordinata via flex+order: titolo da solo in cima, poi
      immagine+scheda affiancate, poi le tag, poi il pulsante audio,
      poi il testo. Le tappe intermedie (header/row/body-grid)
      diventano "display:contents" cosi' i loro figli si comportano
      come fratelli diretti agli effetti dell'ordine. --- */
   body[data-state="entry"] .stage{
-    overflow-y:auto; touch-action:auto; padding:78px 20px 40px;
+    overflow-y:auto; padding:78px 20px 40px;
   }
   .review-entry{ display:none; }
   body.is-review-open .review-entry:not([hidden]){

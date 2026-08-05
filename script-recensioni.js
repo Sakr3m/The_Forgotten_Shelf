@@ -151,6 +151,7 @@ const el = {
   layout: document.querySelector(".layout"),
   mobileGenreBar: document.getElementById("mobileGenreBar"),
   mobileGenreTable: document.getElementById("mobileGenreTable"),
+  mobileGenreBackBtn: document.getElementById("mobileGenreBackBtn"),
   mobileGenreListTitle: document.getElementById("mobileGenreListTitle"),
   mobileGenreListItems: document.getElementById("mobileGenreListItems"),
   gateToggleRight: document.getElementById("gateToggleRight"),
@@ -199,11 +200,14 @@ const MUSIC_SLOTS = {
 // ---------------------------------------------------------
 // SOLO MOBILE: barra generi (header bassa in home) + tabella titoli
 // (pannello del carosello a sinistra, come .sidebar nelle altre
-// pagine). Un solo posto dove aggiungere un genere in futuro (qui),
-// niente da toccare nell'HTML. Le card vengono lette direttamente
-// dal carrello desktop (data-review + il testo della tile), cosi'
-// le due liste (desktop e mobile) restano sempre sincronizzate da
-// un'unica fonte invece di doverle mantenere doppie.
+// pagine). Stesso schema di navigazione gia' usato e collaudato su
+// Officina: niente swipe col dito (.layout ha touch-action:none),
+// solo pulsanti che chiamano goToScreen(). Un solo posto dove
+// aggiungere un genere in futuro (qui), niente da toccare
+// nell'HTML. Le card vengono lette direttamente dal carrello
+// desktop (data-review + il testo della tile), cosi' le due liste
+// (desktop e mobile) restano sempre sincronizzate da un'unica fonte
+// invece di doverle mantenere doppie.
 // ---------------------------------------------------------
 function buildGenresFromDOM(){
   const genres = {}; // { "JRPG": [{id, title}, ...], ... }
@@ -237,11 +241,22 @@ function renderMobileGenreBar(){
   });
 }
 
-// Apre la tabella: la popola, poi la rende parte del carosello
-// (classe su <html>). Nessuno scrollTo necessario per "entrarci" —
-// diventando il primo figlio vero di .layout, e lo scrollLeft
-// essendo gia' a 0 (dove si stava guardando lo stage), la si vede
-// gia' subito da sola.
+// SCREEN_TABLE (0, sinistra) / SCREEN_STAGE (1, destra — home o
+// recensione aperta, a seconda di cosa mostra .stage in quel
+// momento). Stesso schema/nome di variabile di script-officina.js.
+const SCREEN_TABLE = 0;
+const SCREEN_STAGE = 1;
+let currentMobileScreen = SCREEN_STAGE;
+
+function goToMobileScreen(index, instant){
+  if(!el.layout) return;
+  currentMobileScreen = Math.max(SCREEN_TABLE, Math.min(SCREEN_STAGE, index));
+  el.layout.scrollTo({ left: currentMobileScreen * window.innerWidth, behavior: instant ? "instant" : "smooth" });
+}
+
+// Popola la tabella e ci scivola sopra. La tabella e' sempre parte
+// del carosello (mai display:none — vedi CSS), quindi lo scrollTo
+// funziona sempre, dal primo tocco.
 function openGenreTable(genreName){
   const items = GENRES[genreName];
   if(!items || !el.mobileGenreTable) return;
@@ -254,46 +269,38 @@ function openGenreTable(genreName){
     btn.innerHTML = `<span>${item.title}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
     btn.addEventListener("click", () => {
       openReview(item.id);
-      // Scivola dalla tabella verso lo stage (dove la recensione e'
-      // appena apparsa) — la tabella resta comunque nel carosello,
-      // raggiungibile scorrendo indietro a sinistra dalla recensione.
-      if(el.layout){
-        el.layout.scrollTo({ left: window.innerWidth, behavior: "smooth" });
-      }
+      // Scivola dalla tabella verso lo stage, dove la recensione e'
+      // appena apparsa.
+      goToMobileScreen(SCREEN_STAGE);
     });
     li.appendChild(btn);
     el.mobileGenreListItems.appendChild(li);
   });
-  document.documentElement.classList.add("mobile-table-open");
-  document.documentElement.classList.remove("mobile-lock-scroll");
+  goToMobileScreen(SCREEN_TABLE);
 }
 
-// Rilevamento "sono tornato sullo stage": quando lo scroll orizzontale
-// si assesta sulla posizione dello stage (non piu' sulla tabella), la
-// tabella ha fatto il suo dovere — la si toglie dal carosello, cosi'
-// non e' piu' raggiungibile scorrendo a sinistra dalla home finche'
-// non si riseleziona un genere. Se invece si stava guardando una
-// recensione (non la home), il blocco scroll NON si rimette: la
-// recensione stessa deve restare scorrevole in verticale.
-let tableCollapseTimer = null;
+if(el.mobileGenreBackBtn){
+  el.mobileGenreBackBtn.addEventListener("click", () => goToMobileScreen(SCREEN_STAGE));
+}
+
+// Blocco extra dello swipe a livello JS (oltre a touch-action:none in
+// CSS), stessa tecnica di Officina: la navigazione deve avvenire SOLO
+// tramite i pulsanti.
 if(el.layout){
-  el.layout.addEventListener("scroll", () => {
-    if(!document.documentElement.classList.contains("mobile-table-open")) return;
-    clearTimeout(tableCollapseTimer);
-    tableCollapseTimer = setTimeout(() => {
-      const panelWidth = window.innerWidth;
-      if(el.layout.scrollLeft >= panelWidth - 10){
-        document.documentElement.classList.remove("mobile-table-open");
-        el.layout.scrollLeft = 0;
-        if(state.view === "landing"){
-          document.documentElement.classList.add("mobile-lock-scroll");
-        }
-      }
-    }, 150);
-  });
+  el.layout.addEventListener("touchmove", (ev) => ev.preventDefault(), { passive: false });
 }
 
 document.documentElement.classList.add("mobile-lock-scroll");
+
+if(isMobileNav() && el.layout){
+  goToMobileScreen(SCREEN_STAGE, true);
+  // Solo ora, dopo aver posizionato il carosello sullo stage, la
+  // tabella diventa visibile (CSS la tiene a visibility:hidden finche'
+  // questa classe non compare) — stesso accorgimento gia' fatto per
+  // Officina, evita lo sfarfallio del pannello sinistro di default
+  // prima dello scrollTo.
+  document.documentElement.classList.add("carousel-ready");
+}
 
 renderMobileGenreBar();
 
@@ -446,7 +453,6 @@ function openReview(id){
   state.view = id;
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");
-  document.documentElement.classList.remove("mobile-lock-scroll");
   // Solo mobile: la topbar passa al trattamento "vista voce" (scritta
   // a sinistra, tazza al centro, switch a destra — stesso stile delle
   // altre pagine). Su desktop data-state resta sempre "landing" di
@@ -463,13 +469,9 @@ function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
   el.body.classList.remove("is-review-open");
-  document.documentElement.classList.add("mobile-lock-scroll");
-  // Reset difensivo della tabella: se si torna alla home senza
-  // passare fisicamente da li' (es. dal pulsante "Diari di Gioco"
-  // mentre si guardava una recensione), non deve restare "aperta"
-  // nel carosello.
-  document.documentElement.classList.remove("mobile-table-open");
-  if(el.layout) el.layout.scrollLeft = 0;
+  // Solo mobile: se si stava guardando la tabella o una recensione,
+  // torna a mostrare lo stage (home) nel carosello.
+  goToMobileScreen(SCREEN_STAGE, true);
   if(isMobileNav()) el.body.dataset.state = "landing";
   updateIndexLink();
   updateMusicPlayback();
