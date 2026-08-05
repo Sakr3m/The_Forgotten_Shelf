@@ -391,13 +391,17 @@
     padding-right:12px; /* spazio per non far toccare il testo alla
       scrollbar quando compare */
   }
-  /* Il blocco "recensione veloce" fiancheggia la cover: stessa
-     altezza (293px, la cover e' 220px larga con aspect-ratio 3/4),
-     cosi' quello che segue (soglia spoiler) riparte esattamente
-     all'altezza di "Scheda", sotto la cover. Per ora vuoto (solo
-     l'etichetta), testo segnaposto tolto in attesa di quello vero. */
+  /* Il blocco "recensione veloce" fiancheggia la cover+scheda:
+     altezza aumentata rispetto a prima (che copriva solo la cover,
+     293px) per includere anche le righe della scheda sotto di lei
+     (etichetta "Scheda" + Sviluppatore/Uscita/Completato) - cosi'
+     quello che segue (soglia spoiler) riparte solo sotto l'ultima
+     riga della scheda (Completato, con o senza la coppetta del
+     platino), non piu' a meta' scheda. 293 (cover) + ~158 (etichetta
+     + 3 righe dt/dd) = 451px circa. Per ora vuoto (solo l'etichetta),
+     testo segnaposto tolto in attesa di quello vero. */
   .review-entry .quick-take{
-    min-height:293px;
+    min-height:451px;
     margin-bottom:16px;
   }
   .review-entry .section-eyebrow{
@@ -416,7 +420,7 @@
   .review-entry .threshold{
     display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
     margin:0 0 28px;
-    padding:22px 24px;
+    padding:16px 24px;
     border:1px solid rgba(250,204,21,.35);
     background:rgba(250,204,21,.06);
     border-radius:var(--radius);
