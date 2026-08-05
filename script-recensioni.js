@@ -650,7 +650,7 @@ paintStaticText();
 // ---------------------------------------------------------
 const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
 document.addEventListener("click", (e) => {
-  const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link");
+  const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link, a.review-tile");
   if(target && !target.classList.contains("track-skip")){
     const tap = new Audio(TAP_SOUND_URL);
     tap.volume = 0.2;
