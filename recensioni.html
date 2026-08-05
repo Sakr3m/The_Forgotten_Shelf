@@ -15,6 +15,23 @@
 <body data-state="landing" data-lang="it">
 
   <div class="layout">
+    <!-- Tabella genere, SOLO mobile: pannello del carosello a
+         sinistra dello stage, come .sidebar nelle altre pagine.
+         Normalmente ASSENTE dal flusso (display:none): niente da
+         raggiungere scorrendo a sinistra finche' non si tocca un
+         genere nella barra in basso. Il tocco la popola e la rende
+         visibile — a quel punto e' scorrevole col dito per tornare
+         indietro (freccetta animata qui dentro), ma una volta
+         tornati alla home ridiventa assente, va riselezionato un
+         genere per riaprirla. Vedi script-recensioni.js. -->
+    <aside class="mobile-genre-table" id="mobileGenreTable">
+      <span class="swipe-hint swipe-hint--table-right" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h2 class="mobile-genre-table__title" id="mobileGenreListTitle"></h2>
+      <ul class="mobile-genre-table__items" id="mobileGenreListItems"></ul>
+    </aside>
+
     <main class="stage" id="stage">
 
       <div class="stage-topbar">
@@ -141,25 +158,14 @@
         </div>
 
         <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" data-i18n="gateSideToggleOff">Apri il cancello da sinistra</button>
-      </section>
 
-      <!-- Barra generi, SOLO mobile: unica cosa scorrevole (in
-           orizzontale) della home statica, ancorata al fondo dello
-           schermo. Fuori da .landing apposta: .landing ha un
-           transform (per centrarsi), che renderebbe "position:fixed"
-           qui dentro relativo a lei invece che al vero viewport.
-           Generata a runtime da script-recensioni.js (oggetto
-           GENRES), cosi' aggiungere un genere in futuro non richiede
-           toccare l'HTML. -->
-      <div class="mobile-genre-bar" id="mobileGenreBar"></div>
-
-      <!-- Schermata "titoli del genere", SOLO mobile: si apre toccando
-           una card della barra qui sopra. Overlay a tutto schermo,
-           contenuto (lista titoli) generato da JS. Si scorre in
-           verticale (e' una lista da consultare, non una home). -->
-      <section class="mobile-genre-list" id="mobileGenreList" aria-hidden="true">
-        <h2 class="mobile-genre-list__title" id="mobileGenreListTitle"></h2>
-        <ul class="mobile-genre-list__items" id="mobileGenreListItems"></ul>
+        <!-- Barra generi, SOLO mobile: una "header bassa" con solo
+             testo (niente cornici sui pulsanti), non pillole
+             galleggianti. Unica cosa scorrevole in orizzontale della
+             home statica. Generata a runtime da script-recensioni.js
+             (oggetto GENRES), cosi' aggiungere un genere in futuro
+             non richiede toccare l'HTML. -->
+        <div class="mobile-genre-bar" id="mobileGenreBar"></div>
       </section>
 
       <!-- Voce di recensione (Final Fantasy VII, originale 1997): nascosta

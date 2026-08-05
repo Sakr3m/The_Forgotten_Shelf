@@ -456,113 +456,158 @@
 }
 
 /* ============================================================
-   MOBILE — Diari di Gioco: barra generi, schermata lista titoli,
-   voce di recensione impilata. La home resta statica (niente
-   scroll verticale, gia' garantito dalla regola condivisa
-   body[data-state="landing"] .stage{overflow-y:hidden} in
-   styles.css): l'unica cosa che scorre qui e' la barra generi, in
-   orizzontale. Le schermate "lista" (generi -> titoli) scorrono
-   invece in verticale, essendo elenchi da consultare.
+   MOBILE — Diari di Gioco: barra generi (header bassa nella home),
+   tabella titoli del genere (pannello del carosello a sinistra,
+   come .sidebar nelle altre pagine), voce di recensione. La home
+   resta statica; tabella e recensione invece scorrono in verticale
+   dove serve (sono contenuti da consultare, non una home).
    ============================================================ */
 .mobile-genre-bar{ display:none; }
-.mobile-genre-list{ display:none; }
+.mobile-genre-table{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
   /* Blocco diretto e ridondante su html/body, oltre alla regola
      condivisa su .stage: quella agisce su un contenitore interno,
      questa toglie ogni dubbio impedendo lo scroll/il "rimbalzo" del
      viewport stesso mentre si e' sulla home statica. Guidato da una
-     classe su <html> (script-recensioni.js), non da data-state: qui
-     resta sempre "landing" anche a recensione aperta (serve per non
-     spegnere Discord/Ko-fi), quindi non e' un segnale affidabile per
-     capire se siamo davvero in home. */
+     classe su <html> (script-recensioni.js): tolta appena si apre
+     la tabella o una recensione, rimessa tornando davvero alla home. */
   html.mobile-lock-scroll{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:pan-x; }
   html.mobile-lock-scroll body{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:pan-x; }
-  /* .layout/.stage sono contenitori scrollabili per natura (servono
-     al carosello orizzontale delle altre pagine): anche con
-     overflow-y:hidden, un elemento comunque "scrollabile" puo' far
-     scattare il rimbalzo/la barra del browser al tocco verticale.
-     touch-action:pan-x lo blocca alla radice (permette solo il
-     movimento orizzontale, mai verticale), su tutta la catena —
-     necessario usare pan-x ovunque e non "none" da qualche parte:
-     "none" su un antenato blocca anche il pan-x di un discendente
-     (es. la barra generi), che invece deve restare scorrevole in
-     orizzontale. */
   html.mobile-lock-scroll .layout{ touch-action:pan-x; overscroll-behavior:none; }
   html.mobile-lock-scroll .stage{ touch-action:pan-x; overscroll-behavior:none; }
 
+  /* --- Barra generi: "header bassa" nella home, solo testo (niente
+     cornici sui pulsanti) --- */
   .mobile-genre-bar{
-    display:flex; gap:10px;
-    position:fixed; left:0; right:0; bottom:22px; z-index:8;
-    padding:0 20px;
+    display:flex; gap:28px; justify-content:center;
+    margin-top:32px; padding-top:18px;
+    border-top:1px solid var(--line);
     overflow-x:auto; scrollbar-width:none;
   }
   .mobile-genre-bar::-webkit-scrollbar{ display:none; }
-
   .mobile-genre-btn{
     flex:0 0 auto;
-    min-width:130px;
-    padding:16px 22px;
-    border:1px solid var(--cyan);
-    border-radius:12px;
-    background:var(--panel);
+    background:none; border:none; padding:4px 2px;
     color:var(--text);
-    font-weight:700; font-size:.82rem; letter-spacing:.05em; text-transform:uppercase;
-    text-align:center;
+    font-weight:700; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase;
   }
-  .mobile-genre-btn:active{ background:var(--panel-raised); }
+  .mobile-genre-btn:active{ color:var(--cyan); }
 
-  /* --- Schermata lista titoli di un genere --- */
-  .mobile-genre-list{
-    position:fixed; inset:0; z-index:6;
+  /* --- Tabella titoli del genere: pannello del carosello a
+     sinistra, come .sidebar nelle altre pagine. Normalmente assente
+     dal flusso (display:none): niente da raggiungere scorrendo a
+     sinistra finche' non si tocca un genere. La classe che la
+     rivela (mobile-table-open) la rende anche il PRIMO figlio
+     "vero" di .layout — con lo scrollLeft gia' a 0 di suo, questo
+     basta a mostrarla subito, senza bisogno di uno scrollTo. --- */
+  html.mobile-table-open .mobile-genre-table{
+    display:block; position:relative;
+    flex:0 0 100vw; width:100vw; max-width:none;
+    height:100vh; height:100dvh; overflow-y:auto;
+    scroll-snap-align:start;
     background:var(--bg);
     padding:78px 20px 40px;
-    overflow-y:auto;
   }
-  .mobile-genre-list.is-open{ display:block; }
-  .mobile-genre-list__title{
+  .mobile-genre-table__title{
     font-size:1.3rem; color:var(--text); margin:0 0 20px;
     padding-bottom:14px; border-bottom:1px solid var(--line);
   }
-  .mobile-genre-list__items{ list-style:none; margin:0; padding:0; }
-  .mobile-genre-list__items li + li{ border-top:1px solid var(--line); }
-  .mobile-genre-list__items button{
+  .mobile-genre-table__items{ list-style:none; margin:0; padding:0; }
+  .mobile-genre-table__items li + li{ border-top:1px solid var(--line); }
+  .mobile-genre-table__items button{
     width:100%; text-align:left;
     padding:16px 4px;
     background:none; border:none;
     color:var(--text); font-size:1rem; font-weight:600;
     display:flex; align-items:center; justify-content:space-between; gap:10px;
   }
-  .mobile-genre-list__items button:active{ color:var(--cyan); }
-  .mobile-genre-list__items button svg{ width:14px; height:14px; flex-shrink:0; opacity:.5; }
+  .mobile-genre-table__items button:active{ color:var(--cyan); }
+  .mobile-genre-table__items button svg{ width:14px; height:14px; flex-shrink:0; opacity:.5; }
 
-  /* --- Voce di recensione: versione mobile, impilata verticalmente
-     e scorrevole (qui lo scroll ci vuole, e' testo da leggere, non
-     una home). Sistemazione definitiva rimandata: per ora solo
-     funzionante. --- */
+  /* Freccetta animata sulla tabella: suggerisce di scorrere verso
+     destra per tornare alla home (o alla recensione, se era quella
+     aperta prima di passare di qui). Stessa animazione gia' usata
+     altrove (swipeHintRight), applicata qui a un elemento dedicato
+     invece che al .swipe-hint condiviso (quello vive sullo stage,
+     non sulla tabella). */
+  body[data-state="landing"] .swipe-hint--table-right{
+    display:block; position:fixed; top:50%; right:14px; z-index:20;
+    transform:translateY(-50%);
+    color:var(--text-faint);
+    animation:swipeHintRight 1.6s ease-in-out infinite;
+    pointer-events:none;
+  }
+  .swipe-hint--table-right svg{ width:16px; height:16px; display:block; }
+
+  /* --- Voce di recensione: ora e' un normale figlio di .stage (come
+     .landing), NON piu' un overlay a se stante — cosi' lo swipe
+     orizzontale verso la tabella funziona anche a recensione aperta
+     (altrimenti un overlay fisso lo avrebbe intercettato/bloccato).
+     Riordinata via flex+order: titolo da solo in cima, poi
+     immagine+scheda affiancate, poi le tag, poi il pulsante audio,
+     poi il testo. Le tappe intermedie (header/row/body-grid)
+     diventano "display:contents" cosi' i loro figli si comportano
+     come fratelli diretti agli effetti dell'ordine. --- */
+  body[data-state="entry"] .stage{
+    overflow-y:auto; touch-action:auto; padding:78px 20px 40px;
+  }
   .review-entry{ display:none; }
   body.is-review-open .review-entry:not([hidden]){
-    display:block;
-    position:fixed; inset:0; z-index:9;
-    background:var(--bg);
-    overflow-y:auto;
-    padding:78px 20px 40px;
-    height:auto;
+    display:flex; flex-direction:column;
+    width:100%; margin:0;
   }
-  .review-entry .entry-header{ padding-top:0; }
-  .review-entry .entry-header__row{
-    flex-direction:column; align-items:flex-start; gap:14px;
-    margin-bottom:14px;
-  }
-  .review-entry .entry-header__title{ font-size:1.4rem; }
+  .review-entry .entry-header,
+  .review-entry .entry-header__row,
   .review-entry .body-grid{
-    display:block; height:auto; margin-top:20px;
+    display:contents;
+  }
+  .review-entry .entry-header{ padding-top:0; border-bottom:none; }
+  .review-entry .entry-header__title{
+    order:1; font-size:1.4rem; margin:0 0 16px;
   }
   .review-entry .facts{
-    overflow:visible; max-height:none; margin-bottom:24px;
+    order:2;
+    display:flex; flex-direction:row; gap:14px; align-items:flex-start;
+    margin-bottom:20px;
   }
-  .review-entry .cover-slot{ max-width:220px; }
-  .review-entry .reading{ height:auto; overflow:visible; padding-right:0; }
+  .review-entry .cover-slot{
+    flex:0 0 110px; width:110px; max-width:110px; margin-bottom:0;
+  }
+  .review-entry .facts dl{ flex:1; min-width:0; }
+  .review-entry .entry-header__meta{ order:3; margin-bottom:18px; }
+  .review-entry .music-control-slot{ order:4; margin-bottom:22px; }
+  .review-entry .reading{
+    order:5; height:auto; overflow:visible; padding-right:0;
+  }
   .review-entry .quick-take{ min-height:0; margin-bottom:20px; }
   .review-entry .threshold{ margin:0 0 24px; }
+
+  /* --- Topbar in "vista voce" (recensione aperta): stesso
+     trattamento gia' usato dalle altre pagine del sito in stato
+     "entry" (scritta a sinistra, tazza di Ko-fi al centro, switch
+     lingua a destra) — qui attivo SOLO su mobile (vedi
+     script-recensioni.js: su desktop data-state resta sempre
+     "landing", apposta per non spegnere Discord/Ko-fi/index-link,
+     che restano visibili li'). Discord/Ko-fi/index-link si
+     nascondono da soli in stato "entry" tramite la stessa regola
+     condivisa che li mostra solo in "landing" (styles.css) —
+     nessuna regola aggiuntiva necessaria per quello. --- */
+  body[data-state="entry"] .stage-topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    position:fixed; top:0; left:0; right:0;
+    padding:14px 16px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    z-index:50;
+  }
+  body[data-state="entry"] .brand{ display:contents; }
+  body[data-state="entry"] .brand-text{
+    order:1; font-size:.9rem; font-weight:700;
+  }
+  body[data-state="entry"] .brand-icon{ order:2; }
+  body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; }
+  body[data-state="entry"] .stage-controls{
+    order:3; position:static; width:auto; top:auto; right:auto; left:auto;
+  }
 }

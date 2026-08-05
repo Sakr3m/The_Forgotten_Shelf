@@ -148,8 +148,9 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   indexLink: document.getElementById("indexLink"),
   gateSideToggle: document.getElementById("gateSideToggle"),
+  layout: document.querySelector(".layout"),
   mobileGenreBar: document.getElementById("mobileGenreBar"),
-  mobileGenreList: document.getElementById("mobileGenreList"),
+  mobileGenreTable: document.getElementById("mobileGenreTable"),
   mobileGenreListTitle: document.getElementById("mobileGenreListTitle"),
   mobileGenreListItems: document.getElementById("mobileGenreListItems"),
   gateToggleRight: document.getElementById("gateToggleRight"),
@@ -196,8 +197,9 @@ const MUSIC_SLOTS = {
 };
 
 // ---------------------------------------------------------
-// SOLO MOBILE: barra generi in fondo alla home + schermata lista
-// titoli. Un solo posto dove aggiungere un genere in futuro (qui),
+// SOLO MOBILE: barra generi (header bassa in home) + tabella titoli
+// (pannello del carosello a sinistra, come .sidebar nelle altre
+// pagine). Un solo posto dove aggiungere un genere in futuro (qui),
 // niente da toccare nell'HTML. Le card vengono lette direttamente
 // dal carrello desktop (data-review + il testo della tile), cosi'
 // le due liste (desktop e mobile) restano sempre sincronizzate da
@@ -230,14 +232,19 @@ function renderMobileGenreBar(){
     btn.type = "button";
     btn.className = "mobile-genre-btn";
     btn.textContent = genreName;
-    btn.addEventListener("click", () => openGenreList(genreName));
+    btn.addEventListener("click", () => openGenreTable(genreName));
     el.mobileGenreBar.appendChild(btn);
   });
 }
 
-function openGenreList(genreName){
+// Apre la tabella: la popola, poi la rende parte del carosello
+// (classe su <html>). Nessuno scrollTo necessario per "entrarci" —
+// diventando il primo figlio vero di .layout, e lo scrollLeft
+// essendo gia' a 0 (dove si stava guardando lo stage), la si vede
+// gia' subito da sola.
+function openGenreTable(genreName){
   const items = GENRES[genreName];
-  if(!items || !el.mobileGenreList) return;
+  if(!items || !el.mobileGenreTable) return;
   el.mobileGenreListTitle.textContent = genreName;
   el.mobileGenreListItems.innerHTML = "";
   items.forEach(item => {
@@ -246,24 +253,44 @@ function openGenreList(genreName){
     btn.type = "button";
     btn.innerHTML = `<span>${item.title}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
     btn.addEventListener("click", () => {
-      closeGenreList();
       openReview(item.id);
+      // Scivola dalla tabella verso lo stage (dove la recensione e'
+      // appena apparsa) — la tabella resta comunque nel carosello,
+      // raggiungibile scorrendo indietro a sinistra dalla recensione.
+      if(el.layout){
+        el.layout.scrollTo({ left: window.innerWidth, behavior: "smooth" });
+      }
     });
     li.appendChild(btn);
     el.mobileGenreListItems.appendChild(li);
   });
-  el.mobileGenreList.classList.add("is-open");
-  el.mobileGenreList.setAttribute("aria-hidden", "false");
+  document.documentElement.classList.add("mobile-table-open");
   document.documentElement.classList.remove("mobile-lock-scroll");
 }
 
-function closeGenreList(){
-  if(!el.mobileGenreList) return;
-  el.mobileGenreList.classList.remove("is-open");
-  el.mobileGenreList.setAttribute("aria-hidden", "true");
-  if(state.view === "landing"){
-    document.documentElement.classList.add("mobile-lock-scroll");
-  }
+// Rilevamento "sono tornato sullo stage": quando lo scroll orizzontale
+// si assesta sulla posizione dello stage (non piu' sulla tabella), la
+// tabella ha fatto il suo dovere — la si toglie dal carosello, cosi'
+// non e' piu' raggiungibile scorrendo a sinistra dalla home finche'
+// non si riseleziona un genere. Se invece si stava guardando una
+// recensione (non la home), il blocco scroll NON si rimette: la
+// recensione stessa deve restare scorrevole in verticale.
+let tableCollapseTimer = null;
+if(el.layout){
+  el.layout.addEventListener("scroll", () => {
+    if(!document.documentElement.classList.contains("mobile-table-open")) return;
+    clearTimeout(tableCollapseTimer);
+    tableCollapseTimer = setTimeout(() => {
+      const panelWidth = window.innerWidth;
+      if(el.layout.scrollLeft >= panelWidth - 10){
+        document.documentElement.classList.remove("mobile-table-open");
+        el.layout.scrollLeft = 0;
+        if(state.view === "landing"){
+          document.documentElement.classList.add("mobile-lock-scroll");
+        }
+      }
+    }, 150);
+  });
 }
 
 document.documentElement.classList.add("mobile-lock-scroll");
@@ -271,6 +298,12 @@ document.documentElement.classList.add("mobile-lock-scroll");
 renderMobileGenreBar();
 
 function t(key){ return STRINGS[state.lang][key]; }
+
+// Vero solo su dispositivi touch senza hover (telefoni/tablet): usato
+// per attivare il toggle di data-state SOLO li', mai su desktop.
+function isMobileNav(){
+  return window.matchMedia("(hover:none) and (pointer:coarse)").matches;
+}
 
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
@@ -299,10 +332,13 @@ el.langSwitch.addEventListener("click", () => {
   paintStaticText();
 });
 
-// Nessuno stato diverso da "landing" esiste ancora: il brand qui
-// non ha nulla da resettare, ma lascio l'handler per coerenza col
-// resto del sito.
-el.brandBtn.addEventListener("click", () => {});
+// Solo mobile, solo a recensione aperta: la scritta "Diari di Gioco"
+// (brand-text, al posto dell'icona casetta in quello stato) riporta
+// alla home. In home stessa non fa nulla (e' l'icona index-link a
+// occuparsene li', il brand-text in quel momento non e' visibile).
+el.brandBtn.addEventListener("click", () => {
+  if(state.view !== "landing") backToLanding();
+});
 
 // ---------------------------------------------------------
 // Apertura/chiusura di UN carrello: stessa logica per quello di
@@ -380,12 +416,6 @@ el.indexLink.addEventListener("click", (ev) => {
   if(state.view !== "landing"){
     ev.preventDefault();
     backToLanding();
-  } else if(el.mobileGenreList && el.mobileGenreList.classList.contains("is-open")){
-    // Solo mobile: se e' aperta la schermata "titoli del genere",
-    // il link "torna alla home" la richiude invece di navigare via
-    // (si e' gia' concettualmente in home, solo con un overlay sopra).
-    ev.preventDefault();
-    closeGenreList();
   }
   // altrimenti, lascia che il link navighi normalmente verso index.html
 });
@@ -417,6 +447,12 @@ function openReview(id){
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");
   document.documentElement.classList.remove("mobile-lock-scroll");
+  // Solo mobile: la topbar passa al trattamento "vista voce" (scritta
+  // a sinistra, tazza al centro, switch a destra — stesso stile delle
+  // altre pagine). Su desktop data-state resta sempre "landing" di
+  // proposito: la' Discord/Ko-fi/index-link devono restare visibili
+  // anche a recensione aperta (gia' deciso in precedenza).
+  if(isMobileNav()) el.body.dataset.state = "entry";
   const slot = MUSIC_SLOTS[id];
   if(slot && el.musicControl) slot.appendChild(el.musicControl);
   updateIndexLink();
@@ -428,7 +464,13 @@ function backToLanding(){
   state.view = "landing";
   el.body.classList.remove("is-review-open");
   document.documentElement.classList.add("mobile-lock-scroll");
-  closeGenreList();
+  // Reset difensivo della tabella: se si torna alla home senza
+  // passare fisicamente da li' (es. dal pulsante "Diari di Gioco"
+  // mentre si guardava una recensione), non deve restare "aperta"
+  // nel carosello.
+  document.documentElement.classList.remove("mobile-table-open");
+  if(el.layout) el.layout.scrollLeft = 0;
+  if(isMobileNav()) el.body.dataset.state = "landing";
   updateIndexLink();
   updateMusicPlayback();
 }
