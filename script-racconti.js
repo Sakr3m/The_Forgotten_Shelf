@@ -673,16 +673,21 @@ if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: tr
 // blocchiamo (preventDefault), lasciando passare quelli orizzontali
 // (swipe verso le colonne laterali, che deve continuare a
 // funzionare). Attivo solo in home (data-state "landing"): la vista
-// voce deve invece scorrere normalmente in verticale.
+// voce deve invece scorrere normalmente in verticale. Il blocco
+// verticale si applica SOLO se il tocco parte dallo stage (la home
+// vera e propria): se parte da dentro sidebar o side-rail, le liste
+// li' dentro devono restare scorrevoli in verticale come sempre.
 if(layoutEl){
-  let touchStartX = 0, touchStartY = 0;
+  let touchStartX = 0, touchStartY = 0, touchStartedOnStage = false;
   layoutEl.addEventListener("touchstart", (ev) => {
     if(document.body.dataset.state !== "landing") return;
     touchStartX = ev.touches[0].clientX;
     touchStartY = ev.touches[0].clientY;
+    touchStartedOnStage = !!ev.target.closest(".stage");
   }, { passive: true });
   layoutEl.addEventListener("touchmove", (ev) => {
     if(document.body.dataset.state !== "landing") return;
+    if(!touchStartedOnStage) return; // sidebar/side-rail: lascia scorrere la lista
     const dx = ev.touches[0].clientX - touchStartX;
     const dy = ev.touches[0].clientY - touchStartY;
     if(Math.abs(dy) > Math.abs(dx)){
@@ -712,3 +717,4 @@ paintStaticText();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
+document.documentElement.classList.add("carousel-ready");
