@@ -344,6 +344,7 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
     order:1;
+    margin-right:auto; /* ancora il pulsante a sinistra, qualunque cosa succeda al resto della riga */
     height:35px; box-sizing:border-box;
     display:flex; align-items:center; justify-content:center;
     padding:0 10px;
@@ -354,12 +355,18 @@ body[data-state="entry"] .landing{ display:none; }
   }
   /* La tazzina (icona Ko-fi dentro il brand) sparisce in vista voce:
      tornano invece i pulsanti veri Ko-fi + Discord, centrati come in
-     home, non piu' legati alla posizione del brand. */
+     home, non piu' legati alla posizione del brand. Cerchio/icone
+     colorati con il colore proprio della voce aperta (--item-accent,
+     lo stesso gia' usato per bordo/testo attivi in questa vista),
+     ciano di riserva se una voce non ne ha uno suo. */
   body[data-state="entry"] .brand-icon{ display:none; }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
     display:flex;
+    border-color:var(--item-accent, var(--cyan));
   }
+  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
   body[data-state="entry"] .social-links{
     display:flex; align-items:center; gap:8px;
     position:absolute; left:50%; top:50%;
