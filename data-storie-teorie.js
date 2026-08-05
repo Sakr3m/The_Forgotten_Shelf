@@ -16,9 +16,13 @@ const TEORIE = {
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile.jpg",
     bannerOffset: 75,
     tracks: [
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" }
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Gustave.mp3", title: "Gustave", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20We%20Lost.mp3", title: "We Lost", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Rouge%20D'Iris.mp3", title: "Rouge d'Iris", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Loin%20D'Elle.mp3", title: "Loin d'Elle", game: "Clair Obscur: Expedition 33" }
     ],
     title: {
       it: "Chi è quel Bambino?",
