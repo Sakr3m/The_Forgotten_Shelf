@@ -272,14 +272,13 @@ body[data-state="entry"] .landing{ display:none; }
   .kofi-link__short{ color:var(--cyan); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
-  /* --- Niente lampo iniziale del pannello sbagliato: come gia'
-     risolto su Officina, il carosello di suo parte scrollato al
-     primo pannello (sidebar) finche' lo script non lo riposiziona
-     sullo stage — nel mezzo si vedrebbe un istante di sidebar prima
-     del dovuto. Tutti i pannelli restano invisibili (non
-     display:none: servono gia' larghi/pronti per il posizionamento)
-     finche' la classe carousel-ready non conferma che lo script ha
-     gia' fatto il suo scrollIntoView iniziale. --- */
+  /* --- Niente lampo iniziale del pannello sbagliato: il carosello
+     di suo parte scrollato al primo pannello (sidebar) finche' lo
+     script non lo riposiziona sullo stage — nel mezzo si vedrebbe un
+     istante di sidebar prima del dovuto. Tutti i pannelli restano
+     invisibili (non display:none: servono gia' larghi/pronti per il
+     posizionamento) finche' la classe carousel-ready non conferma
+     che lo script ha gia' fatto il suo scrollIntoView iniziale. --- */
   body[data-state="landing"] .sidebar,
   body[data-state="landing"] .stage,
   body[data-state="landing"] .side-rail{
@@ -291,18 +290,31 @@ body[data-state="entry"] .landing{ display:none; }
     visibility:visible;
   }
 
-  /* --- Blocco scroll verticale sulla home: gestito ora dal JS in
-     script-racconti.js (intercetta il gesto a mano, distingue
-     orizzontale/verticale), non piu' da touch-action qui — quella
-     versione (pan-x sullo stage, pan-y su sidebar/side-rail) bloccava
-     anche lo swipe orizzontale di ritorno una volta finiti su
-     sidebar/side-rail (pan-y = "solo verticale", li'). Lasciamo solo
-     l'overscroll-behavior:contain sulle liste, cosi' il loro scroll
-     non "rimbalza" verso la pagina una volta arrivati in cima/fondo. --- */
-  body[data-state="landing"] .sidebar,
-  body[data-state="landing"] .side-rail{
+  /* --- Sidebar ("Racconti brevi") e side-rail ("Libri"): il titolo
+     resta fisso, SOLO la lista sotto scorre in verticale quando le
+     voci sono troppe per stare tutte a video. Il contenitore esterno
+     (l'intero pannello) non scorre mai — diventa una colonna flex
+     con l'etichetta come riga fissa e <ul> come unica parte
+     scorrevole, invece di far scorrere tutto il pannello (titolo
+     compreso) come un blocco unico. --- */
+  .sidebar, .side-rail{
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+  .sidebar-eyebrow, .rail-label{ flex-shrink:0; }
+  .sidebar .game-list, .side-rail .game-list{
+    flex:1; min-height:0;
+    overflow-y:auto;
     overscroll-behavior:contain;
   }
+
+  /* --- Blocco scroll verticale sulla home: touch-action qui SOLO su
+     .stage (mai su .layout, che gestisce lo swipe nativo — toccarlo
+     la' e' la causa nota di una rottura precedente). Agisce a un
+     livello piu' basso del JS qui sotto (informa il browser prima
+     ancora che parta uno scroll nativo veloce), il JS fa da rete di
+     sicurezza aggiuntiva. */
+  body[data-state="landing"] .stage{ touch-action:pan-x; }
 
   /* --- Storie Nascoste diventa un terzo pannello del carosello
      orizzontale (sidebar | stage | side-rail), raggiungibile
@@ -310,7 +322,7 @@ body[data-state="entry"] .landing{ display:none; }
      aperto da un secondo hamburger (rimosso). --- */
   .side-rail{
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; height:100dvh; overflow-y:auto; scroll-snap-align:start;
+    height:100vh; height:100dvh;
     border-left:none; border-top:none;
     padding:76px 16px 24px;
   }
