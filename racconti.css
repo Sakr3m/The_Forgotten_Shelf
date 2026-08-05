@@ -344,14 +344,27 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
     order:1;
-    font-size:.62rem; line-height:1.15; white-space:pre-line;
-    /* Prima era una riga sola a 1.15rem (~22px di altezza); ora può
-       andare a capo (vedi \n nella stringa in script-racconti.js) ma
-       il blocco risultante, su due righe, deve restare alto uguale:
-       da qui il font molto più piccolo. */
+    height:35px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    padding:0 10px;
+    border:none; background:none;
+    font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
+    color:var(--text-dim);
+    text-align:center;
   }
-  body[data-state="entry"] .brand-icon{ order:2; }
-  body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; } /* = altezza dello switch lingua mobile */
+  /* La tazzina (icona Ko-fi dentro il brand) sparisce in vista voce:
+     tornano invece i pulsanti veri Ko-fi + Discord, centrati come in
+     home, non piu' legati alla posizione del brand. */
+  body[data-state="entry"] .brand-icon{ display:none; }
+  body[data-state="entry"] .kofi-link,
+  body[data-state="entry"] .discord-link{
+    display:flex;
+  }
+  body[data-state="entry"] .social-links{
+    display:flex; align-items:center; gap:8px;
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+  }
   body[data-state="entry"] .stage-controls{
     order:3;
     position:static; width:auto; top:auto; right:auto; left:auto;

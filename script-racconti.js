@@ -5,6 +5,7 @@
 const STRINGS = {
   it: {
     brand: "Storie Senza Cornice",
+    brandMobile: "Storie\nSenza Cornice",
     sidebarEyebrow: "Racconti brevi",
     railLabel: "Libri",
     landingEyebrow: "Benvenuto nell'archivio\ndi libri e racconti brevi",
@@ -18,6 +19,7 @@ const STRINGS = {
   },
   en: {
     brand: "Unframed Stories",
+    brandMobile: "Unframed\nStories",
     sidebarEyebrow: "Short Stories",
     railLabel: "Books",
     landingEyebrow: "Welcome to the archive\nof books and short stories",
