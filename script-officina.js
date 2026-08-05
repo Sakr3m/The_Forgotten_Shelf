@@ -243,6 +243,11 @@ if(mobileBreakpoint.matches && el.layout){
 
   setAudioBtnsUI();
   goToScreen(SCREEN_HOME, true);
+  // Solo ora, dopo aver posizionato il carosello sulla home, i
+  // pannelli laterali diventano visibili (CSS li tiene a
+  // display:none finche' questa classe non compare) — evita lo
+  // sfarfallio del pannello sinistro di default prima dello scrollTo.
+  document.documentElement.classList.add("carousel-ready");
 }
 
 paintStaticText();

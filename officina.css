@@ -144,6 +144,13 @@
     resta none come voluto (niente drag, solo i pulsanti freccia) */
 
   .mathemory-panel{
+    display:none; /* resta nascosto finche' JS non conferma di aver
+      posizionato il carosello sulla home (classe carousel-ready su
+      html) — altrimenti si vede per un istante il pannello sinistro
+      di default (scroll a 0) prima che lo scrollTo lo sposti via,
+      uno sfarfallio evitabile del tutto cosi', non solo accorciato. */
+  }
+  html.carousel-ready .mathemory-panel{
     display:flex; align-items:center; justify-content:center;
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; overflow-y:auto;
