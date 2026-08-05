@@ -294,6 +294,6 @@ document.addEventListener("click", (e) => {
 document.querySelectorAll("a.index-link").forEach(link => {
   link.addEventListener("click", (ev) => {
     ev.preventDefault();
-    setTimeout(() => { window.location.href = link.href; }, 750);
+    setTimeout(() => { window.location.href = link.href; }, 550);
   });
 });
