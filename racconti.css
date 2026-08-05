@@ -256,6 +256,20 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
+  /* --- Blocco scroll verticale sulla home, mirato SOLO qui (test su
+     questa pagina prima di estenderlo altrove): touch-action va SOLO
+     su .stage, non su .layout (che gestisce lo swipe orizzontale
+     nativo — toccarlo la' e' quello che l'altra volta ha rotto lo
+     swipe). Sidebar e side-rail restano esplicitamente scorrevoli in
+     verticale (le liste voci), con overscroll-behavior:contain cosi'
+     il loro scroll non "rimbalza" verso la pagina una volta arrivati
+     in cima/fondo alla lista. --- */
+  body[data-state="landing"] .stage{ touch-action:pan-x; }
+  body[data-state="landing"] .sidebar,
+  body[data-state="landing"] .side-rail{
+    touch-action:pan-y; overscroll-behavior:contain;
+  }
+
   /* --- Storie Nascoste diventa un terzo pannello del carosello
      orizzontale (sidebar | stage | side-rail), raggiungibile
      scorrendo verso destra dallo stage, invece di un cassetto
