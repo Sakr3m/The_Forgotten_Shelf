@@ -254,13 +254,19 @@ function openGenreList(genreName){
   });
   el.mobileGenreList.classList.add("is-open");
   el.mobileGenreList.setAttribute("aria-hidden", "false");
+  document.documentElement.classList.remove("mobile-lock-scroll");
 }
 
 function closeGenreList(){
   if(!el.mobileGenreList) return;
   el.mobileGenreList.classList.remove("is-open");
   el.mobileGenreList.setAttribute("aria-hidden", "true");
+  if(state.view === "landing"){
+    document.documentElement.classList.add("mobile-lock-scroll");
+  }
 }
+
+document.documentElement.classList.add("mobile-lock-scroll");
 
 renderMobileGenreBar();
 
@@ -410,6 +416,7 @@ function openReview(id){
   state.view = id;
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");
+  document.documentElement.classList.remove("mobile-lock-scroll");
   const slot = MUSIC_SLOTS[id];
   if(slot && el.musicControl) slot.appendChild(el.musicControl);
   updateIndexLink();
@@ -420,6 +427,7 @@ function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
   el.body.classList.remove("is-review-open");
+  document.documentElement.classList.add("mobile-lock-scroll");
   closeGenreList();
   updateIndexLink();
   updateMusicPlayback();

@@ -468,6 +468,17 @@
 .mobile-genre-list{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
+  /* Blocco diretto e ridondante su html/body, oltre alla regola
+     condivisa su .stage: quella agisce su un contenitore interno,
+     questa toglie ogni dubbio impedendo lo scroll/il "rimbalzo" del
+     viewport stesso mentre si e' sulla home statica. Guidato da una
+     classe su <html> (script-recensioni.js), non da data-state: qui
+     resta sempre "landing" anche a recensione aperta (serve per non
+     spegnere Discord/Ko-fi), quindi non e' un segnale affidabile per
+     capire se siamo davvero in home. */
+  html.mobile-lock-scroll{ overflow:hidden; height:100%; }
+  html.mobile-lock-scroll body{ overflow:hidden; height:100%; }
+
   .mobile-genre-bar{
     display:flex; gap:10px;
     position:fixed; left:0; right:0; bottom:22px; z-index:8;
