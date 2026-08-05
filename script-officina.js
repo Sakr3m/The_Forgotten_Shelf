@@ -283,3 +283,17 @@ document.addEventListener("click", (e) => {
     tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
   }
 });
+
+// ---------------------------------------------------------
+// "Torna all'index" naviga verso index.html: senza un piccolo
+// ritardo il browser cambia pagina prima che il suono del tap (gia'
+// gestito dal listener generico qui sopra) faccia in tempo a
+// partire, tagliandolo via. Qui si ritarda solo la navigazione vera
+// e propria, non si ripete il suono.
+// ---------------------------------------------------------
+document.querySelectorAll("a.index-link").forEach(link => {
+  link.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    setTimeout(() => { window.location.href = link.href; }, 150);
+  });
+});

@@ -270,6 +270,16 @@
         tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
       }
     });
+
+    // I 5 pulsanti principali navigano verso le altre pagine: senza
+    // un piccolo ritardo il browser cambia pagina prima che il suono
+    // del tap (gia' gestito qui sopra) faccia in tempo a partire.
+    document.querySelectorAll("a.entry").forEach(link => {
+      link.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        setTimeout(() => { window.location.href = link.href; }, 150);
+      });
+    });
   </script>
   <script src="stats.js"></script>
 </body>

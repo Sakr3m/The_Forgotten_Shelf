@@ -432,8 +432,13 @@ el.indexLink.addEventListener("click", (ev) => {
   if(state.view !== "landing"){
     ev.preventDefault();
     backToLanding();
+  } else {
+    // Naviga davvero verso index.html: senza un piccolo ritardo il
+    // browser cambia pagina prima che il suono del tap (gia' gestito
+    // dal listener generico piu' in basso) faccia in tempo a partire.
+    ev.preventDefault();
+    setTimeout(() => { window.location.href = el.indexLink.href; }, 150);
   }
-  // altrimenti, lascia che il link navighi normalmente verso index.html
 });
 
 function crossfadeTo(showEl){
