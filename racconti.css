@@ -256,23 +256,11 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
-  /* --- Sidebar ("Racconti brevi") e side-rail ("Libri"): il titolo
-     resta fisso, SOLO la lista sotto scorre in verticale quando le
-     voci sono troppe per stare tutte a video. Il contenitore esterno
-     (l'intero pannello) non scorre mai — diventa una colonna flex
-     con l'etichetta come riga fissa e <ul> come unica parte
-     scorrevole, invece di far scorrere tutto il pannello (titolo
-     compreso) come un blocco unico. --- */
-  .sidebar, .side-rail{
-    display:flex; flex-direction:column;
-    overflow:hidden;
-  }
-  .sidebar-eyebrow, .rail-label{ flex-shrink:0; }
-  .sidebar .game-list, .side-rail .game-list{
-    flex:1; min-height:0;
-    overflow-y:auto;
-    overscroll-behavior:contain;
-  }
+  /* --- Blocco l'altezza che il browser ricalcola da solo quando
+     nasconde/mostra la propria barra degli indirizzi (stesso
+     accorgimento gia' su index.html): html/body fissati, cosi' la
+     pagina non "respira" a ogni gesto verticale. --- */
+  html, body{ overflow:hidden; height:100%; }
 
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
      index-link e discord-link arrivano gia' dimensionati da
@@ -296,7 +284,7 @@ body[data-state="entry"] .landing{ display:none; }
      aperto da un secondo hamburger (rimosso). --- */
   .side-rail{
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; scroll-snap-align:start;
+    height:100vh; overflow-y:auto; scroll-snap-align:start;
     border-left:none; border-top:none;
     padding:76px 16px 24px;
   }
