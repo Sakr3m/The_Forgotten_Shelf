@@ -256,18 +256,21 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
-  /* --- home/discord/kofi tutti alla stessa altezza (37px, come
-     index.html): index-link e discord-link erano gia' cosi' da
-     styles.css, kofi-link no (si dimensionava solo dal padding).
-     Tolta anche la sottolineatura di default del link, e il testo
-     "KoFi"/l'icona Discord colorati di bianco come le cornici. Il
-     cuoricino di Ko-fi resta rosso, e' il suo colore voluto. --- */
+  /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
+     index-link e discord-link arrivano gia' dimensionati da
+     styles.css (37px condivisi), qui li porto entrambi a 35px senza
+     toccare il file comune. Tolta anche la sottolineatura di default
+     del link KoFi, e il testo "KoFi"/l'icona Discord colorati di
+     bianco come le cornici. Il cuoricino di Ko-fi resta rosso, e' il
+     suo colore voluto. --- */
+  .index-link{ width:35px; height:35px; }
+  .discord-link{ width:35px; height:35px; color:var(--cyan); }
   .kofi-link{
-    height:37px; box-sizing:border-box;
+    height:35px; box-sizing:border-box;
     text-decoration:none;
   }
   .kofi-link__short{ color:var(--cyan); }
-  .discord-link{ color:var(--cyan); }
+  .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* --- Niente lampo iniziale del pannello sbagliato: come gia'
      risolto su Officina, il carosello di suo parte scrollato al
