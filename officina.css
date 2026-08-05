@@ -138,7 +138,10 @@
      le frecce lo sono, finirebbero relative a lui invece che al
      viewport reale, rompendosi). Resta un vero scroll-container,
      pilotato SOLO da scrollTo via JS sui pulsanti freccia. */
-  .layout{ touch-action:none; scroll-snap-type:none; }
+  body[data-state="landing"] .layout{ touch-action:none; scroll-snap-type:none; } /* stessa
+    specificita' della regola condivisa in styles.css (che qui
+    metterebbe pan-x), dichiarata dopo: vince questa, touch-action
+    resta none come voluto (niente drag, solo i pulsanti freccia) */
 
   .mathemory-panel{
     display:flex; align-items:center; justify-content:center;
