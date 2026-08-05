@@ -236,3 +236,40 @@
   body[data-state="game"] .discord-link:hover,
   body[data-state="title"] .discord-link:hover{ color:var(--cyan); }
 }
+
+/* ============================================================
+   Preset di luminosità (1/2/3) — solo desktop. Pulsantini a
+   sinistra della barra di luminosità della filigrana: ogni preset è
+   un salvataggio indipendente per il gioco/voce corrente (es. per
+   schermi diversi con luminosità diverse), gestiti in script.js.
+   Stessa identica cosa di Storie Senza Cornice/Il Filo Nascosto, solo
+   che qui il colore è semplicemente var(--cyan) (già sovrascritta
+   col colore della saga da applyPaletteToCSS), non serve un
+   --item-accent separato con fallback come sulle altre due pagine.
+   Dimensione: 6px in più dell'altezza della barra (20px -> 26px),
+   3px sopra e 3px sotto.
+   ============================================================ */
+@media (hover:hover), (pointer:fine){
+  .watermark-brightness-line__presets{
+    display:flex; align-items:center; gap:4px;
+    margin-right:10px;
+  }
+  .watermark-brightness-line__preset{
+    width:22px; height:26px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--cyan);
+    border-radius:5px;
+    background:transparent;
+    color:var(--text-faint);
+    font-size:.68rem; font-weight:700;
+    opacity:0;
+    transition:opacity .2s ease, color .2s ease, background .2s ease;
+    cursor:pointer;
+  }
+  .watermark-brightness-line:hover .watermark-brightness-line__preset{ opacity:1; }
+  .watermark-brightness-line__preset:hover{ color:var(--text); }
+  .watermark-brightness-line__preset.is-active{
+    background:var(--cyan);
+    color:#000;
+  }
+}

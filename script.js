@@ -74,6 +74,7 @@ const el = {
   railLabel: document.getElementById("railLabel"),
   railTrack: document.getElementById("railTrack"),
   watermarkBrightness: document.getElementById("watermarkBrightness"),
+  watermarkPresets: document.getElementById("watermarkPresets"),
   watermarkBrightnessSlider: document.getElementById("watermarkBrightnessSlider"),
 };
 
@@ -95,30 +96,64 @@ if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
 
-// "Gradiometro" — moltiplicatore di luminosità per le filigrane,
-// una prova richiesta dall'utente: condiviso con storie_senza_cornice.html
-// tramite la stessa chiave, cosi' regolarlo su una pagina vale
-// anche sull'altra.
-const WATERMARK_BRIGHTNESS_KEY = "tfs-watermark-brightness";
-const storedWatermarkBrightness = localStorage.getItem(WATERMARK_BRIGHTNESS_KEY);
-let watermarkBrightness = storedWatermarkBrightness !== null ? parseFloat(storedWatermarkBrightness) : 0.5;
-if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
+// "Gradiometro" — moltiplicatore di luminosità per le filigrane.
+// Stessa identica logica di storie_senza_cornice.html (curva a due fasi +
+// 3 preset per-voce): prima condivisa con un'unica chiave, poi
+// diventata per-voce anche li', ora portata pari pari qui. La
+// "voce" qui è il gioco/saga corrente (g.id), dato che la filigrana
+// è tipicamente legata al franchise, non alla singola voce della
+// timeline. Il preset attivo (WATERMARK_ACTIVE_SLOT_KEY) usa la
+// stessa chiave letterale di storie_senza_cornice.html: cambiarlo su una
+// pagina lo cambia anche sull'altra (rappresenta "che schermo stai
+// usando ora", non qualcosa di specifico a questa pagina).
+const WATERMARK_BRIGHTNESS_KEY_PREFIX = "tfs-watermark-brightness:";
+const WATERMARK_ACTIVE_SLOT_KEY = "tfs-watermark-active-slot";
+let watermarkBrightness = 1;
+let currentWatermarkEntryKey = null;
+let activeWatermarkSlot = localStorage.getItem(WATERMARK_ACTIVE_SLOT_KEY) || "1";
 
-// Applica il moltiplicatore all'opacità base di una filigrana
-// (clampata a 1 come massimo reale, l'opacità CSS non va oltre).
-// currentWatermarkBaseOpacity tiene traccia dell'ultima base usata,
-// cosi' quando si muove lo slider si può ricalcolare senza dover
-// rifare tutto il render del pannello.
-let currentWatermarkBaseOpacity = null;
-function computeWatermarkOpacity(baseOpacity){
-  const base = baseOpacity != null ? baseOpacity : 0.16;
-  currentWatermarkBaseOpacity = base;
-  // Il moltiplicatore reale è il doppio del valore dello slider: a
-  // 0.5 (25% della barra, che va da 0 a 2) il moltiplicatore è
-  // esattamente 1, cioè "usa il valore già impostato per la voce,
-  // invariato" — i valori dati finora per ogni filigrana sono
-  // pensati per stare lì, non a metà barra.
-  return Math.min(1, base * (watermarkBrightness * 2));
+function watermarkBrightnessKeyFor(id){
+  return WATERMARK_BRIGHTNESS_KEY_PREFIX + (id || "default") + ":" + activeWatermarkSlot;
+}
+
+// Curva a due fasi per lo slider 0-1: prima meta' (0-0.5) controlla
+// l'opacita' da 0 a 1; seconda meta' (0.5-1) tiene l'opacita' ferma
+// a 1 e fa salire filter:brightness() da 1 (normale) fino al tetto
+// WATERMARK_BRIGHTNESS_MAX (2 = doppia luminosita'), perche' CSS
+// opacity da sola non puo' andare oltre 1.
+const WATERMARK_BRIGHTNESS_MAX = 2;
+function applyWatermarkVisual(value){
+  const liveWatermark = document.querySelector(".title-watermark, .canon-watermark");
+  if(!liveWatermark) return;
+  if(value <= 0.5){
+    liveWatermark.style.opacity = value * 2;
+    liveWatermark.style.filter = "";
+  } else {
+    liveWatermark.style.opacity = 1;
+    const extra = (value - 0.5) * 2; // 0..1 nella seconda meta'
+    const brightness = 1 + extra * (WATERMARK_BRIGHTNESS_MAX - 1);
+    liveWatermark.style.filter = `brightness(${brightness})`;
+  }
+}
+
+function updateWatermarkPresetButtons(){
+  if(!el.watermarkPresets) return;
+  el.watermarkPresets.querySelectorAll(".watermark-brightness-line__preset").forEach(btn => {
+    btn.classList.toggle("is-active", btn.dataset.preset === activeWatermarkSlot);
+  });
+}
+
+// Ricarica il valore salvato (preset attivo) per il gioco/voce
+// corrente e lo applica: usata sia al render (game/title) sia al
+// cambio preset, cosi' la logica resta in un unico posto. "id" è
+// tipicamente g.id (il gioco/saga corrente).
+function loadWatermarkForId(id){
+  currentWatermarkEntryKey = watermarkBrightnessKeyFor(id);
+  const stored = localStorage.getItem(currentWatermarkEntryKey);
+  watermarkBrightness = stored !== null ? parseFloat(stored) : 0.5;
+  if(el.watermarkBrightnessSlider) el.watermarkBrightnessSlider.value = String(watermarkBrightness);
+  applyWatermarkVisual(watermarkBrightness);
+  updateWatermarkPresetButtons();
 }
 
 // Drag-to-scroll for the horizontal timeline, active only when the manual
@@ -344,7 +379,7 @@ function renderGamePanel(){
     }
     el.universesRow.innerHTML = `
       <div class="canon-page">
-        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}opacity:${computeWatermarkOpacity(g.watermarkOpacity)};${canonWatermarkExtraStyle}"></div>` : ""}
+        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
         <div class="canon-note">
           <p>${tf(g.canonNote.intro)}</p>
           <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
@@ -353,6 +388,7 @@ function renderGamePanel(){
         </div>
       </div>
     `;
+    if(g.watermark) loadWatermarkForId(g.id);
     el.watermarkBrightness.hidden = !g.watermark;
     el.watermarkBrightness.style.top = ""; /* posizione standard (CSS, riga dell'header) */
     el.watermarkBrightness.style.right = "25px"; /* qui il rail non c'è (display:none),
@@ -602,7 +638,7 @@ function renderTitlePanel(){
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
     watermark.style.backgroundSize = g.watermarkSize || "";
     watermark.style.backgroundPosition = g.watermarkPosition || "";
-    watermark.style.opacity = computeWatermarkOpacity(g.watermarkOpacity);
+    loadWatermarkForId(g.id);
     if(g.watermarkBottomFade){
       // Combina la sfumatura orizzontale di sempre con una verticale
       // in più, verso il basso: ammorbidisce il taglio netto in
@@ -842,12 +878,23 @@ el.volumeSlider.addEventListener("input", () => {
 if(el.watermarkBrightnessSlider){
   el.watermarkBrightnessSlider.addEventListener("input", () => {
     watermarkBrightness = parseFloat(el.watermarkBrightnessSlider.value);
-    localStorage.setItem(WATERMARK_BRIGHTNESS_KEY, el.watermarkBrightnessSlider.value);
-    if(currentWatermarkBaseOpacity != null){
-      const liveWatermark = document.querySelector(".title-watermark, .canon-watermark");
-      if(liveWatermark) liveWatermark.style.opacity = Math.min(1, currentWatermarkBaseOpacity * (watermarkBrightness * 2));
+    if(currentWatermarkEntryKey){
+      localStorage.setItem(currentWatermarkEntryKey, el.watermarkBrightnessSlider.value);
     }
+    applyWatermarkVisual(watermarkBrightness);
   });
+}
+
+if(el.watermarkPresets){
+  el.watermarkPresets.querySelectorAll(".watermark-brightness-line__preset").forEach(btn => {
+    btn.addEventListener("click", () => {
+      activeWatermarkSlot = btn.dataset.preset;
+      localStorage.setItem(WATERMARK_ACTIVE_SLOT_KEY, activeWatermarkSlot);
+      const g = currentGame();
+      if(g) loadWatermarkForId(g.id);
+    });
+  });
+  updateWatermarkPresetButtons();
 }
 
 el.musicToggle.addEventListener("click", () => {
