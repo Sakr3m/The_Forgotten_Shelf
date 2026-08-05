@@ -666,7 +666,16 @@ function updateSwipeHints(){
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
-el.brandBtn.addEventListener("click", () => setState("landing"));
+el.brandBtn.addEventListener("click", () => {
+  setState("landing");
+  // Riporta sempre alla home vera, indipendentemente da dove ci si
+  // trova nel carosello in quel momento: se nel frattempo si era
+  // scorso verso una delle due tabelle (restando comunque in vista
+  // voce, .layout resta un carosello anche li'), altrimenti il
+  // pulsante cambiava lo stato ma lasciava lo scroll orizzontale
+  // dov'era, "restituendo" la tabella invece della home.
+  scrollCarouselToStage();
+});
 
 // ---------------------------------------------------------
 // Suono UI al tap, stesso comportamento di timeline.html
