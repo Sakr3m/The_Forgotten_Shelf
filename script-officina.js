@@ -269,3 +269,17 @@ if(mobileBreakpoint.matches && el.layout){
 }
 
 paintStaticText();
+
+// ---------------------------------------------------------
+// Suono UI al tap, stesso comportamento delle altre pagine. Nessuno
+// skip brano da escludere qui (Officina non ha .track-skip - solo
+// toggle acceso/spento).
+// ---------------------------------------------------------
+const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
+document.addEventListener("click", (e) => {
+  if(e.target.closest("button, a.kofi-link, a.discord-link, a.index-link")){
+    const tap = new Audio(TAP_SOUND_URL);
+    tap.volume = 0.2;
+    tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
+  }
+});

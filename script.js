@@ -800,9 +800,16 @@ document.addEventListener("visibilitychange", () => {
 // A fresh Audio instance per click so rapid successive taps
 // can overlap instead of cutting each other off.
 // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Suono UI al tap. Selettore allargato oltre ai soli <button>:
+// kofi/discord/index-link sono <a>, non <button>, restavano esclusi
+// prima. Lo skip del brano (.track-skip) è l'unica eccezione voluta,
+// escluso esplicitamente.
+// ---------------------------------------------------------
 const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
 document.addEventListener("click", (e) => {
-  if(e.target.closest("button")){
+  const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link");
+  if(target && !target.classList.contains("track-skip")){
     const tap = new Audio(TAP_SOUND_URL);
     tap.volume = 0.2;
     tap.play().catch(() => { /* blocked until a user gesture; the click itself is one, so this is just a safety net */ });
