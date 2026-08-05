@@ -158,6 +158,11 @@
      influenzato dalla larghezza della sidebar a sinistra. --- */
   #sidebar{ width:260px; }
 
+  /* Blocco titolo (tag + nome voce) piu' distante dal bordo alto:
+     100px->150px. .title-panel e' usata solo su questa pagina,
+     quindi la sovrascrivo qui invece che nel foglio condiviso. */
+  .title-panel{ margin-top:150px; }
+
   /* La barra di luminosita' delle filigrane (.watermark-brightness-
      line) ha invece un left:230px "duro" nel foglio comune, pensato
      apposta per allinearsi al bordo della sidebar quando era 230px:
