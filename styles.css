@@ -932,13 +932,13 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .layout{
     display:flex; overflow-x:auto; overflow-y:hidden;
     scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-    scrollbar-width:none; height:100vh;
+    scrollbar-width:none; height:100vh; height:100dvh;
   }
   .layout::-webkit-scrollbar{ display:none; }
 
   .sidebar{
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; overflow-y:auto;
+    height:100vh; height:100dvh; overflow-y:auto;
     scroll-snap-align:start;
     position:static; transform:none;
     border-right:none; border-bottom:none;
@@ -974,7 +974,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   /* --- Stage --- */
   .stage{
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; overflow-y:auto; scroll-snap-align:start;
+    height:100vh; height:100dvh; overflow-y:auto; scroll-snap-align:start;
     padding:72px 16px 48px;
   }
   /* La home non deve scorrere verticalmente: e una schermata fissa,

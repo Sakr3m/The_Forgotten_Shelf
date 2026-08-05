@@ -262,7 +262,7 @@ body[data-state="entry"] .landing{ display:none; }
      aperto da un secondo hamburger (rimosso). --- */
   .side-rail{
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; overflow-y:auto; scroll-snap-align:start;
+    height:100vh; height:100dvh; overflow-y:auto; scroll-snap-align:start;
     border-left:none; border-top:none;
     padding:76px 16px 24px;
   }

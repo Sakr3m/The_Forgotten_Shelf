@@ -144,18 +144,20 @@
     resta none come voluto (niente drag, solo i pulsanti freccia) */
 
   .mathemory-panel{
-    display:none; /* resta nascosto finche' JS non conferma di aver
-      posizionato il carosello sulla home (classe carousel-ready su
-      html) — altrimenti si vede per un istante il pannello sinistro
-      di default (scroll a 0) prima che lo scrollTo lo sposti via,
-      uno sfarfallio evitabile del tutto cosi', non solo accorciato. */
-  }
-  html.carousel-ready .mathemory-panel{
     display:flex; align-items:center; justify-content:center;
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; overflow-y:auto;
+    height:100vh; height:100dvh; overflow-y:auto;
     padding:76px 24px 24px;
+    /* visibility, non display:none: il pannello deve occupare gia'
+       il suo spazio nel carosello fin da subito (altrimenti .layout
+       parte largo 100vw invece di 300vw, e lo scrollTo iniziale non
+       ha nulla su cui scorrere — si limitava a non fare niente).
+       Resta invisibile finche' JS non conferma il posizionamento
+       (classe carousel-ready), poi torna visibile: mai un fotogramma
+       col contenuto sbagliato in vista. */
+    visibility:hidden;
   }
+  html.carousel-ready .mathemory-panel{ visibility:visible; }
 
   /* Testo della home al centro esatto dello schermo (non più
      centrato solo nello spazio libero sotto la topbar). */
