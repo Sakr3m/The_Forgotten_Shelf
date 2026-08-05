@@ -332,11 +332,11 @@ const GAMES = {
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Taste%20the%20Blood.mp3", title: "Taste the Blood", game: "Devil May Cry 3" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Subhuman.mp3", title: "Subhuman", game: "Devil May Cry 5" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Divine%20Hate.mp3", title: "Divine Hate", game: "Devil May Cry 3" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Crimson%20Cloud.mp3", title: "Crimson Cloud", game: "Devil May Cry 5" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Shall%20Never%20Surrender.mp3", title: "Shall Never Surrender", game: "Devil May Cry 4" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devil%20Trigger.mp3", title: "Devil Trigger", game: "Devil May Cry 5" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devils%20Never%20Cry.mp3", title: "Devils Never Cry", game: "Devil May Cry 3" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Bury%20the%20Light.mp3", title: "Bury the Light", game: "Devil May Cry 5" }
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Bury%20the%20Light.mp3", title: "Bury the Light", game: "Devil May Cry 5" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devils%20Never%20Cry.mp3", title: "Devils Never Cry", game: "Devil May Cry 3" }
     ],
     universes: [
       {
