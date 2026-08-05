@@ -979,11 +979,14 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   }
   /* La home non deve scorrere verticalmente: e una schermata fissa,
      ci si muove solo in orizzontale (swipe) verso le colonne laterali.
-     Solo overflow-y:hidden (niente touch-action): un tentativo
-     precedente di rinforzarlo con touch-action:pan-x ha rotto lo
-     swipe orizzontale stesso su queste pagine (Racconti/Teorie/
-     Timeline), quindi tolto — qui basta l'overflow. */
-  body[data-state="landing"] .stage{ overflow-y:hidden; }
+     overscroll-behavior-y (non touch-action: quello aveva rotto lo
+     swipe orizzontale su queste pagine) blocca solo il rimbalzo/la
+     barra del browser in verticale, senza toccare la gestione dei
+     gesti — lo swipe orizzontale resta intatto. */
+  body[data-state="landing"] .stage{ overflow-y:hidden; overscroll-behavior-y:none; }
+  body[data-state="landing"] .layout{ overscroll-behavior-y:none; }
+  html:has(body[data-state="landing"]){ overscroll-behavior-y:none; }
+  html:has(body[data-state="landing"]) body{ overscroll-behavior-y:none; }
   .stage-controls{ top:14px; right:12px; gap:8px; }
   .kofi-link{ padding:8px 13px; gap:6px; }
   .kofi-link svg{ width:15px; height:15px; }
