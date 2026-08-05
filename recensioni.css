@@ -254,10 +254,9 @@
 /* .landing arriva gia' con un display:flex da styles.css, che a
    parita' di specificita' vincerebbe su [hidden] quando lo
    nascondiamo via JS per il crossfade. Forziamo qui il caso
-   nascosto. */
-@media (hover:hover), (pointer:fine){
-  .stage > .landing[hidden]{ display:none; }
-}
+   nascosto — universale (prima era solo per desktop, e su mobile
+   la home restava visibile sotto la recensione aperta). */
+.stage > .landing[hidden]{ display:none; }
 
 /* ============================================================
    Voce di recensione (es. Final Fantasy VIII Remastered). Solo
@@ -505,47 +504,49 @@
   }
   .mobile-genre-btn:active{ color:var(--cyan); }
 
-  /* --- Tabella titoli del genere: pannello del carosello a sinistra,
-     come .sidebar nelle altre pagine. Sempre presente nel flusso
-     (flex:0 0 100vw fisso, MAI display:none) — cosi' .layout e' gia'
-     largo 200vw fin dal primo render e i vari scrollTo via JS
-     funzionano subito, senza il bug gia' visto su Officina (nascondere
-     con display:none toglieva spazio al carosello, e il primo
-     scrollTo non aveva nulla su cui scorrere). Resta "invisibile" solo
-     finche' il posizionamento iniziale non e' confermato (classe
-     carousel-ready), poi rimane sempre visibile: non serve piu'
-     nasconderla dopo. Ora raggiungibile anche col dito (swipe),
-     oltre che dal tocco sul genere nella barra bassa. --- */
-  .mobile-genre-table{
+  /* --- Tabella titoli del genere: pannello del carosello a
+     sinistra, come .sidebar nelle altre pagine. Assente dal flusso
+     (display:none) finche' non si tocca un genere: la classe
+     mobile-table-open (aggiunta/tolta via JS) la rende presente —
+     diventando il primo figlio vero di .layout, e lo scrollLeft
+     essendo gia' a 0, la si vede subito senza bisogno di scrollTo.
+     Da quel momento e' scorrevole col dito per tornare indietro
+     (swipe vero); una volta tornati sullo stage ridiventa assente
+     (vedi script-recensioni.js). Stile della lista uguale a quello
+     di Storie Senza Cornice/Il Filo Nascosto: genere come etichetta
+     piccola e grigia in alto, voci sotto senza righe divisorie. --- */
+  html.mobile-table-open .mobile-genre-table{
     display:block; position:relative;
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; height:100dvh; overflow-y:auto;
     scroll-snap-align:start;
     background:var(--bg);
     padding:78px 20px 40px;
-    visibility:hidden;
   }
-  html.carousel-ready .mobile-genre-table{ visibility:visible; }
   .mobile-genre-table__title{
-    font-size:1.3rem; color:var(--text); margin:0 0 20px;
-    padding-bottom:14px; border-bottom:1px solid var(--line);
+    font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--text-faint);
+    margin:0 0 14px; padding:0 8px;
+    text-align:center;
   }
-  .mobile-genre-table__items{ list-style:none; margin:0; padding:0; }
-  .mobile-genre-table__items li + li{ border-top:1px solid var(--line); }
+  .mobile-genre-table__items{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:2px;
+  }
   .mobile-genre-table__items button{
     width:100%; text-align:left;
-    padding:16px 4px;
+    padding:12px 12px;
+    border-radius:var(--radius-sm);
     background:none; border:none;
-    color:var(--text); font-size:1rem; font-weight:600;
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    color:var(--text-dim); font-size:.95rem; font-weight:500;
   }
-  .mobile-genre-table__items button:active{ color:var(--cyan); }
-  .mobile-genre-table__items button svg{ width:14px; height:14px; flex-shrink:0; opacity:.5; }
+  .mobile-genre-table__items button:active{ color:var(--text); font-weight:600; }
 
   /* Freccetta animata (non un pulsante: e' solo un suggerimento
      visivo) che indica di scorrere verso destra per tornare alla
      home — stessa animazione/stile gia' usata su Storie Senza
-     Cornice e Il Filo Nascosto. */
+     Cornice e Il Filo Nascosto. Vive dentro la tabella, quindi non
+     esiste affatto finche' la tabella e' assente (sulla home). */
   .swipe-hint--table-right{
     display:block; position:fixed; top:50%; right:14px; z-index:20;
     transform:translateY(-50%);

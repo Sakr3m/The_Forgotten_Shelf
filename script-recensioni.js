@@ -201,14 +201,18 @@ const MUSIC_SLOTS = {
 // ---------------------------------------------------------
 // SOLO MOBILE: barra generi (header bassa in home) + tabella titoli
 // (pannello del carosello a sinistra, come .sidebar nelle altre
-// pagine). Stesso schema di navigazione gia' usato e collaudato su
-// Officina: niente swipe col dito (.layout ha touch-action:none),
-// solo pulsanti che chiamano goToScreen(). Un solo posto dove
-// aggiungere un genere in futuro (qui), niente da toccare
-// nell'HTML. Le card vengono lette direttamente dal carrello
-// desktop (data-review + il testo della tile), cosi' le due liste
-// (desktop e mobile) restano sempre sincronizzate da un'unica fonte
-// invece di doverle mantenere doppie.
+// pagine). La tabella e' assente dal carosello finche' non si tocca
+// un genere (niente da raggiungere scorrendo a sinistra dalla home
+// per sbaglio): il tocco la rende presente (diventa il primo figlio
+// vero di .layout, visibile subito perche' lo scrollLeft resta a 0)
+// e da quel momento e' scorrevole col dito per tornare indietro
+// (swipe vero, non un pulsante). Una volta tornati sullo stage
+// torna assente, va ritoccato un genere per riaprirla. Un solo
+// posto dove aggiungere un genere in futuro (qui), niente da
+// toccare nell'HTML. Le card vengono lette direttamente dal
+// carrello desktop (data-review + il testo della tile), cosi' le
+// due liste (desktop e mobile) restano sempre sincronizzate da
+// un'unica fonte invece di doverle mantenere doppie.
 // ---------------------------------------------------------
 function buildGenresFromDOM(){
   const genres = {}; // { "JRPG": [{id, title}, ...], ... }
@@ -242,22 +246,10 @@ function renderMobileGenreBar(){
   });
 }
 
-// SCREEN_TABLE (0, sinistra) / SCREEN_STAGE (1, destra — home o
-// recensione aperta, a seconda di cosa mostra .stage in quel
-// momento). Stesso schema/nome di variabile di script-officina.js.
-const SCREEN_TABLE = 0;
-const SCREEN_STAGE = 1;
-let currentMobileScreen = SCREEN_STAGE;
-
-function goToMobileScreen(index, instant){
-  if(!el.layout) return;
-  currentMobileScreen = Math.max(SCREEN_TABLE, Math.min(SCREEN_STAGE, index));
-  el.layout.scrollTo({ left: currentMobileScreen * window.innerWidth, behavior: instant ? "instant" : "smooth" });
-}
-
-// Popola la tabella e ci scivola sopra. La tabella e' sempre parte
-// del carosello (mai display:none — vedi CSS), quindi lo scrollTo
-// funziona sempre, dal primo tocco.
+// Popola la tabella e la rende presente nel carosello. Nessuno
+// scrollTo necessario per "entrarci": diventando il primo figlio
+// vero di .layout, e lo scrollLeft essendo gia' a 0 (dove si stava
+// guardando lo stage), la si vede gia' subito da sola.
 function openGenreTable(genreName){
   const items = GENRES[genreName];
   if(!items || !el.mobileGenreTable) return;
@@ -267,27 +259,36 @@ function openGenreTable(genreName){
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.innerHTML = `<span>${item.title}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    btn.textContent = item.title;
     btn.addEventListener("click", () => {
       openReview(item.id);
       // Scivola dalla tabella verso lo stage, dove la recensione e'
       // appena apparsa.
-      goToMobileScreen(SCREEN_STAGE);
+      if(el.layout) el.layout.scrollTo({ left: window.innerWidth, behavior: "smooth" });
     });
     li.appendChild(btn);
     el.mobileGenreListItems.appendChild(li);
   });
-  goToMobileScreen(SCREEN_TABLE);
+  document.documentElement.classList.add("mobile-table-open");
 }
 
-if(isMobileNav() && el.layout){
-  goToMobileScreen(SCREEN_STAGE, true);
-  // Solo ora, dopo aver posizionato il carosello sullo stage, la
-  // tabella diventa visibile (CSS la tiene a visibility:hidden finche'
-  // questa classe non compare) — stesso accorgimento gia' fatto per
-  // Officina, evita lo sfarfallio del pannello sinistro di default
-  // prima dello scrollTo.
-  document.documentElement.classList.add("carousel-ready");
+// Rilevamento "sono tornato sullo stage": quando lo scroll
+// orizzontale si assesta sulla posizione dello stage (non piu' sulla
+// tabella), la tabella ha fatto il suo dovere — la si toglie dal
+// carosello, cosi' non e' piu' raggiungibile scorrendo a sinistra
+// dalla home finche' non si riseleziona un genere.
+let tableCollapseTimer = null;
+if(el.layout){
+  el.layout.addEventListener("scroll", () => {
+    if(!document.documentElement.classList.contains("mobile-table-open")) return;
+    clearTimeout(tableCollapseTimer);
+    tableCollapseTimer = setTimeout(() => {
+      if(el.layout.scrollLeft >= window.innerWidth - 10){
+        document.documentElement.classList.remove("mobile-table-open");
+        el.layout.scrollLeft = 0;
+      }
+    }, 150);
+  });
 }
 
 renderMobileGenreBar();
@@ -460,8 +461,11 @@ function backToLanding(){
   state.view = "landing";
   el.body.classList.remove("is-review-open");
   // Solo mobile: se si stava guardando la tabella o una recensione,
-  // torna a mostrare lo stage (home) nel carosello.
-  goToMobileScreen(SCREEN_STAGE, true);
+  // torna a mostrare lo stage (home) nel carosello, e la tabella (se
+  // era presente) torna assente — va ritoccato un genere per
+  // riaprirla.
+  if(el.layout) el.layout.scrollLeft = 0;
+  document.documentElement.classList.remove("mobile-table-open");
   if(isMobileNav()) el.body.dataset.state = "landing";
   updateIndexLink();
   updateMusicPlayback();
