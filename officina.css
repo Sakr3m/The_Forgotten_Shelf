@@ -132,6 +132,30 @@
    ============================================================ */
 .mathemory-panel{ display:none; }
 @media (hover:none) and (pointer:coarse){
+  /* --- Blocco l'altezza che il browser ricalcola da solo quando
+     nasconde/mostra la propria barra degli indirizzi (stesso
+     accorgimento gia' su index.html/Storie Senza Cornice/Il Filo
+     Nascosto): qui il trascinamento e' gia' bloccato del tutto
+     (touch-action:none qui sotto), ma restava comunque il lampo
+     della barra del browser che si nasconde/mostra da sola — questo
+     lo toglie. --- */
+  html, body{ overflow:hidden; height:100%; }
+
+  /* --- home/discord/kofi/switch tutti alla stessa altezza (35px),
+     stesso criterio delle altre pagine. Sottolineatura tolta da
+     KoFi, testo/icona colorati di bianco come le cornici (il
+     cuoricino resta rosso, colore voluto). Officina non ha una
+     "vista voce" separata (niente stato entry), quindi si applica
+     sempre, non solo in home. --- */
+  .index-link{ width:35px; height:35px; }
+  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .kofi-link{
+    height:35px; box-sizing:border-box;
+    text-decoration:none;
+  }
+  .kofi-link__short{ color:var(--cyan); }
+  .lang-switch{ height:35px; box-sizing:border-box; }
+
   /* Niente swipe: touch-action:none blocca il gesto di trascinamento
      senza però trasformare .layout (un transform lo renderebbe il
      nuovo contenitore di riferimento per i figli position:fixed —
