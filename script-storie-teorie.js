@@ -47,6 +47,9 @@ const state = {
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
+  brand: document.querySelector(".brand"),
+  socialLinks: document.querySelector(".social-links"),
+  stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
@@ -261,8 +264,19 @@ function setState(view){
     state.column = null; state.entryId = null;
     el.body.style.removeProperty("--item-accent");
     el.body.style.setProperty("--cyan", "#ffffff");
+    // Ko-fi/Discord tornano al loro posto originale (dentro
+    // .stage-controls), stessa tecnica di Storie Senza Cornice.
+    // Solo desktop: su mobile .social-links non viene mai spostato.
+    if(!mobileBreakpoint.matches && el.stageControls && el.socialLinks && el.socialLinks.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
+    }
   } else {
     el.body.style.removeProperty("--cyan");
+    // Solo desktop, solo vista voce: la tazzina lascia il posto ai
+    // pulsanti veri Ko-fi+Discord, spostati dentro .brand.
+    if(!mobileBreakpoint.matches && el.brand && el.socialLinks && el.brandBtn && el.socialLinks.parentElement !== el.brand){
+      el.brand.insertBefore(el.socialLinks, el.brandBtn);
+    }
   }
 
   el.landingPanel.hidden = view !== "landing";
