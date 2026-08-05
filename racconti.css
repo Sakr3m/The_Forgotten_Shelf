@@ -256,13 +256,6 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
 
-  /* --- Blocco l'altezza che il browser ricalcola da solo quando
-     nasconde/mostra la propria barra degli indirizzi (stesso
-     accorgimento gia' su index.html): html/body fissati, cosi' la
-     pagina non "respira" a ogni gesto verticale. Nessun blocco sul
-     touch: lo swipe orizzontale resta libero al 100%. --- */
-  html, body{ overflow:hidden; }
-
   /* --- Sidebar ("Racconti brevi") e side-rail ("Libri"): il titolo
      resta fisso, SOLO la lista sotto scorre in verticale quando le
      voci sono troppe per stare tutte a video. Il contenitore esterno
