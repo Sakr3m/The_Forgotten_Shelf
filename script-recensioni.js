@@ -148,6 +148,10 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   indexLink: document.getElementById("indexLink"),
   gateSideToggle: document.getElementById("gateSideToggle"),
+  mobileGenreBar: document.getElementById("mobileGenreBar"),
+  mobileGenreList: document.getElementById("mobileGenreList"),
+  mobileGenreListTitle: document.getElementById("mobileGenreListTitle"),
+  mobileGenreListItems: document.getElementById("mobileGenreListItems"),
   gateToggleRight: document.getElementById("gateToggleRight"),
   reviewsGateRight: document.getElementById("reviewsGateRight"),
   gateToggleLeft: document.getElementById("gateToggleLeft"),
@@ -190,6 +194,75 @@ const MUSIC_SLOTS = {
   ffviii: el.musicSlotFfviii,
   ffix: el.musicSlotFfix
 };
+
+// ---------------------------------------------------------
+// SOLO MOBILE: barra generi in fondo alla home + schermata lista
+// titoli. Un solo posto dove aggiungere un genere in futuro (qui),
+// niente da toccare nell'HTML. Le card vengono lette direttamente
+// dal carrello desktop (data-review + il testo della tile), cosi'
+// le due liste (desktop e mobile) restano sempre sincronizzate da
+// un'unica fonte invece di doverle mantenere doppie.
+// ---------------------------------------------------------
+function buildGenresFromDOM(){
+  const genres = {}; // { "JRPG": [{id, title}, ...], ... }
+  document.querySelectorAll(".reviews-gate--right .reviews-genre").forEach(genreBlock => {
+    const label = genreBlock.querySelector(".reviews-genre__label");
+    if(!label) return;
+    const genreName = label.textContent.trim();
+    const items = [];
+    genreBlock.querySelectorAll("[data-review]").forEach(tile => {
+      items.push({
+        id: tile.dataset.review,
+        title: tile.querySelector(".review-tile__title").textContent.trim()
+      });
+    });
+    if(items.length) genres[genreName] = items;
+  });
+  return genres;
+}
+const GENRES = buildGenresFromDOM();
+
+function renderMobileGenreBar(){
+  if(!el.mobileGenreBar) return;
+  el.mobileGenreBar.innerHTML = "";
+  Object.keys(GENRES).forEach(genreName => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "mobile-genre-btn";
+    btn.textContent = genreName;
+    btn.addEventListener("click", () => openGenreList(genreName));
+    el.mobileGenreBar.appendChild(btn);
+  });
+}
+
+function openGenreList(genreName){
+  const items = GENRES[genreName];
+  if(!items || !el.mobileGenreList) return;
+  el.mobileGenreListTitle.textContent = genreName;
+  el.mobileGenreListItems.innerHTML = "";
+  items.forEach(item => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.innerHTML = `<span>${item.title}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    btn.addEventListener("click", () => {
+      closeGenreList();
+      openReview(item.id);
+    });
+    li.appendChild(btn);
+    el.mobileGenreListItems.appendChild(li);
+  });
+  el.mobileGenreList.classList.add("is-open");
+  el.mobileGenreList.setAttribute("aria-hidden", "false");
+}
+
+function closeGenreList(){
+  if(!el.mobileGenreList) return;
+  el.mobileGenreList.classList.remove("is-open");
+  el.mobileGenreList.setAttribute("aria-hidden", "true");
+}
+
+renderMobileGenreBar();
 
 function t(key){ return STRINGS[state.lang][key]; }
 
@@ -301,6 +374,12 @@ el.indexLink.addEventListener("click", (ev) => {
   if(state.view !== "landing"){
     ev.preventDefault();
     backToLanding();
+  } else if(el.mobileGenreList && el.mobileGenreList.classList.contains("is-open")){
+    // Solo mobile: se e' aperta la schermata "titoli del genere",
+    // il link "torna alla home" la richiude invece di navigare via
+    // (si e' gia' concettualmente in home, solo con un overlay sopra).
+    ev.preventDefault();
+    closeGenreList();
   }
   // altrimenti, lascia che il link navighi normalmente verso index.html
 });
@@ -341,6 +420,7 @@ function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
   el.body.classList.remove("is-review-open");
+  closeGenreList();
   updateIndexLink();
   updateMusicPlayback();
 }

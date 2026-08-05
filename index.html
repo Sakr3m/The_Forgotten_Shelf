@@ -126,6 +126,15 @@
      "torna all'index" (siamo gia' in home) quindi Discord prende
      quel posto a sinistra, e Ko-fi resta da solo al centro. */
   @media (hover:none) and (pointer:coarse){
+    /* Home statica su mobile: mai scroll verticale della pagina.
+       body e' gia' flex-centrato (regola di base), qui blocchiamo
+       solo l'overflow — se il contenuto fosse mai troppo alto per
+       schermi molto piccoli, viene tagliato invece di scorrere,
+       mai un vero e proprio scroll su/giu'. */
+    html, body{ overflow:hidden; height:100%; }
+  }
+
+  @media (hover:none) and (pointer:coarse){
     .top-controls{
       position:fixed; top:0; left:0; right:0; transform:none;
       display:flex; align-items:center; justify-content:space-between;

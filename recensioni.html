@@ -143,6 +143,25 @@
         <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" data-i18n="gateSideToggleOff">Apri il cancello da sinistra</button>
       </section>
 
+      <!-- Barra generi, SOLO mobile: unica cosa scorrevole (in
+           orizzontale) della home statica, ancorata al fondo dello
+           schermo. Fuori da .landing apposta: .landing ha un
+           transform (per centrarsi), che renderebbe "position:fixed"
+           qui dentro relativo a lei invece che al vero viewport.
+           Generata a runtime da script-recensioni.js (oggetto
+           GENRES), cosi' aggiungere un genere in futuro non richiede
+           toccare l'HTML. -->
+      <div class="mobile-genre-bar" id="mobileGenreBar"></div>
+
+      <!-- Schermata "titoli del genere", SOLO mobile: si apre toccando
+           una card della barra qui sopra. Overlay a tutto schermo,
+           contenuto (lista titoli) generato da JS. Si scorre in
+           verticale (e' una lista da consultare, non una home). -->
+      <section class="mobile-genre-list" id="mobileGenreList" aria-hidden="true">
+        <h2 class="mobile-genre-list__title" id="mobileGenreListTitle"></h2>
+        <ul class="mobile-genre-list__items" id="mobileGenreListItems"></ul>
+      </section>
+
       <!-- Voce di recensione (Final Fantasy VII, originale 1997): nascosta
            finche' non selezionata dal carrello. Testo/immagini ancora
            segnaposto, in attesa delle immagini vere. -->
