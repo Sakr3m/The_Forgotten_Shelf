@@ -214,6 +214,12 @@ if(mobileBreakpoint.matches && el.layout){
     syncMobileAudio();
   }
 
+  // La scritta "L'Officina Grezza" (al posto della casetta, quando
+  // si e' su Mathemory) deve riportare alla home — prima non faceva
+  // nulla (il listener vuoto piu' sotto era pensato per quando il
+  // pulsante era sempre nascosto, ora invece compare davvero).
+  el.brandBtn.addEventListener("click", () => goToScreen(SCREEN_HOME));
+
   // Carosello "a cerchio": premendo la STESSA freccia che ha
   // portato su un Mathemory, si continua nella stessa direzione
   // (salto istantaneo, invisibile, al pannello gemello — contenuto
