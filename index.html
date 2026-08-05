@@ -220,7 +220,7 @@
 
   <script>
     const langSwitch = document.getElementById("langSwitch");
-    const homeEl = document.querySelector(".home");
+    const titleEl = document.querySelector(".home-title");
     const LANG_KEY = "tfs-lang";
     const storedLang = localStorage.getItem(LANG_KEY);
     let lang = (storedLang === "it" || storedLang === "en") ? storedLang : "it";
@@ -237,14 +237,15 @@
     }
 
     // La barra dei 3 pulsanti in alto e' fissa in posizione, ma larga
-    // quanto il contenuto vero sotto (.home, un flex a colonna con
-    // align-items:center: la sua larghezza renderizzata equivale gia'
-    // a quella del figlio piu' largo, cioe' il pulsante-voce piu'
-    // lungo). Rimisurata dopo ogni cambio lingua (i testi cambiano
-    // lunghezza) e a ogni resize della finestra.
+    // esattamente quanto il titolo sotto (non i 5 pulsanti-voce, che
+    // possono anche essere più larghi): Discord parte dove inizia il
+    // titolo, lo switch dove finisce, Ko-fi in mezzo. Rimisurata dopo
+    // ogni cambio lingua (il testo del titolo resta uguale nelle due
+    // lingue in questo caso, ma per coerenza/sicurezza futura) e a
+    // ogni resize della finestra.
     function syncTopControlsWidth(){
-      if(!homeEl) return;
-      const width = homeEl.getBoundingClientRect().width;
+      if(!titleEl) return;
+      const width = titleEl.getBoundingClientRect().width;
       document.documentElement.style.setProperty("--content-width", width + "px");
     }
     window.addEventListener("resize", syncTopControlsWidth);
