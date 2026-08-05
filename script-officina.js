@@ -8,6 +8,7 @@
 const STRINGS = {
   it: {
     brand: "L'Officina Grezza",
+    brandMobile: "L'Officina\nGrezza",
     landingEyebrow: "Benvenuto nell'officina",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche i progetti personali che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
@@ -18,6 +19,7 @@ const STRINGS = {
   },
   en: {
     brand: "The Raw Workshop",
+    brandMobile: "The Raw\nWorkshop",
     landingEyebrow: "Welcome to the workshop",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects personal projects that live elsewhere: games and tools in progress, linked from here.",
@@ -75,7 +77,9 @@ function t(key){ return STRINGS[state.lang][key]; }
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
     const key = node.getAttribute("data-i18n");
-    node.textContent = t(key);
+    const mobileKey = key + "Mobile";
+    const useMobile = mobileBreakpoint.matches && STRINGS[state.lang][mobileKey];
+    node.textContent = useMobile ? t(mobileKey) : t(key);
   });
   document.documentElement.lang = state.lang;
   el.body.dataset.lang = state.lang;
@@ -197,6 +201,10 @@ if(mobileBreakpoint.matches && el.layout){
   function goToScreen(index, instant){
     currentScreen = Math.max(0, Math.min(2, index));
     el.layout.scrollTo({ left: currentScreen * window.innerWidth, behavior: instant ? "instant" : "smooth" });
+    // Solo la home vera (screen 1) mostra la casetta; sui due
+    // pannelli Mathemory (0 e 2, e chi si aggiungera' in futuro)
+    // torna la scritta a sinistra come nelle altre pagine.
+    document.body.classList.toggle("mathemory-open", currentScreen !== SCREEN_HOME);
     // Non forza più acceso all'arrivo: rispetta lo stato condiviso
     // con le altre pagine (localStorage), muto se era stato mutato
     // altrove.

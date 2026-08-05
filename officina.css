@@ -242,6 +242,26 @@
     margin-bottom:65px;
     z-index:2;
   }
+
+  /* --- Casetta solo sulla home vera (screen 1): sui due pannelli
+     Mathemory (0 e 2, e chi si aggiungera' in futuro) torna la
+     scritta a sinistra come nelle altre pagine — pulsante alto
+     35px, niente bordo, su due righe se serve. La classe che
+     distingue i due casi (mathemory-open) e' gestita in
+     script-officina.js, dentro goToScreen(). --- */
+  body.mathemory-open .index-link{ display:none; }
+  body.mathemory-open .brand{ display:contents; }
+  body.mathemory-open .brand-icon{ display:none; }
+  body.mathemory-open .brand-text{
+    order:1;
+    height:35px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    padding:0;
+    border:none; background:none;
+    font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
+    color:var(--text-dim);
+    text-align:center;
+  }
 }
 
 /* ============================================================
