@@ -476,8 +476,20 @@
      resta sempre "landing" anche a recensione aperta (serve per non
      spegnere Discord/Ko-fi), quindi non e' un segnale affidabile per
      capire se siamo davvero in home. */
-  html.mobile-lock-scroll{ overflow:hidden; height:100%; }
-  html.mobile-lock-scroll body{ overflow:hidden; height:100%; }
+  html.mobile-lock-scroll{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:pan-x; }
+  html.mobile-lock-scroll body{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:pan-x; }
+  /* .layout/.stage sono contenitori scrollabili per natura (servono
+     al carosello orizzontale delle altre pagine): anche con
+     overflow-y:hidden, un elemento comunque "scrollabile" puo' far
+     scattare il rimbalzo/la barra del browser al tocco verticale.
+     touch-action:pan-x lo blocca alla radice (permette solo il
+     movimento orizzontale, mai verticale), su tutta la catena —
+     necessario usare pan-x ovunque e non "none" da qualche parte:
+     "none" su un antenato blocca anche il pan-x di un discendente
+     (es. la barra generi), che invece deve restare scorrevole in
+     orizzontale. */
+  html.mobile-lock-scroll .layout{ touch-action:pan-x; overscroll-behavior:none; }
+  html.mobile-lock-scroll .stage{ touch-action:pan-x; overscroll-behavior:none; }
 
   .mobile-genre-bar{
     display:flex; gap:10px;
