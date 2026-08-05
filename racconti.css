@@ -255,6 +255,26 @@ body[data-state="landing"] #pageHeader{ display:none; }
      su mobile in precedenza). */
   .kofi-link, .index-link{ text-decoration:none; }
 
+  /* --- Colore "spento" (fuori hover) uniformato al grigio di
+     index.html (--text-faint, non il --text-dim del foglio comune):
+     vale sia in home che nelle voci, testo e icone. Il cuoricino di
+     Ko-fi in home resta rosso come deciso in precedenza (non tocco
+     quella riga), qui e' solo testo/altre icone. --- */
+  .kofi-link, .index-link{ color:var(--text-faint); }
+  .discord-link{ color:var(--text-faint); }
+
+  /* --- Altezza uniforme di tutti i pulsanti (casetta, Ko-fi,
+     Discord, switch lingua), sia in home che nelle voci: prima le
+     voci li avevano piu' piccoli (padding ridotto), qui si allineano
+     tutti a 38px netti con box-sizing:border-box. La forma resta
+     quella di ciascuno (pillola per Ko-fi/casetta/switch, cerchio per
+     Discord) — solo la LARGHEZZA di Ko-fi cambia un po' (testo piu'
+     corto nelle voci, "KoFi" invece del testo lungo). --- */
+  .kofi-link, .index-link, .discord-link, .lang-switch{
+    height:38px; box-sizing:border-box;
+  }
+  .discord-link{ width:38px; }
+
   /* --- Vista voce: la tazzina (icona Ko-fi dentro .brand) lascia il
      posto ai pulsanti veri di Ko-fi (solo cuoricino + "KoFi", non il
      testo lungo) e Discord, spostati fisicamente dentro .brand da
@@ -262,19 +282,26 @@ body[data-state="landing"] #pageHeader{ display:none; }
      un riordino CSS da solo non li farebbe comparire qui). Ordine:
      Ko-fi, poi Discord alla sua destra, poi la scritta. Nel DOM sono
      discord-poi-kofi (per l'ordine in home), quindi qui li giro con
-     row-reverse invece di riscrivere il markup. --- */
+     row-reverse invece di riscrivere il markup. Bordo del colore
+     della voce aperta (--item-accent); cuoricino/icona Discord grigi
+     "spenti" e colorati dell'accento solo in hover. --- */
   body[data-state="entry"] .brand-icon{ display:none; }
   body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
   body[data-state="entry"] .brand .social-links{
     display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
   }
   body[data-state="entry"] .kofi-link,
-  body[data-state="entry"] .discord-link{ display:flex; }
-  body[data-state="entry"] .kofi-link{ padding:7px 14px; font-size:.76rem; }
+  body[data-state="entry"] .discord-link{
+    display:flex;
+    border-color:var(--item-accent, var(--cyan));
+  }
+  body[data-state="entry"] .kofi-link{ font-size:.76rem; }
   body[data-state="entry"] .kofi-link__full{ display:none; }
   body[data-state="entry"] .kofi-link__short{ display:inline; }
-  body[data-state="entry"] .discord-link{ width:32px; height:32px; }
   body[data-state="entry"] .discord-link svg{ width:15px; height:15px; }
+  body[data-state="entry"] .kofi-link svg{ color:var(--text-faint); }
+  body[data-state="entry"] .kofi-link:hover svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .discord-link:hover{ color:var(--item-accent, var(--cyan)); }
 }
 
 body[data-state="landing"] .entry-panel{ display:none; }
