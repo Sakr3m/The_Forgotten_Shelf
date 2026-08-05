@@ -7,6 +7,7 @@
 const STRINGS = {
   it: {
     brand: "Diari di Gioco",
+    brandMobile: "Diari\ndi Gioco",
     landingEyebrow: "Benvenuto nelle recensioni",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf raccoglie anche impressioni oneste sui giochi che ho giocato — completati, platinati o amati senza motivo — senza pretese di essere una guida.",
@@ -55,6 +56,7 @@ const STRINGS = {
   },
   en: {
     brand: "Game Diaries",
+    brandMobile: "Game\nDiaries",
     landingEyebrow: "Welcome to the reviews",
     landingTitle: "The Forgotten Shelf",
     landingIntro: "The Forgotten Shelf also collects honest impressions on the games I've played — completed, platinumed, or loved for no good reason — with no pretense of being a guide.",
@@ -151,7 +153,6 @@ const el = {
   layout: document.querySelector(".layout"),
   mobileGenreBar: document.getElementById("mobileGenreBar"),
   mobileGenreTable: document.getElementById("mobileGenreTable"),
-  mobileGenreBackBtn: document.getElementById("mobileGenreBackBtn"),
   mobileGenreListTitle: document.getElementById("mobileGenreListTitle"),
   mobileGenreListItems: document.getElementById("mobileGenreListItems"),
   gateToggleRight: document.getElementById("gateToggleRight"),
@@ -182,7 +183,7 @@ if(el.volumeSlider){
 
 // Mappa id-recensione -> elemento della voce corrispondente. Un solo
 // titolo per ora; aggiungerne altri significa solo aggiungere una
-// riga qui (e il markup nascosto della voce in recensioni.html).
+// riga qui (e il markup nascosto della voce in diari_di_gioco.html).
 const REVIEWS = {
   ffvii: el.reviewFfvii,
   ffviii: el.reviewFfviii,
@@ -279,19 +280,6 @@ function openGenreTable(genreName){
   goToMobileScreen(SCREEN_TABLE);
 }
 
-if(el.mobileGenreBackBtn){
-  el.mobileGenreBackBtn.addEventListener("click", () => goToMobileScreen(SCREEN_STAGE));
-}
-
-// Blocco extra dello swipe a livello JS (oltre a touch-action:none in
-// CSS), stessa tecnica di Officina: la navigazione deve avvenire SOLO
-// tramite i pulsanti.
-if(el.layout){
-  el.layout.addEventListener("touchmove", (ev) => ev.preventDefault(), { passive: false });
-}
-
-document.documentElement.classList.add("mobile-lock-scroll");
-
 if(isMobileNav() && el.layout){
   goToMobileScreen(SCREEN_STAGE, true);
   // Solo ora, dopo aver posizionato il carosello sullo stage, la
@@ -315,7 +303,9 @@ function isMobileNav(){
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
     const key = node.getAttribute("data-i18n");
-    node.textContent = t(key);
+    const mobileKey = key + "Mobile";
+    const useMobile = isMobileNav() && STRINGS[state.lang][mobileKey];
+    node.textContent = useMobile ? t(mobileKey) : t(key);
   });
   document.documentElement.lang = state.lang;
   el.langSwitch.querySelectorAll(".lang-option").forEach(opt => {

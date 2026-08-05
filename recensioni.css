@@ -466,15 +466,27 @@
 .mobile-genre-table{ display:none; }
 
 @media (hover:none) and (pointer:coarse){
-  /* Niente swipe col dito da nessuna parte su questa pagina (stesso
-     criterio di Officina): la navigazione tra home e tabella genere
-     avviene SOLO tramite tocchi su pulsanti veri (barra generi,
-     freccia "indietro" nella tabella), mai trascinando. Risolve anche
-     lo scroll/rimbalzo verticale indesiderato della home, alla radice
-     invece che nascondendolo con overflow soltanto. */
-  .layout{ touch-action:none; scroll-snap-type:none; }
-  html.mobile-lock-scroll{ overflow:hidden; height:100%; overscroll-behavior:none; }
-  html.mobile-lock-scroll body{ overflow:hidden; height:100%; overscroll-behavior:none; }
+  /* Blocco l'altezza che il browser ricalcola da solo quando
+     nasconde/mostra la propria barra degli indirizzi (stesso
+     accorgimento delle altre pagine). Lo swipe orizzontale resta
+     libero: qui NON si blocca piu' il gesto touch (l'avevamo fatto
+     credendo fosse la causa di un rimbalzo verticale, che invece era
+     solo la barra del browser stessa — vedi le altre pagine per lo
+     stesso dietrofront). */
+  html, body{ overflow:hidden; height:100%; }
+
+  /* --- home/discord/kofi/switch tutti alla stessa altezza (35px),
+     stesso criterio delle altre pagine. Sottolineatura tolta da
+     KoFi, testo/icona colorati di bianco come le cornici (il
+     cuoricino resta rosso, colore voluto). --- */
+  .index-link{ width:35px; height:35px; }
+  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .kofi-link{
+    height:35px; box-sizing:border-box;
+    text-decoration:none;
+  }
+  .kofi-link__short{ color:var(--cyan); }
+  .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* --- Barra generi: "header bassa" nella home, solo testo (niente
      cornici sui pulsanti) --- */
@@ -502,13 +514,13 @@
      scrollTo non aveva nulla su cui scorrere). Resta "invisibile" solo
      finche' il posizionamento iniziale non e' confermato (classe
      carousel-ready), poi rimane sempre visibile: non serve piu'
-     nasconderla dopo, dato che non e' raggiungibile col dito
-     (touch-action:none su .layout) — ci si arriva solo tramite i
-     pulsanti, mai per sbaglio. --- */
+     nasconderla dopo. Ora raggiungibile anche col dito (swipe),
+     oltre che dal tocco sul genere nella barra bassa. --- */
   .mobile-genre-table{
     display:block; position:relative;
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; height:100dvh; overflow-y:auto;
+    scroll-snap-align:start;
     background:var(--bg);
     padding:78px 20px 40px;
     visibility:hidden;
@@ -530,19 +542,18 @@
   .mobile-genre-table__items button:active{ color:var(--cyan); }
   .mobile-genre-table__items button svg{ width:14px; height:14px; flex-shrink:0; opacity:.5; }
 
-  /* Pulsante "torna indietro" nella tabella: stessa freccia animata
-     di prima, ma ora e' un vero pulsante toccabile (niente piu' swipe
-     col dito da suggerire, si torna solo toccandolo). */
-  .mobile-genre-table__back{
-    display:flex; align-items:center; justify-content:center;
-    position:fixed; top:50%; right:14px; z-index:20;
+  /* Freccetta animata (non un pulsante: e' solo un suggerimento
+     visivo) che indica di scorrere verso destra per tornare alla
+     home — stessa animazione/stile gia' usata su Storie Senza
+     Cornice e Il Filo Nascosto. */
+  .swipe-hint--table-right{
+    display:block; position:fixed; top:50%; right:14px; z-index:20;
     transform:translateY(-50%);
-    width:40px; height:40px;
-    background:var(--panel); border:1px solid var(--line); border-radius:50%;
     color:var(--text-faint);
+    animation:swipeHintRight 1.6s ease-in-out infinite;
+    pointer-events:none;
   }
-  .mobile-genre-table__back svg{ width:16px; height:16px; display:block; }
-  .mobile-genre-table__back:active{ color:var(--cyan); border-color:var(--cyan); }
+  .swipe-hint--table-right svg{ width:16px; height:16px; display:block; }
 
   /* --- Voce di recensione: normale figlio di .stage (come .landing),
      NON un overlay a se stante — cosi' si passa alla tabella con lo
@@ -587,9 +598,10 @@
   .review-entry .threshold{ margin:0 0 24px; }
 
   /* --- Topbar in "vista voce" (recensione aperta): stesso
-     trattamento gia' usato dalle altre pagine del sito in stato
-     "entry" (scritta a sinistra, tazza di Ko-fi al centro, switch
-     lingua a destra) — qui attivo SOLO su mobile (vedi
+     trattamento delle altre pagine in stato "entry" (scritta a
+     sinistra su due righe senza bordo, tazzina nascosta, Ko-fi +
+     Discord veri centrati sullo schermo colorati con l'accento della
+     voce aperta) — qui attivo SOLO su mobile (vedi
      script-recensioni.js: su desktop data-state resta sempre
      "landing", apposta per non spegnere Discord/Ko-fi/index-link,
      che restano visibili li'). Discord/Ko-fi/index-link si
@@ -606,10 +618,29 @@
   }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
-    order:1; font-size:.9rem; font-weight:700;
+    order:1;
+    margin-right:auto;
+    height:35px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    padding:0;
+    border:none; background:none;
+    font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
+    color:var(--text-dim);
+    text-align:center;
   }
-  body[data-state="entry"] .brand-icon{ order:2; }
-  body[data-state="entry"] .brand-icon .seal--mini{ --size:30px; }
+  body[data-state="entry"] .brand-icon{ display:none; }
+  body[data-state="entry"] .kofi-link,
+  body[data-state="entry"] .discord-link{
+    display:flex;
+    border-color:var(--item-accent, var(--cyan));
+  }
+  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .social-links{
+    display:flex; align-items:center; gap:8px;
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+  }
   body[data-state="entry"] .stage-controls{
     order:3; position:static; width:auto; top:auto; right:auto; left:auto;
   }
