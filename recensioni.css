@@ -471,15 +471,35 @@
      righe diagonali finche' non arriva l'immagine vera, poi solo
      background-image inline da aggiungere qui sopra). Il testo sopra
      e' quello a cui l'immagine si riferisce, quindi vive subito dopo
-     il paragrafo pertinente. */
-  .review-entry .deep-image-slot{
-    width:100%; aspect-ratio:16/9;
-    margin:24px 0;
-    border-radius:8px; overflow:hidden;
-    background-color:#161d2f;
-    background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
-    background-size:cover; background-position:center; background-repeat:no-repeat;
-  }
+     il paragrafo pertinente. Regole universali (non solo desktop):
+     il testo della recensione si vede anche su mobile. */
+}
+
+.review-entry .deep-image-slot{
+  width:100%; aspect-ratio:16/9;
+  margin:24px 0;
+  border-radius:8px; overflow:hidden;
+  background-color:#161d2f;
+  background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+
+/* Pulsante-link verso una teoria correlata (Il Filo Nascosto), al
+   posto di un link nudo dentro il testo: stesso linguaggio del
+   pulsante della soglia spoiler, ma con un'icona di collegamento
+   esterno. Universale (non solo desktop). */
+.review-entry .deep-theory-link{
+  display:inline-flex; align-items:center; gap:8px;
+  margin:0 0 24px;
+  padding:10px 20px;
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:999px;
+  color:var(--text); font-size:.88rem; font-weight:600;
+  transition:background var(--dur-fast) var(--ease);
+}
+.review-entry .deep-theory-link svg{ width:16px; height:16px; flex-shrink:0; color:var(--item-accent, var(--cyan)); }
+.review-entry .deep-theory-link:hover{
+  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 12%, transparent);
 }
 
 /* ============================================================
