@@ -76,6 +76,13 @@ const el = {
   watermarkPresets: document.getElementById("watermarkPresets"),
 };
 
+// Spostato qui in cima (prima serviva piu' in basso nel file, ma
+// veniva letto anche da codice a livello principale eseguito PRIMA
+// di quel punto — es. il volume iniziale della musica — causando un
+// errore "Cannot access before initialization" che bloccava tutto
+// lo script a meta', prima ancora di disegnare le liste laterali).
+const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
+
 // ---------------------------------------------------------
 // Volume e stato on/off condivisi tra le pagine (Timeline, Storie &
 // Teorie, Racconti) tramite localStorage: letti qui, PRIMA di
@@ -667,7 +674,6 @@ el.langSwitch.addEventListener("click", () => {
 // es. dopo aver scelto una voce da uno dei due elenchi laterali.
 // Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
 mobileBreakpoint.addEventListener("change", paintStaticText);
 const stageEl = document.getElementById("stage");
 
