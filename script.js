@@ -871,7 +871,7 @@ document.addEventListener("click", (e) => {
   const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link");
   if(target && !target.classList.contains("track-skip")){
     const tap = new Audio(TAP_SOUND_URL);
-    tap.volume = mobileBreakpoint.matches ? 0.15 : 0.05;
+    tap.volume = mobileBreakpoint.matches ? 0.25 : 0.07;
     tap.play().catch(() => { /* blocked until a user gesture; the click itself is one, so this is just a safety net */ });
   }
 });
