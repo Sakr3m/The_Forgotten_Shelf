@@ -278,6 +278,46 @@
    forzato qui il caso nascosto, universale (vale anche su mobile). */
 .review-entry .threshold[hidden]{ display:none; }
 
+/* --- Copertina, scheda (etichetta/righe) e icona platino: erano
+   finite per errore solo nel blocco desktop (stesso identico bug
+   di scoping gia' trovato oggi con .deep-image-slot/.deep-theory-
+   link) - su mobile .cover-slot non aveva aspect-ratio, quindi
+   restava alta 0px (copertina "sparita"), e testo/icona restavano
+   completamente non stilizzati (lista grezza, trofeo enorme senza
+   vincoli di grandezza). Regole universali, valgono sia desktop che
+   mobile; solo la RIGA/COLONNA (.facts flex-direction) resta diversa
+   tra i due, quella si' scoped per contesto. --- */
+.review-entry .cover-slot{
+  aspect-ratio:3/4;
+  border-radius:8px; overflow:hidden;
+  background-color:#161d2f;
+  background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  border:1px solid var(--line);
+  margin-bottom:16px;
+  /* Il gradiente qui sopra e' solo il fallback quando manca
+     un'immagine: lo style inline in HTML (background-image) lo
+     sovrascrive con la copertina vera, stessa proprieta'. */
+}
+.review-entry .facts dl{ margin:0; }
+.review-entry .facts-eyebrow{
+  font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--text-faint); margin-bottom:10px;
+  padding-bottom:8px; border-bottom:1px solid var(--line);
+}
+.review-entry .facts dt{
+  font-size:.7rem; color:var(--text-faint); margin-top:10px;
+}
+.review-entry .facts dd{
+  margin:2px 0 0; color:var(--text); font-size:.86rem; font-weight:600;
+}
+.review-entry .fact-completed{
+  display:flex; align-items:center; gap:6px;
+}
+.review-entry .platinum-icon{
+  width:17px; height:17px; flex-shrink:0;
+}
+
 /* ============================================================
    Voce di recensione (es. Final Fantasy VIII Remastered). Solo
    desktop per ora, come il resto del carrello. Ispirata al mockup
@@ -369,38 +409,10 @@
   .review-entry .facts{
     /* Non serve piu' sticky: l'intero .review-entry e' gia' alto
        quanto la viewport, quindi la scheda resta ferma per natura
-       (e' .reading, non la pagina, a scorrere). */
+       (e' .reading, non la pagina, a scorrere). Solo desktop: su
+       mobile .facts e' una riga compatta (cover+scheda affiancate),
+       non serve un proprio scroll indipendente. */
     overflow-y:auto; max-height:100%;
-  }
-  .review-entry .cover-slot{
-    aspect-ratio:3/4;
-    border-radius:8px; overflow:hidden;
-    background-color:#161d2f;
-    background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
-    background-size:cover; background-position:center; background-repeat:no-repeat;
-    border:1px solid var(--line);
-    margin-bottom:16px;
-    /* Il gradiente qui sopra e' solo il fallback quando manca
-       un'immagine: lo style inline in HTML (background-image) lo
-       sovrascrive con la copertina vera, stessa proprieta'. */
-  }
-  .review-entry .facts dl{ margin:0; }
-  .review-entry .facts-eyebrow{
-    font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--text-faint); margin-bottom:10px;
-    padding-bottom:8px; border-bottom:1px solid var(--line);
-  }
-  .review-entry .facts dt{
-    font-size:.7rem; color:var(--text-faint); margin-top:10px;
-  }
-  .review-entry .facts dd{
-    margin:2px 0 0; color:var(--text); font-size:.86rem; font-weight:600;
-  }
-  .review-entry .fact-completed{
-    display:flex; align-items:center; gap:6px;
-  }
-  .review-entry .platinum-icon{
-    width:17px; height:17px; flex-shrink:0;
   }
 
   .review-entry .reading{
