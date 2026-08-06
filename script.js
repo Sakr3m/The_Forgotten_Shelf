@@ -869,7 +869,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-el.bgMusic.volume = parseFloat(el.volumeSlider.value);
+el.bgMusic.volume = mobileBreakpoint.matches ? 1 : parseFloat(el.volumeSlider.value);
 el.volumeSlider.addEventListener("input", () => {
   el.bgMusic.volume = parseFloat(el.volumeSlider.value);
   localStorage.setItem(VOLUME_KEY, el.volumeSlider.value);
