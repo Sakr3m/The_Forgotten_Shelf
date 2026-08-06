@@ -404,17 +404,13 @@
     padding-right:12px; /* spazio per non far toccare il testo alla
       scrollbar quando compare */
   }
-  /* Il blocco "recensione veloce" fiancheggia la cover+scheda:
-     altezza aumentata rispetto a prima (che copriva solo la cover,
-     293px) per includere anche le righe della scheda sotto di lei
-     (etichetta "Scheda" + Sviluppatore/Uscita/Completato) - cosi'
-     quello che segue (soglia spoiler) riparte solo sotto l'ultima
-     riga della scheda (Completato, con o senza la coppetta del
-     platino), non piu' a meta' scheda. 293 (cover) + ~158 (etichetta
-     + 3 righe dt/dd) = 451px circa. Per ora vuoto (solo l'etichetta),
-     testo segnaposto tolto in attesa di quello vero. */
+  /* Il blocco "recensione veloce" ora ha contenuto vero e di
+     lunghezza variabile (prima era vuoto, allineato a mano
+     all'altezza della scheda con un min-height calcolato): tolto
+     quel vincolo, scorre in flusso naturale — quello che segue
+     (soglia spoiler) parte semplicemente dopo di lui, qualunque sia
+     la sua lunghezza reale. */
   .review-entry .quick-take{
-    min-height:451px;
     margin-bottom:16px;
   }
   .review-entry .section-eyebrow{
@@ -426,19 +422,17 @@
     font-size:1.25rem; color:var(--text); margin:28px 0 12px;
   }
 
-  /* --- Soglia spoiler: segue subito il blocco "recensione veloce"
-     qui sopra, quindi riparte gia' all'altezza giusta (fianco a
-     fianco con "Scheda") senza bisogno di margini calcolati a
-     mano. --- */
+  /* --- Soglia spoiler: non piu' legata a un'altezza precisa, segue
+     semplicemente il blocco "recensione veloce" sopra di lei. --- */
   .review-entry .threshold{
     display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
     margin:0 0 28px;
-    padding:13px 24px;
+    padding:28px 24px;
     border:1px solid rgba(250,204,21,.35);
     background:rgba(250,204,21,.06);
     border-radius:var(--radius);
   }
-  .review-entry .threshold__icon{ font-size:1.1rem; }
+  .review-entry .threshold__icon{ font-size:1.4rem; }
   .review-entry .threshold p{
     margin:0; color:var(--text-dim); font-size:.9rem;
     white-space:nowrap; /* una riga sola quando la risoluzione lo permette */
