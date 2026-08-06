@@ -273,6 +273,11 @@
    la home restava visibile sotto la recensione aperta). */
 .stage > .landing[hidden]{ display:none; }
 
+/* Stesso principio: .threshold ha un display:flex (dentro il blocco
+   desktop) che a parita' di specificita' vincerebbe su [hidden] -
+   forzato qui il caso nascosto, universale (vale anche su mobile). */
+.review-entry .threshold[hidden]{ display:none; }
+
 /* ============================================================
    Voce di recensione (es. Final Fantasy VIII Remastered). Solo
    desktop per ora, come il resto del carrello. Ispirata al mockup
