@@ -279,7 +279,7 @@ const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.m
 document.addEventListener("click", (e) => {
   if(e.target.closest("button, a.kofi-link, a.discord-link, a.index-link")){
     const tap = new Audio(TAP_SOUND_URL);
-    tap.volume = 0.01;
+    tap.volume = 0.05;
     tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
   }
 });
