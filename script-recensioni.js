@@ -28,7 +28,8 @@ const STRINGS = {
     factReleaseOriginal: "Uscita originale",
     factCompleted: "Completato",
     ffviiiCompleted: "Sì, 100%",
-    quickReadLabel: "Recensione veloce, sguardo d'insieme · spoiler minimi o assenti",
+    quickReadLabelPart1: "Recensione veloce, sguardo d'insieme",
+    quickReadLabelPart2: "spoiler minimi o assenti",
     ffviiiQuickNarrativeTitle: "Narrativa e Mondo",
     ffviiiQuickNarrativeText: "La storia si basa principalmente sui due personaggi principali. Presenta dei veri e propri buchi di trama in alcune parti, capaci di far impallidire persino un Dark Souls, ma questo non ha fermato i fan dal cercare risposte, e talvolta dal crearsele da soli. Il gioco ha comunque una storia davvero bella, con cambi di registro non indifferenti, e un'ambientazione fantasy affascinante, anche se scarna come quella dei videogiochi dell'epoca PlayStation 1.",
     ffviiiQuickGameplayTitle: "Gameplay",
@@ -37,7 +38,8 @@ const STRINGS = {
     ffviiiQuickTechText: "WOW! Non si può aggiungere molto altro. Per l'epoca, la grafica e le musiche di Final Fantasy VIII erano qualcosa di ineguagliabile. Oggi, ovviamente, non è più così, almeno per quanto riguarda la grafica, ma le cutscene rimangono ancora affascinanti e capaci di mettere in dubbio la loro provenienza dalla PlayStation 1. Sì, la remastered ha ritoccato poco e niente, giusto qualche sprite dei personaggi e in minima parte l'ambientazione.",
     thresholdText: "Attenzione: la recensione completa può contenere spoiler pesanti, finale incluso.",
     thresholdBtn: "Leggi recensione completa",
-    ffviiiDeepMainTitle: "Recensione completa, senza filtri · spoiler presenti",
+    ffviiiDeepMainTitlePart1: "Recensione completa, senza filtri",
+    ffviiiDeepMainTitlePart2: "spoiler presenti",
     ffviiiTheoryLinkLabel: "Vai alla teoria su Il Filo Nascosto",
     ffviiiClosing: "Se un giorno vi capiterà di giocare per la prima volta, o di rigiocare per l'ennesima, a questo titolo stupendo, abbracciate i kyactus da parte mia <3.",
     ffviiiFull01: "Parto subito con una confessione: Final Fantasy VIII è il mio videogioco preferito in assoluto, a prescindere dai suoi difetti e dalle critiche che ha ricevuto. Questo non significa che eviterò di parlare dei suoi aspetti fallaci, anche se la versione \"completa\" di queste recensioni lascia volutamente spazio a valutazioni soggettive.",
@@ -115,7 +117,8 @@ const STRINGS = {
     factReleaseOriginal: "Original release",
     factCompleted: "Completed",
     ffviiiCompleted: "Yes, 100%",
-    quickReadLabel: "Quick review, overview · minimal or no spoilers",
+    quickReadLabelPart1: "Quick review, overview",
+    quickReadLabelPart2: "minimal or no spoilers",
     ffviiiQuickNarrativeTitle: "Story & World",
     ffviiiQuickNarrativeText: "The story focuses mainly on the two lead characters. It has genuine plot holes in places, bad enough to make even Dark Souls blush, but that hasn't stopped fans from hunting for answers, and sometimes making them up themselves. Still, the game tells a genuinely beautiful story, with some notable shifts in tone, and a fantasy setting that's compelling even if as sparse as you'd expect from a PlayStation 1-era title.",
     ffviiiQuickGameplayTitle: "Gameplay",
@@ -124,7 +127,8 @@ const STRINGS = {
     ffviiiQuickTechText: "WOW! There's not much to add. For its time, Final Fantasy VIII's visuals and music were simply unmatched. That's obviously no longer true today, at least on the graphics side, but the cutscenes are still striking, enough to make you question whether they actually came from a PlayStation 1. Yes, the remaster barely touched anything, just a few character sprites and, to a lesser extent, the environments.",
     thresholdText: "Warning: the full review may contain heavy spoilers, including the ending.",
     thresholdBtn: "Read the full review",
-    ffviiiDeepMainTitle: "Full review, no filter · spoilers ahead",
+    ffviiiDeepMainTitlePart1: "Full review, no filter",
+    ffviiiDeepMainTitlePart2: "spoilers ahead",
     ffviiiTheoryLinkLabel: "Go to the theory on The Hidden Thread",
     ffviiiClosing: "If you ever find yourself playing this wonderful game for the first time, or replaying it for the umpteenth time, give the cactuars a hug from me <3.",
     ffviiiFull01: "I'll start with a confession right away: Final Fantasy VIII is my all-time favorite video game, regardless of its flaws and the criticism it's received. That said, I won't shy away from talking about its shaky sides either, even though this \"full\" version of the review leaves plenty of room for subjective takes.",
@@ -418,7 +422,22 @@ function paintStaticText(){
   el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
 
   updateIndexLink();
+  checkEyebrowWrap();
 }
+
+// Le intestazioni "Recensione veloce.../Recensione completa..." vanno
+// a capo separatamente (punto tolto) solo quando le due meta' non ci
+// stanno affiancate su una riga sola - misurato qui, non c'e' un modo
+// affidabile in solo CSS per "spezza SE non ci sta".
+function checkEyebrowWrap(){
+  document.querySelectorAll(".section-eyebrow").forEach(eyebrow => {
+    eyebrow.classList.remove("is-wrapped");
+    if(eyebrow.scrollWidth > eyebrow.clientWidth + 1){
+      eyebrow.classList.add("is-wrapped");
+    }
+  });
+}
+window.addEventListener("resize", checkEyebrowWrap);
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   localStorage.setItem(LANG_KEY, state.lang);
@@ -542,6 +561,7 @@ function openReview(id){
   closeGate(el.gateToggleRight, el.reviewsGateRight);
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
   crossfadeTo(entryEl);
+  requestAnimationFrame(checkEyebrowWrap);
   state.view = id;
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");

@@ -278,6 +278,15 @@
    forzato qui il caso nascosto, universale (vale anche su mobile). */
 .review-entry .threshold[hidden]{ display:none; }
 
+/* Switch lingua colorato con l'accento della voce aperta (era gia'
+   cosi' su Storie Senza Cornice/Il Filo Nascosto, mancava qui):
+   fuori dalle voci --item-accent non e' impostata, quindi il
+   fallback --cyan (bianco) resta il colore normale. */
+.lang-switch{ border-color:var(--item-accent, var(--cyan)); }
+/* Stesso trattamento per il pulsante volume/mute del player: acceso
+   E in una voce aperta -> colore della voce, non il ciano generico. */
+body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
+
 /* --- Copertina, scheda (etichetta/righe) e icona platino: erano
    finite per errore solo nel blocco desktop (stesso identico bug
    di scoping gia' trovato oggi con .deep-image-slot/.deep-theory-
@@ -317,6 +326,26 @@
 .review-entry .platinum-icon{
   width:17px; height:17px; flex-shrink:0;
 }
+
+/* --- Intestazioni "Recensione veloce.../Recensione completa..."
+   (.section-eyebrow): quando le due meta' non ci stanno affiancate
+   su una riga sola, vanno a capo separatamente (il punto in mezzo
+   sparisce, non ha senso lasciarlo a fine/inizio riga) invece di
+   spezzare il testo a caso in un punto qualunque. Misurato via JS
+   (checkEyebrowWrap in script-recensioni.js): non esiste un modo
+   affidabile in solo CSS per "spezza qui SE non ci sta", quindi si
+   confronta la larghezza naturale del testo con quella disponibile
+   e si aggiunge/toglie la classe is-wrapped di conseguenza. */
+.review-entry .section-eyebrow{
+  font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:14px;
+  display:flex; flex-wrap:nowrap; justify-content:center; gap:6px;
+}
+.review-entry .section-eyebrow.is-wrapped{
+  flex-direction:column; align-items:center; gap:2px;
+}
+.review-entry .section-eyebrow .eyebrow-dot{ opacity:.6; }
+.review-entry .section-eyebrow.is-wrapped .eyebrow-dot{ display:none; }
 
 /* ============================================================
    Voce di recensione (es. Final Fantasy VIII Remastered). Solo
@@ -429,10 +458,6 @@
      la sua lunghezza reale. */
   .review-entry .quick-take{
     margin-bottom:16px;
-  }
-  .review-entry .section-eyebrow{
-    font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--cyan); margin-bottom:14px;
   }
   .review-entry .reading p{ margin:0 0 16px; }
   .review-entry .reading h2{
@@ -660,14 +685,15 @@
   }
   .review-entry .facts{
     order:2;
-    display:flex; flex-direction:row; gap:14px; align-items:flex-start;
+    display:flex; flex-direction:row-reverse; gap:14px; align-items:flex-start;
     margin-bottom:20px;
   }
   .review-entry .cover-slot{
     flex:0 0 110px; width:110px; max-width:110px; margin-bottom:0;
   }
   .review-entry .facts dl{ flex:1; min-width:0; }
-  .review-entry .entry-header__meta{ order:3; margin-bottom:18px; }
+  .review-entry .facts-eyebrow{ width:fit-content; }
+  .review-entry .entry-header__meta{ order:3; margin-bottom:18px; justify-content:center; }
   .review-entry .music-control-slot{ order:4; margin-bottom:22px; }
   /* .track-info ha un max-width:280px pensato per il player della
      home: qui, insieme al pulsante skip e all'icona volume sulla
@@ -677,6 +703,7 @@
   .review-entry .music-control .track-info{ max-width:none; flex:1; min-width:0; }
   .review-entry .reading{
     order:5; height:auto; overflow:visible; padding-right:0;
+    font-size:.95rem; line-height:1.7;
   }
   .review-entry .quick-take{ min-height:0; margin-bottom:20px; }
   .review-entry .threshold{
