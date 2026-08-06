@@ -657,11 +657,33 @@
   .review-entry .facts dl{ flex:1; min-width:0; }
   .review-entry .entry-header__meta{ order:3; margin-bottom:18px; }
   .review-entry .music-control-slot{ order:4; margin-bottom:22px; }
+  /* .track-info ha un max-width:280px pensato per il player della
+     home: qui, insieme al pulsante skip e all'icona volume sulla
+     stessa riga, su schermi stretti (~360px) rischia di andare in
+     overflow. Lo rendo elastico invece che con un tetto fisso. */
+  .review-entry .music-control{ width:100%; }
+  .review-entry .music-control .track-info{ max-width:none; flex:1; min-width:0; }
   .review-entry .reading{
     order:5; height:auto; overflow:visible; padding-right:0;
   }
   .review-entry .quick-take{ min-height:0; margin-bottom:20px; }
-  .review-entry .threshold{ margin:0 0 24px; }
+  .review-entry .threshold{
+    margin:0 0 24px;
+    padding:20px 18px;
+  }
+
+  /* --- Rifiniture mobile della recensione completa (aggiunte oggi
+     su desktop, verificate qui per la prima volta su schermo
+     stretto): segnaposto immagine leggermente meno distanziato
+     (24px->18px, sta meglio su schermi piccoli), pulsante-teoria a
+     tutta larghezza invece che stretto attorno al testo (tocco piu'
+     comodo, meno rischio di andare a capo in modo scomodo con testi
+     lunghi come quello inglese). --- */
+  .review-entry .deep-image-slot{ margin:18px 0; }
+  .review-entry .deep-theory-link{
+    width:100%; justify-content:center;
+    margin:0 0 20px;
+  }
 
   /* --- Topbar in "vista voce" (recensione aperta): stesso
      trattamento delle altre pagine in stato "entry" (scritta a
