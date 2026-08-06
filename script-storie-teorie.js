@@ -445,7 +445,7 @@ document.addEventListener("click", (e) => {
   const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link");
   if(target && !target.classList.contains("track-skip")){
     const tap = new Audio(TAP_SOUND_URL);
-    tap.volume = 0.12;
+    tap.volume = 0.01;
     tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
   }
 });
