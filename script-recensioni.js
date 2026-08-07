@@ -185,7 +185,7 @@ const STRINGS = {
   }
 };
 
-const state = { lang: "it", activeSide: "right", view: "landing", musicOn: false, trackIndex: 0 };
+const state = { lang: "en", activeSide: "right", view: "landing", musicOn: false, trackIndex: 0 };
 
 // Stessa playlist usata per la voce "Final Fantasy VIII" in Il Filo
 // Nascosto (data-storie-teorie.js) — stesso gioco, stessi brani.

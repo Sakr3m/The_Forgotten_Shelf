@@ -38,7 +38,7 @@ const STRINGS = {
 };
 
 const state = {
-  lang: "it",
+  lang: "en",
   view: "landing",     // landing | game | title
   gameId: null,
   universeIndex: 0,
@@ -54,6 +54,7 @@ const el = {
   brand: document.querySelector(".brand"),
   socialLinks: document.querySelector(".social-links"),
   stageControls: document.querySelector(".stage-controls"),
+  musicControl: document.getElementById("musicControl"),
   langSwitch: document.getElementById("langSwitch"),
   musicToggle: document.getElementById("musicToggle"),
   bgMusic: document.getElementById("bgMusic"),
@@ -373,6 +374,32 @@ function renderGamePanel(){
       <p class="game-header__blurb">${tf(g.blurb)}</p>
     </div>
   `;
+  // Solo mobile: avatar e pulsante musica posizionati con numeri
+  // fissi, NON piu' misurati sul banner a runtime (il banner puo'
+  // anche non esserci, non cambia nulla): top:65px = meta' dei 130px
+  // noti di altezza del banner (vedi .game-header__banner in
+  // la_traccia_del_tempo.css). Il volume si sposta fisicamente dentro
+  // al game-header (altrimenti resta nella stage-topbar); il suo
+  // bordo destro e' 16px fisso, lo stesso valore/criterio degli
+  // elementi condivisi con Diari di Gioco (switch lingua, Ko-fi,
+  // Discord — tutti a 16px dal bordo nella stage-topbar), affidabile
+  // ora che .stage non ruba piu' spazio con la sua scrollbar.
+  const cover = el.gameHeader.querySelector(".game-header__cover");
+  if(mobileBreakpoint.matches){
+    if(cover){
+      cover.style.top = "65px";
+      cover.style.transform = "translateY(-50%)";
+    }
+    if(el.musicControl){
+      el.gameHeader.appendChild(el.musicControl);
+      el.musicControl.style.position = "absolute";
+      el.musicControl.style.left = "auto";
+      el.musicControl.style.right = "0px"; /* a filo con lo switch lingua, 16px dal bordo vero */
+      el.musicControl.style.zIndex = "3";
+      el.musicControl.style.top = "65px";
+      el.musicControl.style.transform = "translateY(-50%)";
+    }
+  }
 
   if(g.noTimeline){
     el.universesRow.className = "universe-stage no-timeline";
@@ -476,7 +503,8 @@ function renderGamePanel(){
       // no need for any of the desktop's width-fitting/overlap/scroll-toggle
       // machinery — just a comfortable fixed gap between stacked nodes.
       liveTimeline.style.justifyContent = "";
-      liveTimeline.style.gap = "36px";
+      liveTimeline.style.gap = "0px"; /* ancora piu' vicini, richiesto
+        di nuovo: prima 6px */
       liveTimeline.style.overflowX = "";
       liveTimeline.style.flexGrow = "";
       liveTimeline.style.flexShrink = "";
@@ -484,6 +512,53 @@ function renderGamePanel(){
       liveTimeline.style.width = "";
       liveTimeline.classList.remove("is-scrollable");
       Array.from(liveTimeline.querySelectorAll(".h-node")).forEach(node => { node.style.marginLeft = ""; });
+
+      // Il marker (pallino+trattino) va allineato al centro dell'AVATAR,
+      // non al centro dell'intero blocco avatar+titolo: quel blocco ha
+      // altezza variabile a seconda di quanto è lungo il titolo, quindi
+      // un centraggio CSS statico (grid align-self:center sull'intera
+      // riga) punta al centro del blocco, non dell'avatar. Qui si
+      // corregge nodo per nodo misurando la differenza reale.
+      liveTimeline.querySelectorAll(".h-node").forEach(node => {
+        const tile = node.querySelector(".h-node__tile");
+        const marker = node.querySelector(".h-node__marker");
+        if(!tile || !marker){ if(marker) marker.style.transform = ""; return; }
+        const nodeRect = node.getBoundingClientRect();
+        const tileCenter = tile.getBoundingClientRect().top + tile.getBoundingClientRect().height / 2 - nodeRect.top;
+        marker.style.transform = "";
+        const markerRect = marker.getBoundingClientRect();
+        const markerCenter = markerRect.top + markerRect.height / 2 - nodeRect.top;
+        const delta = tileCenter - markerCenter;
+        marker.style.transform = Math.abs(delta) > 0.5 ? `translateY(${delta.toFixed(2)}px)` : "";
+      });
+
+      // Distanza tra i pallini SEMPRE uguale, anche quando un nodo non
+      // ha immagine (e quindi e' molto piu' basso del normale): un
+      // margine fisso uguale per tutti sballava in quei casi. Qui si
+      // misura la posizione vera di ogni pallino (dopo il centraggio
+      // sopra) e si sposta ogni nodo, uno alla volta in ordine, cosi'
+      // la distanza dal pallino precedente sia sempre la stessa,
+      // qualunque sia l'altezza reale del nodo.
+      const nodeEls = Array.from(liveTimeline.querySelectorAll(".h-node"));
+      const targetDotGap = 90; // px tra un pallino e il successivo
+      nodeEls.forEach(node => { node.style.marginTop = ""; });
+      let prevDotY = null;
+      nodeEls.forEach(node => {
+        const dot = node.querySelector(".h-node__dot");
+        if(!dot) return;
+        const r = dot.getBoundingClientRect();
+        const dotY = r.top + r.height / 2;
+        if(prevDotY !== null){
+          const actualGap = dotY - prevDotY;
+          const delta = targetDotGap - actualGap;
+          node.style.marginTop = delta.toFixed(2) + "px";
+        }
+        // Rimisuro dopo l'eventuale aggiustamento, cosi' il nodo
+        // successivo parte dalla posizione vera, non da quella di
+        // prima della correzione.
+        const r2 = dot.getBoundingClientRect();
+        prevDotY = r2.top + r2.height / 2;
+      });
 
       const dots = liveTimeline.querySelectorAll(".h-node__dot");
       if(dots.length){

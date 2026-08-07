@@ -34,7 +34,7 @@ const STRINGS = {
 };
 
 const state = {
-  lang: "it",
+  lang: "en",
   view: "landing",   // landing | entry
   column: null,      // teorie | storie
   entryId: null,

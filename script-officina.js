@@ -34,7 +34,7 @@ const STRINGS = {
   }
 };
 
-const state = { lang: "it" };
+const state = { lang: "en" };
 
 // Lingua condivisa con le altre pagine (Timeline, Storie & Teorie,
 // Racconti, Recensioni) tramite localStorage: letta qui, prima di

@@ -100,15 +100,24 @@
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* --- Banner della vista "game": stessa idea di Storie Senza
-     Cornice. Banner a piena larghezza, avatar quadrato in alto a
-     sinistra sopra di lui, pulsante musica in alto a destra sopra di
-     lui. Titolo/testo (blurb) sotto, in flusso normale, non piu'
-     accavallati al banner. Niente tendina di selezione voce qui
-     (non serve su mobile per questa pagina). --- */
+  /* --- Banner della vista "game": stessa distanza dalla topbar di
+     Storie Senza Cornice/Il Filo Nascosto (70px, vedi anche il nuovo
+     padding-top dello stage qui sotto). Avatar e pulsante musica non
+     sono piu' ancorati in alto a sinistra/destra: sono centrati
+     verticalmente sul banner (top:50% + translateY, cosi' non serve
+     conoscere l'altezza esatta di nessuno dei due). Il pulsante
+     musica e' spostato qui fisicamente da script.js/renderGamePanel
+     (solo su mobile: senza quel trasferimento .music-control non e'
+     discendente di .game-header e "position:absolute" qui sotto si
+     ancorerebbe alla stage-topbar fissa invece che al banner — bug
+     gia' preso una volta). Titolo/blurb sotto, centrati, in flusso
+     normale. Niente tendina di selezione voce qui (non serve su
+     mobile per questa pagina). --- */
+  body[data-state="game"] .stage,
+  body[data-state="title"] .stage{ padding-top:49px; }
   body[data-state="game"] .game-header{
     position:relative;
-    flex-direction:row; align-items:flex-start; text-align:left;
+    flex-direction:row; align-items:flex-start; text-align:center;
     height:auto; max-height:none; overflow:visible;
     padding:0; gap:0; margin-bottom:24px;
   }
@@ -116,36 +125,126 @@
     position:absolute; top:0; left:0; right:0; height:130px;
     border-radius:var(--radius);
     overflow:hidden;
+    /* Su desktop la banner_x_offset (JS, per-gioco) centra la parte
+       "bella" dell'immagine dentro un riquadro molto più largo che
+       alto. Su mobile il riquadro è invece molto più basso che
+       largo: quella formula non regge più. Qui si torna al criterio
+       usato da Il Filo Nascosto/Diari di Gioco: l'immagine si scala
+       (proporzioni intatte) finché tocca sopra/sotto, resta sempre
+       centrata in orizzontale, e ciò che sporge viene tagliato
+       dall'overflow:hidden qui sopra. */
+    background-position:center center;
+    background-size:auto 100%;
   }
   body[data-state="game"] .game-header__banner-overlay{
     background:rgba(0,0,0,.45);
   }
   body[data-state="game"] .game-header__cover{
-    position:relative; z-index:2;
-    width:64px; height:64px;
-    margin:16px 0 0 16px;
+    position:absolute; z-index:2;
+    left:16px; top:65px; transform:translateY(-50%); /* 65px = metà
+      dei 130px del banner: centra l'avatar sull'altezza del banner
+      senza dover conoscere la sua altezza in anticipo */
+    width:96px; height:96px; /* x1.5 rispetto ai 64px precedenti */
+    margin:0;
   }
-  body[data-state="game"] .game-header__cover .monogram{ font-size:1.6rem; }
+  body[data-state="game"] .game-header__cover .monogram{ font-size:2.2rem; }
   body[data-state="game"] .game-header__info{
     position:relative; z-index:1;
     width:100%;
-    margin-top:146px; /* sotto al banner (130px + 16px di respiro) */
-    text-align:left;
+    margin-top:136px; /* sotto al banner, -10px su richiesta */
+    padding-bottom:5px; /* la riga (border-bottom di .game-header) scende
+      di 5px, senza toccare la posizione del testo sopra */
+    text-align:center;
   }
   body[data-state="game"] .game-header__title{ font-size:1.3rem; }
-  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; }
+  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:6px; /* -10px rispetto agli 16px di base */ }
   body[data-state="game"] .game-header__blurb br{ display:none; }
-  body[data-state="game"] .music-control{
-    display:flex;
-    position:absolute; top:16px; right:16px; z-index:2;
+  body[data-state="game"] .game-header > .music-control{
+    /* Posizione (absolute, centrata sull'altezza del banner, right:16px
+       fisso, speculare al left:16px dell'avatar) calcolata da
+       script.js/renderGamePanel: qui non serve altro, l'inline style
+       di JS vince sempre su questa regola. */
+    z-index:2;
   }
   body[data-state="game"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
   body[data-state="game"] .entry-game-picker{ display:none; }
+
+  /* --- Riga "Universo IGA (...)" + frecce: spostata più su (66px
+     di margine sul figlio .u-track diventano 44px di padding su
+     .universe-stage, un terzo in meno; uso padding e non margin
+     perché un margin-top su un figlio senza nulla sopra di sé nel
+     genitore può "collassare" verso l'alto). Frecce spinte ai due
+     lati (spazio pieno invece del gap:100px fisso pensato per il
+     desktop) e testo dell'universo di destinazione rimesso visibile
+     — su mobile styles.css lo nasconde di default
+     (.carousel-arrow__label{display:none}, pensato per pagine dove
+     non c'è spazio).
+
+     La causa VERA per cui la linea temporale si sovrapponeva alla
+     riga universo, però, era un'altra: da game-panel fino a
+     h-timeline la catena usava flex:1/min-height:0/height:100% con
+     .universe-stage centrata via align-items — ma .stage (il vero
+     contenitore scrollabile) non è flex, quindi il flex:1 di
+     game-panel non ha mai avuto effetto, e tutto ciò che veniva
+     dopo ereditava un contesto rotto/imprevedibile. Qui sotto la
+     riporto a flusso a blocchi semplice: game-panel, universe-stage,
+     u-track e timeline-viewport diventano block con altezza auto.
+     Con un flusso a blocchi normale la riga universo e la linea
+     temporale non possono più sovrapporsi (nessun margine negativo
+     in gioco), e l'unico elemento che scorre resta .stage — niente
+     scroll annidati da nessuna parte, come richiesto. --- */
+  body[data-state="game"] .game-panel{ display:block; }
+  body[data-state="game"] .universe-stage{
+    display:block; flex:none; min-height:0;
+    padding-top:19px; /* ancora piu' su, -10px (nessun numero dato stavolta,
+      ho applicato lo stesso passo degli altri ritocchi) */
+  }
+  body[data-state="game"] .universe-stage .u-track{
+    display:block; height:auto; margin-top:0;
+  }
+  body[data-state="game"] .timeline-viewport{
+    display:block; flex:none; min-height:0;
+    margin-top:25px; /* -10px prima, +15px ora */
+  }
+  body[data-state="game"] .u-track__head{ justify-content:space-between; width:100%; }
+  body[data-state="game"] .carousel-arrow{ padding:9px 12px; gap:6px; }
+  body[data-state="game"] .carousel-arrow__label{
+    display:inline; max-width:80px;
+    font-size:.72rem; line-height:1.2; white-space:normal;
+  }
+
+  /* --- Nodi della linea temporale: avatar ingranditi x1.1 (72x92 ->
+     79x101), distanza dal trattino raddoppiata (20px -> 40px), nome
+     centrato sull'avatar (stessa larghezza dell'avatar). Il centraggio
+     pallino/trattino sull'avatar resta calcolato a runtime in
+     script.js. --- */
+  body[data-state="game"] .h-node__tile{ width:79px; height:101px; }
+  body[data-state="game"] .h-node__title{ width:79px; }
+  body[data-state="game"] .h-node__top,
+  body[data-state="game"] .h-node__bottom{ gap:6px; }
+  body[data-state="game"] .h-node__top{ padding-right:40px; }
+  body[data-state="game"] .h-node__bottom{ padding-left:40px; }
+  /* Titolo sempre sopra l'immagine, su entrambi i lati: a DOM invariato
+     (il desktop usa lo stesso HTML e li vuole nell'ordine opposto per
+     un lato), qui basta forzare l'ordine visivo con "order" invece di
+     toccare lo script. */
+  body[data-state="game"] .h-node__title{ order:1; }
+  body[data-state="game"] .h-node__tile{ order:2; }
+  /* La distanza tra i pallini (costante, indipendente dalla presenza
+     o meno di un'immagine per ogni voce) e' gestita a runtime in
+     script.js/renderGamePanel — qui non serve piu' un margine fisso,
+     era proprio quello a rompersi quando un nodo non aveva
+     immagine. --- */
 
   /* --- Vista "title" (la timeline vera e propria di una saga): il
      testo va sotto in flusso normale, niente filigrana su mobile
      (resta un dettaglio solo desktop). --- */
   body[data-state="title"] .title-watermark{ display:none; }
+
+  /* --- Giochi senza timeline (es. Doom): stessa filigrana di sfondo
+     del "canone", niente filigrana su mobile qui, non c'era una
+     regola dedicata e restava visibile anche lì. --- */
+  .canon-watermark{ display:none; }
 }
 
 @media (hover:hover), (pointer:fine){

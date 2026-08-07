@@ -976,7 +976,15 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; height:100dvh; overflow-y:auto; scroll-snap-align:start;
     padding:72px 16px 48px;
+    scrollbar-width:none; /* come .layout qui sopra: la scrollbar di .stage
+      (su Windows/Chrome) prende ~15-17px di spazio vero, restringendo il
+      bordo destro di tutto cio' che sta dentro (game-header compreso)
+      rispetto alla stage-topbar, che sta fuori da .stage e non ne risente.
+      Nascondendola (resta scrollabile lo stesso via touch/rotellina), i
+      due bordi destri tornano a coincidere per davvero, senza dover piu'
+      calcolare o compensare nulla altrove. */
   }
+  .stage::-webkit-scrollbar{ display:none; }
   /* La home non deve scorrere verticalmente: e una schermata fissa,
      ci si muove solo in orizzontale (swipe) verso le colonne laterali.
      overscroll-behavior-y (non touch-action: quello aveva rotto lo
