@@ -630,6 +630,17 @@ body[data-state="landing"] .index-link{ display:flex; }
   padding:36px 0;
 }
 .canon-note p{ margin-bottom:20px; }
+/* Calcata esattamente su .section-eyebrow di Diari di Gioco
+   (recensioni.css, "Recensione veloce..."): stessa dimensione, peso,
+   spaziatura lettere, maiuscolo, colore. Centrata nel box del testo
+   (il max-width:900px di .canon-note qui sopra), uguale su desktop e
+   mobile — il punto di partenza cambia da solo, essendo il primo
+   elemento dentro .canon-note, che gia' inizia in punti diversi tra
+   mobile e desktop (vedi la_traccia_del_tempo.css). */
+.canon-note__eyebrow{
+  font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--cyan); text-align:center; margin-bottom:14px;
+}
 .canon-note__titles-label{
   font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--text-faint); margin-bottom:8px;
@@ -847,10 +858,11 @@ body[data-state="landing"] .index-link{ display:flex; }
   display:flex; align-items:center; justify-content:space-between; gap:16px;
 }
 .title-back{
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:.8rem; font-weight:600;
+  display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+  font-size:.8rem; font-weight:600; line-height:1.35; text-align:center;
+  white-space:normal;
   color:var(--text-dim);
-  border:1px solid var(--line); border-radius:999px; padding:9px 18px;
+  border:1px solid var(--line); border-radius:999px; padding:9px 20px;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   flex-shrink:0;
 }

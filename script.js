@@ -16,7 +16,9 @@ const STRINGS = {
     backToIndexLabel: "Torna all'index",
     universeLabel: "Universo",
     backToTimeline: "Torna alla linea temporale",
+    backToGamePrefix: "Torna a",
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
+    canonNoTimelineLabel: "Nessuna timeline ufficiale",
     timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale"
   },
   en: {
@@ -32,7 +34,9 @@ const STRINGS = {
     backToIndexLabel: "Back to index",
     universeLabel: "Universe",
     backToTimeline: "Back to the timeline",
+    backToGamePrefix: "Back to",
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
+    canonNoTimelineLabel: "No official timeline",
     timelineScrollToggle: "Toggle timeline scrolling"
   }
 };
@@ -415,6 +419,7 @@ function renderGamePanel(){
       <div class="canon-page">
         ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
         <div class="canon-note">
+          <p class="canon-note__eyebrow">${t("canonNoTimelineLabel")}</p>
           <p>${tf(g.canonNote.intro)}</p>
           <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
           <p class="canon-note__titles">${tf(g.canonNote.titles)}</p>
@@ -688,7 +693,7 @@ function renderTitlePanel(){
   const nextEntry = idx < universe.entries.length - 1 ? universe.entries[idx + 1] : null;
 
   el.titleContent.innerHTML = `
-    <div>
+    <div class="title-meta">
       <span class="title-tag">${typeLabel}</span>
       <span class="title-year">${yearLabel}</span>
     </div>
@@ -698,7 +703,7 @@ function renderTitlePanel(){
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <div class="title-nav">
       ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev" id="titlePrevBtn">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
-      <button type="button" class="title-back" id="titleBackBtn">${t("backToTimeline")}</button>
+      <button type="button" class="title-back" id="titleBackBtn">${t("backToGamePrefix")}<br>${tf(g.title)}</button>
       ${nextEntry ? `<button type="button" class="title-nav__side title-nav__side--next" id="titleNextBtn"><span>${tf(nextEntry.title)}</span>${arrowIcon("right")}</button>` : `<span class="title-nav__spacer"></span>`}
     </div>
   `;
@@ -708,6 +713,26 @@ function renderTitlePanel(){
   });
   if(prevEntry) document.getElementById("titlePrevBtn").addEventListener("click", () => selectEntry(prevEntry.id));
   if(nextEntry) document.getElementById("titleNextBtn").addEventListener("click", () => selectEntry(nextEntry.id));
+
+  // Solo mobile: il pulsante musica si sposta dentro alla pagina
+  // titolo, all'altezza della riga tag/anno, sul lato opposto
+  // (destra) — stessa tecnica gia' verificata su renderGamePanel.
+  if(mobileBreakpoint.matches && el.musicControl){
+    const meta = el.titleContent.querySelector(".title-meta");
+    if(meta){
+      el.titleContent.style.position = el.titleContent.style.position || "relative";
+      el.titleContent.insertBefore(el.musicControl, el.titleContent.firstChild);
+      const contentRect = el.titleContent.getBoundingClientRect();
+      const metaRect = meta.getBoundingClientRect();
+      const metaCenterY = (metaRect.top - contentRect.top) + metaRect.height / 2;
+      el.musicControl.style.position = "absolute";
+      el.musicControl.style.left = "auto";
+      el.musicControl.style.right = "16px";
+      el.musicControl.style.zIndex = "2";
+      el.musicControl.style.top = metaCenterY + "px";
+      el.musicControl.style.transform = "translateY(-50%)";
+    }
+  }
 
   let watermark = el.titlePanel.querySelector(".title-watermark");
   const watermarkSrc = g.watermark || entry.image;
