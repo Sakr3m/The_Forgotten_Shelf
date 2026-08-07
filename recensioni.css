@@ -278,6 +278,13 @@
    forzato qui il caso nascosto, universale (vale anche su mobile). */
 .review-entry .threshold[hidden]{ display:none; }
 
+/* Tag (JRPG - piattaforme - ore): display:flex/flex-wrap erano
+   finiti nel blocco solo-desktop (stesso bug di scoping trovato piu'
+   volte oggi) - su mobile il contenitore non era nemmeno un flex,
+   quindi il justify-content:center aggiunto li' non aveva alcun
+   effetto (non fa nulla su un contenitore non-flex). Universale. */
+.review-entry .entry-header__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+
 /* Switch lingua colorato con l'accento della voce aperta (era gia'
    cosi' su Storie Senza Cornice/Il Filo Nascosto, mancava qui):
    fuori dalle voci --item-accent non e' impostata, quindi il
@@ -326,26 +333,98 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
 .review-entry .platinum-icon{
   width:17px; height:17px; flex-shrink:0;
 }
+/* Stesso principio: dimensione dell'icona di allerta (⚠) universale,
+   non solo desktop - stesso rischio gia' visto col trofeo. */
+.review-entry .threshold__icon{ font-size:1.4rem; }
 
-/* --- Intestazioni "Recensione veloce.../Recensione completa..."
-   (.section-eyebrow): quando le due meta' non ci stanno affiancate
-   su una riga sola, vanno a capo separatamente (il punto in mezzo
-   sparisce, non ha senso lasciarlo a fine/inizio riga) invece di
-   spezzare il testo a caso in un punto qualunque. Misurato via JS
-   (checkEyebrowWrap in script-recensioni.js): non esiste un modo
-   affidabile in solo CSS per "spezza qui SE non ci sta", quindi si
-   confronta la larghezza naturale del testo con quella disponibile
-   e si aggiunge/toglie la classe is-wrapped di conseguenza. */
+/* Riquadro spoiler (box giallo, icona/testo/pulsante centrati): era
+   SOLO nel blocco desktop, stesso bug trovato piu' volte oggi - su
+   mobile non c'era ne' il bordo/sfondo giallo ne' la centratura,
+   e il pulsante non aveva alcuno stile (sembrava testo normale). */
+.review-entry .threshold{
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
+  margin:0 0 28px;
+  padding:28px 24px;
+  border:1px solid rgba(250,204,21,.35);
+  background:rgba(250,204,21,.06);
+  border-radius:var(--radius);
+}
+.review-entry .threshold button{
+  padding:8px 22px;
+  background:var(--panel);
+  border:1px solid var(--text-faint);
+  border-radius:999px;
+  color:var(--text); font-size:.85rem; font-weight:600;
+  cursor:pointer;
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.review-entry .threshold button:hover{ border-color:var(--cyan); color:var(--cyan); }
+.review-entry .threshold.is-crossed{ opacity:.5; }
+
+/* Tag (JRPG/piattaforme/ore): bordo e testo col colore della voce
+   aperta, non piu' ciano fisso. Era solo nel blocco desktop, resa
+   universale (vale anche mobile). */
+.review-entry .title-tag{
+  padding:5px 12px;
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:999px;
+  font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--cyan);
+}
+
+/* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
+   switch lingua) colorati con l'accento della voce quando una
+   recensione e' aperta. Qui data-state resta sempre "landing" di
+   proposito (deciso in precedenza, per tenerli visibili anche a
+   recensione aperta), quindi non posso agganciarmi a
+   body[data-state="entry"] come su mobile - uso invece
+   body.is-review-open, che e' impostata comunque, su entrambi i
+   contesti. --- */
+body.is-review-open .index-link,
+body.is-review-open .discord-link,
+body.is-review-open .kofi-link,
+body.is-review-open .lang-switch{
+  border-color:var(--item-accent, var(--cyan));
+}
+body.is-review-open .discord-link{ color:var(--item-accent, var(--cyan)); }
+body.is-review-open .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
+
+/* Pulsante volume/mute, skip brano, riquadro nome canzone: stesso
+   trattamento, colorati con l'accento della voce quando una
+   recensione e' aperta - vale sia PC che mobile, is-review-open e'
+   impostata su entrambi allo stesso modo. */
+body.is-review-open .music-toggle,
+body.is-review-open .track-skip,
+body.is-review-open .track-info,
+body.is-review-open .volume-panel{
+  border-color:var(--item-accent, var(--cyan));
+}
+body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
+
+/* Nascondi/rivela la recensione completa: era finito solo nel blocco
+   desktop (stesso bug di scoping trovato piu' volte oggi) - su
+   mobile .deep non aveva alcun vincolo, quindi restava sempre
+   visibile per intero, pulsante o non pulsante. Universale. */
+.review-entry .deep{
+  max-height:0; overflow:hidden; opacity:0;
+  transition:opacity .4s ease;
+}
+.review-entry .deep.is-visible{
+  max-height:none; opacity:1;
+}
+
+/* --- Intestazioni "Recensione veloce.../Recensione completa...":
+   riga sola col punto su desktop (ci sta comodamente), due righe
+   centrate SENZA punto su mobile (dove invece non entrerebbe) - non
+   piu' calcolato via JS, semplicemente due comportamenti fissi per
+   contesto: piu' affidabile. --- */
 .review-entry .section-eyebrow{
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   color:var(--cyan); margin-bottom:14px;
-  display:flex; flex-wrap:nowrap; justify-content:center; gap:6px;
-}
-.review-entry .section-eyebrow.is-wrapped{
-  flex-direction:column; align-items:center; gap:2px;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:6px;
 }
 .review-entry .section-eyebrow .eyebrow-dot{ opacity:.6; }
-.review-entry .section-eyebrow.is-wrapped .eyebrow-dot{ display:none; }
 
 /* ============================================================
    Voce di recensione (es. Final Fantasy VIII Remastered). Solo
@@ -407,14 +486,6 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   body.is-review-open .music-control{
     display:flex; align-items:center; gap:10px;
   }
-  .review-entry .entry-header__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
-  .review-entry .title-tag{
-    padding:5px 12px;
-    border:1px solid var(--cyan);
-    border-radius:999px;
-    font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-    color:var(--cyan);
-  }
   .review-entry .tag-sep{
     color:var(--text-faint);
     font-weight:700;
@@ -466,37 +537,9 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
 
   /* --- Soglia spoiler: non piu' legata a un'altezza precisa, segue
      semplicemente il blocco "recensione veloce" sopra di lei. --- */
-  .review-entry .threshold{
-    display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
-    margin:0 0 28px;
-    padding:28px 24px;
-    border:1px solid rgba(250,204,21,.35);
-    background:rgba(250,204,21,.06);
-    border-radius:var(--radius);
-  }
-  .review-entry .threshold__icon{ font-size:1.4rem; }
   .review-entry .threshold p{
     margin:0; color:var(--text-dim); font-size:.9rem;
     white-space:nowrap; /* una riga sola quando la risoluzione lo permette */
-  }
-  .review-entry .threshold button{
-    padding:8px 22px;
-    background:var(--panel);
-    border:1px solid var(--text-faint);
-    border-radius:999px;
-    color:var(--text); font-size:.85rem; font-weight:600;
-    cursor:pointer;
-    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  }
-  .review-entry .threshold button:hover{ border-color:var(--cyan); color:var(--cyan); }
-  .review-entry .threshold.is-crossed{ opacity:.5; }
-
-  .review-entry .deep{
-    max-height:0; overflow:hidden; opacity:0;
-    transition:opacity .4s ease;
-  }
-  .review-entry .deep.is-visible{
-    max-height:none; opacity:1;
   }
 
   .review-entry .note{
@@ -530,9 +573,16 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    posto di un link nudo dentro il testo: stesso linguaggio del
    pulsante della soglia spoiler, ma con un'icona di collegamento
    esterno. Universale (non solo desktop). */
+/* Il paragrafo appena sopra il pulsante-teoria perde il suo
+   margine sotto (16px, uguale per ogni paragrafo): senza toglierlo,
+   la distanza sopra il pulsante sarebbe quel 16px PIU' il margine
+   del pulsante stesso, diversa da quella sotto (che dipende solo dal
+   pulsante) - da qui l'asimmetria vista. Con :has() individuo
+   esattamente il paragrafo giusto, senza toccare gli altri. */
+.review-entry .reading p:has(+ .deep-theory-link){ margin-bottom:0; }
 .review-entry .deep-theory-link{
   display:inline-flex; align-items:center; gap:8px;
-  margin:0 0 24px;
+  margin:24px 0;
   padding:10px 20px;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:999px;
@@ -692,8 +742,15 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
     flex:0 0 110px; width:110px; max-width:110px; margin-bottom:0;
   }
   .review-entry .facts dl{ flex:1; min-width:0; }
-  .review-entry .facts-eyebrow{ width:fit-content; }
+  /* Larghezza standard (non calcolata caso per caso, uguale su ogni
+     pagina/voce): 75% della colonna invece che a tutta larghezza. */
+  .review-entry .facts-eyebrow{ width:75%; }
   .review-entry .entry-header__meta{ order:3; margin-bottom:18px; justify-content:center; }
+
+  /* Sempre due righe centrate, punto tolto: su schermo stretto la
+     riga sola non ci sta comodamente in nessuno dei due casi. */
+  .review-entry .section-eyebrow{ flex-direction:column; align-items:center; gap:2px; }
+  .review-entry .section-eyebrow .eyebrow-dot{ display:none; }
   .review-entry .music-control-slot{ order:4; margin-bottom:22px; }
   /* .track-info ha un max-width:280px pensato per il player della
      home: qui, insieme al pulsante skip e all'icona volume sulla
@@ -721,7 +778,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   .review-entry .deep-image-slot{ margin:18px 0; }
   .review-entry .deep-theory-link{
     width:100%; justify-content:center;
-    margin:0 0 20px;
+    margin:20px 0;
   }
 
   /* --- Topbar in "vista voce" (recensione aperta): stesso
@@ -771,4 +828,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   body[data-state="entry"] .stage-controls{
     order:3; position:static; width:auto; top:auto; right:auto; left:auto;
   }
+  /* Scritta attiva dello switch lingua (IT o EN) colorata con
+     l'accento della voce aperta, non solo il bordo. */
+  body[data-state="entry"] .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
 }

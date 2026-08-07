@@ -31,7 +31,7 @@ const STRINGS = {
     quickReadLabelPart1: "Recensione veloce, sguardo d'insieme",
     quickReadLabelPart2: "spoiler minimi o assenti",
     ffviiiQuickNarrativeTitle: "Narrativa e Mondo",
-    ffviiiQuickNarrativeText: "La storia si basa principalmente sui due personaggi principali. Presenta dei veri e propri buchi di trama in alcune parti, capaci di far impallidire persino un Dark Souls, ma questo non ha fermato i fan dal cercare risposte, e talvolta dal crearsele da soli. Il gioco ha comunque una storia davvero bella, con cambi di registro non indifferenti, e un'ambientazione fantasy affascinante, anche se scarna come quella dei videogiochi dell'epoca PlayStation 1.",
+    ffviiiQuickNarrativeText: "La storia si basa principalmente sui due personaggi principali e su tutti gli eventi che avvengono attorno a loro e al gruppo di cui fanno parte. Presenta dei buchi di trama in alcune parti, ma il gioco resta comunque affascinante, con cambi di registro non indifferenti e un'ambientazione fantasy suggestiva, seppur scarna come nei videogiochi dell'epoca PlayStation 1.",
     ffviiiQuickGameplayTitle: "Gameplay",
     ffviiiQuickGameplayText: "Un gioco di ruolo a turni alla giapponese in vecchio stile, dove le caratterizzazioni più peculiari non si trovano durante le battaglie ma fuori, nella pianificazione di esse. Il Junction è il sistema adottato da questo titolo, spesso amato, altre volte odiato dai giocatori, ma comunque rotto: in grado di trasformare i personaggi in veri e propri boss che camminano, se usato in modo professionale. Il resto del gameplay è rappresentato da un'esplorazione ben gestita e godibile.",
     ffviiiQuickTechTitle: "Comparto Tecnico e Artistico",
@@ -120,7 +120,7 @@ const STRINGS = {
     quickReadLabelPart1: "Quick review, overview",
     quickReadLabelPart2: "minimal or no spoilers",
     ffviiiQuickNarrativeTitle: "Story & World",
-    ffviiiQuickNarrativeText: "The story focuses mainly on the two lead characters. It has genuine plot holes in places, bad enough to make even Dark Souls blush, but that hasn't stopped fans from hunting for answers, and sometimes making them up themselves. Still, the game tells a genuinely beautiful story, with some notable shifts in tone, and a fantasy setting that's compelling even if as sparse as you'd expect from a PlayStation 1-era title.",
+    ffviiiQuickNarrativeText: "The story mainly follows the two lead characters and everything that happens around them and the party they're part of. There are some genuine plot holes here and there, but the game still manages to be captivating, with some notable shifts in tone and a compelling fantasy setting, sparse as it is like most video games from the PlayStation 1 era.",
     ffviiiQuickGameplayTitle: "Gameplay",
     ffviiiQuickGameplayText: "An old-school Japanese turn-based RPG, where the most distinctive choices happen not during battles but outside them, in planning for them. Junction is the system this title runs on, loved by some players and hated by others, but broken either way: capable of turning characters into walking bosses if used skillfully. The rest of the gameplay comes down to well-handled, enjoyable exploration.",
     ffviiiQuickTechTitle: "Technical & Artistic Side",
@@ -357,7 +357,11 @@ function openGenreTable(genreName){
     btn.textContent = item.title;
     if(REVIEW_ACCENTS[item.id]) btn.style.setProperty("--item-accent", REVIEW_ACCENTS[item.id]);
     btn.addEventListener("click", () => {
-      openReview(item.id);
+      // instant:true - lo scorrimento verso lo stage qui sotto e'
+      // gia' la transizione visiva, non serve un'altra dissolvenza
+      // sopra (che durando di piu' dello scroll, causava un flash
+      // della home visibile per una frazione di secondo).
+      openReview(item.id, true);
       // Scivola dalla tabella verso lo stage, dove la recensione e'
       // appena apparsa.
       if(el.layout) el.layout.scrollTo({ left: window.innerWidth, behavior: "smooth" });
@@ -422,22 +426,8 @@ function paintStaticText(){
   el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
 
   updateIndexLink();
-  checkEyebrowWrap();
 }
 
-// Le intestazioni "Recensione veloce.../Recensione completa..." vanno
-// a capo separatamente (punto tolto) solo quando le due meta' non ci
-// stanno affiancate su una riga sola - misurato qui, non c'e' un modo
-// affidabile in solo CSS per "spezza SE non ci sta".
-function checkEyebrowWrap(){
-  document.querySelectorAll(".section-eyebrow").forEach(eyebrow => {
-    eyebrow.classList.remove("is-wrapped");
-    if(eyebrow.scrollWidth > eyebrow.clientWidth + 1){
-      eyebrow.classList.add("is-wrapped");
-    }
-  });
-}
-window.addEventListener("resize", checkEyebrowWrap);
 el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   localStorage.setItem(LANG_KEY, state.lang);
@@ -538,9 +528,23 @@ el.indexLink.addEventListener("click", (ev) => {
   }
 });
 
-function crossfadeTo(showEl){
+function crossfadeTo(showEl, instant){
   const hideEl = currentCenterPanel();
   if(hideEl === showEl) return;
+
+  // "instant" salta del tutto la dissolvenza: usato quando la
+  // transizione visiva la fa gia' qualcos'altro (es. lo scorrimento
+  // della tabella genere verso lo stage su mobile) - altrimenti, per
+  // una frazione di secondo, lo stage arrivava gia' in vista mentre
+  // la home stava ancora sparendo lentamente (500ms), col risultato
+  // di un flash della home visibile a schermo.
+  if(instant){
+    hideEl.hidden = true;
+    hideEl.classList.remove("is-fading");
+    showEl.hidden = false;
+    showEl.classList.remove("is-fading");
+    return;
+  }
 
   hideEl.classList.add("is-fading");
   setTimeout(() => {
@@ -555,13 +559,12 @@ function crossfadeTo(showEl){
   }, 500);
 }
 
-function openReview(id){
+function openReview(id, instant){
   const entryEl = REVIEWS[id];
   if(!entryEl) return;
   closeGate(el.gateToggleRight, el.reviewsGateRight);
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
-  crossfadeTo(entryEl);
-  requestAnimationFrame(checkEyebrowWrap);
+  crossfadeTo(entryEl, instant);
   state.view = id;
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   el.body.classList.add("is-review-open");
