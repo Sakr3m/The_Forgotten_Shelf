@@ -12,7 +12,6 @@
   fetch(STATS_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include", // necessario per il cookie del visitatore unico
     body: JSON.stringify({ page: page }),
   }).catch(function () {
     // silenzioso: il tracciamento non deve mai interferire con la
