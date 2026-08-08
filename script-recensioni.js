@@ -655,6 +655,12 @@ function openReview(id, instant){
   crossfadeTo(entryEl, instant);
   state.view = id;
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
+  // Torna in cima ad ogni nuova recensione, invece di restare dov'era
+  // scorsa la precedente: window.scrollTo per desktop, .stage per
+  // mobile (il vero contenitore che scorre li', non la finestra).
+  window.scrollTo(0, 0);
+  const stage = document.querySelector(".stage");
+  if(stage) stage.scrollTop = 0;
   el.body.classList.add("is-review-open");
   // Colore proprio della voce (bordo/icone Ko-fi-Discord in vista
   // voce mobile, e la voce corrispondente nella tabella genere).

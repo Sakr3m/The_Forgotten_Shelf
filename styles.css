@@ -847,6 +847,25 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
 .title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
 .title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
+@media (hover:hover), (pointer:fine){
+  /* Evidenziatore morbido dietro al testo, riga per riga (non un
+     riquadro unico su tutto il paragrafo): cosi' la filigrana sotto
+     puo' restare luminosa senza compromettere la leggibilita', senza
+     pero' sembrare un quadro appeso li'. box-decoration-break:clone
+     fa si' che ogni riga a schermo abbia il proprio riquadro
+     indipendente (l'elemento e' uno solo nel DOM, il browser lo
+     spezza visivamente riga per riga quando il testo va a capo); il
+     box-shadow sfocato (non un semplice background netto) da' il
+     bordo morbido invece che un taglio secco. Su mobile non serve,
+     la filigrana e' sempre nascosta li'. */
+  .text-highlight{
+    background:color-mix(in srgb, var(--bg) 55%, transparent);
+    box-shadow:0 0 6px 6px color-mix(in srgb, var(--bg) 55%, transparent);
+    padding:0 .3em; /* circa una lettera oltre il bordo della parola */
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
+  }
+}
 .title-note{
   margin-top:20px; padding:14px 18px;
   border-left:2px solid var(--magenta);

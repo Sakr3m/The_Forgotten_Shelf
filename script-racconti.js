@@ -345,7 +345,7 @@ function renderEntry(){
     <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-copyright">${t("entryCopyright")}</p>
     ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
-    <p class="entry-body">${tf(entry.body)}</p>
+    <p class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></p>
   `;
   appendLikeWidget(el.entryContent, state.entryId);
 
@@ -496,6 +496,12 @@ function selectEntry(column, id){
   setState("entry");
   closeMobileSidebar();
   closeRailDrawer();
+  // Torna in cima ad ogni nuova voce, invece di restare dov'era
+  // scorsa la voce precedente: window.scrollTo per desktop, .stage
+  // per mobile (il vero contenitore che scorre li', non la finestra).
+  window.scrollTo(0, 0);
+  const stage = document.querySelector(".stage");
+  if(stage) stage.scrollTop = 0;
 }
 
 // ---------------------------------------------------------

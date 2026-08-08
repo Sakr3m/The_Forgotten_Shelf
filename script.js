@@ -745,7 +745,7 @@ function renderTitlePanel(){
     </div>
     <h2 class="title-name">${tf(entry.title)}</h2>
     <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
-    <p class="title-synopsis">${tf(entry.synopsis)}</p>
+    <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <div class="title-nav">
       ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev" id="titlePrevBtn">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
@@ -904,6 +904,9 @@ function selectGame(id){
   state.universeIndex = 0;
   setState("game");
   closeMobileSidebar();
+  window.scrollTo(0, 0);
+  const stage = document.querySelector(".stage");
+  if(stage) stage.scrollTop = 0;
 }
 
 function selectEntry(entryId){
@@ -912,6 +915,9 @@ function selectEntry(entryId){
   state.entryId = entryId;
   state.universeIndex = currentGame().universes.indexOf(found.universe);
   setState("title");
+  window.scrollTo(0, 0);
+  const stage = document.querySelector(".stage");
+  if(stage) stage.scrollTop = 0;
 }
 
 // ---------------------------------------------------------

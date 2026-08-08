@@ -342,6 +342,9 @@ function selectEntry(column, id){
   setState("entry");
   closeMobileSidebar();
   closeRailDrawer();
+  window.scrollTo(0, 0);
+  const stage = document.querySelector(".stage");
+  if(stage) stage.scrollTop = 0;
 }
 
 // ---------------------------------------------------------

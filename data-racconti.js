@@ -533,6 +533,199 @@ He understood. He took it out, looked at the screen, and read.
 8:15.`
     }
   },
+  "l-ora-sbagliata-2": {
+    game: "l-ora-sbagliata",
+    forceGamePicker: true,
+    gameLabel: { it: "L'Ora Sbagliata", en: "The Wrong Hour" },
+    accentColor: "#faebd7",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ora%20Sbagliata%20Filigrana.jpg",
+    filigranaLeftFade: true,
+    filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
+    bannerOffset: 50,
+    title: {
+      it: "L'Ora Sbagliata",
+      en: "The Wrong Hour"
+    },
+    dropdownLabel: {
+      it: "Versione 2.0",
+      en: "Version 2.0"
+    },
+    tag: {
+      it: "surreale",
+      en: "surreal"
+    },
+    body: {
+      it: `Era giunto in piazza in anticipo.
+
+Guardò l'ora. Le 15:30. Esattamente trenta minuti prima dell'appuntamento.
+
+Si vedeva che era teso. Continuava a muoversi attorno alla fontana al centro della piazza, lento, circolare, come chi non riesce a stare fermo ma non sa nemmeno dove andare. Lo sguardo annotava ogni persona nel raggio di una ventina di metri, soffermandosi sui volti femminili, cercando qualcuno che potesse essere lei.
+
+Già. Stava aspettando una ragazza conosciuta su un'app di incontri. Due anni più giovane di lui, carina dalle foto. E lui era lì da trenta minuti prima, a girare intorno a una fontana come se questo potesse far scorrere il tempo più in fretta.
+
+"Chissà quanto manca."
+
+Si domandò dopo quelli che sembravano almeno venti minuti. Prese il telefono e lesse.
+
+15:30.
+
+Sgranò gli occhi. Li chiuse. Li riaprì.
+
+15:30.
+
+Era già abbastanza ansioso per conto suo, non gli serviva anche perdere il senso del tempo. Diede la colpa al nervoso, rimise il telefono in tasca e si sedette sul bordo della fontana. Provò a immaginare come sarebbe andata, cosa avrebbe detto, cosa avrebbe fatto lei. Dopo qualche minuto ricontrollò.
+
+15:40.
+
+Meglio. Almeno dieci minuti erano passati davvero.
+
+Decise quasi di contare i secondi, tenendo lo schermo acceso davanti a sé. Arrivò fino alle 15:47 in quel modo, poi si fermò. E se fosse arrivata proprio in quell'istante? Con quell'aria tesa e agitata che si portava addosso, lei avrebbe girato i tacchi prima ancora di dirgli ciao. Almeno, così temeva. Rimise il dispositivo in tasca.
+
+In compenso, la gamba destra prese a muoversi da sola, su e giù, frenetica. L'ansia si vedeva da lontano, si sentiva quasi nell'aria intorno a lui.
+
+Dopo un po' la gamba cominciò a fargli male. Ricontrollò l'orario.
+
+15:30.
+
+"Cosa? Ma non è possibile."
+
+La sua ansia lo stava portando ad avere le allucinazioni, non c'era altra spiegazione. Si alzò, si guardò intorno, e decise che aveva bisogno di sedersi, ordinare qualcosa di fresco, calmarsi.
+
+Il bar più vicino aveva qualche tavolino all'aperto. Si sedette. Ordinò. Quando il bicchiere arrivò lo accolse con entrambe le mani, quasi con gratitudine. Bevve un sorso lungo, lento. Poi un altro.
+
+Posò il bicchiere. Guardò la piazza.
+
+Funzionava. Sentiva il respiro tornare regolare, la gamba ferma, la testa meno affollata. Aveva ancora tempo. Lei sarebbe arrivata, avrebbero parlato, sarebbe andato tutto bene. Quasi si convinse.
+
+Allungò la mano verso il portafogli, lo aprì, contò quello che serviva e lasciò i soldi sul bordo del tavolo. Una piccola abitudine, pagare prima di andare, così poi non si perde tempo.
+
+Riprese il bicchiere. Bevve ancora un sorso.
+
+Fu allora che alzò gli occhi sulla piazza e si accorse di qualcosa.
+
+Tra i passanti riconosceva dei volti. Non uno o due che avevano fatto dietrofront per qualche motivo. Decine. Persone che lui aveva visto allontanarsi mentre girava intorno alla fontana. Erano di nuovo lì, agli stessi punti, come se il nastro fosse stato riavvolto.
+
+Riprese il telefono.
+
+14:59.
+
+"Eh?"
+
+Si alzò di scatto. La sedia quasi cadde. Qualche sguardo dai tavolini vicini.
+
+Balbettò qualche scusa. La testa già altrove. La confusione che saliva.
+
+Non era possibile. Era uscito di casa alle 15:00. Le 14:59 non potevano esistere, non adesso, non qui.
+
+Si avvicinò a uno degli avventori seduti vicino.
+
+"Scusi, mi sa dire che ore sono?"
+
+L'uomo lo guardò un secondo.
+
+"Le 14:30."
+
+I soldi erano già sul tavolo. Li lasciò lì e tornò di corsa verso il centro della piazza. Si fermò vicino alla fontana. Si girò su se stesso. Una volta. Due. Tre.
+
+Poi si bloccò, lo sguardo fisso su un punto qualunque, le mani che salirono lentamente fino ai capelli.
+
+Sentì una mano sulla spalla.
+
+"Scusa..."
+
+Si girò di scatto.
+
+La figura davanti a lui fece un passo indietro, sorpresa.
+
+Era lei.`,
+      en: `He arrived at the square early.
+
+He checked the time. 3:30 PM. Exactly thirty minutes before the appointment.
+
+You could tell he was tense. He kept moving around the fountain at the centre of the square, slow, circular, like someone who can't stay still but doesn't know where to go either. His eyes tracked every person within twenty metres or so, lingering on female faces, looking for someone who might be her.
+
+Right. He was waiting for a girl he'd met on a dating app. Two years younger than him, pretty from her photos. And there he was, thirty minutes early, walking circles around a fountain as if that might make time pass faster.
+
+"I wonder how long it'll be."
+
+He thought this after what felt like at least twenty minutes. He took out his phone and read.
+
+3:30 PM.
+
+He blinked. Closed his eyes. Opened them again.
+
+3:30 PM.
+
+He was already anxious enough on his own — he didn't need to lose track of time on top of it. He blamed the nerves, put the phone back in his pocket, and sat down on the edge of the fountain. He tried to imagine how it would go, what he'd say, what she'd do. After a few minutes he checked again.
+
+3:40 PM.
+
+Better. At least ten minutes had actually passed.
+
+He almost decided to count the seconds, keeping the screen lit in front of him. He made it to 3:47 that way, then stopped. What if she arrived at exactly that moment? With that tense, agitated air he was carrying around, she'd turn on her heel before he even got to say hello. At least, that's what he feared. He put the phone away.
+
+In its place, his right leg started moving on its own, up and down, frantic. The anxiety was visible from a distance, almost tangible in the air around him.
+
+After a while his leg started to hurt. He checked the time again.
+
+3:30 PM.
+
+"What? That's not possible."
+
+His anxiety was giving him hallucinations, there was no other explanation. He got up, looked around, and decided he needed to sit somewhere, order something cold, calm down.
+
+The nearest bar had a few tables outside. He sat down. Ordered. When the glass arrived he took it with both hands, almost gratefully. He took a long, slow sip. Then another.
+
+He set the glass down. Looked at the square.
+
+It was working. He could feel his breathing steady, his leg still, his head less crowded. He still had time. She would arrive, they would talk, it would be fine. He almost convinced himself.
+
+He reached for his wallet, opened it, counted out what he needed and left the money on the edge of the table. A small habit — pay before you leave, so there's no fuss later.
+
+He picked up the glass again. Took another sip.
+
+That's when he looked up at the square and noticed something.
+
+He recognised faces among the passers-by. Not one or two who had turned back for some reason. Dozens. People he had watched walk away while he was circling the fountain. They were back in the same spots, as if the tape had been rewound.
+
+He took out his phone.
+
+2:59 PM.
+
+"What?"
+
+He stood up sharply. The chair nearly toppled. A few looks from the nearby tables.
+
+He mumbled some apologies. His head already elsewhere. The confusion rising.
+
+It wasn't possible. He'd left the house at 3:00 PM. 2:59 couldn't exist, not now, not here.
+
+He approached one of the people sitting nearby.
+
+"Excuse me, could you tell me what time it is?"
+
+The man looked at him for a second.
+
+"Two thirty."
+
+The money was already on the table. He left it there and ran back toward the centre of the square. He stopped by the fountain. Turned on the spot. Once. Twice. Three times.
+
+Then he froze, eyes fixed on some point in the distance, hands rising slowly to his hair.
+
+He felt a hand on his shoulder.
+
+"Sorry..."
+
+He spun around.
+
+The figure in front of him took a step back, startled.
+
+It was her.`
+    }
+  },
   "lo-specchio-cieco": {
     game: "lo-specchio-cieco",
     gameLabel: { it: "Lo Specchio Cieco", en: "The Blind Mirror" },

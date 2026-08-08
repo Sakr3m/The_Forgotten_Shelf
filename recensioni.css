@@ -419,6 +419,19 @@ body.is-review-open .discord-link{ color:var(--item-accent, var(--cyan)); }
 body.is-review-open .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
 body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
 
+@media (hover:hover), (pointer:fine){
+  /* Come sulle altre pagine interne: a voce aperta resta visibile il
+     nome della pagina ("Diari di Gioco"), non un pulsante "torna a".
+     Qui data-state resta sempre "landing" (vedi sopra), quindi la
+     regola condivisa che nasconde .brand su data-state="landing"
+     (styles.css) nasconde per sbaglio anche il nome pagina quando la
+     recensione e' aperta — e quella che mostra .index-link solo li'
+     lo mostra invece sempre. Eccezione solo qui: si scambiano di
+     nuovo quando is-review-open e' attiva. */
+  body.is-review-open .brand{ display:flex; }
+  body.is-review-open .index-link{ display:none; }
+}
+
 /* Pulsante volume/mute, skip brano, riquadro nome canzone: stesso
    trattamento, colorati con l'accento della voce quando una
    recensione e' aperta - vale sia PC che mobile, is-review-open e'
