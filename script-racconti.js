@@ -257,6 +257,14 @@ function paintStaticText(){
 // Colonne Teorie / Storie Nascoste
 // ---------------------------------------------------------
 function renderLists(){
+  // L'evidenziazione va confrontata sul campo "game" (condiviso da
+  // tutti i capitoli di una stessa opera), non sull'id esatto:
+  // altrimenti aprendo un capitolo diverso dal primo tramite la
+  // tendina (es. l-ora-sbagliata-2), nessuna voce della sidebar
+  // risulta piu' selezionata, dato che li' e' elencato solo il primo
+  // capitolo (l-ora-sbagliata).
+  const currentGame = state.entryId ? (currentEntry() || {}).game : null;
+
   el.teorieList.innerHTML = "";
   RACCONTI_ORDER.forEach(id => {
     const item = RACCONTI[id];
@@ -264,7 +272,7 @@ function renderLists(){
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = tf(item.gameLabel);
-    btn.classList.toggle("is-active", state.column === "teorie" && state.entryId === id);
+    btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("teorie", id));
     li.appendChild(btn);
@@ -278,7 +286,7 @@ function renderLists(){
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = tf(item.gameLabel);
-    btn.classList.toggle("is-active", state.column === "storie" && state.entryId === id);
+    btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("storie", id));
     li.appendChild(btn);
@@ -292,9 +300,68 @@ function currentEntry(){
   return table[state.entryId] || null;
 }
 
+// ---------------------------------------------------------
+// Pannelli voce SEMPRE presenti nel DOM (nascosti finche' non
+// selezionati), invece di scrivere il testo solo al click.
+// Stesso pattern gia' in uso su diari_di_gioco.html: contenuto
+// reale gia' nell'HTML dietro un'interazione vera (tab/accordion),
+// non iniettato al volo - Google lo legge comunque, un click
+// normale lo mostra all'utente. Costruiti una sola volta al boot,
+// il click si limita a mostrare/nascondere invece di riscrivere.
+// ---------------------------------------------------------
+const entryPanels = {}; // "teorie:cinere" -> { panel, textWrap, entry }
+
+function panelKey(column, id){ return `${column}:${id}`; }
+
+function updatePanelText(key){
+  const rec = entryPanels[key];
+  if(!rec) return;
+  const entry = rec.entry;
+  rec.textWrap.innerHTML = `
+    <h1 class="entry-title">${tf(entry.title)}</h1>
+    <p class="entry-copyright">${t("entryCopyright")}</p>
+    ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
+    <p class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></p>
+  `;
+  // l'etichetta del cuoricino ("Lascia un like"/"Leave a like") va
+  // ricostruita anche lei al cambio lingua, appendLikeWidget rimuove
+  // da solo quello vecchio prima di aggiungerne uno nuovo, quindi e'
+  // sicuro richiamarla di nuovo qui.
+  appendLikeWidget(rec.panel, rec.id);
+}
+
+function updateAllPanelsText(){
+  Object.keys(entryPanels).forEach(updatePanelText);
+}
+
+function buildEntryPanelContent(column, id, entry){
+  const panel = document.createElement("div");
+  panel.className = "entry-content-item";
+  panel.id = `entryItem-${column}-${id}`;
+  panel.hidden = true;
+  const textWrap = document.createElement("div");
+  textWrap.className = "entry-content-text";
+  panel.appendChild(textWrap);
+  el.entryContent.appendChild(panel);
+  entryPanels[panelKey(column, id)] = { panel, textWrap, entry, id };
+  updatePanelText(panelKey(column, id));
+}
+
+function buildAllEntryPanels(){
+  // Object.keys, non gli *_ORDER: un capitolo puo' esistere nei dati
+  // senza comparire come voce a se' nella sidebar (es. "Il Chiamato",
+  // dove solo il capitolo 1 e' elencato ma capitolo 2/3/4 restano
+  // raggiungibili dalla tendina in alto - vedi getEntriesForGame).
+  Object.keys(RACCONTI).forEach(id => buildEntryPanelContent("teorie", id, RACCONTI[id]));
+  Object.keys(LIBRI).forEach(id => buildEntryPanelContent("storie", id, LIBRI[id]));
+}
+
 function renderEntry(){
   const entry = currentEntry();
-  if(!entry){ el.entryContent.innerHTML = ""; return; }
+  if(!entry){
+    Object.values(entryPanels).forEach(rec => { rec.panel.hidden = true; });
+    return;
+  }
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   const isMobile = window.matchMedia("(hover:none) and (pointer:coarse)").matches;
@@ -341,18 +408,20 @@ function renderEntry(){
     el.entryWatermark.style.maskComposite = "";
   }
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
-  el.entryContent.innerHTML = `
-    <h1 class="entry-title">${tf(entry.title)}</h1>
-    <p class="entry-copyright">${t("entryCopyright")}</p>
-    ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
-    <p class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></p>
-  `;
-  appendLikeWidget(el.entryContent, state.entryId);
+
+  // mostra solo il pannello della voce corrente, nasconde tutti gli altri
+  const activeKey = panelKey(state.column, state.entryId);
+  Object.entries(entryPanels).forEach(([key, rec]) => {
+    rec.panel.hidden = key !== activeKey;
+  });
+  const activeRec = entryPanels[activeKey];
 
   // riavvia l'animazione d'ingresso
-  el.entryContent.style.animation = "none";
-  void el.entryContent.offsetWidth;
-  el.entryContent.style.animation = "";
+  if(activeRec){
+    activeRec.panel.style.animation = "none";
+    void activeRec.panel.offsetWidth;
+    activeRec.panel.style.animation = "";
+  }
 
   renderGamePicker(entry);
 }
@@ -713,6 +782,7 @@ el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   localStorage.setItem(LANG_KEY, state.lang);
   paintStaticText();
+  updateAllPanelsText();
   renderLists();
   if(state.view === "entry") renderEntry();
 });
@@ -779,6 +849,7 @@ document.addEventListener("click", (e) => {
 // Boot
 // ---------------------------------------------------------
 paintStaticText();
+buildAllEntryPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
