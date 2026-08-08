@@ -725,20 +725,24 @@ function renderGamePanel(){
 // ---------------------------------------------------------
 // Title panel (detail) + vertical rail
 // ---------------------------------------------------------
-function renderTitlePanel(){
-  const g = currentGame();
-  const found = findEntry(g, state.entryId);
-  if(!found) return;
-  const { entry, universe } = found;
+// ---------------------------------------------------------
+// Pannelli voce (title) SEMPRE presenti nel DOM (nascosti finche' non
+// selezionati), stesso pattern gia' applicato a Storie Senza Cornice
+// e Il Filo Nascosto: la sinossi di ogni titolo va letta da Google
+// anche se non e' mai stata cliccata, non solo iniettata al volo.
+// prev/next si possono precalcolare una volta sola al boot: dipendono
+// solo dalla posizione della voce nel suo universo, mai dal percorso
+// di navigazione con cui ci si arriva.
+// ---------------------------------------------------------
+const titlePanels = {}; // entryId -> { panel, entry, game, universe, prevEntry, nextEntry }
 
+function updateTitlePanelText(entryId){
+  const rec = titlePanels[entryId];
+  if(!rec) return;
+  const { entry, game: g, universe, prevEntry, nextEntry } = rec;
   const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
   const typeLabel = state.lang === "it" ? entry.type : (entry.typeEn || entry.type);
-
-  const idx = universe.entries.findIndex(e => e.id === entry.id);
-  const prevEntry = idx > 0 ? universe.entries[idx - 1] : null;
-  const nextEntry = idx < universe.entries.length - 1 ? universe.entries[idx + 1] : null;
-
-  el.titleContent.innerHTML = `
+  rec.panel.innerHTML = `
     <div class="title-meta">
       <span class="title-tag">${typeLabel}</span>
     </div>
@@ -748,22 +752,64 @@ function renderTitlePanel(){
     <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <div class="title-nav">
-      ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev" id="titlePrevBtn">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
-      <button type="button" class="title-back" id="titleBackBtn">${t("backToGamePrefix")}<br>${tf(g.title)}</button>
-      ${nextEntry ? `<button type="button" class="title-nav__side title-nav__side--next" id="titleNextBtn"><span>${tf(nextEntry.title)}</span>${arrowIcon("right")}</button>` : `<span class="title-nav__spacer"></span>`}
+      ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
+      <button type="button" class="title-back">${t("backToGamePrefix")}<br>${tf(g.title)}</button>
+      ${nextEntry ? `<button type="button" class="title-nav__side title-nav__side--next"><span>${tf(nextEntry.title)}</span>${arrowIcon("right")}</button>` : `<span class="title-nav__spacer"></span>`}
     </div>
   `;
-  document.getElementById("titleBackBtn").addEventListener("click", () => {
+  // gli elementi sono nuovi ad ogni chiamata (innerHTML riscritto),
+  // quindi i listener vanno riagganciati ogni volta - query con
+  // querySelector scoped al pannello, mai document.getElementById:
+  // con 59 pannelli lo stesso id ("titleBackBtn" ecc.) esisterebbe
+  // 59 volte, e getElementById prenderebbe sempre il primo.
+  rec.panel.querySelector(".title-back").addEventListener("click", () => {
     state.view = "game";
     setState("game");
-    scrollCarouselToStage(); // mancava qui: senza, su mobile lo scorrimento
-      // del carosello restava dov'era durante la vista titolo, lasciando
-      // .game-header (e tutto il resto) spostato di uno schermo intero
+    scrollCarouselToStage(); // vedi nota storica sotto in setState
   });
-  if(prevEntry) document.getElementById("titlePrevBtn").addEventListener("click", () => selectEntry(prevEntry.id));
-  if(nextEntry) document.getElementById("titleNextBtn").addEventListener("click", () => selectEntry(nextEntry.id));
+  const prevBtn = rec.panel.querySelector(".title-nav__side--prev");
+  if(prevBtn) prevBtn.addEventListener("click", () => selectEntry(prevEntry.id));
+  const nextBtn = rec.panel.querySelector(".title-nav__side--next");
+  if(nextBtn) nextBtn.addEventListener("click", () => selectEntry(nextEntry.id));
 
-  appendLikeWidget(el.titleContent, entry.id);
+  appendLikeWidget(rec.panel, entry.id);
+}
+
+function updateAllTitlePanelsText(){
+  Object.keys(titlePanels).forEach(updateTitlePanelText);
+}
+
+function buildAllTitlePanels(){
+  GAME_ORDER.forEach(gameId => {
+    const g = GAMES[gameId];
+    (g.universes || []).forEach(universe => {
+      const entries = universe.entries || [];
+      entries.forEach((entry, idx) => {
+        const prevEntry = idx > 0 ? entries[idx - 1] : null;
+        const nextEntry = idx < entries.length - 1 ? entries[idx + 1] : null;
+        const panel = document.createElement("div");
+        panel.className = "title-content-item";
+        panel.id = `titleItem-${entry.id}`;
+        panel.hidden = true;
+        el.titleContent.appendChild(panel);
+        titlePanels[entry.id] = { panel, entry, game: g, universe, prevEntry, nextEntry };
+        updateTitlePanelText(entry.id);
+      });
+    });
+  });
+}
+
+function renderTitlePanel(){
+  const g = currentGame();
+  const found = findEntry(g, state.entryId);
+  if(!found) return;
+  const { entry, universe } = found;
+
+  Object.entries(titlePanels).forEach(([id, rec]) => {
+    rec.panel.hidden = id !== entry.id;
+  });
+  const activeRec = titlePanels[entry.id];
+  if(!activeRec) return;
 
   // Solo mobile: il pulsante musica si sposta dentro alla pagina
   // titolo, sul lato destro della riga tag/anno — il centraggio
@@ -771,7 +817,7 @@ function renderTitlePanel(){
   // .music-control position:absolute/transform), non serve piu'
   // calcolarlo via JS ad ogni apertura.
   if(mobileBreakpoint.matches && el.musicControl){
-    const meta = el.titleContent.querySelector(".title-meta");
+    const meta = activeRec.panel.querySelector(".title-meta");
     if(meta){
       meta.appendChild(el.musicControl);
       // Ripulisco gli stili in linea eventualmente rimasti da
@@ -821,9 +867,9 @@ function renderTitlePanel(){
   el.watermarkBrightness.style.right = "";
 
   // restart entrance animation
-  el.titleContent.style.animation = "none";
-  void el.titleContent.offsetWidth;
-  el.titleContent.style.animation = "";
+  activeRec.panel.style.animation = "none";
+  void activeRec.panel.offsetWidth;
+  activeRec.panel.style.animation = "";
 }
 
 function renderRail(){
@@ -927,6 +973,7 @@ el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   localStorage.setItem(LANG_KEY, state.lang);
   paintStaticText();
+  updateAllTitlePanelsText();
   if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderGamePanel(); }
   else if(state.view === "title"){ renderSidebar(); renderTitlePanel(); renderRail(); }
@@ -1103,6 +1150,7 @@ el.brandBtn.addEventListener("click", () => {
 // Boot
 // ---------------------------------------------------------
 paintStaticText();
+buildAllTitlePanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();

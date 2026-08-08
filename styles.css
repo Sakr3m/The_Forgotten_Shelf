@@ -838,7 +838,16 @@ body[data-state="landing"] .index-link{ display:flex; }
   pointer-events:none;
   z-index:0;
 }
-.title-content{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
+.title-content{ position:relative; }
+/* Ogni voce e' ora un pannello proprio, sempre presente nel DOM
+   (nascosto con [hidden] finche' non selezionato), stesso pattern
+   di racconti.css/storie-teorie.css. Qui non serve nessuna regola
+   :not([hidden]) per il display: .title-content-item non dichiara
+   nessun valore "display" proprio (resta il default block del div),
+   quindi non c'e' nessuna specificita' in competizione con la regola
+   predefinita del browser [hidden]{display:none} — a differenza del
+   caso con display:flex incontrato su racconti.css. */
+.title-content-item{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
 .title-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
@@ -1157,7 +1166,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   /* --- Title detail page --- */
   .title-panel{ margin-top:44px; }
-  .title-content{ max-width:100%; }
+  .title-content-item{ max-width:100%; }
   .title-name{ font-size:1.3rem; }
   .title-synopsis{ font-size:.92rem; }
   .title-watermark{
