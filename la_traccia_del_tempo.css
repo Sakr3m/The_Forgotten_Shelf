@@ -206,7 +206,12 @@
     display:block; flex:none; min-height:0;
     margin-top:25px; /* -10px prima, +15px ora */
   }
-  body[data-state="game"] .u-track__head{ justify-content:space-between; width:100%; }
+  body[data-state="game"] .u-track__head{ justify-content:center; width:100%; }
+  /* Con le frecce prev/next presenti (piu' di un universo), tornano a
+     spingersi ai due lati come prima — senza, il nome (unico figlio)
+     restava incollato al bordo sinistro invece che centrato
+     (space-between con un solo elemento non centra nulla). */
+  body[data-state="game"] .u-track__head:has(.carousel-arrow){ justify-content:space-between; }
   body[data-state="game"] .carousel-arrow{ padding:9px 12px; gap:6px; }
   /* L'etichetta col nome dell'universo di destinazione (riattivata
      qui in precedenza, vedi commento sopra) e' stata tolta di nuovo:
