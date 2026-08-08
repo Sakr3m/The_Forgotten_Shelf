@@ -131,8 +131,25 @@ body[data-state="landing"] #pageHeader{ display:none; }
    allineato a sinistra. */
 .entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
 .entry-content{
-  opacity:0; animation:fadeUp .45s var(--ease) forwards;
   display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+/* Ogni voce e' ora un pannello proprio, sempre presente nel DOM
+   (nascosto con [hidden] finche' non selezionato), stesso pattern
+   di racconti.css: l'animazione va sul pannello mostrato, non piu'
+   sul contenitore .entry-content che ora resta statico. */
+.entry-content-item{
+  opacity:0; animation:fadeUp .45s var(--ease) forwards;
+  text-align:center;
+  width:100%;
+}
+/* display:flex va applicato SOLO quando il pannello non è hidden,
+   stesso identico motivo/bug spiegato in racconti.css. */
+.entry-content-item:not([hidden]){
+  display:flex; flex-direction:column; align-items:center;
+}
+.entry-content-text{
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  width:100%;
 }
 .entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{

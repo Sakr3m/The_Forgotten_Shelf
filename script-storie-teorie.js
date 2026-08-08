@@ -185,6 +185,8 @@ function paintStaticText(){
 // Colonne Teorie / Storie Nascoste
 // ---------------------------------------------------------
 function renderLists(){
+  const currentGame = state.entryId ? (currentEntry() || {}).game : null;
+
   el.teorieList.innerHTML = "";
   TEORIE_ORDER.forEach(id => {
     const item = TEORIE[id];
@@ -192,7 +194,7 @@ function renderLists(){
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = tf(item.gameLabel);
-    btn.classList.toggle("is-active", state.column === "teorie" && state.entryId === id);
+    btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("teorie", id));
     li.appendChild(btn);
@@ -206,12 +208,54 @@ function renderLists(){
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = tf(item.gameLabel);
-    btn.classList.toggle("is-active", state.column === "storie" && state.entryId === id);
+    btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectEntry("storie", id));
     li.appendChild(btn);
     el.storieList.appendChild(li);
   });
+}
+
+const entryPanels = {}; // "teorie:cinere" -> { panel, textWrap, entry, id }
+
+function panelKey(column, id){ return `${column}:${id}`; }
+
+function updatePanelText(key){
+  const rec = entryPanels[key];
+  if(!rec) return;
+  const entry = rec.entry;
+  const column = key.split(":")[0];
+  rec.textWrap.innerHTML = `
+    <h1 class="entry-title">${tf(entry.title)}</h1>
+    ${column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
+    <p class="entry-body">${tf(entry.body)}</p>
+  `;
+  appendLikeWidget(rec.panel, rec.id);
+}
+
+function updateAllPanelsText(){
+  Object.keys(entryPanels).forEach(updatePanelText);
+}
+
+function buildEntryPanelContent(column, id, entry){
+  const panel = document.createElement("div");
+  panel.className = "entry-content-item";
+  panel.id = `entryItem-${column}-${id}`;
+  panel.hidden = true;
+  const textWrap = document.createElement("div");
+  textWrap.className = "entry-content-text";
+  panel.appendChild(textWrap);
+  el.entryContent.appendChild(panel);
+  entryPanels[panelKey(column, id)] = { panel, textWrap, entry, id };
+  updatePanelText(panelKey(column, id));
+}
+
+function buildAllEntryPanels(){
+  // Object.keys, non gli *_ORDER: stessa cautela presa su
+  // script-racconti.js, per quando in futuro Storie Nascoste avrà
+  // voci con più capitoli raggiungibili solo dalla tendina.
+  Object.keys(TEORIE).forEach(id => buildEntryPanelContent("teorie", id, TEORIE[id]));
+  Object.keys(STORIE).forEach(id => buildEntryPanelContent("storie", id, STORIE[id]));
 }
 
 function currentEntry(){
@@ -222,24 +266,28 @@ function currentEntry(){
 
 function renderEntry(){
   const entry = currentEntry();
-  if(!entry){ el.entryContent.innerHTML = ""; return; }
+  if(!entry){
+    Object.values(entryPanels).forEach(rec => { rec.panel.hidden = true; });
+    return;
+  }
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   const isMobile = window.matchMedia("(hover:none) and (pointer:coarse)").matches;
   const bannerUrl = (isMobile && entry.mobileBanner) ? entry.mobileBanner : entry.banner;
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
-  el.entryContent.innerHTML = `
-    <h1 class="entry-title">${tf(entry.title)}</h1>
-    ${state.column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
-    <p class="entry-body">${tf(entry.body)}</p>
-  `;
-  appendLikeWidget(el.entryContent, state.entryId);
 
-  // riavvia l'animazione d'ingresso
-  el.entryContent.style.animation = "none";
-  void el.entryContent.offsetWidth;
-  el.entryContent.style.animation = "";
+  const activeKey = panelKey(state.column, state.entryId);
+  Object.entries(entryPanels).forEach(([key, rec]) => {
+    rec.panel.hidden = key !== activeKey;
+  });
+  const activeRec = entryPanels[activeKey];
+
+  if(activeRec){
+    activeRec.panel.style.animation = "none";
+    void activeRec.panel.offsetWidth;
+    activeRec.panel.style.animation = "";
+  }
 
   renderGamePicker(entry);
 }
@@ -441,6 +489,7 @@ el.langSwitch.addEventListener("click", () => {
   state.lang = state.lang === "it" ? "en" : "it";
   localStorage.setItem(LANG_KEY, state.lang);
   paintStaticText();
+  updateAllPanelsText();
   renderLists();
   if(state.view === "entry") renderEntry();
 });
@@ -503,6 +552,7 @@ document.addEventListener("click", (e) => {
 // Boot
 // ---------------------------------------------------------
 paintStaticText();
+buildAllEntryPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
