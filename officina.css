@@ -42,7 +42,7 @@
 @media (hover:hover), (pointer:fine){
   .card{
     display:block;
-    position:absolute; left:90px; top:290px;
+    position:absolute; left:90px; top:320px; /* +30px rispetto alla posizione di partenza */
     width:280px;
     background:var(--panel);
     border:1px solid var(--line);
@@ -74,7 +74,23 @@
   max-height:235px;
   transition:max-height .3s ease;
 }
-.card:hover .card__body{ max-height:400px; }
+.card:hover .card__body{ max-height:460px; }
+
+/* Eccezione solo qui: il cuoricino resta a 30px anche su desktop
+   (il resto del sito usa 50px desktop / 30px mobile) — su mobile
+   la card usa gia' 30px di suo, quindi qui coincide su entrambi. */
+.card__body .title-like{ margin-top:30px; }
+/* La card si ingrandisce del 8% in hover (scale(1.08) su .card):
+   senza contromisura, il cuore (che vive dentro) si ingrandirebbe
+   insieme a lei, risultando piu' grande degli altri pulsanti della
+   pagina (che stanno fuori dalla card, fermi alla loro dimensione
+   vera). Qui annullo esattamente quell'8% con la proporzione
+   inversa (1/1.08), cosi' il cuore resta alla sua vera dimensione
+   dichiarata anche a card ingrandita. */
+.card:hover .card__body .title-like{
+  transform:scale(0.9259);
+  transform-origin:left center;
+}
 
 .card__body .status, .card__body .tagline, .card__body .cta, .card__body .card-copyright{
   opacity:0; transition:opacity .15s ease;

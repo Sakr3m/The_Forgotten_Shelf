@@ -1200,3 +1200,37 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   }
 }
 
+/* ============================================================
+   Cuoricino "mi piace" — condiviso da tutte le pagine (Timeline,
+   Storie Senza Cornice, Il Filo Nascosto, Officina, Diari di Gioco).
+   Sempre visibile, sia desktop che mobile: cambia solo la distanza
+   dal contenuto sopra (50px desktop, 30px mobile) e la posizione
+   nella pagina (sempre in fondo al contenuto/voce, gestita pagina
+   per pagina in HTML — qui solo l'aspetto). Contorno sul colore
+   d'accento dell'opera (--item-accent con --cyan di riserva, stesso
+   schema gia' in uso altrove nel sito), rosso pieno una volta messo
+   il like.
+   ============================================================ */
+.title-like{
+  margin-top:50px;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.title-like__btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px;
+  border:1px solid var(--item-accent, var(--cyan)); border-radius:999px;
+  color:var(--item-accent, var(--cyan)); background:transparent;
+  cursor:pointer;
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.title-like__btn:disabled{ cursor:default; }
+.title-like__icon{ width:18px; height:16px; }
+.title-like.is-liked .title-like__btn{ border-color:#e11d48; color:#e11d48; }
+.title-like.is-liked .title-like__icon path{ fill:#e11d48; }
+.title-like__count{ font-size:.85rem; font-weight:600; color:var(--text-faint); min-width:1.5em; }
+.title-like__label{ font-size:.82rem; color:var(--text-faint); }
+
+@media (hover:none) and (pointer:coarse){
+  .title-like{ margin-top:30px; }
+  .title-like__btn{ width:35px; height:35px; } /* stessa dimensione di Discord/index-link su mobile, in tutte le pagine */
+}

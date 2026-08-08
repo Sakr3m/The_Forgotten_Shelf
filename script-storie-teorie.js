@@ -16,7 +16,8 @@ const STRINGS = {
     landingSubMobile: "Seleziona una voce dalla finestra Teorie o da quella delle Storie Nascoste per approfondire.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
-    entryCopyright: "© 2026 Sakrem — Analisi e testo originali"
+    entryCopyright: "© 2026 Sakrem — Analisi e testo originali",
+    leaveALike: "Lascia un like"
   },
   en: {
     brand: "The Hidden Thread",
@@ -31,7 +32,8 @@ const STRINGS = {
     landingSubMobile: "Select an entry from the Theories screen or from the Hidden Stories screen to dive in.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
-    entryCopyright: "© 2026 Sakrem — Original analysis and text"
+    entryCopyright: "© 2026 Sakrem — Original analysis and text",
+    leaveALike: "Leave a like"
   }
 };
 
@@ -124,6 +126,43 @@ window.addEventListener("resize", () => {
 });
 
 function t(key){ return STRINGS[state.lang][key]; }
+
+function heartIcon(){
+  return `<svg viewBox="0 0 20 18" class="title-like__icon" aria-hidden="true">
+    <path d="M10 17C10 17 1.5 12.1 1.5 6.2C1.5 3.3 3.7 1.2 6.4 1.2C8 1.2 9.3 1.9 10 3.1C10.7 1.9 12 1.2 13.6 1.2C16.3 1.2 18.5 3.3 18.5 6.2C18.5 12.1 10 17 10 17Z"
+      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+  </svg>`;
+}
+
+function appendLikeWidget(container, workId){
+  if(!container || !window.ForgottenShelfLikes) return;
+  const old = container.querySelector(".title-like");
+  if(old) old.remove();
+  container.insertAdjacentHTML("beforeend", `
+    <div class="title-like" id="likeWidget-${workId}">
+      <span class="title-like__label">${t("leaveALike")}</span>
+      <button type="button" class="title-like__btn" aria-label="Mi piace">${heartIcon()}</button>
+      <span class="title-like__count"></span>
+    </div>
+  `);
+  const widget = container.querySelector(".title-like");
+  const likeBtn = widget.querySelector(".title-like__btn");
+  const countEl = widget.querySelector(".title-like__count");
+  if(ForgottenShelfLikes.hasLiked(workId)){
+    widget.classList.add("is-liked");
+    likeBtn.disabled = true;
+  }
+  ForgottenShelfLikes.getTotal(workId).then(total => { countEl.textContent = total; });
+  likeBtn.addEventListener("click", () => {
+    const result = ForgottenShelfLikes.like(workId);
+    if(result.ok){
+      widget.classList.add("is-liked");
+      likeBtn.disabled = true;
+      const current = parseInt(countEl.textContent, 10) || 0;
+      countEl.textContent = current + 1;
+    }
+  });
+}
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 
 // ---------------------------------------------------------
@@ -195,6 +234,7 @@ function renderEntry(){
     ${state.column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
     <p class="entry-body">${tf(entry.body)}</p>
   `;
+  appendLikeWidget(el.entryContent, state.entryId);
 
   // riavvia l'animazione d'ingresso
   el.entryContent.style.animation = "none";

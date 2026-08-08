@@ -333,6 +333,35 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
 .review-entry .platinum-icon{
   width:17px; height:17px; flex-shrink:0;
 }
+/* Badge di valutazione (Consigliato/Non per tutti/Sconsigliato):
+   pensato per farsi notare a colpo d'occhio come un giudizio, non un
+   fatto neutro come "Sviluppatore" o "Completato" — icona con
+   cerchio sfumato integrato, sfondo a gradiente leggero, bagliore
+   morbido, testo maiuscolo spaziato: piu' un piccolo sigillo che una
+   semplice etichetta. Tre colori distinti per i tre esiti possibili. */
+.review-entry .fact-recommendation{
+  display:inline-flex; align-items:center; gap:5px;
+  margin-top:20px !important;
+  padding:3px 8px 3px 5px;
+  border-radius:999px;
+  font-size:.66rem; font-weight:700; letter-spacing:0;
+  box-shadow:0 0 0 1px currentColor inset, 0 6px 16px -8px currentColor;
+}
+.review-entry .fact-recommendation__icon{
+  width:13px; height:13px; flex-shrink:0;
+}
+.review-entry .fact-recommendation.is-recommended{
+  color:#4ade80;
+  background:linear-gradient(135deg, rgba(74,222,128,.18), rgba(74,222,128,.03));
+}
+.review-entry .fact-recommendation.is-mixed{
+  color:#facc15;
+  background:linear-gradient(135deg, rgba(250,204,21,.18), rgba(250,204,21,.03));
+}
+.review-entry .fact-recommendation.is-not-recommended{
+  color:#f87171;
+  background:linear-gradient(135deg, rgba(248,113,113,.18), rgba(248,113,113,.03));
+}
 /* Stesso principio: dimensione dell'icona di allerta (⚠) universale,
    non solo desktop - stesso rischio gia' visto col trofeo. */
 .review-entry .threshold__icon{ font-size:1.4rem; }
@@ -731,17 +760,26 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   }
   .review-entry .entry-header{ padding-top:0; border-bottom:none; }
   .review-entry .entry-header__title{
-    order:1; font-size:1.4rem; margin:0 0 16px;
+    order:1; font-size:1.4rem; margin:0 0 16px; text-align:center;
   }
   .review-entry .facts{
     order:2;
-    display:flex; flex-direction:row-reverse; gap:14px; align-items:flex-start;
+    display:grid;
+    grid-template-columns:1fr 110px;
+    grid-template-areas:
+      "dl    cover"
+      "badge badge";
+    column-gap:14px; row-gap:6px;
     margin-bottom:20px;
   }
   .review-entry .cover-slot{
-    flex:0 0 110px; width:110px; max-width:110px; margin-bottom:0;
+    grid-area:cover;
+    width:110px; max-width:110px; margin-bottom:0;
   }
-  .review-entry .facts dl{ flex:1; min-width:0; }
+  .review-entry .facts dl{ grid-area:dl; min-width:0; }
+  .review-entry .facts .fact-recommendation{
+    grid-area:badge; justify-self:start; width:fit-content; margin-top:6px !important;
+  }
   /* Larghezza standard (non calcolata caso per caso, uguale su ogni
      pagina/voce): 75% della colonna invece che a tutta larghezza. */
   .review-entry .facts-eyebrow{ width:75%; }

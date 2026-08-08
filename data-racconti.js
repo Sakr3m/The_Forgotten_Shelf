@@ -1558,6 +1558,13 @@ He gripped the sword hilt.
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
     accentColor: "#6a0dad",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
+    filigranaLeftFade: true,
+    filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
+    bannerOffset: 45,
     title: {
       it: "Il Chiamato",
       en: "The Called"
@@ -2347,6 +2354,13 @@ The trees swallowed him.`
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
     accentColor: "#6a0dad",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
+    filigranaLeftFade: true,
+    filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
+    bannerOffset: 45,
     title: {
       it: "Il Chiamato",
       en: "The Called"
@@ -2696,6 +2710,13 @@ A pause.
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
     accentColor: "#6a0dad",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
+    filigranaLeftFade: true,
+    filigranaBottomFade: true,
+    filigranaBottomLevel: 45,
+    bannerOffset: 45,
     title: {
       it: "Il Chiamato",
       en: "The Called"

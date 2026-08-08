@@ -17,7 +17,8 @@ const STRINGS = {
     landingSubDesktop: "Premi il pulsante per scoprire i progetti in lavorazione qui sotto.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
-    mathemoryCopyright: "© 2026 Sakrem"
+    mathemoryCopyright: "© 2026 Sakrem",
+    leaveALike: "Lascia un like"
   },
   en: {
     brand: "The Raw Workshop",
@@ -30,7 +31,8 @@ const STRINGS = {
     landingSubDesktop: "Press the button to reveal the projects in progress below.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
-    mathemoryCopyright: "© 2026 Sakrem"
+    mathemoryCopyright: "© 2026 Sakrem",
+    leaveALike: "Leave a like"
   }
 };
 
@@ -50,6 +52,9 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   eratosteneAudio: document.getElementById("eratosteneAudio"),
   mathemoryPin: document.getElementById("mathemoryPin"),
+  mathemoryCardBody: document.getElementById("mathemoryCardBody"),
+  mathemoryCardBodyLeft: document.getElementById("mathemoryCardBodyLeft"),
+  mathemoryCardBodyRight: document.getElementById("mathemoryCardBodyRight"),
   showProjectsBtn: document.getElementById("showProjectsBtn"),
   desktopAudioToggle: document.getElementById("desktopAudioToggle"),
   desktopVolumeSlider: document.getElementById("desktopVolumeSlider"),
@@ -77,6 +82,60 @@ el.eratosteneAudio.volume = sharedVolume;
 if(el.desktopVolumeSlider) el.desktopVolumeSlider.value = String(sharedVolume);
 
 function t(key){ return STRINGS[state.lang][key]; }
+
+function heartIcon(){
+  return `<svg viewBox="0 0 20 18" class="title-like__icon" aria-hidden="true">
+    <path d="M10 17C10 17 1.5 12.1 1.5 6.2C1.5 3.3 3.7 1.2 6.4 1.2C8 1.2 9.3 1.9 10 3.1C10.7 1.9 12 1.2 13.6 1.2C16.3 1.2 18.5 3.3 18.5 6.2C18.5 12.1 10 17 10 17Z"
+      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+  </svg>`;
+}
+
+// Cuoricino "mi piace" per Mathemory: unico progetto in Officina per
+// ora, quindi stesso workId "mathemory" ovunque — desktop e le due
+// copie mobile (sinistra/destra del carosello "a cerchio") mostrano
+// e aggiornano lo stesso conteggio, dato che rappresentano la stessa
+// identica opera. idSuffix evita collisioni tra gli id delle tre
+// copie. Sempre in fondo alla card, sempre visibile (niente piu'
+// comparsa solo in hover).
+function setupMathemoryLike(cardBody, idSuffix){
+  if(!cardBody || !window.ForgottenShelfLikes) return;
+  const workId = "mathemory";
+  const widgetId = `mathemoryLikeWidget${idSuffix}`;
+  if(document.getElementById(widgetId)) return; // gia' creato, non rifare nulla
+  cardBody.insertAdjacentHTML("beforeend", `
+    <div class="title-like" id="${widgetId}">
+      <span class="title-like__label">${t("leaveALike")}</span>
+      <button type="button" class="title-like__btn" id="mathemoryLikeBtn${idSuffix}" aria-label="Mi piace">${heartIcon()}</button>
+      <span class="title-like__count" id="mathemoryLikeCount${idSuffix}"></span>
+    </div>
+  `);
+  const widget = document.getElementById(widgetId);
+  const likeBtn = document.getElementById(`mathemoryLikeBtn${idSuffix}`);
+  const countEl = document.getElementById(`mathemoryLikeCount${idSuffix}`);
+  if(ForgottenShelfLikes.hasLiked(workId)){
+    widget.classList.add("is-liked");
+    likeBtn.disabled = true;
+  }
+  ForgottenShelfLikes.getTotal(workId).then(total => { countEl.textContent = total; });
+  likeBtn.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    const result = ForgottenShelfLikes.like(workId);
+    if(result.ok){
+      widget.classList.add("is-liked");
+      likeBtn.disabled = true;
+      const current = parseInt(countEl.textContent, 10) || 0;
+      countEl.textContent = current + 1;
+      document.querySelectorAll('[id^="mathemoryLikeWidget"]').forEach(w => {
+        if(w === widget) return;
+        w.classList.add("is-liked");
+        const otherBtn = w.querySelector(".title-like__btn");
+        const otherCount = w.querySelector(".title-like__count");
+        if(otherBtn) otherBtn.disabled = true;
+        if(otherCount) otherCount.textContent = current + 1;
+      });
+    }
+  });
+}
 
 function paintStaticText(){
   document.querySelectorAll("[data-i18n]").forEach(node => {
@@ -267,6 +326,13 @@ if(mobileBreakpoint.matches && el.layout){
   // sfarfallio del pannello sinistro di default prima dello scrollTo.
   document.documentElement.classList.add("carousel-ready");
 }
+
+// Cuoricino "mi piace": sulla card di Mathemory, in tutte le sue
+// copie (desktop + le due mobile) — sempre visibile, in fondo alla
+// card.
+setupMathemoryLike(el.mathemoryCardBody, "");
+setupMathemoryLike(el.mathemoryCardBodyLeft, "Left");
+setupMathemoryLike(el.mathemoryCardBodyRight, "Right");
 
 paintStaticText();
 

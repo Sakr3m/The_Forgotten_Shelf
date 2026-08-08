@@ -28,6 +28,10 @@ const STRINGS = {
     factReleaseOriginal: "Uscita originale",
     factCompleted: "Completato",
     ffviiiCompleted: "Sì, 100%",
+    verdictRecommended: "Consigliato",
+    verdictMixed: "Non per tutti",
+    verdictNotRecommended: "Sconsigliato",
+    leaveALike: "Lascia un like",
     quickReadLabelPart1: "Recensione veloce, quadro generale",
     quickReadLabelPart2: "spoiler minimi o assenti",
     ffviiiQuickNarrativeTitle: "Narrativa e Mondo",
@@ -129,6 +133,10 @@ const STRINGS = {
     factReleaseOriginal: "Original release",
     factCompleted: "Completed",
     ffviiiCompleted: "Yes, 100%",
+    verdictRecommended: "Recommended",
+    verdictMixed: "Not for everyone",
+    verdictNotRecommended: "Not recommended",
+    leaveALike: "Leave a like",
     quickReadLabelPart1: "Quick review, general overview",
     quickReadLabelPart2: "minimal or no spoilers",
     ffviiiQuickNarrativeTitle: "Story & World",
@@ -423,6 +431,62 @@ renderMobileGenreBar();
 
 function t(key){ return STRINGS[state.lang][key]; }
 
+function heartIcon(){
+  return `<svg viewBox="0 0 20 18" class="title-like__icon" aria-hidden="true">
+    <path d="M10 17C10 17 1.5 12.1 1.5 6.2C1.5 3.3 3.7 1.2 6.4 1.2C8 1.2 9.3 1.9 10 3.1C10.7 1.9 12 1.2 13.6 1.2C16.3 1.2 18.5 3.3 18.5 6.2C18.5 12.1 10 17 10 17Z"
+      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+  </svg>`;
+}
+
+// Cuoricino "mi piace", sempre in fondo alla recensione. Le tre
+// recensioni sono statiche (non ricreate ad ogni apertura come nelle
+// altre pagine), quindi crea il cuore una volta sola e poi non fa
+// piu' nulla alle aperture successive della stessa recensione
+// (controllato con l'id del widget).
+function appendLikeWidget(container, workId, idSuffix){
+  idSuffix = idSuffix || "";
+  if(!container || !window.ForgottenShelfLikes) return;
+  const widgetId = `likeWidget-${workId}${idSuffix}`;
+  if(document.getElementById(widgetId)) return; // gia' creato in precedenza
+  container.insertAdjacentHTML("beforeend", `
+    <div class="title-like" id="${widgetId}" data-work-id="${workId}">
+      <span class="title-like__label">${t("leaveALike")}</span>
+      <button type="button" class="title-like__btn" aria-label="Mi piace">${heartIcon()}</button>
+      <span class="title-like__count"></span>
+    </div>
+  `);
+  const widget = document.getElementById(widgetId);
+  const likeBtn = widget.querySelector(".title-like__btn");
+  const countEl = widget.querySelector(".title-like__count");
+  if(ForgottenShelfLikes.hasLiked(workId)){
+    widget.classList.add("is-liked");
+    likeBtn.disabled = true;
+  }
+  ForgottenShelfLikes.getTotal(workId).then(total => { countEl.textContent = total; });
+  likeBtn.addEventListener("click", () => {
+    const result = ForgottenShelfLikes.like(workId);
+    if(result.ok){
+      widget.classList.add("is-liked");
+      likeBtn.disabled = true;
+      const current = parseInt(countEl.textContent, 10) || 0;
+      countEl.textContent = current + 1;
+      // Altre copie dello stesso cuore (es. sotto alla recensione
+      // veloce E in fondo a quella completa) rappresentano la stessa
+      // identica opera: se una si segna "gia' messo like", si
+      // segnano tutte, altrimenti si potrebbe rimettere il like piu'
+      // volte semplicemente scorrendo fino all'altra copia.
+      document.querySelectorAll(`.title-like[data-work-id="${workId}"]`).forEach(w => {
+        if(w === widget) return;
+        w.classList.add("is-liked");
+        const otherBtn = w.querySelector(".title-like__btn");
+        const otherCount = w.querySelector(".title-like__count");
+        if(otherBtn) otherBtn.disabled = true;
+        if(otherCount) otherCount.textContent = current + 1;
+      });
+    }
+  });
+}
+
 // Vero solo su dispositivi touch senza hover (telefoni/tablet): usato
 // per attivare il toggle di data-state SOLO li', mai su desktop.
 function isMobileNav(){
@@ -609,6 +673,23 @@ function openReview(id, instant){
   if(slot && el.musicControl) slot.appendChild(el.musicControl);
   updateIndexLink();
   updateMusicPlayback();
+  // Due cuori voluti, non un doppione per errore: uno subito dopo la
+  // recensione veloce (su desktop nella colonna della scheda, su
+  // mobile dentro a quick-take — stesso motivo di prima: sulla
+  // scheda, su mobile, si sposterebbe quando .deep si espande sotto),
+  // uno in fondo alla recensione completa (dentro a .deep, sempre
+  // presente nel DOM anche se nascosta finche' non la si apre).
+  // Sincronizzati tra loro (vedi appendLikeWidget): il like messo su
+  // uno accende anche l'altro, dato che sono la stessa opera.
+  const quickLikeContainer = isMobileNav() ? entryEl.querySelector(".quick-take") : entryEl.querySelector(".facts");
+  appendLikeWidget(quickLikeContainer, id, "-quick");
+  // Solo su mobile: su desktop il primo cuore (nella scheda, a lato)
+  // resta sempre visibile mentre si legge, anche scorrendo dentro
+  // alla recensione completa — un secondo in fondo sarebbe inutile
+  // li'. Su mobile invece il primo esce dallo schermo scorrendo,
+  // quindi ne serve un altro in fondo per chi arriva li' senza
+  // tornare su.
+  if(isMobileNav()) appendLikeWidget(entryEl.querySelector(".deep"), id, "-deep");
 }
 
 function backToLanding(){

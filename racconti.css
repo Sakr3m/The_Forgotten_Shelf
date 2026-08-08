@@ -440,17 +440,21 @@ body[data-state="entry"] .landing{ display:none; }
     display:block;
     position:absolute; top:70px; left:0; right:0; height:130px;
     margin:0; padding:0; border:none;
+    border-radius:0; /* .game-header (condivisa) porta border-radius:var(--radius):
+      qui invece il banner deve andare a piena tela, bordo a bordo, non con
+      gli angoli arrotondati */
     overflow:hidden;
     z-index:1;
   }
   body[data-state="entry"] #pageHeaderBanner{
-    background-position:center center;
-    /* Niente stretch: l'immagine si ingrandisce (mantenendo le sue
-       proporzioni) finché il bordo sopra e quello sotto toccano
-       esattamente i bordi del box; quello che sporge a destra/
-       sinistra viene tagliato dall'overflow:hidden già presente
-       su #pageHeader. Stessa correzione già fatta su il_filo_nascosto.html. */
-    background-size:auto 100%;
+    background-position:left center;
+    /* cover, non auto 100%: quest'ultima scalava l'immagine solo in
+       base all'altezza, e se l'immagine non era abbastanza larga in
+       proporzione lasciava vuoto (nero) sulla destra — dove poi il
+       controllo musica finiva per stare "sopra al nulla" invece che
+       sopra al banner vero. cover riempie sempre l'intero box (larghezza
+       compresa), ancorato a sinistra come sopra. */
+    background-size:cover;
   }
   body[data-state="entry"] .game-header__banner-overlay{
     background:rgba(0,0,0,.45);
@@ -473,7 +477,11 @@ body[data-state="entry"] .landing{ display:none; }
   }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:0; right:0; z-index:2;
+    position:absolute; top:-12px; right:0; z-index:2; /* alzato di 12px: la
+      distanza tra il bordo sopra del banner e questo riquadro combacia
+      cosi' esattamente (8px) con quella tra il bordo sotto del banner
+      e la tendina — valori fissi, nessun testo di lunghezza variabile
+      in gioco qui, quindi un numero CSS statico basta ed e' preciso */
   }
   body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
 

@@ -412,3 +412,17 @@
     color:#000;
   }
 }
+
+/* Cuoricino su Doom (e giochi senza timeline in generale): solo qui,
+   30px anche su desktop invece dei 50px di default — eccezione
+   locale a questa pagina, stesso schema gia' usato su Officina.
+   Su mobile il 30px lo prende gia' dalla regola condivisa (nessun
+   conflitto: qui coincide su entrambi). */
+.canon-page .title-like{ margin-top:10px; }
+
+/* Vista titolo (voci singole): solo su mobile, 40px invece dei
+   30px condivisi — non tocca ne' il desktop (resta 50px) ne' Doom
+   (resta 10px, selettore diverso). */
+@media (hover:none) and (pointer:coarse){
+  #titleContent .title-like{ margin-top:40px; }
+}
