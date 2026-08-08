@@ -263,6 +263,9 @@ if(storedGateSide === "left" || storedGateSide === "right") state.activeSide = s
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
+  brand: document.querySelector(".brand"),
+  socialLinks: document.querySelector(".social-links"),
+  stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
   indexLink: document.getElementById("indexLink"),
   gateSideToggle: document.getElementById("gateSideToggle"),
@@ -359,6 +362,7 @@ function buildGenresFromDOM(){
   return genres;
 }
 const GENRES = buildGenresFromDOM();
+let currentTableGenre = null; // genere mostrato ora nella tabella, null = ancora vuota
 
 function renderMobileGenreBar(){
   if(!el.mobileGenreBar) return;
@@ -368,18 +372,28 @@ function renderMobileGenreBar(){
     btn.type = "button";
     btn.className = "mobile-genre-btn";
     btn.textContent = genreName;
-    btn.addEventListener("click", () => openGenreTable(genreName));
+    btn.classList.toggle("is-active", genreName === currentTableGenre);
+    btn.addEventListener("click", () => selectGenre(genreName));
     el.mobileGenreBar.appendChild(btn);
   });
 }
 
-// Popola la tabella e la rende presente nel carosello. Nessuno
-// scrollTo necessario per "entrarci": diventando il primo figlio
-// vero di .layout, e lo scrollLeft essendo gia' a 0 (dove si stava
-// guardando lo stage), la si vede gia' subito da sola.
-function openGenreTable(genreName){
+// Cerca a quale genere appartiene una recensione — serve per
+// mostrare il genere giusto nella tabella quando si apre una voce da
+// qualunque punto (card sulla home, lista della tabella stessa).
+function findGenreForReview(reviewId){
+  for(const [genreName, items] of Object.entries(GENRES)){
+    if(items.some(item => item.id === reviewId)) return genreName;
+  }
+  return null;
+}
+
+// Riempie la lista della tabella con le voci del genere indicato.
+// Non tocca ne' lo scroll ne' la classe is-active della barra generi
+// (se ne occupano rispettivamente chi chiama e renderMobileGenreBar).
+function fillGenreList(genreName){
   const items = GENRES[genreName];
-  if(!items || !el.mobileGenreTable) return;
+  if(!items || !el.mobileGenreListItems) return;
   el.mobileGenreListTitle.textContent = genreName;
   el.mobileGenreListItems.innerHTML = "";
   items.forEach(item => {
@@ -401,30 +415,39 @@ function openGenreTable(genreName){
     li.appendChild(btn);
     el.mobileGenreListItems.appendChild(li);
   });
-  document.documentElement.classList.add("mobile-table-open");
-  // Rete di sicurezza oltre a overflow-anchor:none in CSS: forza la
-  // posizione invece di sperare che resti a 0 da sola una volta che
-  // la tabella diventa il primo figlio del carosello.
-  if(el.layout) el.layout.scrollLeft = 0;
+  currentTableGenre = genreName;
 }
 
-// Rilevamento "sono tornato sullo stage": quando lo scroll
-// orizzontale si assesta sulla posizione dello stage (non piu' sulla
-// tabella), la tabella ha fatto il suo dovere — la si toglie dal
-// carosello, cosi' non e' piu' raggiungibile scorrendo a sinistra
-// dalla home finche' non si riseleziona un genere.
-let tableCollapseTimer = null;
-if(el.layout){
-  el.layout.addEventListener("scroll", () => {
-    if(!document.documentElement.classList.contains("mobile-table-open")) return;
-    clearTimeout(tableCollapseTimer);
-    tableCollapseTimer = setTimeout(() => {
-      if(el.layout.scrollLeft >= window.innerWidth - 10){
-        document.documentElement.classList.remove("mobile-table-open");
-        el.layout.scrollLeft = 0;
-      }
-    }, 150);
-  });
+// Cambio genere VOLUTO dall'utente (tocco sul carosello in fondo alla
+// tabella): dissolvenza fuori (0.5s) sul titolo+lista attuali, poi
+// swap del contenuto, poi dissolvenza dentro (0.5s) dei nuovi. Se e'
+// gia' il genere mostrato, non fa nulla (nessun bisogno di
+// un'animazione a vuoto).
+function selectGenre(genreName){
+  if(genreName === currentTableGenre) return;
+  if(!el.mobileGenreListTitle || !el.mobileGenreListItems) return;
+  el.mobileGenreListTitle.style.opacity = "0";
+  el.mobileGenreListItems.style.opacity = "0";
+  setTimeout(() => {
+    fillGenreList(genreName);
+    renderMobileGenreBar(); // ridisegna i pulsanti, per l'evidenziazione is-active
+    el.mobileGenreListTitle.style.opacity = "1";
+    el.mobileGenreListItems.style.opacity = "1";
+  }, 500);
+}
+
+// Sincronizzazione ISTANTANEA (mai a dissolvenza, l'utente non sta
+// guardando la tabella in questo momento): mostra nella tabella il
+// genere a cui appartiene la recensione appena aperta, cosi'
+// scorrendo a sinistra da li' si ritrova il genere giusto, non
+// vuoto o quello di prima. Chiamata da dentro openReview() stessa,
+// vale per qualunque punto di apertura (card sulla home, lista della
+// tabella).
+function syncTableToReview(reviewId){
+  const genreName = findGenreForReview(reviewId);
+  if(!genreName || genreName === currentTableGenre) return;
+  fillGenreList(genreName);
+  renderMobileGenreBar();
 }
 
 renderMobileGenreBar();
@@ -654,6 +677,7 @@ function openReview(id, instant){
   closeGate(el.gateToggleLeft, el.reviewsGateLeft);
   crossfadeTo(entryEl, instant);
   state.view = id;
+  syncTableToReview(id); // mostra nella tabella (mobile) il genere giusto, per quando si torna a scorrere a sinistra
   state.trackIndex = 0; // si riparte dal primo brano della nuova playlist
   // Torna in cima ad ogni nuova recensione, invece di restare dov'era
   // scorsa la precedente: window.scrollTo per desktop, .stage per
@@ -662,6 +686,15 @@ function openReview(id, instant){
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
   el.body.classList.add("is-review-open");
+  // Come sulle altre pagine interne: a recensione aperta, Discord/
+  // KoFi si spostano dentro a .brand (prima del nome pagina) invece
+  // di restare nella loro posizione originale dentro .stage-controls
+  // — un solo elemento nel DOM, spostarlo lo toglie automaticamente
+  // da dov'era prima. Solo desktop: su mobile hanno gia' un
+  // trattamento apposito diverso, mai toccato qui.
+  if(!isMobileNav() && el.brand && el.socialLinks && el.brandBtn && el.socialLinks.parentElement !== el.brand){
+    el.brand.insertBefore(el.socialLinks, el.brandBtn);
+  }
   // Colore proprio della voce (bordo/icone Ko-fi-Discord in vista
   // voce mobile, e la voce corrispondente nella tabella genere).
   if(REVIEW_ACCENTS[id]){
@@ -703,12 +736,15 @@ function backToLanding(){
   state.view = "landing";
   el.body.classList.remove("is-review-open");
   el.body.style.removeProperty("--item-accent");
+  // Discord/KoFi tornano al loro posto originale dentro
+  // .stage-controls, solo desktop (stesso motivo di sopra).
+  if(!isMobileNav() && el.stageControls && el.socialLinks && el.socialLinks.parentElement !== el.stageControls){
+    el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
+  }
   // Solo mobile: se si stava guardando la tabella o una recensione,
-  // torna a mostrare lo stage (home) nel carosello, e la tabella (se
-  // era presente) torna assente — va ritoccato un genere per
-  // riaprirla.
-  if(el.layout) el.layout.scrollLeft = 0;
-  document.documentElement.classList.remove("mobile-table-open");
+  // torna a mostrare lo stage (home) nel carosello — la tabella resta
+  // presente (sempre raggiungibile ora), con l'ultimo genere sfogliato.
+  if(el.layout) el.layout.scrollLeft = window.innerWidth;
   if(isMobileNav()) el.body.dataset.state = "landing";
   updateIndexLink();
   updateMusicPlayback();
@@ -854,6 +890,14 @@ document.addEventListener("visibilitychange", () => {
 });
 
 paintStaticText();
+
+// Mobile: la tabella genere e' sempre presente come primo pannello
+// del carosello (vedi sopra) — ma all'apertura della pagina deve
+// mostrarsi lo stage (home), non la tabella. Nessuna animazione,
+// e' il punto di partenza vero e proprio, non una transizione.
+if(isMobileNav() && el.layout){
+  el.layout.scrollLeft = window.innerWidth;
+}
 
 // ---------------------------------------------------------
 // Suono UI al tap, stesso comportamento delle altre pagine. Lo skip

@@ -428,7 +428,19 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
      recensione e' aperta — e quella che mostra .index-link solo li'
      lo mostra invece sempre. Eccezione solo qui: si scambiano di
      nuovo quando is-review-open e' attiva. */
-  body.is-review-open .brand{ display:flex; }
+  body.is-review-open .brand{
+    display:flex; width:auto; justify-content:flex-start; gap:10px;
+    margin-left:0;
+  }
+  body.is-review-open .brand .social-links{
+    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+    position:static; left:auto; top:auto; height:auto; transform:none;
+  }
+  body.is-review-open .kofi-link,
+  body.is-review-open .discord-link{ display:flex; }
+  body.is-review-open .kofi-link__full{ display:none; }
+  body.is-review-open .kofi-link__short{ display:inline; }
+  body.is-review-open .brand-icon{ display:none; }
   body.is-review-open .index-link{ display:none; }
 }
 
@@ -675,51 +687,57 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .kofi-link__short{ color:var(--cyan); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
-  /* --- Barra generi: "header bassa" nella home, solo testo (niente
-     cornici sui pulsanti) --- */
-  .mobile-genre-bar{
-    display:flex; gap:28px; justify-content:center;
-    margin-top:32px; padding-top:18px;
-    border-top:1px solid var(--line);
-    overflow-x:auto; scrollbar-width:none;
-  }
-  .mobile-genre-bar::-webkit-scrollbar{ display:none; }
+  /* Pulsanti della barra generi: stile condiviso, usato dentro alla
+     tabella (vedi .mobile-genre-table .mobile-genre-bar piu' sotto
+     per il posizionamento/contenitore). */
   .mobile-genre-btn{
     flex:0 0 auto;
     background:none; border:none; padding:4px 2px;
     color:var(--text);
     font-weight:700; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase;
+    transition:color .15s ease;
   }
   .mobile-genre-btn:active{ color:var(--cyan); }
+  .mobile-genre-btn.is-active{ color:var(--cyan); }
 
   /* --- Tabella titoli del genere: pannello del carosello a
-     sinistra, come .sidebar nelle altre pagine. Assente dal flusso
-     (display:none) finche' non si tocca un genere: la classe
-     mobile-table-open (aggiunta/tolta via JS) la rende presente —
-     diventando il primo figlio vero di .layout, e lo scrollLeft
-     essendo gia' a 0, la si vede subito senza bisogno di scrollTo.
-     Da quel momento e' scorrevole col dito per tornare indietro
-     (swipe vero); una volta tornati sullo stage ridiventa assente
-     (vedi script-recensioni.js). Stile della lista uguale a quello
-     di Storie Senza Cornice/Il Filo Nascosto: genere come etichetta
-     piccola e grigia in alto, voci sotto senza righe divisorie. --- */
-  html.mobile-table-open .mobile-genre-table{
-    display:block; position:relative;
+     sinistra, come .sidebar nelle altre pagine — sempre presente
+     (raggiungibile scorrendo a sinistra fin dall'inizio, non serve
+     piu' toccare un genere prima). Struttura a colonna: la lista
+     (con titolo fisso, solo lei scorre) prende tutto lo spazio
+     disponibile, il carosello generi resta ancorato in fondo, altezza
+     fissa. Tre zone di scroll indipendenti in totale: questo
+     carosello (orizzontale, solo tra generi), .layout (orizzontale,
+     tabella<->stage, gia' gestito altrove), la lista qui sotto
+     (verticale, solo lei — titolo/etichetta del genere restano
+     fermi, stesso principio gia' in uso su Storie Senza Cornice/Il
+     Filo Nascosto). --- */
+  .mobile-genre-table{
+    display:flex; flex-direction:column;
+    position:relative;
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; height:100dvh; overflow-y:auto;
+    height:100vh; height:100dvh; overflow:hidden;
     scroll-snap-align:start;
     background:var(--bg);
-    padding:78px 20px 40px;
+  }
+  .mobile-genre-table__list-wrap{
+    flex:1; min-height:0;
+    display:flex; flex-direction:column;
+    padding:78px 20px 0;
   }
   .mobile-genre-table__title{
+    flex:0 0 auto;
     font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
     color:var(--text-faint);
     margin:0 0 14px; padding:0 8px;
     text-align:center;
+    transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
   .mobile-genre-table__items{
-    list-style:none; margin:0; padding:0;
+    flex:1; min-height:0; overflow-y:auto;
+    list-style:none; margin:0; padding:0 0 20px;
     display:flex; flex-direction:column; gap:2px;
+    transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
   .mobile-genre-table__items li:first-child{ margin-top:21px; }
   .mobile-genre-table__items button{
@@ -736,14 +754,26 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
   }
 
+  /* Carosello generi dentro alla tabella (spostato dalla home):
+     ancorato in fondo al pannello, altezza fissa (flex-shrink:0),
+     scorre in orizzontale SOLO tra i generi — indipendente dallo
+     scroll verticale della lista qui sopra. Stesso stile "header
+     bassa" di quando stava sulla home. */
+  .mobile-genre-table .mobile-genre-bar{
+    flex:0 0 auto;
+    display:flex; gap:28px; justify-content:center;
+    padding:14px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+    border-top:1px solid var(--line);
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .mobile-genre-table .mobile-genre-bar::-webkit-scrollbar{ display:none; }
+
   /* Freccetta animata (non un pulsante: e' solo un suggerimento
      visivo) che indica di scorrere verso destra per tornare alla
-     home — stessa animazione/stile gia' usata su Storie Senza
-     Cornice e Il Filo Nascosto. Vive dentro la tabella, quindi non
-     esiste affatto finche' la tabella e' assente (sulla home). */
-  .swipe-hint--table-right{
-    display:block; position:fixed; top:50%; right:14px; z-index:20;
-    transform:translateY(-50%);
+     home o alla recensione aperta — stessa animazione/stile gia'
+     usata su Storie Senza Cornice e Il Filo Nascosto. */
+  body[data-state="landing"] .swipe-hint--table-right{
+    display:block; position:absolute; top:82px; right:14px; z-index:20;
     color:var(--text-faint);
     animation:swipeHintRight 1.6s ease-in-out infinite;
     pointer-events:none;

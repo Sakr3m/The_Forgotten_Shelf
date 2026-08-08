@@ -16,23 +16,43 @@
 
   <div class="layout">
     <!-- Tabella genere, SOLO mobile: pannello del carosello a
-         sinistra dello stage, come .sidebar nelle altre pagine.
-         Normalmente ASSENTE dal flusso (display:none): niente da
-         raggiungere scorrendo a sinistra finche' non si tocca un
-         genere nella barra in basso. Il tocco la popola e la rende
-         visibile — a quel punto e' scorrevole col dito per tornare
-         indietro (freccetta animata qui dentro), ma una volta
-         tornati alla home ridiventa assente, va riselezionato un
-         genere per riaprirla. Vedi script-recensioni.js. -->
+         sinistra dello stage, come .sidebar nelle altre pagine —
+         sempre presente (raggiungibile scorrendo a sinistra fin da
+         subito, non serve piu' toccare un genere prima), con dentro
+         il carosello generi in fondo (nuovo: prima stava solo sulla
+         home). Tre zone di scroll indipendenti: il carosello generi
+         qui sotto (orizzontale, solo tra generi), .layout stesso
+         (orizzontale, tabella<->stage), e la lista voci qui dentro
+         (verticale, solo lei — titolo/etichetta del genere restano
+         fermi). Vedi script-recensioni.js. -->
     <aside class="mobile-genre-table" id="mobileGenreTable">
       <span class="swipe-hint swipe-hint--table-right" aria-hidden="true">
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-      <h2 class="mobile-genre-table__title" id="mobileGenreListTitle"></h2>
-      <ul class="mobile-genre-table__items" id="mobileGenreListItems"></ul>
+      <div class="mobile-genre-table__list-wrap">
+        <h2 class="mobile-genre-table__title" id="mobileGenreListTitle"></h2>
+        <ul class="mobile-genre-table__items" id="mobileGenreListItems"></ul>
+      </div>
+      <!-- Carosello generi, spostato qui dalla home (vedi sotto):
+           stessa barra, stesso meccanismo, ora dentro alla tabella
+           cosi' si puo' cambiare genere senza dover tornare alla
+           home. -->
+      <div class="mobile-genre-bar" id="mobileGenreBar"></div>
     </aside>
 
     <main class="stage" id="stage">
+
+      <!-- Freccetta animata, SOLO mobile: invita a scorrere verso
+           sinistra per raggiungere la tabella dei generi (sempre
+           disponibile, non serve piu' toccare nulla prima). Figlia
+           diretta di .stage, non di .landing: .landing ha una sua
+           trasformazione CSS per il centraggio, che romperebbe
+           position:fixed su un figlio (lo ancorerebbe a se stessa
+           invece che allo schermo) — stesso livello dove la mettono
+           le altre pagine interne. -->
+      <span class="swipe-hint swipe-hint--left" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M12 3L5 10l7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
 
       <div class="stage-topbar">
         <div class="brand">
@@ -160,14 +180,6 @@
         <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello qui sotto per sfogliare le recensioni disponibili.</p>
 
         <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" data-i18n="gateSideToggleOff">Apri il cancello da sinistra</button>
-
-        <!-- Barra generi, SOLO mobile: una "header bassa" con solo
-             testo (niente cornici sui pulsanti), non pillole
-             galleggianti. Unica cosa scorrevole in orizzontale della
-             home statica. Generata a runtime da script-recensioni.js
-             (oggetto GENRES), cosi' aggiungere un genere in futuro
-             non richiede toccare l'HTML. -->
-        <div class="mobile-genre-bar" id="mobileGenreBar"></div>
       </section>
 
       <!-- Voce di recensione (Final Fantasy VII, originale 1997): nascosta

@@ -843,10 +843,14 @@ body[data-state="landing"] .index-link{ display:flex; }
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
 }
-.title-year{ font-size:.8rem; font-weight:600; color:var(--text-faint); margin-left:10px; }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
 .title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
+.title-date{
+  margin-top:26px; margin-bottom:26px;
+  font-size:.8rem; font-weight:600; color:var(--text-faint);
+}
 .title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
+.title-date + .title-synopsis{ margin-top:0; } /* niente doppio spazio: lo spazio "sotto" lo da' gia' .title-date */
 @media (hover:hover), (pointer:fine){
   /* Evidenziatore morbido dietro al testo, riga per riga (non un
      riquadro unico su tutto il paragrafo): cosi' la filigrana sotto

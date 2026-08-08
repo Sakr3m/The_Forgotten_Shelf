@@ -741,10 +741,10 @@ function renderTitlePanel(){
   el.titleContent.innerHTML = `
     <div class="title-meta">
       <span class="title-tag">${typeLabel}</span>
-      <span class="title-year">${yearLabel}</span>
     </div>
     <h2 class="title-name">${tf(entry.title)}</h2>
     <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
+    ${yearLabel ? `<p class="title-date">${yearLabel}</p>` : ""}
     <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <div class="title-nav">

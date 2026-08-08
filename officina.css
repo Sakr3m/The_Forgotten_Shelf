@@ -66,6 +66,26 @@
     transform:translate(-50%,-50%) rotate(0deg) scale(1.08) translateY(-6px);
     box-shadow:0 28px 46px rgba(0,0,0,.55);
   }
+  .card:hover .card__body{ max-height:460px; }
+  /* La card si ingrandisce del 8% in hover (scale(1.08) qui sopra):
+     senza contromisura, il cuore (che vive dentro) si ingrandirebbe
+     insieme a lei, risultando piu' grande degli altri pulsanti della
+     pagina (che stanno fuori dalla card, fermi alla loro dimensione
+     vera). Qui annullo esattamente quell'8% con la proporzione
+     inversa (1/1.08), cosi' il cuore resta alla sua vera dimensione
+     dichiarata anche a card ingrandita. Dentro a questo stesso blocco
+     hover:hover, non fuori: su mobile non c'e' nessuno zoom vero da
+     compensare, quindi il contro-zoom non deve scattare nemmeno lui —
+     un telefono che simula :hover al tocco lo attiverebbe comunque,
+     rimpicciolendo il cuore senza che nulla lo stia ingrandendo. */
+  .card:hover .card__body .title-like{
+    transform:scale(0.9259);
+    transform-origin:left center;
+  }
+  .card:hover .card__body .status, .card:hover .card__body .tagline, .card:hover .card__body .cta, .card:hover .card__body .card-copyright{
+    opacity:1; transition:opacity .25s ease .15s;
+    pointer-events:auto;
+  }
 }
 
 .card__body{
@@ -74,31 +94,15 @@
   max-height:235px;
   transition:max-height .3s ease;
 }
-.card:hover .card__body{ max-height:460px; }
 
 /* Eccezione solo qui: il cuoricino resta a 30px anche su desktop
    (il resto del sito usa 50px desktop / 30px mobile) — su mobile
    la card usa gia' 30px di suo, quindi qui coincide su entrambi. */
 .card__body .title-like{ margin-top:30px; }
-/* La card si ingrandisce del 8% in hover (scale(1.08) su .card):
-   senza contromisura, il cuore (che vive dentro) si ingrandirebbe
-   insieme a lei, risultando piu' grande degli altri pulsanti della
-   pagina (che stanno fuori dalla card, fermi alla loro dimensione
-   vera). Qui annullo esattamente quell'8% con la proporzione
-   inversa (1/1.08), cosi' il cuore resta alla sua vera dimensione
-   dichiarata anche a card ingrandita. */
-.card:hover .card__body .title-like{
-  transform:scale(0.9259);
-  transform-origin:left center;
-}
 
 .card__body .status, .card__body .tagline, .card__body .cta, .card__body .card-copyright{
   opacity:0; transition:opacity .15s ease;
   pointer-events:none;
-}
-.card:hover .card__body .status, .card:hover .card__body .tagline, .card:hover .card__body .cta, .card:hover .card__body .card-copyright{
-  opacity:1; transition:opacity .25s ease .15s;
-  pointer-events:auto;
 }
 
 .card::before, .card::after,

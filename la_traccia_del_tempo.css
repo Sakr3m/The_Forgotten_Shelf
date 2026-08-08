@@ -208,10 +208,12 @@
   }
   body[data-state="game"] .u-track__head{ justify-content:space-between; width:100%; }
   body[data-state="game"] .carousel-arrow{ padding:9px 12px; gap:6px; }
-  body[data-state="game"] .carousel-arrow__label{
-    display:inline; max-width:80px;
-    font-size:.72rem; line-height:1.2; white-space:normal;
-  }
+  /* L'etichetta col nome dell'universo di destinazione (riattivata
+     qui in precedenza, vedi commento sopra) e' stata tolta di nuovo:
+     lo spazio col nome dell'universo corrente (.u-track__name) era
+     troppo stretto. Torna al comportamento di base (styles.css,
+     .carousel-arrow__label{display:none}) — solo l'icona freccia
+     sui pulsanti, nessun testo. */
 
   /* --- Nodi della linea temporale: avatar ingranditi x1.1 (72x92 ->
      79x101), distanza dal trattino raddoppiata (20px -> 40px), nome
