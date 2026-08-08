@@ -96,4 +96,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://sakr3m.github.io/The_Forgotten_Shelf/teoria-clair-obscur-chi-e-quel-bambino.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sakr3m.github.io/The_Forgotten_Shelf/teoria-ff8-vera-identita-artemisia.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

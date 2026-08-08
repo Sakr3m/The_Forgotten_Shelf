@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Vera Identità di Artemisia — The Forgotten Shelf</title>
+<meta name="description" content="Teoria fan su Final Fantasy VIII: La Vera Identità di Artemisia. Interpretazione approfondita su The Forgotten Shelf.">
+<link rel="canonical" href="https://sakr3m.github.io/The_Forgotten_Shelf/teoria-ff8-vera-identita-artemisia.html">
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/inter.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="storie-teorie.css">
+</head>
+<body data-state="entry" data-lang="it">
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Teorie</p>
+      <ul class="game-list" id="teorieList"></ul>
+    </aside>
+
+    <main class="stage" id="stage">
+
+      <div class="stage-topbar">
+        <div class="brand">
+          <a class="brand-icon" href="https://ko-fi.com/the_forgotten_shelf" target="_blank" rel="noopener" aria-label="Sostienimi su Ko-fi">
+            <span class="seal seal--mini" aria-hidden="true">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 12h14v9a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-9z" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+                <path d="M22 14h2.5a3.5 3.5 0 0 1 0 7H22" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M12 8.5c0-1.2 1.6-1.2 1.6-2.4M17 8.5c0-1.2 1.6-1.2 1.6-2.4" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+          <button class="brand-text" id="brandBtn" type="button" data-i18n="brand" aria-label="Torna alla home">Il Filo Nascosto</button>
+        </div>
+
+        <a class="index-link" href="index.html">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2L2 9h2v8h5v-5h2v5h5V9h2L10 2z" fill="currentColor"/></svg>
+          <span data-i18n="backToIndexLabel">Torna all'index</span>
+        </a>
+
+        <div class="stage-controls">
+          <div class="social-links">
+            <a class="discord-link" href="https://discord.gg/Vu7bxUPvgR" target="_blank" rel="noopener" aria-label="Unisciti al server Discord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7362 19.7362 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.0991.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" fill="currentColor"/></svg>
+            </a>
+            <a class="kofi-link" href="https://ko-fi.com/the_forgotten_shelf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17.5s-6.5-4-8.2-8.1C.5 6.5 2 3.5 5 3.2c1.8-.2 3.4.7 4.3 2 .9-.3 1.6-1.2 3-2C15.5 2 18.8 4 18 8c-1 4.2-8 9.5-8 9.5z" fill="currentColor"/></svg>
+              <span class="kofi-link__full" data-i18n="kofiLabel">Sostienimi su Ko-fi</span>
+              <span class="kofi-link__short">KoFi</span>
+            </a>
+          </div>
+
+          <div class="music-control" id="musicControl">
+            <div class="track-info" id="trackInfo" hidden>
+              <div class="track-info__row">
+                <span class="track-info__text">
+                  <span class="track-info__title" id="trackTitle"></span>
+                  <span class="track-info__game" id="trackGame"></span>
+                </span>
+                <button class="track-skip" id="trackSkipBtn" type="button" aria-label="Prossimo brano">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l7 5-7 5V3z" fill="currentColor"/><rect x="11" y="3" width="2" height="10" fill="currentColor"/></svg>
+                </button>
+              </div>
+              <div class="track-progress"><div class="track-progress__fill" id="trackProgressFill"></div></div>
+            </div>
+
+            <div class="volume-control">
+              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-pressed="false" hidden>
+                <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+                <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+              </button>
+
+              <div class="volume-panel">
+                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="Volume">
+              </div>
+            </div>
+          </div>
+
+          <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
+            <span class="lang-option is-active" data-lang-option="en">EN</span>
+            <span class="lang-sep">/</span>
+            <span class="lang-option" data-lang-option="it">IT</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="stage-cover" aria-hidden="true"></div>
+
+      <span class="swipe-hint swipe-hint--left" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M12 3L5 10l7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="swipe-hint swipe-hint--right" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+
+      <div class="game-header" id="pageHeader">
+        <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
+        <div class="game-header__banner-overlay" aria-hidden="true"></div>
+
+        <div class="entry-game-picker" id="entryGamePicker">
+          <button class="entry-game-trigger" id="entryGameTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span id="entryGameTriggerLabel">—</span>
+            <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>
+
+      <audio id="bgMusic" preload="none"></audio>
+
+      <section class="landing" id="landingPanel" hidden>
+        <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nell'archivio di storie nascoste e teorie</p>
+        <h1 class="landing-title" data-i18n="landingTitle">The Forgotten Shelf</h1>
+        <p class="landing-intro" data-i18n="landingIntro">
+          The Forgotten Shelf raccoglie riflessioni, teorie dei fan e retroscena nascosti dentro alcune delle saghe videoludiche più amate: dettagli che sfuggono a una prima lettura, indizi lasciati dagli sviluppatori, ipotesi che il tempo non ha ancora del tutto confermato né smentito. Un angolo pensato per chi ama guardare oltre la superficie della trama.
+        </p>
+
+        <div class="spoiler-alert">
+          <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
+          <p data-i18n="spoilerAlert">Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.</p>
+        </div>
+
+        <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.</p>
+      </section>
+
+      <section class="entry-panel" id="entryPanel">
+        <div class="entry-content" id="entryContent">
+    <h1 class="entry-title">La Vera Identità di Artemisia</h1>
+    <p class="entry-copyright">© 2026 Sakrem — Tutti i diritti riservati</p>
+    <p class="entry-body">Oggi vi parlo di una delle teorie fan più longeve e discusse dell'intera storia dei videogiochi. Non è nuova, circola dai tempi della PS1, ma nel corso degli anni ha accumulato prove, smentite e mezze ammissioni degli stessi sviluppatori che la rendono ancora oggi impossibile da ignorare del tutto.<br><br>In Final Fantasy VIII la storia d'amore tra Squall e Rinoa è il cuore pulsante del gioco. Rinoa, a metà storia, diventa una Strega e prende Squall come suo Cavaliere. La villain principale, Artemisia, è anch'essa una Strega proveniente da un futuro imprecisato, con un solo obiettivo: comprimere il tempo in un singolo istante eterno. La teoria sostiene una cosa semplice quanto devastante: Rinoa e Artemisia sono la stessa persona. Che Rinoa, dopo la morte di Squall, rimasta sola con i suoi poteri per generazioni, sia lentamente impazzita di dolore e si sia trasformata nella villain che i giocatori si trovano ad affrontare.<br><br>Le prove a favore<br><br>La prova più difficile da spiegare riguarda Griever, il Guardian Force di Artemisia. Squall aveva parlato di questa creatura solo con Rinoa, donandole il suo anello e descrivendole il leone come simbolo di forza. Artemisia non solo conosce il nome, ma è in grado di evocare il GF in forma fisica durante il combattimento finale. La musica che accompagna quello scontro si intitola &quot;Maybe I'm a Lion&quot;, riprendendo esattamente la natura del Griever e le parole di un pensiero di Squall (nella versione inglese e giapponese) dove si accosta a tale figura animale.<br><br>C'è poi il tema del tempo, che è il vero nodo della teoria. Rinoa dice a Squall, in uno dei momenti più intimi del gioco:<br><br>&quot;Io... sono una strega, non posso più stare con te. Non ne voglio sapere del futuro, voglio... voglio stare qui con te...&quot;<br><br>Artemisia, nel futuro, ha esattamente questo obiettivo: cristallizzare il tempo, fermarlo per sempre. Due personaggi con lo stesso desiderio profondo, oppure una sola persona che lo insegue per secoli. Rinoa arriva persino a dire a Squall che se mai dovesse perdere il controllo, vorrebbe che fosse lui a fermarla. Squall poi uccide Artemisia. Il cerchio si chiude in modo perfetto, e fin troppo preciso per essere casuale.<br><br>Nel momento della sconfitta, Artemisia non muore con odio. Le sue ultime parole sono calme, quasi meditative:<br><br>&quot;Ci avete mai pensato? Quando eravate bambini... Le sensazioni di allora... Le parole di allora... Le emozioni di allora. Cosa vi rimane? Cosa buttate via? Il tempo non aspetta. Non importa quanto stretto lo teniate, il tempo fugge e...&quot;<br><br>Parole strane per un villain generico. Perfette per una donna che ha passato un'eternità ad aggrapparsi a qualcosa che non può più tornare, e che nel momento finale prova a mandare un messaggio alla versione più giovane di se stessa.<br><br>C'è poi la questione dell'amnesia da Guardian Force, che non è un dettaglio marginale ma un tema centrale del gioco: i protagonisti hanno dimenticato di essere cresciuti tutti nello stesso orfanotrofio proprio a causa dell'uso prolungato dei GF. Se Rinoa avesse continuato a usarli per generazioni, sola, avrebbe potuto perdere i ricordi concreti di Squall conservando solo l'emozione di quell'amore. Spiegherebbe perché Artemisia lo attacca senza riconoscerlo. E spiegherebbe anche perché, pur conoscendo la profezia che la condanna a essere sconfitta da un membro dei SeeD, non coglie mai le occasioni per eliminare Squall definitivamente: la più evidente è quando lo trafigge con un frammento di ghiaccio, usando Edea, e poi lo tiene in vita per un interrogatorio, pur avendo altri ostaggi. Una scelta strana per un villain freddo e razionale. Molto meno strana per qualcuno che, nel profondo, non riesce davvero a volerlo morto.<br><br>Il design dei due personaggi sembra costruito per suggerire questa connessione. Tetsuya Nomura ha disegnato Rinoa e Artemisia come opposte simmetriche: ali bianche contro ali nere, capelli scuri contro capelli argentei, abito celeste contro abito rosso, il cane Angelo contro il leone Griever. Sul piano visivo, le due condividono una somiglianza facciale che non ha eguali nel resto del cast: stessa struttura del naso, stessa forma del viso. La somiglianza è così evidente che nella sequenza finale del gioco i loro volti vengono sovrapposti in rapida alternanza, come a voler suggerire un'identità condivisa. Nel gioco solo tre personaggi indossano la pelliccia come parte del costume: Squall, Artemisia e Edea quando è posseduta da Artemisia, come se quest'ultima avesse costruito il suo look attorno al ricordo del suo Cavaliere.<br><br>Tra le armi a disco di Rinoa c'è il Cardinal, che per forma e colori ricorda visivamente Artemisia. Cardinal significa anche &quot;importante, fondamentale&quot;, una scelta di nome che molti fan leggono come un suggerimento deliberato, coerente con l'abitudine del gioco di usare i nomi in modo significativo: Squall, Laguna, Raine, Angelo, Griever — non c'è nome casuale in Final Fantasy VIII.<br><br>Il manuale giapponese originale del gioco descriveva Rinoa con una nota oscura: che avrebbe finito per &quot;diventare distorta&quot;. Una frase che non suona come la descrizione dell'eroina romantica di un finale felice. E in Mobius Final Fantasy, scritto da Kazuhige Nojima, uno degli sceneggiatori originali di FF8, Artemisia riproduce quasi alla perfezione la danza di Rinoa nella sala da ballo, incluso il caratteristico gesto del dito alle labbra. Nojima ha scelto di inserire quella scena. Non è un dettaglio di sfondo.<br><br>Il castello di Artemisia si trova esattamente sopra il mare davanti all'orfanotrofio di Edea, vicino al campo di fiori dove Rinoa aveva detto a Squall che lo avrebbe aspettato. Non è un posto casuale per una villain senza legami con lui. In Dissidia, quando Artemisia affronta Squall in battaglia, la sua battuta di apertura è &quot;Shall we dance?&quot;, un'eco diretta del momento in cui Rinoa invitò Squall a ballare all'accademia. La wiki ufficiale di Final Fantasy la definisce un possibile riferimento indiretto alla teoria. Anche la posa di vittoria di Artemisia in Dissidia, con le braccia che si aprono lentamente verso l'alto, è una combinazione della sua posa prima di evocare Griever e dell'Angel Wing Limit Break di Rinoa: due movimenti distinti fusi in uno, attribuiti allo stesso personaggio.<br><br>C'è poi la questione della fusione con Adel. Nel gioco Rinoa ricorda di essere stata &quot;dentro la giovane Adel&quot;, e Edea conferma che Rinoa ha assorbito i poteri di Adel alla sua morte, cosa che Edea stessa non aveva fatto. Alcuni fan interpretano questo come il seme di una sovrapposizione progressiva: la brutalità e le memorie di Adel che si stratificano sopra quelle di Rinoa nel corso dei secoli, spiegando sia la crudeltà di Artemisia sia il suo dialetto, che richiama quello del paese di Adel. La forma finale di Artemisia, con due figure sovrapposte, sarebbe la rappresentazione visiva di Rinoa intrappolata sotto l'identità di Adel.<br><br>Tra i servitori di Artemisia nel dungeon finale compaiono Tiamat e l'Omega Weapon, che ricordano Bahamut e l'Ultima Weapon, due dei GF e boss più potenti dell'intero gioco. Il testo dello Scan su Tiamat lo conferma esplicitamente: era un GF, diventato un mostro sotto il potere di Artemisia. Molti fan leggono questo come un gesto di Rinoa futura che ha corrotto i GF dei suoi compagni morti per conservarne la memoria, esattamente come avrebbe fatto con Griever.<br><br>Infine c'è un punto narrativo che i sostenitori della teoria considerano il più difficile da ignorare: nel gioco è esplicitamente stabilito che Rinoa è l'ultima Strega della sua epoca. Se Artemisia esiste nel futuro come persona distinta, Rinoa avrebbe dovuto trasferire i suoi poteri a qualcuno prima di morire, il che richiederebbe l'esistenza di almeno un'altra Strega intermedia che il gioco non menziona mai. E c'è anche un'ironia narrativa nel destino di Seifer: aveva abbandonato Rinoa, ma finisce per diventare il Cavaliere della sua versione futura corrotta. Come se il cerchio si chiudesse in modo storto, con l'uomo sbagliato che serve la donna giusta nel momento sbagliato.<br><br>Le prove contro<br><br>La contro-prova più solida è di natura logica: Rinoa riceve i suoi poteri da Strega proprio da Artemisia, passando attraverso Edea. Se fossero la stessa persona, si troverebbe a ricevere i propri poteri da se stessa, un paradosso che il gioco non risolve in nessun modo. C'è poi il fatto che Artemisia non mostra mai alcun riconoscimento nei confronti di Squall, e che conosce la profezia che la vedrà sconfitta da un SeeD senza mai sembrare turbata da un legame personale con lui. Il finale di FF8 è apertamente positivo, e Square all'epoca costruiva quasi sempre epiloghi ottimisti: una protagonista destinata a diventare la villain sarebbe stata una scelta narrativa molto insolita per il 1999. Va detto anche che le streghe di FF8, secondo l'Ultimania ufficiale, hanno una durata di vita normale come gli esseri umani comuni, il che rende difficile spiegare come Rinoa potrebbe sopravvivere abbastanza a lungo da diventare Artemisia senza ricorrere a spiegazioni aggiuntive che il gioco non offre.<br><br>Conclusione<br><br>La teoria è stata smentita ufficialmente dal regista Yoshinori Kitase durante il PAX West 2016, con parole piuttosto nette: &quot;No, non è vero. Non penso che lo incorporerei nemmeno se rifacessimo il gioco. Sono entrambe delle Streghe, quindi in quel senso sono simili, ma non sono la stessa persona.&quot;<br><br>Kitase aggiunse però di non poter escludere del tutto la teoria, perché non era a conoscenza delle intenzioni degli altri due sceneggiatori, Nojima e Nomura, e anzi ammise di non aver mai saputo dell'esistenza di questa teoria prima che qualcuno gliela facesse presente. Una smentita, insomma, ma con qualche crepa. Il fandom ci ha costruito sopra altri anni di discussione, e probabilmente continuerà a farlo.<br><br>Le coincidenze nel testo del gioco restano lì, visibili a chiunque voglia cercarle. Ma la risposta ufficiale di Square è chiara: Rinoa e Artemisia sono due persone distinte, e il finale di Final Fantasy VIII è esattamente quello che sembra.</p>
+  </div>
+      </section>
+
+    </main>
+
+    <aside class="side-rail" id="storieRail">
+      <p class="rail-label" data-i18n="railLabel">Storie Nascoste</p>
+      <ul class="game-list" id="storieList"></ul>
+    </aside>
+  </div>
+
+  <script>window.__PRERENDER__ = { column: "teorie", id: "ff8_vera_identita_artemisia" };</script>
+  <script src="data-storie-teorie.js"></script>
+  <script src="script-storie-teorie.js"></script>
+  <script src="stats.js"></script>
+  <script src="likes.js"></script>
+</body>
+</html>
