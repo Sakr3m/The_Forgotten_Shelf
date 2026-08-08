@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Chiamato — The Forgotten Shelf</title>
+<meta name="description" content="dark fantasy viscerale. Il Chiamato, un libro originale di Sakrem su The Forgotten Shelf.">
+<link rel="canonical" href="https://sakr3m.github.io/The_Forgotten_Shelf/libro-il-chiamato-1.html">
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/inter.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="racconti.css">
+</head>
+<body data-state="entry" data-lang="it">
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Racconti brevi</p>
+      <ul class="game-list" id="teorieList"></ul>
+    </aside>
+
+    <main class="stage" id="stage">
+
+      <div class="stage-topbar">
+        <div class="brand">
+          <a class="brand-icon" href="https://ko-fi.com/the_forgotten_shelf" target="_blank" rel="noopener" aria-label="Sostienimi su Ko-fi">
+            <span class="seal seal--mini" aria-hidden="true">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 12h14v9a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-9z" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+                <path d="M22 14h2.5a3.5 3.5 0 0 1 0 7H22" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M12 8.5c0-1.2 1.6-1.2 1.6-2.4M17 8.5c0-1.2 1.6-1.2 1.6-2.4" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </a>
+          <button class="brand-text" id="brandBtn" type="button" data-i18n="brand" aria-label="Torna alla home">Storie Senza Cornice</button>
+        </div>
+
+        <a class="index-link" href="index.html">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2L2 9h2v8h5v-5h2v5h5V9h2L10 2z" fill="currentColor"/></svg>
+          <span data-i18n="backToIndexLabel">Torna all'index</span>
+        </a>
+
+        <div class="stage-controls">
+          <div class="social-links">
+            <a class="discord-link" href="https://discord.gg/Vu7bxUPvgR" target="_blank" rel="noopener" aria-label="Unisciti al server Discord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7362 19.7362 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.0991.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" fill="currentColor"/></svg>
+            </a>
+            <a class="kofi-link" href="https://ko-fi.com/the_forgotten_shelf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17.5s-6.5-4-8.2-8.1C.5 6.5 2 3.5 5 3.2c1.8-.2 3.4.7 4.3 2 .9-.3 1.6-1.2 3-2C15.5 2 18.8 4 18 8c-1 4.2-8 9.5-8 9.5z" fill="currentColor"/></svg>
+              <span class="kofi-link__full" data-i18n="kofiLabel">Sostienimi su Ko-fi</span>
+              <span class="kofi-link__short">KoFi</span>
+            </a>
+          </div>
+
+          <div class="music-control" id="musicControl">
+            <div class="track-info" id="trackInfo" hidden>
+              <div class="track-info__row">
+                <span class="track-info__text">
+                  <span class="track-info__title" id="trackTitle"></span>
+                  <span class="track-info__game" id="trackGame"></span>
+                </span>
+                <button class="track-skip" id="trackSkipBtn" type="button" aria-label="Prossimo brano">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l7 5-7 5V3z" fill="currentColor"/><rect x="11" y="3" width="2" height="10" fill="currentColor"/></svg>
+                </button>
+              </div>
+              <div class="track-progress"><div class="track-progress__fill" id="trackProgressFill"></div></div>
+            </div>
+
+            <div class="volume-control">
+              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-haspopup="listbox" aria-expanded="false" aria-pressed="false" hidden>
+                <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+                <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+              </button>
+
+              <div class="volume-panel">
+                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="Volume">
+              </div>
+            </div>
+          </div>
+
+          <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
+            <span class="lang-option is-active" data-lang-option="en">EN</span>
+            <span class="lang-sep">/</span>
+            <span class="lang-option" data-lang-option="it">IT</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="stage-cover" aria-hidden="true"></div>
+
+      <span class="swipe-hint swipe-hint--left" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M12 3L5 10l7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="swipe-hint swipe-hint--right" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+
+      <div class="game-header" id="pageHeader">
+        <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
+        <div class="game-header__banner-overlay" aria-hidden="true"></div>
+
+        <div class="entry-game-picker" id="entryGamePicker">
+          <button class="entry-game-trigger" id="entryGameTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span id="entryGameTriggerLabel">—</span>
+            <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="watermark-brightness-line" id="watermarkBrightness" hidden>
+        <div class="watermark-brightness-line__presets" id="watermarkPresets">
+          <button type="button" class="watermark-brightness-line__preset" data-preset="1" aria-label="Preset luminosità 1">1</button>
+          <button type="button" class="watermark-brightness-line__preset" data-preset="2" aria-label="Preset luminosità 2">2</button>
+          <button type="button" class="watermark-brightness-line__preset" data-preset="3" aria-label="Preset luminosità 3">3</button>
+        </div>
+        <div class="watermark-brightness-line__track">
+          <input type="range" id="watermarkBrightnessSlider" class="watermark-brightness-line__slider" min="0" max="1" step="0.01" value="0.5" aria-label="Luminosità filigrana">
+          <span class="watermark-brightness-line__tick" style="left:25%"></span>
+          <span class="watermark-brightness-line__tick" style="left:50%"></span>
+          <span class="watermark-brightness-line__tick" style="left:75%"></span>
+        </div>
+      </div>
+
+      <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>
+
+      <ul class="playlist-menu" id="playlistMenu" role="listbox" hidden></ul>
+
+      <audio id="bgMusic" preload="none"></audio>
+
+      <section class="landing" id="landingPanel" hidden>
+        <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nell'archivio di libri e racconti brevi</p>
+        <h1 class="landing-title" data-i18n="landingTitle">The Forgotten Shelf</h1>
+        <p class="landing-intro" data-i18n="landingIntro">
+          The Forgotten Shelf raccoglie racconti brevi originali — storie nate per esistere e basta, solo un'idea portata fino in fondo — e libri a capitoli per chi cerca qualcosa di più esteso: horror psicologico, dark fantasy, elegia e altro ancora.
+        </p>
+
+        <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.</p>
+      </section>
+
+      <div class="entry-watermark" id="entryWatermark" aria-hidden="true"></div>
+
+      <section class="entry-panel" id="entryPanel">
+        <div class="entry-content" id="entryContent">
+    <h1 class="entry-title">Il Chiamato</h1>
+    <p class="entry-copyright">© 2026 Sakrem — Tutti i diritti riservati</p>
+    <p class="entry-tag">dark fantasy viscerale</p>
+    <p class="entry-body"><span class="text-highlight">Tuk… tuk…<br><br>Detriti. Pietra che rotola nel buio.<br><br>Silenzio.<br><br>Freddo dal pavimento. Umido, vecchio. L'aria pesante, immobile. Odore di chiuso. E altro: ferro, acre.<br><br>Buio. Completo.<br><br>No.<br><br>Una luce. Fioca, lontana. Tremola.<br><br>Sopra di lui, pietra screpolata. Crepe ramificate, vene nere sulla superficie antica. La testa pulsava. Dolore sordo, profondo. Premeva dietro gli occhi.<br><br>Poi.<br><br>Non un suono. Non una voce.<br><br>Qualcosa dentro.<br><br>«Chiamato.»<br><br>Si irrigidì.<br><br>Il pensiero non era suo. Era lì, pesante. Un'ombra che si muove dove non dovrebbe. Vibrava nelle ossa.<br><br>«Chiamato.»<br><br>Di nuovo.<br><br>Un brivido. Freddo. Profondo.<br><br>Cercò di muoversi.<br><br>Il dolore esplose. Non acuto. Costante. Pesante. Le mani trovarono il pavimento. Umido. Viscido in alcuni punti. Si sollevò lentamente. Il corpo reagiva prima della mente.<br><br>Peso distribuito. Equilibrio. Controllo.<br><br>Le dita obbedirono. La spalla destra tirò appena. Ignorabile. Il campo visivo si adattò: mura, angoli, distanza. Il cuore batteva basso, regolare. Nessun panico. Solo precisione.<br><br>Restò in ginocchio. Assestò il peso. Testò l'equilibrio senza alzarsi del tutto.<br><br>Il corpo sapeva.<br><br>La mente no.<br><br>Pronto a reagire. Prima ancora di capire a cosa.<br><br>Poi l'odore lo investì davvero.<br><br>Sangue.<br><br>Molto sangue.<br><br>E altro. Carne aperta. Viscere esposte. L'aria pesante, satura. Irrespirabile.<br><br>Si fermò. Portò una mano al viso. Coprì naso e bocca. Inutile. L'odore era ovunque. Dentro le narici. Sulla lingua.<br><br>Abbassò la mano. Si abituò.<br><br>Guardò le mani. Sporche. Il pavimento scuro, bagnato.<br><br>Un dolore acuto al fianco. Si portò la mano alla stoffa. Strappata. Qualcosa di caldo, appiccicoso.<br><br>Sangue. Suo.<br><br>Non profondo. Ma bruciava.<br><br>Accanto a lui, a pochi centimetri, una spada.<br><br>Spezzata.<br><br>Solo un moncone oltre l'elsa. Il metallo fratturato. Spezzato da una forza immensa. Il filo rimanente rifletteva appena la luce. Torce, da qualche parte. Morenti.<br><br>La fissò. Poi si alzò. Lentamente.<br><br>Il dolore si fece più intenso. Ignorabile. Il corpo si mosse con precisione. Peso distribuito. Equilibrio controllato. Sapeva già cosa fare.<br><br>E li vide.<br><br>Corpi.<br><br>Ovunque.<br><br>Guerrieri in armatura. Riversi. Schiantati contro le pareti. Braccia piegate all'indietro. Elmi sfondati. Dentro, carne che traboccava dalle fessure. Piastroni squarciati. Mantelli rigidi di sangue secco.<br><br>Non civili.<br><br>Soldati. Addestrati.<br><br>Morti. Tutti.<br><br>Guardò la stanza.<br><br>Le pareti segnate da crepe profonde. Ramificate sulla pietra. Schegge e polvere ovunque. Al centro, dove avrebbe dovuto esserci pietra liscia, crepe a raggiera. Larghe. Profonde. Devastanti.<br><br>Non sembrava una battaglia.<br><br>Sembrava un'esplosione.<br><br>Alcuni cadaveri erano troppo lontani. Non erano caduti. Erano stati lanciati. Scagliati contro i muri. Violenza che nessuna lama poteva infliggere.<br><br>Cosa era successo?<br><br>Cercò di ricordare.<br><br>Niente.<br><br>Buio. Il dolore al fianco.<br><br>Guardò di nuovo la spada spezzata.<br><br>La raccolse.<br><br>Il cuoio dell'elsa aderiva alla mano. Familiare. Giusto.<br><br>Sua?<br><br>Forse.<br><br>Ma rotta. E lui ancora vivo. Tutti gli altri no.<br><br>Perché?<br><br>Poi un respiro.<br><br>Debole. Rauco.<br><br>Si voltò.<br><br>Al centro della carneficina, una figura.<br><br>Esile. Riversa. Capelli scuri incollati al viso. Sudore. Sangue. Vesti bianche, un tempo. Ora lacerate. Intrise di rosso scuro.<br><br>Una donna. Giovane. Morente.<br><br>Lo guardò.<br><br>Nessuna paura.<br><br>Qualcosa d'altro. Che lui non capiva.<br><br>Consapevolezza? Rassegnazione?<br><br>La conosceva.<br><br>O credeva di conoscerla.<br><br>Non ricordava.<br><br>Si avvicinò.<br><br>Respirava a fatica. Il petto a scatti irregolari. Il sangue colava lento da una ferita al fianco. Scivolava sulla pietra fredda. Piccoli tremiti. Ma gli occhi fissi su di lui.<br><br>Nessuno parlò.<br><br>Poi lei strinse i denti. Il dolore le increspò il volto.<br><br>«Ascolta.»<br><br>La voce un filo sottile. Spezzato.<br><br>Lui rimase in silenzio.<br><br>«Il re…»<br><br>Tossì. Sangue sulle labbra. Respirò a fatica.<br><br>«…va fermato.»<br><br>Silenzio.<br><br>«Di cosa parli?»<br><br>La sua voce. Roca. Sconosciuta persino a sé.<br><br>Lei non rispose subito. Gli occhi si socchiusero. Ogni parola costava tutto.<br><br>«Il regno…»<br><br>Pausa. Il petto si sollevò a scatti.<br><br>«…muore.»<br><br>La fissò. Le parole non avevano senso. Regno. Re.<br><br>Niente.<br><br>«Chi sei?»<br><br>Lei non rispose. Chiuse gli occhi. Il respiro sempre più irregolare.<br><br>«Se non lo fermi…»<br><br>La voce si spezzò. Un sussurro.<br><br>«…nulla.»<br><br>Le torce tremolarono. Le ombre danzarono.<br><br>«Perché io?»<br><br>La voce fredda.<br><br>Lei riaprì gli occhi. Lo guardò davvero. Per un istante qualcosa di antico attraversò quello sguardo.<br><br>«Ti ho chiamato.»<br><br>Pausa lunga. Tremava.<br><br>«…per questo.»<br><br>Chiamato.<br><br>Quella parola. Di nuovo.<br><br>Un brivido.<br><br>Aprì la bocca. Ma lei sollevò la mano sinistra. Uno sforzo immenso. Tremava. Il sangue le colava lungo il braccio.<br><br>«Taglialo.»<br><br>Aggrottò la fronte. «Cosa?»<br><br>«Il mio dito.»<br><br>La voce piatta. Priva di emozione. Non le restava nulla oltre a quell'ordine.<br><br>«Mozzalo.»<br><br>Esitò. Non per pietà. Per incomprensione.<br><br>«Perché?»<br><br>Gli occhi di lei si fecero duri. Freddi. L'ultima scintilla di volontà.<br><br>«Adesso.»<br><br>Pausa.<br><br>Non c'era supplica. Era un ordine.<br><br>Distolse lo sguardo. Scrutò i cadaveri. La sua spada era rotta. Inutile. Ne serviva un'altra.<br><br>Guardò i corpi vicini. Uno con la spada scheggiata. Un altro l'aveva persa. Il terzo: una lama integra.<br><br>Scelse quello. La strappò alla presa irrigidita del morto.<br><br>Fredda. Pesante. Ma quando la impugnò, la mano si chiuse sull'elsa. Naturale.<br><br>Il corpo ricordava.<br><br>La mente no.<br><br>Tornò da lei. La donna aveva già posato la mano sinistra sul pavimento. Il mignolo teso. Le dita rigide. Pronte.<br><br>Serrò la mascella.<br><br>«Fallo.»<br><br>Sollevò la lama. La posizionò. Un movimento netto.<br><br>Il metallo affondò. Taglio pulito.<br><br>Il dito cadde.<br><br>Un filo di sangue colò sulla pietra.<br><br>Il corpo di lei si irrigidì. Nessun suono. Solo un respiro trattenuto. Strozzato.<br><br>Poi sollevò la mano destra. Uno sforzo tremendo. La posò sopra il dito reciso.<br><br>E iniziò.<br><br>Una luce avvolse il frammento di carne. Debole. Scura. Color bordeaux.<br><br>Indietreggiò.<br><br>La luce non scaldava. Non illuminava. Era fredda. Spenta. Bruciava dal di dentro.<br><br>Il dito mutò.<br><br>Le unghie si fusero. Il sangue risucchiato dentro. La carne si strinse, si contorse. Crepitio. Ossa che si spezzano. Odore di ferro ossidato. Non sangue. Metallo morto da tempo.<br><br>La luce svanì.<br><br>Ciò che rimase fu un anello.<br><br>Grezzo. Scuro. Imperfetto.<br><br>Con le ultime forze, lo raccolse. Glielo porse.<br><br>«Mettilo.»<br><br>Lo prese. Lo osservò. Pesante. Freddo. Vivo, in un modo che non sapeva spiegare.<br><br>«A cosa serve?»<br><br>Il respiro di lei più debole. Lo sguardo già lontano. Velato.<br><br>«Mettilo… e non toglierlo mai.»<br><br>Le dita si allentarono.<br><br>Il petto smise di muoversi.<br><br>Il sangue si fermò.<br><br>Silenzio.<br><br>Non respirava più.<br><br>La osservò. Lungo istante.<br><br>Non provava nulla.<br><br>Nessun dolore. Nessuna perdita.<br><br>Solo vuoto.<br><br>Ma qualcosa lo fermò. Un pensiero.<br><br>Chi era? Perché era morta? Perché lui no?<br><br>Le domande non avevano risposte.<br><br>Si alzò.<br><br>Il rumore dei suoi passi l'unico suono.<br><br>La spada che aveva preso restò nella sua mano. Un peso non scelto. Ma giusto. Pulì il filo sul mantello rigido di un soldato. Una volta. Controllò il filo contro la luce fioca. Aggiustò l'elsa. Provò il baricentro. Un mezzo colpo nell'aria.<br><br>Il braccio ricordava la traiettoria.<br><br>La mente no.<br><br>Un passaggio sul fondo. Arco spezzato. Scale che salivano.<br><br>Si avvicinò. Iniziò a salire.<br><br>Le pietre irregolari. Consunte. Il primo gradino cedette sotto il peso. Spostò l'equilibrio. Un sasso rotolò giù. Tre rimbalzi. Silenzio. Una lastra scheggiata. Salto breve. Le dita trovarono presa nella pietra viva. Il dolore al fianco pulsava. Ignorabile. Il respiro costante.<br><br>Continuò.<br><br>Raggiunse l'uscita.<br><br>La luce lo colpì.<br><br>Non forte. Non calda.<br><br>Spenta.<br><br>Cielo coperto da nuvole dense. Gonfie. Color cenere. Nessun sole. Solo una luminosità diffusa. Malata.<br><br>Il vento portava un odore. Dolce e marcio insieme. Putrefazione mascherata da altro. Innaturale.<br><br>Davanti a lui il paesaggio si estendeva.<br><br>Una ferita aperta.<br><br>Rovine. Detriti. Terra spaccata. Pietre che cedevano a valle. Strati irregolari. Alberi spogli, contorti, neri. Edifici crollati. Strade spezzate.<br><br>Quel regno era morto.<br><br>O stava morendo.<br><br>Abbassò lo sguardo.<br><br>L'anello.<br><br>Lo fissò. Poi lo infilò lentamente al dito.<br><br>Freddo.<br><br>Un brivido violento percorse il braccio. Risalì alla spalla. Esplose nel petto. Per un istante vide qualcosa. Non con gli occhi. Più in fondo.<br><br>Frammenti. Un volto? Una voce? Un nome? Impossibile distinguerli.<br><br>Poi nulla.<br><br>Troppo veloce. Troppo lontano.<br><br>Strinse il pugno. L'anello aderì perfettamente. Era sempre stato lì.<br><br>Guardò di nuovo l'orizzonte. Il regno devastato.<br><br>Parlò. La voce roca. Ancora estranea.<br><br>«Non ricordo chi sono.»<br><br>Il vento soffiò più forte.<br><br>«Ma sento… che questa non è casa mia.»<br><br>Strinse l'elsa della spada.<br><br>«Allora perché… sono qui?»</span></p>
+  </div>
+      </section>
+
+    </main>
+
+    <aside class="side-rail" id="storieRail">
+      <p class="rail-label" data-i18n="railLabel">Libri</p>
+      <ul class="game-list" id="storieList"></ul>
+    </aside>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="data-storie-teorie.js"></script>
+  <script>window.__PRERENDER__ = { column: "storie", id: "il-chiamato-1" };</script>
+  <script src="data-racconti.js"></script>
+  <script src="script-racconti.js"></script>
+  <script src="stats.js"></script>
+  <script src="likes.js"></script>
+</body>
+</html>

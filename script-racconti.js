@@ -779,7 +779,17 @@ document.addEventListener("click", (e) => {
 // Boot
 // ---------------------------------------------------------
 paintStaticText();
-setState("landing");
+// Se la pagina e' stata generata come voce statica per indicizzazione
+// (vedi tools/generate-entry-pages.js), un piccolo script inline nel
+// <head> imposta window.__PRERENDER__ = {column, id} prima che questo
+// file venga eseguito: si apre direttamente quella voce invece della
+// landing, riusando selectEntry() cosi' com'e' - stesso identico
+// comportamento di un click reale, nessuna logica duplicata.
+if(window.__PRERENDER__ && window.__PRERENDER__.column && window.__PRERENDER__.id){
+  selectEntry(window.__PRERENDER__.column, window.__PRERENDER__.id);
+} else {
+  setState("landing");
+}
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
 
