@@ -339,9 +339,9 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    cerchio sfumato integrato, sfondo a gradiente leggero, bagliore
    morbido, testo maiuscolo spaziato: piu' un piccolo sigillo che una
    semplice etichetta. Tre colori distinti per i tre esiti possibili. */
-.review-entry .fact-recommendation{
+.review-entry .facts dd.fact-recommendation{
   display:inline-flex; align-items:center; gap:5px;
-  margin-top:20px !important;
+  margin-top:20px;
   padding:3px 8px 3px 5px;
   border-radius:999px;
   font-size:.66rem; font-weight:700; letter-spacing:0;
@@ -777,8 +777,8 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     width:110px; max-width:110px; margin-bottom:0;
   }
   .review-entry .facts dl{ grid-area:dl; min-width:0; }
-  .review-entry .facts .fact-recommendation{
-    grid-area:badge; justify-self:start; width:fit-content; margin-top:6px !important;
+  .review-entry .facts dd.fact-recommendation{
+    grid-area:badge; justify-self:start; width:fit-content; margin-top:6px;
   }
   /* Larghezza standard (non calcolata caso per caso, uguale su ogni
      pagina/voce): 75% della colonna invece che a tutta larghezza. */

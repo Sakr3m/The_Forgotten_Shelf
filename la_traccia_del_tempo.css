@@ -168,7 +168,6 @@
   }
   body[data-state="game"] .track-info,
   body[data-state="title"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
-  body[data-state="game"] .entry-game-picker{ display:none; }
 
   /* --- Riga "Universo IGA (...)" + frecce: spostata più su (66px
      di margine sul figlio .u-track diventano 44px di padding su
@@ -283,7 +282,17 @@
      tag/anno), e il nome del titolo abbassato un po' rispetto al
      blocco tag/anno. --- */
   body[data-state="title"] .title-panel{ margin-top:54px; } /* +10px */
-  body[data-state="title"] .title-meta{ padding-right:56px; }
+  body[data-state="title"] .title-meta{
+    padding-right:56px;
+    position:relative; /* ancora per il controllo musica, che si
+      autocentra in verticale via CSS (top:50%+transform) invece di
+      essere calcolato via JS ad ogni apertura della pagina */
+  }
+  body[data-state="title"] .title-meta .music-control{
+    position:absolute; top:50%; right:0; left:auto;
+    transform:translateY(-50%);
+    z-index:2;
+  }
   body[data-state="title"] .title-name{ margin-top:26px; } /* +10px */
 }
 

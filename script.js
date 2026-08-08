@@ -756,6 +756,9 @@ function renderTitlePanel(){
   document.getElementById("titleBackBtn").addEventListener("click", () => {
     state.view = "game";
     setState("game");
+    scrollCarouselToStage(); // mancava qui: senza, su mobile lo scorrimento
+      // del carosello restava dov'era durante la vista titolo, lasciando
+      // .game-header (e tutto il resto) spostato di uno schermo intero
   });
   if(prevEntry) document.getElementById("titlePrevBtn").addEventListener("click", () => selectEntry(prevEntry.id));
   if(nextEntry) document.getElementById("titleNextBtn").addEventListener("click", () => selectEntry(nextEntry.id));
@@ -763,22 +766,19 @@ function renderTitlePanel(){
   appendLikeWidget(el.titleContent, entry.id);
 
   // Solo mobile: il pulsante musica si sposta dentro alla pagina
-  // titolo, all'altezza della riga tag/anno, sul lato opposto
-  // (destra) — stessa tecnica gia' verificata su renderGamePanel.
+  // titolo, sul lato destro della riga tag/anno — il centraggio
+  // verticale lo fa il CSS (.title-meta position:relative +
+  // .music-control position:absolute/transform), non serve piu'
+  // calcolarlo via JS ad ogni apertura.
   if(mobileBreakpoint.matches && el.musicControl){
     const meta = el.titleContent.querySelector(".title-meta");
     if(meta){
-      el.titleContent.style.position = el.titleContent.style.position || "relative";
-      el.titleContent.insertBefore(el.musicControl, el.titleContent.firstChild);
-      const contentRect = el.titleContent.getBoundingClientRect();
-      const metaRect = meta.getBoundingClientRect();
-      const metaCenterY = (metaRect.top - contentRect.top) + metaRect.height / 2;
-      el.musicControl.style.position = "absolute";
-      el.musicControl.style.left = "auto";
-      el.musicControl.style.right = "16px";
-      el.musicControl.style.zIndex = "2";
-      el.musicControl.style.top = metaCenterY + "px";
-      el.musicControl.style.transform = "translateY(-50%)";
+      meta.appendChild(el.musicControl);
+      // Ripulisco gli stili in linea eventualmente rimasti da
+      // un'altra vista (es. quella "gioco", che li imposta a mano):
+      // altrimenti vincerebbero loro sulla nuova regola CSS qui
+      // sopra, che deve gestire tutto da sola.
+      el.musicControl.style.cssText = "";
     }
   }
 

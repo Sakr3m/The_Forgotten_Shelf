@@ -54,8 +54,12 @@ body[data-state="landing"] #pageHeader{ display:none; }
    Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
 /* Nascosto anche quando la voce non ha altri capitoli collegati
-   (impostato via JS in renderGamePicker), a prescindere da PC/mobile. */
-.entry-game-picker.is-single-entry{ display:none !important; }
+   (impostato via JS in renderGamePicker), a prescindere da PC/mobile.
+   Stesso prefisso "body[data-state=entry]" delle regole che altrimenti
+   vincerebbero per ordine nel file (stessa specificita' della loro,
+   58 righe piu' sotto): qui basta essere piu' specifica, non serve
+   piu' scavalcarle con !important. */
+body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 @media (hover:hover), (pointer:fine){
   body[data-state="entry"] .entry-game-picker{
     display:block;
