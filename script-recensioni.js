@@ -108,7 +108,21 @@ const STRINGS = {
     ffixDeepTitle2: "Personaggi e scelte di design",
     ffixDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
     ffixDeepTitle3: "Il finale",
-    ffixDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
+    ffixDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo.",
+    shadyQuickNarrativeTitle: "Narrativa e Mondo",
+    shadyQuickNarrativeText: "Il gioco racconta la storia di una bambina e della sua ombra, rinchiuse in un istituto, alle prese con ricordi ed emozioni rappresentati in modo simbolico attraverso gli ambienti che si attraversano. La narrazione, affidata anche al doppiaggio di Hannah Murray (nota per Game of Thrones e Skins), è apprezzata per l'atmosfera onirica ed emotiva che riesce a costruire, anche se parte della critica l'ha giudicata a tratti fin troppo criptica nel modo in cui rivela la propria storia.",
+    shadyQuickGameplayTitle: "Gameplay",
+    shadyQuickGameplayText: "Puzzle-platform in cui si controllano contemporaneamente due personaggi: la bambina, che si muove nel mondo tridimensionale, e la sua ombra, vincolata a un piano bidimensionale proiettato su pareti e superfici. I due piani di gioco interagiscono tra loro tramite luce e ombra (ad esempio spostando oggetti per modificarne le dimensioni proiettate), dando vita a enigmi ambientali originali, generalmente considerati il punto di forza più solido del titolo.",
+    shadyQuickTechTitle: "Comparto Tecnico e Artistico",
+    shadyQuickTechText: "Sviluppato dallo studio indipendente francese Douze Dixièmes, al loro debutto assoluto, e pubblicato da Focus Home Interactive nel dicembre 2020, il gioco si distingue soprattutto per la direzione artistica, costruita quasi interamente sul contrasto tra luce e ombra, non solo come strumento di gameplay ma come vero e proprio linguaggio narrativo. Il tema dell'ombra come parte nascosta di sé, un rimando abbastanza esplicito al concetto psicologico junghiano di \"ombra\", attraversa sia l'estetica che la storia stessa, dando al titolo un'identità visiva riconoscibile nonostante le dimensioni contenute della produzione. Proprio per questa cura artistica, il gioco ha ottenuto una candidatura all'Independent Games Festival nelle categorie dedicate a design e arte visiva.",
+    shadyHours: "?? ore",
+    shadyCompleted: "??",
+    shadyDeepTitle1: "La trama, nel dettaglio",
+    shadyDeep1: "Testo segnaposto per l'analisi vera: eventi chiave, colpi di scena, scelte di scrittura specifiche.",
+    shadyDeepTitle2: "Personaggi e scelte di design",
+    shadyDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
+    shadyDeepTitle3: "Il finale",
+    shadyDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
   },
   en: {
     brand: "Game Diaries",
@@ -213,7 +227,21 @@ const STRINGS = {
     ffixDeepTitle2: "Characters and design choices",
     ffixDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
     ffixDeepTitle3: "The ending",
-    ffixDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
+    ffixDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading.",
+    shadyQuickNarrativeTitle: "Story & World",
+    shadyQuickNarrativeText: "The game follows a little girl and her shadow, confined in an institution, working through memories and emotions represented symbolically through the environments they move through. The narrative, brought to life partly through Hannah Murray's voice acting (known for Game of Thrones and Skins), is praised for the dreamlike, emotional atmosphere it builds, though part of the critical response found it at times too cryptic in how it reveals its own story.",
+    shadyQuickGameplayTitle: "Gameplay",
+    shadyQuickGameplayText: "A puzzle-platformer in which you control two characters at once: the girl, moving through a three-dimensional world, and her shadow, bound to a two-dimensional plane cast across walls and surfaces. The two layers of gameplay interact through light and shadow (for instance, moving objects to change the shadow's projected size), giving rise to original environmental puzzles widely regarded as the game's strongest asset.",
+    shadyQuickTechTitle: "Technical & Artistic Side",
+    shadyQuickTechText: "Developed by French indie studio Douze Dixièmes, in their first-ever release, and published by Focus Home Interactive in December 2020, the game stands out above all for its art direction, built almost entirely around the contrast between light and shadow, used not just as a gameplay mechanic but as a genuine narrative language. The theme of the shadow as a hidden part of the self, a fairly explicit nod to the Jungian psychological concept of the \"shadow\", runs through both the game's aesthetic and its story, giving the title a distinctive visual identity despite its modest production scale. That artistic care earned the game an Independent Games Festival nomination in the design and visual art categories.",
+    shadyHours: "?? hours",
+    shadyCompleted: "??",
+    shadyDeepTitle1: "The plot, in detail",
+    shadyDeep1: "Placeholder text for the real analysis: key events, twists, specific writing choices.",
+    shadyDeepTitle2: "Characters and design choices",
+    shadyDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
+    shadyDeepTitle3: "The ending",
+    shadyDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
   }
 };
 
@@ -282,10 +310,12 @@ const el = {
   reviewFfvii: document.getElementById("reviewFfvii"),
   reviewFfviii: document.getElementById("reviewFfviii"),
   reviewFfix: document.getElementById("reviewFfix"),
+  reviewShady: document.getElementById("reviewShady"),
   musicControl: document.getElementById("musicControl"),
   musicSlotFfvii: document.getElementById("musicSlotFfvii"),
   musicSlotFfviii: document.getElementById("musicSlotFfviii"),
   musicSlotFfix: document.getElementById("musicSlotFfix"),
+  musicSlotShady: document.getElementById("musicSlotShady"),
   bgMusic: document.getElementById("bgMusic"),
   musicToggle: document.getElementById("musicToggle"),
   volumeSlider: document.getElementById("volumeSlider"),
@@ -306,7 +336,8 @@ if(el.volumeSlider){
 const REVIEWS = {
   ffvii: el.reviewFfvii,
   ffviii: el.reviewFfviii,
-  ffix: el.reviewFfix
+  ffix: el.reviewFfix,
+  shady: el.reviewShady
 };
 
 // Slot dove va spostato il controllo musica condiviso quando quella
@@ -314,7 +345,8 @@ const REVIEWS = {
 const MUSIC_SLOTS = {
   ffvii: el.musicSlotFfvii,
   ffviii: el.musicSlotFfviii,
-  ffix: el.musicSlotFfix
+  ffix: el.musicSlotFfix,
+  shady: el.musicSlotShady
 };
 
 // Colore proprio di ogni recensione (usato per bordi/icone di
@@ -325,7 +357,8 @@ const MUSIC_SLOTS = {
 // su entrambe le pagine. Le altre, per ora, restano sul ciano di
 // riserva (nessuna voce qui sotto).
 const REVIEW_ACCENTS = {
-  ffviii: "#ff3b30"
+  ffviii: "#ff3b30",
+  shady: "#b3b3b3" // grigio 30%, richiesto esplicitamente
 };
 
 // ---------------------------------------------------------
@@ -774,6 +807,7 @@ function setupRevealButton(suffix){
 setupRevealButton("Ffvii");
 setupRevealButton("Ffix");
 setupRevealButton("");
+setupRevealButton("Shady");
 
 // ---------------------------------------------------------
 // Toggle centrale: NON sposta piu' un unico carrello da un lato
