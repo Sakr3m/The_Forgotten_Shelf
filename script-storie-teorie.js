@@ -503,14 +503,7 @@ document.addEventListener("click", (e) => {
 // Boot
 // ---------------------------------------------------------
 paintStaticText();
-// Vedi il commento gemello in script-racconti.js: stessa logica, stesso
-// meccanismo di prerender per le pagine generate da
-// tools/generate-entry-pages.js.
-if(window.__PRERENDER__ && window.__PRERENDER__.column && window.__PRERENDER__.id){
-  selectEntry(window.__PRERENDER__.column, window.__PRERENDER__.id);
-} else {
-  setState("landing");
-}
+setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
 
