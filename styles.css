@@ -41,7 +41,7 @@
      altro elemento che deve lasciarle spazio (es. la filigrana del
      titolo) si aggiorna da solo invece di avere lo stesso numero
      ricopiato a mano in due punti diversi. */
-  --rail-width: 280px;
+  --rail-width: 250px; /* stessa larghezza della sidebar sinistra, entrambe 250px su richiesta esplicita (prima 230/230, prima ancora 280/310 su Racconti/Teorie) */
 }
 
 *{ box-sizing:border-box; }
@@ -271,7 +271,7 @@ body[data-state="landing"] .brand{ display:none; }
 @media (hover:hover), (pointer:fine){
   .watermark-brightness-line{
     display:flex; align-items:center; justify-content:center;
-    position:fixed; top:237px; left:230px; right:var(--rail-width); z-index:5;
+    position:fixed; top:237px; left:250px; right:var(--rail-width); z-index:5;
     height:20px;
     cursor:pointer;
   }
@@ -345,7 +345,7 @@ body[data-state="landing"] .brand{ display:none; }
    ============================================================ */
 .layout{ display:flex; min-height:100vh; }
 .sidebar{
-  width:230px; flex-shrink:0;
+  width:250px; flex-shrink:0;
   padding:24px 16px;
   border-right:1px solid var(--line);
   background:var(--bg-soft);

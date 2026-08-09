@@ -2,15 +2,15 @@
    RECENSIONI — per la home usa lo stile condiviso di styles.css.
    Stessa correzione di officina.css: senza sidebar/rail, .stage
    va vincolato alla stessa fascia orizzontale di storie_senza_cornice.html
-   (260px da sinistra, 310px da destra) cosi' i pulsanti in alto
+   (250px da sinistra, 250px da destra) cosi' i pulsanti in alto
    finiscono nella stessa posizione reale su schermo. Copiata
    identica da officina.css su richiesta esplicita.
    ============================================================ */
 @media (hover:hover), (pointer:fine){
   .stage{
     flex:none;
-    margin-left:260px;
-    width:calc(100% - 570px);
+    margin-left:250px;
+    width:calc(100% - 500px);
   }
 
   /* --- Pulsanti in alto (casetta, Ko-fi, Discord, switch lingua):

@@ -9,10 +9,10 @@
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
 @media (hover:hover), (pointer:fine){
-  #sidebar{ width:260px; }
+  #sidebar{ width:250px; } /* allineata a Timeline, entrambe 250px */
 }
 .side-rail{
-  width:310px; flex-shrink:0;
+  width:var(--rail-width); flex-shrink:0; /* stessa variabile di Timeline (250px), non più 310px per conto suo */
   padding:24px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
