@@ -283,6 +283,9 @@
      distingue i due casi (mathemory-open) e' gestita in
      script-officina.js, dentro goToScreen(). --- */
   body.mathemory-open .index-link{ display:none; }
+  body.mathemory-open .report-bug-btn{ display:none; } /* stesso trattamento
+    di .index-link qui sopra: fa parte della home, sparisce insieme al
+    resto sui due pannelli Mathemory */
   body.mathemory-open .brand{ display:contents; }
   body.mathemory-open .brand-icon{ display:none; }
   body.mathemory-open .brand-text{

@@ -442,6 +442,9 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
   body.is-review-open .kofi-link__short{ display:inline; }
   body.is-review-open .brand-icon{ display:none; }
   body.is-review-open .index-link{ display:none; }
+  body.is-review-open .report-bug-btn{ display:none; } /* stesso trattamento
+    di .index-link qui sopra: il pulsante fa parte della home, sparisce
+    insieme al resto a recensione aperta */
 }
 
 /* Pulsante volume/mute, skip brano, riquadro nome canzone: stesso

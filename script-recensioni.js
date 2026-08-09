@@ -122,7 +122,24 @@ const STRINGS = {
     shadyDeepTitle2: "Personaggi e scelte di design",
     shadyDeep2: "Seconda sezione: cosa avresti cambiato, cosa ti ha sorpreso, cosa non ha funzionato secondo te.",
     shadyDeepTitle3: "Il finale",
-    shadyDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo."
+    shadyDeep3: "Paragrafo dedicato esplicitamente al finale, isolato con il suo titolo.",
+    reportBtnLabel: "Segnala bug",
+    reportTitle: "Segnala un problema",
+    reportIntro: "Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto — la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto.",
+    reportDescLabel: "Descrizione",
+    reportDescPlaceholder: "Cosa è successo, e in quale pagina?",
+    reportImageLabel: "Immagine (facoltativa)",
+    reportChooseFile: "Scegli file",
+    reportNoFile: "Nessun file scelto",
+    reportSend: "Invia",
+    reportCancel: "Annulla",
+    reportSending: "Invio in corso...",
+    reportThanks: "Grazie, segnalazione ricevuta.",
+    reportError: "Qualcosa è andato storto, riprova più tardi.",
+    reportNeedDescription: "Descrivi prima il problema.",
+    reportProcessingImage: "Elaborazione immagine...",
+    reportInvalidImage: "Non è stato possibile leggere quell'immagine, provane un'altra.",
+    reportSelectImage: "Seleziona un file immagine."
   },
   en: {
     brand: "Game Diaries",
@@ -241,7 +258,24 @@ const STRINGS = {
     shadyDeepTitle2: "Characters and design choices",
     shadyDeep2: "Second section: what you'd have changed, what surprised you, what didn't work for you.",
     shadyDeepTitle3: "The ending",
-    shadyDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading."
+    shadyDeep3: "Paragraph explicitly dedicated to the ending, isolated with its own heading.",
+    reportBtnLabel: "Report bug",
+    reportTitle: "Report an issue",
+    reportIntro: "Found something broken? Describe what happened below — description required, image optional but helps a lot.",
+    reportDescLabel: "Description",
+    reportDescPlaceholder: "What happened, and on which page?",
+    reportImageLabel: "Image (optional)",
+    reportChooseFile: "Choose file",
+    reportNoFile: "No file chosen",
+    reportSend: "Send",
+    reportCancel: "Cancel",
+    reportSending: "Sending...",
+    reportThanks: "Thanks, report received.",
+    reportError: "Something went wrong, please try again later.",
+    reportNeedDescription: "Please describe the issue first.",
+    reportProcessingImage: "Processing image...",
+    reportInvalidImage: "Could not read that image, try another one.",
+    reportSelectImage: "Please select an image file."
   }
 };
 
@@ -298,6 +332,7 @@ const el = {
   indexLink: document.getElementById("indexLink"),
   gateSideToggle: document.getElementById("gateSideToggle"),
   layout: document.querySelector(".layout"),
+  reportBugBtn: document.getElementById("reportBugBtn"),
   mobileGenreBar: document.getElementById("mobileGenreBar"),
   mobileGenreTable: document.getElementById("mobileGenreTable"),
   mobileGenreListTitle: document.getElementById("mobileGenreListTitle"),
@@ -577,6 +612,12 @@ el.langSwitch.addEventListener("click", () => {
   localStorage.setItem(LANG_KEY, state.lang);
   el.body.dataset.lang = state.lang;
   paintStaticText();
+  const reportBtn = document.getElementById("reportBugBtn");
+  if(reportBtn) reportBtn.setAttribute("aria-label", t("reportBtnLabel"));
+  const reportDesc = document.getElementById("reportDescription");
+  if(reportDesc) reportDesc.placeholder = t("reportDescPlaceholder");
+  const reportFileName = document.getElementById("reportFileName");
+  if(reportFileName && !reportFileName.textContent.includes(".")) reportFileName.textContent = t("reportNoFile");
 });
 
 // Solo mobile, solo a recensione aperta: la scritta "Diari di Gioco"
@@ -947,3 +988,145 @@ document.addEventListener("click", (e) => {
     tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
   }
 });
+
+// ---------------------------------------------------------
+// Popup "Segnala un problema" — stessa funzione identica delle
+// altre pagine (script-racconti.js/script-storie-teorie.js/script.js).
+// ---------------------------------------------------------
+function initReportModal(){
+  const btn = document.getElementById("reportBugBtn");
+  const overlay = document.getElementById("reportModalOverlay");
+  if(!btn || !overlay) return;
+  const closeBtn = document.getElementById("reportModalClose");
+  const cancelBtn = document.getElementById("reportCancelBtn");
+  const submitBtn = document.getElementById("reportSubmitBtn");
+  const descEl = document.getElementById("reportDescription");
+  const imageInput = document.getElementById("reportImageInput");
+  const imagePreview = document.getElementById("reportImagePreview");
+  const fileNameEl = document.getElementById("reportFileName");
+  const noteEl = document.getElementById("reportNote");
+  let imageBlob = null;
+
+  function resetForm(){
+    descEl.value = "";
+    imageInput.value = "";
+    imageBlob = null;
+    imagePreview.src = "";
+    imagePreview.classList.remove("visible");
+    fileNameEl.textContent = t("reportNoFile");
+    descEl.placeholder = t("reportDescPlaceholder");
+    noteEl.textContent = "";
+    submitBtn.disabled = false;
+    submitBtn.textContent = t("reportSend");
+  }
+
+  function openModal(){
+    resetForm();
+    overlay.classList.add("visible");
+  }
+  function closeModal(){ overlay.classList.remove("visible"); }
+
+  btn.setAttribute("aria-label", t("reportBtnLabel"));
+  btn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  cancelBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => { if(e.target === overlay) closeModal(); });
+
+  function compressImage(file){
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const maxSide = 1600;
+        let { width, height } = img;
+        if(width > maxSide || height > maxSide){
+          const scale = maxSide / Math.max(width, height);
+          width = Math.round(width * scale);
+          height = Math.round(height * scale);
+        }
+        const canvas = document.createElement("canvas");
+        canvas.width = width; canvas.height = height;
+        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          URL.revokeObjectURL(url);
+          if(blob) resolve(blob); else reject(new Error("compressione fallita"));
+        }, "image/jpeg", 0.82);
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("immagine non valida")); };
+      img.src = url;
+    });
+  }
+
+  imageInput.addEventListener("change", async () => {
+    const file = imageInput.files[0];
+    if(!file) return;
+    if(!file.type.startsWith("image/")){
+      noteEl.textContent = t("reportSelectImage");
+      imageInput.value = "";
+      fileNameEl.textContent = t("reportNoFile");
+      return;
+    }
+    fileNameEl.textContent = file.name;
+    noteEl.textContent = t("reportProcessingImage");
+    try {
+      imageBlob = await compressImage(file);
+      imagePreview.src = URL.createObjectURL(imageBlob);
+      imagePreview.classList.add("visible");
+      noteEl.textContent = "";
+    } catch(e){
+      noteEl.textContent = t("reportInvalidImage");
+      imageBlob = null;
+    }
+  });
+
+  submitBtn.addEventListener("click", async () => {
+    const description = descEl.value.trim();
+    if(!description){
+      noteEl.textContent = t("reportNeedDescription");
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = t("reportSending");
+    noteEl.textContent = "";
+
+    const formData = new FormData();
+    formData.append("description", description);
+    formData.append("page", window.location.pathname);
+    formData.append("userAgent", navigator.userAgent);
+    if(imageBlob) formData.append("image", imageBlob, "report.jpg");
+
+    try {
+      const res = await fetch("https://the-forgotten-shelf.sl-eternal-lux.workers.dev/report-bug", {
+        method: "POST",
+        body: formData
+      });
+      if(!res.ok) throw new Error("bad status " + res.status);
+      noteEl.textContent = t("reportThanks");
+      setTimeout(closeModal, 1200);
+    } catch(e){
+      noteEl.textContent = t("reportError");
+      submitBtn.disabled = false;
+      submitBtn.textContent = t("reportSend");
+    }
+  });
+}
+initReportModal();
+
+// ---------------------------------------------------------
+// Il pulsante "Segnala bug" e' position:fixed: su mobile, dove la
+// tabella dei generi vive nello stesso carosello orizzontale di
+// .layout (genere <-> stage, come sidebar/stage sulle altre pagine),
+// resterebbe a galla anche scorrendo verso la tabella invece di
+// sparire con lei. Stessa logica gia' usata su Racconti/Teorie/
+// Timeline: nascosto quando lo stage non e' la schermata in vista.
+// ---------------------------------------------------------
+if(el.layout && el.reportBugBtn){
+  const updateReportBtnMobile = () => {
+    if(!isMobileNav()) { el.reportBugBtn.style.display = ""; return; }
+    const w = window.innerWidth;
+    const inStage = el.layout.scrollLeft > w * 0.5;
+    el.reportBugBtn.style.display = inStage ? "" : "none";
+  };
+  el.layout.addEventListener("scroll", updateReportBtnMobile, { passive: true });
+  updateReportBtnMobile();
+}

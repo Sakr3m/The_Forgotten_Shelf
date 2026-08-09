@@ -15,6 +15,38 @@
 </head>
 <body data-state="landing" data-lang="it">
 
+    <button type="button" class="report-bug-btn" id="reportBugBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"/><path d="M4 4h11l-2 4 2 4H4"/></svg>
+    <span data-i18n="reportBtnLabel">Segnala bug</span>
+  </button>
+
+  <div class="report-modal-overlay" id="reportModalOverlay">
+    <div class="report-modal-card">
+      <button type="button" class="report-modal-close" id="reportModalClose" aria-label="Chiudi">✕</button>
+      <h3 data-i18n="reportTitle">Segnala un problema</h3>
+      <p data-i18n="reportIntro">Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto — la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto.</p>
+      <div class="report-field">
+        <label class="report-field-label" for="reportDescription" data-i18n="reportDescLabel">Descrizione</label>
+        <textarea class="report-textarea" id="reportDescription" maxlength="1000" placeholder="Cosa è successo, e in quale pagina?"></textarea>
+      </div>
+      <div class="report-field">
+        <label class="report-field-label" for="reportImageInput" data-i18n="reportImageLabel">Immagine (facoltativa)</label>
+        <div class="report-file-row">
+          <label class="report-file-trigger" for="reportImageInput" data-i18n="reportChooseFile">Scegli file</label>
+          <span class="report-file-name" id="reportFileName" data-i18n="reportNoFile">Nessun file scelto</span>
+          <input type="file" id="reportImageInput" accept="image/*" class="report-file-input">
+        </div>
+        <img class="report-image-preview" id="reportImagePreview" alt="">
+      </div>
+      <div class="report-modal-buttons">
+        <button type="button" class="report-modal-btn send" id="reportSubmitBtn" data-i18n="reportSend">Invia</button>
+        <button type="button" class="report-modal-btn cancel" id="reportCancelBtn" data-i18n="reportCancel">Annulla</button>
+      </div>
+      <p class="report-modal-note" id="reportNote"></p>
+    </div>
+  </div>
+
+
   <div class="layout">
     <aside class="sidebar" id="sidebar">
       <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Teorie</p>

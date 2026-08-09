@@ -20,7 +20,24 @@ const STRINGS = {
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
     canonNoTimelineLabel: "Nessuna timeline ufficiale",
     timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale",
-    leaveALike: "Lascia un like"
+    leaveALike: "Lascia un like",
+    reportBtnLabel: "Segnala bug",
+    reportTitle: "Segnala un problema",
+    reportIntro: "Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto — la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto.",
+    reportDescLabel: "Descrizione",
+    reportDescPlaceholder: "Cosa è successo, e in quale pagina?",
+    reportImageLabel: "Immagine (facoltativa)",
+    reportChooseFile: "Scegli file",
+    reportNoFile: "Nessun file scelto",
+    reportSend: "Invia",
+    reportCancel: "Annulla",
+    reportSending: "Invio in corso...",
+    reportThanks: "Grazie, segnalazione ricevuta.",
+    reportError: "Qualcosa è andato storto, riprova più tardi.",
+    reportNeedDescription: "Descrivi prima il problema.",
+    reportProcessingImage: "Elaborazione immagine...",
+    reportInvalidImage: "Non è stato possibile leggere quell'immagine, provane un'altra.",
+    reportSelectImage: "Seleziona un file immagine."
   },
   en: {
     brand: "The Trace of Time",
@@ -39,7 +56,24 @@ const STRINGS = {
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
     canonNoTimelineLabel: "No official timeline",
     timelineScrollToggle: "Toggle timeline scrolling",
-    leaveALike: "Leave a like"
+    leaveALike: "Leave a like",
+    reportBtnLabel: "Report bug",
+    reportTitle: "Report an issue",
+    reportIntro: "Found something broken? Describe what happened below — description required, image optional but helps a lot.",
+    reportDescLabel: "Description",
+    reportDescPlaceholder: "What happened, and on which page?",
+    reportImageLabel: "Image (optional)",
+    reportChooseFile: "Choose file",
+    reportNoFile: "No file chosen",
+    reportSend: "Send",
+    reportCancel: "Cancel",
+    reportSending: "Sending...",
+    reportThanks: "Thanks, report received.",
+    reportError: "Something went wrong, please try again later.",
+    reportNeedDescription: "Please describe the issue first.",
+    reportProcessingImage: "Processing image...",
+    reportInvalidImage: "Could not read that image, try another one.",
+    reportSelectImage: "Please select an image file."
   }
 };
 
@@ -56,6 +90,7 @@ const state = {
 
 const el = {
   body: document.body,
+  reportBugBtn: document.getElementById("reportBugBtn"),
   brandBtn: document.getElementById("brandBtn"),
   brand: document.querySelector(".brand"),
   socialLinks: document.querySelector(".social-links"),
@@ -1068,6 +1103,12 @@ el.langSwitch.addEventListener("click", () => {
   if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderGamePanel(); }
   else if(state.view === "title"){ renderSidebar(); renderTitlePanel(); renderRail(); }
+  const reportBtn = document.getElementById("reportBugBtn");
+  if(reportBtn) reportBtn.setAttribute("aria-label", t("reportBtnLabel"));
+  const reportDesc = document.getElementById("reportDescription");
+  if(reportDesc) reportDesc.placeholder = t("reportDescPlaceholder");
+  const reportFileName = document.getElementById("reportFileName");
+  if(reportFileName && !reportFileName.textContent.includes(".")) reportFileName.textContent = t("reportNoFile");
 });
 
 // ---------------------------------------------------------
@@ -1227,6 +1268,14 @@ function updateSwipeHints(){
   const maxScroll = layoutEl.scrollWidth - w;
   if(swipeLeftEl) swipeLeftEl.style.visibility = layoutEl.scrollLeft <= w * 0.5 ? "hidden" : "visible";
   if(swipeRightEl) swipeRightEl.style.visibility = layoutEl.scrollLeft >= maxScroll - w * 0.5 ? "hidden" : "visible";
+  if(el.reportBugBtn){
+    // "in stage" = non al pannello piu a sinistra (sidebar) ne, se esiste,
+    // a quello piu a destra (rail): funziona sia con 2 pannelli (Timeline,
+    // niente rail in home) sia con 3 (Racconti/Teorie, sidebar+stage+rail).
+    const pastSidebar = layoutEl.scrollLeft > w * 0.5;
+    const beforeRail = maxScroll <= w || layoutEl.scrollLeft < maxScroll - w * 0.5;
+    el.reportBugBtn.style.display = (pastSidebar && beforeRail) ? "" : "none";
+  }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
@@ -1261,3 +1310,126 @@ document.querySelectorAll("a.index-link").forEach(link => {
     setTimeout(() => { window.location.href = link.href; }, 550);
   });
 });
+
+// ---------------------------------------------------------
+// Popup "Segnala un problema" — stessa funzione identica di
+// script-racconti.js/script-storie-teorie.js.
+// ---------------------------------------------------------
+function initReportModal(){
+  const btn = document.getElementById("reportBugBtn");
+  const overlay = document.getElementById("reportModalOverlay");
+  if(!btn || !overlay) return;
+  const closeBtn = document.getElementById("reportModalClose");
+  const cancelBtn = document.getElementById("reportCancelBtn");
+  const submitBtn = document.getElementById("reportSubmitBtn");
+  const descEl = document.getElementById("reportDescription");
+  const imageInput = document.getElementById("reportImageInput");
+  const imagePreview = document.getElementById("reportImagePreview");
+  const fileNameEl = document.getElementById("reportFileName");
+  const noteEl = document.getElementById("reportNote");
+  let imageBlob = null;
+
+  function resetForm(){
+    descEl.value = "";
+    imageInput.value = "";
+    imageBlob = null;
+    imagePreview.src = "";
+    imagePreview.classList.remove("visible");
+    fileNameEl.textContent = t("reportNoFile");
+    descEl.placeholder = t("reportDescPlaceholder");
+    noteEl.textContent = "";
+    submitBtn.disabled = false;
+    submitBtn.textContent = t("reportSend");
+  }
+
+  function openModal(){
+    resetForm();
+    overlay.classList.add("visible");
+  }
+  function closeModal(){ overlay.classList.remove("visible"); }
+
+  btn.setAttribute("aria-label", t("reportBtnLabel"));
+  btn.addEventListener("click", openModal);
+  closeBtn.addEventListener("click", closeModal);
+  cancelBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => { if(e.target === overlay) closeModal(); });
+
+  function compressImage(file){
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const maxSide = 1600;
+        let { width, height } = img;
+        if(width > maxSide || height > maxSide){
+          const scale = maxSide / Math.max(width, height);
+          width = Math.round(width * scale);
+          height = Math.round(height * scale);
+        }
+        const canvas = document.createElement("canvas");
+        canvas.width = width; canvas.height = height;
+        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          URL.revokeObjectURL(url);
+          if(blob) resolve(blob); else reject(new Error("compressione fallita"));
+        }, "image/jpeg", 0.82);
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("immagine non valida")); };
+      img.src = url;
+    });
+  }
+
+  imageInput.addEventListener("change", async () => {
+    const file = imageInput.files[0];
+    if(!file) return;
+    if(!file.type.startsWith("image/")){
+      noteEl.textContent = t("reportSelectImage");
+      imageInput.value = "";
+      fileNameEl.textContent = t("reportNoFile");
+      return;
+    }
+    fileNameEl.textContent = file.name;
+    noteEl.textContent = t("reportProcessingImage");
+    try {
+      imageBlob = await compressImage(file);
+      imagePreview.src = URL.createObjectURL(imageBlob);
+      imagePreview.classList.add("visible");
+      noteEl.textContent = "";
+    } catch(e){
+      noteEl.textContent = t("reportInvalidImage");
+      imageBlob = null;
+    }
+  });
+
+  submitBtn.addEventListener("click", async () => {
+    const description = descEl.value.trim();
+    if(!description){
+      noteEl.textContent = t("reportNeedDescription");
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = t("reportSending");
+    noteEl.textContent = "";
+
+    const formData = new FormData();
+    formData.append("description", description);
+    formData.append("page", window.location.pathname);
+    formData.append("userAgent", navigator.userAgent);
+    if(imageBlob) formData.append("image", imageBlob, "report.jpg");
+
+    try {
+      const res = await fetch("https://the-forgotten-shelf.sl-eternal-lux.workers.dev/report-bug", {
+        method: "POST",
+        body: formData
+      });
+      if(!res.ok) throw new Error("bad status " + res.status);
+      noteEl.textContent = t("reportThanks");
+      setTimeout(closeModal, 1200);
+    } catch(e){
+      noteEl.textContent = t("reportError");
+      submitBtn.disabled = false;
+      submitBtn.textContent = t("reportSend");
+    }
+  });
+}
+initReportModal();
