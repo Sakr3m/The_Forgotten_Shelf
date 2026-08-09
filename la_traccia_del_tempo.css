@@ -115,7 +115,7 @@
      mobile per questa pagina). --- */
   body[data-state="game"] .stage,
   body[data-state="title"] .stage{ padding-top:49px; }
-  body[data-state="game"] .game-header{
+  body[data-state="game"] .game-header-item{
     position:relative;
     flex-direction:row; align-items:flex-start; text-align:center;
     height:auto; max-height:none; overflow:visible;
