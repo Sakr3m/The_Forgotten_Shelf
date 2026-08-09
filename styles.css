@@ -591,7 +591,12 @@ body[data-state="landing"] .index-link{ display:flex; }
 .game-header__blurb a:hover{ color:var(--text); }
 
 /* Universes: a single centered track, same fixed length regardless of entry count */
-.universe-stage{ display:flex; justify-content:center; flex:1; min-height:0; }
+/* Stesso motivo di .canon-pages qui sopra: da quando universesRow
+   puo' essere nascosto con hidden (giochi senza timeline, vedi
+   #canonPages), questa regola doveva avere la stessa guardia. Senza,
+   universesRow restava visibile e vuoto ma occupava comunque spazio
+   (flex:1) sopra la canon-page di Doom, da qui il grande vuoto. */
+.universe-stage:not([hidden]){ display:flex; justify-content:center; flex:1; min-height:0; }
 .universe-stage.no-timeline{ justify-content:flex-start; align-items:flex-start; }
 
 /* Contenitore gemello di #universesRow per i giochi senza timeline
@@ -601,7 +606,15 @@ body[data-state="landing"] .index-link{ display:flex; }
    i pannelli canon-page costruiti una volta sola al boot (nascosti,
    sempre nel DOM, per Google). Stesso layout di prima, contenitore
    separato per evitare il conflitto. */
-.canon-pages{ display:flex; justify-content:flex-start; align-items:flex-start; flex:1; min-height:0; }
+/* Stesso bug di poco fa (.game-header-item), stesso identico errore:
+   display/flex vanno applicati solo quando NON e' hidden, altrimenti
+   vince sulla regola predefinita del browser [hidden]{display:none} e
+   il contenitore resta visibile anche quando dovrebbe sparire — ecco
+   perche' tornando da Doom a un altro gioco si vedeva un misto tra
+   canon-page e timeline vera (i due contenitori restavano entrambi
+   visibili insieme, spartendosi lo spazio flex:1 disponibile, da qui
+   anche la timeline "troppo in su/schiacciata"). */
+.canon-pages:not([hidden]){ display:flex; justify-content:flex-start; align-items:flex-start; flex:1; min-height:0; }
 
 /* Manual scroll toggle for the horizontal timeline: PC only (hidden on
    mobile, where the timeline already behaves differently). Sits below the

@@ -75,6 +75,7 @@ const el = {
   gamePanel: document.getElementById("gamePanel"),
   gameHeader: document.getElementById("gameHeader"),
   universesRow: document.getElementById("universesRow"),
+  canonPages: document.getElementById("canonPages"),
   titlePanel: document.getElementById("titlePanel"),
   titleContent: document.getElementById("titleContent"),
   timelineRail: document.getElementById("timelineRail"),
@@ -136,8 +137,29 @@ function watermarkBrightnessKeyFor(id){
 // WATERMARK_BRIGHTNESS_MAX (2 = doppia luminosita'), perche' CSS
 // opacity da sola non puo' andare oltre 1.
 const WATERMARK_BRIGHTNESS_MAX = 2;
+// Trova l'elemento filigrana davvero attivo in base alla vista
+// corrente, invece di affidarsi a un querySelector "al buio" sul
+// documento intero. Prima funzionava per caso: la filigrana canon
+// (Doom) esisteva nel DOM solo per il tempo in cui la vedevi
+// (creata via innerHTML al click). Da quando le canon-page sono
+// costruite una volta sola al boot e restano sempre nel DOM
+// (nascoste, per Google), quella di Doom c'era sempre - e stando
+// prima nell'ordine del documento, document.querySelector(".title-
+// watermark, .canon-watermark") trovava sempre lei anche mentre si
+// guardava un titolo qualsiasi di un altro gioco, lasciando la
+// filigrana vera senza luminosita' applicata.
+function currentWatermarkElement(){
+  if(state.view === "title" && el.titlePanel){
+    return el.titlePanel.querySelector(".title-watermark");
+  }
+  if(state.view === "game" && canonPanels[state.gameId]){
+    return canonPanels[state.gameId].querySelector(".canon-watermark");
+  }
+  return null;
+}
+
 function applyWatermarkVisual(value){
-  const liveWatermark = document.querySelector(".title-watermark, .canon-watermark");
+  const liveWatermark = currentWatermarkElement();
   if(!liveWatermark) return;
   if(value <= 0.5){
     liveWatermark.style.opacity = value * 2;
@@ -411,11 +433,24 @@ function arrowIcon(direction){
 // ---------------------------------------------------------
 // Game panel (header + single centered timeline + carousel)
 // ---------------------------------------------------------
-function renderGamePanel(){
-  const g = currentGame();
-  if(!g) return;
+// ---------------------------------------------------------
+// Pannelli intestazione gioco (blurb) e canon-page, sempre nel DOM
+// nascosti - stesso motivo delle voci titolo qui sopra: oggi quel
+// testo compare solo al click su un gioco, Google non lo legge mai.
+// Nota: universesRow (la visualizzazione della linea temporale con
+// pallini/avatar) resta invece dinamica come prima, di proposito -
+// non e' testo indicizzabile, e' un widget di navigazione i cui
+// calcoli a runtime (getBoundingClientRect) non funzionerebbero su
+// un elemento nascosto.
+// ---------------------------------------------------------
+const gameHeaderPanels = {}; // gameId -> elemento
+const canonPanels = {};      // gameId -> elemento (solo giochi noTimeline)
 
-  el.gameHeader.innerHTML = `
+function updateGameHeaderPanelText(gameId){
+  const panel = gameHeaderPanels[gameId];
+  if(!panel) return;
+  const g = GAMES[gameId];
+  panel.innerHTML = `
     ${g.banner ? `<div class="game-header__banner" style="background-image:url('${g.banner}')"></div><div class="game-header__banner-overlay"></div>` : ""}
     <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
     <div class="game-header__info">
@@ -423,6 +458,73 @@ function renderGamePanel(){
       <p class="game-header__blurb">${tf(g.blurb)}</p>
     </div>
   `;
+}
+
+function buildAllGameHeaderPanels(){
+  GAME_ORDER.forEach(gameId => {
+    const panel = document.createElement("div");
+    panel.className = "game-header-item";
+    panel.id = `gameHeaderItem-${gameId}`;
+    panel.hidden = true;
+    el.gameHeader.appendChild(panel);
+    gameHeaderPanels[gameId] = panel;
+    updateGameHeaderPanelText(gameId);
+  });
+}
+
+function updateAllGameHeaderPanelsText(){
+  Object.keys(gameHeaderPanels).forEach(updateGameHeaderPanelText);
+}
+
+function updateCanonPanelText(gameId){
+  const panel = canonPanels[gameId];
+  if(!panel) return;
+  const g = GAMES[gameId];
+  let canonWatermarkExtraStyle = "";
+  if(g.watermarkBottomFade){
+    const fadeMask = "linear-gradient(90deg, transparent, black 22%), linear-gradient(180deg, black 75%, transparent)";
+    canonWatermarkExtraStyle = `-webkit-mask-image:${fadeMask};mask-image:${fadeMask};mask-composite:intersect;`;
+  }
+  panel.innerHTML = `
+    ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
+    <div class="canon-note">
+      <p class="canon-note__eyebrow">${t("canonNoTimelineLabel")}</p>
+      <p>${tf(g.canonNote.intro)}</p>
+      <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
+      <p class="canon-note__titles">${tf(g.canonNote.titles)}</p>
+      <p>${tf(g.canonNote.outro)}</p>
+    </div>
+  `;
+  appendLikeWidget(panel, gameId);
+}
+
+function buildAllCanonPanels(){
+  GAME_ORDER.forEach(gameId => {
+    const g = GAMES[gameId];
+    if(!g.noTimeline || !g.canonNote) return;
+    const panel = document.createElement("div");
+    panel.className = "canon-page";
+    panel.id = `canonItem-${gameId}`;
+    panel.hidden = true;
+    el.canonPages.appendChild(panel);
+    canonPanels[gameId] = panel;
+    updateCanonPanelText(gameId);
+  });
+}
+
+function updateAllCanonPanelsText(){
+  Object.keys(canonPanels).forEach(updateCanonPanelText);
+}
+
+function renderGamePanel(){
+  const g = currentGame();
+  if(!g) return;
+
+  Object.entries(gameHeaderPanels).forEach(([id, panel]) => {
+    panel.hidden = id !== state.gameId;
+  });
+  const activeHeaderPanel = gameHeaderPanels[state.gameId];
+
   // Solo mobile: avatar e pulsante musica posizionati con numeri
   // fissi, NON piu' misurati sul banner a runtime (il banner puo'
   // anche non esserci, non cambia nulla): top:65px = meta' dei 130px
@@ -433,14 +535,14 @@ function renderGamePanel(){
   // elementi condivisi con Diari di Gioco (switch lingua, Ko-fi,
   // Discord — tutti a 16px dal bordo nella stage-topbar), affidabile
   // ora che .stage non ruba piu' spazio con la sua scrollbar.
-  const cover = el.gameHeader.querySelector(".game-header__cover");
+  const cover = activeHeaderPanel ? activeHeaderPanel.querySelector(".game-header__cover") : null;
   if(mobileBreakpoint.matches){
     if(cover){
       cover.style.top = "65px";
       cover.style.transform = "translateY(-50%)";
     }
-    if(el.musicControl){
-      el.gameHeader.appendChild(el.musicControl);
+    if(el.musicControl && activeHeaderPanel){
+      activeHeaderPanel.appendChild(el.musicControl);
       el.musicControl.style.position = "absolute";
       el.musicControl.style.left = "auto";
       el.musicControl.style.right = "0px"; /* a filo con lo switch lingua, 16px dal bordo vero */
@@ -451,28 +553,12 @@ function renderGamePanel(){
   }
 
   if(g.noTimeline){
-    el.universesRow.className = "universe-stage no-timeline";
-    let canonWatermarkExtraStyle = "";
-    if(g.watermarkBottomFade){
-      // Combina la sfumatura orizzontale di sempre (quella di
-      // .canon-watermark, 22%) con una verticale in più, verso il
-      // basso: stessa tecnica usata per Dragon Quest.
-      const fadeMask = "linear-gradient(90deg, transparent, black 22%), linear-gradient(180deg, black 75%, transparent)";
-      canonWatermarkExtraStyle = `-webkit-mask-image:${fadeMask};mask-image:${fadeMask};mask-composite:intersect;`;
-    }
-    el.universesRow.innerHTML = `
-      <div class="canon-page">
-        ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
-        <div class="canon-note">
-          <p class="canon-note__eyebrow">${t("canonNoTimelineLabel")}</p>
-          <p>${tf(g.canonNote.intro)}</p>
-          <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
-          <p class="canon-note__titles">${tf(g.canonNote.titles)}</p>
-          <p>${tf(g.canonNote.outro)}</p>
-        </div>
-      </div>
-    `;
-    appendLikeWidget(el.universesRow.querySelector(".canon-page"), g.id);
+    el.universesRow.hidden = true;
+    el.universesRow.innerHTML = "";
+    el.canonPages.hidden = false;
+    Object.entries(canonPanels).forEach(([id, panel]) => {
+      panel.hidden = id !== state.gameId;
+    });
     if(g.watermark) loadWatermarkForId(g.id);
     el.watermarkBrightness.hidden = !g.watermark;
     el.watermarkBrightness.style.top = ""; /* posizione standard (CSS, riga dell'header) */
@@ -482,6 +568,9 @@ function renderGamePanel(){
     return;
   }
 
+  el.canonPages.hidden = true;
+  Object.values(canonPanels).forEach(panel => { panel.hidden = true; });
+  el.universesRow.hidden = false;
   el.watermarkBrightness.hidden = true;
   el.watermarkBrightness.style.top = "";
   el.watermarkBrightness.style.right = "";
@@ -974,6 +1063,8 @@ el.langSwitch.addEventListener("click", () => {
   localStorage.setItem(LANG_KEY, state.lang);
   paintStaticText();
   updateAllTitlePanelsText();
+  updateAllGameHeaderPanelsText();
+  updateAllCanonPanelsText();
   if(state.view === "landing"){ renderSidebar(); }
   else if(state.view === "game"){ renderSidebar(); renderGamePanel(); }
   else if(state.view === "title"){ renderSidebar(); renderTitlePanel(); renderRail(); }
@@ -1151,6 +1242,8 @@ el.brandBtn.addEventListener("click", () => {
 // ---------------------------------------------------------
 paintStaticText();
 buildAllTitlePanels();
+buildAllGameHeaderPanels();
+buildAllCanonPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
