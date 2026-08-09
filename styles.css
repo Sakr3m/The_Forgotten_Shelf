@@ -527,10 +527,8 @@ body[data-state="landing"] .index-link{ display:flex; }
 @keyframes swipeHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
 @keyframes swipeHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
 
-.game-header{
-  position:sticky; top:15px; z-index:4;
+.game-header-item{
   background:var(--bg);
-  display:flex; gap:24px; align-items:center;
   padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
     di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
     l'altezza totale dell'header restano invariati */
@@ -540,6 +538,16 @@ body[data-state="landing"] .index-link{ display:flex; }
   overflow:hidden;
   height:230px; max-height:230px;
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
+}
+/* display/position vanno applicati SOLO quando il pannello non e'
+   hidden: dichiararli direttamente su .game-header-item (come avevo
+   fatto ieri sera per errore) vince per specificita' sulla regola
+   predefinita del browser [hidden]{display:none}, e tutti i 15
+   pannelli restano visibili impilati uno sotto l'altro — stesso
+   identico bug gia' preso (e corretto) due volte su racconti.css. */
+.game-header-item:not([hidden]){
+  position:sticky; top:15px; z-index:4;
+  display:flex; gap:24px; align-items:center;
 }
 .game-header__banner{
   position:absolute; inset:0; z-index:0;
@@ -585,6 +593,15 @@ body[data-state="landing"] .index-link{ display:flex; }
 /* Universes: a single centered track, same fixed length regardless of entry count */
 .universe-stage{ display:flex; justify-content:center; flex:1; min-height:0; }
 .universe-stage.no-timeline{ justify-content:flex-start; align-items:flex-start; }
+
+/* Contenitore gemello di #universesRow per i giochi senza timeline
+   ufficiale (es. Doom): prima la canon-page viveva DENTRO universesRow
+   stesso (riusando le classi qui sopra), ma cosi' facendo ogni cambio
+   di gioco con `universesRow.innerHTML = ""` avrebbe cancellato anche
+   i pannelli canon-page costruiti una volta sola al boot (nascosti,
+   sempre nel DOM, per Google). Stesso layout di prima, contenitore
+   separato per evitare il conflitto. */
+.canon-pages{ display:flex; justify-content:flex-start; align-items:flex-start; flex:1; min-height:0; }
 
 /* Manual scroll toggle for the horizontal timeline: PC only (hidden on
    mobile, where the timeline already behaves differently). Sits below the
@@ -1099,7 +1116,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .landing-sub{ margin-top:24px; font-size:.82rem; }
 
   /* --- Game header --- */
-  .game-header{
+  .game-header-item{
     position:relative;
     flex-direction:column; align-items:center; text-align:center;
     height:auto; max-height:none; overflow:visible;
