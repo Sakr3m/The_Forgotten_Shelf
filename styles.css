@@ -527,8 +527,16 @@ body[data-state="landing"] .index-link{ display:flex; }
 @keyframes swipeHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
 @keyframes swipeHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
 
-.game-header-item{
+/* .game-header e' condivisa da PIU' pagine, non solo da Timeline:
+   #pageHeader su Racconti/Teorie la riusa tale e quale (banner in
+   cima allo stage, mai a scomparsa/hidden li'). Deve restare intatta
+   con tutte le sue proprieta' di base. .game-header-item (sotto) e'
+   solo un livello aggiuntivo per il caso specifico di Timeline (15
+   pannelli nascosti/mostrati dentro #gameHeader), non una sostituzione. */
+.game-header{
+  position:sticky; top:15px; z-index:4;
   background:var(--bg);
+  display:flex; gap:24px; align-items:center;
   padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
     di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
     l'altezza totale dell'header restano invariati */
@@ -539,15 +547,18 @@ body[data-state="landing"] .index-link{ display:flex; }
   height:230px; max-height:230px;
   opacity:0; animation:fadeUp .5s var(--ease) forwards;
 }
-/* display/position vanno applicati SOLO quando il pannello non e'
-   hidden: dichiararli direttamente su .game-header-item (come avevo
-   fatto ieri sera per errore) vince per specificita' sulla regola
-   predefinita del browser [hidden]{display:none}, e tutti i 15
-   pannelli restano visibili impilati uno sotto l'altro — stesso
-   identico bug gia' preso (e corretto) due volte su racconti.css. */
+/* Solo per Timeline: dentro #gameHeader (che ha anche lui class=
+   "game-header", quindi eredita tutto quanto sopra) vivono 15
+   pannelli .game-header-item, uno per gioco, mostrato/nascosto con
+   [hidden]. Qui serve solo il layout interno (banner/cover/info in
+   riga), il resto (sticky/altezza/sfondo) lo fornisce gia' il
+   contenitore .game-header esterno. display va guardato con
+   :not([hidden]): dichiararlo senza vince per specificita' sulla
+   regola predefinita del browser [hidden]{display:none} — stesso
+   identico bug gia' preso e corretto due volte su racconti.css. */
 .game-header-item:not([hidden]){
-  position:sticky; top:15px; z-index:4;
   display:flex; gap:24px; align-items:center;
+  width:100%; height:100%;
 }
 .game-header__banner{
   position:absolute; inset:0; z-index:0;
@@ -1129,11 +1140,19 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .landing-sub{ margin-top:24px; font-size:.82rem; }
 
   /* --- Game header --- */
-  .game-header-item{
+  .game-header{
     position:relative;
     flex-direction:column; align-items:center; text-align:center;
     height:auto; max-height:none; overflow:visible;
     padding:20px 16px; gap:12px;
+  }
+  /* Solo Timeline: il layout interno del pannello attivo dentro
+     #gameHeader deve impilarsi in colonna come il contenitore
+     esterno qui sopra, altrimenti banner/cover/info restano in riga
+     anche su mobile. */
+  .game-header-item{
+    flex-direction:column; align-items:center; text-align:center;
+    gap:12px; width:100%; height:100%;
   }
   .game-header__banner{ position:absolute; }
   .game-header__banner-overlay{ background:rgba(0,0,0,.74); }
