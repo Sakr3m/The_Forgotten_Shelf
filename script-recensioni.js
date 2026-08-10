@@ -55,8 +55,14 @@ const STRINGS = {
     ffixQuickTechText: "Uscito nel 2000, sviluppato da Square, con la direzione di Hiroyuki Ito e la colonna sonora firmata Nobuo Uematsu (l'ultimo capitolo numerato principale composto da lui in solitaria). Graficamente più stilizzato rispetto a VII e VIII, con un'estetica volutamente più fiabesca. Detiene il punteggio Metacritic più alto tra i capitoli della serie. Una versione rimasterizzata in HD è disponibile dal 2016 su PC e mobile, poi estesa a PS4, Switch e Xbox One negli anni successivi.",
     thresholdText: "Attenzione: la recensione completa può contenere spoiler pesanti, finale incluso.",
     thresholdBtn: "Leggi recensione completa",
+    thresholdBtnSerious: "Senza filtri",
+    thresholdBtnGoofy: "Senza freni",
     ffviiiDeepMainTitlePart1: "Recensione completa, senza filtri",
     ffviiiDeepMainTitlePart2: "spoiler presenti",
+    ffviiiDeepGoofyTitlePart1: "Recensione completa, senza freni",
+    ffviiiDeepGoofyTitlePart2: "spoiler presenti",
+    ffviiiGoofyPlaceholder1: "Testo segnaposto per la versione senza freni: stessa trama, zero filtri sul turpiloquio e sulle battute fuori luogo.",
+    ffviiiGoofyPlaceholder2: "Seconda sezione segnaposto: qui andrà il resto della versione cazzona, appena pronta.",
     ffviiiTheoryLinkLabel: "Vai alla teoria su Il Filo Nascosto",
     ffviiiClosing: "Se un giorno vi capiterà di giocare per la prima volta, o di rigiocare per l'ennesima, a questo titolo stupendo, abbracciate i kyactus da parte mia ❤️.",
     ffviiiFull01: "Parto subito con una confessione: Final Fantasy VIII è il mio videogioco preferito in assoluto, a prescindere dai suoi difetti e dalle critiche che ha ricevuto. Questo non significa che eviterò di parlare dei suoi aspetti fallaci, anche se la versione \"completa\" di queste recensioni lascia volutamente spazio a valutazioni soggettive.",
@@ -202,8 +208,14 @@ const STRINGS = {
     ffixQuickTechText: "Released in 2000, developed by Square, directed by Hiroyuki Ito, with a soundtrack by Nobuo Uematsu (his last solo composing credit on a main numbered entry). Visually more stylized than VII and VIII, with a deliberately more fairy-tale-like aesthetic. It holds the highest Metacritic score in the series. An HD remaster has been available since 2016 on PC and mobile, later extended to PS4, Switch, and Xbox One.",
     thresholdText: "Warning: the full review may contain heavy spoilers, including the ending.",
     thresholdBtn: "Read the full review",
+    thresholdBtnSerious: "No filter",
+    thresholdBtnGoofy: "No holds barred",
     ffviiiDeepMainTitlePart1: "Full review, no filter",
     ffviiiDeepMainTitlePart2: "spoilers ahead",
+    ffviiiDeepGoofyTitlePart1: "Full review, no holds barred",
+    ffviiiDeepGoofyTitlePart2: "spoilers ahead",
+    ffviiiGoofyPlaceholder1: "Placeholder text for the no-holds-barred version: same plot, zero filter on the swearing and the tasteless jokes.",
+    ffviiiGoofyPlaceholder2: "Second placeholder section: the rest of the goofy version goes here once it's ready.",
     ffviiiTheoryLinkLabel: "Go to the theory on The Hidden Thread",
     ffviiiClosing: "If you ever find yourself playing this wonderful game for the first time, or replaying it for the umpteenth time, give the cactuars a hug from me \u2764\ufe0f.",
     ffviiiFull01: "I'll start with a confession right away: Final Fantasy VIII is my all-time favorite video game, regardless of its flaws and the criticism it's received. That said, I won't shy away from talking about its shaky sides either, even though this \"full\" version of the review leaves plenty of room for subjective takes.",
@@ -824,7 +836,16 @@ function openReview(id, instant){
   // li'. Su mobile invece il primo esce dallo schermo scorrendo,
   // quindi ne serve un altro in fondo per chi arriva li' senza
   // tornare su.
-  if(isMobileNav()) appendLikeWidget(entryEl.querySelector(".deep"), id, "-deep");
+  if(isMobileNav()){
+    // Con due sezioni .deep (solo FFVIII per ora, seria+cazzona), un
+    // solo appendLikeWidget prenderebbe sempre la prima nel DOM,
+    // lasciando l'altra priva di cuoricino quando è quella visibile.
+    // Un widget per ciascuna, suffisso diverso per non scontrarsi
+    // con il controllo "gia' creato" dentro appendLikeWidget stesso.
+    entryEl.querySelectorAll(".deep").forEach((deepEl, i) => {
+      appendLikeWidget(deepEl, id, i === 0 ? "-deep" : "-deep" + i);
+    });
+  }
 }
 
 function backToLanding(){
@@ -869,8 +890,37 @@ function setupRevealButton(suffix){
 }
 setupRevealButton("Ffvii");
 setupRevealButton("Ffix");
-setupRevealButton("");
 setupRevealButton("Shady");
+
+// ---------------------------------------------------------
+// Doppio pulsante (solo FFVIII per ora, e' l'unica con due versioni
+// vere della recensione completa): a differenza di setupRevealButton
+// qui sopra, il riquadro di avviso NON si spegne piu' una volta per
+// tutte al primo click - resta sempre visibile e cliccabile, cambia
+// solo quale dei due pulsanti risulta "attivo" (disabilitato, e' la
+// versione che stai gia' leggendo) e quale "spento" (cliccabile, ti
+// porta all'altra). Un pulsante alla volta e' sempre disabilitato,
+// mai entrambi ne' nessuno, una volta che hai scelto la prima volta.
+// ---------------------------------------------------------
+function setupDualRevealButtons(suffix){
+  const btnSerious = document.getElementById("revealBtn" + suffix);
+  const btnGoofy = document.getElementById("revealBtn" + suffix + "Goofy");
+  const deepSerious = document.getElementById("reviewDeepContent" + suffix);
+  const deepGoofy = document.getElementById("reviewDeepContent" + suffix + "Goofy");
+  if(!btnSerious || !btnGoofy || !deepSerious || !deepGoofy) return;
+
+  function show(mode){
+    const isSerious = mode === "serious";
+    deepSerious.classList.toggle("is-visible", isSerious);
+    deepGoofy.classList.toggle("is-visible", !isSerious);
+    btnSerious.disabled = isSerious;
+    btnGoofy.disabled = !isSerious;
+  }
+
+  btnSerious.addEventListener("click", () => show("serious"));
+  btnGoofy.addEventListener("click", () => show("goofy"));
+}
+setupDualRevealButtons("");
 
 // ---------------------------------------------------------
 // Toggle centrale: NON sposta piu' un unico carrello da un lato

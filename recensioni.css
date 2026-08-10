@@ -385,10 +385,21 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   border-radius:999px;
   color:var(--text); font-size:.85rem; font-weight:600;
   cursor:pointer;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
 }
 .review-entry .threshold button:hover{ border-color:var(--cyan); color:var(--cyan); }
 .review-entry .threshold.is-crossed{ opacity:.5; }
+
+/* Coppia di pulsanti (versione seria/senza freni): affiancati, non
+   piu' uno solo. Quello che corrisponde alla versione GIA' aperta
+   resta disabilitato (leggermente sbiadito, non cliccabile) finche'
+   non premi l'altro - il riquadro di avviso in se' non si spegne
+   mai piu' una volta per tutte come col vecchio pulsante singolo. */
+.review-entry .threshold__choices{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+.review-entry .threshold button:disabled{
+  opacity:.4; cursor:default; border-color:var(--text-faint); color:var(--text-faint);
+}
+.review-entry .threshold button:disabled:hover{ border-color:var(--text-faint); color:var(--text-faint); }
 
 /* Tag (JRPG/piattaforme/ore): bordo e testo col colore della voce
    aperta, non piu' ciano fisso. Era solo nel blocco desktop, resa
