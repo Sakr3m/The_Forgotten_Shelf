@@ -397,7 +397,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    mai piu' una volta per tutte come col vecchio pulsante singolo. */
 .review-entry .threshold__choices{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
 @media (hover:hover), (pointer:fine){
-  .review-entry .threshold__choices{ gap:30px; } /* triplo del gap di base, solo desktop */
+  .review-entry .threshold__choices{ gap:100px; } /* solo desktop */
 }
 .review-entry .threshold button:disabled{
   opacity:.4; cursor:default; border-color:var(--text-faint); color:var(--text-faint);
