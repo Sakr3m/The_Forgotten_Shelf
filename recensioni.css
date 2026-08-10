@@ -514,7 +514,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   .review-entry{
     display:flex; flex-direction:column;
-    width:100%; max-width:1250px; margin:70px auto 0;
+    width:100%; max-width:1220px; margin:70px auto 0;
     /* Altezza vincolata alla viewport (meno lo spazio sopra e un
        margine sotto): cosi' solo la colonna di lettura scorre al suo
        interno, titolo/tag/volume/scheda restano fermi. */
@@ -569,7 +569,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      occupi tutto lo spazio restante dentro l'altezza fissa di
      .review-entry, invece di crescere oltre lo schermo. --- */
   .review-entry .body-grid{
-    display:grid; grid-template-columns:220px minmax(0, 900px);
+    display:grid; grid-template-columns:220px minmax(0, 1fr);
     grid-template-rows:minmax(0, 1fr); /* la riga unica riempie tutta
       l'altezza disponibile, altrimenti si dimensiona sul contenuto
       e height:100% sui figli sotto non avrebbe nulla da riempire */
@@ -592,6 +592,12 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     padding-right:12px; /* spazio per non far toccare il testo alla
       scrollbar quando compare */
   }
+  /* La colonna che scorre (.reading) arriva fino al vero bordo del
+     box (cosi' la sua scrollbar, quando compare, si allinea con lo
+     switch lingua/volume in alto) - ma le righe di testo dentro
+     restano a una larghezza comoda, non tutta la colonna: il limite
+     va sui figli diretti, non sul contenitore che scorre. */
+  .review-entry .reading > *{ max-width:900px; }
   /* Il blocco "recensione veloce" ora ha contenuto vero e di
      lunghezza variabile (prima era vuoto, allineato a mano
      all'altezza della scheda con un min-height calcolato): tolto
