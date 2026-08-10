@@ -686,24 +686,6 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   background-size:cover; background-position:center; background-repeat:no-repeat;
 }
 
-.review-entry .deep-image-slot--rotate-ccw{
-  position:relative;
-  background-image:none; /* niente immagine non ruotata sotto (quella
-    di base, prima ereditata dallo pseudo-elemento): solo lui la
-    mostra, ruotata, qui sotto. Nessun colore pieno imposto sopra,
-    su richiesta esplicita - resta cosi' com'e' di suo. */
-}
-.review-entry .deep-image-slot--rotate-ccw::before{
-  content:"";
-  position:absolute; inset:-13%; /* de-zoom del 35% richiesto (da -20%):
-    e' sotto la soglia sicura per questo tipo di immagine (~-15/-17%),
-    possono comparire piccole strisce vuote sopra/sotto la cornice -
-    applicato comunque su richiesta esplicita */
-  background-image:var(--rot-img);
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-  transform:rotate(-90deg);
-}
-
 /* Zoom del 3% su Ifrit (unica per ora con questa classe) */
 .review-entry .deep-image-slot--zoom-ifrit::before{ transform:scale(1.03); }
 
