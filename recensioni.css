@@ -514,7 +514,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   .review-entry{
     display:flex; flex-direction:column;
-    width:100%; max-width:1400px; margin:70px auto 0;
+    width:100%; max-width:1250px; margin:70px auto 0;
     /* Altezza vincolata alla viewport (meno lo spazio sopra e un
        margine sotto): cosi' solo la colonna di lettura scorre al suo
        interno, titolo/tag/volume/scheda restano fermi. */
@@ -569,7 +569,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      occupi tutto lo spazio restante dentro l'altezza fissa di
      .review-entry, invece di crescere oltre lo schermo. --- */
   .review-entry .body-grid{
-    display:grid; grid-template-columns:220px 1fr;
+    display:grid; grid-template-columns:220px minmax(0, 900px);
     grid-template-rows:minmax(0, 1fr); /* la riga unica riempie tutta
       l'altezza disponibile, altrimenti si dimensiona sul contenuto
       e height:100% sui figli sotto non avrebbe nulla da riempire */
@@ -589,9 +589,6 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .review-entry .reading{
     color:var(--text-dim); font-size:1rem; line-height:1.75;
     height:100%; overflow-y:auto;
-    max-width:820px; /* le righe non devono allungarsi quanto il box
-      intero (1400px): oltre un certo punto leggere diventa scomodo,
-      lo spazio in piu' resta semplicemente margine a destra */
     padding-right:12px; /* spazio per non far toccare il testo alla
       scrollbar quando compare */
   }
