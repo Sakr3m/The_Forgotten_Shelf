@@ -504,6 +504,8 @@ const MUSIC_SLOTS = {
 // su entrambe le pagine. Le altre, per ora, restano sul ciano di
 // riserva (nessuna voce qui sotto).
 const REVIEW_ACCENTS = {
+  ffvii: "#2dd4bf", // turchese, a meta' tra verde e azzurro (stesso
+    // colore del meteorite sulla cover)
   ffviii: "#ff3b30",
   shady: "#b3b3b3" // grigio 30%, richiesto esplicitamente
 };
