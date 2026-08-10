@@ -30,46 +30,48 @@ const TEORIE = {
       en: "Who is that Boy?"
     },
     body: {
-      it: `Se hai completato il finale di Maelle in Clair Obscur: Expedition 33, probabilmente ricordi la scena: lei varca la soglia del Théâtre Majestic, e lì trova tutti quanti, ridisegnati, compresi Gustave e Sophie. È un momento carico di emozione, quasi sopraffacente.
+      it: `Se hai completato il finale di Maelle in Clair Obscur: Expedition 33, probabilmente ricordi la scena: lei varca la soglia del Théâtre Majestic e ritrova tutti quanti, ridisegnati, compresi Gustave e Sophie. Un momento carico di emozione, quasi sopraffacente.
 
 Ma c'è un dettaglio che in molti si sono fatti sfuggire.
 
 Maelle non entra da sola.
 
-Al suo fianco c'è un bambino. E la risposta più immediata, quella che viene in mente a quasi tutti, è che si tratti di uno degli allievi di Gustave: quel ragazzo che lo saluta con più trasporto alla partenza della spedizione, e che rimane devastato quando, a circa due terzi del gioco, riceve il diario con la notizia della sua morte. Ci sta. È poetico. Chiuderebbe un cerchio narrativo perfetto.
+Al suo fianco c'è un bambino. La lettura più immediata è che si tratti di uno degli allievi di Gustave, quel ragazzo che lo saluta con più trasporto alla partenza della spedizione e che rimane devastato quando, a circa due terzi del gioco, riceve il diario con la notizia della sua morte. Chiuderebbe un cerchio narrativo quasi perfetto.
 
-E se la risposta fosse sbagliata?
+E se non fosse lui?
 
-Se andiamo a confrontare il bambino con l'allievo di Gustave, notiamo che i visi sembrano a prima vista molto simili. Eppure, con un po' di attenzione, le differenze ci sono. E quella che salta più velocemente allo sguardo è una sola, piccola cosa: l'assenza delle lentiggini.
+Messo a confronto con l'allievo di Gustave, il volto del bambino sembra a prima vista identico. Ma basta fermarsi un momento in più su quel fotogramma per notare cosa manca: le lentiggini che caratterizzano il viso dell'allievo semplicemente non ci sono. La forma del viso sembra la stessa, l'espressione anche, ma la pelle è liscia, priva di quei segni che fino a un attimo prima sembravano renderlo riconoscibile senza ombra di dubbio. Ed è proprio l'assenza, non la somiglianza, il dettaglio che dovrebbe far scattare qualcosa.
 
-Da lì in poi, tutto si rilegge in modo diverso. Nel teatro Maelle ritrova le persone che ha amato, ridisegnate da Verso in una versione nuova di sé stesse. Ma quel bambino non è lì per lei. O almeno, non solo. È silenzioso, presente, quasi fuori posto rispetto alla celebrazione che lo circonda. Come se stesse osservando tutto con occhi che hanno già visto ogni cosa.
+Da lì in poi, tutto si rilegge in modo diverso. Nel teatro Maelle ritrova le persone che ha amato, ridisegnate da Verso in una versione nuova di sé stesse. Ma quel bambino non sembra lì per lei. O almeno, non solo. Resta silenzioso, presente, quasi fuori posto rispetto alla celebrazione che lo circonda, come se osservasse tutto con occhi che hanno già visto ogni cosa.
 
-Perché probabilmente, il creatore di quel mondo, colui che ha ridisegnato ogni persona in quella sala, ha ridisegnato anche se stesso. Non come l'essere potente e distante che abbiamo conosciuto, ma come qualcosa di più piccolo, più fragile. Più umano.
+Perché probabilmente il creatore di quel mondo, colui che ha ridisegnato ogni persona in quella sala, ha ridisegnato anche se stesso. Non come l'essere potente e distante che abbiamo conosciuto per tutto il gioco, ma come qualcosa di più piccolo, più fragile. Più umano.
 
 Il bambino che cammina accanto a Maelle è Verso.
 
-Non la versione adulta che suonerà al pianoforte, poco dopo, nel finale, ma quella bambina. Quella originale. L'autore del dipinto, il Verso che esisteva prima degli eventi nella villa dei Dessendre, prima che tutto cambiasse per sempre.
+Non la versione adulta che suonerà al pianoforte poco dopo, nel finale, ma quella bambina. Quella originale. L'autore del dipinto, il Verso che esisteva prima degli eventi nella villa dei Dessendre, prima che tutto cambiasse per sempre.
 
-Un dettaglio piccolo. Una delle immagini più potenti dell'intero gioco.`,
-      en: `If you've completed Maelle's ending in Clair Obscur: Expedition 33, you probably remember the scene: she crosses the threshold of the Théâtre Majestic, and there she finds everyone — redrawn, returned, almost too much to take in.
+Ecco perché resta lì fermo mentre tutti gli altri si abbracciano: non sta assistendo alla fine della storia di Maelle. Sta guardando, forse per la prima volta da fuori, l'inizio della propria.`,
+      en: `If you've completed Maelle's ending in Clair Obscur: Expedition 33, you probably remember the scene: she crosses the threshold of the Théâtre Majestic and finds everyone there, redrawn, including Gustave and Sophie. A moment charged with emotion, almost overwhelming.
 
-But there's a detail that many have overlooked. Maelle doesn't enter alone.
+But there's a detail that many have overlooked.
 
-By her side is a child. And the most immediate answer — the one that comes to mind for almost everyone — is that it must be one of Gustave's students: the boy who bids him farewell with more emotion than anyone else at the start of the expedition, and who is devastated when, two thirds into the game, he receives the journal bearing the news of Gustave's death. It makes sense. It's poetic. It would close a narrative circle perfectly.
+Maelle doesn't enter alone.
 
-What if the answer were wrong?
+By her side is a child. The most immediate reading is that it must be one of Gustave's students, the boy who bids him farewell with more emotion than anyone else at the start of the expedition, and who is devastated when, two thirds into the game, he receives the journal bearing the news of Gustave's death. It would close a narrative circle almost perfectly.
 
-Compare the child to Gustave's student, and the faces look very similar at first glance. Yet the differences are there — and the one that stands out fastest is a single, small thing: the absence of freckles.
+What if it isn't him?
 
-From that point on, everything reads differently. In the theatre, Maelle is reunited with the people she loved, redrawn by Verso into new versions of themselves. But that child isn't there for her. Or at least, not only for her. He is silent, present, almost out of place amid the celebration around him — as if he were watching everything with eyes that have already seen it all.
+Set side by side with Gustave's student, the child's face looks identical at first glance. But stop on that frame a moment longer and something is missing: the freckles that mark the student's face simply aren't there. The shape of the face seems the same, the expression too, but the skin is smooth, free of the marks that a second ago seemed to make him recognizable beyond any doubt. And it's the absence, not the resemblance, that should make something click.
 
-Because in all likelihood, the creator of that world — the one who redrawn every person in that room — redrawn himself too. Not as the powerful, distant being we came to know, but as something smaller, more fragile. More human.
+From that point on, everything reads differently. In the theatre, Maelle is reunited with the people she loved, redrawn by Verso into new versions of themselves. But that child doesn't seem to be there for her. Or at least, not only for her. He stays silent, present, almost out of place amid the celebration around him, as if watching it all with eyes that have already seen everything.
+
+Because in all likelihood, the creator of that world, the one who redrawn every person in that room, redrawn himself too. Not as the powerful, distant being we came to know throughout the game, but as something smaller, more fragile. More human.
 
 The child walking beside Maelle is Verso.
 
-Not the adult version who will play the piano, shortly after, in the final scene — but the child. The original one. The author of the painting, the Verso who existed before the events at the Dessendre villa, before everything changed forever.
+Not the adult version who will play the piano shortly after, in the final scene, but the child. The original one. The author of the painting, the Verso who existed before the events at the Dessendre villa, before everything changed forever.
 
-A small detail. One of the most powerful images in the entire game.`
+That's why he stays there, still, while everyone else embraces: he isn't watching the end of Maelle's story. He's watching, perhaps for the first time from the outside, the beginning of his own.`
     }
   },
   clair_obscur_il_ruolo_di_clea: {
