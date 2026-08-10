@@ -50,7 +50,7 @@
        invece che del solo .stage (che e' spostato dal trucco di
        allineamento condiviso con le altre pagine). */
     position:fixed; top:68px; bottom:0;
-    width:85vw;
+    width:90vw;
     background:var(--bg);
     z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
       i pulsanti in alto restano sempre usabili anche a tendina aperta */
