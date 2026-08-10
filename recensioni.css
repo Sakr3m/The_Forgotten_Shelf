@@ -634,11 +634,30 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 .review-entry .deep-image-slot{
   width:100%; aspect-ratio:16/9;
   margin:24px 0;
+  clear:both;
   border-radius:8px; overflow:hidden;
   background-color:#161d2f;
   background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
   background-size:cover; background-position:center; background-repeat:no-repeat;
 }
+
+/* Variante "a lato", stile libro illustrato: piccola, affiancata al
+   testo che ci scorre intorno invece di spezzarlo a piena larghezza.
+   Proporzione piu' verticale (3:4), adatta a un ritratto invece che
+   a uno screenshot panoramico. Alternare le due classi -left/-right
+   da un'immagine all'altra evita che stiano sempre dalla stessa
+   parte. Su mobile diventano come le altre (vedi media query sotto),
+   il float in una colonna stretta non avrebbe senso. */
+.review-entry .deep-image-slot--float{
+  width:42%; aspect-ratio:3/4;
+  margin:6px 0 16px;
+  border-radius:8px; overflow:hidden;
+  background-color:#161d2f;
+  background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+.review-entry .deep-image-slot--float-left{ float:left; margin-right:20px; }
+.review-entry .deep-image-slot--float-right{ float:right; margin-left:20px; }
 
 /* Pulsante-link verso una teoria correlata (Il Filo Nascosto), al
    posto di un link nudo dentro il testo: stesso linguaggio del
@@ -654,6 +673,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 .review-entry .deep-theory-link{
   display:inline-flex; align-items:center; gap:8px;
   margin:24px 0;
+  clear:both;
   padding:10px 20px;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:999px;
@@ -878,6 +898,9 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      comodo, meno rischio di andare a capo in modo scomodo con testi
      lunghi come quello inglese). --- */
   .review-entry .deep-image-slot{ margin:18px 0; }
+  .review-entry .deep-image-slot--float{
+    float:none; width:100%; aspect-ratio:16/9; margin:18px 0;
+  }
   .review-entry .deep-theory-link{
     width:100%; justify-content:center;
     margin:20px 0;
