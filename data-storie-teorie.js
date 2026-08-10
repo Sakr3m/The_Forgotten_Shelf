@@ -4,6 +4,7 @@
 
 const TEORIE_ORDER = [
   "clair_obscur_chi_e_quel_bambino",
+  "clair_obscur_il_ruolo_di_clea",
   "ff8_vera_identita_artemisia"
 ];
 
@@ -69,6 +70,51 @@ The child walking beside Maelle is Verso.
 Not the adult version who will play the piano, shortly after, in the final scene — but the child. The original one. The author of the painting, the Verso who existed before the events at the Dessendre villa, before everything changed forever.
 
 A small detail. One of the most powerful images in the entire game.`
+    }
+  },
+  clair_obscur_il_ruolo_di_clea: {
+    game: "expedition33",
+    gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
+    accentColor: "#c9a24b",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile.jpg",
+    bannerOffset: 75,
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Une%20Vie%20à%20T'Aimer.mp3", title: "Une vie à t'aimer", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Alicia.mp3", title: "Alicia", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Gustave.mp3", title: "Gustave", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20We%20Lost.mp3", title: "We Lost", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Rouge%20D'Iris.mp3", title: "Rouge d'Iris", game: "Clair Obscur: Expedition 33" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Loin%20D'Elle.mp3", title: "Loin d'Elle", game: "Clair Obscur: Expedition 33" }
+    ],
+    title: {
+      it: "La Vera Regista del Collasso",
+      en: "The True Director of the Collapse"
+    },
+    body: {
+      it: `C'è una teoria che gira tra i fan di Clair Obscur: Expedition 33, e più la si guarda da vicino, più fa venire i brividi. L'idea è semplice ma devastante: quasi tutto il conflitto che l'Expedition 33 attraversa, dalla partenza da Lumière fino allo scontro finale con la Paintress, porta l'impronta di Clea. Non come vittima della storia. Come causa.
+
+Clea non è mai davvero al centro della scena. Passa gran parte del gioco ai margini, un nome che riecheggia più che un volto che agisce. Ed è proprio questo il punto: la teoria sostiene che il suo distacco non sia semplice freddezza o rifiuto del dolore familiare, ma una scelta calcolata. Ogni volta che il conflitto tra i Dessendre potrebbe risolversi, o almeno attenuarsi, qualcosa lo prolunga. E quel qualcosa, secondo i teorici, porta sempre a lei.
+
+Il caso più citato è lo scontro con il vero Renoir. Un padre spezzato dal lutto, una famiglia già in frantumi, eppure il confronto degenera in modo che sembra tutto tranne che inevitabile. I sostenitori della teoria fanno notare come Clea, pur restando defilata, sia sempre nella posizione perfetta per inasprire la frattura invece di sanarla. Non serve che tiri lei il colpo. Basta che lasci che la ferita resti aperta, o la allarghi con un silenzio calcolato.
+
+C'è poi la questione dei Nevron. Nel gioco vengono presentati come una minaccia quasi naturale, un sintomo del mondo dipinto che si sfalda. Ma la teoria li rilegge come uno strumento, o quantomeno una conseguenza aggravata dalla mano di Clea: la loro presenza avrebbe allungato il conflitto ben oltre la sua durata naturale, tenendo la famiglia impegnata a sopravvivere invece che a fare i conti tra loro.
+
+Quello che rende la teoria interessante non è tanto l'idea di una Clea manipolatrice in senso classico, quanto quella di una Clea che non condivide il dolore degli altri Dessendre, e che per questo può muoversi nello spazio che il loro lutto lascia scoperto. Non è la stessa cosa di Renoir, ostaggio del proprio rimpianto. Non è Aline, sospesa nell'attesa. Clea sembra osservare da un punto più freddo, e da lì orientare, o almeno lasciar correre, gli eventi verso l'esito più distruttivo.
+
+Se la teoria regge, cambia parecchio il modo di leggere il finale. Il crollo di Lumière non sarebbe solo il prezzo del dolore di una famiglia incapace di lasciar andare, ma anche il risultato di qualcuno che quel dolore lo ha lasciato marcire apposta, o almeno non ha mai alzato un dito per fermarlo.`,
+      en: `There's a theory circulating among Clair Obscur: Expedition 33 fans, and the closer you look at it, the more unsettling it gets. The idea is as simple as it is devastating: nearly every conflict Expedition 33 goes through, from the departure from Lumière to the final clash with the Paintress, carries Clea's fingerprints. Not as a victim of the story — as its cause.
+
+Clea is never really at the center of the stage. She spends most of the game at the margins, a name that echoes more than a face that acts. And that's exactly the point — the theory argues that her detachment isn't simple coldness or a refusal to grieve, but a calculated choice. Every time the conflict among the Dessendres could be resolved, or at least eased, something drags it out further. And that something, according to the theory's supporters, always seems to lead back to her.
+
+The most cited case is the confrontation with the real Renoir. A father shattered by grief, a family already in pieces, yet the standoff spirals into anything but inevitable. Supporters of the theory point out that Clea, while staying on the sidelines, is always perfectly positioned to widen the fracture rather than heal it. She doesn't need to strike the blow herself. It's enough to let the wound stay open, or deepen it with a calculated silence.
+
+Then there's the matter of the Nevrons. The game presents them as an almost natural threat, a symptom of the painted world unraveling. But the theory reframes them as a tool, or at least a consequence made worse by Clea's hand: their presence would have dragged the conflict on far past its natural length, keeping the family busy surviving instead of reckoning with each other.
+
+What makes the theory compelling isn't so much the idea of a classically manipulative Clea, but that of a Clea who doesn't share the other Dessendres' grief, and who can therefore move through the space their mourning leaves uncovered. She isn't like Renoir, held hostage by his own regret. She isn't like Aline, suspended in waiting. Clea seems to watch from somewhere colder, and from there steer, or at least let run, events toward their most destructive outcome.
+
+If the theory holds, it changes quite a bit about how to read the ending. The collapse of Lumière wouldn't just be the price of a family's inability to let go, but also the result of someone who let that pain rot on purpose, or at the very least never lifted a finger to stop it.`
     }
   },
   ff8_vera_identita_artemisia: {

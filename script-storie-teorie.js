@@ -223,8 +223,11 @@ function renderLists(){
   const currentGame = state.entryId ? (currentEntry() || {}).game : null;
 
   el.teorieList.innerHTML = "";
+  const seenTeorieGames = new Set();
   TEORIE_ORDER.forEach(id => {
     const item = TEORIE[id];
+    if(seenTeorieGames.has(item.game)) return; // una sola riga per gioco: le voci extra si raggiungono dal menu a tendina
+    seenTeorieGames.add(item.game);
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
@@ -237,8 +240,11 @@ function renderLists(){
   });
 
   el.storieList.innerHTML = "";
+  const seenStorieGames = new Set();
   STORIE_ORDER.forEach(id => {
     const item = STORIE[id];
+    if(seenStorieGames.has(item.game)) return; // stessa logica della colonna Teorie
+    seenStorieGames.add(item.game);
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.type = "button";
