@@ -673,14 +673,10 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    con le altre regole, semplicemente resta coperto dallo pseudo). */
 .review-entry .deep-image-slot--rotate-ccw{
   position:relative;
-  background-color:var(--bg); background-image:none; /* nero pieno,
-    pulito, sovrascrivendo il pattern segnaposto a righe della classe
-    base - la vera immagine vive solo nello pseudo-elemento qui sotto
-    (via --rot-img), non piu' anche qui: prima restava anche qui sopra
-    come background-image diretto (serviva solo perche' lo pseudo la
-    "ereditava" da qui), e nei punti dove lo pseudo ruotato non
-    copriva esattamente ogni pixel si vedeva una fetta dell'immagine
-    originale non ruotata spuntare da sotto. */
+  background-image:none; /* niente immagine non ruotata sotto (quella
+    di base, prima ereditata dallo pseudo-elemento): solo lui la
+    mostra, ruotata, qui sotto. Nessun colore pieno imposto sopra,
+    su richiesta esplicita - resta cosi' com'e' di suo. */
 }
 .review-entry .deep-image-slot--rotate-ccw::before{
   content:"";
