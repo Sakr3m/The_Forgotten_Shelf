@@ -507,6 +507,8 @@ const REVIEW_ACCENTS = {
   ffvii: "#2dd4bf", // turchese, a meta' tra verde e azzurro (stesso
     // colore del meteorite sulla cover)
   ffviii: "#ff3b30",
+  ffix: "#ffcc33", // giallo caldo, il colore del cristallo al centro
+    // della cover
   shady: "#b3b3b3" // grigio 30%, richiesto esplicitamente
 };
 
