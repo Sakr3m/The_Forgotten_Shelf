@@ -659,6 +659,21 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 .review-entry .deep-image-slot--float-left{ float:left; margin-right:20px; }
 .review-entry .deep-image-slot--float-right{ float:right; margin-left:20px; }
 
+/* Ruota il contenuto di 90 gradi in senso antiorario senza deformare
+   la cornice (che resta 3:4, il float/testo intorno non cambia).
+   Uno pseudo-elemento sovradimensionato (inset negativo) porta lo
+   sfondo, ruotato, e sostituisce visivamente lo sfondo diretto del
+   div (che resta comunque impostato via style="" per compatibilita'
+   con le altre regole, semplicemente resta coperto dallo pseudo). */
+.review-entry .deep-image-slot--rotate-ccw{ position:relative; }
+.review-entry .deep-image-slot--rotate-ccw::before{
+  content:"";
+  position:absolute; inset:-20%;
+  background-image:inherit;
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  transform:rotate(-90deg);
+}
+
 /* Pulsante-link verso una teoria correlata (Il Filo Nascosto), al
    posto di un link nudo dentro il testo: stesso linguaggio del
    pulsante della soglia spoiler, ma con un'icona di collegamento
