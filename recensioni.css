@@ -671,12 +671,18 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    sfondo, ruotato, e sostituisce visivamente lo sfondo diretto del
    div (che resta comunque impostato via style="" per compatibilita'
    con le altre regole, semplicemente resta coperto dallo pseudo). */
-.review-entry .deep-image-slot--rotate-ccw{ position:relative; }
+.review-entry .deep-image-slot--rotate-ccw{
+  position:relative;
+  background-color:var(--bg); background-image:none; /* stesso nero della
+    pagina al posto del pattern segnaposto a righe: cosi' un dezoom
+    troppo spinto sullo pseudo-elemento sotto non mostra bordi strani,
+    si confonde con lo sfondo invece che con un rettangolo a strisce */
+}
 .review-entry .deep-image-slot--rotate-ccw::before{
   content:"";
   position:absolute; inset:-20%;
   background-image:inherit;
-  background-size:125%; background-position:center; background-repeat:no-repeat;
+  background-size:115%; background-position:center; background-repeat:no-repeat;
   transform:rotate(-90deg);
 }
 
