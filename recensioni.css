@@ -671,6 +671,21 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    sfondo, ruotato, e sostituisce visivamente lo sfondo diretto del
    div (che resta comunque impostato via style="" per compatibilita'
    con le altre regole, semplicemente resta coperto dallo pseudo). */
+/* Zoom fine su un'immagine NON ruotata, stesso spirito della classe
+   rotate-ccw qui sotto ma senza rotazione: cover (sempre sicuro,
+   mai buchi) sullo pseudo-elemento, poi un transform:scale() per
+   lo zoom vero e proprio - provato che e' affidabile, a differenza
+   delle percentuali dirette su background-size (vedi il pasticcio
+   con la gunblade: a valori singoli si comportano in modo imprevedibile
+   a seconda delle proporzioni reali della foto). */
+.review-entry .deep-image-slot--zoom{ position:relative; background-image:none; }
+.review-entry .deep-image-slot--zoom::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:var(--zoom-img);
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+
 .review-entry .deep-image-slot--rotate-ccw{
   position:relative;
   background-image:none; /* niente immagine non ruotata sotto (quella
@@ -688,6 +703,9 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   background-size:cover; background-position:center; background-repeat:no-repeat;
   transform:rotate(-90deg);
 }
+
+/* Zoom del 3% su Ifrit (unica per ora con questa classe) */
+.review-entry .deep-image-slot--zoom-ifrit::before{ transform:scale(1.03); }
 
 /* Pulsante-link verso una teoria correlata (Il Filo Nascosto), al
    posto di un link nudo dentro il testo: stesso linguaggio del
