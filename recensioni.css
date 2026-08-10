@@ -514,7 +514,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   .review-entry{
     display:flex; flex-direction:column;
-    width:100%; max-width:1100px; margin:70px auto 0;
+    width:100%; max-width:1400px; margin:70px auto 0;
     /* Altezza vincolata alla viewport (meno lo spazio sopra e un
        margine sotto): cosi' solo la colonna di lettura scorre al suo
        interno, titolo/tag/volume/scheda restano fermi. */
