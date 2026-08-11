@@ -6,7 +6,8 @@ const TEORIE_ORDER = [
   "clair_obscur_chi_e_quel_bambino",
   "clair_obscur_il_ruolo_di_clea",
   "ff8_squall_is_dead",
-  "ff8_vera_identita_artemisia"
+  "ff8_vera_identita_artemisia",
+  "hollow_knight_ricettacolo_perfetto"
 ];
 
 const TEORIE = {
@@ -266,6 +267,47 @@ The theory was officially denied by director Yoshinori Kitase at PAX West 2016, 
 Kitase added, however, that he couldn't rule the theory out entirely, since he wasn't aware of the intentions of the other two writers, Nojima and Nomura, and admitted he hadn't even known the theory existed before someone brought it to his attention. A denial, then, but with a few cracks in it. The fandom has built years of discussion on top of it, and will probably keep doing so.
 
 The coincidences in the game's text are still there, visible to anyone who wants to look for them. But Square's official answer is clear: Rinoa and Ultimecia are two distinct people, and the ending of Final Fantasy VIII is exactly what it appears to be.`
+    }
+  }  ,
+  hollow_knight_ricettacolo_perfetto: {
+    game: "hollow_knight",
+    gameLabel: { it: "Hollow Knight", en: "Hollow Knight" },
+    accentColor: "#8f9bb3",
+    title: {
+      it: "L'Unico Ricettacolo Davvero Vuoto",
+      en: "The Only Truly Hollow Vessel"
+    },
+    body: {
+      it: `Tra tutti i personaggi di Hollow Knight, quello che il gioco definisce meno di tutti è proprio il protagonista che controlli. Non parla, non ha un nome proprio, non mostra mai un'emozione visibile. Eppure, più si scava nella lore, più emerge un'idea perturbante: il Cavaliere non è solo un Ricettacolo come gli altri. È, molto probabilmente, l'unico Ricettacolo davvero riuscito.
+
+I Ricettacoli sono creature artificiali, plasmate dal Re Pallido a partire dal Vuoto e nate nell'Abisso. Dovevano essere prive di volontà, voce e mente: solo così, secondo il piano del re, avrebbero potuto contenere lo Splendore senza venirne corrotte. Migliaia furono creati. Quasi tutti fallirono lo standard richiesto e vennero abbandonati proprio lì, nell'Abisso da cui erano nati. Solo pochissimi, tra cui il Cavaliere e i suoi fratelli più forti, riuscirono a risalire fino a Nidosacro.
+
+Tra questi fu scelto il Cavaliere Vacuo, il "Ricettacolo Puro", vincitore di uno scontro tra fratelli, sigillato poi nel Tempio dell'Uovo Nero per contenere lo Splendore. Il piano fallì. Non per un errore di progettazione, ma per il motivo più umano possibile: crescendo accanto al Re Pallido, il Cavaliere Vacuo sviluppò un legame affettivo con lui. Non era vuoto abbastanza. Quel legame, quell'ombra di sentimento, fu la crepa da cui l'infezione tornò a diffondersi in tutto il regno.
+
+Il Sentiero del Dolore, il segmento platform più duro del gioco (e forse anche il più nascosto), rivela proprio questo: il fallimento del Cavaliere Vacuo non fu tecnico, ma emotivo. Essere cresciuto come un figlio, protetto e osservato con affetto da un genitore, gli aveva lasciato addosso qualcosa che nessun Ricettacolo avrebbe dovuto conservare: un attaccamento.
+
+Il Cavaliere che controlli, invece, cresce lontano da tutto questo, nell'Abisso, tra i fratelli scartati. Non riceve mai quel tipo di attenzione. Ed è forse proprio per questo che riesce a compiere ciò che nessun altro Ricettacolo, nemmeno quello Puro, è mai riuscito a fare.
+
+C'è poi un dettaglio testuale piuttosto diretto: la descrizione dell'amuleto Cuore di Vuoto parla esplicitamente di unificare il Vuoto sotto la volontà di chi lo indossa, un'affermazione che avrebbe poco senso per una creatura davvero priva di volontà propria, a meno che quella volontà non sia proprio ciò che distingue il Cavaliere dagli altri Ricettacoli, la sua reale unicità.
+
+C'è poi un altro dettaglio, più strutturale che testuale: l'Aculeo dei Sogni permette di leggere i pensieri residui del Cavaliere Vacuo e del Ricettacolo Puro, rivelando in entrambi un'eco di mente che un vero vuoto non dovrebbe avere. Sul Cavaliere che controlli, invece, quello stesso confronto non può proprio avvenire: è lui a impugnare l'arma, non può mai diventarne bersaglio. Un'assenza di prova che, volendo forzare la lettura, lascia aperta anche l'unica ipotesi che nessun altro personaggio del gioco può davvero confermare o smentire: che non ci sia nulla da leggere, nemmeno se un giorno qualcuno riuscisse a puntargli contro quello stesso aculeo.
+
+Che sia una scelta narrativa deliberata o una lettura costruita nel tempo dalla community, resta il fatto che l'intera storia di Hollow Knight ruota attorno a un'ironia piuttosto elegante: il fratello scelto, cresciuto con amore per essere perfetto, fallisce proprio a causa di quell'amore. Il fratello scartato, lasciato crescere nel vuoto più totale, riesce a diventare esattamente ciò che l'altro avrebbe dovuto essere. In un gioco che parla continuamente di vuoto, sacrificio e identità, difficilmente è un caso.`,
+      en: `Of all the characters in Hollow Knight, the one the game defines the least is the very protagonist you control. He doesn't speak, has no proper name of his own, and never shows a visible emotion. Yet the deeper you dig into the lore, the more unsettling an idea emerges: the Knight isn't just a Vessel like the others. He is, quite possibly, the only Vessel that truly succeeded.
+
+Vessels are artificial beings, shaped by the Pale King out of the Void and born in the Abyss. They were meant to be without will, voice, or mind, since only that kind of emptiness would let them contain the Radiance without being corrupted by it. Thousands were created. Nearly all of them failed to meet the required standard and were abandoned right there, in the Abyss that had given birth to them. Only a handful, including the Knight and his strongest siblings, managed to climb their way up to Hallownest.
+
+Among them, the Hollow Knight was chosen as the "Pure Vessel", the winner of a contest among siblings, later sealed within the Black Egg Temple to contain the Radiance. The plan failed. Not because of a flaw in the design, but for the most human reason imaginable: growing up close to the Pale King, the Hollow Knight developed an emotional bond with him. He wasn't hollow enough. That bond, that faint shadow of feeling, was the crack through which the infection spread back across the kingdom.
+
+The Path of Pain, the hardest platforming segment in the entire game (and perhaps its best-hidden one too), reveals exactly this: the Hollow Knight's failure wasn't technical, but emotional. Having been raised like a son, watched over and cared for by a parent, had left him with something no Vessel was ever supposed to carry: attachment.
+
+The Knight you control, on the other hand, grows up far away from all that, down in the Abyss, among the discarded siblings. He never receives that kind of attention. And it's perhaps precisely because of this that he manages to accomplish what no other Vessel, not even the Pure one, ever managed to do.
+
+There's also a fairly direct textual detail: the description of the Void Heart charm explicitly speaks of unifying the Void under the bearer's will, a statement that would make little sense for a creature truly devoid of its own will, unless that very will is what sets the Knight apart from the other Vessels, his real uniqueness.
+
+There's another detail too, more structural than textual: the Dream Nail lets you read the residual thoughts of the Hollow Knight and the Pure Vessel, revealing in both an echo of mind that a true emptiness shouldn't have. On the silent Knight you control, however, that same comparison simply can't happen: he's the one wielding the weapon, he can never become its target. An absence of proof that, if you want to push the reading, leaves open even the one hypothesis no other character in the game could ever confirm or deny: that there might be nothing to read at all, even if someone could one day point that very nail at him.
+
+Whether it's a deliberate narrative choice or a reading built up over time by the community, the fact remains that the whole story of Hollow Knight revolves around a rather elegant irony: the chosen brother, raised with love to be perfect, fails precisely because of that love. The discarded brother, left to grow up in absolute emptiness, manages to become exactly what the other was meant to be. In a game that constantly talks about emptiness, sacrifice, and identity, that's hardly a coincidence.`
     }
   }
 };
