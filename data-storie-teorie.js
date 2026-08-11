@@ -16,6 +16,7 @@ const TEORIE = {
     game: "bloodborne",
     gameLabel: { it: "Bloodborne", en: "Bloodborne" },
     accentColor: "#8a1f2b",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile.jpg",
     title: {
       it: "Un Sogno Senza Fine",
@@ -312,6 +313,7 @@ The coincidences in the game's text are still there, visible to anyone who wants
     game: "hollow_knight",
     gameLabel: { it: "Hollow Knight", en: "Hollow Knight" },
     accentColor: "#8f9bb3",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mobile.jpg",
     title: {
       it: "L'Unico Ricettacolo Davvero Vuoto",
