@@ -3,6 +3,7 @@
 // ============================================================
 
 const TEORIE_ORDER = [
+  "bloodborne_sogno_infinito",
   "clair_obscur_chi_e_quel_bambino",
   "clair_obscur_il_ruolo_di_clea",
   "ff8_squall_is_dead",
@@ -11,6 +12,43 @@ const TEORIE_ORDER = [
 ];
 
 const TEORIE = {
+  bloodborne_sogno_infinito: {
+    game: "bloodborne",
+    gameLabel: { it: "Bloodborne", en: "Bloodborne" },
+    accentColor: "#8a1f2b",
+    title: {
+      it: "Il Sogno da Cui Non Ci Si Sveglia Mai Davvero",
+      en: "The Dream You Never Truly Wake Up From"
+    },
+    body: {
+      it: `C'è un dettaglio che il gioco mette sotto gli occhi del giocatore fin dal primo minuto, eppure quasi nessuno se lo lascia risuonare per quello che è davvero. Il Marchio del Cacciatore, il rito che ti riporta alla Lampada più vicina ogni volta che muori, viene descritto letteralmente come qualcosa che ti fa risvegliare "come se tutto fosse stato soltanto un brutto sogno." E questo vale anche in pieno giorno, in mezzo a una strada di Yharnam, lontano dal Sogno del Cacciatore. Come se il gioco ti stesse dicendo, fin dall'inizio, che non esiste davvero un momento in cui sei sveglio del tutto.
+
+Tutta la struttura di Bloodborne ruota attorno a questa ambiguità. Il Sogno del Cacciatore, il rifugio dove torni tra una caccia e l'altra, non è un semplice hub di gioco: è un piano di esistenza creato dalla Presenza della Luna, uno dei Grandi Esseri, evocata da Gehrman tramite un Cordone Ombelicale strappato a un altro Grande Essere. Gehrman stesso resta intrappolato in quel sogno per il resto della sua esistenza, senza più un vero modo di uscirne, se non nella forma che la Presenza della Luna gli concede.
+
+E qui arriva il punto più inquietante: nemmeno i tre finali del gioco offrono un vero risveglio, nel senso pieno della parola. Se accetti l'offerta di Gehrman e ti lasci decapitare, ti risvegli sì all'alba, in una Yharnam apparentemente reale, ma resta il dubbio se quella non sia semplicemente un altro sogno più convincente degli altri, o l'inizio di un nuovo ciclo in cui qualcun altro prenderà il tuo posto come custode del Sogno del Cacciatore. Se invece rifiuti e sconfiggi Gehrman, prendi letteralmente il suo posto: diventi tu il nuovo custode, intrappolato per sempre in quello stesso sogno da cui pensavi di poter scappare. E se hai consumato tre Terzi di Cordone Ombelicale prima ancora di affrontarlo, ottieni il terzo finale, in cui non ti risvegli affatto: rinasci come un neonato Grande Essere, l'erede che la Presenza della Luna cercava fin dall'inizio.
+
+In nessuno dei tre casi, quindi, il giocatore lascia davvero il sogno per la realtà. Nella migliore delle ipotesi si sposta in un altro strato di finzione. Nella peggiore, diventa lui stesso parte della macchina che tiene in piedi l'intera illusione.
+
+C'è poi la preghiera che l'Automa, la Bambola che vive nel Sogno del Cacciatore, rivolge ai Messaggeri per la salvezza del Cacciatore: chiede che quel sogno, definito esplicitamente "suo carceriere," possa un giorno condurre a un risveglio vero. Il fatto stesso che quella preghiera esista, pronunciata da chi vive il Sogno dall'interno, suggerisce che nemmeno i suoi abitanti sappiano con certezza se un simile risveglio sia mai davvero possibile, o se sia solo la speranza di chi non ha altra scelta che continuare a sperarci.
+
+Anche la nota che accompagna il giocatore fin dall'inizio, quella che parla del Sanguesmunto come chiave per "trascendere la caccia," non promette mai esplicitamente un ritorno alla realtà. Promette una trascendenza, un andare oltre, che nel linguaggio ambiguo di Bloodborne può voler dire tanto un vero risveglio quanto l'ennesimo passo più in profondità in qualcos'altro.
+
+Bloodborne, in fondo, non è mai stato davvero un gioco sul risvegliarsi. È un gioco sul continuare a sognare, sempre più a fondo, convincendosi ogni volta di essere un passo più vicini all'uscita.`,
+      en: `There's a detail the game puts right in front of the player from the very first minute, yet almost no one lets it sink in for what it actually means. The Hunter's Mark, the ritual that returns you to the nearest Lamp every time you die, is described literally as something that lets you awaken as if it had all just been a bad dream. And that holds true even in broad daylight, in the middle of a Yharnam street, far from the Hunter's Dream. As if the game were telling you, right from the start, that there's never really a moment when you're fully awake.
+
+The entire structure of Bloodborne revolves around this ambiguity. The Hunter's Dream, the sanctuary you return to between hunts, isn't just a gameplay hub: it's a plane of existence created by the Moon Presence, one of the Great Ones, summoned by Gehrman through an Umbilical Cord torn from another Great One. Gehrman himself remains trapped in that dream for the rest of his existence, with no real way out except the one the Moon Presence allows him.
+
+And here's where things get truly unsettling: not even the game's three endings offer a genuine awakening, in the full sense of the word. If you accept Gehrman's offer and let him behead you, you do wake up at dawn, in an apparently real Yharnam, but there's no way to be sure that isn't simply a more convincing dream than the others, or the start of a new cycle where someone else takes your place as the Hunter's Dream's next keeper. If instead you refuse and defeat Gehrman, you literally take his place: you become the new keeper, trapped forever in that very same dream you thought you could escape. And if you've consumed three Umbilical Cords before even facing him, you get the third ending, where you don't awaken at all: you're reborn as an infant Great One, the heir the Moon Presence had been seeking from the start.
+
+In none of the three cases, then, does the player actually leave the dream for reality. At best, you shift into another layer of fiction. At worst, you become part of the very machine that keeps the whole illusion running.
+
+There's also the prayer the Doll, who lives within the Hunter's Dream, offers to the Messengers on the Hunter's behalf: she asks that the dream, explicitly called its prisoner's jailer, might one day lead to a genuine awakening. The mere existence of that prayer, spoken by someone who lives inside the Dream itself, suggests that even its own inhabitants aren't sure such an awakening is truly possible, or whether it's only the hope of someone who has no other choice but to keep hoping for it.
+
+Even the note that accompanies the player from the very beginning, the one about seeking Paleblood to transcend the hunt, never explicitly promises a return to reality. It promises transcendence, a going beyond, which in Bloodborne's deliberately ambiguous language could mean either a real awakening or just another step deeper into something else entirely.
+
+Bloodborne, in the end, was never really a game about waking up. It's a game about continuing to dream, deeper and deeper, convincing yourself each time that you're one step closer to the exit.`
+    }
+  },
   clair_obscur_chi_e_quel_bambino: {
     game: "expedition33",
     gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
