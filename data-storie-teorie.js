@@ -17,8 +17,8 @@ const TEORIE = {
     gameLabel: { it: "Bloodborne", en: "Bloodborne" },
     accentColor: "#8a1f2b",
     title: {
-      it: "Il Sogno da Cui Non Ci Si Sveglia Mai Davvero",
-      en: "The Dream You Never Truly Wake Up From"
+      it: "Un Sogno Senza Fine",
+      en: "A Dream Without End"
     },
     body: {
       it: `C'è un dettaglio che il gioco mette sotto gli occhi del giocatore fin dal primo minuto, eppure quasi nessuno se lo lascia risuonare per quello che è davvero. Il Marchio del Cacciatore, il rito che ti riporta alla Lampada più vicina ogni volta che muori, viene descritto letteralmente come qualcosa che ti fa risvegliare "come se tutto fosse stato soltanto un brutto sogno." E questo vale anche in pieno giorno, in mezzo a una strada di Yharnam, lontano dal Sogno del Cacciatore. Come se il gioco ti stesse dicendo, fin dall'inizio, che non esiste davvero un momento in cui sei sveglio del tutto.
