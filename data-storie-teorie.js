@@ -5,6 +5,7 @@
 const TEORIE_ORDER = [
   "clair_obscur_chi_e_quel_bambino",
   "clair_obscur_il_ruolo_di_clea",
+  "ff8_squall_is_dead",
   "ff8_vera_identita_artemisia"
 ];
 
@@ -117,6 +118,71 @@ Then there's the matter of the Nevrons. The game presents them as an almost natu
 What makes the theory compelling isn't so much the idea of a classically manipulative Clea, but that of a Clea who doesn't share the other Dessendres' grief, and who can therefore move through the space their mourning leaves uncovered. She isn't like Renoir, held hostage by his own regret. She isn't like Aline, suspended in waiting. Clea seems to watch from somewhere colder, and from there steer, or at least let run, events toward their most destructive outcome.
 
 If the theory holds, it changes quite a bit about how to read the ending. The collapse of Lumière wouldn't just be the price of a family's inability to let go, but also the result of someone who let that pain rot on purpose, or at the very least never lifted a finger to stop it.`
+    }
+  },
+  ff8_squall_is_dead: {
+    game: "ff8",
+    gameLabel: { it: "Final Fantasy VIII", en: "Final Fantasy VIII" },
+    accentColor: "#ff3b30",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile.jpg",
+    bannerOffset: 65,
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Liberi%20Fatali.mp3", title: "Liberi Fatali", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Eyes%20on%20Me.mp3", title: "Eyes on Me", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Balamb%20Garden.mp3", title: "Balamb Garden", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20The%20Landing.mp3", title: "The Landing", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Force%20Your%20Way.mp3", title: "Force Your Way", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Premonition.mp3", title: "Premonition", game: "Final Fantasy VIII" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20The%20Man%20with%20the%20Machine%20Gun.mp3", title: "The Man with the Machine Gun", game: "Final Fantasy VIII" }
+    ],
+    title: {
+      it: "Squall È Morto?",
+      en: "Is Squall Dead?"
+    },
+    body: {
+      it: `Ci sono teorie che nascono da un dettaglio isolato, un'immagine o una frase fuori posto. E poi ci sono teorie come questa, che nascono da una vera e propria crepa nella scrittura del gioco, mai davvero richiusa. Parliamo di questa, probabilmente la teoria più famosa e più discussa dell'intero fandom di Final Fantasy VIII.
+
+Alla fine del primo disco, Squall affronta la strega Edea su un carro in festa a Deling City. Nel momento in cui sembra sconfitta, Edea evoca un enorme frammento di ghiaccio e lo scaglia contro di lui, colpendolo in pieno petto, vicino alla spalla. Squall precipita da grande altezza. Nella scena successiva si risveglia in una prigione nel deserto, senza una singola ferita, e lui stesso, in gioco, si interroga su come sia possibile essere sopravvissuto a un colpo del genere. La teoria sostiene che in realtà non ci sia sopravvissuto affatto: che Squall sia morto in quel momento, e che tutto il resto del gioco, dal secondo disco in poi, sia un sogno che attraversa la sua mente negli ultimi istanti di vita.
+
+Le prove a favore
+
+Il punto di partenza è proprio l'assenza della ferita, sottolineata dal gioco stesso attraverso le parole di Squall, che nota la stranezza della propria guarigione istantanea. Da lì in poi, secondo i sostenitori della teoria, il tono generale del gioco cambia in modo netto: l'ambientazione, più realistica nel primo disco, comincia ad assumere una qualità più onirica e surreale, con coincidenze e ripetizioni che stonano con il registro iniziale.
+
+C'è poi il discorso finale di Artemisia, la strega villain del gioco, sconfitta proprio da Squall nello scontro conclusivo. Le sue ultime parole, pronunciate con un tono calmo e quasi malinconico, sembrano rivolgersi a una versione più giovane di se stessa, e parlano di ricordi d'infanzia, del tempo che sfugge, di ciò che si trattiene e ciò che si lascia andare. I sostenitori della teoria leggono quel momento come qualcosa che va oltre il semplice discorso di un villain sconfitto: lo interpretano come un possibile parallelo con la condizione di Squall stesso, sospeso tra la vita reale e un ultimo sogno.
+
+Il sito storico "Squall's Dead", che per anni ha raccolto e catalogato le prove a sostegno di questa lettura, la descrive come un'estensione del concetto per cui la vita passa davanti agli occhi in punto di morte: pochi secondi reali, vissuti però da Squall come un tempo molto più lungo, in cui esplora domande rimaste aperte nella sua vita.
+
+Le prove contro
+
+Nel 2017, il director Yoshinori Kitase ha commentato direttamente la teoria in un'intervista, negandola: ha spiegato che il colpo aveva in realtà colpito Squall in una zona vicino alla spalla, non in un punto vitale, e che quindi il personaggio non era morto. Ha aggiunto però, con una certa ironia, di trovare l'idea interessante, e che se mai si fosse fatto un remake del gioco, avrebbe potuto anche prendere in considerazione di seguirla davvero.
+
+Ci sono poi obiezioni più pratiche, spesso sollevate dagli scettici della teoria: i personaggi dei giochi di ruolo vengono colpiti, trafitti e feriti gravemente in continuazione senza morire, e il gioco stesso offre strumenti o magie di cura che potrebbero spiegare una guarigione rapida senza bisogno di scomodare l'ipotesi del sogno.
+
+Conclusione
+
+La risposta ufficiale di Kitase chiude la questione sul piano narrativo: Squall non muore, e il resto del gioco è reale tanto quanto il primo disco. Ma è significativo che lo stesso Kitase, pur negandola, non l'abbia liquidata come priva di senso, anzi l'abbia definita un'idea interessante da poter riprendere in un ipotetico remake. Un raro caso in cui la teoria non nasce da un dettaglio isolato, ma da una vera e propria stranezza di scrittura che il gioco non ha mai davvero spiegato, e che continua a dividere il fandom a distanza di oltre vent'anni.`,
+      en: `Some theories are born from a single isolated detail, an image or a line that feels slightly out of place. And then there are theories like this one, born from an actual crack in the game's writing that was never really sealed shut. Let's talk about it: probably the most famous and most debated theory in the entire Final Fantasy VIII fandom.
+
+At the end of the first disc, Squall confronts the sorceress Edea on a parade float in Deling City. Just as she seems defeated, Edea conjures a massive ice shard and hurls it at him, hitting him square in the chest, near the shoulder. Squall falls from a great height. In the following scene he wakes up in a desert prison without a single wound, and he himself, in game, questions how he could have survived such a hit. The theory claims he didn't survive at all: that Squall actually died in that moment, and that everything that follows from the second disc onward is a dream running through his mind in his final moments of life.
+
+Evidence in favour
+
+The starting point is precisely the absence of any wound, a detail the game itself highlights through Squall's own words, as he notices how strange his instant recovery is. From there, according to the theory's supporters, the overall tone of the game shifts noticeably: the setting, more grounded in the first disc, starts taking on a more dreamlike and surreal quality, with coincidences and repetitions that clash with the game's initial register.
+
+Then there's Ultimecia's final speech, the game's sorceress villain, defeated by Squall himself in the closing battle. Her last words, delivered in a calm, almost wistful tone, seem to address a younger version of herself, speaking of childhood memories, of time slipping away, of what we hold onto and what we let go. Supporters of the theory read that moment as something more than a simple defeated-villain monologue: they see it as a possible parallel to Squall's own condition, suspended between real life and one final dream.
+
+The long-running fan site "Squall's Dead", which for years collected and catalogued evidence supporting this reading, describes it as an extension of the idea that your life flashes before your eyes in the moment of death: a handful of real seconds, experienced by Squall as a much longer stretch of time, in which he works through questions left unanswered in his life.
+
+Evidence against
+
+In 2017, director Yoshinori Kitase directly addressed the theory in an interview and denied it, explaining that the hit had actually struck Squall near the shoulder rather than a vital area, meaning the character never died. He added, with a touch of irony, that he found the idea interesting, and that if the game were ever remade, he might even consider going along with that version of the story.
+
+There are also more practical objections often raised by skeptics of the theory: characters in role-playing games get struck, stabbed, and badly wounded constantly without dying, and the game itself offers healing tools or spells that could account for a fast recovery without needing to invoke the dream hypothesis at all.
+
+Conclusion
+
+Kitase's official answer settles the matter on a narrative level: Squall doesn't die, and the rest of the game is just as real as the first disc. But it's telling that Kitase himself, even while denying it, never dismissed it as nonsense — he actually called it an interesting idea worth considering for a hypothetical remake. A rare case where the theory doesn't stem from an isolated detail, but from a genuine writing oddity the game never truly explained, one that still divides the fandom more than twenty years later.`
     }
   },
   ff8_vera_identita_artemisia: {
