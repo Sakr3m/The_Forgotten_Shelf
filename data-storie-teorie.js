@@ -18,6 +18,7 @@ const TEORIE = {
     accentColor: "#8a1f2b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile.jpg",
+    bannerOffset: 95,
     title: {
       it: "Un Sogno Senza Fine",
       en: "A Dream Without End"
@@ -167,7 +168,7 @@ If the theory holds, it changes quite a bit about how to read the ending. The co
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile.jpg",
-    bannerOffset: 65,
+    bannerOffset: 80,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Liberi%20Fatali.mp3", title: "Liberi Fatali", game: "Final Fantasy VIII" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Eyes%20on%20Me.mp3", title: "Eyes on Me", game: "Final Fantasy VIII" },
@@ -232,7 +233,7 @@ Kitase's official answer settles the matter on a narrative level: Squall doesn't
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile.jpg",
-    bannerOffset: 65,
+    bannerOffset: 80,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Liberi%20Fatali.mp3", title: "Liberi Fatali", game: "Final Fantasy VIII" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20Eyes%20on%20Me.mp3", title: "Eyes on Me", game: "Final Fantasy VIII" },
@@ -315,6 +316,7 @@ The coincidences in the game's text are still there, visible to anyone who wants
     accentColor: "#8f9bb3",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mobile.jpg",
+    bannerOffset: 95,
     title: {
       it: "L'Unico Ricettacolo Davvero Vuoto",
       en: "The Only Truly Hollow Vessel"
