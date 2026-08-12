@@ -121,6 +121,14 @@
     height:auto; max-height:none; overflow:visible;
     padding:0; gap:0; margin-bottom:24px;
   }
+  body[data-state="game"] .game-header__banner,
+  body[data-state="game"] .game-header__banner-overlay{
+    display:none; /* niente banner su mobile, su richiesta. Il resto
+      (avatar, pulsante musica, margine del titolo) resta al suo
+      posto: quei numeri sono gia' fissi e non dipendono dal banner
+      essendoci davvero o no (vedi commento in script.js,
+      renderGamePanel) - quindi non serve toccare altro. */
+  }
   body[data-state="game"] .game-header__banner{
     position:absolute; top:0; left:0; right:0; height:130px;
     border-radius:var(--radius);
