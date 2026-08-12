@@ -365,6 +365,11 @@
   body[data-state="title"] .title-back{
     background:rgba(5,8,15,.65);
   }
+  body[data-state="title"] .title-nav__side{
+    background:rgba(5,8,15,.65); /* stesso trattamento, dimenticato al
+      primo giro - questi due (prev/next voce) non avevano proprio
+      nessuno sfondo, non solo un'opacita' insufficiente */
+  }
 
   /* La barra di luminosita' delle filigrane (.watermark-brightness-
      line) ha invece un left:230px "duro" nel foglio comune, pensato
