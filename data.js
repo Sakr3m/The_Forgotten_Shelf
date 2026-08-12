@@ -887,7 +887,7 @@ const GAMES = {
       {
         id: "machinegames",
         name: { it: "Universo MachineGames", en: "MachineGames Universe" },
-        span: { it: "1946 – 1961", en: "1946 – 1961" },
+        span: { it: "1946 – 1980", en: "1946 – 1980" },
         entries: [
           { id: "old-blood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1946",
             title: { it: "Wolfenstein: The Old Blood", en: "Wolfenstein: The Old Blood" },
@@ -909,6 +909,14 @@ const GAMES = {
               it: "Cinque mesi dopo The New Order, Blazkowicz si risveglia gravemente menomato e incapace di camminare a bordo dell'Eva's Hammer, il sottomarino del Kreisau Circle. La nuova antagonista è Frau Engel, comandante nazista che attacca il sottomarino, cattura e decapita Caroline Becker davanti a Blazkowicz. Recuperata la mobilità grazie all'armatura Da'at Yichud di Caroline, Blazkowicz raduna le cellule della resistenza americana per innescare una Seconda Rivoluzione. Viene catturato e decapitato in diretta TV come propaganda nazista, ma il Kreisau Circle salva la sua testa e la innesta su un corpo di supersoldato. Nel finale Blazkowicz uccide Engel in diretta televisiva: la sua morte scatena la rivoluzione americana.",
               en: "Five months after The New Order, Blazkowicz wakes up severely disabled and unable to walk aboard the Eva's Hammer, the Kreisau Circle's submarine. The new antagonist is Frau Engel, a Nazi commander who attacks the submarine, captures and decapitates Caroline Becker in front of Blazkowicz. After regaining mobility thanks to Caroline's Da'at Yichud armour, Blazkowicz rallies American resistance cells to ignite a Second Revolution. He is captured and beheaded on live television as Nazi propaganda, but the Kreisau Circle saves his head and grafts it onto a supersoldier's body. In the finale, Blazkowicz kills Engel on live television — her death sparks the American revolution."
             }
+          },
+          { id: "cyberpilot", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1980",
+            title: { it: "Wolfenstein: Cyberpilot", en: "Wolfenstein: Cyberpilot" },
+            synopsis: { it: "Contenuti in arrivo.", en: "Content coming soon." }
+          },
+          { id: "youngblood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1980",
+            title: { it: "Wolfenstein: Youngblood", en: "Wolfenstein: Youngblood" },
+            synopsis: { it: "Contenuti in arrivo.", en: "Content coming soon." }
           }
         ]
       }
