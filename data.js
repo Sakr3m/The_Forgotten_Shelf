@@ -21,8 +21,8 @@ const GAMES = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
     ],
     blurb: {
-      it: "Una serie survival horror che intreccia case infestate,<br>occultismo e segreti di famiglia sepolti nel tempo.<br>Considerata la capostipite del genere horror videoludico.",
-      en: "A survival horror series weaving together haunted houses,<br>occultism, and family secrets buried in time. Regarded<br>as the originator of the survival horror genre itself."
+      it: "Una serie survival horror che intreccia case infestate,<br>occultismo e segreti di famiglia sepolti nel tempo, tra i primi<br>titoli a portare gli orrori cosmici di ispirazione lovecraftiana<br>nei videogiochi. Considerata la capostipite del genere horror videoludico.",
+      en: "A survival horror series weaving together haunted houses,<br>occultism, and family secrets buried in time, among the first<br>titles to bring Lovecraftian cosmic horror into video games.<br>Regarded as the originator of the survival horror genre itself."
     },
     universes: [
       {
@@ -122,8 +122,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Castlevania", en: "Castlevania" },
     blurb: {
-      it: "Una saga action-gotica che racconta la guerra secolare<br>tra il clan Belmont e Dracula, tra castelli maledetti<br>e la leggendaria Vampire Killer, di generazione in generazione.",
-      en: "A gothic action saga chronicling the centuries-old war<br>between the Belmont clan and Dracula, through cursed castles<br>and the legendary Vampire Killer, across generations."
+      it: "Una saga action-gotica che racconta la guerra secolare<br>tra il clan Belmont e Dracula, tra castelli maledetti<br>e la leggendaria frusta Vampire Killer, di generazione in<br>generazione. Divisa nel tempo tra il filone di Koji Igarashi e quello di MercurySteam.",
+      en: "A gothic action saga chronicling the centuries-old war<br>between the Belmont clan and Dracula, through cursed castles<br>and the legendary Vampire Killer whip, across generations.<br>Later split between Koji Igarashi's era and MercurySteam's reboot."
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
     accentColor: "#a11d33",
@@ -319,8 +319,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Una saga action dallo stile sopra le righe, che segue<br>i cacciatori di demoni della stirpe di Sparda tra spade<br>leggendarie e pistole gemelle, tra sangue umano e<br>demoniaco.",
-      en: "A flashy, over-the-top action saga following the demon<br>hunters of Sparda's bloodline through legendary swords<br>and twin pistols, between human blood and demon blood."
+      it: "Una saga action dallo stile sopra le righe, che segue<br>i cacciatori di demoni della stirpe di Sparda tra spade<br>leggendarie e pistole gemelle, tra sangue umano e<br>demoniaco. Dante e il gemello Vergil, tra rivalità e stile puro.",
+      en: "A flashy, over-the-top action saga following the demon<br>hunters of Sparda's bloodline through legendary swords<br>and twin pistols, between human blood and demon blood.<br>Dante and twin Vergil, caught between rivalry and pure style."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#c4cbd4",
@@ -459,8 +459,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Doom", en: "Doom" },
     blurb: {
-      it: "Una saga action di violenza pura, portali infernali<br>e un marine trasformato in una forza cosmica<br>di sterminio contro le legioni dell'Inferno.",
-      en: "An action saga of pure violence, hellish portals,<br>and a marine turned into a cosmic force<br>of extermination against the legions of Hell."
+      it: "Una saga action di violenza pura, portali infernali<br>e un marine trasformato in una forza cosmica<br>di sterminio contro le legioni dell'Inferno. Nata nei<br>laboratori marziani dell'UAC, con armi iconiche come il BFG9000.",
+      en: "An action saga of pure violence, hellish portals,<br>and a marine turned into a cosmic force<br>of extermination against the legions of Hell. Born in<br>the UAC's Martian facilities, with iconic weapons like the BFG9000."
     },
     palette: ["#46433a", "#991b1b", "#f97316"],
     accentColor: "#f97316",
@@ -499,8 +499,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dragon Quest", en: "Dragon Quest" },
     blurb: {
-      it: "Una saga RPG che segue una stirpe di eroi leggendari,<br>discendenti di Erdrick, chiamati a fermare demoni,<br>draghi e signori oscuri in mondi che rinascono nel tempo.",
-      en: "An RPG saga following a lineage of legendary heroes,<br>descendants of Erdrick, called to stop demons,<br>dragons, and dark lords in worlds reborn across time."
+      it: "Una saga RPG che segue una stirpe di eroi leggendari,<br>discendenti di Erdrick, chiamati a fermare demoni,<br>draghi e signori oscuri in mondi che rinascono nel tempo.<br>Combattimenti a turni, iconici melma e musiche di Koichi Sugiyama.",
+      en: "An RPG saga following a lineage of legendary heroes,<br>descendants of Erdrick, called to stop demons,<br>dragons, and dark lords in worlds reborn across time.<br>Turn-based battles, iconic Slimes, and Koichi Sugiyama's music."
     },
     palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
     accentColor: "#0f9b8e",
@@ -599,8 +599,8 @@ const GAMES = {
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     blurb: {
-      it: "Una saga survival-horror in prima persona, tra parkour<br>su tetti infestati e un virus capace di ridurre<br>la civiltà in rovina, dal focolaio locale al collasso globale.",
-      en: "A first-person survival horror saga of rooftop parkour<br>and a virus capable of reducing civilization<br>to ruin, from a local outbreak to global collapse."
+      it: "Una saga survival-horror in prima persona, tra parkour<br>su tetti infestati e un virus capace di ridurre<br>la civiltà in rovina, dal focolaio locale al collasso globale.<br>Di notte i Volatili trasformano ogni fuga in una corsa per la vita.",
+      en: "A first-person survival horror saga of rooftop parkour<br>and a virus capable of reducing civilization<br>to ruin, from a local outbreak to global collapse. By night,<br>Volatiles turn every escape into a desperate run for survival."
     },
     palette: ["#eab308", "#4d7c0f", "#1e3a5f"],
     accentColor: "#4d7c0f",
@@ -653,8 +653,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
     blurb: {
-      it: "Una saga open world action-crime che segue<br>criminali, rapinatori e trafficanti attraverso due<br>linee temporali distinte e incompatibili tra loro.",
-      en: "An open-world action-crime saga following<br>criminals, robbers, and traffickers across two<br>separate, mutually incompatible timelines."
+      it: "Una saga open world action-crime che segue<br>criminali, rapinatori e trafficanti attraverso due<br>linee temporali distinte e incompatibili tra loro. Satira<br>tagliente della cultura americana, con radio iconiche quanto la trama.",
+      en: "An open-world action-crime saga following<br>criminals, robbers, and traffickers across two<br>separate, mutually incompatible timelines. A sharp satire<br>of American culture, with radio stations as iconic as its storylines."
     },
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",

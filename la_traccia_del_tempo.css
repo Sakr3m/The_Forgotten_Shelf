@@ -337,6 +337,19 @@
      influenzato dalla larghezza della sidebar a sinistra. --- */
   #sidebar{ width:250px; }
 
+  /* --- ESPERIMENTO (banner nascosti, non eliminati): solo su questa
+     pagina, solo desktop. Descrizione allargata per occupare lo
+     spazio lasciato libero, invece di restare stretta con un vuoto
+     enorme a destra. Per tornare indietro basta commentare/rimuovere
+     questo blocco, il banner e' ancora li' nell'HTML. --- */
+  body[data-state="game"] .game-header__banner,
+  body[data-state="game"] .game-header__banner-overlay{
+    display:none;
+  }
+  body[data-state="game"] .game-header__blurb{
+    max-width:700px; /* era 640px (dal file condiviso) */
+  }
+
   /* Blocco titolo (tag + nome voce) piu' distante dal bordo alto:
      100px->150px. .title-panel e' usata solo su questa pagina,
      quindi la sovrascrivo qui invece che nel foglio condiviso. */
