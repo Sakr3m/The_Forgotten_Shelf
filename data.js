@@ -879,9 +879,39 @@ const GAMES = {
     listTitle: { it: "Wolfenstein", en: "Wolfenstein" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Wolfenstein", en: "Wolfenstein" },
-    blurb: { it: "Contenuti in arrivo.", en: "Content coming soon." },
+    blurb: {
+      it: "Una saga che racconta la lotta di B.J. Blazkowicz contro il regime nazista, divisa in tre universi separati e senza continuità tra loro, sviluppati da team diversi nel corso dei decenni. Personaggi ed eventi non si trasferiscono da un universo all'altro, pur condividendo lo stesso pretesto di fondo.",
+      en: "A saga chronicling B.J. Blazkowicz's fight against the Nazi regime, split into three separate universes with no continuity between them, developed by different teams over the decades. Characters and events never carry over from one universe to the next, though all share the same underlying premise."
+    },
     universes: [
-      { id: "main", name: { it: "", en: "" }, span: { it: "", en: "" }, entries: [] }
+      {
+        id: "machinegames",
+        name: { it: "Universo MachineGames", en: "MachineGames Universe" },
+        span: { it: "1946 – 1961", en: "1946 – 1961" },
+        entries: [
+          { id: "old-blood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1946",
+            title: { it: "Wolfenstein: The Old Blood", en: "Wolfenstein: The Old Blood" },
+            synopsis: {
+              it: "Blazkowicz e l'Agente Uno, Richard Wesley, si infiltrano nel Castello Wolfenstein per recuperare un dossier contenente la posizione del complesso segreto di Deathshead. Catturati dal carceriere Rudi Jäger, Wesley viene torturato e ucciso mentre Blazkowicz fugge. A Wulfburg, l'archeologa nazista Helga von Schabbs sta scavando la cripta del Re Ottone I: dagli scavi fuoriesce un gas che trasforma chiunque in non-morto. Helga libera involontariamente una creatura mostruosa che la uccide. Blazkowicz abbatte la creatura, recupera il dossier e viene salvato da Fergus Reid. Prequel di The New Order.",
+              en: "Blazkowicz and Agent One Richard Wesley infiltrate Castle Wolfenstein to recover a dossier containing the location of Deathshead's secret compound. Captured by warden Rudi Jäger, Wesley is tortured and killed while Blazkowicz escapes. In Wulfburg, Nazi archaeologist Helga von Schabbs is excavating the crypt of King Otto I — from the dig site seeps a gas that transforms anyone it touches into the undead. Helga unwittingly releases a monstrous creature, which kills her. Blazkowicz defeats the creature, recovers the dossier, and is rescued by Fergus Reid. Prequel to The New Order."
+            }
+          },
+          { id: "new-order", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1946–1961",
+            title: { it: "Wolfenstein: The New Order", en: "Wolfenstein: The New Order" },
+            synopsis: {
+              it: "Nel 1946 Blazkowicz partecipa all'assalto al complesso di Deathshead, che lo costringe a scegliere quale compagno sacrificare prima di abbandonarlo a morire. Blazkowicz fugge ma viene colpito da una scheggia alla testa e cade in stato vegetativo per 14 anni in un manicomio polacco. Al risveglio nel 1960 scopre che i nazisti hanno vinto la guerra grazie alle tecnologie del Da'at Yichud, un'antica società segreta. Si unisce al Kreisau Circle e lancia una serie di operazioni culminanti nell'assalto finale al complesso di Deathshead nel 1961: Blazkowicz uccide il generale, ma viene gravemente ferito dalla granata del morente. Ordina il bombardamento nucleare del compound e sopravvive a malapena.",
+              en: "In 1946, Blazkowicz takes part in the assault on Deathshead's compound, where the general forces him to choose which companion to sacrifice before leaving him to die. Blazkowicz escapes but is struck by shrapnel to the head and falls into a vegetative state for 14 years in a Polish asylum. Upon waking in 1960, he discovers that the Nazis won the war thanks to the technology of the Da'at Yichud, an ancient secret society. He joins the Kreisau Circle and launches a series of operations culminating in a final assault on Deathshead's compound in 1961: Blazkowicz kills the general, but is gravely wounded by the dying man's grenade. He orders a nuclear strike on the compound and barely survives."
+            }
+          },
+          { id: "new-colossus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1961",
+            title: { it: "Wolfenstein II: The New Colossus", en: "Wolfenstein II: The New Colossus" },
+            synopsis: {
+              it: "Cinque mesi dopo The New Order, Blazkowicz si risveglia gravemente menomato e incapace di camminare a bordo dell'Eva's Hammer, il sottomarino del Kreisau Circle. La nuova antagonista è Frau Engel, comandante nazista che attacca il sottomarino, cattura e decapita Caroline Becker davanti a Blazkowicz. Recuperata la mobilità grazie all'armatura Da'at Yichud di Caroline, Blazkowicz raduna le cellule della resistenza americana per innescare una Seconda Rivoluzione. Viene catturato e decapitato in diretta TV come propaganda nazista, ma il Kreisau Circle salva la sua testa e la innesta su un corpo di supersoldato. Nel finale Blazkowicz uccide Engel in diretta televisiva: la sua morte scatena la rivoluzione americana.",
+              en: "Five months after The New Order, Blazkowicz wakes up severely disabled and unable to walk aboard the Eva's Hammer, the Kreisau Circle's submarine. The new antagonist is Frau Engel, a Nazi commander who attacks the submarine, captures and decapitates Caroline Becker in front of Blazkowicz. After regaining mobility thanks to Caroline's Da'at Yichud armour, Blazkowicz rallies American resistance cells to ignite a Second Revolution. He is captured and beheaded on live television as Nazi propaganda, but the Kreisau Circle saves his head and grafts it onto a supersoldier's body. In the finale, Blazkowicz kills Engel on live television — her death sparks the American revolution."
+            }
+          }
+        ]
+      }
     ]
   }
 
