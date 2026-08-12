@@ -646,12 +646,13 @@ function buildPlaylistLibrary(){
   };
   collectFrom(typeof TEORIE_ORDER !== "undefined" ? TEORIE_ORDER : undefined, typeof TEORIE !== "undefined" ? TEORIE : undefined);
   collectFrom(typeof STORIE_ORDER !== "undefined" ? STORIE_ORDER : undefined, typeof STORIE !== "undefined" ? STORIE : undefined);
-  // Diari di Gioco (recensioni Final Fantasy VII/VIII/IX): dati
-  // duplicati in data-diari-tracks.js apposta per questa pagina,
-  // niente marcatore "game"/id come sopra, uniti direttamente.
+  // Diari di Gioco (recensioni Final Fantasy VII/VIII/IX): dati in
+  // data-diari-tracks.js, con lo stesso slug "game" usato sopra per
+  // Il Filo Nascosto, cosi' un titolo gia' presente (es. Final
+  // Fantasy VIII, stessa playlist condivisa) non viene duplicato.
   if(typeof DIARI_TRACKS !== "undefined"){
     DIARI_TRACKS.forEach(entry => {
-      const key = entry.label.it;
+      const key = entry.game || entry.label.it;
       if(seen.has(key)) return;
       seen.add(key);
       titoli.push(entry);
