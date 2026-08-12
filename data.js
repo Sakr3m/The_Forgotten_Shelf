@@ -666,6 +666,7 @@ const GAMES = {
         entries: [
           { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984",
             title: { it: "Vice City Stories", en: "Vice City Stories" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Vice%20City%20Stories.jpg",
             synopsis: {
               it: "Victor Vance, militare espulso dall'esercito dal corrotto sergente Martinez, costruisce un impero criminale a Vice City per pagare le cure mediche del fratello Pete e aiutare il fratello Lance. Entra in conflitto con il potente cartello dei fratelli Mendez, li elimina entrambi insieme a Martinez, e decide di ritirarsi dalla vita criminale. Due anni dopo, tornato a fare affari di droga con Lance, viene ucciso nell'agguato di Ricardo Diaz, la scena che apre Vice City.",
               en: "Victor Vance, a soldier dishonourably discharged by corrupt Sergeant Martinez, builds a criminal empire in Vice City to pay for his brother Pete's medical bills and support his brother Lance. He enters into conflict with the powerful Mendez Brothers cartel, eliminates both of them along with Martinez, and decides to retire from criminal life. Two years later, having returned to the drug trade with Lance, he is killed in Ricardo Diaz's ambush — the scene that opens Vice City."
@@ -673,6 +674,7 @@ const GAMES = {
           },
           { id: "vc", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986",
             title: { it: "Vice City", en: "Vice City" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Vice%20City.jpg",
             synopsis: {
               it: "Tommy Vercetti arriva a Vice City per conto del boss Sonny Forelli, finisce in un'imboscata orchestrata da Ricardo Diaz, perde soldi e droga. Costruisce da zero un proprio impero criminale ed elimina Diaz insieme a Lance Vance. Nel finale Sonny arriva a Vice City per prendere il controllo dell'impero di Tommy: Lance lo tradisce passando dalla parte di Forelli, ma Tommy uccide entrambi. Durante lo scontro Sonny conferma di averlo tradito 15 anni prima facendolo cadere in un'imboscata a Harwood. Tommy diventa il re indiscusso di Vice City.",
               en: "Tommy Vercetti arrives in Vice City on behalf of boss Sonny Forelli, walks into an ambush orchestrated by Ricardo Diaz, and loses both the money and the drugs. He builds his own criminal empire from scratch and eliminates Diaz alongside Lance Vance. In the finale, Sonny arrives in Vice City to seize control of Tommy's empire: Lance betrays him by siding with Forelli, but Tommy kills them both. During the confrontation, Sonny confirms that he set Tommy up fifteen years earlier by sending him into an ambush in Harwood. Tommy becomes the undisputed king of Vice City."
@@ -694,6 +696,7 @@ const GAMES = {
           },
           { id: "lcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1998",
             title: { it: "Liberty City Stories", en: "Liberty City Stories" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Liberty%20City%20Stories.jpg",
             synopsis: {
               it: "Toni Cipriani torna a Liberty City dopo quattro anni di fuga, durante i quali aveva ucciso un uomo d'onore su ordine di Salvatore Leone. Al ritorno viene retrocesso di grado perché Vincenzo Cilli lo ha scalzato nella gerarchia dei Leone. Toni si fa strada eliminando Vincenzo e le famiglie rivali Sindacco e Forelli, mentre il vero antagonista si rivela essere Massimo Torini della mafia siciliana, che vuole prendere il controllo di Liberty City. Nel finale Toni e Salvatore sventano il piano dei siciliani. La famiglia Leone diventa la forza dominante della città, direttamente prima degli eventi di GTA III.",
               en: "Toni Cipriani returns to Liberty City after four years on the run, having killed a made man on Salvatore Leone's orders. On his return he is demoted because Vincenzo Cilli has taken his place in the Leone hierarchy. Toni works his way back up by eliminating Vincenzo and the rival Sindacco and Forelli families, while the true antagonist turns out to be Massimo Torini of the Sicilian Mafia, who is attempting to seize control of Liberty City. In the finale, Toni and Salvatore foil the Sicilians' plan. The Leone family becomes the dominant force in the city — directly before the events of GTA III."
@@ -701,6 +704,7 @@ const GAMES = {
           },
           { id: "gta-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2000",
             title: { it: "GTA Advance", en: "GTA Advance" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Advance.jpg",
             synopsis: {
               it: "Mike, piccolo criminale di Liberty City, vede il suo socio Vinnie morire in un'esplosione prima che i due possano finalmente lasciare la città. Mentre indaga sulla morte, scopre la verità: Vinnie ha finto la propria morte per scappare con tutti i loro risparmi. Mike lo rintraccia e lo uccide. Storia autoconclusiva, ambientata un anno prima di GTA III.",
               en: "Mike, a small-time criminal in Liberty City, watches his partner Vinnie apparently die in a car explosion just before the two can finally leave the city for good. As he investigates the murder, he uncovers the truth: Vinnie faked his own death to run off with all their savings. Mike tracks him down and kills him. A self-contained story set one year before GTA III."
@@ -708,6 +712,7 @@ const GAMES = {
           },
           { id: "gta3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2001",
             title: { it: "GTA III", en: "GTA III" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20III.jpg",
             synopsis: {
               it: "Claude viene tradito e lasciato per morto dalla fidanzata Catalina durante una rapina in banca a Liberty City. Arrestato, fugge approfittando di un attacco del cartello colombiano al convoglio che lo trasporta in prigione. Scala i ranghi criminali della città lavorando per la famiglia Leone e la Yakuza, mentre Catalina, ora a capo del cartello, gli dà la caccia. Nel finale Claude salva Maria Latore tenuta in ostaggio, insegue Catalina fino alla diga di Cochrane e la abbatte con un lanciarazzi mentre tenta di fuggire in elicottero.",
               en: "Claude is betrayed and left for dead by his girlfriend Catalina during a bank robbery in Liberty City. Arrested, he escapes by taking advantage of a Colombian cartel attack on the convoy transporting him to prison. He climbs the criminal ranks of the city working for the Leone family and the Yakuza, while Catalina — now head of the cartel — hunts him down. In the finale, Claude rescues Maria Latore from captivity, pursues Catalina to the Cochrane Dam, and shoots down her helicopter with a rocket launcher as she attempts to flee."
