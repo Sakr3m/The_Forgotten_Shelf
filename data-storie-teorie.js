@@ -310,6 +310,15 @@ The coincidences in the game's text are still there, visible to anyone who wants
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mobile.jpg",
     bannerOffset: 100,
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Dirtmouth.mp3", title: "Dirtmouth", game: "Hollow Knight" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Greenpath.mp3", title: "Greenpath", game: "Hollow Knight" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Hornet.mp3", title: "Hornet", game: "Hollow Knight" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mantis%20Lords.mp3", title: "Mantis Lords", game: "Hollow Knight" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20City%20of%20Tears.mp3", title: "City of Tears", game: "Hollow Knight" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Nightmare%20King%20Grimm.mp3", title: "Nightmare King Grimm", game: "Hollow Knight" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Sealed%20Vessel.mp3", title: "Sealed Vessel", game: "Hollow Knight" }
+    ],
     title: {
       it: "L'Unico Ricettacolo Davvero Vuoto",
       en: "The Only Truly Hollow Vessel"
