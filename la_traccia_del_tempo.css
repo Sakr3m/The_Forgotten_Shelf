@@ -5,7 +5,7 @@
    il file condiviso con le altre.
    ============================================================ */
 
-@media ((hover:none) and (pointer:coarse)), (max-width:767px){
+@media (max-width:900px){
 
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
@@ -303,7 +303,7 @@
   body[data-state="title"] .title-name{ margin-top:26px; } /* +10px */
 }
 
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   /* --- Sidebar a 250px, uguale a Storie Senza
      Cornice/Il Filo Nascosto), da 230px. Contenuto centrale (.stage,
      flex:1) si restringe di conseguenza per far posto: automatico,
@@ -404,7 +404,7 @@
    Dimensione: 6px in più dell'altezza della barra (20px -> 26px),
    3px sopra e 3px sotto.
    ============================================================ */
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   .watermark-brightness-line__presets{
     display:flex; align-items:center; gap:4px;
     margin-right:10px;
@@ -439,6 +439,6 @@
 /* Vista titolo (voci singole): solo su mobile, 40px invece dei
    30px condivisi — non tocca ne' il desktop (resta 50px) ne' Doom
    (resta 10px, selettore diverso). */
-@media ((hover:none) and (pointer:coarse)), (max-width:767px){
+@media (max-width:900px){
   #titleContent .title-like{ margin-top:40px; }
 }

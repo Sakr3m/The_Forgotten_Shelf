@@ -6,7 +6,7 @@
    finiscono nella stessa posizione reale su schermo. Copiata
    identica da officina.css su richiesta esplicita.
    ============================================================ */
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   .stage{
     flex:none;
     margin-left:250px;
@@ -42,7 +42,7 @@
 .gate-handle{ display:none; }
 .reviews-gate{ display:none; }
 
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   .reviews-gate{
     display:block;
     /* position:fixed, non :absolute — cosi' "right:0"/"left:0" sono
@@ -230,7 +230,7 @@
    ============================================================ */
 .gate-side-toggle{ display:none; }
 .landing-sub--desktop-only{ display:none; }
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   .landing-sub--desktop-only{ display:block; }
   .gate-side-toggle{
     display:inline-block;
@@ -396,7 +396,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    non premi l'altro - il riquadro di avviso in se' non si spegne
    mai piu' una volta per tutte come col vecchio pulsante singolo. */
 .review-entry .threshold__choices{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   .review-entry .threshold__choices{ gap:100px; } /* solo desktop */
 }
 .review-entry .threshold button:disabled{
@@ -433,7 +433,7 @@ body.is-review-open .discord-link{ color:var(--item-accent, var(--cyan)); }
 body.is-review-open .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
 body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
 
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   /* Come sulle altre pagine interne: a voce aperta resta visibile il
      nome della pagina ("Diari di Gioco"), non un pulsante "torna a".
      Qui data-state resta sempre "landing" (vedi sopra), quindi la
@@ -504,7 +504,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    palette a se stante.
    ============================================================ */
 .review-entry{ display:none; }
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   /* Niente scroll esterno della pagina quando e' aperta una
      recensione: .review-entry e' gia' alta quanto la viewport e
      gestisce da sola lo scroll interno (solo .reading). Senza
@@ -725,7 +725,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 .mobile-genre-bar{ display:none; }
 .mobile-genre-table{ display:none; }
 
-@media ((hover:none) and (pointer:coarse)), (max-width:767px){
+@media (max-width:900px){
   /* Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
      accorgimento delle altre pagine). Lo swipe orizzontale resta

@@ -126,7 +126,7 @@ const el = {
 // di quel punto — es. il volume iniziale della musica — causando un
 // errore "Cannot access before initialization" che bloccava tutto
 // lo script a meta', prima ancora di disegnare le liste laterali).
-const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)");
+const mobileBreakpoint = window.matchMedia("(max-width:900px)");
 
 // ---------------------------------------------------------
 // Volume e stato on/off condivisi tra le pagine (Timeline, Storie &
@@ -665,7 +665,7 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
-    const isDesktop = window.matchMedia("(hover:hover), (pointer:fine)").matches;
+    const isDesktop = window.innerWidth > 900;
     const avatarScale = 1;
     const dotScale = 0.625; // 15px dot
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));

@@ -114,7 +114,7 @@ const el = {
 // di quel punto — es. il volume iniziale della musica — causando un
 // errore "Cannot access before initialization" che bloccava tutto
 // lo script a meta', prima ancora di disegnare le liste laterali).
-const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)");
+const mobileBreakpoint = window.matchMedia("(max-width:900px)");
 
 // ---------------------------------------------------------
 // Volume e stato on/off condivisi tra le pagine (Timeline, Storie &
@@ -144,7 +144,7 @@ const mobileEntryRowHomes = {
 function positionMobileEntryRow(){
   const picker = el.entryGamePicker, mc = el.musicControl, panel = el.entryPanel;
   if(!picker || !mc || !panel) return;
-  const isMobileEntry = window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)").matches && state.view === "entry";
+  const isMobileEntry = window.matchMedia("(max-width:900px)").matches && state.view === "entry";
   if(isMobileEntry){
     panel.insertBefore(picker, panel.firstChild);
     panel.insertBefore(mc, panel.firstChild);
@@ -313,7 +313,7 @@ function renderEntry(){
   }
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
-  const isMobile = window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)").matches;
+  const isMobile = window.matchMedia("(max-width:900px)").matches;
   const bannerUrl = (isMobile && entry.mobileBanner) ? entry.mobileBanner : entry.banner;
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");

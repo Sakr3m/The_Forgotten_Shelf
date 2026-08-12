@@ -8,7 +8,7 @@
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   #sidebar{ width:250px; } /* allineata a Timeline, entrambe 250px */
 }
 .side-rail{
@@ -53,7 +53,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
    coordinate prese dal trigger reale) così scavalca il ritaglio.
    Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   body[data-state="entry"] .entry-game-picker{
     display:block;
     position:absolute; right:25px; bottom:15px; z-index:2;
@@ -118,7 +118,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
 /* Le due colonne restano fisse in vista durante lo scroll del testo
    centrale — solo su desktop, sul mobile sono pannelli del carosello
    a scorrimento orizzontale (vedi sezione mobile più sotto). */
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   #sidebar, #storieRail{
     position:sticky; top:0; align-self:flex-start;
     height:100vh;
@@ -161,7 +161,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
   margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:center;
 }
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   /* .entry-panel di per sé è "width:100%; max-width:1350px;
      margin:auto" — su schermi larghi (container > 1350px) questo lo
      CENTRA nello stage, staccando l'intero blocco dalla tazzina. Qui
@@ -207,7 +207,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
    Solo qui, dentro la pagina di una voce (non in home, dove restano
    a 100px), li riporto a 50px: la colonna Storie Nascoste riduce
    ulteriormente lo spazio disponibile, quindi 100px sarebbe troppo. */
-@media ((hover:hover) or (pointer:fine)) and (min-width:768px){
+@media (min-width:901px){
   body[data-state="entry"] .stage-topbar .stage-controls{ margin-right:-50px; }
 
   /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
@@ -267,7 +267,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
 
-@media ((hover:none) and (pointer:coarse)), (max-width:767px){
+@media (max-width:900px){
 
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
