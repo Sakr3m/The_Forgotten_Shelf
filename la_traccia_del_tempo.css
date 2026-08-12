@@ -347,7 +347,8 @@
     display:none;
   }
   body[data-state="game"] .game-header__blurb{
-    max-width:700px; /* era 640px (dal file condiviso) */
+    max-width:752px; /* ~70% dell'header (1075px), era 700px (~65%),
+      originariamente 640px dal file condiviso */
   }
 
   /* Blocco titolo (tag + nome voce) piu' distante dal bordo alto:
