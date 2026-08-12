@@ -580,7 +580,10 @@ function renderGamePanel(){
       activeHeaderPanel.appendChild(el.musicControl);
       el.musicControl.style.position = "absolute";
       el.musicControl.style.left = "auto";
-      el.musicControl.style.right = "0px"; /* a filo con lo switch lingua, 16px dal bordo vero */
+      el.musicControl.style.right = "-16px"; /* a filo con lo switch lingua,
+        16px dal vero bordo dello schermo - non 0px, perche' il
+        contenitore ha gia' 32px di margine suo: serve un valore
+        negativo per la stessa distanza reale (16px) dello switch */
       el.musicControl.style.zIndex = "3";
       el.musicControl.style.top = "65px";
       el.musicControl.style.transform = "translateY(-50%)";

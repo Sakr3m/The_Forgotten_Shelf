@@ -115,11 +115,22 @@
      mobile per questa pagina). --- */
   body[data-state="game"] .stage,
   body[data-state="title"] .stage{ padding-top:49px; }
+  body[data-state="game"] .game-header{
+    padding-bottom:10px; /* solo qui (non nel file condiviso, usato
+      anche da altre pagine): era 20px come tutti i lati, dimezzato
+      solo il basso per alzare la riga verso la descrizione */
+    margin-bottom:27.5px; /* era 40px (dal file condiviso). Il gap
+      visibile reale (riga -> riga universo) partiva da 25px, non 40
+      (altri fattori intervengono) - riducendo qui di 12.5px si
+      ottiene un taglio di 12.5px sul gap visibile reale, la vera
+      metà di 25 */
+  }
   body[data-state="game"] .game-header-item{
     position:relative;
     flex-direction:row; align-items:flex-start; text-align:center;
     height:auto; max-height:none; overflow:visible;
-    padding:0; gap:0; margin-bottom:24px;
+    padding:0; gap:0; margin-bottom:12px; /* era 24px, dimezzato per
+      alzare la riga verso la descrizione */
   }
   body[data-state="game"] .game-header__banner,
   body[data-state="game"] .game-header__banner-overlay{
@@ -149,9 +160,12 @@
   }
   body[data-state="game"] .game-header__cover{
     position:absolute; z-index:2;
-    left:16px; top:65px; transform:translateY(-50%); /* 65px = metà
+    left:-16px; top:65px; transform:translateY(-50%); /* 65px = metà
       dei 130px del banner: centra l'avatar sull'altezza del banner
-      senza dover conoscere la sua altezza in anticipo */
+      senza dover conoscere la sua altezza in anticipo. left:-16px
+      (non 16px) perché il contenitore ha gia' 32px di margine suo:
+      serve un valore negativo per allinearsi alla vera stessa
+      distanza dal bordo di "La Traccia del Tempo" (16px), non 48px */
     width:96px; height:96px; /* x1.5 rispetto ai 64px precedenti */
     margin:0;
   }
@@ -160,7 +174,9 @@
     position:relative; z-index:1;
     width:100%;
     margin-top:136px; /* sotto al banner, -10px su richiesta */
-    padding-bottom:5px; /* la riga (border-bottom di .game-header) scende
+    padding-bottom:2.5px; /* era 5px, dimezzato insieme al resto per
+      alzare la riga (border-bottom di .game-header) verso la
+      descrizione
       di 5px, senza toccare la posizione del testo sopra */
     text-align:center;
   }
@@ -204,8 +220,8 @@
   body[data-state="game"] .game-panel{ display:block; }
   body[data-state="game"] .universe-stage{
     display:block; flex:none; min-height:0;
-    padding-top:19px; /* ancora piu' su, -10px (nessun numero dato stavolta,
-      ho applicato lo stesso passo degli altri ritocchi) */
+    padding-top:9px; /* era 19px, dimezzato per ridurre lo spazio tra
+      la riga e la riga universo */
   }
   body[data-state="game"] .universe-stage .u-track{
     display:block; height:auto; margin-top:0;
