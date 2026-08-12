@@ -11,7 +11,7 @@
    Solo desktop: su mobile storie_senza_cornice.html non ha comunque sidebar/
    rail fissi (sono pannelli del carosello), quindi lì non serve
    nessuna correzione. */
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   .stage{
     flex:none;
     margin-left:250px;
@@ -39,7 +39,7 @@
    su quel punto medio reale, non a occhio). Solo desktop.
    ============================================================ */
 .card{ display:none; }
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   .card{
     display:block;
     position:absolute; left:90px; top:320px; /* +30px rispetto alla posizione di partenza */
@@ -164,7 +164,7 @@
    ============================================================ */
 .mathemory-panel{ display:none; }
 .landing-sub--mobile-only{ display:none; } /* su desktop c'e' gia' "Mostra progetti" a fare da invito; deve stare PRIMA del blocco mobile qui sotto, altrimenti (stessa specificita', dichiarata dopo) vincerebbe sempre lei nascondendo la nota anche li' */
-@media (hover:none) and (pointer:coarse){
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
      accorgimento gia' su index.html/Storie Senza Cornice/Il Filo
@@ -331,7 +331,7 @@
 .show-projects-btn{ display:none; }
 .desktop-audio-control{ display:none; }
 .landing-sub--desktop-only{ display:none; }
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   .landing-sub--desktop-only{ display:block; }
   .show-projects-btn{
     display:inline-block;

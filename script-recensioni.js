@@ -746,7 +746,7 @@ function appendLikeWidget(container, workId, idSuffix){
 // Vero solo su dispositivi touch senza hover (telefoni/tablet): usato
 // per attivare il toggle di data-state SOLO li', mai su desktop.
 function isMobileNav(){
-  return window.matchMedia("(hover:none) and (pointer:coarse)").matches;
+  return window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)").matches;
 }
 
 function paintStaticText(){

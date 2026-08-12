@@ -203,7 +203,7 @@ el.langSwitch.addEventListener("click", () => {
 // resto del sito (torna comunque utile quando arriverà "il resto").
 el.brandBtn.addEventListener("click", () => {});
 
-const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
+const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)");
 
 // Scheda del browser non in primo piano (o dispositivo in standby):
 // la musica va sempre in pausa, che sia l'anteprima hover PC o

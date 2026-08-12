@@ -126,7 +126,7 @@ const el = {
 // di quel punto — es. il volume iniziale della musica — causando un
 // errore "Cannot access before initialization" che bloccava tutto
 // lo script a meta', prima ancora di disegnare le liste laterali).
-const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse)");
+const mobileBreakpoint = window.matchMedia("(hover:none) and (pointer:coarse), (max-width:767px)");
 
 // ---------------------------------------------------------
 // Volume e stato on/off condivisi tra le pagine (Timeline, Storie &

@@ -98,7 +98,7 @@ body[data-state="landing"] .brand{ display:none; }
    dispositivo touch senza hover" (non più una soglia di larghezza)
    e alla classe .stage-topbar: il mobile (carosello, pulsanti
    fissi) resta invariato su entrambe le pagine. */
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   .stage-topbar{
     position:sticky; top:0; z-index:10;
     height:15px; overflow:visible; /* prova: altezza reale minima
@@ -268,7 +268,7 @@ body[data-state="landing"] .brand{ display:none; }
    esattamente a metà della barra (range 0-2).
    ============================================================ */
 .watermark-brightness-line{ display:none; }
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   .watermark-brightness-line{
     display:flex; align-items:center; justify-content:center;
     position:fixed; top:237px; left:250px; right:var(--rail-width); z-index:5;
@@ -309,7 +309,7 @@ body[data-state="landing"] .brand{ display:none; }
    solo il pulsante on/off (.music-toggle). Vale per ogni pagina che
    condivide queste classi (Timeline/Storie & Teorie/Racconti/
    Officina). */
-@media (hover:none) and (pointer:coarse){
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){
   .volume-panel{ display:none; }
 }
 
@@ -354,7 +354,7 @@ body[data-state="landing"] .brand{ display:none; }
    testo centrale, su desktop — ognuna scorre per conto suo, non
    insieme al resto della pagina. Stesso schema già usato per le
    colonne di il_filo_nascosto.html. */
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   .sidebar, .timeline-rail{
     position:sticky; top:0; align-self:flex-start;
     height:100vh;
@@ -521,7 +521,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
 .report-modal-btn:disabled{ opacity:.5; cursor:default; }
 .report-modal-note{ font-size:.76rem; color:var(--text-faint); margin-top:10px; text-align:left; }
 
-@media (hover:none) and (pointer:coarse){
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){
   .report-bug-btn{ left:16px; bottom:16px; color:#fff; }
   .report-bug-btn:hover{ color:#fff; }
   .report-modal-card{ padding:22px; }
@@ -570,7 +570,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .index-link:hover{ color:var(--text); }
 .index-link svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
 
-@media (hover:none) and (pointer:coarse){
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){
   /* Su mobile la nuova .stage-topbar (introdotta per il desktop di
      la_traccia_del_tempo.html) sparisce come contenitore: i suoi figli restano
      posizionati esattamente come prima (brand fisso, index-link e
@@ -617,7 +617,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    Game panel — header + proportional timelines
    ============================================================ */
 .game-panel{ position:relative; width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   /* Tutto il contenuto della voce (tag, titolo, blurb, timeline,
      pulsanti del carosello) deve partire, orizzontalmente, da dove
      inizia la tazzina del logo Ko-fi in alto (.brand-icon): 25px è
@@ -756,7 +756,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .timeline-scroll-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); }
 .timeline-scroll-toggle[aria-pressed="true"]{ color:var(--cyan); }
 .timeline-scroll-toggle svg{ width:16px; height:16px; }
-@media (hover:none) and (pointer:coarse){ .timeline-scroll-toggle{ display:none; } }
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){ .timeline-scroll-toggle{ display:none; } }
 
 .h-timeline.is-scrollable{ cursor:grab; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
@@ -970,7 +970,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    Title panel — full detail
    ============================================================ */
 .title-panel{ width:100%; max-width:1860px; position:relative; margin-top:100px; }
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   /* Stesso allineamento del game-panel qui sopra: le voci senza
      linea temporale (solo racconto singolo, es. Doom) partono
      anch'esse dalla tazzina. */
@@ -1007,7 +1007,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
 .title-date + .title-synopsis{ margin-top:0; } /* niente doppio spazio: lo spazio "sotto" lo da' gia' .title-date */
-@media (hover:hover), (pointer:fine){
+@media ((hover:hover), (pointer:fine)) and (min-width:768px){
   /* Evidenziatore morbido dietro al testo, riga per riga (non un
      riquadro unico su tutto il paragrafo): cosi' la filigrana sotto
      puo' restare luminosa senza compromettere la leggibilita', senza
@@ -1081,7 +1081,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
    Mobile (phone) redesign — scoped entirely to this breakpoint,
    the desktop layout above is untouched.
    ============================================================ */
-@media (hover:none) and (pointer:coarse){
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){
   /* Serve solo su desktop per coprire il testo che scorre dietro la
      barra sticky; su mobile la barra è fixed e comporta un problema
      diverso, quindi qui va tolto invece di riadattato. */
@@ -1417,7 +1417,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 .title-like__count{ font-size:.85rem; font-weight:600; color:var(--text-faint); min-width:1.5em; }
 .title-like__label{ font-size:.82rem; color:var(--text-faint); }
 
-@media (hover:none) and (pointer:coarse){
+@media ((hover:none) and (pointer:coarse)), (max-width:767px){
   .title-like{ margin-top:30px; }
   .title-like__btn{ width:35px; height:35px; } /* stessa dimensione di Discord/index-link su mobile, in tutte le pagine */
 }
