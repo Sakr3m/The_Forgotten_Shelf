@@ -646,6 +646,17 @@ function buildPlaylistLibrary(){
   };
   collectFrom(typeof TEORIE_ORDER !== "undefined" ? TEORIE_ORDER : undefined, typeof TEORIE !== "undefined" ? TEORIE : undefined);
   collectFrom(typeof STORIE_ORDER !== "undefined" ? STORIE_ORDER : undefined, typeof STORIE !== "undefined" ? STORIE : undefined);
+  // Diari di Gioco (recensioni Final Fantasy VII/VIII/IX): dati
+  // duplicati in data-diari-tracks.js apposta per questa pagina,
+  // niente marcatore "game"/id come sopra, uniti direttamente.
+  if(typeof DIARI_TRACKS !== "undefined"){
+    DIARI_TRACKS.forEach(entry => {
+      const key = entry.label.it;
+      if(seen.has(key)) return;
+      seen.add(key);
+      titoli.push(entry);
+    });
+  }
   if(titoli.length) groups.push({ label: { it: "Titoli videoludici", en: "Video Game Titles" }, items: titoli });
 
   return groups;
