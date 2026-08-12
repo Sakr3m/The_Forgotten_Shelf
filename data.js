@@ -658,6 +658,9 @@ const GAMES = {
     },
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Avatar.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
+    watermarkOpacity: 0.2,
     universes: [
       {
         id: "3d-universe",
