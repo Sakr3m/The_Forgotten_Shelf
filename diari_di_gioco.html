@@ -823,13 +823,25 @@
               <p data-i18n="shadyQuickTechText">Sviluppato dallo studio indipendente francese Douze Dixièmes, al loro debutto assoluto, e pubblicato da Focus Home Interactive nel dicembre 2020, il gioco si distingue soprattutto per la direzione artistica, costruita quasi interamente sul contrasto tra luce e ombra, non solo come strumento di gameplay ma come vero e proprio linguaggio narrativo. Il tema dell'ombra come parte nascosta di sé, un rimando abbastanza esplicito al concetto psicologico junghiano di "ombra", attraversa sia l'estetica che la storia stessa, dando al titolo un'identità visiva riconoscibile nonostante le dimensioni contenute della produzione. Proprio per questa cura artistica, il gioco ha ottenuto una candidatura all'Independent Games Festival nelle categorie dedicate a design e arte visiva.</p>
             </div>
 
-            <!-- Recensione completa vera, stessa struttura delle altre
-                 (un pulsante solo, non a doppia scelta come i tre
-                 Final Fantasy). 2 immagini in attesa dell'URL su R2. -->
+            <!-- Recensione completa vera, con doppia scelta come le
+                 altre (A caldo/Completa). 2 immagini collegate. -->
             <div class="threshold" id="reviewThresholdShady">
               <div class="threshold__icon" aria-hidden="true">⚠</div>
               <p data-i18n="thresholdText">Attenzione: la recensione completa può contenere spoiler pesanti, finale incluso.</p>
-              <button id="revealBtnShady" type="button" data-i18n="thresholdBtn">Leggi recensione completa</button>
+              <div class="threshold__choices">
+                <button id="revealBtnShadyGoofy" type="button" class="threshold__choice" data-i18n="thresholdBtnGoofy">A caldo</button>
+                <button id="revealBtnShady" type="button" class="threshold__choice" data-i18n="thresholdBtnSerious">Completa</button>
+              </div>
+            </div>
+
+            <div class="deep" id="reviewDeepContentShadyGoofy">
+              <div class="section-eyebrow">
+                <span class="eyebrow-part" data-i18n="shadyDeepGoofyTitlePart1">Recensione veloce, a caldo</span><span class="eyebrow-dot" aria-hidden="true"> · </span><span class="eyebrow-part" data-i18n="shadyDeepGoofyTitlePart2">spoiler limitati</span>
+              </div>
+
+              <!-- Segnaposto: versione "a caldo" ancora da scrivere. -->
+              <p data-i18n="shadyGoofyPlaceholder1">Testo segnaposto per la versione a caldo: stessa trama, tono più leggero e veloce.</p>
+              <p data-i18n="shadyGoofyPlaceholder2">Seconda sezione segnaposto: qui andrà il resto della versione a caldo, appena pronta.</p>
             </div>
 
             <div class="deep" id="reviewDeepContentShady">
@@ -841,13 +853,13 @@
 
               <p data-i18n="shadyFull02">La narrazione a mo' di favoletta alleggerisce il tema centrale del gioco, ovvero il problema della protagonista di stare al centro dell'attenzione, ma ci riesce fino ad un certo punto: il momento in cui, io stesso, così come altri giocatori, non abbiamo più potuto far finta che fosse solo un gioco di una bambina e la sua ombra, ma un'introspezione psicologica della protagonista stessa.</p>
 
-              <!-- TODO immagine 1: in attesa dell'URL su R2, Sakrem la manda a parte -->
+              <div class="deep-image-slot" style="background-image:url('https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Shady%20Part%20of%20Me%20IMG.jpg')" aria-hidden="true"></div>
 
               <p data-i18n="shadyFull03">La storia parte con lei che scende da un'altalena in un parco. Sembra un inizio banale, scontato, ma forse non così tanto, per poi proseguire tra ambientazioni disparate e quasi sempre d'interno. Personalmente, la maggior parte non mi dicono assolutamente NULLA, esagero ovviamente, ma il senso è quello. Questo non significa, però, che nel racconto non abbiano un loro giusto scopo o motivo. In ogni caso, il gioco prosegue fino a portare la protagonista a confrontarsi con le sue paure, su un palco, cambiando in parte il sistema di gioco visto fino a quel momento.</p>
 
               <p data-i18n="shadyFull04">Questo titolo si nutre letteralmente di logica, rendendo lo spostamento di oggetti ed ombre il fulcro del gameplay, nonché l'unico modo per andare avanti nel gioco. Le sezioni puzzle, dopo le primissime battute, si dividono in due parti: quella della realtà (o luce), dove la protagonista muove elementi reali in un ambiente 3D, e quella dell'ombra, dove la sua controparte 2D fa la stessa cosa con le versioni più &quot;scure&quot; di quegli stessi elementi, o di altri, riflesse alle pareti. Senza contare le &quot;spine ombra&quot;, che più avanti nel gioco si limitano a intralciare il cammino, soprattutto quello di persone come me, che ci cadevano sopra di continuo, a tratti persino apposta, tanto sono arrivato a detestarle con una passione che non credevo di poter riservare a un asset grafico. I rompicapo alle volte son buffi, tanto quanto l'estetica dei collezionabili: degli uccelli di carta che per prenderli bisogna inventare sequenze, via via più assurde; tanto che negli ultimi livelli mi sono ritrovato a discutere sul serio con la mia ombra su come risolverli.</p>
 
-              <!-- TODO immagine 2: in attesa dell'URL su R2, Sakrem la manda a parte -->
+              <div class="deep-image-slot" style="background-image:url('https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Shady%20Part%20of%20Me%20IMG2.jpg')" aria-hidden="true"></div>
 
               <p data-i18n="shadyFull05">Il tutto è scandito dalla meccanica del riavvolgimento del tempo, che sostituisce il classico game over quando, per errore, si resta bloccati da qualche parte o l'ombra finisce per scoppiare come una bolla di sapone sulle già citate spine, o in altri modi altrettanto creativi. Una meccanica tanto semplice quanto divertente, che usavo spesso anche solo per diletto, pure per lassi di tempo inferiori al secondo, trasformando la protagonista in una sorta di Michael Jackson, solo senza il guanto luccicante.</p>
 

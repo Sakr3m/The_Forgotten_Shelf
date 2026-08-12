@@ -197,6 +197,10 @@ const STRINGS = {
     shadyCompleted: "Sì, 100%",
     shadyDeepMainTitlePart1: "Recensione completa, senza filtri",
     shadyDeepMainTitlePart2: "spoiler presenti",
+    shadyDeepGoofyTitlePart1: "Recensione veloce, a caldo",
+    shadyDeepGoofyTitlePart2: "spoiler limitati",
+    shadyGoofyPlaceholder1: "Testo segnaposto per la versione a caldo: stessa trama, tono più leggero e veloce.",
+    shadyGoofyPlaceholder2: "Seconda sezione segnaposto: qui andrà il resto della versione a caldo, appena pronta.",
     shadyFull01: "Questo piccolo videogioco fatto di puzzle e misteri è una perla nascosta, forse anche fin troppo bene.",
     shadyFull02: "La narrazione a mo' di favoletta alleggerisce il tema centrale del gioco, ovvero il problema della protagonista di stare al centro dell'attenzione, ma ci riesce fino ad un certo punto: il momento in cui, io stesso, così come altri giocatori, non abbiamo più potuto far finta che fosse solo un gioco di una bambina e la sua ombra, ma un'introspezione psicologica della protagonista stessa.",
     shadyFull03: "La storia parte con lei che scende da un'altalena in un parco. Sembra un inizio banale, scontato, ma forse non così tanto, per poi proseguire tra ambientazioni disparate e quasi sempre d'interno. Personalmente, la maggior parte non mi dicono assolutamente NULLA, esagero ovviamente, ma il senso è quello. Questo non significa, però, che nel racconto non abbiano un loro giusto scopo o motivo. In ogni caso, il gioco prosegue fino a portare la protagonista a confrontarsi con le sue paure, su un palco, cambiando in parte il sistema di gioco visto fino a quel momento.",
@@ -415,6 +419,10 @@ const STRINGS = {
     shadyCompleted: "Yes, 100%",
     shadyDeepMainTitlePart1: "Full review, no filter",
     shadyDeepMainTitlePart2: "spoilers ahead",
+    shadyDeepGoofyTitlePart1: "Quick review, hot take",
+    shadyDeepGoofyTitlePart2: "limited spoilers",
+    shadyGoofyPlaceholder1: "Placeholder text for the hot take version: same plot, lighter and quicker tone.",
+    shadyGoofyPlaceholder2: "Second placeholder section: the rest of the hot take version goes here once it's ready.",
     shadyFull01: "This little puzzle-and-mystery video game is a hidden gem, maybe even a bit too well hidden.",
     shadyFull02: "The fairy-tale-like narration lightens up the game's central theme, namely the protagonist's struggle with being at the center of attention, but only up to a point: the moment when I, along with plenty of other players, could no longer pretend it was just a game about a little girl and her shadow, but rather a psychological introspection of the protagonist herself.",
     shadyFull03: "The story opens with her getting off a swing in a park. It seems like a plain, obvious opening, but maybe it's not quite that simple, before moving on through a variety of settings, almost always indoor ones. Personally, most of them tell me absolutely NOTHING, obviously an exaggeration, but that's the general idea. That doesn't mean they don't serve their own purpose within the story, though. Either way, the game eventually leads the protagonist to face her fears, on a stage, changing part of the gameplay system seen up to that point.",
@@ -1022,7 +1030,6 @@ function setupRevealButton(suffix){
     deep.classList.add("is-visible");
   });
 }
-setupRevealButton("Shady");
 // ---------------------------------------------------------
 // Doppio pulsante (solo FFVIII per ora, e' l'unica con due versioni
 // vere della recensione completa): a differenza di setupRevealButton
@@ -1054,6 +1061,7 @@ function setupDualRevealButtons(suffix){
 setupDualRevealButtons("");
 setupDualRevealButtons("Ffvii");
 setupDualRevealButtons("Ffix");
+setupDualRevealButtons("Shady");
 
 // ---------------------------------------------------------
 // Toggle centrale: NON sposta piu' un unico carrello da un lato
