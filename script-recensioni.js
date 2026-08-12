@@ -475,7 +475,16 @@ const FFVII_TRACKS = [
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Judgement%20Day.mp3", title: "Judgement Day", game: "Final Fantasy VII" }
 ];
 // Playlist di Final Fantasy IX: vuota per ora, come FFVII.
-const FFIX_TRACKS = [];
+// Playlist di Final Fantasy IX, ordine scelto dall'utente.
+const FFIX_TRACKS = [
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Melodies%20of%20Life.mp3", title: "Melodies of Life", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20You're%20Not%20Alone!.mp3", title: "You're Not Alone!", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Roses%20of%20May.mp3", title: "Roses of May", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Vamo'alla%20Flamenco.mp3", title: "Vamo' Alla Flamenco", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Terra.mp3", title: "Terra", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Freya's%20Theme.mp3", title: "Freya's Theme", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Immoral%20Melody.mp3", title: "Immoral Melody", game: "Final Fantasy IX" }
+];
 const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS, ffix: FFIX_TRACKS };
 
 // Lingua condivisa con le altre pagine tramite localStorage: letta
