@@ -787,6 +787,8 @@ const GAMES = {
       it: "Una saga action-avventura ambientata sul pianeta ghiacciato E.D.N. III, tra una corporazione senza scrupoli, creature aliene territoriali e coloni costretti a sopravvivere in condizioni estreme. Mech da combattimento ed energia termica sono al centro di un conflitto che attraversa generazioni, mentre il pianeta stesso cambia lentamente pelle.",
       en: "An action-adventure saga set on the frozen planet E.D.N. III, caught between a ruthless corporation, territorial alien creatures, and colonists forced to survive in extreme conditions. Combat mechs and thermal energy sit at the center of a conflict spanning generations, as the planet itself slowly changes shape."
     },
+    palette: ["#38bdf8", "#f97316", "#1e3a5f"],
+    accentColor: "#f97316",
     universes: [
       {
         id: "main",
