@@ -21,8 +21,8 @@ const GAMES = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
     ],
     blurb: {
-      it: "Una serie survival horror che intreccia case infestate,<br>occultismo e segreti di famiglia sepolti nel tempo, tra i primi<br>titoli a portare gli orrori cosmici di ispirazione lovecraftiana<br>nei videogiochi. Considerata la capostipite del genere horror videoludico.",
-      en: "A survival horror series weaving together haunted houses,<br>occultism, and family secrets buried in time, among the first<br>titles to bring Lovecraftian cosmic horror into video games.<br>Regarded as the originator of the survival horror genre itself."
+      it: "Una serie survival horror che intreccia case infestate, occultismo e segreti di famiglia sepolti nel tempo, tra i primi titoli a portare gli orrori cosmici di ispirazione lovecraftiana nei videogiochi. Ambientata perlopiù in ville isolate e manieri decadenti, dove la luce è merce rara. Considerata la capostipite del genere horror videoludico.",
+      en: "A survival horror series weaving together haunted houses, occultism, and family secrets buried in time, among the first titles to bring Lovecraftian cosmic horror into video games. Set within isolated mansions and decaying estates, where light itself is scarce. Regarded as the originator of the genre."
     },
     universes: [
       {
@@ -122,8 +122,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Castlevania", en: "Castlevania" },
     blurb: {
-      it: "Una saga action-gotica che racconta la guerra secolare<br>tra il clan Belmont e Dracula, tra castelli maledetti<br>e la leggendaria frusta Vampire Killer, di generazione in<br>generazione. Il conte rinasce ciclicamente, sempre pronto a tornare.",
-      en: "A gothic action saga chronicling the centuries-old war<br>between the Belmont clan and Dracula, through cursed castles<br>and the legendary Vampire Killer whip, across generations.<br>The count is cyclically reborn, always ready to return."
+      it: "Una saga action-gotica che racconta la guerra secolare tra il clan Belmont e Dracula, tra castelli maledetti e la leggendaria frusta Vampire Killer, di generazione in generazione. Il conte rinasce ogni cento anni, e un nuovo discendente è sempre chiamato a fermarlo.",
+      en: "A gothic action saga chronicling the centuries-old war between the Belmont clan and Dracula, through cursed castles and the legendary Vampire Killer whip, across generations. The count is reborn every hundred years, and a new descendant is always called to stop him."
     },
     palette: ["#a11d33", "#4b2e6b", "#d4af37"],
     accentColor: "#a11d33",
@@ -319,8 +319,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Una saga action dallo stile sopra le righe, che segue<br>i cacciatori di demoni della stirpe di Sparda tra spade<br>leggendarie e pistole gemelle, tra sangue umano e<br>demoniaco. Dante e il gemello Vergil ne sono il cuore.",
-      en: "A flashy, over-the-top action saga following the demon<br>hunters of Sparda's bloodline through legendary swords<br>and twin pistols, between human blood and demon blood.<br>Dante and his twin Vergil are its heart."
+      it: "Una saga action dallo stile sopra le righe, che segue i cacciatori di demoni della stirpe di Sparda tra spade leggendarie e pistole gemelle, tra sangue umano e demoniaco. Dante e il gemello Vergil ne sono il cuore, divisi da scelte opposte ma legati da uno stesso destino che continuano a incrociare.",
+      en: "A flashy, over-the-top action saga following the demon hunters of Sparda's bloodline through legendary swords and twin pistols, between human blood and demon blood. Dante and his twin Vergil are its heart, divided by opposite choices yet bound by a shared fate they keep crossing paths with."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#c4cbd4",
@@ -459,8 +459,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Doom", en: "Doom" },
     blurb: {
-      it: "Una saga action di violenza pura, portali infernali<br>e un marine trasformato in una forza cosmica<br>di sterminio contro le legioni dell'Inferno. Nata nei<br>laboratori marziani dell'UAC, con armi iconiche come il BFG9000.",
-      en: "An action saga of pure violence, hellish portals,<br>and a marine turned into a cosmic force<br>of extermination against the legions of Hell. Born in<br>the UAC's Martian facilities, with iconic weapons like the BFG9000."
+      it: "Una saga action di violenza pura, portali infernali e un marine trasformato in una forza cosmica di sterminio contro le legioni dell'Inferno. Nata nei laboratori marziani dell'UAC, ha reso iconiche armi come il BFG9000 e un ritmo di gioco tanto veloce quanto spietato, senza tregua né riparo.",
+      en: "An action saga of pure violence, hellish portals, and a marine turned into a cosmic force of extermination against the legions of Hell. Born in the UAC's Martian facilities, it made weapons like the BFG9000 iconic, alongside a pace as fast as it is merciless, with no rest and nowhere to hide."
     },
     palette: ["#46433a", "#991b1b", "#f97316"],
     accentColor: "#f97316",
@@ -499,8 +499,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dragon Quest", en: "Dragon Quest" },
     blurb: {
-      it: "Una saga RPG che segue una stirpe di eroi leggendari,<br>discendenti di Erdrick, chiamati a fermare demoni,<br>draghi e signori oscuri in mondi che rinascono nel tempo.<br>Ogni capitolo racconta un nuovo regno minacciato dal male.",
-      en: "An RPG saga following a lineage of legendary heroes,<br>descendants of Erdrick, called to stop demons,<br>dragons, and dark lords in worlds reborn across time.<br>Each chapter tells of a new kingdom under threat."
+      it: "Una saga RPG che segue una stirpe di eroi leggendari, discendenti di Erdrick, chiamati a fermare demoni, draghi e signori oscuri in mondi che rinascono nel tempo. Ogni capitolo racconta un nuovo regno minacciato, con villaggi da salvare, torri da scalare e un male antico sempre in agguato.",
+      en: "An RPG saga following a lineage of legendary heroes, descendants of Erdrick, called to stop demons, dragons, and dark lords in worlds reborn across time. Each chapter tells of a new kingdom under threat, with villages to save, towers to climb, and an ancient evil always lying in wait."
     },
     palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
     accentColor: "#0f9b8e",
@@ -599,8 +599,8 @@ const GAMES = {
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     blurb: {
-      it: "Una saga survival-horror in prima persona, tra parkour<br>su tetti infestati e un virus capace di ridurre<br>la civiltà in rovina, dal focolaio locale al collasso globale.<br>Di notte le creature diventano più veloci e aggressive.",
-      en: "A first-person survival horror saga of rooftop parkour<br>and a virus capable of reducing civilization<br>to ruin, from a local outbreak to global collapse. By night<br>the infected grow faster and more aggressive."
+      it: "Una saga survival-horror in prima persona, tra parkour su tetti infestati e un virus capace di ridurre la civiltà in rovina, dal focolaio locale al collasso globale. Di giorno si esplora con relativa libertà, di notte le creature diventano più veloci, più aggressive, e ogni rifugio smette di essere sicuro.",
+      en: "A first-person survival horror saga of rooftop parkour and a virus capable of reducing civilization to ruin, from a local outbreak to global collapse. By day there's relative freedom to explore; by night the infected grow faster and more aggressive, and no shelter stays truly safe."
     },
     palette: ["#eab308", "#4d7c0f", "#1e3a5f"],
     accentColor: "#4d7c0f",
@@ -653,8 +653,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
     blurb: {
-      it: "Una saga open world action-crime che segue<br>criminali, rapinatori e trafficanti attraverso due<br>linee temporali distinte e incompatibili tra loro. Città<br>immaginarie modellate su grandi metropoli reali fanno da sfondo.",
-      en: "An open-world action-crime saga following<br>criminals, robbers, and traffickers across two<br>separate, mutually incompatible timelines. Fictional cities<br>modeled on real-world metropolises serve as the backdrop."
+      it: "Una saga open world action-crime che segue criminali, rapinatori e trafficanti attraverso due linee temporali distinte e incompatibili tra loro. Città immaginarie modellate su grandi metropoli reali fanno da sfondo a storie di ambizione, tradimento e scalata criminale, tra alleanze che si rompono e imperi costruiti sul crimine.",
+      en: "An open-world action-crime saga following criminals, robbers, and traffickers across two separate, mutually incompatible timelines. Fictional cities modeled on real-world metropolises serve as the backdrop for stories of ambition, betrayal, and criminal rise, where alliances break and empires are built on crime."
     },
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",
