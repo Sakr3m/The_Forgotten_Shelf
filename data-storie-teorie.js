@@ -18,6 +18,15 @@ const TEORIE = {
     accentColor: "#8a1f2b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile.jpg",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Cleric%20Beast.mp3", title: "Cleric Beast", game: "Bloodborne" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Father%20Gascoigne.mp3", title: "Father Gascoigne", game: "Bloodborne" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Gehrman,%20the%20First%20Hunter.mp3", title: "Gehrman, the First Hunter", game: "Bloodborne" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Ludwig,%20the%20Holy%20Blade.mp3", title: "Ludwig, the Holy Blade", game: "Bloodborne" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Lady%20Maria%20of%20the%20Astral%20Clocktower.mp3", title: "Lady Maria of the Astral Clocktower", game: "Bloodborne" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Laurence,%20the%20First%20Vicar.mp3", title: "Laurence, the First Vicar", game: "Bloodborne" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Orphan%20of%20Kos.mp3", title: "Orphan of Kos", game: "Bloodborne" }
+    ],
     bannerOffset: 65,
     title: {
       it: "Un Sogno Senza Fine",
