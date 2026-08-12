@@ -788,7 +788,7 @@ const GAMES = {
       en: "An action-adventure saga set on the frozen planet E.D.N. III, caught between a ruthless corporation, territorial alien creatures, and colonists forced to survive in extreme conditions. Combat mechs and thermal energy sit at the center of a conflict spanning generations, as the planet itself slowly changes shape."
     },
     palette: ["#38bdf8", "#f97316", "#1e3a5f"],
-    accentColor: "#f97316",
+    accentColor: "#38bdf8",
     universes: [
       {
         id: "main",
