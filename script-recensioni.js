@@ -459,7 +459,13 @@ const state = { lang: "en", activeSide: "right", view: "landing", musicOn: false
 const FFVIII_TRACKS = SHARED_FFVIII_TRACKS;
 const FFVII_TRACKS = SHARED_FFVII_TRACKS;
 const FFIX_TRACKS = SHARED_FFIX_TRACKS;
-const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS, ffix: FFIX_TRACKS };
+// Playlist di Shady Part of Me, ordine scelto dall'utente.
+const SHADY_TRACKS = [
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Shady%20Part%20of%20Me%20Main%20Theme.mp3", title: "Main Theme", game: "Shady Part of Me" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Shady%20Part%20of%20Me%20There%20She%20Is.mp3", title: "There She Is", game: "Shady Part of Me" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Shady%20Part%20of%20Me%20A%20Fireplace%20Soothing.mp3", title: "A Fireplace Soothing", game: "Shady Part of Me" }
+];
+const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS, ffix: FFIX_TRACKS, shady: SHADY_TRACKS };
 
 // Lingua condivisa con le altre pagine tramite localStorage: letta
 // prima di qualunque render iniziale.
