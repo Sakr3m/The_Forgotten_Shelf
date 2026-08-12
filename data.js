@@ -792,6 +792,9 @@ const GAMES = {
     },
     palette: ["#38bdf8", "#f97316", "#1e3a5f"],
     accentColor: "#38bdf8",
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Avatar.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Filigrana.jpg",
+    watermarkOpacity: 0.2,
     universes: [
       {
         id: "main",
@@ -800,6 +803,7 @@ const GAMES = {
         entries: [
           { id: "lp3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. -50",
             title: { it: "Lost Planet 3", en: "Lost Planet 3" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%203.jpg",
             synopsis: {
               it: "Jim Peyton arriva sul pianeta ghiacciato E.D.N. III come operaio minerario sotto contratto con la corporazione NEVEC, motivato dal bisogno di mantenere la famiglia sulla Terra. Scopre che NEVEC ha nascosto l'esistenza di una prima colonia andata distrutta, e che il pianeta è in realtà un organismo vivente chiamato Nushi, la cui energia termica è la fonte di vita per gli Akrid. Quando NEVEC prende il controllo della spedizione e usa la famiglia di Jim come ostaggio, lui si allea con i sopravvissuti della prima colonia, i Dimenticati, per sabotarne i piani. Nell'epilogo Jim muore anziano raccontando la sua storia alla nipote Diana. I sopravvissuti diventano i primi Pirati della Neve, mentre Gale Holden, l'ingegnere della spedizione e padre del protagonista di Lost Planet 1, e Mira, figlia del leader dei Dimenticati, creano il primo Harmonizer, gettando le basi degli eventi di Lost Planet 1.",
               en: "Jim Peyton arrives on the frozen planet E.D.N. III as a mining worker under contract with the NEVEC corporation, driven by the need to provide for his family back on Earth. He discovers that NEVEC has concealed the existence of a first colony that was destroyed, and that the planet is actually a living organism called Nushi, whose thermal energy is the life source for the Akrid. When NEVEC takes control of the expedition and uses Jim's family as a hostage, he allies with the survivors of the first colony — the Forgotten — to sabotage their plans. In the epilogue, Jim dies as an old man recounting his story to his granddaughter Diana. The survivors become the first Snow Pirates, while Gale Holden — the expedition's engineer and father of Lost Planet 1's protagonist — and Mira, daughter of the Forgotten's leader, create the first Harmonizer, laying the groundwork for the events of Lost Planet 1."
@@ -807,6 +811,7 @@ const GAMES = {
           },
           { id: "lp1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 1",
             title: { it: "Lost Planet: Extreme Condition", en: "Lost Planet: Extreme Condition" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet.jpg",
             synopsis: {
               it: "Wayne Holden si risveglia sul pianeta E.D.N. III dopo essere rimasto congelato per 30 anni nel suo mech, in seguito a una battaglia contro un colossale Akrid chiamato Occhio Verde. Senza ricordi, si unisce a un gruppo di Pirati della Neve e inizia a combattere sia gli Akrid che la NEVEC. Recuperando gradualmente la memoria, scopre che suo padre Gale non fu ucciso dagli Akrid ma assassinato da NEVEC. Scopre inoltre il Frontier Project: il piano segreto di NEVEC di terraformare il pianeta usando l'energia termica, eliminando gli Akrid ma condannando a morte tutti gli umani rimasti in superficie. Wayne lo smantella e uccide il comandante Isenberg, perdendo nuovamente i ricordi nel processo. Un anno dopo, il pianeta ha già iniziato la sua lenta trasformazione verso un mondo più caldo e vivibile.",
               en: "Wayne Holden wakes up on the planet E.D.N. III after being frozen for 30 years inside his mech, following a battle against a colossal Akrid known as Green Eye. With no memory, he joins a group of Snow Pirates and begins fighting both the Akrid and NEVEC. Gradually recovering his memories, he discovers that his father Gale was not killed by the Akrid but murdered by NEVEC. He also uncovers the Frontier Project: NEVEC's secret plan to terraform the planet using thermal energy, wiping out the Akrid but condemning every human left on the surface to death. Wayne dismantles the project and kills Commander Isenberg, losing his memories once again in the process. A year later, the planet has already begun its slow transformation into a warmer and more habitable world."
@@ -814,6 +819,7 @@ const GAMES = {
           },
           { id: "lp2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 12",
             title: { it: "Lost Planet 2", en: "Lost Planet 2" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%202.jpg",
             synopsis: {
               it: "Il pianeta si sta terraformando grazie agli eventi di Lost Planet 1, rivelando giungle, deserti e nuovi ambienti oltre il ghiaccio. La storia segue più fazioni in conflitto tra loro, tra cui mercenari, Pirati della Neve, la NEVEC e una fazione ribelle Ex-NEVEC. Il pericolo principale è l'Over-G, un Akrid di dimensioni catastrofiche che dorme sotto il pianeta: NEVEC vuole sfruttarne l'energia termica per poi abbandonare E.D.N. III, condannando a morte tutti gli abitanti. L'Ex-NEVEC unisce le forze con i Pirati per fermarlo. Nel finale la stazione spaziale NEOS viene fatta schiantare sull'Over-G per distruggerlo, a costo del sacrificio degli uomini a bordo. Il pianeta sopravvive.",
               en: "The planet is terraforming thanks to the events of LP1, revealing jungles, deserts and new environments beyond the ice. The story follows multiple factions in conflict with one another — mercenaries, Snow Pirates, NEVEC, and a rebel Ex-NEVEC faction. The main threat is the Over-G, a catastrophically large Akrid sleeping beneath the planet's surface: NEVEC plans to harvest its thermal energy and then abandon E.D.N. III, condemning everyone left behind to death. Ex-NEVEC joins forces with the Pirates to stop them. In the finale, the NEOS space station is crashed into the Over-G to destroy it, at the cost of the lives of everyone on board. The planet survives."
