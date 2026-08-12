@@ -471,7 +471,7 @@ const FFVII_TRACKS = [
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Cosmo%20Canyon.mp3", title: "Cosmo Canyon", game: "Final Fantasy VII" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20J.E.N.O.V.A.mp3", title: "J-E-N-O-V-A", game: "Final Fantasy VII" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Those%20Who%20Fight.mp3", title: "Those Who Fight", game: "Final Fantasy VII" },
-  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Bombing%20Mission.mp3", title: "Opening – Bombing Mission", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Bombing%20Mission.mp3", title: "Bombing Mission", game: "Final Fantasy VII" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Judgement%20Day.mp3", title: "Judgement Day", game: "Final Fantasy VII" }
 ];
 // Playlist di Final Fantasy IX: vuota per ora, come FFVII.
@@ -480,7 +480,7 @@ const FFIX_TRACKS = [
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Melodies%20of%20Life.mp3", title: "Melodies of Life", game: "Final Fantasy IX" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20You're%20Not%20Alone!.mp3", title: "You're Not Alone!", game: "Final Fantasy IX" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Roses%20of%20May.mp3", title: "Roses of May", game: "Final Fantasy IX" },
-  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Vamo'alla%20Flamenco.mp3", title: "Vamo' Alla Flamenco", game: "Final Fantasy IX" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Vamo'alla%20Flamenco.mp3", title: "Vamo'alla Flamenco", game: "Final Fantasy IX" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Terra.mp3", title: "Terra", game: "Final Fantasy IX" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Freya's%20Theme.mp3", title: "Freya's Theme", game: "Final Fantasy IX" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Immoral%20Melody.mp3", title: "Immoral Melody", game: "Final Fantasy IX" }
