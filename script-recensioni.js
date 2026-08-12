@@ -464,10 +464,16 @@ const FFVIII_TRACKS = [
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Premonition.mp3", title: "Premonition", game: "Final Fantasy VIII" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%208%20The%20Man%20with%20the%20Machine%20Gun.mp3", title: "The Man with the Machine Gun", game: "Final Fantasy VIII" }
 ];
-// Playlist di Final Fantasy VII: vuota per ora, nessun brano
-// assegnato ancora — il controllo musica resta funzionante ma senza
-// niente da riprodurre finche' non arrivano i brani veri.
-const FFVII_TRACKS = [];
+// Playlist di Final Fantasy VII, ordine scelto dall'utente.
+const FFVII_TRACKS = [
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20One-Winged%20Angel.mp3", title: "One-Winged Angel", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Aerith's%20Theme.mp3", title: "Aerith's Theme", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Cosmo%20Canyon.mp3", title: "Cosmo Canyon", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20J.E.N.O.V.A.mp3", title: "J-E-N-O-V-A", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Those%20Who%20Fight.mp3", title: "Those Who Fight", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Bombing%20Mission.mp3", title: "Opening – Bombing Mission", game: "Final Fantasy VII" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Judgement%20Day.mp3", title: "Judgement Day", game: "Final Fantasy VII" }
+];
 // Playlist di Final Fantasy IX: vuota per ora, come FFVII.
 const FFIX_TRACKS = [];
 const REVIEW_TRACKS = { ffvii: FFVII_TRACKS, ffviii: FFVIII_TRACKS, ffix: FFIX_TRACKS };
