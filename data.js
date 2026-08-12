@@ -595,6 +595,9 @@ const GAMES = {
     listTitle: { it: "Dying Light", en: "Dying Light" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dying Light", en: "Dying Light" },
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Avatar.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
+    watermarkOpacity: 0.2,
     blurb: {
       it: "Una saga survival-horror in prima persona, tra parkour<br>su tetti infestati e un virus capace di ridurre<br>la civiltà in rovina, dal focolaio locale al collasso globale.",
       en: "A first-person survival horror saga of rooftop parkour<br>and a virus capable of reducing civilization<br>to ruin, from a local outbreak to global collapse."
