@@ -697,7 +697,39 @@ function closePlaylistMenu(){
   el.playlistMenu.hidden = true;
   el.musicToggle.setAttribute("aria-expanded", "false");
 }
-window.addEventListener("scroll", () => { if(!el.playlistMenu.hidden) closePlaylistMenu(); }, true);
+window.addEventListener("scroll", (ev) => {
+  // "scroll" non risale nella fase normale di bubble, ma passa
+  // comunque dai genitori nella fase di cattura (true qui sotto) -
+  // quindi anche lo scroll INTERNO del menu stesso (le sue voci)
+  // arrivava fin qui e lo richiudeva all'istante, un attimo dopo
+  // averlo aperto: bastava provare a scorrerlo per vederselo sparire
+  // sotto al mouse. Ora si chiude solo se a scorrere e' qualcos'altro,
+  // non il menu (o una sua voce interna).
+  if(el.playlistMenu.hidden) return;
+  if(ev.target === el.playlistMenu || el.playlistMenu.contains(ev.target)) return;
+  closePlaylistMenu();
+}, true);
+
+// Scorrendo con la rotella (o le frecce) sopra il controllo musica -
+// volume, riquadro titolo/gioco, pulsante che apre il menu - niente
+// di tutto questo ha un suo scroll interno, quindi il movimento
+// "passava attraverso" fino al pannello sotto (la storia aperta) e
+// lo faceva scorrere lui al posto loro. Bloccato qui alla radice,
+// su tutto il controllo insieme, invece che pannello per pannello.
+if(el.musicControl){
+  el.musicControl.addEventListener("wheel", ev => ev.preventDefault(), { passive:false });
+}
+// Stesso principio sul menu della playlist quando è aperto: scorre
+// se stesso (manualmente, via scrollTop), ma non lascia mai passare
+// il movimento oltre se' - a differenza di overscroll-behavior da
+// solo, questo copre il caso anche se il browser non lo rispettasse
+// del tutto su un elemento position:fixed come questo.
+if(el.playlistMenu){
+  el.playlistMenu.addEventListener("wheel", ev => {
+    el.playlistMenu.scrollTop += ev.deltaY;
+    ev.preventDefault();
+  }, { passive:false });
+}
 document.addEventListener("click", (ev) => {
   if(el.playlistMenu.hidden) return;
   if(!el.playlistMenu.contains(ev.target) && !el.musicToggle.contains(ev.target)) closePlaylistMenu();
