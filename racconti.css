@@ -133,6 +133,11 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   position:fixed;
   width:max-content; max-width:min(90vw, 320px);
   max-height:min(70vh, 420px); overflow-y:auto;
+  overscroll-behavior:contain; /* scorrendo fino al bordo del menu
+    (con rotella o frecce) non deve "scavalcare" e scorrere anche la
+    pagina sotto - senza questa riga il browser incolla lo scroll
+    residuo al genitore scrollabile piu' vicino, che qui e' la
+    pagina intera. */
   background:var(--panel-raised);
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:var(--radius-sm);
