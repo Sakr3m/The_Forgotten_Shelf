@@ -356,6 +356,16 @@
      quindi la sovrascrivo qui invece che nel foglio condiviso. */
   .title-panel{ margin-top:150px; }
 
+  /* "Torna a [Gioco]": unico pulsante di navigazione che non aveva
+     nessuno sfondo dietro il testo (le frecce sinistra/destra invece
+     ce l'hanno gia', var(--panel), pieno). Sulla pagina title (voci
+     singole) sta sopra alla filigrana, quindi la scritta puo'
+     diventare poco leggibile a seconda del colore sotto - stessa
+     logica gia' usata altrove sul sito per proteggere il testo. */
+  body[data-state="title"] .title-back{
+    background:rgba(5,8,15,.65);
+  }
+
   /* La barra di luminosita' delle filigrane (.watermark-brightness-
      line) ha invece un left:230px "duro" nel foglio comune, pensato
      apposta per allinearsi al bordo della sidebar quando era 230px:
