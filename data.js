@@ -13,7 +13,7 @@ const GAMES = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
     watermarkOpacity: 0.2,
-    palette: ["#c9a24b", "#4a9d6e", "#6b3fa0"],
+    palette: ["#8a6d3f", "#6b3fa0", "#d98e3f"],
     accentColor: "#6b3fa0",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20In%20the%20Eye%20of%20the%20Storm.mp3", title: "In the Eye of the Storm", game: "Alone in the Dark (1992)" },
@@ -798,6 +798,8 @@ const GAMES = {
       it: "Una saga fantasy che intreccia i mondi Disney a una mitologia originale fatta di Keyblade, cuori, luce e oscurità, seguendo Sora e i suoi amici attraverso una trama sempre più stratificata di viaggi nel tempo, identità sdoppiate e profezie antiche quanto la prima Guerra dei Keyblade.",
       en: "A fantasy saga weaving Disney worlds into an original mythology of Keyblades, hearts, light and darkness, following Sora and his friends through an increasingly layered plot of time travel, split identities, and prophecies as old as the first Keyblade War."
     },
+    palette: ["#f4c430", "#3b5bdb", "#e63980"],
+    accentColor: "#f4c430",
     universes: [
       {
         id: "main",
@@ -909,6 +911,8 @@ const GAMES = {
       it: "Una saga action-avventura gotica che segue Kain e Raziel attraverso i secoli di Nosgoth, tra vampiri, viaggi nel tempo e un ciclo di manipolazioni divine che intreccia libero arbitrio, destino e la lenta corruzione di un mondo retto da Pilastri sempre più fragili.",
       en: "A gothic action-adventure saga following Kain and Raziel across the centuries of Nosgoth, amid vampires, time travel, and a cycle of divine manipulation that weaves together free will, destiny, and the slow corruption of a world held up by increasingly fragile Pillars."
     },
+    palette: ["#8b1a2b", "#2e2a1f", "#3ec6c6"],
+    accentColor: "#3ec6c6",
     universes: [
       {
         id: "main",
@@ -1000,8 +1004,8 @@ const GAMES = {
       it: "Una saga action-avventura ambientata sul pianeta ghiacciato E.D.N. III, tra una corporazione senza scrupoli, creature aliene territoriali e coloni costretti a sopravvivere in condizioni estreme. Mech da combattimento ed energia termica sono al centro di un conflitto che attraversa generazioni, mentre il pianeta stesso cambia lentamente pelle.",
       en: "An action-adventure saga set on the frozen planet E.D.N. III, caught between a ruthless corporation, territorial alien creatures, and colonists forced to survive in extreme conditions. Combat mechs and thermal energy sit at the center of a conflict spanning generations, as the planet itself slowly changes shape."
     },
-    palette: ["#38bdf8", "#f97316", "#1e3a5f"],
-    accentColor: "#38bdf8",
+    palette: ["#b3e5fc", "#f97316", "#1e3a5f"],
+    accentColor: "#b3e5fc",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Avatar.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Filigrana.jpg",
     watermarkOpacity: 0.2,
@@ -1049,6 +1053,8 @@ const GAMES = {
       it: "Una saga stealth-action che segue le vite di Big Boss e dei suoi cloni attraverso decenni di guerra fredda, tradimenti e cospirazioni militari, tra Metal Gear (carri armati nucleari bipedi), organizzazioni segrete e la lotta per il controllo dell'informazione globale.",
       en: "A stealth-action saga following the lives of Big Boss and his clones across decades of Cold War conflict, betrayal, and military conspiracy, amid Metal Gears (bipedal nuclear tanks), secret organizations, and the fight for control over the flow of global information."
     },
+    palette: ["#4b5320", "#7c8b96", "#ff6a00"],
+    accentColor: "#7c8b96",
     universes: [
       {
         id: "main",
@@ -1153,6 +1159,8 @@ const GAMES = {
       it: "Una saga survival-horror che segue decenni di cospirazioni biotecnologiche, dalla scoperta di un virus capace di riscrivere il DNA fino alle sue infinite mutazioni, tra corporazioni senza scrupoli, tradimenti a catena e sopravvissuti che imparano, capitolo dopo capitolo, quanto poco ci si possa fidare di chi dice di volerli proteggere.",
       en: "A survival-horror saga following decades of biotechnological conspiracy, from the discovery of a virus capable of rewriting DNA to its endless mutations, amid ruthless corporations, chains of betrayal, and survivors who learn, chapter after chapter, just how little they can trust those who claim to want to protect them."
     },
+    palette: ["#a11212", "#6b8e23", "#f5f5f5"],
+    accentColor: "#d98a8a",
     universes: [
       {
         id: "main",
@@ -1384,6 +1392,8 @@ const GAMES = {
       it: "Una saga horror psicologico in cui la cittadina di Silent Hill materializza i sensi di colpa, i traumi e i peccati di chiunque vi entri, sotto forma di mostri, nebbia e realtà distorte. Nel corso dei decenni ha intrecciato videogiochi, romanzi, fumetti e manga, con livelli di canonicità spesso incerti o dibattuti.",
       en: "A psychological horror saga in which the town of Silent Hill materialises the guilt, trauma, and sins of anyone who enters it, in the form of monsters, fog, and distorted realities. Over the decades it has woven together videogames, novels, comics, and manga, with levels of canonicity often uncertain or debated."
     },
+    palette: ["#c98fa3", "#8a8f94", "#7a2e2e"],
+    accentColor: "#8a8f94",
     universes: [
       {
         id: "main",
@@ -1515,6 +1525,8 @@ const GAMES = {
       it: "L'universo condiviso di Remedy Entertainment, costruito attorno al concetto di Altered World Event: fenomeni paranormali indagati e insabbiati da un'agenzia governativa segreta, che intrecciano scrittori intrappolati in dimensioni parallele, edifici che sfidano la geografia ed entità capaci di riscrivere la realtà attraverso la creatività umana.",
       en: "Remedy Entertainment's shared universe, built around the concept of the Altered World Event: paranormal phenomena investigated and covered up by a secret government agency, weaving together writers trapped in parallel dimensions, buildings that defy geography, and entities capable of rewriting reality through human creativity."
     },
+    palette: ["#f0a202", "#1b2a4a", "#c0293b"],
+    accentColor: "#f0a202",
     universes: [
       {
         id: "main",
@@ -1591,6 +1603,8 @@ const GAMES = {
       it: "Una saga che racconta la lotta di B.J. Blazkowicz contro il regime nazista, divisa in tre universi separati e senza continuità tra loro, sviluppati da team diversi nel corso dei decenni. Personaggi ed eventi non si trasferiscono da un universo all'altro, pur condividendo lo stesso pretesto di fondo.",
       en: "A saga chronicling B.J. Blazkowicz's fight against the Nazi regime, split into three separate universes with no continuity between them, developed by different teams over the decades. Characters and events never carry over from one universe to the next, though all share the same underlying premise."
     },
+    palette: ["#a3161a", "#355e3b", "#5c6773"],
+    accentColor: "#355e3b",
     universes: [
       {
         id: "machinegames",
