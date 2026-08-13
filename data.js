@@ -1010,7 +1010,7 @@ const GAMES = {
         name: { it: "Universo E.D.N. III", en: "E.D.N. III Universe" },
         span: { it: "A.T. -50 – A.T. 12", en: "A.T. -50 – A.T. 12" },
         entries: [
-          { id: "lp3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. -50",
+          { id: "lp3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. -50", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Lost Planet 3", en: "Lost Planet 3" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%203.jpg",
             synopsis: {
@@ -1018,7 +1018,7 @@ const GAMES = {
               en: "Jim Peyton arrives on the frozen planet E.D.N. III as a mining worker under contract with the NEVEC corporation, driven by the need to provide for his family back on Earth. He discovers that NEVEC has concealed the existence of a first colony that was destroyed, and that the planet is actually a living organism called Nushi, whose thermal energy is the life source for the Akrid. When NEVEC takes control of the expedition and uses Jim's family as a hostage, he allies with the survivors of the first colony — the Forgotten — to sabotage their plans. In the epilogue, Jim dies as an old man recounting his story to his granddaughter Diana. The survivors become the first Snow Pirates, while Gale Holden — the expedition's engineer and father of Lost Planet 1's protagonist — and Mira, daughter of the Forgotten's leader, create the first Harmonizer, laying the groundwork for the events of Lost Planet 1."
             }
           },
-          { id: "lp1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 1",
+          { id: "lp1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 1", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Lost Planet: Extreme Condition", en: "Lost Planet: Extreme Condition" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet.jpg",
             synopsis: {
@@ -1026,7 +1026,7 @@ const GAMES = {
               en: "Wayne Holden wakes up on the planet E.D.N. III after being frozen for 30 years inside his mech, following a battle against a colossal Akrid known as Green Eye. With no memory, he joins a group of Snow Pirates and begins fighting both the Akrid and NEVEC. Gradually recovering his memories, he discovers that his father Gale was not killed by the Akrid but murdered by NEVEC. He also uncovers the Frontier Project: NEVEC's secret plan to terraform the planet using thermal energy, wiping out the Akrid but condemning every human left on the surface to death. Wayne dismantles the project and kills Commander Isenberg, losing his memories once again in the process. A year later, the planet has already begun its slow transformation into a warmer and more habitable world."
             }
           },
-          { id: "lp2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 12",
+          { id: "lp2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 12", releaseYear: "2010", releaseYearEn: "2010",
             title: { it: "Lost Planet 2", en: "Lost Planet 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%202.jpg",
             synopsis: {
