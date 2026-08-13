@@ -482,25 +482,28 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   });
 
   if(totalPages > 1){
+    const freeScroll = state.timelineScrollMode;
     const pager = document.createElement("div");
-    pager.className = "rail-pager";
+    pager.className = "rail-pager" + (freeScroll ? " rail-pager--edges" : " rail-pager--below");
     if(page > 0){
       const prevPageBtn = document.createElement("button");
       prevPageBtn.type = "button";
-      prevPageBtn.className = "rail-pager__arrow rail-pager__arrow--prev";
+      prevPageBtn.className = "rail-pager__hint rail-pager__hint--prev";
       prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
       prevPageBtn.innerHTML = arrowIcon("left");
       prevPageBtn.addEventListener("click", () => { state.railPage = page - 1; renderGamePanel(); });
       pager.appendChild(prevPageBtn);
     }
-    const pagerLabel = document.createElement("span");
-    pagerLabel.className = "rail-pager__label";
-    pagerLabel.textContent = (page + 1) + " / " + totalPages;
-    pager.appendChild(pagerLabel);
+    if(!freeScroll){
+      const pagerLabel = document.createElement("span");
+      pagerLabel.className = "rail-pager__label";
+      pagerLabel.textContent = (page + 1) + " / " + totalPages;
+      pager.appendChild(pagerLabel);
+    }
     if(page < totalPages - 1){
       const nextPageBtn = document.createElement("button");
       nextPageBtn.type = "button";
-      nextPageBtn.className = "rail-pager__arrow rail-pager__arrow--next";
+      nextPageBtn.className = "rail-pager__hint rail-pager__hint--next";
       nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
       nextPageBtn.innerHTML = arrowIcon("right");
       nextPageBtn.addEventListener("click", () => { state.railPage = page + 1; renderGamePanel(); });

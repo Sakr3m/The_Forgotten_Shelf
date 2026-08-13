@@ -631,6 +631,8 @@ body[data-state="landing"] .index-link{ display:flex; }
 @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
 @keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
 @keyframes swipeHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
+@keyframes railHintLeft{ 0%,100%{ transform:translateY(-50%) translateX(0); opacity:.45; } 50%{ transform:translateY(-50%) translateX(-6px); opacity:1; } }
+@keyframes railHintRight{ 0%,100%{ transform:translateY(-50%) translateX(0); opacity:.45; } 50%{ transform:translateY(-50%) translateX(6px); opacity:1; } }
 @keyframes swipeHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
 
 /* .game-header e' condivisa da PIU' pagine, non solo da Timeline:
@@ -800,7 +802,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   background:var(--panel);
   border-radius:0 var(--radius-sm) var(--radius-sm) 0;
 }
-.universe-stage .u-track{ width:100%; height:100%; display:flex; flex-direction:column; }
+.universe-stage .u-track{ width:100%; height:100%; display:flex; flex-direction:column; position:relative; }
 
 .timeline-viewport{ flex:1; min-height:0; display:flex; align-items:center; }
 
@@ -833,33 +835,43 @@ body[data-state="landing"] .index-link{ display:flex; }
 .carousel-arrow__icon{ width:12px; height:14px; color:var(--cyan); flex-shrink:0; }
 .carousel-arrow__label{ line-height:1.2; }
 
-/* Freccia di paginazione sotto la linea, quando un universo ha piu'
-   di RAIL_PAGE_SIZE voci (18) e la visualizzazione compatta smette
-   di reggerle tutte insieme (vedi Resident Evil, 28 voci). Stessa
-   estetica di .carousel-arrow, solo piu' piccola e centrata sotto
-   la linea invece che ai lati del titolo dell'universo. Compare
-   anche con lo scorrimento libero attivo (il pulsante ↔ in alto),
-   non solo nella modalita' compatta di default. */
-.rail-pager{
+/* Suggerimento di paginazione quando un universo ha piu' di
+   RAIL_PAGE_SIZE voci (18) - stessa estetica di .swipe-hint (freccia
+   nuda animata, non un pulsante pieno), ma cliccabile invece che
+   solo decorativa. Due varianti:
+   --below: visualizzazione compatta, sotto la linea, con "1 / 2" al
+     centro. Il margine (168px) e' il triplo dei 56px usati prima
+     con lo stile a pulsante, su richiesta esplicita.
+   --edges: scorrimento libero attivo, le frecce vanno ai bordi
+     sinistro/destro invece che sotto, senza l'etichetta di pagina. */
+.rail-pager--below{
   display:flex; align-items:center; justify-content:center; gap:14px;
-  margin-top:56px; /* era 18px: con titoli lunghi che vanno a capo sui
-    nodi "down", il pulsante finiva fisicamente coperto e non cliccabile */
-  position:relative; z-index:2;
+  margin-top:168px;
 }
-.rail-pager__arrow{
+.rail-pager--edges{
+  position:absolute; top:50%; left:0; right:0;
+  pointer-events:none; /* solo le singole frecce sono cliccabili, non la fascia intera */
+  z-index:3;
+}
+/* Ognuna ancorata al proprio bordo in modo indipendente, non con
+   flex+space-between: con un solo figlio presente (es. pagina 0,
+   niente freccia indietro) space-between non ha nulla "tra cui"
+   distribuire lo spazio e lascia l'unico figlio a sinistra invece
+   di spingerlo al bordo giusto. */
+.rail-pager__hint--prev{ position:absolute; left:0; top:50%; transform:translateY(-50%); }
+.rail-pager__hint--next{ position:absolute; right:0; top:50%; transform:translateY(-50%); }
+.rail-pager__hint{
   display:flex; align-items:center; justify-content:center;
-  width:32px; height:32px;
-  border:1px solid var(--cyan);
-  border-radius:999px;
-  background:var(--panel);
-  color:var(--cyan);
-  flex-shrink:0;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  color:var(--text-faint);
+  background:none; border:none; padding:6px;
+  pointer-events:auto;
 }
-.rail-pager__arrow:hover, .rail-pager__arrow:focus-visible{
-  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
-}
-.rail-pager__arrow .carousel-arrow__icon{ width:10px; height:12px; color:inherit; }
+.rail-pager__hint .carousel-arrow__icon{ width:14px; height:16px; color:inherit; }
+.rail-pager__hint:hover, .rail-pager__hint:focus-visible{ color:var(--cyan); }
+.rail-pager__hint--prev{ animation:swipeHintLeft 1.6s ease-in-out infinite; }
+.rail-pager__hint--next{ animation:swipeHintRight 1.6s ease-in-out infinite; }
+.rail-pager--edges .rail-pager__hint--prev{ animation:railHintLeft 1.6s ease-in-out infinite; }
+.rail-pager--edges .rail-pager__hint--next{ animation:railHintRight 1.6s ease-in-out infinite; }
 .rail-pager__label{
   font-size:.78rem; font-weight:600; color:var(--text-dim);
   min-width:44px; text-align:center;
