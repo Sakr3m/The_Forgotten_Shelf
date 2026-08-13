@@ -86,8 +86,15 @@
   }
   body[data-state="game"] .discord-link,
   body[data-state="title"] .discord-link{ color:var(--item-accent, var(--cyan)); }
-  body[data-state="game"] .kofi-link svg,
-  body[data-state="title"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  /* Su mobile il cuoricino segue sempre il colore della saga aperta
+     (niente hover reale sul touch): mostro la copia a gradiente,
+     nascondo quella normale. Nella home (stato "landing", non
+     coperto da questo selettore) resta la copia normale, rossa per
+     regola condivisa - invariata. */
+  body[data-state="game"] .kofi-icon--normal,
+  body[data-state="title"] .kofi-icon--normal{ display:none; }
+  body[data-state="game"] .kofi-icon--gradient,
+  body[data-state="title"] .kofi-icon--gradient{ display:block; }
   body[data-state="game"] .social-links,
   body[data-state="title"] .social-links{
     display:flex; align-items:center; gap:8px;
@@ -437,10 +444,14 @@
   body[data-state="title"] .kofi-link__short{ display:inline; }
   body[data-state="game"] .discord-link svg,
   body[data-state="title"] .discord-link svg{ width:15px; height:15px; }
-  body[data-state="game"] .kofi-link svg,
-  body[data-state="title"] .kofi-link svg{ color:var(--text-faint); }
-  body[data-state="game"] .kofi-link:hover svg,
-  body[data-state="title"] .kofi-link:hover svg{ color:var(--cyan); }
+  body[data-state="game"] .kofi-icon--gradient,
+  body[data-state="title"] .kofi-icon--gradient{ display:none; }
+  body[data-state="game"] .kofi-icon--normal,
+  body[data-state="title"] .kofi-icon--normal{ color:var(--text-faint); }
+  body[data-state="game"] .kofi-link:hover .kofi-icon--normal,
+  body[data-state="title"] .kofi-link:hover .kofi-icon--normal{ display:none; }
+  body[data-state="game"] .kofi-link:hover .kofi-icon--gradient,
+  body[data-state="title"] .kofi-link:hover .kofi-icon--gradient{ display:block; }
   body[data-state="game"] .discord-link:hover,
   body[data-state="title"] .discord-link:hover{ color:var(--cyan); }
 }
@@ -495,3 +506,19 @@
 @media (max-width:900px){
   #titleContent .title-like{ margin-top:40px; }
 }
+
+/* L'icona Discord qui usa un riferimento fisso a un gradiente SVG
+   (#accentGradient in questa pagina) al posto di currentColor, quindi
+   l'hover condiviso (styles.css, cambio colore) non ha piu' effetto
+   visibile sul fill. Sostituito con un'attenuazione di opacita', solo
+   qui: sulle altre pagine l'icona resta currentColor e l'hover
+   condiviso funziona come prima, invariato. */
+.discord-link:hover{ opacity:.75; }
+
+/* Cuoricino Ko-fi a due copie sovrapposte (kofi-icon--normal, sempre
+   currentColor come prima; kofi-icon--gradient, fill fisso sul
+   gradiente SVG condiviso): di base solo la normale e' visibile, cosi'
+   la home resta rossa come sempre. Le regole dentro i due @media qui
+   sopra la riaccendono solo per lo stato "game"/"title" (mobile:
+   sempre; desktop: solo in hover), spegnendo la normale al suo posto. */
+.kofi-icon--gradient{ display:none; }

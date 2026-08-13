@@ -397,6 +397,8 @@ function renderSidebar(){
     btn.textContent = tf(g.listTitle);
     btn.classList.toggle("is-active", state.gameId === id);
     btn.style.setProperty("--item-accent", g.accentColor || "#6b7280");
+    const pal = g.palette || DEFAULT_PALETTE;
+    btn.style.setProperty("--item-gradient", `linear-gradient(90deg, ${pal[0]}, ${pal[1]} 55%, ${pal[2]})`);
     btn.addEventListener("click", () => selectGame(id));
     li.appendChild(btn);
     el.gameList.appendChild(li);
