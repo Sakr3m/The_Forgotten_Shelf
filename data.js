@@ -1600,8 +1600,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Wolfenstein", en: "Wolfenstein" },
     blurb: {
-      it: "Una saga che racconta la lotta di B.J. Blazkowicz contro il regime nazista, divisa in tre universi separati e senza continuità tra loro, sviluppati da team diversi nel corso dei decenni. Personaggi ed eventi non si trasferiscono da un universo all'altro, pur condividendo lo stesso pretesto di fondo.",
-      en: "A saga chronicling B.J. Blazkowicz's fight against the Nazi regime, split into three separate universes with no continuity between them, developed by different teams over the decades. Characters and events never carry over from one universe to the next, though all share the same underlying premise."
+      it: "Una saga action-avventura che racconta la lotta di B.J. Blazkowicz e della sua famiglia contro il regime nazista, nella continuità del reboot moderno firmato MachineGames: dall'evasione da una fortezza tedesca nel 1946 fino alla resistenza delle sue figlie gemelle a Parigi, tra tecnologia bellica avanzata e un'occupazione che si protrae ben oltre la fine della Seconda Guerra Mondiale.",
+      en: "An action-adventure saga chronicling B.J. Blazkowicz and his family's fight against the Nazi regime, set within the continuity of the modern MachineGames reboot: from an escape out of a German fortress in 1946 to his twin daughters' resistance in Paris, amid advanced war technology and an occupation that drags on well past the end of the Second World War."
     },
     palette: ["#a3161a", "#355e3b", "#5c6773"],
     accentColor: "#355e3b",
