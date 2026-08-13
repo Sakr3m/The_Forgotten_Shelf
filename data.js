@@ -552,7 +552,7 @@ const GAMES = {
         name: { it: "Universo Erdrick", en: "Erdrick Universe" },
         span: { it: "1986 – 2017", en: "1986 – 2017" },
         entries: [
-          { id: "dq11", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2017",
+          { id: "dq11", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Le origini della leggenda, prima di Dragon Quest III", yearEn: "The origins of the legend, before Dragon Quest III", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Dragon Quest XI: Echi di un'era perduta", en: "Dragon Quest XI: Echoes of an Elusive Age" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20XI.jpg",
             synopsis: {
@@ -560,7 +560,7 @@ const GAMES = {
               en: "The protagonist, a young man from the village of Cobblestone, discovers during his sixteenth birthday ceremony that he is the Luminary — the reincarnation of a legendary hero chosen by the world tree Yggdrasil to protect the world of Erdrea. The king of Heliodor brands him the \"Darkspawn\" and imprisons him, but he escapes and gathers a group of companions. In the course of his quest he reaches Yggdrasil, but the tree is felled by the sorcerer Mordegon, who plunges Erdrea into an age of darkness. The Luminary defeats Mordegon but discovers that the true antagonist is Calasmos — the original Dark One whose servant Mordegon had been. Using the Tower of Lost Time, the Luminary travels back in time to rewrite events and prevent the fall of Yggdrasil. He defeats Calasmos once and for all and receives from Yggdragon — the ancient dragon of light whose essence had given life to the tree — the title of Erdrick, the mightiest of all heroes. \n\nIn the post-credits scene, a mother reads her child the story of the Luminary, in what looks like a clear callback to the beginning of Dragon Quest III."
             }
           },
-          { id: "dq3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1988",
+          { id: "dq3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "L'inizio della leggenda di Erdrick", yearEn: "The beginning of the Erdrick legend", releaseYear: "1988", releaseYearEn: "1988",
             title: { it: "Dragon Quest III: E così entrò nella leggenda", en: "Dragon Quest III: The Seeds of Salvation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20III.jpg",
             synopsis: {
@@ -568,7 +568,7 @@ const GAMES = {
               en: "The protagonist, son or daughter of the legendary warrior Ortega, sets out from the kingdom of Aliahan to complete the mission their father left unfinished: defeating the Archfiend Baramos, who threatens to destroy the world. Gathering a group of companions, they travel the entire world only to discover that Baramos is merely a servant of a far more powerful force: Zoma, the Lord of Darkness who rules an underground realm known as the Dark World. The protagonist descends into it, frees the goddess Rubiss from the Lord of Darkness's imprisonment, and using the Ball of Light gifted by the Dragon Queen, defeats him — bringing light to the kingdom for the first time. However, the rift between the two worlds closes, trapping the protagonist in the Dark World forever. The people of the land, who call their kingdom Alefgard, crown them with the title of Erdrick, the mightiest of all heroes. Erdrick founds a lineage destined to produce the heroes of future generations."
             }
           },
-          { id: "dq1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986",
+          { id: "dq1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Secoli dopo Erdrick", yearEn: "Centuries after Erdrick", releaseYear: "1986", releaseYearEn: "1986",
             title: { it: "Dragon Quest", en: "Dragon Quest" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest.jpg",
             synopsis: {
@@ -576,7 +576,7 @@ const GAMES = {
               en: "Centuries after Erdrick, the kingdom of Alefgard lives in shadow: the Dragonlord has stolen the Ball of Light, plunging the realm into darkness, and kidnapped Princess Gwaelin. King Lorik of Tantegel, with no capable heroes left, summons the direct descendant of Erdrick — a young man without weapons or armour, whose legendary bloodline has been all but forgotten. The protagonist travels across Alefgard collecting Erdrick's weapons and artifacts, including his legendary sword hidden within the Dragonlord's own castle, and rescues the princess. The Dragonlord offers him dominion over half the world in exchange for surrender: the protagonist refuses and defeats him in combat, returning the Ball of Light to Alefgard. He marries Gwaelin and sets out to explore the wider world, founding new kingdoms that will become the heart of the events of Dragon Quest II."
             }
           },
-          { id: "dq2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1987",
+          { id: "dq2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Un secolo dopo Dragon Quest", yearEn: "A century after Dragon Quest", releaseYear: "1987", releaseYearEn: "1987",
             title: { it: "Dragon Quest II: Luminari della leggendaria stirpe", en: "Dragon Quest II: Luminaries of the Legendary Line" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20II.jpg",
             synopsis: {
@@ -591,7 +591,7 @@ const GAMES = {
         name: { it: "Universo Zenithia", en: "Zenithia Universe" },
         span: { it: "1990 – 1995", en: "1990 – 1995" },
         entries: [
-          { id: "dq6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995",
+          { id: "dq6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "La più antica delle tre epoche, separata da millenni dalle altre", yearEn: "The earliest of the three eras, separated by millennia from the others", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Dragon Quest VI: Realms of Revelation", en: "Dragon Quest VI: Realms of Revelation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20VI.jpg",
             synopsis: {
@@ -599,7 +599,7 @@ const GAMES = {
               en: "The protagonist, prince of the kingdom of Somnia, launches an assault on the castle of the Demon King Murdaw alongside his companions Milly and Carver, but is overpowered. He wakes up in the small village of Weaver's Peak with no memories, unaware of his true identity. He soon discovers he can access the Dream World — a parallel dimension invisible to ordinary people — where he and his companions exist as incorporeal presences. Travelling between the two worlds, he gradually recovers his memories by merging with his own physical self in the Real World. The true antagonist is revealed to be Mortamor, the Demon Emperor, who dwells in the Dread Realm — a dark dimension between the two worlds — and seeks to merge them both under his rule. The protagonist and his companions reach the Dread Realm aboard Pegasus and defeat Mortamor. With his death, the Dream World ceases to exist. The ending reveals that the protagonist's weapons will become the legendary Zenithian equipment wielded by the heroes of future generations."
             }
           },
-          { id: "dq4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1990",
+          { id: "dq4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca propria, lontana nel tempo da Dragon Quest VI", yearEn: "Its own era, far removed in time from Dragon Quest VI", releaseYear: "1990", releaseYearEn: "1990",
             title: { it: "Dragon Quest IV: Chapters of the Chosen", en: "Dragon Quest IV: Chapters of the Chosen" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20IV.jpg",
             synopsis: {
@@ -607,7 +607,7 @@ const GAMES = {
               en: "The game is divided into six chapters. The first four each follow one of the Hero's companions separately: the knight Ragnar McRyan, the princess Alena and her two guardians, the merchant Torneko Taloon, and the fortune-teller sisters Maya and Meena. Each of them, through their own journeys, uncovers the conspiracy of Psaro the Manslayer — a being of both human and monster blood who seeks to exterminate the human race using the Secret of Evolution to become the new Ruler of Evil. In the fifth chapter, the Hero — whose hometown is destroyed by Psaro — reunites with all the companions from the previous chapters. Together they defeat Estark, the Ruler of Evil Psaro sought to awaken, and reach Nadiria through the floating castle of Zenithia, where they confront a monstrous, transformed Psaro. In the canonical sixth chapter, the Chosen Ones discover that the true mastermind behind events is Aamon — Psaro's own lieutenant, who had orchestrated the murder of Rosa, Psaro's elven companion, to drive him to madness. By bringing Rosa back to life, the Chosen Ones convince Psaro to join them and defeat Aamon once and for all."
             }
           },
-          { id: "dq5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992",
+          { id: "dq5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca propria, lontana nel tempo dagli altri due capitoli", yearEn: "Its own era, far removed in time from the other two chapters", releaseYear: "1992", releaseYearEn: "1992",
             title: { it: "Dragon Quest V: Hand of the Heavenly Bride", en: "Dragon Quest V: Hand of the Heavenly Bride" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20V.jpg",
             synopsis: {
