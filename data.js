@@ -697,7 +697,7 @@ const GAMES = {
         name: { it: "Universo 3D", en: "3D Universe" },
         span: { it: "1984 – 2001", en: "1984 – 2001" },
         entries: [
-          { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984",
+          { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Vice City Stories", en: "Vice City Stories" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Vice%20City%20Stories.jpg",
             synopsis: {
@@ -705,7 +705,7 @@ const GAMES = {
               en: "Victor Vance, a soldier dishonourably discharged by corrupt Sergeant Martinez, builds a criminal empire in Vice City to pay for his brother Pete's medical bills and support his brother Lance. He enters into conflict with the powerful Mendez Brothers cartel, eliminates both of them along with Martinez, and decides to retire from criminal life. Two years later, having returned to the drug trade with Lance, he is killed in Ricardo Diaz's ambush — the scene that opens Vice City."
             }
           },
-          { id: "vc", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986",
+          { id: "vc", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986", releaseYear: "2002", releaseYearEn: "2002",
             title: { it: "Vice City", en: "Vice City" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Vice%20City.jpg",
             synopsis: {
@@ -713,7 +713,7 @@ const GAMES = {
               en: "Tommy Vercetti arrives in Vice City on behalf of boss Sonny Forelli, walks into an ambush orchestrated by Ricardo Diaz, and loses both the money and the drugs. He builds his own criminal empire from scratch and eliminates Diaz alongside Lance Vance. In the finale, Sonny arrives in Vice City to seize control of Tommy's empire: Lance betrays him by siding with Forelli, but Tommy kills them both. During the confrontation, Sonny confirms that he set Tommy up fifteen years earlier by sending him into an ambush in Harwood. Tommy becomes the undisputed king of Vice City."
             }
           },
-          { id: "sa-intro", type: "CORTOMETRAGGIO", typeEn: "SHORT FILM", year: "1992",
+          { id: "sa-intro", type: "CORTOMETRAGGIO", typeEn: "SHORT FILM", year: "1992", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "Introduzione a San Andreas", en: "Introduction to San Andreas" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20San%20Andreas%20Introduction.jpg",
             synopsis: {
@@ -721,7 +721,7 @@ const GAMES = {
               en: "A 20-minute short film showing the events in the hours before San Andreas begins: the manoeuvres of corrupt officer Tenpenny, who recruits rookie Hernandez and begins orchestrating Big Smoke's betrayal; the decline of Ken Rosenberg, disbarred and in rehab in Las Venturas where he manages the tense relations between Salvatore Leone and the Sindaccos; and the movements of the San Fierro cartel. It closes with Sweet's phone call to CJ announcing their mother's death."
             }
           },
-          { id: "sa", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992",
+          { id: "sa", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "San Andreas", en: "San Andreas" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20San%20Andreas.jpg",
             synopsis: {
@@ -729,7 +729,7 @@ const GAMES = {
               en: "Carl \"CJ\" Johnson returns to Los Santos after years away and is immediately framed by corrupt officer Tenpenny. To survive, he is forced to work for him while trying to rebuild his gang, the Grove Street Families. He discovers that his longtime friend Big Smoke has betrayed the gang by allying with the Ballas and Tenpenny to control the city's drug trade. The story spans three cities and culminates in the Los Santos riots, the death of Big Smoke, and the death of Tenpenny."
             }
           },
-          { id: "lcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1998",
+          { id: "lcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1998", releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Liberty City Stories", en: "Liberty City Stories" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Liberty%20City%20Stories.jpg",
             synopsis: {
@@ -737,7 +737,7 @@ const GAMES = {
               en: "Toni Cipriani returns to Liberty City after four years on the run, having killed a made man on Salvatore Leone's orders. On his return he is demoted because Vincenzo Cilli has taken his place in the Leone hierarchy. Toni works his way back up by eliminating Vincenzo and the rival Sindacco and Forelli families, while the true antagonist turns out to be Massimo Torini of the Sicilian Mafia, who is attempting to seize control of Liberty City. In the finale, Toni and Salvatore foil the Sicilians' plan. The Leone family becomes the dominant force in the city — directly before the events of GTA III."
             }
           },
-          { id: "gta-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2000",
+          { id: "gta-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2000", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "GTA Advance", en: "GTA Advance" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Advance.jpg",
             synopsis: {
@@ -745,7 +745,7 @@ const GAMES = {
               en: "Mike, a small-time criminal in Liberty City, watches his partner Vinnie apparently die in a car explosion just before the two can finally leave the city for good. As he investigates the murder, he uncovers the truth: Vinnie faked his own death to run off with all their savings. Mike tracks him down and kills him. A self-contained story set one year before GTA III."
             }
           },
-          { id: "gta3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2001",
+          { id: "gta3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2001", releaseYear: "2001", releaseYearEn: "2001",
             title: { it: "GTA III", en: "GTA III" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20III.jpg",
             synopsis: {
@@ -760,7 +760,7 @@ const GAMES = {
         name: { it: "Universo HD", en: "HD Universe" },
         span: { it: "dal 2008", en: "since 2008" },
         entries: [
-          { id: "gta4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2008",
+          { id: "gta4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2008", releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "GTA IV", en: "GTA IV" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20IV.jpg",
             synopsis: {
@@ -768,7 +768,7 @@ const GAMES = {
               en: "Niko Bellic arrives in Liberty City to stay with his cousin Roman, seeking revenge for a wartime betrayal that decimated his unit. He works for various criminal families while Dimitri Rascalov repeatedly manipulates and betrays him. In the ending strongly implied to be canonical: Niko kills Dimitri on the Platypus ship, Kate McReary dies in the attack on Roman's wedding orchestrated by Pegorino, and Niko kills Pegorino on Happiness Island.\n\nDLC The Lost and Damned (2008, parallel to GTA IV). Johnny Klebitz tries to hold together the Lost MC motorcycle gang while president Billy Grey — fresh out of rehab — drags it into war with the Triads. The gang gradually falls apart: Johnny ends up killing Billy and watches everything he fought for crumble.\n\nDLC The Ballad of Gay Tony (2008, parallel to GTA IV). Luis Lopez, bodyguard to nightclub owner \"Gay Tony\" Prince, navigates between loan sharks, Russian gangsters, and Liberty City's corrupt elite. His finale overlaps exactly with that of GTA IV — Ray Bulgarin's plane is visible in the final scene."
             }
           },
-          { id: "ctw", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2009",
+          { id: "ctw", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2009", releaseYear: "2009", releaseYearEn: "2009",
             title: { it: "Chinatown Wars", en: "Chinatown Wars" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Chinatown%20Wars.jpg",
             synopsis: {
@@ -776,7 +776,7 @@ const GAMES = {
               en: "Huang Lee arrives in Liberty City to deliver the ancestral sword Yu Jian to his uncle Wu \"Kenny\" Lee as a symbol of succession to the leadership of the Triads. He is immediately ambushed, left for dead, and the sword stolen. As he investigates the internal corruption, he uncovers the truth: it was Kenny himself who orchestrated the theft and had Huang's father murdered in order to seize control of the Triads alone. Huang kills Kenny and is offered the position of new Triad boss by the outgoing leader Hsin."
             }
           },
-          { id: "gta5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
+          { id: "gta5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "GTA V", en: "GTA V" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20V.jpg",
             synopsis: {
