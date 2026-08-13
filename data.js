@@ -640,7 +640,7 @@ const GAMES = {
         name: { it: "Universo Harran", en: "Harran Universe" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
         entries: [
-          { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015",
+          { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Dying Light", en: "Dying Light" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light.jpg",
             synopsis: {
@@ -648,7 +648,7 @@ const GAMES = {
               en: "Kyle Crane, a GRE agent, is airdropped into the quarantined city of Harran to recover a stolen file from Kadir Suleiman, known as Rais — a former military colonel who uses it as leverage to negotiate his own extraction from the city. The file contains evidence of the GRE's plan to weaponize a virus as a biological weapon. Crane betrays the organisation and chooses to stay with the survivors, working alongside local researchers Dr. Zere and Dr. Camden in an attempt to develop a cure. He also discovers that the Ministry of Defence intends to firebomb Harran, claiming there are no survivors: he reactivates a radio tower and alerts the outside world to their existence, preventing the bombing. When Rais kills Dr. Zere before he can deliver his research, Crane ensures it reaches Dr. Camden regardless. He then confronts Rais — whose hand he had already cut off during a previous escape — and kills him.\nIn the DLC The Following, the cure proves elusive and Antizin supplies run out. Crane ventures into the countryside outside Harran in search of a cure, discovering a cult that worships a creature called the Mother — a human-Volatile hybrid.\nCanonical ending: Crane defeats the Mother but is forced to drink a serum that transforms him into a sentient Volatile. He escapes the quarantine zone, unknowingly spreading the virus to the rest of the world."
             }
           },
-          { id: "banshee-comic", type: "FUMETTO", typeEn: "COMIC", year: "~2021",
+          { id: "banshee-comic", type: "FUMETTO", typeEn: "COMIC", year: "~2021", releaseYear: "2021", releaseYearEn: "2021",
             title: { it: "Banshee: I Am The Cure", en: "Banshee: I Am The Cure" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Banshee%20I%20Am%20The%20Cure.jpg",
             synopsis: {
@@ -656,7 +656,7 @@ const GAMES = {
               en: "Free digital comic released by Techland in collaboration with Dynamite Entertainment. It follows a doctor working on a vaccine against the THV — the mutated variant of the Harran Virus secretly developed by the GRE for military purposes, which escaped from a laboratory in Geneva in 2021. It depicts the events of the Fall: the global collapse of civilisation caused by the spread of the THV, including the Black Monday bombings over Villedor that wipe out half the city's population. The doctor is infected and transforms into a Banshee, a new type of infected present in DL2. A narrative bridge between DL1 and DL2."
             }
           },
-          { id: "dying-light-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2036",
+          { id: "dying-light-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2036", releaseYear: "2022", releaseYearEn: "2022",
             title: { it: "Dying Light 2: Stay Human", en: "Dying Light 2: Stay Human" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%202.jpg",
             synopsis: {
@@ -664,7 +664,7 @@ const GAMES = {
               en: "Fifteen years after the Fall, civilisation has been reduced to a handful of scattered settlements. Aiden Caldwell — a nomadic Pilgrim and sentient Volatile hybrid, the result of GRE experiments he was subjected to as a child — reaches Villedor, the last major city still standing, in search of his sister Mia. The main antagonist is Waltz, the GRE scientist who used them as test subjects and who now wants to reactivate an emergency protocol that would trigger missile strikes on Villedor. Aiden moves between the civil war between the Peacekeepers and the Bazaar Survivors while confronting his past and attempting to stop Waltz. Crane is mentioned by various characters as a legendary figure from the past."
             }
           },
-          { id: "dying-light-beast", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "~13 anni dopo The Following", yearEn: "~13 years after The Following",
+          { id: "dying-light-beast", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Subito dopo Dying Light 2 (dopo 13 anni di prigionia di Crane)", yearEn: "Right after Dying Light 2 (following Crane's 13 years in captivity)", releaseYear: "2025", releaseYearEn: "2025",
             title: { it: "Dying Light: The Beast", en: "Dying Light: The Beast" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20The%20Beast.jpg",
             synopsis: {
