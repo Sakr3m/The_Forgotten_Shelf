@@ -160,6 +160,7 @@ const GAMES = {
         span: { it: "1024 – 2036", en: "1024 – 2036" },
         entries: [
           { id: "lament-of-innocence", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1094",
+            releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Lament of Innocence", en: "Lament of Innocence" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Lament%20of%20Innocence.jpg",
             synopsis: {
@@ -168,6 +169,7 @@ const GAMES = {
             }
           },
           { id: "draculas-curse", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476",
+            releaseYear: "1989", releaseYearEn: "1989",
             title: { it: "Dracula's Curse", en: "Dracula's Curse" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20III%20Dracula%27s%20Curse.jpg",
             synopsis: {
@@ -176,6 +178,7 @@ const GAMES = {
             }
           },
           { id: "curse-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1479",
+            releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Curse of Darkness", en: "Curse of Darkness" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Curse%20of%20Darkness.jpg",
             synopsis: {
@@ -184,6 +187,7 @@ const GAMES = {
             }
           },
           { id: "the-adventure", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1576",
+            releaseYear: "1989", releaseYearEn: "1989",
             title: { it: "The Adventure", en: "The Adventure" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20The%20Adventure.jpg",
             synopsis: {
@@ -192,6 +196,7 @@ const GAMES = {
             }
           },
           { id: "belmonts-revenge", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1591",
+            releaseYear: "1991", releaseYearEn: "1991",
             title: { it: "Belmont's Revenge", en: "Belmont's Revenge" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20II%20Belmont%27s%20Revenge.jpg",
             synopsis: {
@@ -200,6 +205,7 @@ const GAMES = {
             }
           },
           { id: "castlevania-1691", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1691",
+            releaseYear: "1986", releaseYearEn: "1986",
             title: { it: "Castlevania", en: "Castlevania" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania.jpg",
             synopsis: {
@@ -208,6 +214,7 @@ const GAMES = {
             }
           },
           { id: "simons-quest", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1698",
+            releaseYear: "1988", releaseYearEn: "1988",
             title: { it: "Simon's Quest", en: "Simon's Quest" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20II%20Simon%27s%20Quest.jpg",
             synopsis: {
@@ -216,6 +223,7 @@ const GAMES = {
             }
           },
           { id: "harmony-of-dissonance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1748",
+            releaseYear: "2002", releaseYearEn: "2002",
             title: { it: "Harmony of Dissonance", en: "Harmony of Dissonance" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Harmony%20of%20Dissonance.jpg",
             synopsis: {
@@ -224,6 +232,7 @@ const GAMES = {
             }
           },
           { id: "rondo-of-blood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1792",
+            releaseYear: "1993", releaseYearEn: "1993",
             title: { it: "Rondo of Blood", en: "Rondo of Blood" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Rondo%20of%20Blood.jpg",
             synopsis: {
@@ -232,6 +241,7 @@ const GAMES = {
             }
           },
           { id: "symphony-of-the-night", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1797",
+            releaseYear: "1997", releaseYearEn: "1997",
             title: { it: "Symphony of the Night", en: "Symphony of the Night" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Symphony%20of%20the%20Night.jpg",
             note: { it: "Uno dei titoli più celebrati della saga e padre del genere Metroidvania.", en: "One of the most celebrated titles in the franchise and the defining game of the Metroidvania genre." },
@@ -241,6 +251,7 @@ const GAMES = {
             }
           },
           { id: "order-of-ecclesia", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "18XX",
+            releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "Order of Ecclesia", en: "Order of Ecclesia" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Order%20of%20Ecclesia.jpg",
             synopsis: {
@@ -249,6 +260,7 @@ const GAMES = {
             }
           },
           { id: "bloodlines", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1917",
+            releaseYear: "1994", releaseYearEn: "1994",
             title: { it: "Bloodlines", en: "Bloodlines" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Bloodlines.jpg",
             note: { it: "Epilogo amaro: poiché John non è un Belmont puro, la Vampire Killer ha drenato la sua energia vitale durante il combattimento. Non si riprenderà mai completamente dalle ferite e morirà prima del 1944.", en: "Bitter epilogue: since John is not a pure Belmont, the Vampire Killer drained his life force during the battle. He never fully recovers from his wounds and dies before 1944." },
@@ -258,6 +270,7 @@ const GAMES = {
             }
           },
           { id: "portrait-of-ruin", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1944",
+            releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Portrait of Ruin", en: "Portrait of Ruin" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Portrait%20of%20Ruin.jpg",
             synopsis: {
@@ -274,6 +287,7 @@ const GAMES = {
             }
           },
           { id: "aria-of-sorrow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2035",
+            releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Aria of Sorrow", en: "Aria of Sorrow" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Aria%20of%20Sorrow.jpg",
             synopsis: {
@@ -282,6 +296,7 @@ const GAMES = {
             }
           },
           { id: "dawn-of-sorrow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2036",
+            releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Dawn of Sorrow", en: "Dawn of Sorrow" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Dawn%20of%20Sorrow.jpg",
             synopsis: {
@@ -297,6 +312,7 @@ const GAMES = {
         span: { it: "1047 – Epoca Moderna", en: "1047 – Modern Era" },
         entries: [
           { id: "lords-of-shadow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1047",
+            releaseYear: "2010", releaseYearEn: "2010",
             title: { it: "Lords of Shadow", en: "Lords of Shadow" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Lords%20of%20Shadow.jpg",
             synopsis: {
@@ -305,6 +321,7 @@ const GAMES = {
             }
           },
           { id: "mirror-of-fate", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1073 e 1103", yearEn: "1073 and 1103",
+            releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Mirror of Fate", en: "Mirror of Fate" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Lords%20of%20Shadow%20%E2%80%93%20Mirror%20of%20Fate.jpg",
             synopsis: {
@@ -313,6 +330,7 @@ const GAMES = {
             }
           },
           { id: "lords-of-shadow-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca Moderna", yearEn: "Modern Era",
+            releaseYear: "2014", releaseYearEn: "2014",
             title: { it: "Lords of Shadow 2", en: "Lords of Shadow 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Lords%20of%20Shadow%202.jpg",
             synopsis: {
