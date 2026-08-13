@@ -111,6 +111,7 @@ const el = {
   trackTitle: document.getElementById("trackTitle"),
   trackGame: document.getElementById("trackGame"),
   trackSkipBtn: document.getElementById("trackSkipBtn"),
+  trackPersistBtn: document.getElementById("trackPersistBtn"),
   trackProgressFill: document.getElementById("trackProgressFill"),
   volumeSlider: document.getElementById("volumeSlider"),
   gameList: document.getElementById("gameList"),
@@ -1083,6 +1084,9 @@ function setState(view){
 }
 
 function selectGame(id){
+  resumedPersistedTrack = false; // scelta esplicita di un gioco: la
+    // traccia ripresa da un'altra pagina lascia il posto alla scaletta
+    // normale di questo, come ci si aspetta cliccando in giro
   if(state.gameId !== id) state.trackIndex = 0;
   state.gameId = id;
   state.universeIndex = 0;
@@ -1137,6 +1141,9 @@ function getTrackList(g){
 }
 
 function updateMusicPlayback(){
+  if(resumedPersistedTrack) return; // traccia ripresa da un'altra pagina:
+    // resta cosi' finche' l'utente non sceglie esplicitamente un gioco
+    // (selectGame azzera il flag), non la tocca la logica normale qui sotto.
   const g = currentGame();
   const inGamePages = state.view === "game" || state.view === "title";
   el.musicToggle.hidden = !inGamePages;
@@ -1188,13 +1195,68 @@ el.bgMusic.addEventListener("loadedmetadata", () => {
 el.trackSkipBtn.addEventListener("click", advanceTrack);
 
 // ---------------------------------------------------------
-// Standby/scheda non in primo piano: la musica va sempre in pausa
-// (non solo mobile — vale anche cambiando scheda su desktop).
-// Niente ripresa automatica al ritorno.
+// Ascolto persistente (pulsante a puntina in track-info, dal lato
+// opposto del salta-traccia): quando attivo, la traccia in corso
+// continua anche cambiando pagina del sito (sito multi-pagina, non
+// un'app singola: il caricamento della pagina nuova comunque azzera
+// tutto, ma qui la si fa ripartire subito dallo stesso punto, un
+// piccolo vuoto di silenzio nel mezzo e' inevitabile) e non si mette
+// piu' in pausa mettendo la scheda in background.
+// ---------------------------------------------------------
+const MUSIC_PERSIST_KEY = "tfsMusicPersistOn";
+const MUSIC_STATE_KEY = "tfsMusicPersistState";
+
+function isMusicPersistOn(){
+  return localStorage.getItem(MUSIC_PERSIST_KEY) === "1";
+}
+
+function saveMusicPersistState(){
+  if(!isMusicPersistOn() || !el.bgMusic.src || el.bgMusic.paused) return;
+  try {
+    localStorage.setItem(MUSIC_STATE_KEY, JSON.stringify({
+      src: el.bgMusic.src,
+      title: el.trackTitle.textContent,
+      game: el.trackGame.textContent,
+      time: el.bgMusic.currentTime
+    }));
+  } catch(e) { /* storage pieno o bloccato dal browser, pazienza */ }
+}
+
+let resumedPersistedTrack = false;
+
+if(el.trackPersistBtn){
+  el.trackPersistBtn.setAttribute("aria-pressed", String(isMusicPersistOn()));
+  el.trackPersistBtn.addEventListener("click", () => {
+    const next = !isMusicPersistOn();
+    localStorage.setItem(MUSIC_PERSIST_KEY, next ? "1" : "0");
+    el.trackPersistBtn.setAttribute("aria-pressed", String(next));
+    if(next) saveMusicPersistState();
+    else localStorage.removeItem(MUSIC_STATE_KEY);
+  });
+}
+
+// Salvataggio periodico della posizione (non ad ogni istante: timeupdate
+// spara diverse volte al secondo, qui basta ogni 2s), piu' un salvataggio
+// finale quando la pagina sta per essere lasciata/ricaricata.
+let lastPersistSave = 0;
+el.bgMusic.addEventListener("timeupdate", () => {
+  const now = Date.now();
+  if(now - lastPersistSave > 2000){
+    lastPersistSave = now;
+    saveMusicPersistState();
+  }
+});
+window.addEventListener("pagehide", saveMusicPersistState);
+
+// ---------------------------------------------------------
+// Standby/scheda non in primo piano: la musica si mette in pausa,
+// tranne quando l'ascolto persistente e' attivo (in quel caso resta
+// in riproduzione, e' proprio lo scopo del pulsante).
 // ---------------------------------------------------------
 let musicWasPlayingBeforeHidden = false;
 document.addEventListener("visibilitychange", () => {
   if(document.hidden){
+    if(isMusicPersistOn()) return;
     musicWasPlayingBeforeHidden = !el.bgMusic.paused;
     el.bgMusic.pause();
   } else if(musicWasPlayingBeforeHidden){
@@ -1310,6 +1372,26 @@ buildAllCanonPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
+
+// Ripresa dell'ascolto persistente: solo se l'interruttore era attivo
+// e c'e' uno stato salvato da un'altra pagina. Scavalca la selezione
+// normale del gioco (che qui non esiste ancora, la pagina si e' appena
+// caricata) mostrando titolo/gioco salvati cosi' come sono; niente
+// pulsante salta, non c'e' una scaletta nota in questo contesto.
+(function resumePersistedMusic(){
+  if(!isMusicPersistOn()) return;
+  let saved;
+  try { saved = JSON.parse(localStorage.getItem(MUSIC_STATE_KEY)); } catch(e) { return; }
+  if(!saved || !saved.src) return;
+  resumedPersistedTrack = true;
+  el.bgMusic.src = saved.src;
+  el.bgMusic.currentTime = saved.time || 0;
+  el.trackInfo.hidden = false;
+  el.trackTitle.textContent = saved.title || "";
+  el.trackGame.textContent = saved.game || "";
+  el.trackSkipBtn.hidden = true;
+  el.bgMusic.play().catch(() => {});
+})();
 
 // ---------------------------------------------------------
 // "Torna all'index" naviga verso index.html: senza un piccolo

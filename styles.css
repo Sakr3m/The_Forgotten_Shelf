@@ -216,6 +216,22 @@ body[data-state="landing"] .brand{ display:none; }
 }
 .track-skip:hover{ border-color:var(--cyan); color:var(--cyan); }
 .track-skip svg{ width:11px; height:11px; }
+
+/* Stesso stile del salta-traccia, dal lato opposto: quando attivo
+   (l'ascolto continua cambiando pagina o mettendo la scheda in
+   background) resta acceso col colore dell'accento anche senza
+   passarci sopra col mouse, cosi' si vede a colpo d'occhio che e'
+   inserito anche tornando sulla pagina piu' tardi. */
+.track-persist{
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  width:26px; height:26px; border-radius:50%;
+  border:1px solid var(--cyan); background:var(--bg-soft);
+  color:var(--text-faint);
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.track-persist:hover{ border-color:var(--cyan); color:var(--cyan); }
+.track-persist svg{ width:11px; height:11px; }
+.track-persist[aria-pressed="true"]{ color:var(--cyan); }
 .track-progress{
   width:100%; height:3px;
   background:var(--line);
