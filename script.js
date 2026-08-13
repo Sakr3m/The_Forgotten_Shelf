@@ -486,32 +486,54 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   });
 
   if(totalPages > 1){
+    const freeScroll = state.timelineScrollMode;
+    const canPrev = page > 0;
+    const canNext = page < totalPages - 1;
     const pager = document.createElement("div");
     pager.className = "rail-pager";
 
-    const prevPageBtn = document.createElement("button");
-    prevPageBtn.type = "button";
-    prevPageBtn.className = "rail-pager__hint rail-pager__hint--prev";
-    prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
-    prevPageBtn.innerHTML = arrowIcon("left");
-    if(page > 0){
-      prevPageBtn.addEventListener("click", () => { state.railPage = page - 1; renderGamePanel(); });
-    } else {
-      prevPageBtn.disabled = true;
-    }
-    pager.appendChild(prevPageBtn);
+    if(freeScroll){
+      // Scorrimento libero: solo freccette animate, decorative, non
+      // cliccabili - segnalano che la riga si trascina, non cambiano pagina.
+      const prevHint = document.createElement("span");
+      prevHint.className = "rail-pager__hint rail-pager__hint--prev rail-pager__hint--drag" + (canPrev ? "" : " is-hidden");
+      prevHint.setAttribute("aria-hidden", "true");
+      prevHint.innerHTML = arrowIcon("left");
+      pager.appendChild(prevHint);
 
-    const nextPageBtn = document.createElement("button");
-    nextPageBtn.type = "button";
-    nextPageBtn.className = "rail-pager__hint rail-pager__hint--next";
-    nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
-    nextPageBtn.innerHTML = arrowIcon("right");
-    if(page < totalPages - 1){
-      nextPageBtn.addEventListener("click", () => { state.railPage = page + 1; renderGamePanel(); });
+      const nextHint = document.createElement("span");
+      nextHint.className = "rail-pager__hint rail-pager__hint--next rail-pager__hint--drag" + (canNext ? "" : " is-hidden");
+      nextHint.setAttribute("aria-hidden", "true");
+      nextHint.innerHTML = arrowIcon("right");
+      pager.appendChild(nextHint);
     } else {
-      nextPageBtn.disabled = true;
+      // Visualizzazione compatta: pulsanti veri, bordati, statici, che
+      // cambiano davvero pagina. Disattivati (non assenti) quando non
+      // si puo' andare oltre in quella direzione.
+      const prevPageBtn = document.createElement("button");
+      prevPageBtn.type = "button";
+      prevPageBtn.className = "rail-pager__hint rail-pager__hint--prev rail-pager__hint--button";
+      prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
+      prevPageBtn.innerHTML = arrowIcon("left");
+      if(canPrev){
+        prevPageBtn.addEventListener("click", () => { state.railPage = page - 1; renderGamePanel(); });
+      } else {
+        prevPageBtn.disabled = true;
+      }
+      pager.appendChild(prevPageBtn);
+
+      const nextPageBtn = document.createElement("button");
+      nextPageBtn.type = "button";
+      nextPageBtn.className = "rail-pager__hint rail-pager__hint--next rail-pager__hint--button";
+      nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
+      nextPageBtn.innerHTML = arrowIcon("right");
+      if(canNext){
+        nextPageBtn.addEventListener("click", () => { state.railPage = page + 1; renderGamePanel(); });
+      } else {
+        nextPageBtn.disabled = true;
+      }
+      pager.appendChild(nextPageBtn);
     }
-    pager.appendChild(nextPageBtn);
 
     track.querySelector(".timeline-viewport").appendChild(pager);
   }
