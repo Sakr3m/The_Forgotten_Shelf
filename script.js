@@ -19,7 +19,6 @@ const STRINGS = {
     backToGamePrefix: "Torna a",
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
     canonNoTimelineLabel: "Nessuna timeline ufficiale",
-    timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale",
     factReleaseDate: "Uscita",
     titleDateSetting: "Ambientato",
     leaveALike: "Lascia un like",
@@ -57,7 +56,6 @@ const STRINGS = {
     backToGamePrefix: "Back to",
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
     canonNoTimelineLabel: "No official timeline",
-    timelineScrollToggle: "Toggle timeline scrolling",
     factReleaseDate: "Released",
     titleDateSetting: "Set in",
     leaveALike: "Leave a like",
@@ -88,10 +86,7 @@ const state = {
   universeIndex: 0,
   entryId: null,
   musicOn: true,
-  trackIndex: 0,
-  timelineScrollMode: false,  // PC only, solo universi con 10 voci o meno:
-    // off = adatta tutto allo schermo, on = trascinamento libero. Sopra le
-    // 10 voci il trascinamento e' sempre imposto, l'interruttore sparisce.
+  trackIndex: 0
 };
 
 const LARGE_UNIVERSE_THRESHOLD = 10; // sopra questa soglia di voci per
@@ -123,6 +118,8 @@ const el = {
   gamePanel: document.getElementById("gamePanel"),
   gameHeader: document.getElementById("gameHeader"),
   universesRow: document.getElementById("universesRow"),
+  dragHintLeft: document.getElementById("dragHintLeft"),
+  dragHintRight: document.getElementById("dragHintRight"),
   canonPages: document.getElementById("canonPages"),
   titlePanel: document.getElementById("titlePanel"),
   titleContent: document.getElementById("titleContent"),
@@ -660,33 +657,11 @@ function renderGamePanel(){
 
   const isLargeUniverse = uni.entries.length > LARGE_UNIVERSE_THRESHOLD;
 
-  let scrollToggle = null;
-  if(!isLargeUniverse){
-    scrollToggle = document.createElement("button");
-    scrollToggle.type = "button";
-    scrollToggle.className = "timeline-scroll-toggle";
-    scrollToggle.setAttribute("aria-pressed", String(state.timelineScrollMode));
-    scrollToggle.setAttribute("aria-label", t("timelineScrollToggle"));
-    scrollToggle.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h16M2 10l4-4M2 10l4 4M18 10l-4-4M18 10l-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-    scrollToggle.addEventListener("click", () => {
-      state.timelineScrollMode = !state.timelineScrollMode;
-      renderGamePanel();
-    });
-    el.universesRow.appendChild(scrollToggle);
-  }
-
-  // Verticale: stessa altezza della riga del carosello universi
-  // (.u-track__head), misurata a runtime così resta corretta anche
-  // per i giochi a universo singolo, dove le frecce non esistono.
-  // L'orizzontale è fisso via CSS (right:100px, vedi styles.css).
-  const panelRect = el.gamePanel.getBoundingClientRect();
-  const trackHead = el.universesRow.querySelector(".u-track__head");
-  const headRect = trackHead ? trackHead.getBoundingClientRect() : panelRect;
-  const headCenterY = (headRect.top + headRect.bottom) / 2;
-  if(scrollToggle){
-    scrollToggle.style.top = (headCenterY - panelRect.top).toFixed(2) + "px";
-    scrollToggle.style.transform = "translateY(-50%)";
-  }
+  // Le due freccette animate e non cliccabili (solo un promemoria visivo
+  // che la riga si trascina) vivono fisse nell'HTML, non ricreate ad ogni
+  // render: qui si mostrano o nascondono in base alla soglia.
+  if(el.dragHintLeft) el.dragHintLeft.hidden = !isLargeUniverse;
+  if(el.dragHintRight) el.dragHintRight.hidden = !isLargeUniverse;
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
@@ -782,19 +757,16 @@ function renderGamePanel(){
     const naturalWidth = liveTimeline.clientWidth;
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
-    // PC-only manual switch (button above, solo se l'universo ha 10 voci o
-    // meno): OFF (default) keeps the line at exactly the same length as
-    // every other timeline (the full 42px-ruled width, no cut) — the dots
-    // are never artificially moved to make this true, they're anchored to
-    // their own real rendered position below, so this can never leave them
-    // misaligned with the line. ON drops the width constraint entirely,
-    // letting the row grow to its natural size and switches on
-    // drag-to-scroll for whatever doesn't fit. Sopra le 10 voci, il
-    // trascinamento e' sempre imposto (isLargeUniverse), l'interruttore
-    // sparisce del tutto - oltre a essere l'unico modo sensato di vedere
-    // tante voci, cosi' il gradiente colore dei pallini copre sempre
-    // l'intero universo su un'unica striscia, mai spezzato a meta'.
-    const freeScrollMode = isLargeUniverse || state.timelineScrollMode;
+    // Fino a 10 voci: la linea resta sempre alla stessa lunghezza di ogni
+    // altra timeline (i 42px di regola, senza tagli) - i pallini non sono
+    // mai spostati artificialmente, sono ancorati alla loro posizione
+    // vera renderizzata sotto, quindi non possono mai disallinearsi dalla
+    // riga. Sopra le 10 voci: niente vincolo di larghezza, la riga cresce
+    // alla sua dimensione naturale e si trascina per vedere il resto -
+    // sempre, senza eccezioni, anche perche' cosi' il gradiente colore dei
+    // pallini copre sempre l'intero universo su un'unica striscia, mai
+    // spezzato a meta'.
+    const freeScrollMode = isLargeUniverse;
 
     const nodes = Array.from(liveTimeline.querySelectorAll(".h-node"));
     if(freeScrollMode){

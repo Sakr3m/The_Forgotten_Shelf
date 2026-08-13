@@ -733,31 +733,6 @@ body[data-state="landing"] .index-link{ display:flex; }
    anche la timeline "troppo in su/schiacciata"). */
 .canon-pages:not([hidden]){ display:flex; justify-content:flex-start; align-items:flex-start; flex:1; min-height:0; }
 
-/* Manual scroll toggle for the horizontal timeline: PC only (hidden on
-   mobile, where the timeline already behaves differently). Sits below the
-   game avatar/header, within the timeline area itself, not in the top
-   controls bar. Off by default: the line tries to fit every entry on
-   screen; on, it switches to free/dynamic spacing with drag-to-scroll. */
-/* La posizione verticale (top) viene calcolata a runtime in
-   script.js (buildUniverseTrack), alla stessa altezza della riga
-   del carosello universi — così resta allineato anche quando quella
-   riga non è alta sempre uguale (es. giochi a universo singolo).
-   L'orizzontale invece è un valore fisso qui: 100px dal bordo destro
-   di game-panel, lo stesso riquadro usato da game-header, così è
-   sempre calcolabile senza bisogno di misurare nient'altro. */
-.timeline-scroll-toggle{
-  position:absolute; right:100px; z-index:3;
-  display:flex; align-items:center; justify-content:center;
-  width:36px; height:36px; border-radius:50%;
-  border:1px solid var(--cyan); background:var(--panel); color:var(--text-dim);
-  cursor:pointer;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.timeline-scroll-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim)); }
-.timeline-scroll-toggle[aria-pressed="true"]{ color:var(--cyan); }
-.timeline-scroll-toggle svg{ width:16px; height:16px; }
-@media (max-width:900px){ .timeline-scroll-toggle{ display:none; } }
-
 .h-timeline.is-scrollable{ cursor:grab; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }

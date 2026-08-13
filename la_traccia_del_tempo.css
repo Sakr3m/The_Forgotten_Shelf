@@ -495,3 +495,30 @@
 @media (max-width:900px){
   #titleContent .title-like{ margin-top:40px; }
 }
+
+/* Le due freccette animate (non cliccabili, solo un promemoria che la
+   riga si trascina): compaiono solo quando l'universo aperto supera la
+   soglia (LARGE_UNIVERSE_THRESHOLD in script.js, mostrate/nascoste da
+   li'), sempre in alto, ferme sullo schermo. Sinistra alla stessa
+   distanza dal bordo della riga del gioco selezionato nella barra
+   laterale (16px, il padding orizzontale di .sidebar); destra alla
+   stessa distanza dal bordo destro di .stage-controls (40px, dove
+   vivono Ko-fi/Discord/selettore lingua) — stessa altezza di entrambi
+   (15px, il loro stesso top). Solo desktop: su mobile la riga e' gia'
+   verticale con scroll naturale, non serve nessun promemoria. */
+.drag-hint{
+  display:none;
+  position:fixed; top:15px; z-index:6;
+  align-items:center; justify-content:center;
+  width:20px; height:20px;
+  color:var(--text-faint);
+  pointer-events:none;
+}
+.drag-hint svg{ width:14px; height:16px; }
+@media (min-width:901px){
+  .drag-hint:not([hidden]){ display:flex; }
+}
+.drag-hint--left{ left:16px; animation:dragHintLeft 1.6s ease-in-out infinite; }
+.drag-hint--right{ right:40px; animation:dragHintRight 1.6s ease-in-out infinite; }
+@keyframes dragHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
+@keyframes dragHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
