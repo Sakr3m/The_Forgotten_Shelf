@@ -499,18 +499,23 @@
 /* Le due freccette animate (non cliccabili, solo un promemoria che la
    riga si trascina): compaiono solo quando l'universo aperto supera la
    soglia (LARGE_UNIVERSE_THRESHOLD in script.js, mostrate/nascoste da
-   li'), sempre in alto, ferme sullo schermo. Sinistra alla stessa
+   li'), ferme sullo schermo. Orizzontalmente: sinistra alla stessa
    distanza dal bordo della riga del gioco selezionato nella barra
    laterale (16px, il padding orizzontale di .sidebar); destra alla
    stessa distanza dal bordo destro di .stage-controls (40px, dove
-   vivono Ko-fi/Discord/selettore lingua) — stessa altezza di entrambi
-   (15px, il loro stesso top). Solo desktop: su mobile la riga e' gia'
-   verticale con scroll naturale, non serve nessun promemoria. */
+   vivono Ko-fi/Discord/selettore lingua). Verticalmente: centrate sulla
+   riga vera dei pallini, non un valore fisso — calcolato a runtime in
+   script.js (renderGamePanel) misurando il primo e l'ultimo pallino
+   renderizzato, cosi' resta corretto anche quando le voci sopra/sotto
+   la linea cambiano l'altezza complessiva della riga. Solo desktop: su
+   mobile la riga e' gia' verticale con scroll naturale, non serve
+   nessun promemoria. */
 .drag-hint{
   display:none;
-  position:fixed; top:15px; z-index:6;
+  position:fixed; z-index:6;
   align-items:center; justify-content:center;
   width:20px; height:20px;
+  margin-top:-10px; /* meta' dell'altezza, per centrare sul top calcolato */
   color:var(--text-faint);
   pointer-events:none;
 }

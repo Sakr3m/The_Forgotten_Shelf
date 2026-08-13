@@ -844,6 +844,16 @@ function renderGamePanel(){
       const lineRight = (lastDot.left + lastDot.right) / 2 - timelineRect.left;
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
+
+      // Le freccette (fisse, left/right gia' allineati a barra
+      // laterale/selettore lingua via CSS) vanno centrate verticalmente
+      // sulla riga vera, non su un valore fisso: un universo a due righe
+      // di titoli sopra/sotto ha un centro diverso da uno a una riga sola.
+      if(isLargeUniverse){
+        const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
+        if(el.dragHintLeft) el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
+        if(el.dragHintRight) el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
+      }
     }
   }
 }
