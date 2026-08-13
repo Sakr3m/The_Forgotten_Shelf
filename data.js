@@ -374,14 +374,14 @@ const GAMES = {
         name: { it: "Universo Limbo City", en: "Limbo City Universe" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
         entries: [
-          { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "—", noAvatar: true,
+          { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "2000 anni fa", yearEn: "2,000 years ago", noAvatar: true,
             title: { it: "La Leggenda di Sparda", en: "The Legend of Sparda" },
             synopsis: {
               it: "Duemila anni fa, il cavaliere demoniaco Sparda si ribellò al re dell'Inferno Mundus per proteggere il mondo umano. Sconfitto Mundus e le sue legioni, sigillò la Temen-ni-gru, il portale principale tra il mondo umano e il mondo dei demoni, usando il proprio sangue, quello di una sacerdotessa umana, un amuleto mistico e la propria spada come chiave del sigillo. Il rituale lo privò di gran parte del suo potere demoniaco. In seguito visse tra gli umani, regnando pacificamente per un periodo, poi conobbe una donna di nome Eva e con lei ebbe due figli gemelli, Dante e Vergil. Sparda scomparve in circostanze ignote, lasciando Eva sola con i ragazzi. Poco prima del loro ottavo compleanno, i demoni di Mundus attaccarono la famiglia, uccisero Eva e separarono i due gemelli, ognuno convinto che l'altro fosse morto. Da quel momento i due intrapresero strade opposte.",
               en: "Two thousand years ago, the demonic knight Sparda rebelled against the lord of Hell, Mundus, to protect the human world. Having defeated Mundus and his legions, he sealed the Temen-ni-gru — the primary portal between the human world and the demon world — using his own blood, that of a human priestess, a mystical amulet, and his very sword as the seal's key. The ritual stripped him of much of his demonic power. He went on to live among humans, reigning peacefully for a time, before meeting a woman named Eva and fathering twin sons with her: Dante and Vergil. Sparda vanished under unknown circumstances, leaving Eva alone with the boys. Shortly before their eighth birthday, Mundus' demons attacked the family — killing Eva and separating the twins, each left believing the other had died. From that moment, the two set out on opposite paths."
             }
           },
-          { id: "dmc3-manga", type: "MANGA", typeEn: "MANGA", year: "—",
+          { id: "dmc3-manga", type: "MANGA", typeEn: "MANGA", year: "10 anni dopo la morte di Eva", yearEn: "10 years after Eva's death", releaseYear: "2005", releaseYearEn: "2005",
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%203%20Code%201%20Dante%20%20Code%202%20Vergil.jpg",
             title: { it: "Code 1 Dante / Code 2 Vergil", en: "Code 1 Dante / Code 2 Vergil" },
             synopsis: {
@@ -389,7 +389,7 @@ const GAMES = {
               en: "Two volumes of a planned three-part manga series, published under Capcom's supervision. \n\"Code 1: Dante\" follows Dante's earliest missions as a demon hunter, shortly after opening his still-unnamed shop. A mysterious demonic figure known as the White Rabbit hires him under the pretense of finding a missing girl named Alice — in reality, to observe the Son of Sparda in action. \n\"Code 2: Vergil\" follows Vergil's parallel journey and explains how he and Arkham formed their alliance to resurrect the Temen-ni-gru. \nThe planned third volume, \"Code 3: Lady\", was never completed because the artist left the project."
             }
           },
-          { id: "dmc-novel-1", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "—",
+          { id: "dmc-novel-1", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "Dalla morte di Eva alla vigilia di DMC3", yearEn: "From Eva's death to the eve of DMC3", releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Novel Volume 1", en: "Novel Volume 1" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20%E2%80%94%20Novel%20Volume%201.jpg",
             synopsis: {
@@ -397,7 +397,7 @@ const GAMES = {
               en: "A light novel written under the direct supervision of Hideki Kamiya, the series' creator. It covers the death of Dante's mother Eva and his early years, introducing characters such as Nell Goldstein — the gunsmith who forged Ebony & Ivory on Dante's commission, while he was still operating under the alias Tony Redgrave. Following the release of DMC3 in 2005, certain elements of the novel were considered non-canonical, but DMC5: Before the Nightmare and DMC5 itself confirmed that the majority of its events are canon — including the reference to Nell Goldstein as Nico's grandmother."
             }
           },
-          { id: "dmc3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "—",
+          { id: "dmc3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Un anno dopo il manga Code 1/2", yearEn: "One year after the Code 1/2 manga", releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Devil May Cry 3: Dante's Awakening", en: "Devil May Cry 3: Dante's Awakening" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%203%20Dante%27s%20Awakening.jpg",
             synopsis: {
@@ -405,7 +405,7 @@ const GAMES = {
               en: "Vergil awakens the Temen-ni-gru tower by allying himself with the scholar Arkham — who is in reality using him as a pawn to seize Sparda's power. To remove the seals Sparda placed on the tower, represented by the seven deadly sins, Vergil also needs the half of the amulet inherited from their mother Eva that Dante carries, and so he lures his brother to the tower. Dante and Vergil clash repeatedly as he climbs. Dante also meets Lady, a demon hunter bent on killing her father Arkham to avenge her mother, whom he sacrificed in a demonic ritual years earlier. The final twist reveals that Arkham was the true antagonist all along: feigning loyalty to Vergil, he takes the completed amulet for himself, opens the portal, and absorbs Sparda's power from the Force Edge sword, mutating into a monstrous mass. He is defeated by the combined strength of both brothers, and his dying human form is found by Lady, who finishes him off with a shot mixed with remorse. After the victory, Dante and Vergil face each other one last time — Dante prevails, but Vergil refuses to return to the human world and lets himself fall into the depths of the Underworld. There he encounters Mundus, challenges him while still weakened from his clash with Dante, and is overpowered, becoming his servant Nelo Angelo."
             }
           },
-          { id: "dmc1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "—",
+          { id: "dmc1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni dopo la morte di Eva", yearEn: "20 years after Eva's death", releaseYear: "2001", releaseYearEn: "2001",
             title: { it: "Devil May Cry", en: "Devil May Cry" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry.jpg",
             synopsis: {
@@ -413,7 +413,7 @@ const GAMES = {
               en: "A mysterious woman named Trish — created by Mundus in Eva's image to lure Dante — leads him to Mallet Island, where the demon king is preparing his return to the human world. Over the course of the game, Dante faces Nelo Angelo, who is revealed to be his brother Vergil, transformed and enslaved by Mundus. Upon Nelo Angelo's final defeat, his amulet joins with Dante's, transforming the sword Force Edge into the legendary Sparda. Trish, who had betrayed Dante by working for Mundus, sacrifices herself to save him during the final confrontation — an act that redeems her. Dante defeats Mundus and drives him back into the demon world, and the two escape as the island collapses. Dante opens his demon-hunting agency: in a post-credits scene, it is revealed that he and Trish are now partners and have renamed the shop Devil Never Cry."
             }
           },
-          { id: "dmc-anime", type: "ANIME", typeEn: "ANIME", year: "—",
+          { id: "dmc-anime", type: "ANIME", typeEn: "ANIME", year: "Tra DMC1 e DMC2", yearEn: "Between DMC1 and DMC2", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "The Animated Series", en: "The Animated Series" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20The%20Animated%20Series.jpg",
             synopsis: {
@@ -421,7 +421,7 @@ const GAMES = {
               en: "A 12-episode anime series confirmed canonical by producer Kobayashi, who stated he was involved in the development of its scripts. Dante is hired to escort Patty Lowell, an orphan believed to be heir to a large fortune, to the family mansion, only to discover she was used as a decoy by another woman of the same name, the true heir. Having survived the trap and with nowhere else to go, Patty ends up settling into Dante's office, becoming a fixture of his everyday life among clients and lesser demons. Over the course of the series it emerges that Patty is a descendant of Alan Lowell, a powerful alchemist who centuries earlier sealed the demon Abigail inside a family amulet. Sid, a pathetic demon Dante had spared at the start of the series, tracks her down to complete a ritual that would free Abigail, using Patty's mother as leverage. Dante confronts the ritual and ends up impaled on his own sword, unconscious, until Patty herself enters the portal and wakes him in time to defeat Abigail. Patty eventually leaves the office to live with her newfound mother, though she continues to visit Dante. The series also introduces J.D. Morrison, Dante's agent: both characters are later referenced in DMC5: Before the Nightmare, retroactively confirming the series' canonical status."
             }
           },
-          { id: "dmc2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "—",
+          { id: "dmc2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Alcuni anni dopo DMC1", yearEn: "Several years after DMC1", releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Devil May Cry 2", en: "Devil May Cry 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%202.jpg",
             synopsis: {
@@ -429,7 +429,7 @@ const GAMES = {
               en: "Dante allies himself with Lucia — an artificial demon created by the sorcerer Arius and raised as an adoptive daughter by the Protectors of Vie de Marli, a community of island guardians. Arius, president of the multinational Uroboros, seeks to seize the power of the demon Argosax — an ancient rival of Mundus who once ruled half of the demon world — in order to become an immortal god. Dante disrupts the ritual by swapping one of the required artifacts with his coin, but the portal to the demon world opens regardless: he decides to cross it leaving the choice to fate, using a coin that in reality has heads on both sides. He defeats Argosax and ventures deeper into the Underworld. Meanwhile, Lucia eliminates an Arius corrupted by demonic power. The finale shows Lucia waiting for Dante in his shop, as the roar of a motorcycle echoes outside."
             }
           },
-          { id: "dmc4-novel", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "—",
+          { id: "dmc4-novel", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "Prima e durante DMC4", yearEn: "Before and during DMC4", releaseYear: "2009", releaseYearEn: "2009",
             title: { it: "Deadly Fortune", en: "Deadly Fortune" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%204%20Deadly%20Fortune.jpg",
             synopsis: {
@@ -437,7 +437,7 @@ const GAMES = {
               en: "A two-volume novel written by Bingo Morihashi, the same author behind DMC4's story. Morihashi describes it as the \"complete\" version of DMC4, incorporating scenes cut from the game for production reasons. It includes details about Nero's past — found as an infant in Fortuna and adopted by Credo and Kyrie's parents — and new scenes featuring the main cast. The novel also reveals that Vergil visited Fortuna years before the game's events, implicitly suggesting that Nero is Vergil's son, a fact confirmed explicitly in DMC5."
             }
           },
-          { id: "dmc4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "—",
+          { id: "dmc4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "5 anni dopo DMC2", yearEn: "5 years after DMC2", releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "Devil May Cry 4", en: "Devil May Cry 4" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%204.jpg",
             synopsis: {
@@ -445,7 +445,7 @@ const GAMES = {
               en: "The first entry to introduce Nero as a playable protagonist alongside Dante. Nero is a young member of the Order of the Sword — a religious organization that worships Sparda as a god in the city of Fortuna. When Dante crashes a sermon and kills Sanctus, the Order's leader, Nero is tasked with capturing him. Over the course of the adventure it is revealed that Sanctus, resurrected through the Ascension Ceremony, intends to use a colossal demonic statue known as the Savior to position himself as humanity's defender and dominate the world. Activating the Savior requires the blood of Sparda: the Order had used Yamato, Vergil's sword, to open demonic portals and lure Dante to Fortuna as the ritual's core. Nero possesses the Devil Bringer — a demonic arm of mysterious origin that will be revealed in DMC5 to be the product of Vergil's bloodline. When Sanctus discovers that Nero also carries Sparda's blood, he uses him as a substitute, absorbing both Nero and his girlfriend Kyrie into the Savior. Trish, infiltrated within the Order under the guise of Gloria, and Dante work together to free them. Nero defeats Sanctus from within the Savior and destroys it, bringing the Order to an end."
             }
           },
-          { id: "dmc-novel-2", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "—",
+          { id: "dmc-novel-2", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "Dopo DMC1, prima di DMC2", yearEn: "After DMC1, before DMC2", releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Novel Volume 2", en: "Novel Volume 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20%E2%80%94%20Novel%20Volume%202.jpg",
             synopsis: {
@@ -453,7 +453,7 @@ const GAMES = {
               en: "The second novel in the series, set after DMC1 and before DMC2 in the current chronological order. Dante is hired to investigate a demonic idol known as the Beast Head — a mission that will bring him unwittingly closer to his eternal enemy. Unlike the first volume, which required certain retcons, the novel fits coherently into the timeline without contradicting the other games. Its ending connects directly to the opening of DMC2."
             }
           },
-          { id: "dmc5-novel", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "—",
+          { id: "dmc5-novel", type: "LIGHT NOVEL", typeEn: "LIGHT NOVEL", year: "Nel quinquennio tra DMC4 e DMC5", yearEn: "During the five years between DMC4 and DMC5", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Before the Nightmare", en: "Before the Nightmare" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%205%20Before%20the%20Nightmare.jpg",
             synopsis: {
@@ -461,7 +461,7 @@ const GAMES = {
               en: "A direct prequel to DMC5 written by the game's own author, Bingo Morihashi. The novel is the primary cause of the timeline retcon: DMC2, which was originally placed after DMC4, is moved to before it. It covers the period in which Nero, now an adult, has opened his own demon-hunting agency separate from Dante's, the developments in the characters' relationships during the five years between DMC4 and DMC5, and the movements of the mysterious V before the game's events. The novel concludes directly with the opening of DMC5."
             }
           },
-          { id: "dmc5-manga", type: "MANGA", typeEn: "MANGA", year: "—",
+          { id: "dmc5-manga", type: "MANGA", typeEn: "MANGA", year: "In parallelo a DMC5", yearEn: "Parallel to DMC5", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Visions of V", en: "Visions of V" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%205%20Visions%20of%20V.jpg",
             synopsis: {
@@ -469,7 +469,7 @@ const GAMES = {
               en: "The manga follows V — Vergil's human half, separated from Urizen through the Yamato — starting from his birth and his gradual meetings with his three familiar demons, Griffon, Shadow, and Nightmare. It runs parallel to the events of DMC5 from his point of view: V hides from Dante, Lady, and Trish that their target, the demon Urizen, is in fact Vergil, using an alias to protect the secret. Growing weaker as Urizen, now separated from him, grows stronger, V must also convince the Nightmare demons to merge with him before they fade away entirely, or risk losing what remains of himself before he can reach his final goal. The manga concludes at the same point as the game's main story, with V's final merger into Urizen restoring Vergil to life."
             }
           },
-          { id: "dmc5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "—",
+          { id: "dmc5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "5 anni dopo DMC4", yearEn: "5 years after DMC4", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Devil May Cry 5", en: "Devil May Cry 5" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%205.jpg",
             synopsis: {
