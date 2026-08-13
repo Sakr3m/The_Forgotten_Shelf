@@ -1049,6 +1049,10 @@ body[data-state="landing"] .index-link{ display:flex; }
   margin-top:26px; margin-bottom:26px;
   font-size:.8rem; font-weight:600; color:var(--text-faint);
 }
+.title-date--release{ margin-bottom:4px; } /* le due date restano vicine
+  tra loro (uscita/ambientazione), lo spazio vero e' solo sopra la prima
+  e sotto la seconda */
+.title-date--release + .title-date--story{ margin-top:0; }
 .title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
 .title-date + .title-synopsis{ margin-top:0; } /* niente doppio spazio: lo spazio "sotto" lo da' gia' .title-date */
 @media (min-width:901px){

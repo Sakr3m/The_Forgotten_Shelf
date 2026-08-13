@@ -22,6 +22,8 @@ const STRINGS = {
     timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale",
     railPagerPrev: "Pagina precedente",
     railPagerNext: "Pagina successiva",
+    factReleaseDate: "Uscita",
+    titleDateSetting: "Ambientato",
     leaveALike: "Lascia un like",
     reportBtnLabel: "Segnala bug",
     reportTitle: "Segnala un problema",
@@ -60,6 +62,8 @@ const STRINGS = {
     timelineScrollToggle: "Toggle timeline scrolling",
     railPagerPrev: "Previous page",
     railPagerNext: "Next page",
+    factReleaseDate: "Released",
+    titleDateSetting: "Set in",
     leaveALike: "Leave a like",
     reportBtnLabel: "Report bug",
     reportTitle: "Report an issue",
@@ -923,6 +927,7 @@ function updateTitlePanelText(entryId){
   if(!rec) return;
   const { entry, game: g, universe, prevEntry, nextEntry } = rec;
   const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
+  const releaseLabel = state.lang === "it" ? entry.releaseYear : (entry.releaseYearEn || entry.releaseYear);
   const typeLabel = state.lang === "it" ? entry.type : (entry.typeEn || entry.type);
   rec.panel.innerHTML = `
     <div class="title-meta">
@@ -930,7 +935,8 @@ function updateTitlePanelText(entryId){
     </div>
     <h2 class="title-name">${tf(entry.title)}</h2>
     <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
-    ${yearLabel ? `<p class="title-date">${yearLabel}</p>` : ""}
+    ${releaseLabel ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseLabel}</p>` : ""}
+    ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}
     <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <div class="title-nav">
