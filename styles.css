@@ -189,7 +189,7 @@ body[data-state="landing"] .brand{ display:none; }
   transition:border-color .3s var(--ease);
 }
 .lang-option{ color:var(--text-faint); padding:2px 3px; transition:color var(--dur-fast) var(--ease); }
-.lang-option.is-active{ color:var(--cyan); }
+.lang-option.is-active{ background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .lang-sep{ color:var(--line); }
 
 .music-control{ position:relative; display:flex; align-items:center; gap:10px; }
@@ -224,7 +224,7 @@ body[data-state="landing"] .brand{ display:none; }
 }
 .track-progress__fill{
   width:0%; height:100%;
-  background:var(--cyan);
+  background:var(--gradient);
   border-radius:2px;
   transition:width .2s linear;
 }
@@ -397,7 +397,8 @@ body[data-state="landing"] .brand{ display:none; }
 }
 .rail-label{
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
+  margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--line);
   text-align:center;
 }
 
@@ -516,7 +517,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   font-weight:700; font-size:.92rem; border:none; border-radius:6px;
   padding:9px 20px; cursor:pointer;
 }
-.report-modal-btn.send{ background:var(--cyan); color:var(--bg); }
+.report-modal-btn.send{ background:var(--gradient); color:var(--bg); }
 .report-modal-btn.cancel{ background:transparent; color:var(--text-dim); border:1px solid var(--cyan); }
 .report-modal-btn:disabled{ opacity:.5; cursor:default; }
 .report-modal-note{ font-size:.76rem; color:var(--text-faint); margin-top:10px; text-align:left; }
@@ -595,7 +596,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   .kofi-link__short{ display:inline; }
 }
 
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:44px; }
+.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; margin-top:44px; }
 .landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
 .landing-intro{ margin-top:52px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
 
@@ -703,7 +704,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
 .game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
 .game-header__blurb a{
-  color:var(--cyan); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--cyan) 35%, transparent);
+  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--cyan) 35%, transparent);
   text-underline-offset:2px;
   transition:color var(--dur-fast) var(--ease);
 }
@@ -788,7 +789,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    mobile e desktop (vedi la_traccia_del_tempo.css). */
 .canon-note__eyebrow{
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); text-align:center; margin-bottom:14px;
+  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; text-align:center; margin-bottom:14px;
 }
 .canon-note__titles-label{
   font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
@@ -1051,7 +1052,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-content-item{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
 .title-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
+  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
 }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
 .title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
