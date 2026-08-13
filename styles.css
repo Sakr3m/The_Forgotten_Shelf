@@ -833,6 +833,38 @@ body[data-state="landing"] .index-link{ display:flex; }
 .carousel-arrow__icon{ width:12px; height:14px; color:var(--cyan); flex-shrink:0; }
 .carousel-arrow__label{ line-height:1.2; }
 
+/* Freccia di paginazione sotto la linea, quando un universo ha piu'
+   di RAIL_PAGE_SIZE voci (18) e la visualizzazione compatta smette
+   di reggerle tutte insieme (vedi Resident Evil, 28 voci). Stessa
+   estetica di .carousel-arrow, solo piu' piccola e centrata sotto
+   la linea invece che ai lati del titolo dell'universo. Compare
+   anche con lo scorrimento libero attivo (il pulsante ↔ in alto),
+   non solo nella modalita' compatta di default. */
+.rail-pager{
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  margin-top:56px; /* era 18px: con titoli lunghi che vanno a capo sui
+    nodi "down", il pulsante finiva fisicamente coperto e non cliccabile */
+  position:relative; z-index:2;
+}
+.rail-pager__arrow{
+  display:flex; align-items:center; justify-content:center;
+  width:32px; height:32px;
+  border:1px solid var(--cyan);
+  border-radius:999px;
+  background:var(--panel);
+  color:var(--cyan);
+  flex-shrink:0;
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.rail-pager__arrow:hover, .rail-pager__arrow:focus-visible{
+  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
+}
+.rail-pager__arrow .carousel-arrow__icon{ width:10px; height:12px; color:inherit; }
+.rail-pager__label{
+  font-size:.78rem; font-weight:600; color:var(--text-dim);
+  min-width:44px; text-align:center;
+}
+
 /* Timeline: nodes distributed edge-to-edge, however many there are.
    Generous, symmetric vertical padding so it isn't cramped; horizontal
    scroll still works for large counts but the scrollbar itself is hidden. */

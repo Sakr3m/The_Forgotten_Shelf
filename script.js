@@ -20,6 +20,8 @@ const STRINGS = {
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
     canonNoTimelineLabel: "Nessuna timeline ufficiale",
     timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale",
+    railPagerPrev: "Pagina precedente",
+    railPagerNext: "Pagina successiva",
     leaveALike: "Lascia un like",
     reportBtnLabel: "Segnala bug",
     reportTitle: "Segnala un problema",
@@ -56,6 +58,8 @@ const STRINGS = {
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
     canonNoTimelineLabel: "No official timeline",
     timelineScrollToggle: "Toggle timeline scrolling",
+    railPagerPrev: "Previous page",
+    railPagerNext: "Next page",
     leaveALike: "Leave a like",
     reportBtnLabel: "Report bug",
     reportTitle: "Report an issue",
@@ -85,8 +89,13 @@ const state = {
   entryId: null,
   musicOn: true,
   trackIndex: 0,
-  timelineScrollMode: false   // PC only: off = fit everything on screen, on = free spacing + drag-to-scroll
+  timelineScrollMode: false,  // PC only: off = fit everything on screen, on = free spacing + drag-to-scroll
+  railPage: 0          // PC only: pagina corrente quando un universo ha piu' di RAIL_PAGE_SIZE voci
 };
+
+const RAIL_PAGE_SIZE = 18; // sopra questa soglia (vedi Resident Evil, 28 voci) la
+  // visualizzazione compatta della linea orizzontale smette di reggere: si
+  // mostrano al massimo 18 voci per volta, con una freccia per scorrere.
 
 const el = {
   body: document.body,
@@ -393,6 +402,7 @@ function renderSidebar(){
 // ---------------------------------------------------------
 function selectUniverse(idx){
   state.universeIndex = idx;
+  state.railPage = 0; // nuovo universo, si riparte dalla prima pagina
   if(state.view === "title"){
     // switching universe from the title view: jump to that universe's first entry
     const g = currentGame();
@@ -425,8 +435,21 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   const timeline = track.querySelector(".h-timeline");
 
+  // Solo desktop: oltre RAIL_PAGE_SIZE voci (vedi Resident Evil, 28 voci)
+  // la visualizzazione compatta smette di reggere - si mostra una pagina
+  // alla volta, con una freccia sotto la linea per scorrere. Su mobile
+  // la linea e' gia' verticale con scroll naturale della pagina, non
+  // serve paginare.
   const total = uni.entries.length;
-  uni.entries.forEach((entry, i) => {
+  const isDesktopForPaging = !mobileBreakpoint.matches;
+  const totalPages = isDesktopForPaging ? Math.max(1, Math.ceil(total / RAIL_PAGE_SIZE)) : 1;
+  const page = Math.min(Math.max(0, state.railPage || 0), totalPages - 1);
+  const startIdx = isDesktopForPaging ? page * RAIL_PAGE_SIZE : 0;
+  const visibleEntries = isDesktopForPaging ? uni.entries.slice(startIdx, startIdx + RAIL_PAGE_SIZE) : uni.entries;
+
+  visibleEntries.forEach((entry, localI) => {
+    const i = startIdx + localI; // indice globale, cosi' il gradiente colore
+      // resta coerente tra una pagina e l'altra invece di ripartire da capo
     const node = document.createElement("button");
     const tileDown = i % 2 === 0; // alternates which side the cover sits on
     node.type = "button";
@@ -457,6 +480,35 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     node.addEventListener("click", () => selectEntry(entry.id));
     timeline.appendChild(node);
   });
+
+  if(totalPages > 1){
+    const pager = document.createElement("div");
+    pager.className = "rail-pager";
+    if(page > 0){
+      const prevPageBtn = document.createElement("button");
+      prevPageBtn.type = "button";
+      prevPageBtn.className = "rail-pager__arrow rail-pager__arrow--prev";
+      prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
+      prevPageBtn.innerHTML = arrowIcon("left");
+      prevPageBtn.addEventListener("click", () => { state.railPage = page - 1; renderGamePanel(); });
+      pager.appendChild(prevPageBtn);
+    }
+    const pagerLabel = document.createElement("span");
+    pagerLabel.className = "rail-pager__label";
+    pagerLabel.textContent = (page + 1) + " / " + totalPages;
+    pager.appendChild(pagerLabel);
+    if(page < totalPages - 1){
+      const nextPageBtn = document.createElement("button");
+      nextPageBtn.type = "button";
+      nextPageBtn.className = "rail-pager__arrow rail-pager__arrow--next";
+      nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
+      nextPageBtn.innerHTML = arrowIcon("right");
+      nextPageBtn.addEventListener("click", () => { state.railPage = page + 1; renderGamePanel(); });
+      pager.appendChild(nextPageBtn);
+    }
+    track.appendChild(pager);
+  }
+
   return track;
 }
 
@@ -1075,6 +1127,7 @@ function selectGame(id){
   if(state.gameId !== id) state.trackIndex = 0;
   state.gameId = id;
   state.universeIndex = 0;
+  state.railPage = 0; // nuovo gioco, si riparte dalla prima pagina
   setState("game");
   closeMobileSidebar();
   window.scrollTo(0, 0);
