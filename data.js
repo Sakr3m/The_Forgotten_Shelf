@@ -1160,7 +1160,7 @@ const GAMES = {
       en: "A survival-horror saga following decades of biotechnological conspiracy, from the discovery of a virus capable of rewriting DNA to its endless mutations, amid ruthless corporations, chains of betrayal, and survivors who learn, chapter after chapter, just how little they can trust those who claim to want to protect them."
     },
     palette: ["#a11212", "#6b8e23", "#f5f5f5"],
-    accentColor: "#d98a8a",
+    accentColor: "#a11212",
     universes: [
       {
         id: "main",
