@@ -515,6 +515,28 @@
    condiviso funziona come prima, invariato. */
 .discord-link:hover{ opacity:.75; }
 
+/* PROVA: evidenziazione della voce in barra laterale con vero
+   gradiente a 3 colori (--item-gradient, impostato per ogni saga in
+   script.js/renderSidebar, stessa palette gia' usata dalla linea
+   temporale). Sostituisce solo lo sfondo largo, che ha spazio per
+   mostrare davvero 3 colori; la barretta verticale a sinistra
+   (2px, box-shadow) resta un colore singolo - troppo stretta perche'
+   un gradiente ci si veda. */
+.game-list button.is-active,
+.game-list button:hover{
+  background:none;
+  position:relative;
+}
+.game-list button.is-active::before,
+.game-list button:hover::before{
+  content:"";
+  position:absolute; inset:0;
+  background:var(--item-gradient, var(--gradient));
+  opacity:.14;
+  border-radius:inherit;
+  z-index:-1;
+}
+
 /* PROVA: bordo a vero gradiente sul selettore IT/EN, tecnica del
    doppio sfondo (padding-box = lo sfondo pieno di prima, border-box =
    il gradiente) - unico modo per avere un bordo sfumato che rispetti
