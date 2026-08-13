@@ -20,8 +20,6 @@ const STRINGS = {
     canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
     canonNoTimelineLabel: "Nessuna timeline ufficiale",
     timelineScrollToggle: "Attiva/disattiva lo scorrimento della linea temporale",
-    railPagerPrev: "Pagina precedente",
-    railPagerNext: "Pagina successiva",
     factReleaseDate: "Uscita",
     titleDateSetting: "Ambientato",
     leaveALike: "Lascia un like",
@@ -60,8 +58,6 @@ const STRINGS = {
     canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
     canonNoTimelineLabel: "No official timeline",
     timelineScrollToggle: "Toggle timeline scrolling",
-    railPagerPrev: "Previous page",
-    railPagerNext: "Next page",
     factReleaseDate: "Released",
     titleDateSetting: "Set in",
     leaveALike: "Leave a like",
@@ -93,13 +89,17 @@ const state = {
   entryId: null,
   musicOn: true,
   trackIndex: 0,
-  timelineScrollMode: false,  // PC only: off = fit everything on screen, on = free spacing + drag-to-scroll
-  railPage: 0          // PC only: pagina corrente quando un universo ha piu' di RAIL_PAGE_SIZE voci
+  timelineScrollMode: false,  // PC only, solo universi con 10 voci o meno:
+    // off = adatta tutto allo schermo, on = trascinamento libero. Sopra le
+    // 10 voci il trascinamento e' sempre imposto, l'interruttore sparisce.
 };
 
-const RAIL_PAGE_SIZE = 18; // sopra questa soglia (vedi Resident Evil, 28 voci) la
-  // visualizzazione compatta della linea orizzontale smette di reggere: si
-  // mostrano al massimo 18 voci per volta, con una freccia per scorrere.
+const LARGE_UNIVERSE_THRESHOLD = 10; // sopra questa soglia di voci per
+  // universo, niente piu' interruttore ne' paginazione: la riga intera va
+  // sempre trascinata (era illeggibile stiparle tutte, e paginare rompeva
+  // il gradiente colore dei pallini, coerente solo sull'intero universo,
+  // non sulla singola pagina - vedi Resident Evil, 28 voci in un unico
+  // universo).
 
 const el = {
   body: document.body,
@@ -406,7 +406,6 @@ function renderSidebar(){
 // ---------------------------------------------------------
 function selectUniverse(idx){
   state.universeIndex = idx;
-  state.railPage = 0; // nuovo universo, si riparte dalla prima pagina
   if(state.view === "title"){
     // switching universe from the title view: jump to that universe's first entry
     const g = currentGame();
@@ -439,21 +438,9 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   const timeline = track.querySelector(".h-timeline");
 
-  // Solo desktop: oltre RAIL_PAGE_SIZE voci (vedi Resident Evil, 28 voci)
-  // la visualizzazione compatta smette di reggere - si mostra una pagina
-  // alla volta, con una freccia sotto la linea per scorrere. Su mobile
-  // la linea e' gia' verticale con scroll naturale della pagina, non
-  // serve paginare.
   const total = uni.entries.length;
-  const isDesktopForPaging = !mobileBreakpoint.matches;
-  const totalPages = isDesktopForPaging ? Math.max(1, Math.ceil(total / RAIL_PAGE_SIZE)) : 1;
-  const page = Math.min(Math.max(0, state.railPage || 0), totalPages - 1);
-  const startIdx = isDesktopForPaging ? page * RAIL_PAGE_SIZE : 0;
-  const visibleEntries = isDesktopForPaging ? uni.entries.slice(startIdx, startIdx + RAIL_PAGE_SIZE) : uni.entries;
 
-  visibleEntries.forEach((entry, localI) => {
-    const i = startIdx + localI; // indice globale, cosi' il gradiente colore
-      // resta coerente tra una pagina e l'altra invece di ripartire da capo
+  uni.entries.forEach((entry, i) => {
     const node = document.createElement("button");
     const tileDown = i % 2 === 0; // alternates which side the cover sits on
     node.type = "button";
@@ -484,59 +471,6 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     node.addEventListener("click", () => selectEntry(entry.id));
     timeline.appendChild(node);
   });
-
-  if(totalPages > 1){
-    const freeScroll = state.timelineScrollMode;
-    const canPrev = page > 0;
-    const canNext = page < totalPages - 1;
-    const pager = document.createElement("div");
-    pager.className = "rail-pager";
-
-    if(freeScroll){
-      // Scorrimento libero: solo freccette animate, decorative, non
-      // cliccabili - segnalano che la riga si trascina, non cambiano pagina.
-      const prevHint = document.createElement("span");
-      prevHint.className = "rail-pager__hint rail-pager__hint--prev rail-pager__hint--drag" + (canPrev ? "" : " is-hidden");
-      prevHint.setAttribute("aria-hidden", "true");
-      prevHint.innerHTML = arrowIcon("left");
-      pager.appendChild(prevHint);
-
-      const nextHint = document.createElement("span");
-      nextHint.className = "rail-pager__hint rail-pager__hint--next rail-pager__hint--drag" + (canNext ? "" : " is-hidden");
-      nextHint.setAttribute("aria-hidden", "true");
-      nextHint.innerHTML = arrowIcon("right");
-      pager.appendChild(nextHint);
-    } else {
-      // Visualizzazione compatta: pulsanti veri, bordati, statici, che
-      // cambiano davvero pagina. Disattivati (non assenti) quando non
-      // si puo' andare oltre in quella direzione.
-      const prevPageBtn = document.createElement("button");
-      prevPageBtn.type = "button";
-      prevPageBtn.className = "rail-pager__hint rail-pager__hint--prev rail-pager__hint--button";
-      prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
-      prevPageBtn.innerHTML = arrowIcon("left");
-      if(canPrev){
-        prevPageBtn.addEventListener("click", () => { state.railPage = page - 1; renderGamePanel(); });
-      } else {
-        prevPageBtn.disabled = true;
-      }
-      pager.appendChild(prevPageBtn);
-
-      const nextPageBtn = document.createElement("button");
-      nextPageBtn.type = "button";
-      nextPageBtn.className = "rail-pager__hint rail-pager__hint--next rail-pager__hint--button";
-      nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
-      nextPageBtn.innerHTML = arrowIcon("right");
-      if(canNext){
-        nextPageBtn.addEventListener("click", () => { state.railPage = page + 1; renderGamePanel(); });
-      } else {
-        nextPageBtn.disabled = true;
-      }
-      pager.appendChild(nextPageBtn);
-    }
-
-    track.querySelector(".timeline-viewport").appendChild(pager);
-  }
 
   return track;
 }
@@ -724,17 +658,22 @@ function renderGamePanel(){
 
   el.universesRow.appendChild(buildUniverseTrack(uni, prevBtn, nextBtn));
 
-  const scrollToggle = document.createElement("button");
-  scrollToggle.type = "button";
-  scrollToggle.className = "timeline-scroll-toggle";
-  scrollToggle.setAttribute("aria-pressed", String(state.timelineScrollMode));
-  scrollToggle.setAttribute("aria-label", t("timelineScrollToggle"));
-  scrollToggle.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h16M2 10l4-4M2 10l4 4M18 10l-4-4M18 10l-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  scrollToggle.addEventListener("click", () => {
-    state.timelineScrollMode = !state.timelineScrollMode;
-    renderGamePanel();
-  });
-  el.universesRow.appendChild(scrollToggle);
+  const isLargeUniverse = uni.entries.length > LARGE_UNIVERSE_THRESHOLD;
+
+  let scrollToggle = null;
+  if(!isLargeUniverse){
+    scrollToggle = document.createElement("button");
+    scrollToggle.type = "button";
+    scrollToggle.className = "timeline-scroll-toggle";
+    scrollToggle.setAttribute("aria-pressed", String(state.timelineScrollMode));
+    scrollToggle.setAttribute("aria-label", t("timelineScrollToggle"));
+    scrollToggle.innerHTML = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h16M2 10l4-4M2 10l4 4M18 10l-4-4M18 10l-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    scrollToggle.addEventListener("click", () => {
+      state.timelineScrollMode = !state.timelineScrollMode;
+      renderGamePanel();
+    });
+    el.universesRow.appendChild(scrollToggle);
+  }
 
   // Verticale: stessa altezza della riga del carosello universi
   // (.u-track__head), misurata a runtime così resta corretta anche
@@ -744,8 +683,10 @@ function renderGamePanel(){
   const trackHead = el.universesRow.querySelector(".u-track__head");
   const headRect = trackHead ? trackHead.getBoundingClientRect() : panelRect;
   const headCenterY = (headRect.top + headRect.bottom) / 2;
-  scrollToggle.style.top = (headCenterY - panelRect.top).toFixed(2) + "px";
-  scrollToggle.style.transform = "translateY(-50%)";
+  if(scrollToggle){
+    scrollToggle.style.top = (headCenterY - panelRect.top).toFixed(2) + "px";
+    scrollToggle.style.transform = "translateY(-50%)";
+  }
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
@@ -841,14 +782,19 @@ function renderGamePanel(){
     const naturalWidth = liveTimeline.clientWidth;
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 
-    // PC-only manual switch (button above): OFF (default) keeps the line at
-    // exactly the same length as every other timeline (the full 42px-ruled
-    // width, no cut) — the dots are never artificially moved to make this
-    // true, they're anchored to their own real rendered position below, so
-    // this can never leave them misaligned with the line. ON drops the
-    // width constraint entirely, letting the row grow to its natural size
-    // and switches on drag-to-scroll for whatever doesn't fit.
-    const freeScrollMode = state.timelineScrollMode;
+    // PC-only manual switch (button above, solo se l'universo ha 10 voci o
+    // meno): OFF (default) keeps the line at exactly the same length as
+    // every other timeline (the full 42px-ruled width, no cut) — the dots
+    // are never artificially moved to make this true, they're anchored to
+    // their own real rendered position below, so this can never leave them
+    // misaligned with the line. ON drops the width constraint entirely,
+    // letting the row grow to its natural size and switches on
+    // drag-to-scroll for whatever doesn't fit. Sopra le 10 voci, il
+    // trascinamento e' sempre imposto (isLargeUniverse), l'interruttore
+    // sparisce del tutto - oltre a essere l'unico modo sensato di vedere
+    // tante voci, cosi' il gradiente colore dei pallini copre sempre
+    // l'intero universo su un'unica striscia, mai spezzato a meta'.
+    const freeScrollMode = isLargeUniverse || state.timelineScrollMode;
 
     const nodes = Array.from(liveTimeline.querySelectorAll(".h-node"));
     if(freeScrollMode){
@@ -1158,7 +1104,6 @@ function selectGame(id){
   if(state.gameId !== id) state.trackIndex = 0;
   state.gameId = id;
   state.universeIndex = 0;
-  state.railPage = 0; // nuovo gioco, si riparte dalla prima pagina
   setState("game");
   closeMobileSidebar();
   window.scrollTo(0, 0);
