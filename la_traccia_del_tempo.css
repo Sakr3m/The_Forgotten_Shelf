@@ -515,6 +515,19 @@
    condiviso funziona come prima, invariato. */
 .discord-link:hover{ opacity:.75; }
 
+/* PROVA: bordo a vero gradiente sul selettore IT/EN, tecnica del
+   doppio sfondo (padding-box = lo sfondo pieno di prima, border-box =
+   il gradiente) - unico modo per avere un bordo sfumato che rispetti
+   comunque gli angoli arrotondati. Solo rosso e bianco (i due estremi
+   della palette), il colore centrale salterebbe troppo su un bordo
+   cosi' sottile. Se funziona bene la estendo agli altri pulsanti. */
+.lang-switch{
+  border:1px solid transparent;
+  background:
+    var(--panel) padding-box,
+    linear-gradient(90deg, var(--tl-1), var(--tl-3)) border-box;
+}
+
 /* Cuoricino Ko-fi a due copie sovrapposte (kofi-icon--normal, sempre
    currentColor come prima; kofi-icon--gradient, fill fisso sul
    gradiente SVG condiviso): di base solo la normale e' visibile, cosi'
