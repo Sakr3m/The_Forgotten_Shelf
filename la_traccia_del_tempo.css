@@ -546,7 +546,7 @@
 .lang-switch{
   border:1px solid transparent;
   background:
-    var(--panel) padding-box,
+    linear-gradient(var(--panel), var(--panel)) padding-box,
     linear-gradient(90deg, var(--tl-1), var(--tl-3)) border-box;
 }
 
