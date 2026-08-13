@@ -486,34 +486,34 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   });
 
   if(totalPages > 1){
-    const freeScroll = state.timelineScrollMode;
     const pager = document.createElement("div");
-    pager.className = "rail-pager" + (freeScroll ? " rail-pager--edges" : " rail-pager--below");
+    pager.className = "rail-pager";
+
+    const prevPageBtn = document.createElement("button");
+    prevPageBtn.type = "button";
+    prevPageBtn.className = "rail-pager__hint rail-pager__hint--prev";
+    prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
+    prevPageBtn.innerHTML = arrowIcon("left");
     if(page > 0){
-      const prevPageBtn = document.createElement("button");
-      prevPageBtn.type = "button";
-      prevPageBtn.className = "rail-pager__hint rail-pager__hint--prev";
-      prevPageBtn.setAttribute("aria-label", t("railPagerPrev"));
-      prevPageBtn.innerHTML = arrowIcon("left");
       prevPageBtn.addEventListener("click", () => { state.railPage = page - 1; renderGamePanel(); });
-      pager.appendChild(prevPageBtn);
+    } else {
+      prevPageBtn.disabled = true;
     }
-    if(!freeScroll){
-      const pagerLabel = document.createElement("span");
-      pagerLabel.className = "rail-pager__label";
-      pagerLabel.textContent = (page + 1) + " / " + totalPages;
-      pager.appendChild(pagerLabel);
-    }
+    pager.appendChild(prevPageBtn);
+
+    const nextPageBtn = document.createElement("button");
+    nextPageBtn.type = "button";
+    nextPageBtn.className = "rail-pager__hint rail-pager__hint--next";
+    nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
+    nextPageBtn.innerHTML = arrowIcon("right");
     if(page < totalPages - 1){
-      const nextPageBtn = document.createElement("button");
-      nextPageBtn.type = "button";
-      nextPageBtn.className = "rail-pager__hint rail-pager__hint--next";
-      nextPageBtn.setAttribute("aria-label", t("railPagerNext"));
-      nextPageBtn.innerHTML = arrowIcon("right");
       nextPageBtn.addEventListener("click", () => { state.railPage = page + 1; renderGamePanel(); });
-      pager.appendChild(nextPageBtn);
+    } else {
+      nextPageBtn.disabled = true;
     }
-    track.appendChild(pager);
+    pager.appendChild(nextPageBtn);
+
+    track.querySelector(".timeline-viewport").appendChild(pager);
   }
 
   return track;
