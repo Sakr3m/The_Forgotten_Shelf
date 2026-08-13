@@ -96,6 +96,10 @@ const LARGE_UNIVERSE_THRESHOLD = 10; // sopra questa soglia di voci per
   // non sulla singola pagina - vedi Resident Evil, 28 voci in un unico
   // universo).
 
+let resumedPersistedTrack = false; // vedi blocco ascolto persistente
+  // piu' sotto - dichiarata qui perche' letta gia' da updateMusicPlayback,
+  // molto prima di dove la logica vera e propria e' definita
+
 const el = {
   body: document.body,
   reportBugBtn: document.getElementById("reportBugBtn"),
@@ -1221,8 +1225,6 @@ function saveMusicPersistState(){
     }));
   } catch(e) { /* storage pieno o bloccato dal browser, pazienza */ }
 }
-
-let resumedPersistedTrack = false;
 
 if(el.trackPersistBtn){
   el.trackPersistBtn.setAttribute("aria-pressed", String(isMusicPersistOn()));

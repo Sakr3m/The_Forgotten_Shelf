@@ -467,10 +467,12 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
    impostata su entrambi allo stesso modo. */
 body.is-review-open .music-toggle,
 body.is-review-open .track-skip,
+body.is-review-open .track-persist,
 body.is-review-open .track-info,
 body.is-review-open .volume-panel{
   border-color:var(--item-accent, var(--cyan));
 }
+body.is-review-open .track-persist[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
 body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
 
 /* Nascondi/rivela la recensione completa: era finito solo nel blocco
