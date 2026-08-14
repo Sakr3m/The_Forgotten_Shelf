@@ -526,3 +526,12 @@
 .drag-hint--right{ animation:dragHintRight 1.6s ease-in-out infinite; }
 @keyframes dragHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
 @keyframes dragHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
+
+/* Spenta quando la riga e' gia' scorsa fino in fondo in quella
+   direzione (vedi updateDragHintsState in script.js) - niente piu'
+   animazione, un'ombra flebile invece dell'icona piena. */
+.drag-hint.is-disabled{
+  animation:none;
+  opacity:.15;
+  transform:none;
+}

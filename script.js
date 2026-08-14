@@ -890,6 +890,19 @@ function renderGamePanel(){
           el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
           el.dragHintLeft.style.left = kofiRect.left.toFixed(2) + "px";
           el.dragHintRight.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+
+          // Si spengono da sole quando non c'e' piu' nulla da vedere in
+          // quella direzione (riga gia' tutta a sinistra/destra), invece
+          // di restare sempre accese a prescindere. Controllo subito e
+          // ad ogni scroll/trascinamento della riga.
+          const updateDragHintsState = () => {
+            const atStart = liveTimeline.scrollLeft <= 1;
+            const atEnd = liveTimeline.scrollLeft + liveTimeline.clientWidth >= liveTimeline.scrollWidth - 1;
+            el.dragHintLeft.classList.toggle("is-disabled", atStart);
+            el.dragHintRight.classList.toggle("is-disabled", atEnd);
+          };
+          updateDragHintsState();
+          liveTimeline.addEventListener("scroll", updateDragHintsState);
         }
       }
     }
