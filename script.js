@@ -107,6 +107,8 @@ const el = {
   brand: document.querySelector(".brand"),
   socialLinks: document.querySelector(".social-links"),
   stageControls: document.querySelector(".stage-controls"),
+  kofiLink: document.querySelector(".kofi-link"),
+  sidebar: document.querySelector(".sidebar"),
   musicControl: document.getElementById("musicControl"),
   langSwitch: document.getElementById("langSwitch"),
   musicToggle: document.getElementById("musicToggle"),
@@ -850,14 +852,44 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
-      // Le freccette (fisse, left/right gia' allineati a barra
-      // laterale/selettore lingua via CSS) vanno centrate verticalmente
-      // sulla riga vera, non su un valore fisso: un universo a due righe
-      // di titoli sopra/sotto ha un centro diverso da uno a una riga sola.
-      if(isLargeUniverse){
+      // Le freccette vanno centrate verticalmente sulla riga vera, non
+      // su un valore fisso: un universo a due righe di titoli sopra/sotto
+      // ha un centro diverso da uno a una riga sola.
+      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight && el.kofiLink && el.langSwitch){
         const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
-        if(el.dragHintLeft) el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
-        if(el.dragHintRight) el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
+
+        // Orizzontale: non un valore indovinato, ma la posizione vera di
+        // Ko-fi (sinistra) e del selettore lingua (destra) misurata a
+        // runtime — "quanto lo switch della lingua" e "quella riga che
+        // divide l'area delle linee temporali dalla tabella delle voci"
+        // sono gia' incluse in queste due misure, essendo posizioni
+        // assolute sullo schermo (position:fixed anche per le freccette).
+        const kofiRect = el.kofiLink.getBoundingClientRect();
+        const langRect = el.langSwitch.getBoundingClientRect();
+
+        el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
+        el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
+        el.dragHintLeft.style.left = kofiRect.left.toFixed(2) + "px";
+        el.dragHintRight.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+
+        // La linea temporale va centrata esattamente tra le due
+        // freccette, non nel mezzo dello stage: calcolo il punto medio
+        // reale tra le due (il centro di ciascuna freccetta, 10px = meta'
+        // dei suoi 20px) e sposto .timeline-viewport li' con un
+        // translateX, senza toccare la sua larghezza al 90%.
+        const targetCenter = (kofiRect.left + 10 + langRect.right - 10) / 2;
+        const viewportEl = liveTimeline.closest(".timeline-viewport");
+        if(viewportEl){
+          viewportEl.style.transform = "none"; // azzero prima di misurare, altrimenti la misura include lo spostamento del giro precedente
+          const viewportRect = viewportEl.getBoundingClientRect();
+          const currentCenter = (viewportRect.left + viewportRect.right) / 2;
+          viewportEl.style.transform = `translateX(${(targetCenter - currentCenter).toFixed(2)}px)`;
+        }
+      } else if(el.dragHintLeft && el.dragHintRight){
+        // Universo piccolo (niente freccette): niente spostamento, la
+        // riga resta centrata nello stage come di regola.
+        const viewportEl = liveTimeline.closest(".timeline-viewport");
+        if(viewportEl) viewportEl.style.transform = "none";
       }
     }
   }
