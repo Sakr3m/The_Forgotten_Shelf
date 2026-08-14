@@ -137,8 +137,8 @@ const GAMES = {
       it: "Una saga action-gotica che racconta la guerra secolare tra il clan Belmont e Dracula, tra castelli maledetti e la leggendaria frusta Vampire Killer, di generazione in generazione. Il conte rinasce ogni cento anni, e un nuovo discendente è sempre chiamato a fermarlo.",
       en: "A gothic action saga chronicling the centuries-old war between the Belmont clan and Dracula, through cursed castles and the legendary Vampire Killer whip, across generations. The count is reborn every hundred years, and a new descendant is always called to stop him."
     },
-    palette: ["#a11d33", "#4b2e6b", "#d4af37"],
-    accentColor: "#a11d33",
+    palette: ["#6b0d1a", "#4b2e6b", "#d4af37"],
+    accentColor: "#6b0d1a",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Vampire%20Killer.mp3", title: "Vampire Killer", game: "Castlevania (1986)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Invitation%20of%20a%20Crazed%20Moon.mp3", title: "Invitation of a Crazed Moon", game: "Portrait of Ruin" },
@@ -1159,8 +1159,8 @@ const GAMES = {
       it: "Una saga survival-horror che segue decenni di cospirazioni biotecnologiche, dalla scoperta di un virus capace di riscrivere il DNA fino alle sue infinite mutazioni, tra corporazioni senza scrupoli, tradimenti a catena e sopravvissuti che imparano, capitolo dopo capitolo, quanto poco ci si possa fidare di chi dice di volerli proteggere.",
       en: "A survival-horror saga following decades of biotechnological conspiracy, from the discovery of a virus capable of rewriting DNA to its endless mutations, amid ruthless corporations, chains of betrayal, and survivors who learn, chapter after chapter, just how little they can trust those who claim to want to protect them."
     },
-    palette: ["#a11212", "#6b8e23", "#f5f5f5"],
-    accentColor: "#a11212",
+    palette: ["#c81a1a", "#6b8e23", "#f5f5f5"],
+    accentColor: "#c81a1a",
     universes: [
       {
         id: "main",
