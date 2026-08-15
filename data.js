@@ -1646,6 +1646,39 @@ const GAMES = {
     ]
   },
 
+  pokemon: {
+    id: "pokemon",
+    listTitle: { it: "Pokémon", en: "Pokémon" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Pokémon", en: "Pokémon" },
+    blurb: {
+      it: "Una saga di avventura e collezionismo ambientata in un mondo popolato da creature catturabili e addestrabili, i Pokémon. Ogni generazione introduce una nuova regione, nuovi protagonisti e una nuova minaccia da fermare, in un formato che si ripete da quasi trent'anni: otto medaglie, la Lega Pokémon, un'organizzazione criminale di turno.",
+      en: "An adventure and collecting saga set in a world populated by capturable, trainable creatures, the Pokémon. Each generation introduces a new region, new protagonists, and a new threat to stop, in a format that has repeated itself for nearly thirty years: eight badges, the Pokémon League, a criminal organisation of the moment."
+    },
+    palette: ["#2a2a2a", "#ffcb05", "#3b4cca"],
+    accentColor: "#ffcb05",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Pokemon%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Pokemon%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Pokemon%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    noTimeline: true,
+    canonNote: {
+      intro: {
+        it: "Come Doom, anche Pokémon non ha mai avuto una linea temporale ufficiale unica e completa. A differenza di Doom, però, non è nemmeno del tutto priva di agganci dichiarati: alcuni collegamenti tra i giochi sono confermati esplicitamente nei dialoghi stessi (Gold/Silver si svolge tre anni dopo Red/Blue; Black 2/White 2 si svolge due anni dopo Black/White), e diverse regioni sono presentate come parte dello stesso continente o della stessa nazione non ancora nominata (Kanto, Johto, Hoenn e Sinnoh, collegate anche geograficamente: si può letteralmente camminare da Johto a Kanto attraversando le Cascate Tohjo). Altre regioni, come Unima/Unova o Kalos, sono invece esplicitamente descritte come lontane, ispirate a paesi diversi dal Giappone (rispettivamente Stati Uniti e Francia). A complicare ulteriormente il quadro, alcuni giochi si contraddicono a vicenda su dettagli di lore condivisa (la storia della Mega Evoluzione raccontata in X/Y non coincide con quella di Rubino Omega/Zaffiro Alpha, dando origine alla teoria fan di due linee temporali parallele, mai confermata né smentita da Game Freak).",
+        en: "Like Doom, Pokémon has never had a single, complete official timeline. Unlike Doom, however, it isn't entirely without stated connections either: some links between games are confirmed explicitly in the dialogue itself (Gold/Silver takes place three years after Red/Blue; Black 2/White 2 takes place two years after Black/White), and several regions are presented as part of the same continent or the same still-unnamed nation (Kanto, Johto, Hoenn, and Sinnoh, also connected geographically: you can literally walk from Johto to Kanto through Tohjo Falls). Other regions, such as Unova or Kalos, are instead explicitly described as distant, inspired by countries other than Japan (the United States and France, respectively). Further complicating the picture, some games contradict one another on shared lore details (the history of Mega Evolution told in X/Y doesn't match that of Omega Ruby/Alpha Sapphire, giving rise to an unconfirmed, un-debunked fan theory of two parallel timelines)."
+      },
+      titles: {
+        it: "Red/Blue/Yellow (Kanto) e Ruby/Sapphire/Emerald (Hoenn), stesso periodo → Gold/Silver/Crystal (Johto) e Diamond/Pearl/Platinum (Sinnoh), 3 anni dopo, stesso periodo tra loro → Black/White (Unima) → Black 2/White 2 e X/Y (Kalos), 2 anni dopo, stesso periodo tra loro → Sun/Moon (Alola) → Sword/Shield (Galar) → Scarlet/Violet (Paldea)",
+        en: "Red/Blue/Yellow (Kanto) and Ruby/Sapphire/Emerald (Hoenn), same period → Gold/Silver/Crystal (Johto) and Diamond/Pearl/Platinum (Sinnoh), 3 years later, same period as each other → Black/White (Unova) → Black 2/White 2 and X/Y (Kalos), 2 years later, same period as each other → Sun/Moon (Alola) → Sword/Shield (Galar) → Scarlet/Violet (Paldea)"
+      },
+      outro: {
+        it: "Questo ordine è la ricostruzione più diffusa tra i fan, basata sui pochi riferimenti temporali espliciti presenti nei giochi stessi: non è un piano narrativo dichiarato da Game Freak, e i remake (Let's Go, i Rubino Omega/Zaffiro Alpha, Brilliant Diamond/Shining Pearl) complicano ulteriormente il quadro riscrivendo dettagli delle generazioni originali senza sempre chiarire se le sostituiscano del tutto o coesistano con loro.",
+        en: "This order is the most widely accepted fan reconstruction, based on the few explicit temporal references present in the games themselves: it is not a narrative plan declared by Game Freak, and the remakes (Let's Go, Omega Ruby/Alpha Sapphire, Brilliant Diamond/Shining Pearl) further complicate the picture by rewriting details from the original generations without always clarifying whether they replace them entirely or coexist alongside them."
+      }
+    }
+  },
+
   "resident-evil": {
     id: "resident-evil",
     listTitle: { it: "Resident Evil", en: "Resident Evil" },
@@ -2288,6 +2321,6 @@ const GAMES = {
 
 const GAME_ORDER = [
   "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
-  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid",
+  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid", "pokemon",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein"
 ];
