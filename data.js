@@ -932,6 +932,75 @@ const GAMES = {
     ]
   },
 
+  "elder-scrolls": {
+    id: "elder-scrolls",
+    listTitle: { it: "The Elder Scrolls", en: "The Elder Scrolls" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "The Elder Scrolls", en: "The Elder Scrolls" },
+    blurb: {
+      it: "Il continente di Tamriel attraverso le Ere, tra invasioni Daedriche, imperi che sorgono e crollano, e la profezia sempre presente del Nerevarine e del Sangue di Drago. Una delle poche saghe che usa un proprio calendario interno (Era + anno) invece di date reali, con salti temporali di secoli tra un capitolo e l'altro.",
+      en: "The continent of Tamriel across the Eras, through Daedric invasions, empires that rise and fall, and the ever-present prophecy of the Nerevarine and the Dragonborn. One of the few sagas to use its own internal calendar (Era + year) instead of real dates, with centuries-long time skips between chapters."
+    },
+    palette: ["#1a2e1a", "#8b7355", "#c9a227"],
+    accentColor: "#8b7355",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "main",
+        name: { it: "Tamriel", en: "Tamriel" },
+        span: { it: "Seconda Era 582 – Quarta Era 201", en: "Second Era 582 – Fourth Era 201" },
+        entries: [
+          { id: "eso", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2E 582", releaseYear: "2014", releaseYearEn: "2014",
+            title: { it: "The Elder Scrolls Online", en: "The Elder Scrolls Online" },
+            synopsis: {
+              it: "Il capitolo cronologicamente più antico. Il principe Daedrico Molag Bal tenta di fondere Nirn con il proprio regno di Coldharbour, mentre tre alleanze si contendono il Trono di Rubino in un Tamriel frammentato dall'assenza di un imperatore. L'eroe, un Vestigio privato della propria anima da Molag Bal stesso, deve fermarlo prima che il piano si compia.",
+              en: "The chronologically earliest chapter. The Daedric Prince Molag Bal attempts to merge Nirn with his own realm of Coldharbour, while three alliances vie for the Ruby Throne in a Tamriel fractured by the absence of an emperor. The hero, a Vestige robbed of their own soul by Molag Bal himself, must stop him before the plan is completed."
+            }
+          },
+          { id: "arena", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "3E 389 – 399", releaseYear: "1994", releaseYearEn: "1994",
+            title: { it: "Arena", en: "Arena" },
+            synopsis: {
+              it: "Il consigliere Jagar Tharn ha imprigionato l'Imperatore Uriel Septim VII in un'altra dimensione, prendendone il posto. Un prigioniero fuggito viene incaricato di raccogliere i frammenti del Bastone di Chaos, unico oggetto capace di liberare il vero imperatore, viaggiando attraverso l'intero continente di Tamriel.",
+              en: "The advisor Jagar Tharn has imprisoned Emperor Uriel Septim VII in another dimension, taking his place. An escaped prisoner is tasked with gathering the fragments of the Staff of Chaos, the only object capable of freeing the true emperor, travelling across the entire continent of Tamriel."
+            }
+          },
+          { id: "daggerfall", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "3E 405 – 417", releaseYear: "1996", releaseYearEn: "1996",
+            title: { it: "Daggerfall", en: "Daggerfall" },
+            synopsis: {
+              it: "Inviato dall'Imperatore a indagare sulla morte del Re Lysandus di Daggerfall, il protagonista si ritrova coinvolto nella corsa al controllo del Numidium, un antico golem dei Dwemer capace di riscrivere la realtà stessa. Le scelte del giocatore, a seconda del finale, si rivelano tutte simultaneamente vere grazie a una Rottura Temporale nota come il Distorcimento a Occidente.",
+              en: "Sent by the Emperor to investigate the death of King Lysandus of Daggerfall, the protagonist becomes entangled in the race for control of the Numidium, an ancient Dwemer golem capable of rewriting reality itself. The player's choices, depending on the ending, all turn out to be simultaneously true thanks to a Dragon Break known as the Warp in the West."
+            }
+          },
+          { id: "morrowind", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "3E 427", releaseYear: "2002", releaseYearEn: "2002",
+            title: { it: "Morrowind", en: "Morrowind" },
+            synopsis: {
+              it: "Un prigioniero rilasciato su Vvardenfell scopre di essere il Nerevarine, la reincarnazione profetizzata dell'eroe Chimer Nerevar, destinato a fermare Dagoth Ur e il suo piano di dominare Morrowind attraverso il potere corrotto del cuore di un dio Dwemer decaduto.",
+              en: "A prisoner released on Vvardenfell discovers he is the Nerevarine, the prophesied reincarnation of the Chimer hero Nerevar, destined to stop Dagoth Ur and his plan to dominate Morrowind through the corrupted power of a fallen Dwemer god's heart."
+            }
+          },
+          { id: "oblivion", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "3E 433", releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Oblivion", en: "Oblivion" },
+            synopsis: {
+              it: "L'assassinio dell'Imperatore Uriel Septim VII spezza la Barriera del Drago che teneva chiuse le porte dell'Oblivion, permettendo al principe Daedrico Mehrunes Dagon di invadere Tamriel attraverso portali infuocati aperti in ogni provincia. Un prigioniero, ultimo confidente dell'imperatore morente, deve trovare il suo erede segreto e richiudere le porte prima che sia troppo tardi.",
+              en: "The assassination of Emperor Uriel Septim VII breaks the Dragonfires that kept the gates of Oblivion sealed, allowing the Daedric Prince Mehrunes Dagon to invade Tamriel through fiery portals opened in every province. A prisoner, the dying emperor's last confidant, must find his secret heir and reseal the gates before it's too late."
+            }
+          },
+          { id: "skyrim", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "4E 201", releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Skyrim", en: "Skyrim" },
+            synopsis: {
+              it: "Duecento anni dopo Oblivion, un prigioniero destinato all'esecuzione viene salvato dall'attacco a sorpresa del drago Alduin, scoprendo di essere Sangue di Drago, l'unico capace di assorbire le anime dei draghi e affrontare Alduin stesso, tornato per divorare il mondo, mentre Skyrim è dilaniata da una guerra civile tra l'Impero e i ribelli Stormcloak.",
+              en: "Two hundred years after Oblivion, a prisoner set for execution is saved by the surprise attack of the dragon Alduin, discovering he is Dragonborn, the only one able to absorb dragon souls and confront Alduin himself, returned to devour the world, while Skyrim is torn apart by a civil war between the Empire and the Stormcloak rebels."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "dying-light": {
     id: "dying-light",
     listTitle: { it: "Dying Light", en: "Dying Light" },
@@ -3171,7 +3240,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "gears-of-war", "god-of-war", "gta", "halo",
+  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "elder-scrolls", "gears-of-war", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "warcraft", "wolfenstein", "yakuza"
 ];
