@@ -459,12 +459,12 @@ body[data-state="landing"] .brand{ display:none; }
   font-size:.9rem; font-weight:500; color:var(--text-dim);
   transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
-.game-list button.is-active, .game-list a.is-active{
+.game-list button.is-active:not(.row-lock), .game-list a.is-active{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
-.game-list button:hover, .game-list a:hover{
+.game-list button:hover:not(.row-lock), .game-list a:hover{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));

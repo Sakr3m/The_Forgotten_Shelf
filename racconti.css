@@ -81,13 +81,35 @@
   border-radius:50%;
   background:var(--panel);
   color:var(--item-accent, var(--cyan));
-  opacity:1; pointer-events:auto; /* sempre visibile - l'hover non
-    fa piu' nulla su questo pulsante, tolta la transizione di comparsa
-    (probabile causa del riflesso mai risolto) */
-  transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  opacity:0; pointer-events:none;
+  -webkit-tap-highlight-color:transparent; /* alcuni browser aggiungono
+    un riflesso/bagliore nativo al tocco/hover sui <button> se non
+    esplicitamente disattivato qui */
+  outline:none;
+  transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .row-lock svg{ width:13px; height:13px; }
+.game-list__row:hover .row-lock,
+.game-list__row:focus-within .row-lock{
+  opacity:1; pointer-events:auto;
+}
+/* Il mouse esattamente sopra il pulsante stesso (non solo sulla riga)
+   non deve "illuminarlo" in nessun modo diverso dal solito - stessi
+   valori del riposo, per neutralizzare qualunque stile nativo di
+   hover che il browser potrebbe applicare di suo sui <button> e che
+   il CSS qui sopra non copre esplicitamente. */
+.row-lock:hover,
+.row-lock:focus,
+.row-lock:active{
+  background:var(--panel); border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan));
+  box-shadow:none; filter:none;
+}
 .game-list__row .row-lock[aria-pressed="true"]{
+  background:var(--item-accent, var(--cyan)); color:var(--bg);
+}
+.row-lock[aria-pressed="true"]:hover,
+.row-lock[aria-pressed="true"]:focus,
+.row-lock[aria-pressed="true"]:active{
   background:var(--item-accent, var(--cyan)); color:var(--bg);
 }
 #sidebar .row-lock{ right:6px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
