@@ -647,19 +647,23 @@ body[data-state="entry"] .landing{ display:none; }
      resta ricordata. Sparisce tutto - contenuto, sfondo, bordo -
      non solo le voci della lista: da riposo la colonna non deve
      lasciare traccia visibile di se', a parte l'icona del pulsante
-     stesso che comunica la modalita' attiva. */
+     stesso che comunica la modalita' attiva.
+
+     Animazione da 1 secondo netto, curva ease-in-out (parte lenta,
+     accelera, rallenta di nuovo in chiusura) sia in apertura che in
+     chiusura - il ritardo di hover-intent (180ms in chiusura, 80ms in
+     apertura) resta separato dalla durata vera e propria: serve a
+     evitare sfarfallio su un passaggio distratto del mouse, non fa
+     parte del "secondo" di animazione richiesto. */
   body[data-panels="hover"] #sidebar,
   body[data-panels="hover"] .side-rail{
     background:transparent; border-color:transparent;
-    transition:background .22s ease .18s, border-color .22s ease .18s; /* il
-      "chiudersi" ha un piccolo ritardo (180ms) prima di cominciare -
-      evita che il contenuto sparisca per un attraversamento distratto
-      del mouse, non un vero tentativo di allontanarsi dalla colonna */
+    transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;
   }
   body[data-panels="hover"] #sidebar .panel-inner,
   body[data-panels="hover"] .side-rail .panel-inner{
     opacity:0; pointer-events:none;
-    transition:opacity .22s ease .18s;
+    transition:opacity 1s ease-in-out .18s;
   }
 
   body[data-panels="hover"] #sidebar:hover,
@@ -667,16 +671,13 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-panels="hover"] .side-rail:hover,
   body[data-panels="hover"] .side-rail:focus-within{
     background:var(--bg-soft); border-color:var(--line);
-    transition:background .18s ease .08s, border-color .18s ease .08s; /* l'
-      "aprirsi" ha un ritardo minimo (80ms), giusto per non scattare su
-      un passaggio del mouse puramente accidentale mentre si punta
-      altrove */
+    transition:background 1s ease-in-out .08s, border-color 1s ease-in-out .08s;
   }
   body[data-panels="hover"] #sidebar:hover .panel-inner,
   body[data-panels="hover"] #sidebar:focus-within .panel-inner,
   body[data-panels="hover"] .side-rail:hover .panel-inner,
   body[data-panels="hover"] .side-rail:focus-within .panel-inner{
     opacity:1; pointer-events:auto;
-    transition:opacity .18s ease .08s;
+    transition:opacity 1s ease-in-out .08s;
   }
 }
