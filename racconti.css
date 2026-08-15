@@ -817,10 +817,9 @@ body[data-entry-animate="true"] #watermarkBrightness{
   animation:tfs-enable-pointer 2.5s linear forwards;
 }
 
-/* ESPERIMENTO temporaneo, solo su Cinere: tolto il restringimento di
-   larghezza (i 45px riservati al lucchetto) che avevo aggiunto per
-   fermare lo sfondo evidenziato prima della sua zona - per capire se
-   e' quello a causare il riflesso ancora visibile sul lucchetto, o se
-   la causa e' altrove. Da rimuovere o rendere permanente in base al
-   risultato. */
-#sidebar a[href*="cinere"]{ width:100%; padding-right:29px; }
+/* ESPERIMENTO temporaneo, solo su Cinere: tolta la striscia colorata
+   (box-shadow inset) dell'evidenziazione, per capire se e' quella a
+   causare il riflesso ancora visibile sul lucchetto, o se la causa e'
+   altrove. Da rimuovere o rendere permanente in base al risultato. */
+#sidebar a[href*="cinere"].is-active,
+#sidebar a[href*="cinere"]:hover{ box-shadow:none; }
