@@ -312,18 +312,22 @@ function paintStaticText(){
 // il toggle visivo (aria-pressed) pronto per quando servira'.
 // Elemento fratello dell'anchor, non annidato al suo interno, per
 // evitare due elementi interattivi uno dentro l'altro (non valido).
-function creaLucchetto(){
+const LOCK_KEY_PREFIX = "tfs-lock-"; // + id della voce, es. "tfs-lock-cinere"
+function creaLucchetto(id){
   const btn = document.createElement("button");
   btn.type = "button";
   btn.className = "row-lock";
-  btn.setAttribute("aria-pressed", "false");
+  const acceso = localStorage.getItem(LOCK_KEY_PREFIX + id) === "true";
+  btn.setAttribute("aria-pressed", acceso ? "true" : "false");
   btn.setAttribute("aria-label", "Blocca/sblocca l'animazione di apertura per questa voce");
   btn.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c1.4 0 2.5 1.1 2.5 2.5v3l1.5 2.5v1H4v-1L5.5 7V4c0-1.4 1.1-2.5 2.5-2.5z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg>`;
   btn.addEventListener("click", (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
-    const acceso = btn.getAttribute("aria-pressed") === "true";
-    btn.setAttribute("aria-pressed", acceso ? "false" : "true");
+    const accesoOra = btn.getAttribute("aria-pressed") === "true";
+    const nuovoStato = !accesoOra;
+    btn.setAttribute("aria-pressed", nuovoStato ? "true" : "false");
+    localStorage.setItem(LOCK_KEY_PREFIX + id, nuovoStato ? "true" : "false");
     // Un click col mouse lascia il fuoco (focus) sul pulsante, che lo
     // terrebbe visibile anche dopo aver allontanato il mouse grazie a
     // :focus-within (necessario invece per chi naviga da tastiera).
@@ -356,7 +360,7 @@ function renderLists(){
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
     li.appendChild(btn);
-    li.appendChild(creaLucchetto());
+    li.appendChild(creaLucchetto(id));
     el.teorieList.appendChild(li);
   });
 
@@ -372,7 +376,7 @@ function renderLists(){
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
     li.appendChild(btn);
-    li.appendChild(creaLucchetto());
+    li.appendChild(creaLucchetto(id));
     el.storieList.appendChild(li);
   });
 }
@@ -439,12 +443,30 @@ function buildAllEntryPanels(){
   Object.keys(LIBRI).forEach(id => buildEntryPanelContent("storie", id, LIBRI[id]));
 }
 
+// Legge lo stato salvato del lucchetto per la voce che si sta per
+// aprire e attiva/disattiva la sequenza di comparsa (vedi le regole
+// body[data-entry-animate="true"] in racconti.css). Il
+// removeAttribute + reflow forzato (void ...offsetWidth) prima di
+// riaggiungere l'attributo serve a far ripartire l'animazione da capo
+// anche passando da una voce animata a un'altra voce anch'essa
+// animata - senza, il browser non noterebbe alcun cambiamento (stesso
+// valore dell'attributo di prima) e le regole non si riattiverebbero.
+function applicaAnimazioneVoce(id){
+  const acceso = localStorage.getItem(LOCK_KEY_PREFIX + id) === "true";
+  document.body.removeAttribute("data-entry-animate");
+  if(acceso){
+    void document.body.offsetWidth;
+    document.body.setAttribute("data-entry-animate", "true");
+  }
+}
 function renderEntry(){
   const entry = currentEntry();
   if(!entry){
     Object.values(entryPanels).forEach(rec => { rec.panel.hidden = true; });
     return;
   }
+
+  applicaAnimazioneVoce(state.entryId);
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   const isMobile = window.matchMedia("(max-width:900px)").matches;

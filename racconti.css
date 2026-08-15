@@ -772,3 +772,63 @@ body[data-state="entry"] .landing{ display:none; }
     transition:opacity 1s ease-in-out .08s;
   }
 }
+
+/* ============================================================
+   Sequenza di comparsa per voce, attivabile con il lucchetto (vedi
+   script-racconti.js: applicaAnimazioneVoce() aggiunge/toglie
+   body[data-entry-animate="true"] ad ogni apertura di voce, in base
+   allo stato salvato di QUELLA voce specifica). Da lucchetto spento
+   (default) nessuna di queste regole si applica: la pagina compare
+   com'e' oggi, istantanea.
+
+   Quattro fasi in sequenza, senza pause tra una e l'altra (il ritardo
+   di ciascuna e' la somma delle durate precedenti) - per ora fisso
+   cosi', in futuro potrebbero aggiungersi pause vere tra le fasi:
+   1) Pulsanti (.stage-topbar):        0.5s, parte subito
+   2) Banner (#pageHeader):            1s,   parte a 0.5s
+   3) Tutto il resto (.entry-panel):   2s,   parte a 1.5s, diagonale
+      dall'angolo alto-sinistra al basso-destra (maschera a gradiente
+      animata, stessa tecnica gia' in uso per la filigrana altrove)
+   4) Filigrana (#entryWatermark):     1s,   parte a 3.5s
+   Totale sequenza: 4.5s - la barra di luminosita' della filigrana
+   resta non interattiva (pointer-events) fino a quel momento incluso,
+   cosi' non si puo' farla comparire in hover mentre il resto sta
+   ancora apparendo.
+   ============================================================ */
+@keyframes tfs-fade-in{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes tfs-reveal-diagonal{
+  from{ -webkit-mask-position:130% 130%; mask-position:130% 130%; }
+  to{ -webkit-mask-position:0% 0%; mask-position:0% 0%; }
+}
+@keyframes tfs-enable-pointer{
+  0%, 99.9%{ pointer-events:none; }
+  100%{ pointer-events:auto; }
+}
+
+body[data-entry-animate="true"] .stage-topbar{
+  opacity:0;
+  animation:tfs-fade-in .5s ease forwards;
+}
+body[data-entry-animate="true"] #pageHeader{
+  opacity:0;
+  animation:tfs-fade-in 1s ease forwards;
+  animation-delay:.5s;
+}
+body[data-entry-animate="true"] .entry-panel{
+  -webkit-mask-image:linear-gradient(135deg, black 0%, black 8%, transparent 20%);
+  mask-image:linear-gradient(135deg, black 0%, black 8%, transparent 20%);
+  -webkit-mask-size:250% 250%;
+  mask-size:250% 250%;
+  -webkit-mask-position:130% 130%;
+  mask-position:130% 130%;
+  animation:tfs-reveal-diagonal 2s linear forwards;
+  animation-delay:1.5s;
+}
+body[data-entry-animate="true"] #entryWatermarkWrap{
+  opacity:0;
+  animation:tfs-fade-in 1s ease forwards;
+  animation-delay:3.5s;
+}
+body[data-entry-animate="true"] #watermarkBrightness{
+  animation:tfs-enable-pointer 4.5s linear forwards;
+}
