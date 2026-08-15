@@ -169,9 +169,11 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 @media (min-width:901px){
   body[data-state="entry"] .entry-game-picker{
     display:block;
-    position:absolute; right:25px; bottom:15px; z-index:2;
-    /* +25px di padding destro dell'header = 50px dal bordo, come
-       switch/volume nella pagina di una voce */
+    position:absolute; right:75px; bottom:15px; z-index:2;
+    /* 100px dal bordo destro reale (75 qui + 25 dal padding
+       dell'header contenitore), come switch lingua/index-link -
+       prima era a 50px (right:25px), mai aggiornato quando quello
+       standard e' passato da 50 a 100px altrove in vista voce. */
   }
 }
 .entry-game-trigger{
