@@ -639,28 +639,39 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* Stato "acceso": applicato sul body da script-racconti.js, letto
      da localStorage ad ogni caricamento pagina cosi' la scelta
-     resta ricordata. */
+     resta ricordata. Sparisce tutto - contenuto, sfondo, bordo -
+     non solo le voci della lista: da riposo la colonna non deve
+     lasciare traccia visibile di se', a parte l'icona del pulsante
+     stesso che comunica la modalita' attiva. */
+  body[data-panels="hover"] #sidebar,
+  body[data-panels="hover"] .side-rail{
+    background:transparent; border-color:transparent;
+    transition:background .22s ease .18s, border-color .22s ease .18s; /* il
+      "chiudersi" ha un piccolo ritardo (180ms) prima di cominciare -
+      evita che il contenuto sparisca per un attraversamento distratto
+      del mouse, non un vero tentativo di allontanarsi dalla colonna */
+  }
   body[data-panels="hover"] #sidebar .panel-inner,
   body[data-panels="hover"] .side-rail .panel-inner{
-    opacity:.08; pointer-events:none;
-    transition:opacity .22s ease .18s; /* il "chiudersi" ha un piccolo
-      ritardo (180ms) prima di cominciare - evita che il contenuto
-      sparisca per un attraversamento distratto del mouse, non un
-      vero tentativo di allontanarsi dalla colonna */
+    opacity:0; pointer-events:none;
+    transition:opacity .22s ease .18s;
   }
-  /* Indizio visivo permanente anche a riposo: un filo di colore
-     sul bordo interno della colonna, cosi' resta chiaro che li' c'e'
-     qualcosa anche quando il contenuto e' quasi invisibile. */
-  body[data-panels="hover"] #sidebar{ box-shadow:inset -1px 0 0 var(--line); }
-  body[data-panels="hover"] .side-rail{ box-shadow:inset 1px 0 0 var(--line); }
 
+  body[data-panels="hover"] #sidebar:hover,
+  body[data-panels="hover"] #sidebar:focus-within,
+  body[data-panels="hover"] .side-rail:hover,
+  body[data-panels="hover"] .side-rail:focus-within{
+    background:var(--bg-soft); border-color:var(--line);
+    transition:background .18s ease .08s, border-color .18s ease .08s; /* l'
+      "aprirsi" ha un ritardo minimo (80ms), giusto per non scattare su
+      un passaggio del mouse puramente accidentale mentre si punta
+      altrove */
+  }
   body[data-panels="hover"] #sidebar:hover .panel-inner,
   body[data-panels="hover"] #sidebar:focus-within .panel-inner,
   body[data-panels="hover"] .side-rail:hover .panel-inner,
   body[data-panels="hover"] .side-rail:focus-within .panel-inner{
     opacity:1; pointer-events:auto;
-    transition:opacity .18s ease .08s; /* l'"aprirsi" ha un ritardo
-      minimo (80ms), giusto per non scattare su un passaggio del
-      mouse puramente accidentale mentre si punta altrove */
+    transition:opacity .18s ease .08s;
   }
 }
