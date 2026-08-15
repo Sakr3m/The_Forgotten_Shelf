@@ -22,7 +22,6 @@ const STRINGS = {
     steamToggleLabel: "Sfoglia offerte Steam",
     steamIndieEyebrow: "Piccole perle a prezzo bassissimo",
     steamSaleEyebrow: "In sconto proprio adesso",
-    steamSaleNote: "Elenco aggiornato ogni 5 minuti. Il prezzo esatto è sempre quello mostrato dalla pagina Steam vera.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -59,7 +58,6 @@ const STRINGS = {
     steamToggleLabel: "Browse Steam deals",
     steamIndieEyebrow: "Tiny gems at a very low price",
     steamSaleEyebrow: "On sale right now",
-    steamSaleNote: "List refreshes every 5 minutes. The exact price is always the one shown on the real Steam page.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -690,7 +688,11 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
       const ask = note.querySelector(".wish-note__ask")?.textContent || "";
       const offer = note.querySelector(".wish-note__offer")?.textContent || "";
       const link = note.querySelector(".wish-note__link");
-      const haystack = (ask + " " + offer + " " + (note.dataset.tags || "") + " " + (note.dataset.category || "")).toLowerCase();
+      // Solo tag/categoria, non piu' il testo di domanda/risposta:
+      // altrimenti cercare "storia" o "gioco" (parole comuni dentro
+      // le domande stesse) restituirebbe risultati casuali invece di
+      // una vera ricerca per argomento/genere.
+      const haystack = ((note.dataset.tags || "") + " " + (note.dataset.category || "")).toLowerCase();
       return { ask, offer, href: link ? link.href : "#", haystack };
     });
   }
