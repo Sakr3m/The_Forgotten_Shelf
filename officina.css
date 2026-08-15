@@ -378,6 +378,21 @@
 .wish-column--left{ left:100px; }
 .wish-column--right{ right:100px; left:auto; }
 
+/* Il pool (#wishPool nell'HTML) e' il contenitore di partenza di
+   TUTTE le varianti - ma solo quelle scelte in un dato momento
+   vengono spostate nelle colonne (vedi script-officina.js). Quelle
+   che restano qui dentro, in attesa del prossimo giro, non devono
+   comparire sparse per la pagina: position:relative lo rende il
+   riferimento di posizionamento dei suoi .wish-note (position:
+   absolute), collassato a altezza zero e overflow:hidden le tiene
+   invisibili senza mai display:none - stessa logica gia' usata per
+   .wish-note__answer, qui applicata al contenitore intero. */
+#wishPool{
+  position:relative;
+  height:0;
+  overflow:hidden;
+}
+
 .wish-note{
   position:absolute;
   top:var(--top, 10%);

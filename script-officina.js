@@ -502,31 +502,50 @@ function initReportModal(){
 initReportModal();
 
 // ---------------------------------------------------------
-// Bacheca dei desideri: ad ogni caricamento della pagina, i 6
-// post-it (sempre gli stessi 6, scritti per intero nell'HTML dentro
-// #wishPool - vedi nota SEO li' sopra nel markup) vengono mescolati,
-// smistati 3 a sinistra e 3 a destra a caso, e posizionati con una
-// combinazione casuale di altezza/profondita'/rotazione diversa ogni
-// volta. Lo spostamento dal pool alle colonne avviene qui, in modo
-// sincrono, prima che la pagina finisca di disegnarsi - i post-it non
-// sono mai stati "nascosti" nel senso SEO del termine, solo non ancora
-// smistati nella loro colonna finale.
+// Bacheca dei desideri: il pool (#wishPool) contiene TUTTE le
+// varianti reali di ogni categoria, scritte per intero nell'HTML -
+// non solo una a testa - cosi' restano tutte indicizzabili a
+// prescindere da quale venga mostrata in un dato momento (vedi nota
+// SEO piu' sopra nel markup). Ad ogni ciclo (primo caricamento, poi
+// ogni 300 secondi netti) si pesca UNA voce a caso per ciascuna delle
+// 6 categorie e la si sposta nella colonna giusta, con una posizione
+// (altezza, profondita' orizzontale) e una rotazione anch'esse
+// nuove ogni volta. Il ciclo salta se in quel momento c'e' un
+// post-it aperto: cambiare tutto sotto gli occhi di chi sta
+// leggendo sarebbe piu' fastidioso che utile.
 // ---------------------------------------------------------
-(function scatterWishNotes(){
+const WISH_CYCLE_MS = 300000; // 300 secondi netti
+
+function scatterWishNotes(){
   const pool = document.getElementById("wishPool");
   const colLeft = document.getElementById("wishColumnLeft");
   const colRight = document.getElementById("wishColumnRight");
   if(!pool || !colLeft || !colRight) return;
+  if(document.querySelector(".wish-note.is-open")) return; // non interrompere chi sta leggendo
 
-  const notes = Array.from(pool.querySelectorAll(".wish-note"));
-  // Fisher-Yates, non il piu' comune (ma distorto) sort(() => Math.random()-0.5)
-  for(let i = notes.length - 1; i > 0; i--){
+  // Tutte le voci, ovunque si trovino ora (pool o colonne), tornano
+  // nel pool prima di ripescare - cosi' il ciclo funziona identico al
+  // primo giro e a quelli successivi.
+  document.querySelectorAll(".wish-note").forEach(n => pool.appendChild(n));
+
+  const categories = {};
+  pool.querySelectorAll(".wish-note").forEach(n => {
+    const cat = n.dataset.category;
+    (categories[cat] = categories[cat] || []).push(n);
+  });
+
+  // Una pescata a caso per categoria.
+  const chosen = Object.values(categories).map(list => list[Math.floor(Math.random() * list.length)]);
+
+  // Fisher-Yates sull'ordine di uscita, cosi' non e' sempre la stessa
+  // categoria a finire "prima a sinistra" ecc.
+  for(let i = chosen.length - 1; i > 0; i--){
     const j = Math.floor(Math.random() * (i + 1));
-    [notes[i], notes[j]] = [notes[j], notes[i]];
+    [chosen[i], chosen[j]] = [chosen[j], chosen[i]];
   }
 
-  const half = Math.ceil(notes.length / 2);
-  notes.forEach((note, i) => {
+  const half = Math.ceil(chosen.length / 2);
+  chosen.forEach((note, i) => {
     const col = i < half ? colLeft : colRight;
     const side = i < half ? "left" : "right";
     const top = (5 + Math.random() * 83).toFixed(1) + "%";
@@ -543,7 +562,10 @@ initReportModal();
     }
     col.appendChild(note);
   });
-})();
+}
+
+scatterWishNotes();
+setInterval(scatterWishNotes, WISH_CYCLE_MS);
 
 // ---------------------------------------------------------
 // Click su un post-it lo stacca dalla colonna e lo apre in overlay al
