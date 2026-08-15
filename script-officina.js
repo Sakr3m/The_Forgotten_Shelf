@@ -22,7 +22,7 @@ const STRINGS = {
     steamToggleLabel: "Sfoglia offerte Steam",
     steamIndieEyebrow: "Piccole perle a prezzo bassissimo",
     steamSaleEyebrow: "In sconto proprio adesso",
-    steamSaleNote: "Prezzi e sconti verificati a metà agosto 2026, potrebbero non essere più validi.",
+    steamSaleNote: "Elenco aggiornato ogni 5 minuti. Il prezzo esatto è sempre quello mostrato dalla pagina Steam vera.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -59,7 +59,7 @@ const STRINGS = {
     steamToggleLabel: "Browse Steam deals",
     steamIndieEyebrow: "Tiny gems at a very low price",
     steamSaleEyebrow: "On sale right now",
-    steamSaleNote: "Prices and discounts checked mid-August 2026, may no longer be valid.",
+    steamSaleNote: "List refreshes every 5 minutes. The exact price is always the one shown on the real Steam page.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -709,12 +709,106 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
 // secondo click torna alla bacheca. Non richiama mai scatterWishNotes:
 // non conta come un refresh, i post-it restano esattamente dove
 // erano quando si torna indietro.
+//
+// Le due liste si rinfrescano ogni 5 minuti netti (300000ms), a
+// partire dal primo click sul toggle (non prima: se nessuno lo usa
+// mai, non ha senso interrogare Steam in background). Indie: pesca
+// 10 titoli a caso dal pool statico di 20 (i prezzi cambiano di rado,
+// scriverli a mano qui e' onesto). Sconti: prova prima il Worker
+// dedicato (worker-steam-sales.js - fa da tramite verso l'endpoint
+// pubblico di Steam, che non ha header CORS e quindi non e'
+// chiamabile direttamente dal browser), mostrando prezzo e sconto
+// VERI presi da Steam in quel momento; se il Worker non risponde
+// (non ancora pubblicato, o momentaneamente giu'), pesca 10 titoli a
+// caso dal pool di riserva - senza alcun prezzo scritto a mano,
+// solo titolo/copertina/link alla pagina Steam vera, dove il prezzo
+// che la persona vede e' comunque sempre quello reale del momento.
 // ---------------------------------------------------------
+
+// Da sostituire con l'URL vero una volta pubblicato il Worker (vedi
+// worker-steam-sales.js in cima alla repo per il codice e le
+// istruzioni). Finche' resta questo valore, o se il fetch fallisce
+// per qualunque motivo, si usa automaticamente il pool di riserva.
+const STEAM_SPECIALS_WORKER_URL = "https://REPLACE-WITH-YOUR-WORKER-URL.workers.dev/";
+
+function pickRandom(arr, n){
+  const copy = arr.slice();
+  for(let i = copy.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, n);
+}
+
+function refreshSteamIndie(){
+  const pool = document.getElementById("steamIndiePool");
+  const list = document.getElementById("steamIndieList");
+  if(!pool || !list) return;
+  const items = pickRandom(Array.from(pool.querySelectorAll(".steam-item")), 10);
+  list.innerHTML = "";
+  items.forEach(el => list.appendChild(el.cloneNode(true)));
+}
+
+function renderSteamFallbackSale(){
+  const pool = document.getElementById("steamSaleFallbackPool");
+  const list = document.getElementById("steamSaleList");
+  if(!pool || !list) return;
+  const items = pickRandom(Array.from(pool.querySelectorAll(".steam-item")), 10);
+  list.innerHTML = "";
+  items.forEach(el => list.appendChild(el.cloneNode(true)));
+}
+
+async function refreshSteamSale(){
+  const list = document.getElementById("steamSaleList");
+  if(!list) return;
+  if(!STEAM_SPECIALS_WORKER_URL || STEAM_SPECIALS_WORKER_URL.includes("REPLACE-WITH")){
+    renderSteamFallbackSale();
+    return;
+  }
+  try {
+    const res = await fetch(STEAM_SPECIALS_WORKER_URL);
+    if(!res.ok) throw new Error("worker non disponibile");
+    const data = await res.json();
+    const items = pickRandom(data.items || [], 10);
+    if(items.length === 0) throw new Error("nessun risultato dal worker");
+    list.innerHTML = "";
+    items.forEach(g => {
+      const a = document.createElement("a");
+      a.className = "steam-item";
+      a.href = `https://store.steampowered.com/app/${g.appid}/`;
+      a.target = "_blank";
+      a.rel = "noopener";
+      const priceStr = ((g.finalPriceCents || 0) / 100).toFixed(2).replace(".", ",") + " €";
+      a.innerHTML = `
+        <img class="steam-item__cover" src="${g.cover}" alt="" loading="lazy">
+        <span class="steam-item__title">${g.title}</span>
+        <span class="steam-item__price">${priceStr}${g.discountPercent ? ` <span class="steam-item__discount">-${g.discountPercent}%</span>` : ""}</span>
+      `;
+      list.appendChild(a);
+    });
+  } catch(e){
+    renderSteamFallbackSale();
+  }
+}
+
+const STEAM_REFRESH_MS = 300000; // 5 minuti netti
+let steamRefreshStarted = false;
+
+function refreshSteamLists(){
+  refreshSteamIndie();
+  refreshSteamSale();
+}
+
 (function initSteamToggle(){
   const btn = document.getElementById("wishSteamToggle");
   if(!btn) return;
   btn.addEventListener("click", () => {
     const isOn = document.body.classList.toggle("is-steam-mode");
     btn.setAttribute("aria-pressed", String(isOn));
+    if(isOn && !steamRefreshStarted){
+      steamRefreshStarted = true;
+      refreshSteamLists();
+      setInterval(refreshSteamLists, STEAM_REFRESH_MS);
+    }
   });
 })();
