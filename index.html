@@ -190,9 +190,129 @@
       content:"Please rotate your device back to portrait to continue.";
     }
   }
+
+  /* Segnala bug: SOLO su mobile — su desktop questa pagina non lo ha
+     mai avuto (a differenza delle altre 5, che invece lo mostrano
+     ovunque tranne che qui). Su mobile e' il contrario: sparisce
+     dalle altre 5 (vedi styles.css) e compare solo qui. Stessa
+     posizione delle altre pagine su mobile (in basso a sinistra). */
+  .report-bug-btn{
+    display:none;
+    align-items:center; gap:8px;
+    position:fixed; left:16px; bottom:16px; z-index:50;
+    height:35px; box-sizing:border-box;
+    padding:0 16px;
+    border:1px solid var(--cyan);
+    background:#111726;
+    border-radius:999px;
+    font-size:.8rem; font-weight:600; color:#ffffff;
+    white-space:nowrap;
+    cursor:pointer;
+  }
+  @media (hover:none) and (pointer:coarse){
+    .report-bug-btn{ display:flex; }
+  }
+  .report-bug-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
+
+  .report-modal-overlay{
+    display:none;
+    position:fixed; inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:1000;
+    align-items:center; justify-content:center;
+    padding:20px;
+  }
+  .report-modal-overlay.visible{ display:flex; }
+  .report-modal-card{
+    position:relative;
+    background:#111726;
+    border:1px solid var(--cyan);
+    border-radius:12px;
+    padding:22px;
+    width:100%; max-width:420px;
+    color:var(--text);
+  }
+  .report-modal-card h3{ margin:0 0 10px; font-size:1.15rem; }
+  .report-modal-card p{ margin:0 0 16px; font-size:.85rem; color:var(--text-faint); line-height:1.5; }
+  .report-modal-close{
+    position:absolute; top:14px; right:14px;
+    background:none; border:none; color:var(--text-faint);
+    font-size:1rem; cursor:pointer; padding:4px;
+  }
+  .report-field{ margin-bottom:16px; }
+  .report-field-label{
+    display:block; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:6px;
+  }
+  .report-textarea{
+    display:block; width:100%; min-height:96px; resize:vertical;
+    background:#000000; border:1px solid var(--text-faint); border-radius:10px;
+    color:var(--text); font-family:inherit; font-size:.9rem; padding:10px;
+    box-sizing:border-box; margin:0;
+  }
+  .report-textarea:focus{ outline:2px solid var(--cyan); outline-offset:1px; }
+  .report-file-row{ display:flex; align-items:center; gap:10px; }
+  .report-file-input{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  .report-file-trigger{
+    font-size:.8rem; font-weight:600; color:var(--text-faint);
+    background:#000000; border:1px solid var(--cyan); border-radius:6px;
+    padding:7px 14px; cursor:pointer; flex-shrink:0;
+  }
+  .report-file-name{
+    font-size:.78rem; color:var(--text-faint);
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0;
+  }
+  .report-image-preview{
+    display:none; max-width:100%; max-height:200px; border-radius:10px;
+    border:1px solid var(--text-faint); margin:10px 0 0;
+  }
+  .report-image-preview.visible{ display:block; }
+  .report-modal-buttons{ display:flex; gap:10px; margin-top:4px; }
+  .report-modal-btn{
+    font-weight:700; font-size:.92rem; border:none; border-radius:6px;
+    padding:9px 20px; cursor:pointer;
+  }
+  .report-modal-btn.send{ background:var(--cyan); color:#000000; }
+  .report-modal-btn.cancel{ background:transparent; color:var(--text-faint); border:1px solid var(--cyan); }
+  .report-modal-btn:disabled{ opacity:.5; cursor:default; }
+  .report-modal-note{ font-size:.76rem; color:var(--text-faint); margin-top:10px; text-align:left; }
 </style>
 </head>
 <body>
+  <button type="button" class="report-bug-btn" id="reportBugBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"/><path d="M4 4h11l-2 4 2 4H4"/></svg>
+    <span data-it="Segnala bug" data-en="Report bug">Segnala bug</span>
+  </button>
+
+  <div class="report-modal-overlay" id="reportModalOverlay">
+    <div class="report-modal-card">
+      <button type="button" class="report-modal-close" id="reportModalClose" aria-label="Chiudi">✕</button>
+      <h3 data-it="Segnala un problema" data-en="Report an issue">Segnala un problema</h3>
+      <p data-it="Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto — la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto." data-en="Found something broken? Describe what happened below — description required, image optional but helps a lot.">Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto — la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto.</p>
+      <div class="report-field">
+        <label class="report-field-label" for="reportDescription" data-it="Descrizione" data-en="Description">Descrizione</label>
+        <textarea class="report-textarea" id="reportDescription" maxlength="1000" placeholder="Cosa è successo, e in quale pagina?"></textarea>
+      </div>
+      <div class="report-field">
+        <label class="report-field-label" for="reportImageInput" data-it="Immagine (facoltativa)" data-en="Image (optional)">Immagine (facoltativa)</label>
+        <div class="report-file-row">
+          <label class="report-file-trigger" for="reportImageInput" data-it="Scegli file" data-en="Choose file">Scegli file</label>
+          <span class="report-file-name" id="reportFileName" data-it="Nessun file scelto" data-en="No file chosen">Nessun file scelto</span>
+          <input type="file" id="reportImageInput" accept="image/*" class="report-file-input">
+        </div>
+        <img class="report-image-preview" id="reportImagePreview" alt="">
+      </div>
+      <div class="report-modal-buttons">
+        <button type="button" class="report-modal-btn send" id="reportSubmitBtn" data-it="Invia" data-en="Send">Invia</button>
+        <button type="button" class="report-modal-btn cancel" id="reportCancelBtn" data-it="Annulla" data-en="Cancel">Annulla</button>
+      </div>
+      <p class="report-modal-note" id="reportNote"></p>
+    </div>
+  </div>
+
   <div class="top-controls">
     <a class="discord-link" href="https://discord.gg/Vu7bxUPvgR" target="_blank" rel="noopener" aria-label="Unisciti al server Discord">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7362 19.7362 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.0991.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" fill="currentColor"/></svg>
@@ -233,7 +353,7 @@
 
     function paintLang(){
       document.documentElement.lang = lang;
-      document.querySelectorAll(".entry, .home-title, .kofi-link__full, .home-note").forEach(el => {
+      document.querySelectorAll("[data-it]").forEach(el => {
         el.textContent = el.dataset[lang];
       });
       langSwitch.querySelectorAll(".lang-option").forEach(opt => {
@@ -287,6 +407,161 @@
         setTimeout(() => { window.location.href = link.href; }, 550);
       });
     });
+
+    // ---------------------------------------------------------
+    // Popup "Segnala un problema" — stessa identica funzione delle
+    // altre pagine, solo mostrata qui su mobile invece che li' (vedi
+    // CSS). Gli elementi statici del modulo (titolo, etichette,
+    // pulsanti) si traducono da soli con paintLang qui sopra, dato
+    // che hanno gia' data-it/data-en; qui servono solo i messaggi
+    // dinamici che compaiono durante l'uso (placeholder, stato invio),
+    // non legati a un nodo fisso.
+    // ---------------------------------------------------------
+    const REPORT_DYNAMIC_STRINGS = {
+      it: {
+        reportDescPlaceholder: "Cosa è successo, e in quale pagina?",
+        reportSending: "Invio in corso...",
+        reportThanks: "Grazie, segnalazione ricevuta.",
+        reportError: "Qualcosa è andato storto, riprova più tardi.",
+        reportNeedDescription: "Descrivi prima il problema.",
+        reportProcessingImage: "Elaborazione immagine...",
+        reportInvalidImage: "Non è stato possibile leggere quell'immagine, provane un'altra.",
+        reportSelectImage: "Seleziona un file immagine.",
+        reportSend: "Invia",
+        reportNoFile: "Nessun file scelto"
+      },
+      en: {
+        reportDescPlaceholder: "What happened, and on which page?",
+        reportSending: "Sending...",
+        reportThanks: "Thanks, report received.",
+        reportError: "Something went wrong, please try again later.",
+        reportNeedDescription: "Please describe the issue first.",
+        reportProcessingImage: "Processing image...",
+        reportInvalidImage: "Could not read that image, try another one.",
+        reportSelectImage: "Please select an image file.",
+        reportSend: "Send",
+        reportNoFile: "No file chosen"
+      }
+    };
+    function rt(key){ return REPORT_DYNAMIC_STRINGS[lang][key]; }
+
+    function initReportModal(){
+      const btn = document.getElementById("reportBugBtn");
+      const overlay = document.getElementById("reportModalOverlay");
+      if(!btn || !overlay) return;
+      const closeBtn = document.getElementById("reportModalClose");
+      const cancelBtn = document.getElementById("reportCancelBtn");
+      const submitBtn = document.getElementById("reportSubmitBtn");
+      const descEl = document.getElementById("reportDescription");
+      const imageInput = document.getElementById("reportImageInput");
+      const imagePreview = document.getElementById("reportImagePreview");
+      const fileNameEl = document.getElementById("reportFileName");
+      const noteEl = document.getElementById("reportNote");
+      let imageBlob = null;
+
+      function resetForm(){
+        descEl.value = "";
+        imageInput.value = "";
+        imageBlob = null;
+        imagePreview.src = "";
+        imagePreview.classList.remove("visible");
+        fileNameEl.textContent = rt("reportNoFile");
+        descEl.placeholder = rt("reportDescPlaceholder");
+        noteEl.textContent = "";
+        submitBtn.disabled = false;
+        submitBtn.textContent = rt("reportSend");
+      }
+
+      function openModal(){
+        resetForm();
+        overlay.classList.add("visible");
+      }
+      function closeModal(){ overlay.classList.remove("visible"); }
+
+      btn.addEventListener("click", openModal);
+      closeBtn.addEventListener("click", closeModal);
+      cancelBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", (e) => { if(e.target === overlay) closeModal(); });
+
+      function compressImage(file){
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          const url = URL.createObjectURL(file);
+          img.onload = () => {
+            const maxSide = 1600;
+            let { width, height } = img;
+            if(width > maxSide || height > maxSide){
+              const scale = maxSide / Math.max(width, height);
+              width = Math.round(width * scale);
+              height = Math.round(height * scale);
+            }
+            const canvas = document.createElement("canvas");
+            canvas.width = width; canvas.height = height;
+            canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+            canvas.toBlob((blob) => {
+              URL.revokeObjectURL(url);
+              if(blob) resolve(blob); else reject(new Error("compressione fallita"));
+            }, "image/jpeg", 0.82);
+          };
+          img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("immagine non valida")); };
+          img.src = url;
+        });
+      }
+
+      imageInput.addEventListener("change", async () => {
+        const file = imageInput.files[0];
+        if(!file) return;
+        if(!file.type.startsWith("image/")){
+          noteEl.textContent = rt("reportSelectImage");
+          imageInput.value = "";
+          fileNameEl.textContent = rt("reportNoFile");
+          return;
+        }
+        fileNameEl.textContent = file.name;
+        noteEl.textContent = rt("reportProcessingImage");
+        try {
+          imageBlob = await compressImage(file);
+          imagePreview.src = URL.createObjectURL(imageBlob);
+          imagePreview.classList.add("visible");
+          noteEl.textContent = "";
+        } catch(e){
+          noteEl.textContent = rt("reportInvalidImage");
+          imageBlob = null;
+        }
+      });
+
+      submitBtn.addEventListener("click", async () => {
+        const description = descEl.value.trim();
+        if(!description){
+          noteEl.textContent = rt("reportNeedDescription");
+          return;
+        }
+        submitBtn.disabled = true;
+        submitBtn.textContent = rt("reportSending");
+        noteEl.textContent = "";
+
+        const formData = new FormData();
+        formData.append("description", description);
+        formData.append("page", window.location.pathname);
+        formData.append("userAgent", navigator.userAgent);
+        if(imageBlob) formData.append("image", imageBlob, "report.jpg");
+
+        try {
+          const res = await fetch("https://the-forgotten-shelf.sl-eternal-lux.workers.dev/report-bug", {
+            method: "POST",
+            body: formData
+          });
+          if(!res.ok) throw new Error("bad status " + res.status);
+          noteEl.textContent = rt("reportThanks");
+          setTimeout(closeModal, 1200);
+        } catch(e){
+          noteEl.textContent = rt("reportError");
+          submitBtn.disabled = false;
+          submitBtn.textContent = rt("reportSend");
+        }
+      });
+    }
+    initReportModal();
 
   </script>
   <script src="stats.js?v=20260809"></script>
