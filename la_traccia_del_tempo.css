@@ -5,6 +5,17 @@
    il file condiviso con le altre.
    ============================================================ */
 
+/* Font titolo di sezione: JetBrains Mono su tutti e tre i livelli
+   (hero d'ingresso, titolo di ogni saga, titolo di ogni singola voce)
+   stesso peso ovunque — qui la gerarchia la fa solo la dimensione,
+   niente scarto di peso come su altre sezioni. Regole qui e non nel
+   condiviso styles.css, anche se nessun'altra pagina usa oggi
+   .game-header__title/.title-name, per lo stesso motivo di sempre:
+   non toccare il file che serve tutto il sito. */
+.landing-title, .game-header__title, .title-name{
+  font-family:'JetBrains Mono', monospace; font-weight:700;
+}
+
 @media (max-width:900px){
 
   /* --- Blocco l'altezza che il browser ricalcola da solo quando

@@ -11,6 +11,13 @@
    Solo desktop: su mobile storie_senza_cornice.html non ha comunque sidebar/
    rail fissi (sono pannelli del carosello), quindi lì non serve
    nessuna correzione. */
+
+/* Titolo hero della sezione: Caveat, manoscritto — coerente col
+   linguaggio "fatto a mano" della bacheca di post-it che ospitera'.
+   Nessun titolo di voce da abbinare per ora, non c'e' ancora
+   contenuto oltre l'hero. */
+.landing-title{ font-family:'Caveat', cursive; font-weight:700; }
+
 @media (min-width:901px){
   .stage{
     flex:none;

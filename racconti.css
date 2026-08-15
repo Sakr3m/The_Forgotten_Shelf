@@ -5,6 +5,11 @@
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
+/* Titolo hero della sezione: EB Garamond corsivo, piu' pesante del
+   titolo di voce (.entry-title qui sotto, stesso font ma peso 500)
+   per dare piu' impatto all'ingresso in sezione. */
+.landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; }
+
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
@@ -217,7 +222,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
   width:100%;
 }
-.entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{
   margin:10px auto 0; width:fit-content;
   font-size:.7rem; color:var(--text-faint);

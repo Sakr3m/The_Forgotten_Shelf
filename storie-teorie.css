@@ -5,6 +5,11 @@
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
+/* Titolo hero della sezione: Manrope, stesso peso del titolo di voce
+   (.entry-title qui sotto) — qui la gerarchia la fa solo la
+   dimensione, niente scarto di peso come su altre sezioni. */
+.landing-title{ font-family:'Manrope', sans-serif; font-weight:700; }
+
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
@@ -151,7 +156,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
   width:100%;
 }
-.entry-title{ font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{
   margin:10px auto 0; width:fit-content;
   font-size:.7rem; color:var(--text-faint);
