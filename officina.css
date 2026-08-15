@@ -376,7 +376,6 @@
   width:max(280px, calc(50vw - 470px));
   z-index:4;
   pointer-events:none; /* la zona in se' non e' cliccabile, solo i post-it dentro */
-  border:2px dashed #22d3ee; /* solo per orientarsi mentre si regola la disposizione */
   box-sizing:border-box;
 }
 @media (min-width:901px){
