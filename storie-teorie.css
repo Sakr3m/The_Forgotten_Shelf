@@ -239,9 +239,9 @@ body[data-state="landing"] #pageHeader{ display:none; }
      Discord) — solo la LARGHEZZA di Ko-fi cambia un po' (testo piu'
      corto nelle voci, "KoFi" invece del testo lungo). --- */
   .kofi-link, .index-link, .discord-link, .lang-switch{
-    height:38px; box-sizing:border-box;
+    height:40px; box-sizing:border-box;
   }
-  .discord-link{ width:38px; }
+  .discord-link{ width:40px; }
 
   /* --- Vista voce: la tazzina (icona Ko-fi dentro .brand) lascia il
      posto ai pulsanti veri di Ko-fi (solo cuoricino + "KoFi", non il

@@ -309,16 +309,16 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   .discord-link{ color:var(--text-faint); }
 
   /* --- Altezza uniforme di tutti i pulsanti (casetta, Ko-fi,
-     Discord, switch lingua), sia in home che nelle voci: prima le
-     voci li avevano piu' piccoli (padding ridotto), qui si allineano
-     tutti a 38px netti con box-sizing:border-box. La forma resta
-     quella di ciascuno (pillola per Ko-fi/casetta/switch, cerchio per
-     Discord) — solo la LARGHEZZA di Ko-fi cambia un po' (testo piu'
-     corto nelle voci, "KoFi" invece del testo lungo). --- */
+     Discord, switch lingua), sia in home che nelle voci: 40px netti
+     con box-sizing:border-box (aggiornato da 38 - nuovo standard di
+     misure concordato). La forma resta quella di ciascuno (pillola
+     per Ko-fi/casetta/switch, cerchio per Discord) — solo la
+     LARGHEZZA di Ko-fi cambia un po' (testo piu' corto nelle voci,
+     "KoFi" invece del testo lungo). --- */
   .kofi-link, .index-link, .discord-link, .lang-switch{
-    height:38px; box-sizing:border-box;
+    height:40px; box-sizing:border-box;
   }
-  .discord-link{ width:38px; }
+  .discord-link{ width:40px; }
 
   /* --- Vista voce: la tazzina (icona Ko-fi dentro .brand) lascia il
      posto ai pulsanti veri di Ko-fi (solo cuoricino + "KoFi", non il
