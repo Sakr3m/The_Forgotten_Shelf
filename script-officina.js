@@ -502,13 +502,57 @@ function initReportModal(){
 initReportModal();
 
 // ---------------------------------------------------------
-// Bacheca dei desideri: click su un post-it lo stacca dalla colonna
-// e lo apre in overlay al centro (si raddrizza, mostra la risposta);
-// un secondo click sullo stesso, un click sull'overlay scuro dietro,
-// o l'apertura di un altro post-it lo richiude. Il link dentro la
-// risposta e' un <a> vero: il click sul link naviga normalmente e
-// non deve richiudere/riaprire nulla, quindi si ferma qui
-// (stopPropagation) prima di raggiungere il pulsante che lo contiene.
+// Bacheca dei desideri: ad ogni caricamento della pagina, i 6
+// post-it (sempre gli stessi 6, scritti per intero nell'HTML dentro
+// #wishPool - vedi nota SEO li' sopra nel markup) vengono mescolati,
+// smistati 3 a sinistra e 3 a destra a caso, e posizionati con una
+// combinazione casuale di altezza/profondita'/rotazione diversa ogni
+// volta. Lo spostamento dal pool alle colonne avviene qui, in modo
+// sincrono, prima che la pagina finisca di disegnarsi - i post-it non
+// sono mai stati "nascosti" nel senso SEO del termine, solo non ancora
+// smistati nella loro colonna finale.
+// ---------------------------------------------------------
+(function scatterWishNotes(){
+  const pool = document.getElementById("wishPool");
+  const colLeft = document.getElementById("wishColumnLeft");
+  const colRight = document.getElementById("wishColumnRight");
+  if(!pool || !colLeft || !colRight) return;
+
+  const notes = Array.from(pool.querySelectorAll(".wish-note"));
+  // Fisher-Yates, non il piu' comune (ma distorto) sort(() => Math.random()-0.5)
+  for(let i = notes.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [notes[i], notes[j]] = [notes[j], notes[i]];
+  }
+
+  const half = Math.ceil(notes.length / 2);
+  notes.forEach((note, i) => {
+    const col = i < half ? colLeft : colRight;
+    const side = i < half ? "left" : "right";
+    const top = (5 + Math.random() * 83).toFixed(1) + "%";
+    const depth = (6 + Math.random() * 62).toFixed(1) + "%"; // quanto si spinge verso il centro
+    const rot = (Math.random() * 13 - 6.5).toFixed(1) + "deg";
+    note.style.setProperty("--top", top);
+    note.style.setProperty("--rot", rot);
+    if(side === "left"){
+      note.style.setProperty("--left", depth);
+      note.style.removeProperty("--right");
+    } else {
+      note.style.setProperty("--right", depth);
+      note.style.removeProperty("--left");
+    }
+    col.appendChild(note);
+  });
+})();
+
+// ---------------------------------------------------------
+// Click su un post-it lo stacca dalla colonna e lo apre in overlay al
+// centro (si raddrizza, mostra la risposta); un secondo click sullo
+// stesso, un click sull'overlay scuro dietro, o l'apertura di un
+// altro post-it lo richiude. Il link dentro la risposta e' un <a>
+// vero: il click sul link naviga normalmente e non deve richiudere/
+// riaprire nulla, quindi si ferma qui (stopPropagation) prima di
+// raggiungere il pulsante che lo contiene.
 // ---------------------------------------------------------
 const wishOverlay = document.getElementById("wishOverlay");
 
