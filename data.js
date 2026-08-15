@@ -927,6 +927,82 @@ const GAMES = {
     ]
   },
 
+  "gears-of-war": {
+    id: "gears-of-war",
+    listTitle: { it: "Gears of War", en: "Gears of War" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Gears of War", en: "Gears of War" },
+    blurb: {
+      it: "La guerra dell'umanità sopravvissuta di Sera contro il Locust Horde, orda sotterranea emersa dal pianeta stesso nel giorno dell'Emergenza, e contro lo Swarm, la loro mutazione evoluta decenni dopo. Motoseghe innestate sui fucili e una scala cromatica quasi interamente sui toni del grigio, per una delle saghe sparatutto più cupe della sua generazione.",
+      en: "Sera's surviving humanity at war against the Locust Horde, a subterranean force that emerged from the planet itself on Emergence Day, and later against the Swarm, their evolved mutation decades on. Chainsaws mounted on rifles and a colour palette almost entirely in shades of grey, for one of the grimmest shooter sagas of its generation."
+    },
+    palette: ["#4a4a4a", "#8b0000", "#1a1a1a"],
+    accentColor: "#8b0000",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "main",
+        name: { it: "Sera", en: "Sera" },
+        span: { it: "0 A.E. – 42 A.E.", en: "0 A.E. – 42 A.E." },
+        entries: [
+          { id: "e-day", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "0 A.E. (Giorno dell'Emergenza)", releaseYear: "2025", releaseYearEn: "2025",
+            title: { it: "Gears of War: E-Day", en: "Gears of War: E-Day" },
+            synopsis: {
+              it: "Il giorno in cui il Locust Horde emerge dal sottosuolo di Sera, colpendo simultaneamente ogni città del pianeta. Un giovane Marcus Fenix, ancora al fianco del padre Adam, scienziato della COG, affronta l'inizio di una guerra che cambierà per sempre il volto del pianeta. Capitolo cronologicamente più antico, uscito solo di recente.",
+              en: "The day the Locust Horde emerges from beneath Sera, striking every city on the planet simultaneously. A young Marcus Fenix, still at his father Adam's side, a COG scientist, faces the beginning of a war that will forever change the face of the planet. The chronologically earliest chapter, released only recently."
+            }
+          },
+          { id: "judgment", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo E-Day", releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Gears of War: Judgment", en: "Gears of War: Judgment" },
+            synopsis: {
+              it: "Damon Baird e Augustus Cole, sotto processo per un atto disobbediente commesso durante una missione, raccontano in tribunale in una serie di flashback come la Squadra Kilo abbia affrontato le prime, caotiche settimane della guerra contro il Locust, mostrando un lato più acerbo e improvvisato del conflitto rispetto alla trilogia principale.",
+              en: "Damon Baird and Augustus Cole, on trial for an act of disobedience committed during a mission, recount in court through a series of flashbacks how Kilo Squad handled the first, chaotic weeks of the war against the Locust, showing a rawer, more improvised side of the conflict compared to the main trilogy."
+            }
+          },
+          { id: "gears-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "14 A.E.", releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Gears of War", en: "Gears of War" },
+            synopsis: {
+              it: "Quattordici anni dopo il Giorno dell'Emergenza, con la guerra ormai quasi persa, Marcus Fenix viene liberato dal carcere per unirsi alla Squadra Delta e lanciare l'Offensiva Lightmass, un bombardamento capace di distruggere le gallerie sotterranee del Locust Horde.",
+              en: "Fourteen years after Emergence Day, with the war nearly lost, Marcus Fenix is released from prison to join Delta Squad and launch the Lightmass Offensive, a bombardment capable of destroying the Locust Horde's underground tunnels."
+            }
+          },
+          { id: "gears-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "mesi dopo Gears 1", releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Gears of War 2", en: "Gears of War 2" },
+            synopsis: {
+              it: "Con il Locust Horde che inghiotte intere città facendole sprofondare nel sottosuolo, Delta Squad scende nel cuore stesso della loro civiltà per fermare Myrrah, la Regina Locust, scoprendo lungo il percorso l'esistenza del Lambent, una minaccia parassitaria che tormenta gli stessi Locust dall'interno.",
+              en: "As the Locust Horde swallows entire cities, sinking them underground, Delta Squad descends into the heart of their civilisation to stop Myrrah, the Locust Queen, discovering along the way the existence of the Lambent, a parasitic threat tormenting the Locust themselves from within."
+            }
+          },
+          { id: "gears-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo Gears 2", releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Gears of War 3", en: "Gears of War 3" },
+            synopsis: {
+              it: "Con l'umanità ridotta a poche migliaia di superstiti, stretta tra Locust e Lambent, Delta Squad scopre che il padre di Marcus, Adam, aveva sviluppato una contromisura capace di eliminare entrambe le minacce al costo del carburante Imulsion che alimenta l'intera civiltà. Marcus uccide Myrrah, chiudendo la guerra ma lasciando Sera devastata ed economicamente al collasso.",
+              en: "With humanity reduced to a few thousand survivors, caught between the Locust and the Lambent, Delta Squad discovers that Marcus's father, Adam, had developed a countermeasure capable of eliminating both threats at the cost of the Imulsion fuel powering all of civilisation. Marcus kills Myrrah, ending the war but leaving Sera devastated and economically collapsed."
+            }
+          },
+          { id: "gears-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "39 A.E. (25 anni dopo Gears 3)", releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Gears of War 4", en: "Gears of War 4" },
+            synopsis: {
+              it: "Venticinque anni dopo la fine della guerra, J.D. Fenix (figlio di Marcus), Kait Diaz e Del Walker, ribelli fuori dal controllo della nuova COG, scoprono l'esistenza dello Swarm, l'evoluzione mutata del Locust nata dall'esposizione all'Imulsion, e che Kait stessa discende dalla stirpe della Regina Locust.",
+              en: "Twenty-five years after the war's end, J.D. Fenix (Marcus's son), Kait Diaz, and Del Walker, rebels outside the new COG's control, discover the existence of the Swarm, the mutated evolution of the Locust born from exposure to Imulsion — and that Kait herself descends from the Locust Queen's bloodline."
+            }
+          },
+          { id: "gears-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "42 A.E. (mesi dopo Gears 4)", releaseYear: "2019", releaseYearEn: "2019",
+            title: { it: "Gears 5", en: "Gears 5" },
+            synopsis: {
+              it: "Kait, tormentata dalla propria discendenza Locust e da visioni sempre più intense, guida la ricerca di una risposta al mistero dello Swarm attraverso le distese ghiacciate di Sera, mentre la nuova First Minister Jinn muove pedine proprie contro l'umanità stessa che dovrebbe proteggere.",
+              en: "Kait, tormented by her Locust ancestry and increasingly intense visions, leads the search for answers to the mystery of the Swarm across Sera's icy wastes, while the new First Minister Jinn moves her own pieces against the very humanity she is meant to protect."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   gta: {
     id: "gta",
     listTitle: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
@@ -2887,7 +2963,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "god-of-war", "gta", "halo",
+  "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "gears-of-war", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein", "yakuza"
 ];
