@@ -1540,6 +1540,68 @@ const GAMES = {
     ]
   },
 
+  "mass-effect": {
+    id: "mass-effect",
+    listTitle: { it: "Mass Effect", en: "Mass Effect" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Mass Effect", en: "Mass Effect" },
+    blurb: {
+      it: "Un'opera spaziale che segue il Comandante Shepard nella lotta contro i Razziatori, macchine senzienti che sterminano ogni civiltà avanzata in cicli di estinzione lunghi decine di migliaia di anni. Una trilogia dalle scelte che si ripercuotono da un capitolo all'altro, seguita da un capitolo a parte ambientato in un'altra galassia.",
+      en: "A space opera following Commander Shepard's fight against the Reapers, sentient machines that exterminate every advanced civilisation in extinction cycles spanning tens of thousands of years. A trilogy whose choices carry over from one chapter to the next, followed by a separate chapter set in another galaxy."
+    },
+    palette: ["#1a2744", "#4a90d9", "#e8532a"],
+    accentColor: "#4a90d9",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "trilogia-shepard",
+        name: { it: "Trilogia di Shepard", en: "Shepard Trilogy" },
+        span: { it: "2183 – 2186", en: "2183 – 2186" },
+        entries: [
+          { id: "me1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2183", releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "Mass Effect", en: "Mass Effect" },
+            synopsis: {
+              it: "Il Comandante Shepard, primo umano ammesso tra gli Spectre del Consiglio Cittadella, indaga su un attacco Geth a Eden Prime e scopre che lo Spectre rinnegato Saren Arterius sta cospirando con i Razziatori, antichissime macchine intente a sterminare ogni civiltà avanzata della galassia in cicli ricorrenti. Shepard sconfigge Saren e il Razziatore Sovereign, ma il Consiglio si rifiuta di credere che i Razziatori siano reali.",
+              en: "Commander Shepard, the first human admitted into the Citadel Council's Spectres, investigates a Geth attack on Eden Prime and discovers that rogue Spectre Saren Arterius is conspiring with the Reapers, ancient machines bent on exterminating every advanced civilisation in the galaxy in recurring cycles. Shepard defeats Saren and the Reaper Sovereign, but the Council refuses to believe the Reapers are real."
+            }
+          },
+          { id: "me2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2185", releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Mass Effect 2", en: "Mass Effect 2" },
+            synopsis: {
+              it: "Ucciso in apertura e resuscitato due anni dopo dall'organizzazione Cerberus, Shepard indaga sulla scomparsa di intere colonie umane, scoprendo che i Collettori, agenti dei Razziatori, le stanno rapendo per costruire un nuovo, terribile Razziatore umano. Radunato un gruppo eterogeneo di alleati, Shepard distrugge la base dei Collettori nel cuore dello Spazio Oscuro, subendo perdite pesanti a seconda delle scelte del giocatore.",
+              en: "Killed in the opening and resurrected two years later by the Cerberus organisation, Shepard investigates the disappearance of entire human colonies, discovering that the Collectors, agents of the Reapers, are abducting them to build a terrifying new human Reaper. Having gathered a diverse group of allies, Shepard destroys the Collector base at the heart of the Omega-4 relay, suffering heavy losses depending on the player's choices."
+            }
+          },
+          { id: "me3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2186", releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Mass Effect 3", en: "Mass Effect 3" },
+            synopsis: {
+              it: "I Razziatori invadono apertamente la galassia, cominciando dalla Terra. Shepard unisce tutte le specie galattiche, comprese quelle in guerra tra loro da secoli, in un'alleanza senza precedenti per costruire il Crogiolo, un'arma capace di fermarli. Nel finale, ampiamente dibattuto dai fan, Shepard sceglie tra distruggere i Razziatori, controllarli o fondere organico e sintetico in una nuova forma di esistenza, ognuna con conseguenze irreversibili per la galassia.",
+              en: "The Reapers openly invade the galaxy, starting with Earth. Shepard unites every galactic species, including ones at war with each other for centuries, into an unprecedented alliance to build the Crucible, a weapon capable of stopping them. In the widely debated finale, Shepard chooses between destroying the Reapers, controlling them, or merging organic and synthetic life into a new form of existence, each with irreversible consequences for the galaxy."
+            }
+          }
+        ]
+      },
+      {
+        id: "andromeda",
+        name: { it: "Iniziativa Andromeda", en: "Andromeda Initiative" },
+        span: { it: "2785 (600 anni dopo)", en: "2785 (600 years later)" },
+        entries: [
+          { id: "andromeda-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2785", releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Mass Effect: Andromeda", en: "Mass Effect: Andromeda" },
+            synopsis: {
+              it: "Partita dalla Via Lattea nel 2185, prima ancora della fine della trilogia di Shepard, l'Iniziativa Andromeda raggiunge la galassia omonima dopo un viaggio di 600 anni, cercando un nuovo pianeta abitabile per le specie del Consiglio. Il nuovo Pathfinder Ryder deve affrontare i Kett, una specie ostile che assimila con la forza altre razze, e stabilizzare i pianeti dell'ammasso Heleus grazie alla tecnologia dei Remnant, un'antica civiltà scomparsa. Ambientato così lontano dalla Via Lattea da restare del tutto indipendente dal finale scelto dal giocatore in Mass Effect 3.",
+              en: "Having left the Milky Way in 2185, even before the end of Shepard's trilogy, the Andromeda Initiative reaches its namesake galaxy after a 600-year journey, searching for a new habitable planet for the Council species. The new Pathfinder Ryder must contend with the Kett, a hostile species that forcibly assimilates other races, and stabilise the planets of the Heleus Cluster using the technology of the Remnant, an ancient vanished civilisation. Set so far from the Milky Way that it remains entirely independent of whichever ending the player chose in Mass Effect 3."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "mortal-kombat": {
     id: "mortal-kombat",
     listTitle: { it: "Mortal Kombat", en: "Mortal Kombat" },
@@ -2439,6 +2501,6 @@ const GAMES = {
 
 const GAME_ORDER = [
   "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
-  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid", "mortal-kombat", "pokemon",
+  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein"
 ];
