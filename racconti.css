@@ -781,17 +781,17 @@ body[data-state="entry"] .landing{ display:none; }
    nessuna di queste regole si applica: la pagina compare com'e' oggi,
    istantanea. Da lucchetto spento (default), invece, questa sequenza.
 
-   Partenze scaglionate di 0.5s l'una dall'altra (non piu' in coda:
-   ogni fase parte 0.5s dopo l'INIZIO della precedente, non dopo la
-   sua fine - quindi si sovrappongono parzialmente):
-   1) Pulsanti (.stage-topbar):      1s,   parte a 0.5s  (finisce 1.5s)
-   2) Banner + Filigrana insieme
-      (#pageHeader, #entryWatermarkWrap): 1.5s, parte a 1s (finisce 2.5s)
-   3) Testo (.entry-panel):          2s,   parte a 1.5s  (finisce 3.5s)
-      diagonale dall'angolo alto-sinistra al basso-destra (maschera a
-      gradiente animata, stessa tecnica gia' in uso per la filigrana
-      altrove)
-   Totale sequenza: 3.5s - la barra di luminosita' della filigrana
+   I pulsanti (.stage-topbar) NON fanno parte della sequenza: sono
+   gia' li' fin da subito, nessun fade-in, esattamente come oggi.
+   Restano due fasi vere, scaglionate di 0.5s:
+   1) Banner + Filigrana insieme
+      (#pageHeader, #entryWatermarkWrap): 1s,   parte a 0.5s dal click
+      (finisce a 1.5s)
+   2) Testo (.entry-panel):              1.5s, parte a 1s dal click
+      (finisce a 2.5s), diagonale dall'angolo alto-sinistra al
+      basso-destra (maschera a gradiente animata, stessa tecnica gia'
+      in uso per la filigrana altrove)
+   Totale sequenza: 2.5s - la barra di luminosita' della filigrana
    resta non interattiva (pointer-events) fino a quel momento incluso,
    cosi' non si puo' farla comparire in hover mentre il resto sta
    ancora apparendo.
@@ -806,16 +806,11 @@ body[data-state="entry"] .landing{ display:none; }
   100%{ pointer-events:auto; }
 }
 
-body[data-entry-animate="true"] .stage-topbar{
-  opacity:0;
-  animation:tfs-fade-in 1s ease forwards;
-  animation-delay:.5s;
-}
 body[data-entry-animate="true"] #pageHeader,
 body[data-entry-animate="true"] #entryWatermarkWrap{
   opacity:0;
-  animation:tfs-fade-in 1.5s ease forwards;
-  animation-delay:1s;
+  animation:tfs-fade-in 1s ease forwards;
+  animation-delay:.5s;
 }
 body[data-entry-animate="true"] .entry-panel{
   -webkit-mask-image:linear-gradient(135deg, black 0%, black 8%, transparent 20%);
@@ -824,9 +819,9 @@ body[data-entry-animate="true"] .entry-panel{
   mask-size:250% 250%;
   -webkit-mask-position:130% 130%;
   mask-position:130% 130%;
-  animation:tfs-reveal-diagonal 2s linear forwards;
-  animation-delay:1.5s;
+  animation:tfs-reveal-diagonal 1.5s linear forwards;
+  animation-delay:1s;
 }
 body[data-entry-animate="true"] #watermarkBrightness{
-  animation:tfs-enable-pointer 3.5s linear forwards;
+  animation:tfs-enable-pointer 2.5s linear forwards;
 }
