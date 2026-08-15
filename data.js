@@ -956,6 +956,103 @@ const GAMES = {
     ]
   },
 
+  "god-of-war": {
+    id: "god-of-war",
+    listTitle: { it: "God of War", en: "God of War" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "God of War", en: "God of War" },
+    blurb: {
+      it: "La storia di Kratos, guerriero spartano ingannato dal proprio dio in un massacro che non riesce a perdonarsi, e della sua sanguinosa ascesa attraverso due pantheon mitologici. Prima la vendetta contro gli dei greci, poi, decenni dopo in un'altra vita, un tentativo di redenzione come padre nel mondo norreno.",
+      en: "The story of Kratos, a Spartan warrior tricked by his own god into a massacre he cannot forgive himself for, and his bloody rise through two mythological pantheons. First revenge against the Greek gods, then, decades later in another life, an attempt at redemption as a father in the Norse world."
+    },
+    palette: ["#8b1a1a", "#2c2c2c", "#c9a961"],
+    accentColor: "#8b1a1a",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "saga-greca",
+        name: { it: "Saga Greca", en: "Greek Saga" },
+        span: { it: "Sparta, XIII secolo a.C. circa", en: "Sparta, c. 13th century BC" },
+        entries: [
+          { id: "sons-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "infanzia di Kratos", releaseYear: "2026", releaseYearEn: "2026",
+            title: { it: "Sons of Sparta", en: "Sons of Sparta" },
+            synopsis: {
+              it: "Capitolo cronologicamente più antico della saga, uscito solo di recente. Segue un tredicenne Kratos e il fratello minore Deimos mentre si addestrano nell'agoge di Sparta, narrato in flashback da un Kratos ormai adulto che racconta gli eventi alla figlia Calliope. Getta le basi del legame tra i due fratelli, poi separato dagli eventi che porteranno Kratos al servizio di Ares.",
+              en: "The chronologically earliest chapter of the saga, released only recently. Follows a thirteen-year-old Kratos and his younger brother Deimos as they train at the agoge in Sparta, narrated in flashback by an adult Kratos recounting the events to his daughter Calliope. Lays the groundwork for the bond between the two brothers, later severed by the events that lead Kratos into Ares's service."
+            }
+          },
+          { id: "ascension", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo la tragedia familiare", releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Ascension", en: "Ascension" },
+            synopsis: {
+              it: "Subito dopo essere stato ingannato da Ares nell'uccidere la propria moglie e figlia, Kratos viene incatenato dalle Furie per aver spezzato il patto di sangue col dio. Libera sé stesso dalla loro prigione, uccidendo la prima delle tre Furie e ponendo le basi per il proprio percorso di vendetta contro l'intero pantheon.",
+              en: "Immediately after being tricked by Ares into killing his own wife and daughter, Kratos is chained by the Furies for breaking his blood oath to the god. He frees himself from their prison, killing the first of the three Furies and setting the course for his path of vengeance against the entire pantheon."
+            }
+          },
+          { id: "chains-of-olympus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "durante il servizio agli dei", releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Chains of Olympus", en: "Chains of Olympus" },
+            synopsis: {
+              it: "Durante i dieci anni di servizio agli dei olimpici come pagamento per la propria colpa, Kratos viene inviato a salvare il dio sole Helios, rapito e imprigionato negli Inferi da Persefone e Atlante, che progettano di liberare i Titani. Kratos li ferma, restituendo la luce al mondo.",
+              en: "During the ten years of service to the Olympian gods paid as penance for his guilt, Kratos is sent to rescue the sun god Helios, kidnapped and imprisoned in the Underworld by Persephone and Atlas, who are plotting to free the Titans. Kratos stops them, restoring light to the world."
+            }
+          },
+          { id: "god-of-war-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "fine del servizio agli dei", releaseYear: "2005", releaseYearEn: "2005",
+            title: { it: "God of War", en: "God of War" },
+            synopsis: {
+              it: "Ormai disperato dopo dieci anni di servizio senza pace, Kratos accetta la missione di recuperare il Vaso di Pandora, unica arma capace di ferire un dio, per uccidere Ares stesso, che lo ha manipolato fin dall'inizio. Sconfitto Ares, Kratos ne eredita il trono, diventando il nuovo Dio della Guerra.",
+              en: "Desperate after ten years of service without peace, Kratos accepts the mission to retrieve Pandora's Box, the only weapon capable of harming a god, in order to kill Ares himself, who had manipulated him from the start. Having defeated Ares, Kratos inherits his throne, becoming the new God of War."
+            }
+          },
+          { id: "ghost-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo essere diventato Dio della Guerra", releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Ghost of Sparta", en: "Ghost of Sparta" },
+            synopsis: {
+              it: "Tormentato da visioni della madre, Kratos viaggia fino ad Atlantide sommersa per scoprirne il destino, apprendendo che suo fratello Deimos, rapito da bambino dagli dei per una profezia che lo riguardava, è ancora vivo e prigioniero di Ares nelle Catene degli Inferi. Kratos lo libera, ma Deimos muore comunque poco dopo per mano di Thanatos.",
+              en: "Tormented by visions of his mother, Kratos travels to sunken Atlantis to learn her fate, discovering that his brother Deimos, taken as a child by the gods over a prophecy concerning him, is still alive and imprisoned by Ares in the Chains of the Underworld. Kratos frees him, but Deimos dies shortly after anyway at the hands of Thanatos."
+            }
+          },
+          { id: "god-of-war-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo God of War", releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "God of War II", en: "God of War II" },
+            synopsis: {
+              it: "Zeus, temendo che Kratos possa un giorno rovesciarlo, lo tradisce e lo uccide durante una battaglia. Salvato dalle Sorelle del Destino, Kratos si allea con i Titani sconfitti in epoche precedenti e viaggia indietro nel tempo per alterare il proprio destino, giurando vendetta contro Zeus stesso.",
+              en: "Zeus, fearing Kratos might one day overthrow him, betrays and kills him during a battle. Rescued by the Sisters of Fate, Kratos allies with the Titans defeated in earlier ages and travels back in time to alter his own destiny, vowing revenge against Zeus himself."
+            }
+          },
+          { id: "god-of-war-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "conclusione della guerra contro l'Olimpo", releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "God of War III", en: "God of War III" },
+            synopsis: {
+              it: "In sella al Titano Gaia, Kratos assalta il Monte Olimpo insieme ai Titani superstiti per porre fine una volta per tutte al regno degli dei. Uccide uno dopo l'altro Poseidone, Ade, Ermes, Elio, Efesto ed Era, infine Zeus stesso, distruggendo di fatto l'intero pantheon greco e lasciando il mondo devastato dalla propria stessa vendetta.",
+              en: "Riding the Titan Gaia, Kratos assaults Mount Olympus alongside the surviving Titans to end the gods' reign once and for all. He kills Poseidon, Hades, Hermes, Helios, Hephaestus, and Hera one after another, and finally Zeus himself, effectively destroying the entire Greek pantheon and leaving the world devastated by his own vengeance."
+            }
+          }
+        ]
+      },
+      {
+        id: "saga-norrena",
+        name: { it: "Saga Norrena", en: "Norse Saga" },
+        span: { it: "Midgard, decenni dopo", en: "Midgard, decades later" },
+        entries: [
+          { id: "god-of-war-2018", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decenni dopo la Saga Greca", releaseYear: "2018", releaseYearEn: "2018",
+            title: { it: "God of War (2018)", en: "God of War (2018)" },
+            synopsis: {
+              it: "Trasferitosi a Midgard e diventato padre di Atreus, Kratos deve disperdere le ceneri della defunta moglie Faye in cima al monte più alto dei Nove Regni, un ultimo desiderio che si trasforma in un viaggio attraverso il mondo norreno. Lungo il percorso affronta Baldr, figlio di Odino reso invulnerabile ma incapace di sentire alcuna emozione, mentre insegna ad Atreus a controllare la propria natura divina appena scoperta.",
+              en: "Having relocated to Midgard and become a father to Atreus, Kratos must scatter the ashes of his deceased wife Faye atop the highest mountain of the Nine Realms, a final wish that becomes a journey across the Norse world. Along the way he confronts Baldr, Odin's son rendered invulnerable but incapable of feeling any emotion, while teaching Atreus to control his newly discovered divine nature."
+            }
+          },
+          { id: "ragnarok", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seguito diretto", releaseYear: "2022", releaseYearEn: "2022",
+            title: { it: "Ragnarök", en: "Ragnarök" },
+            synopsis: {
+              it: "Con il Fimbulwinter (l'inverno che precede il Ragnarök) ormai iniziato, Kratos e Atreus devono affrontare Odino stesso e Thor, mentre Atreus insegue la propria identità come Loki, figura profetizzata a innescare la fine del mondo norreno. Nel finale, Kratos sceglie di abbracciare un ruolo di guida per i regni invece che di dominio, mentre Atreus parte per cercare i giganti sopravvissuti altrove nei Nove Regni.",
+              en: "With Fimbulwinter, the winter preceding Ragnarök, already underway, Kratos and Atreus must confront Odin himself and Thor, while Atreus grapples with his own identity as Loki, the figure prophesied to trigger the end of the Norse world. In the finale, Kratos chooses to embrace a role of guidance for the realms rather than domination, while Atreus sets off to find surviving giants elsewhere across the Nine Realms."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   halo: {
     id: "halo",
     listTitle: { it: "Halo", en: "Halo" },
@@ -2500,7 +2597,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
+  "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein"
 ];
