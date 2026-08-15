@@ -1,0 +1,10 @@
+/* Manrope, auto-ospitato (google-webfonts-helper) invece che da
+   Google Fonts — stesso schema di inter.css. Solo Il Filo Nascosto,
+   peso 700 (hero e voce, stesso peso ovunque). */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./manrope-latin-700-normal.woff2') format('woff2');
+}

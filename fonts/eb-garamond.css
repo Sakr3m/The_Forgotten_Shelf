@@ -1,0 +1,17 @@
+/* EB Garamond, auto-ospitato (google-webfonts-helper) invece che da
+   Google Fonts — stesso schema di inter.css. Solo Storie Senza
+   Cornice, corsivo, pesi 500 (voce) e 700 (hero). */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: url('./eb-garamond-latin-500-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./eb-garamond-latin-700-italic.woff2') format('woff2');
+}

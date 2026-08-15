@@ -1,0 +1,11 @@
+/* Playfair Display, auto-ospitato (google-webfonts-helper) invece che
+   da Google Fonts, per poter precaricare un file con URL fisso e
+   ridurre il cambio di dimensioni al primo caricamento — stesso
+   schema di inter.css. Solo home (index.html), peso 800. */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url('./playfair-display-latin-800-normal.woff2') format('woff2');
+}

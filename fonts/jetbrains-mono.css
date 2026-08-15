@@ -1,0 +1,11 @@
+/* JetBrains Mono, auto-ospitato (google-webfonts-helper) invece che da
+   Google Fonts — stesso schema di inter.css. Solo La Traccia del
+   Tempo, peso 700 (hero, saga e voce, stesso peso su tutti e 3 i
+   livelli). */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./jetbrains-mono-latin-700-normal.woff2') format('woff2');
+}

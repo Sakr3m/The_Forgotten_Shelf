@@ -1,0 +1,10 @@
+/* Caveat, auto-ospitato (google-webfonts-helper) invece che da Google
+   Fonts — stesso schema di inter.css. Solo Il Muro dei Desideri,
+   peso 700 (hero, unico titolo esistente per ora). */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./caveat-latin-700-normal.woff2') format('woff2');
+}

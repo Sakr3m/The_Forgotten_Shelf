@@ -1,0 +1,17 @@
+/* Oswald, auto-ospitato (google-webfonts-helper) invece che da Google
+   Fonts — stesso schema di inter.css. Solo Diari di Gioco, pesi 500
+   (voce/etichetta griglia) e 700 (hero). */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('./oswald-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./oswald-latin-700-normal.woff2') format('woff2');
+}
