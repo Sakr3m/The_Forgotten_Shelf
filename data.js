@@ -128,6 +128,173 @@ const GAMES = {
     ]
   },
 
+  "assassins-creed": {
+    id: "assassins-creed",
+    listTitle: { it: "Assassin's Creed", en: "Assassin's Creed" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Assassin's Creed", en: "Assassin's Creed" },
+    blurb: {
+      it: "Una saga storica che attraversa duemilacinquecento anni di civiltà umana, dall'antica Grecia alla Londra vittoriana, attraverso il conflitto segreto e millenario tra gli Assassini (custodi del libero arbitrio) e i Templari (fautori dell'ordine imposto). Ogni protagonista rivive le memorie genetiche di un antenato tramite l'Animus, una macchina capace di leggere il DNA come un archivio storico.",
+      en: "A historical saga spanning two and a half thousand years of human civilisation, from ancient Greece to Victorian London, through the secret, age-old conflict between the Assassins (guardians of free will) and the Templars (champions of imposed order). Each protagonist relives the genetic memories of an ancestor through the Animus, a machine capable of reading DNA as a historical archive."
+    },
+    palette: ["#8b0000", "#d4af37", "#1a1a1a"],
+    accentColor: "#8b0000",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "antichita",
+        name: { it: "Antichità", en: "Antiquity" },
+        span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
+        entries: [
+          { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
+            releaseYear: "2018", releaseYearEn: "2018",
+            title: { it: "Assassin's Creed Odyssey", en: "Assassin's Creed Odyssey" },
+            synopsis: {
+              it: "Durante la Guerra del Peloponneso tra Atene e Sparta, il misthios (mercenario) Kassandra o Alexios, discendente di Leonida I di Sparta e portatore di una delle sue lance forgiate da un Frutto dell'Eden, viaggia per tutta la Grecia antica ricostruendo la propria famiglia dispersa e scontrandosi con il Culto di Kosmos, un'organizzazione segreta antenata dell'Ordine degli Antichi che manipola la guerra dall'ombra per il proprio profitto. Il gioco cronologicamente più antico della serie, ambientato secoli prima della fondazione ufficiale della Confraternita.",
+              en: "During the Peloponnesian War between Athens and Sparta, the misthios (mercenary) Kassandra or Alexios, descendant of Leonidas I of Sparta and bearer of one of his spears forged from a Piece of Eden, travels across ancient Greece piecing their scattered family back together and clashing with the Cult of Kosmos, a secret organisation and ancestor of the Order of the Ancients that manipulates the war from the shadows for its own profit. The chronologically oldest game in the series, set centuries before the Brotherhood's official founding."
+            }
+          },
+          { id: "origins", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "49 a.C. – 44 a.C.",
+            releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Assassin's Creed Origins", en: "Assassin's Creed Origins" },
+            synopsis: {
+              it: "Nell'Egitto tolemaico sotto Cleopatra e Giulio Cesare, Bayek di Siwa, ultimo Medjay a servizio della legge, e sua moglie Aya danno la caccia ai membri degli Occulti (i \"Mascherati\"), la setta segreta che ha ucciso il figlio della coppia, scoprendone il coinvolgimento con la politica romana e la nascente cospirazione che diverrà l'Ordine degli Antichi. Nel corso della vendetta, Bayek fonda i Nascosti (Hidden Ones), organizzazione dedicata a proteggere il libero arbitrio dell'umanità che diverrà, secoli dopo, la Confraternita degli Assassini. Il gioco che rivela le vere origini della Confraternita e della lama celata.",
+              en: "In Ptolemaic Egypt under Cleopatra and Julius Caesar, Bayek of Siwa, the last Medjay in service of the law, and his wife Aya hunt down the members of the Order of the Ancients (the \"Masked Ones\"), the secret sect that killed the couple's son, uncovering their involvement with Roman politics and the nascent conspiracy that will become the Order of the Ancients. In the course of the vendetta, Bayek founds the Hidden Ones, an organisation dedicated to protecting humanity's free will that will, centuries later, become the Brotherhood of Assassins. The game that reveals the true origins of the Brotherhood and of the hidden blade."
+            }
+          }
+        ]
+      },
+      {
+        id: "alto-medioevo",
+        name: { it: "Alto Medioevo", en: "Early Middle Ages" },
+        span: { it: "861 – 878", en: "861 – 878" },
+        entries: [
+          { id: "mirage", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "861",
+            releaseYear: "2023", releaseYearEn: "2023",
+            title: { it: "Assassin's Creed Mirage", en: "Assassin's Creed Mirage" },
+            synopsis: {
+              it: "Nella Baghdad dell'età d'oro abbaside, il giovane ladro di strada Basim Ibn Ishaq viene reclutato dai Nascosti dopo aver scoperto un legame misterioso e ricorrente con visioni di un antico corvo. Sotto la guida della sua mentore Roshan, Basim scala i ranghi dell'organizzazione affrontando l'Ordine degli Antichi radicato nella burocrazia del Califfato, fino a diventare pienamente un Nascosto — ignaro, in questo capitolo, della propria vera natura, rivelata solo in Valhalla. Un ritorno dichiarato alle radici stealth della serie, dopo la deriva verso il gioco di ruolo di Origins/Odyssey/Valhalla.",
+              en: "In Baghdad's Abbasid Golden Age, the young street thief Basim Ibn Ishaq is recruited by the Hidden Ones after discovering a mysterious, recurring connection to visions of an ancient crow. Under the guidance of his mentor Roshan, Basim rises through the organisation's ranks confronting the Order of the Ancients entrenched within the Caliphate's bureaucracy, ultimately becoming a fully-fledged Hidden One — unaware, in this chapter, of his true nature, revealed only in Valhalla. A deliberate return to the series' stealth roots, after the drift toward RPG mechanics in Origins/Odyssey/Valhalla."
+            }
+          },
+          { id: "valhalla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "872 – 878",
+            releaseYear: "2020", releaseYearEn: "2020",
+            title: { it: "Assassin's Creed Valhalla", en: "Assassin's Creed Valhalla" },
+            synopsis: {
+              it: "Il vichingo Eivor Varinsdottir/Varinsson guida il proprio clan dalla Norvegia devastata dalle faide fino all'Inghilterra dell'era vichinga, fondando insediamenti e stringendo alleanze con i regni anglosassoni. Nel corso della conquista, Eivor scopre di essere in realtà l'ospite umano di Odino, un Isu (membro dell'antica civiltà precedente all'umanità) sopravvissuto in una forma di reincarnazione, e si allea con Basim — lo stesso protagonista di Mirage, qui rivelato essere a sua volta l'ospite del dio nordico Loki — per fondare formalmente la Confraternita dei Nascosti in terra inglese, gettando le basi dirette per la futura Confraternita degli Assassini.",
+              en: "The Viking Eivor Varinsdottir/Varinsson leads their clan from a Norway ravaged by feuds to Viking Age England, founding settlements and forging alliances with the Anglo-Saxon kingdoms. Over the course of the conquest, Eivor discovers they are in truth the human host of Odin, an Isu (a member of the ancient civilisation that predates humanity) surviving through a form of reincarnation, and allies with Basim — the same protagonist from Mirage, here revealed to himself be the host of the Norse god Loki — to formally found the Brotherhood of the Hidden Ones on English soil, laying the direct groundwork for the future Brotherhood of Assassins."
+            }
+          }
+        ]
+      },
+      {
+        id: "basso-medioevo-rinascimento",
+        name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
+        span: { it: "1191 – 1512", en: "1191 – 1512" },
+        entries: [
+          { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
+            releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "Assassin's Creed", en: "Assassin's Creed" },
+            synopsis: {
+              it: "Durante la Terza Crociata, l'Assassino Altaïr Ibn-La'Ahad, punito dal proprio Mentore Al Mualim per un'insubordinazione che ha messo a rischio la Confraternita, viene incaricato di espiare la propria arroganza uccidendo nove figure chiave dell'Ordine dei Templari, guidato in segreto da Al Mualim stesso, sparse tra Gerusalemme, Acri e Damasco. Nel corso della missione, Altaïr scopre che Al Mualim è in realtà a capo dei Templari e sta cercando di impossessarsi di un Frutto dell'Eden per soggiogare la volontà umana con l'inganno della pace forzata; lo affronta e lo sconfigge, ereditandone il ruolo di Mentore. Il capostipite dell'intera serie, che introduce l'Animus e il presente narrativo di Desmond Miles.",
+              en: "During the Third Crusade, the Assassin Altaïr Ibn-La'Ahad, punished by his own Mentor Al Mualim for an insubordination that endangered the Brotherhood, is tasked with atoning for his arrogance by killing nine key figures of the Templar Order, secretly guided by Al Mualim himself, scattered across Jerusalem, Acre, and Damascus. In the course of the mission, Altaïr discovers that Al Mualim is in truth the head of the Templars and is seeking to seize a Piece of Eden to subjugate human will through the deception of forced peace; he confronts and defeats him, inheriting the role of Mentor. The progenitor of the entire series, introducing the Animus and the narrative present of Desmond Miles."
+            }
+          },
+          { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
+            synopsis: {
+              it: "Nella Firenze rinascimentale, il giovane nobile Ezio Auditore da Firenze assiste all'esecuzione ingiusta del padre e dei fratelli, incastrati dai Templari con l'accusa di tradimento. Addestrato all'arte dell'assassinio dallo zio Mario, Ezio dà la caccia ai cospiratori attraverso Firenze, Venezia e Roma, scoprendo il coinvolgimento dei Borgia e la ricerca templare della Mela dell'Eden, un antico artefatto degli Isu. Il gioco che ha reso Ezio l'icona più riconoscibile della serie, primo capitolo di una trilogia.",
+              en: "In Renaissance Florence, the young nobleman Ezio Auditore da Firenze witnesses the unjust execution of his father and brothers, framed by the Templars on charges of treason. Trained in the art of assassination by his uncle Mario, Ezio hunts down the conspirators across Florence, Venice, and Rome, uncovering the involvement of the Borgia family and the Templars' pursuit of the Apple of Eden, an ancient Isu artefact. The game that made Ezio the series' most recognisable icon, the first chapter of a trilogy."
+            }
+          },
+          { id: "brotherhood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1499 – 1507",
+            releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Assassin's Creed: Brotherhood", en: "Assassin's Creed: Brotherhood" },
+            synopsis: {
+              it: "Dopo la caduta di Monteriggioni sotto l'attacco di Cesare Borgia, Ezio si trasferisce a Roma, dove ricostruisce la Confraternita degli Assassini italiana reclutando e addestrando nuovi membri tra i cittadini oppressi dal dominio dei Borgia. Nel corso della campagna per liberare Roma, Ezio uccide Cesare e sua sorella Lucrezia, recupera la Mela dell'Eden e scopre, in una camera segreta sotto il Vaticano, un messaggio lasciato da Minerva, un'Isu, che si rivolge direttamente a Desmond Miles attraverso i secoli, preannunciando un cataclisma imminente.",
+              en: "After the fall of Monteriggioni to Cesare Borgia's assault, Ezio relocates to Rome, where he rebuilds the Italian Brotherhood of Assassins by recruiting and training new members among citizens oppressed by Borgia rule. Over the course of the campaign to liberate Rome, Ezio kills Cesare and his sister Lucrezia, recovers the Apple of Eden, and discovers, in a hidden chamber beneath the Vatican, a message left by Minerva, an Isu, addressing Desmond Miles directly across the centuries, foretelling an imminent cataclysm."
+            }
+          },
+          { id: "revelations", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1511 – 1512",
+            releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Assassin's Creed: Revelations", en: "Assassin's Creed: Revelations" },
+            synopsis: {
+              it: "Un Ezio ormai anziano viaggia a Costantinopoli in cerca delle chiavi lasciate da Altaïr, morto secoli prima, per accedere a una biblioteca segreta sotto la sede della Confraternita di Masyaf. Alleandosi con la Assassina Yusuf Tazim e l'ingegnere Piri Reis, Ezio contrasta i Templari guidati dal principe ottomano Ahmet, recupera le memorie finali di Altaïr — che rivelano il destino della sua famiglia e il luogo in cui nascose la propria Mela dell'Eden — e chiude simbolicamente il cerchio tra le due grandi icone della serie prima di ritirarsi definitivamente dalla vita da Assassino.",
+              en: "An aging Ezio travels to Constantinople in search of the keys left behind by Altaïr, dead for centuries, to access a secret library beneath the Brotherhood's headquarters at Masyaf. Allying with the Assassin Yusuf Tazim and the engineer Piri Reis, Ezio thwarts the Templars led by Ottoman prince Ahmet, recovers Altaïr's final memories — which reveal the fate of his family and where he hid his own Apple of Eden — and symbolically closes the circle between the series' two great icons before retiring from the life of an Assassin for good."
+            }
+          }
+        ]
+      },
+      {
+        id: "eta-vela",
+        name: { it: "Epoca Moderna ed Età della Vela", en: "Early Modern Era and Age of Sail" },
+        span: { it: "1579 – 1760", en: "1579 – 1760" },
+        entries: [
+          { id: "shadows", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1579",
+            releaseYear: "2025", releaseYearEn: "2025",
+            title: { it: "Assassin's Creed Shadows", en: "Assassin's Creed Shadows" },
+            synopsis: {
+              it: "Nel Giappone del tardo periodo Sengoku, mentre Oda Nobunaga muove verso l'unificazione del paese, la shinobi Naoe, sopravvissuta al massacro del proprio villaggio e della propria famiglia, e il samurai africano Yasuke, realmente esistito al servizio di Nobunaga, uniscono le forze contro un Ordine degli Antichi radicato nella nobiltà feudale giapponese. Primo capitolo mainline della serie ambientato in Giappone, alterna lo stile stealth incentrato su Naoe a quello più diretto e in armatura di Yasuke.",
+              en: "In late Sengoku-period Japan, as Oda Nobunaga moves toward unifying the country, the shinobi Naoe, survivor of the massacre of her own village and family, and the African samurai Yasuke, a real historical figure who served Nobunaga, join forces against an Order of the Ancients rooted in Japan's feudal nobility. The series' first mainline chapter set in Japan, alternating between Naoe's stealth-focused playstyle and Yasuke's more direct, armoured approach."
+            }
+          },
+          { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Assassin's Creed IV: Black Flag", en: "Assassin's Creed IV: Black Flag" },
+            synopsis: {
+              it: "Durante l'Età dell'Oro della Pirateria nei Caraibi, il gallese Edward Kenway, nonno di Connor (protagonista di AC3) e futuro padre del Templare antagonista Haytham Kenway, diventa capitano della nave Jackdaw inseguendo ricchezza e libertà, restando invischiato senza volerlo nel conflitto segreto tra Assassini e Templari, che si contendono un Osservatorio Isu capace di sorvegliare chiunque sulla Terra. Per la maggior parte del gioco Edward resta un uomo qualunque in cerca di fortuna, solo gradualmente attratto verso la causa degli Assassini.",
+              en: "During the Golden Age of Piracy in the Caribbean, the Welshman Edward Kenway, grandfather of Connor (AC3's protagonist) and future father of the Templar antagonist Haytham Kenway, becomes captain of the ship Jackdaw in pursuit of wealth and freedom, becoming unwittingly entangled in the secret conflict between Assassins and Templars, who are vying for control of an Isu Observatory capable of surveilling anyone on Earth. For most of the game Edward remains an ordinary man chasing fortune, only gradually drawn toward the Assassins' cause."
+            }
+          },
+          { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
+            releaseYear: "2014", releaseYearEn: "2014",
+            title: { it: "Assassin's Creed Rogue", en: "Assassin's Creed Rogue" },
+            synopsis: {
+              it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
+              en: "In the North Atlantic during the Seven Years' War, the Assassin Shay Patrick Cormac, after unwittingly causing the death of innocents by triggering a cataclysm with an Isu artefact recovered on the Brotherhood's behalf, becomes disillusioned with his mentors' ruthless methods and defects to the Templars, becoming the hunter of his own former comrades. The first and only chapter in the series to tell the story from the Templar point of view, laying the groundwork for the Templar Colonial Rite that will oppose Connor in AC3."
+            }
+          }
+        ]
+      },
+      {
+        id: "eta-rivoluzioni",
+        name: { it: "Età delle Rivoluzioni", en: "Age of Revolutions" },
+        span: { it: "1754 – 1868", en: "1754 – 1868" },
+        entries: [
+          { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed III", en: "Assassin's Creed III" },
+            synopsis: {
+              it: "Durante la Rivoluzione Americana, Ratonhnhaké:ton detto Connor, figlio del Templare britannico Haytham Kenway e di una donna Mohawk, si allea con gli Assassini dopo aver visto il proprio villaggio minacciato dall'espansione coloniale, opponendosi al padre e ai suoi alleati templari che manipolano entrambi gli schieramenti del conflitto rivoluzionario per i propri fini. Nel corso della guerra Connor affronta e uccide uno dopo l'altro i Templari del Rito Coloniale, incluso lo stesso Haytham, ricostruendo la Confraternita americana dalle sue rovine.",
+              en: "During the American Revolution, Ratonhnhaké:ton, called Connor, son of the British Templar Haytham Kenway and a Mohawk woman, allies with the Assassins after seeing his village threatened by colonial expansion, opposing his father and his Templar allies who manipulate both sides of the revolutionary conflict for their own ends. Over the course of the war Connor confronts and kills the Colonial Rite Templars one by one, including Haytham himself, rebuilding the American Brotherhood from its ruins."
+            }
+          },
+          { id: "unity", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1789 – 1794",
+            releaseYear: "2014", releaseYearEn: "2014",
+            title: { it: "Assassin's Creed Unity", en: "Assassin's Creed Unity" },
+            synopsis: {
+              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.",
+              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain."
+            }
+          },
+          { id: "syndicate", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1868",
+            releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Assassin's Creed Syndicate", en: "Assassin's Creed Syndicate" },
+            synopsis: {
+              it: "Nella Londra vittoriana dominata dallo sfruttamento industriale, i gemelli Assassini Jacob ed Evie Frye giungono in città per strappare il controllo dei quartieri operai alla banda templare dei Blighters guidata da Pearl Attaway e Rupert Ferris, fondando una propria gang, i Rooks. Mentre Jacob si getta nel conflitto di strada con metodi diretti e talvolta imprudenti, Evie segue una pista più metodica che la porta a recuperare un antico Frutto dell'Eden custodito dai Templari, incrociando lungo il cammino figure storiche come Charles Dickens, Charles Darwin e Karl Marx.",
+              en: "In Victorian London dominated by industrial exploitation, the Assassin twins Jacob and Evie Frye arrive in the city to wrest control of its working-class districts from the Templar gang known as the Blighters, led by Pearl Attaway and Rupert Ferris, founding their own gang, the Rooks. While Jacob throws himself into the street conflict with direct and sometimes reckless methods, Evie follows a more methodical trail that leads her to recover an ancient Piece of Eden held by the Templars, crossing paths along the way with historical figures such as Charles Dickens, Charles Darwin, and Karl Marx."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   castlevania: {
     id: "castlevania",
     listTitle: { it: "Castlevania", en: "Castlevania" },
@@ -1983,7 +2150,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "aitd", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
+  "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid",
   "resident-evil", "silent-hill", "remedy-universe", "wolfenstein"
 ];
