@@ -308,12 +308,12 @@ function renderLists(){
   RACCONTI_ORDER.forEach(id => {
     const item = RACCONTI[id];
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
+    const btn = document.createElement("a");
+    btn.href = `voci/storie-senza-cornice/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
-    btn.addEventListener("click", () => selectEntry("teorie", id));
+    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
     li.appendChild(btn);
     el.teorieList.appendChild(li);
   });
@@ -322,12 +322,12 @@ function renderLists(){
   LIBRI_ORDER.forEach(id => {
     const item = LIBRI[id];
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
+    const btn = document.createElement("a");
+    btn.href = `voci/storie-senza-cornice/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
-    btn.addEventListener("click", () => selectEntry("storie", id));
+    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
     li.appendChild(btn);
     el.storieList.appendChild(li);
   });

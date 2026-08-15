@@ -1,0 +1,56 @@
+name: Rigenera pagine voci
+
+# Si attiva solo quando cambia qualcosa che puo' influenzare l'output
+# del generatore (i file dati, il template, lo script stesso, o le
+# recensioni scritte a mano in diari_di_gioco.html) - non ad ogni
+# push qualsiasi, per non rilanciare 328 pagine per una modifica CSS.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data.js"
+      - "data-racconti.js"
+      - "data-storie-teorie.js"
+      - "data-shared-tracks.js"
+      - "data-diari-tracks.js"
+      - "diari_di_gioco.html"
+      - "tools/genera-voci.js"
+      - "tools/template-voce.html"
+  workflow_dispatch: {} # permette anche di lanciarlo a mano dalla scheda Actions su GitHub
+
+jobs:
+  genera:
+    runs-on: ubuntu-latest
+    # Fondamentale: senza questo, il commit fatto da questo stesso
+    # workflow (piu' sotto) non avrebbe i permessi per essere pushato
+    # sul repo.
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout del repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Rilancia il generatore
+        run: node tools/genera-voci.js
+
+      - name: Commit e push, solo se qualcosa e' davvero cambiato
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add voci/ sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica alle pagine generate, niente da fare."
+          else
+            # [skip ci] e' fondamentale: senza, questo stesso commit
+            # (che tocca file dentro voci/ e sitemap.xml, non nei path
+            # che fanno scattare il trigger qui sopra - ma per
+            # sicurezza in piu' comunque) riattiverebbe il workflow
+            # all'infinito.
+            git commit -m "chore: rigenera pagine voci [skip ci]"
+            git push
+          fi

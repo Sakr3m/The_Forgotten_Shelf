@@ -445,9 +445,9 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   const total = uni.entries.length;
 
   uni.entries.forEach((entry, i) => {
-    const node = document.createElement("button");
+    const node = document.createElement("a");
     const tileDown = i % 2 === 0; // alternates which side the cover sits on
-    node.type = "button";
+    node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
     node.className = "h-node " + (tileDown ? "h-node--down" : "h-node--up");
 
     const t = total > 1 ? i / (total - 1) : 0;
@@ -472,7 +472,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
       <span class="h-node__marker"><span class="h-node__dot"></span></span>
       <span class="h-node__bottom">${bottomContent}</span>
     `;
-    node.addEventListener("click", () => selectEntry(entry.id));
+    node.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(entry.id); });
     timeline.appendChild(node);
   });
 
@@ -1068,8 +1068,8 @@ function renderRail(){
   el.railLabel.textContent = tf(u.name);
   el.railTrack.innerHTML = "";
   u.entries.forEach(entry => {
-    const node = document.createElement("button");
-    node.type = "button";
+    const node = document.createElement("a");
+    node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
     node.className = "v-node" + (entry.id === state.entryId ? " is-active" : "");
     const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
     node.innerHTML = `
@@ -1079,7 +1079,7 @@ function renderRail(){
         <span class="v-node__title">${tf(entry.title)}</span>
       </span>
     `;
-    node.addEventListener("click", () => selectEntry(entry.id));
+    node.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(entry.id); });
     el.railTrack.appendChild(node);
   });
 }

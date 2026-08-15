@@ -234,12 +234,12 @@ function renderLists(){
     if(seenTeorieGames.has(item.game)) return; // una sola riga per gioco: le voci extra si raggiungono dal menu a tendina
     seenTeorieGames.add(item.game);
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
+    const btn = document.createElement("a");
+    btn.href = `voci/il-filo-nascosto/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
-    btn.addEventListener("click", () => selectEntry("teorie", id));
+    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
     li.appendChild(btn);
     el.teorieList.appendChild(li);
   });
@@ -251,12 +251,12 @@ function renderLists(){
     if(seenStorieGames.has(item.game)) return; // stessa logica della colonna Teorie
     seenStorieGames.add(item.game);
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
+    const btn = document.createElement("a");
+    btn.href = `voci/il-filo-nascosto/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
     btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
-    btn.addEventListener("click", () => selectEntry("storie", id));
+    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
     li.appendChild(btn);
     el.storieList.appendChild(li);
   });

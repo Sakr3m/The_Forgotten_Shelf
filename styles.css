@@ -383,19 +383,20 @@ body[data-state="landing"] .brand{ display:none; }
   text-align:center;
 }
 .game-list{ display:flex; flex-direction:column; gap:2px; }
-.game-list button{
+.game-list button, .game-list a{
+  display:block; text-decoration:none;
   width:100%; text-align:left;
   padding:10px 12px;
   border-radius:var(--radius-sm);
   font-size:.9rem; font-weight:500; color:var(--text-dim);
   transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.game-list button.is-active{
+.game-list button.is-active, .game-list a.is-active{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
-.game-list button:hover{
+.game-list button:hover, .game-list a:hover{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
@@ -847,6 +848,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 /* Each node reserves the same fixed height above/below the line regardless of
    which side its cover lands on, so the dot always sits on the line. */
 .h-node{
+  text-decoration:none;
   position:relative;
   display:grid;
   grid-template-rows: calc(162px * var(--avatar-scale, 1)) calc(22px * var(--dot-scale, 1)) calc(162px * var(--avatar-scale, 1));
@@ -933,7 +935,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   content:""; position:absolute; left:5px; top:4px; bottom:4px; width:2px;
   background:var(--gradient); opacity:.7; border-radius:2px;
 }
-.v-node{ position:relative; display:flex; align-items:center; gap:10px; padding:10px 0; cursor:pointer; }
+.v-node{ position:relative; display:flex; align-items:center; gap:10px; padding:10px 0; cursor:pointer; text-decoration:none; }
 .v-node::before{
   content:""; position:absolute; left:-20px; top:50%; transform:translateY(-50%);
   width:10px; height:10px; border-radius:50%;
@@ -1146,7 +1148,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   /* Le voci in lista si evidenziano solo in hover su PC: sul mobile,
      non essendoci hover, restano sempre con un contornino sottile del
      proprio colore (opacità ridotta, non l'intensità piena dell'hover). */
-  .game-list button{
+  .game-list button, .game-list a{
     box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
     padding:12px 14px; /* +20% rispetto ai 10px/12px di base (font invariato,
       solo l'area colorata/toccabile cresce) */
