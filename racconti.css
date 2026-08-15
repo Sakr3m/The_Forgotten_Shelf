@@ -813,15 +813,15 @@ body[data-state="entry"] .landing{ display:none; }
 
    I pulsanti (.stage-topbar) NON fanno parte della sequenza: sono
    gia' li' fin da subito, nessun fade-in, esattamente come oggi.
-   Restano due fasi vere, che partono insieme allo stesso momento:
+   Restano due fasi vere, scaglionate:
    1) Banner + Filigrana insieme
       (#pageHeader, #entryWatermarkWrap): 1s,   parte a 0.5s dal click
       (finisce a 1.5s)
-   2) Testo (.entry-panel):              3s,   parte a 0.5s dal click
-      (finisce a 3.5s), fade-in semplice di tutto il blocco insieme -
+   2) Testo (.entry-panel):              2s,   parte a 1s dal click
+      (finisce a 3s), fade-in semplice di tutto il blocco insieme -
       la versione precedente (rivelazione diagonale via maschera
       animata) causava sfarfallio, tolta.
-   Totale sequenza: 3.5s - la barra di luminosita' della filigrana
+   Totale sequenza: 3s - la barra di luminosita' della filigrana
    resta non interattiva (pointer-events) fino a quel momento incluso,
    cosi' non si puo' farla comparire in hover mentre il resto sta
    ancora apparendo.
@@ -840,10 +840,10 @@ body[data-entry-animate="true"] #entryWatermarkWrap{
 }
 body[data-entry-animate="true"] .entry-panel{
   opacity:0;
-  animation:tfs-fade-in 3s ease forwards;
-  animation-delay:.5s;
+  animation:tfs-fade-in 2s ease forwards;
+  animation-delay:1s;
 }
 body[data-entry-animate="true"] #watermarkBrightness{
-  animation:tfs-enable-pointer 3.5s linear forwards;
+  animation:tfs-enable-pointer 3s linear forwards;
 }
 
