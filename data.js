@@ -650,6 +650,89 @@ const GAMES = {
   }
 ,
 
+  diablo: {
+    id: "diablo",
+    listTitle: { it: "Diablo", en: "Diablo" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Diablo", en: "Diablo" },
+    blurb: {
+      it: "Il Conflitto Eterno tra il Paradiso e gli Inferi Ardenti, combattuto sulla terra di Santuario da eroi mortali contro i Mali Primigeni. Dungeon generati proceduralmente, bottino infinito da raccogliere e un'atmosfera gotica che ha definito il genere action RPG per un'intera generazione.",
+      en: "The Eternal Conflict between the High Heavens and the Burning Hells, fought on the earth of Sanctuary by mortal heroes against the Prime Evils. Procedurally generated dungeons, endless loot to collect, and a gothic atmosphere that defined the action RPG genre for an entire generation."
+    },
+    palette: ["#8b0000", "#1a1a1a", "#c9a227"],
+    accentColor: "#8b0000",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "main",
+        name: { it: "Santuario", en: "Sanctuary" },
+        span: { it: "1258 – 1285 circa", en: "c. 1258 – 1285" },
+        entries: [
+          { id: "diablo-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1258", releaseYear: "1996", releaseYearEn: "1996",
+            title: { it: "Diablo", en: "Diablo" },
+            synopsis: {
+              it: "Un eroe scende nella cattedrale sotto la città di Tristram per fermare Diablo, Signore del Terrore, che ha posseduto il corpo del piccolo principe Albrecht. Sconfitto il demone, l'eroe si conficca da solo nella fronte la sua Pietra dell'Anima per contenerne lo spirito, condannandosi a una lenta corruzione interiore.",
+              en: "A hero descends into the cathedral beneath the town of Tristram to stop Diablo, Lord of Terror, who has possessed the body of young Prince Albrecht. Having defeated the demon, the hero drives Diablo's own Soulstone into his own forehead to contain its spirit, dooming himself to a slow inner corruption."
+            }
+          },
+          { id: "diablo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263 – 1264", releaseYear: "2000", releaseYearEn: "2000",
+            title: { it: "Diablo II", en: "Diablo II" },
+            synopsis: {
+              it: "L'eroe del primo gioco, ormai posseduto da Diablo, semina il caos attraverso il continente in cerca dei propri fratelli Mali Primigeni, Mefisto e Baal, per riunire la Triuna Trinità del Male. Un nuovo gruppo di eroi lo insegue attraverso quattro atti e altrettanti continenti, sconfiggendo infine sia Diablo che Mefisto.",
+              en: "The hero of the first game, now possessed by Diablo, sows chaos across the continent in search of his fellow Prime Evils, Mephisto and Baal, to reunite the Evil Trinity. A new group of heroes pursues him across four acts and as many continents, ultimately defeating both Diablo and Mephisto."
+            }
+          },
+          { id: "lord-of-destruction", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1264", releaseYear: "2001", releaseYearEn: "2001",
+            title: { it: "Diablo II: Lord of Destruction", en: "Diablo II: Lord of Destruction" },
+            synopsis: {
+              it: "Baal, ultimo dei tre fratelli rimasto libero, marcia verso la Worldstone, capace di alterare la realtà stessa, per corromperla e completare il piano dei Mali Primigeni. Gli eroi lo affrontano al Monte Arreat; per impedire che la pietra venga sfruttata di nuovo, l'angelo Tyrael la distrugge lui stesso, alterando per sempre l'equilibrio tra Paradiso e Inferi.",
+              en: "Baal, the last of the three brothers still free, marches toward the Worldstone, capable of altering reality itself, to corrupt it and complete the Prime Evils' plan. The heroes confront him at Mount Arreat; to prevent the stone from being exploited again, the angel Tyrael destroys it himself, forever altering the balance between Heaven and Hell."
+            }
+          },
+          { id: "diablo-immortal", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1269 – 1270", releaseYear: "2022", releaseYearEn: "2022",
+            title: { it: "Diablo Immortal", en: "Diablo Immortal" },
+            synopsis: {
+              it: "Cinque anni dopo la distruzione della Worldstone, i suoi frammenti corrotti sono sparsi per Santuario, e culti demoniaci cercano di raccoglierli per riportare in vita Diablo. Un gruppo di eroi affronta lo stregone Skarn per impedire che i frammenti vengano riuniti, colmando un vuoto narrativo di quindici anni prima degli eventi di Diablo III.",
+              en: "Five years after the destruction of the Worldstone, its corrupted fragments are scattered across Sanctuary, and demonic cults seek to gather them to bring Diablo back to life. A group of heroes confronts the sorcerer Skarn to prevent the fragments from being reunited, filling a fifteen-year narrative gap before the events of Diablo III."
+            }
+          },
+          { id: "diablo-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1285", releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Diablo III", en: "Diablo III" },
+            synopsis: {
+              it: "Una stella cadente si schianta sulla cattedrale di Tristram: è Tyrael stesso, decaduto dal Paradiso per aver distrutto la Worldstone senza permesso. Un nuovo gruppo di eroi affronta il Signore della Menzogna Belial e il Signore del Dolore Azmodan, infine unificati in un unico essere, il Prime Evil Diablo risorto, sconfitto nella battaglia finale in Paradiso.",
+              en: "A falling star crashes into the cathedral of Tristram: it is Tyrael himself, cast down from Heaven for destroying the Worldstone without permission. A new group of heroes confronts the Lord of Lies Belial and the Lord of Sin Azmodan, ultimately unified into a single risen being, the Prime Evil Diablo, defeated in the final battle within Heaven itself."
+            }
+          },
+          { id: "reaper-of-souls", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo Diablo III", releaseYear: "2014", releaseYearEn: "2014",
+            title: { it: "Diablo III: Reaper of Souls", en: "Diablo III: Reaper of Souls" },
+            synopsis: {
+              it: "Malthael, ex Angelo della Saggezza divenuto Angelo della Morte, ruba la Pietra Nera dell'Anima contenente l'essenza di Diablo per usarla contro l'intera umanità, ritenuta la vera causa dell'infinito Conflitto Eterno. Gli eroi lo affrontano a Westmarch e infine lo sconfiggono, salvando l'umanità dallo sterminio.",
+              en: "Malthael, once the Angel of Wisdom and now the Angel of Death, steals the Black Soulstone containing Diablo's essence to use it against humanity itself, which he believes to be the true cause of the endless Eternal Conflict. The heroes confront him at Westmarch and ultimately defeat him, saving humanity from extermination."
+            }
+          },
+          { id: "diablo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decenni dopo Reaper of Souls", releaseYear: "2023", releaseYearEn: "2023",
+            title: { it: "Diablo IV", en: "Diablo IV" },
+            synopsis: {
+              it: "Lilith, figlia di Mefisto e co-creatrice di Santuario stessa insieme all'angelo Inarius, viene resuscitata da un culto di seguaci e tenta di riconquistare il mondo che un tempo aveva contribuito a plasmare. Un nuovo eroe la insegue attraverso Sanctuario devastato dalla sua corruzione, affrontandola infine in uno scontro che la relega, sconfitta ma non uccisa, in un regno intermedio.",
+              en: "Lilith, daughter of Mephisto and co-creator of Sanctuary itself alongside the angel Inarius, is resurrected by a cult of followers and attempts to reclaim the world she once helped shape. A new hero pursues her across a Sanctuary ravaged by her corruption, ultimately confronting her in a battle that banishes her, defeated but not killed, to an in-between realm."
+            }
+          },
+          { id: "vessel-of-hatred", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo Diablo IV", releaseYear: "2024", releaseYearEn: "2024",
+            title: { it: "Diablo IV: Vessel of Hatred", en: "Diablo IV: Vessel of Hatred" },
+            synopsis: {
+              it: "Neyrelle, portando con sé la Pietra dell'Anima contenente Mefisto, fugge nella giungla di Nahantu per impedire che il Male Primigenio venga liberato di nuovo, ma finisce per essere manipolata da lui stesso. L'eroe la insegue per impedire che Mefisto trovi un nuovo corpo ospite, in un capitolo che introduce la classe Spirituccio e amplia il mondo di gioco verso sud.",
+              en: "Neyrelle, carrying the Soulstone containing Mephisto, flees into the jungles of Nahantu to prevent the Prime Evil from being freed again, but ends up manipulated by him regardless. The hero pursues her to stop Mephisto from finding a new host body, in a chapter that introduces the Spiritborn class and expands the game world southward."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   doom: {
     id: "doom",
     listTitle: { it: "Doom", en: "Doom" },
@@ -2804,7 +2887,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "god-of-war", "gta", "halo",
+  "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein", "yakuza"
 ];
