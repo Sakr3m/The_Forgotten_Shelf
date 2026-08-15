@@ -902,6 +902,221 @@ const GAMES = {
     ]
   },
 
+  "legend-of-zelda": {
+    id: "legend-of-zelda",
+    listTitle: { it: "The Legend of Zelda", en: "The Legend of Zelda" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "The Legend of Zelda", en: "The Legend of Zelda" },
+    blurb: {
+      it: "Una saga fantasy che racconta il ciclo eterno tra un eroe di nome Link, una principessa di nome Zelda e un male di nome Ganon, attraverso il regno di Hyrule. Nata come mito frammentato più che come cronologia lineare: la stessa Nintendo tratta le storie come leggende tramandate nel tempo, i cui dettagli si sfumano di generazione in generazione. Ufficialmente esiste una linea temporale (pubblicata per la prima volta nel libro Hyrule Historia del 2011), che dopo Ocarina of Time si divide in tre rami paralleli.",
+      en: "A fantasy saga chronicling the eternal cycle between a hero named Link, a princess named Zelda, and an evil named Ganon, across the kingdom of Hyrule. Born as fragmented myth more than linear chronology: Nintendo itself treats the stories as legends passed down over time, their details blurring from generation to generation. An official timeline does exist (first published in the 2011 book Hyrule Historia), which after Ocarina of Time splits into three parallel branches."
+    },
+    palette: ["#4a4a4a", "#7a7a7a", "#a8a8a8"],
+    accentColor: "#7a7a7a",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "era-condivisa",
+        name: { it: "Era Condivisa (prima della scissione)", en: "Shared Era (before the split)" },
+        span: { it: "Era del Cielo – Era di Ocarina of Time", en: "Era of the Sky – Era of Ocarina of Time" },
+        entries: [
+          { id: "skyward-sword", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Cielo",
+            releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Skyward Sword", en: "Skyward Sword" },
+            synopsis: {
+              it: "Il gioco cronologicamente più antico della saga. Link vive a Skyloft, una città sospesa tra le nuvole, dove l'umanità si è rifugiata secoli prima per sfuggire a Demise, un demone bramoso di conquistare la superficie. Quando la sua amica d'infanzia Zelda viene rapita e trascinata sulla superficie, Link la insegue armato della spada che diverrà la Master Sword, scoprendo che Zelda è la reincarnazione della dea Hylia e che il suo destino è sigillare Demise per sempre. Con l'aiuto dello spirito della spada Fi, Link raccoglie le Sacre Fiamme e affronta Demise in tre scontri successivi. Sconfitto, il demone lancia una maledizione: la sua rabbia si sarebbe reincarnata più e più volte per perseguitare i discendenti di Link e Zelda, dando origine al ciclico conflitto con Ganon che attraverserà tutta la serie. Il gioco stabilisce le origini della Master Sword, del Triforce e del legame eterno tra le tre anime protagoniste.",
+              en: "The chronologically oldest game in the saga. Link lives in Skyloft, a city suspended among the clouds, where humanity took refuge centuries earlier to escape Demise, a demon bent on conquering the surface. When his childhood friend Zelda is kidnapped and dragged down to the surface, Link pursues her wielding the blade that will become the Master Sword, discovering that Zelda is the reincarnation of the goddess Hylia and that her destiny is to seal Demise away forever. With the help of the sword spirit Fi, Link gathers the Sacred Flames and faces Demise in three successive confrontations. Defeated, the demon casts a curse: his hatred would reincarnate again and again to torment Link and Zelda's descendants, giving rise to the cyclical conflict with Ganon that runs through the entire series. The game establishes the origins of the Master Sword, the Triforce, and the eternal bond between the three protagonist souls."
+            }
+          },
+          { id: "minish-cap", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era delle Origini",
+            releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "The Minish Cap", en: "The Minish Cap" },
+            synopsis: {
+              it: "Nel regno di Hyrule, il mago Vaati, un tempo dei Minish (un popolo minuscolo invisibile agli occhi umani), sfida il re di Hyrule a duello e ne pietrifica la principessa Zelda con la Spada dei Quattro. Link, unico giovane di Hyrule capace ancora di vedere i Minish, viene rimpicciolito da Ezlo, un antico cappello vivente che è in realtà il vero Portatore del Vento dei Minish, trasformato in oggetto dallo stesso Vaati. Insieme, Link ed Ezlo attraversano Hyrule in miniatura, raccogliendo i frammenti dell'Elemento del Vento e riforgiando la Spada dei Quattro per affrontare Vaati, sconfiggerlo e liberare sia Zelda che Ezlo dalla maledizione. Il gioco introduce la Spada dei Quattro e la stirpe di Vaati, elementi che ricorreranno più avanti nella storia condivisa prima della scissione della linea temporale.",
+              en: "In the kingdom of Hyrule, the sorcerer Vaati — once one of the Minish, a tiny people invisible to human eyes — challenges the King of Hyrule to a duel and turns Princess Zelda to stone with the Four Sword. Link, the only young Hylian still able to see the Minish, is shrunk down by Ezlo, an ancient living hat who is in truth the true Minish Wind Bearer, transformed into an object by Vaati himself. Together, Link and Ezlo cross a miniature Hyrule, gathering the fragments of the Wind Element and reforging the Four Sword to face Vaati, defeat him, and free both Zelda and Ezlo from the curse. The game introduces the Four Sword and Vaati's lineage, elements that recur later in the shared story before the timeline split."
+            }
+          },
+          { id: "four-swords", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era delle Origini",
+            releaseYear: "2002", releaseYearEn: "2002",
+            title: { it: "Four Swords", en: "Four Swords" },
+            synopsis: {
+              it: "Anni dopo gli eventi di Minish Cap, il mago Vaati viene liberato dalla sua prigione all'interno della Spada dei Quattro quando Zelda, ignara del pericolo, chiede a Link di estrarla per proteggere il regno da una tempesta imminente. Estraendo la spada, Link si divide in quattro copie identiche di sé stesso, ciascuna con un aspetto diverso della sua personalità. Le quattro versioni di Link collaborano per attraversare la Grande Foresta di Hyrule e la Fortezza di Vaati, recuperare i pezzi del Triforce sottratti da Vaati e sconfiggerlo, sigillandolo nuovamente all'interno della spada. Concepito originariamente come esperienza multiplayer cooperativa, stabilisce l'esistenza della Spada dei Quattro come sigillo per Vaati, un elemento narrativo che tornerà più avanti nel ramo Bambino.",
+              en: "Years after the events of Minish Cap, the sorcerer Vaati is freed from his prison inside the Four Sword when Zelda, unaware of the danger, asks Link to draw it to protect the kingdom from an incoming storm. Drawing the sword splits Link into four identical copies of himself, each embodying a different aspect of his personality. The four Links work together to cross the Hyrule's Great Woods and Vaati's Palace, recover the pieces of the Triforce stolen by Vaati, and defeat him, resealing him inside the sword. Originally conceived as a cooperative multiplayer experience, it establishes the Four Sword as a seal for Vaati, a narrative element that returns later in the Child branch."
+            }
+          },
+          { id: "ocarina-of-time", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era dell'Eroe del Tempo",
+            releaseYear: "1998", releaseYearEn: "1998",
+            title: { it: "Ocarina of Time", en: "Ocarina of Time" },
+            synopsis: {
+              it: "Link, un ragazzo Kokiri cresciuto senza sapere di essere in realtà Hyliano, viene inviato dal Grande Albero Deku a fermare Ganondorf, il capo dei Gerudo, che sta cercando di impossessarsi del Triforce nascosto nel Regno Sacro. Aiutato dalla principessa Zelda e dal suo tutore Impa, Link raccoglie le tre Pietre Spirituali e apre il Tempio del Tempo, dove estrae la Master Sword — ma Ganondorf lo segue, si impossessa lui stesso del Regno Sacro reclamando il Triforce del Potere e trasforma Hyrule in un incubo. Estraendo la spada troppo giovane, Link viene sigillato per sette anni nel Tempio del Tempo, risvegliandosi adulto in un mondo devastato. Guidato dalla saggia Sheik (in realtà Zelda travestita), Link risveglia i sette Saggi e affronta infine Ganondorf al Castello di Hyrule e nella Torre di Ganon, sigillandolo nel Regno Sacro. Nel finale, Zelda usa l'Ocarina del Tempo per rimandare Link alla sua infanzia, affinché possa vivere gli anni perduti — una scelta che diverrà il punto di scissione dell'intera linea temporale della serie.",
+              en: "Link, a Kokiri boy raised without knowing he is actually Hylian, is sent by the Great Deku Tree to stop Ganondorf, leader of the Gerudo, who is trying to seize the Triforce hidden within the Sacred Realm. Aided by Princess Zelda and her guardian Impa, Link gathers the three Spiritual Stones and opens the Temple of Time, where he draws the Master Sword — but Ganondorf follows him in, seizes the Sacred Realm himself by claiming the Triforce of Power, and turns Hyrule into a nightmare. Having drawn the sword too young, Link is sealed away for seven years within the Temple of Time, awakening as an adult in a devastated world. Guided by the wise Sheik (in truth Zelda in disguise), Link awakens the seven Sages and finally confronts Ganondorf at Hyrule Castle and Ganon's Tower, sealing him within the Sacred Realm. In the ending, Zelda uses the Ocarina of Time to send Link back to his childhood, so he may live the years he lost — a choice that becomes the splitting point of the entire series timeline."
+            }
+          }
+        ]
+      },
+      {
+        id: "ramo-decadenza",
+        name: { it: "Ramo della Decadenza (Link sconfitto)", en: "Downfall Branch (Link defeated)" },
+        span: { it: "Era della Decadenza", en: "Era of Decline" },
+        entries: [
+          { id: "zelda-1986", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "1986", releaseYearEn: "1986",
+            title: { it: "The Legend of Zelda", en: "The Legend of Zelda" },
+            synopsis: {
+              it: "Secoli dopo che Ganon, senza un eroe a fermarlo in Ocarina of Time, ha invaso Hyrule e frantumato il Triforce della Saggezza in otto frammenti, la principessa Zelda li nasconde in altrettanti dungeon sparsi per il regno prima di essere catturata. Link, un giovane guerriero, riceve dalla vecchia Impa la missione di recuperare i frammenti, riunire il Triforce della Saggezza e usarlo per penetrare nella dimora di Ganon, sconfiggerlo con le Frecce d'Argento e liberare Zelda. Il gioco che ha dato il via all'intera serie, capostipite del genere action-adventure a mondo aperto su console.",
+              en: "Centuries after Ganon, with no hero to stop him in Ocarina of Time, invaded Hyrule and shattered the Triforce of Wisdom into eight fragments, Princess Zelda hides them across dungeons scattered throughout the kingdom before being captured. Link, a young warrior, is given the quest by the elder Impa to recover the fragments, reassemble the Triforce of Wisdom, and use it to breach Ganon's lair, defeat him with the Silver Arrows, and free Zelda. The game that launched the entire series, the progenitor of the open-world console action-adventure genre."
+            }
+          },
+          { id: "zelda-ii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "1987", releaseYearEn: "1987",
+            title: { it: "Zelda II: The Adventure of Link", en: "Zelda II: The Adventure of Link" },
+            synopsis: {
+              it: "Alcuni anni dopo il primo gioco, Link scopre di portare sulla mano il marchio del Triforce del Coraggio e apprende da Impa la storia di un'antica principessa Hyliana di nome Zelda, addormentata da secoli da un incantesimo dopo che suo fratello, bramoso dei segreti del Triforce, tentò di estorcerglieli con la forza uccidendola per errore. Per risvegliarla, Link deve raccogliere i frammenti del Triforce del Coraggio custoditi in sei palazzi e raggiungere il Grande Palazzo, dove i seguaci di Ganon tentano di resuscitarlo usando il sangue di Link stesso. Sconfitti i sacerdoti e ottenuto il Triforce completo, Link risveglia la principessa addormentata, chiudendo il capitolo più oscuro di questo ramo della linea temporale.",
+              en: "Some years after the first game, Link discovers he bears the mark of the Triforce of Courage on his hand and learns from Impa the story of an ancient Hylian princess named Zelda, put to sleep centuries earlier by a spell after her brother, coveting the secrets of the Triforce, tried to force them out of her and accidentally killed her. To awaken her, Link must gather the fragments of the Triforce of Courage guarded within six palaces and reach the Great Palace, where Ganon's followers attempt to resurrect him using Link's own blood. Having defeated the priests and obtained the complete Triforce, Link awakens the sleeping princess, closing the darkest chapter of this timeline branch."
+            }
+          },
+          { id: "a-link-to-the-past", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "1991", releaseYearEn: "1991",
+            title: { it: "A Link to the Past", en: "A Link to the Past" },
+            synopsis: {
+              it: "Generazioni dopo Zelda II, lo stregone Agahnim, consigliere del re di Hyrule, rapisce le discendenti dei sette Saggi che un tempo sigillarono il Regno Sacro, tra cui la principessa Zelda, con l'obiettivo di spezzare il sigillo e liberare Ganon. Link, chiamato telepaticamente da Zelda, la salva dalle segrete del castello ma non riesce a impedire ad Agahnim di rapirla e teletrasportarla nel Mondo Oscuro: la versione corrotta del Regno Sacro, in cui Ganon, tempo prima, aveva finalmente ottenuto il Triforce completo grazie proprio ad Agahnim, sua marionetta umana. Link recupera la Master Sword nella Foresta Perduta, sconfigge Agahnim e lo insegue nel Mondo Oscuro, dove libera le sette discendenti dei Saggi imprigionate in forma bestiale, riunisce le tre parti della Master Sword e affronta Ganon stesso, sconfiggendolo e restituendo il Triforce a Hyrule.",
+              en: "Generations after Zelda II, the sorcerer Agahnim, advisor to the King of Hyrule, kidnaps the descendants of the seven Sages who once sealed away the Sacred Realm, including Princess Zelda, aiming to break the seal and free Ganon. Link, telepathically summoned by Zelda, rescues her from the castle dungeons but fails to stop Agahnim from abducting her and teleporting her to the Dark World: the corrupted version of the Sacred Realm, where Ganon had earlier finally obtained the complete Triforce through Agahnim, his human puppet. Link recovers the Master Sword in the Lost Woods, defeats Agahnim, and pursues him into the Dark World, where he frees the seven Sage descendants imprisoned in beast form, reassembles the three pieces of the Master Sword, and confronts Ganon himself, defeating him and restoring the Triforce to Hyrule."
+            }
+          },
+          { id: "links-awakening", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "1993", releaseYearEn: "1993",
+            title: { it: "Link's Awakening", en: "Link's Awakening" },
+            synopsis: {
+              it: "Poco dopo gli eventi di A Link to the Past, la nave di Link naufraga durante una tempesta ed egli si risveglia sulla misteriosa Isola di Koholint, salvato da una ragazza di nome Marin. Per lasciare l'isola deve risvegliare il Pesce dei Sogni, una gigantesca entità addormentata nell'Uovo del Vento in cima al Monte Tamaranch, raccogliendo otto strumenti musicali custoditi in altrettanti dungeon. Nel corso del viaggio, Link scopre gradualmente che l'intera isola, i suoi abitanti compresa Marin, sono in realtà il sogno del Pesce stesso: risvegliarlo significa far svanire per sempre Koholint e tutti coloro che vi abitano. Nonostante la rivelazione, Link completa comunque il rituale e si risveglia solo, su una zattera, nell'oceano.",
+              en: "Shortly after the events of A Link to the Past, Link's ship is wrecked in a storm and he washes up on the mysterious Koholint Island, rescued by a girl named Marin. To leave the island he must awaken the Wind Fish, a giant entity slumbering within the Wind Fish's Egg atop Mt. Tamaranch, by gathering eight musical instruments held within as many dungeons. Over the course of the journey, Link gradually discovers that the entire island, and its inhabitants including Marin, are in truth the Wind Fish's own dream: waking it means the disappearance of Koholint and everyone in it forever. Despite the revelation, Link completes the ritual anyway, and wakes alone on a raft in the open ocean."
+            }
+          },
+          { id: "oracle-of-seasons", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "2001", releaseYearEn: "2001",
+            title: { it: "Oracle of Seasons", en: "Oracle of Seasons" },
+            synopsis: {
+              it: "Link viene trasportato ad Holodrum, dove il generale delle piante Onox rapisce Din, l'Oracolo delle Stagioni, sconvolgendo il naturale ciclo stagionale della terra. Alleandosi con Din stessa, che in incognito lo aveva già aiutato senza rivelarsi, e raccogliendo i frammenti del Bastone delle Stagioni, Link penetra nel Tempio Ombra dove Onox tiene prigioniera Din e la libera, ristabilendo l'equilibrio naturale di Holodrum. Concepito originariamente come parte di una trilogia (insieme a Ages e a un terzo capitolo mai realizzato, Mystical Seed of Courage), collegabile via password ad Oracle of Ages per un finale espanso in cui Ganon tenta di resuscitare grazie ai due Oracoli.",
+              en: "Link is transported to Holodrum, where the plant general Onox kidnaps Din, the Oracle of Seasons, throwing the land's natural seasonal cycle into chaos. Allying with Din herself, who had already been secretly helping him without revealing her identity, and gathering the pieces of the Rod of Seasons, Link infiltrates the Shadow Temple where Onox holds Din captive and frees her, restoring Holodrum's natural balance. Originally conceived as part of a trilogy (alongside Ages and a never-realised third chapter, Mystical Seed of Courage), linkable via password to Oracle of Ages for an expanded ending in which Ganon attempts to resurrect using the two Oracles."
+            }
+          },
+          { id: "oracle-of-ages", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "2001", releaseYearEn: "2001",
+            title: { it: "Oracle of Ages", en: "Oracle of Ages" },
+            synopsis: {
+              it: "Link viene trasportato a Labrynna, dove la strega Veran possiede il corpo di Nayru, l'Oracolo del Tempo, e la usa per manipolare la storia del regno attraverso l'Albero del Tempo. Viaggiando tra passato e presente, Link raduna alleati nelle due epoche, recupera il Braccialetto di Nayru e libera infine Nayru dalla possessione, sconfiggendo Veran. Se giocato in collegamento con Oracle of Seasons tramite password, i due finali si fondono: Veran e Onox, sconfitti in entrambi i giochi, avevano in realtà cospirato per resuscitare Ganon, che Link affronta in uno scontro finale condiviso tra i due titoli.",
+              en: "Link is transported to Labrynna, where the witch Veran possesses the body of Nayru, the Oracle of Ages, and uses her to manipulate the kingdom's history through the Maku Tree of Time. Traveling between past and present, Link gathers allies across both eras, recovers Nayru's Bracelet, and finally frees Nayru from possession, defeating Veran. If linked with Oracle of Seasons via password, the two endings merge: Veran and Onox, defeated in each respective game, had actually been conspiring to resurrect Ganon, whom Link confronts in a final battle shared between the two titles."
+            }
+          },
+          { id: "a-link-between-worlds", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "A Link Between Worlds", en: "A Link Between Worlds" },
+            synopsis: {
+              it: "Generazioni dopo A Link to the Past, un mercante misterioso di nome Yuga, capace di trasformare le persone in dipinti bidimensionali, cattura i sette Saggi discendenti di Hyrule per liberare Ganon, imprigionato da secoli in una dimensione parallela chiamata Lorule — lo specchio decaduto del Mondo Oscuro, governato dalla principessa Hilda. Link, dotato del Bracciale di Ravio (in realtà il principe di Lorule sotto mentite spoglie) che gli permette anch'esso di trasformarsi in dipinto per muoversi tra i muri, attraversa liberamente Hyrule e Lorule, scopre l'inganno di Hilda — alleata di Yuga per salvare il proprio regno morente sacrificando quello di Link — e affronta infine Yuga fuso con Ganon, salvando entrambi i mondi.",
+              en: "Generations after A Link to the Past, a mysterious merchant named Yuga, capable of turning people into two-dimensional paintings, captures the seven Sage descendants of Hyrule to free Ganon, imprisoned for centuries in a parallel dimension called Lorule — the decayed mirror of the Dark World, ruled by Princess Hilda. Link, equipped with Ravio's Bracelet (in truth Lorule's prince in disguise) which also lets him turn into a painting to move through walls, travels freely between Hyrule and Lorule, uncovers Hilda's deception — allied with Yuga to save her own dying kingdom by sacrificing Link's — and finally confronts Yuga fused with Ganon, saving both worlds."
+            }
+          },
+          { id: "tri-force-heroes", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Tri Force Heroes", en: "Tri Force Heroes" },
+            synopsis: {
+              it: "Nel regno di Hytopia, ossessionato dalla moda, la principessa Styla viene maledetta da un abito che la trasforma in una creatura simile a un rospo, opera della strega gelosa della sua eleganza. Tre Link identici, evocati dal regno per spezzare la maledizione, collaborano in totemi a tre per attraversare la Torre dei Draghi, raccogliendo materiali per confezionare abiti magici necessari a superare le sfide, fino a sconfiggere la strega e liberare Styla. Un capitolo minore e volutamente scanzonato, pensato principalmente come esperienza cooperativa a tre giocatori.",
+              en: "In the fashion-obsessed kingdom of Hytopia, Princess Styla is cursed by a dress that turns her into a toad-like creature, the work of a witch jealous of her elegance. Three identical Links, summoned by the kingdom to break the curse, work together in three-person totems to cross the Drablands Tower, gathering materials to craft magical outfits needed to overcome its trials, ultimately defeating the witch and freeing Styla. A minor and deliberately lighthearted chapter, designed primarily as a three-player cooperative experience."
+            }
+          },
+          { id: "echoes-of-wisdom", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
+            releaseYear: "2024", releaseYearEn: "2024",
+            title: { it: "Echoes of Wisdom", en: "Echoes of Wisdom" },
+            synopsis: {
+              it: "Misteriose fenditure iniziano a inghiottire luoghi e persone in tutto il regno, inclusa la principessa Zelda stessa, rapita da un Link corrotto e privo di volontà propria. Tris, un fabbro delle fenditure, salva Zelda e le dona il Baston Tri, capace di creare copie (\"echi\") di oggetti e creature incontrate lungo il cammino, per la prima volta protagonista giocabile della serie al posto di Link. Esplorando le fenditure, Zelda scopre che il vero colpevole è Null, un'entità dimensionale nemica dell'ordine stesso della creazione, capace di corrompere chiunque tocchi, Link compreso. Combinando gli echi in modi creativi, Zelda richiude le fenditure una a una, libera Link dalla corruzione e sconfigge Null, ristabilendo l'ordine di Hyrule.",
+              en: "Mysterious rifts begin swallowing places and people across the kingdom, including Princess Zelda herself, kidnapped by a corrupted Link acting against his own will. Tri, a rift-mending sprite, rescues Zelda and grants her the Tri Rod, capable of creating copies (\"echoes\") of objects and creatures encountered along the way — for the first time in the series, Zelda herself is the playable protagonist instead of Link. Exploring the rifts, Zelda discovers the true culprit is Null, a dimensional entity hostile to the order of creation itself, capable of corrupting anyone it touches, Link included. By combining echoes in creative ways, Zelda closes the rifts one by one, frees Link from the corruption, and defeats Null, restoring order to Hyrule."
+            }
+          }
+        ]
+      },
+      {
+        id: "ramo-bambino",
+        name: { it: "Ramo del Bambino (Link avverte Zelda)", en: "Child Branch (Link warns Zelda)" },
+        span: { it: "Era del Grande Mare", en: "Era of the Great Sea" },
+        entries: [
+          { id: "four-swords-adventures", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco dopo Ocarina of Time",
+            releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "Four Swords Adventures", en: "Four Swords Adventures" },
+            synopsis: {
+              it: "Anni dopo aver avvertito Zelda del pericolo rappresentato da Ganondorf, Link scopre che Vaati è stato liberato dalla Spada dei Quattro da Zelda stessa, ingannata da un misterioso Mago Oscuro. Vaati rapisce le sette fanciulle di sangue reale di Hyrule, tra cui Zelda, per assorbirne i poteri e ottenere il Triforce completo. Estraendo nuovamente la Spada dei Quattro, Link si divide in quattro copie e attraversa Hyrule, scoprendo lungo il cammino che il Mago Oscuro è in realtà Ganondorf stesso, resuscitato dalle ceneri della sua sconfitta precedente e alleato di Vaati per reclamare il Triforce. Sconfitti prima Vaati e poi Ganondorf, quest'ultimo viene sigillato nuovamente, questa volta all'interno del Bastone del Sigillo custodito dai Sette Saggi.",
+              en: "Years after warning Zelda of the danger posed by Ganondorf, Link discovers that Vaati has been freed from the Four Sword by Zelda herself, deceived by a mysterious Dark Sorcerer. Vaati kidnaps the seven maidens of royal Hyrulean blood, including Zelda, to absorb their powers and obtain the complete Triforce. Drawing the Four Sword once more, Link splits into four copies and crosses Hyrule, discovering along the way that the Dark Sorcerer is in fact Ganondorf himself, resurrected from the ashes of his earlier defeat and allied with Vaati to claim the Triforce. Having defeated first Vaati and then Ganondorf, the latter is sealed once again, this time inside the Sealing Rod kept by the Seven Sages."
+            }
+          },
+          { id: "wind-waker", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Grande Mare",
+            releaseYear: "2002", releaseYearEn: "2002",
+            title: { it: "The Wind Waker", en: "The Wind Waker" },
+            synopsis: {
+              it: "Secoli dopo Four Swords Adventures, il Regno di Hyrule è ormai solo leggenda: sommerso sotto un vasto oceano dagli dei stessi per impedire a un Ganondorf resuscitato di reclamare il Triforce, dopo che gli eroi di quell'epoca non riuscirono a fermarlo in tempo. Sul Grande Mare, Link parte alla ricerca della sorella rapita da un misterioso uccello gigante al servizio di Ganondorf, unendosi alla ciurma pirata della capitana Tetra — in realtà la principessa Zelda, ignara della propria identità. Nel corso del viaggio, Link raccoglie le tre Pietre Sacre e le Perle degli Dei per raggiungere il regno sommerso di Hyrule, dove estrae dalle sue radici la Master Sword, sconfigge Ganondorf nella sala del trono ormai sommersa, e assiste alla decisione degli dei di cancellare per sempre il vecchio regno, lasciando che Link e Tetra/Zelda salpino verso nuove terre da fondare.",
+              en: "Centuries after Four Swords Adventures, the Kingdom of Hyrule is now only legend: submerged beneath a vast ocean by the gods themselves to stop a resurrected Ganondorf from claiming the Triforce, after the heroes of that age failed to stop him in time. Upon the Great Sea, Link sets out searching for his sister, kidnapped by a mysterious giant bird in Ganondorf's service, joining the pirate crew of Captain Tetra — in truth Princess Zelda, unaware of her own identity. Over the course of the journey, Link gathers the three Sacred Stones and the Pearls of the Gods to reach the submerged kingdom of Hyrule, where he draws the Master Sword from its roots, defeats Ganondorf in the now-flooded throne room, and witnesses the gods' decision to erase the old kingdom forever, letting Link and Tetra/Zelda sail off toward new lands to found."
+            }
+          },
+          { id: "phantom-hourglass", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco dopo The Wind Waker",
+            releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "Phantom Hourglass", en: "Phantom Hourglass" },
+            synopsis: {
+              it: "Poco dopo Wind Waker, Link e Tetra scoprono una nave fantasma nella nebbia; Tetra viene rapita e trasformata in pietra dallo spirito Bellum. Link, salvato dalla fatina Ciela, ottiene dal Re degli Spiriti la Clessidra Fantasma, che gli permette di sopravvivere nel Tempio del Re Oceano protetto dai letali Fantasmi, purché la sabbia al suo interno non si esaurisca. Attraversando il Grande Mare su una nuova imbarcazione, Link raccoglie i Frammenti della Mappa del Tesoro necessari a raggiungere la Torre dei Venti Celesti, sconfigge Bellum e salva Tetra, chiudendo il capitolo immediatamente successivo a Wind Waker in questo ramo.",
+              en: "Shortly after Wind Waker, Link and Tetra discover a ghost ship in the fog; Tetra is kidnapped and turned to stone by the spirit Bellum. Link, rescued by the fairy Ciela, receives the Phantom Hourglass from the Ocean King, letting him survive within the Ocean King's Temple guarded by deadly Phantoms, as long as the sand inside doesn't run out. Sailing the Great Sea aboard a new vessel, Link gathers the Treasure Map fragments needed to reach the Tower of Winds, defeats Bellum, and rescues Tetra, closing the chapter that follows immediately after Wind Waker in this branch."
+            }
+          },
+          { id: "spirit-tracks", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Nuovo Hyrule",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Spirit Tracks", en: "Spirit Tracks" },
+            synopsis: {
+              it: "Generazioni dopo Phantom Hourglass, Hyrule è stato rifondato sulla terraferma. Link, aspirante macchinista, accompagna la principessa Zelda alla Torre degli Spiriti per indagare sulla scomparsa dei binari spirituali che tengono sigillato il Demone Malladus. Il Ministro Cole, in realtà un seguace di Malladus, uccide il corpo di Zelda per usarlo come vaso per la resurrezione del demone; il suo spirito sopravvive e si unisce a Link nel viaggio per riparare i binari con l'aiuto dello spirito guardiano Zephos/Anjean, ricostruire il proprio corpo e infine affrontare Malladus/Cole, sconfiggendolo e restituendo Zelda alla vita.",
+              en: "Generations after Phantom Hourglass, Hyrule has been refounded on the mainland. Link, an aspiring train engineer, accompanies Princess Zelda to the Tower of Spirits to investigate the disappearance of the spirit tracks that keep the Demon King Malladus sealed away. Chancellor Cole, in truth a follower of Malladus, kills Zelda's body to use it as a vessel for the demon's resurrection; her spirit survives and joins Link on the journey to repair the tracks with the help of the guardian spirit Zephos/Anjean, rebuild her own body, and finally confront Malladus/Cole, defeating him and restoring Zelda to life."
+            }
+          }
+        ]
+      },
+      {
+        id: "ramo-adulto",
+        name: { it: "Ramo dell'Adulto (Link scompare)", en: "Adult Branch (Link vanishes)" },
+        span: { it: "Era del Crepuscolo", en: "Era of Twilight" },
+        entries: [
+          { id: "twilight-princess", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Crepuscolo",
+            releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Twilight Princess", en: "Twilight Princess" },
+            synopsis: {
+              it: "Un centinaio d'anni dopo Ocarina of Time, in un mondo dove l'Eroe del Tempo è svanito dalla memoria dopo il proprio ritorno all'infanzia, il pastore Link viene trascinato in una dimensione oscura chiamata Regno del Crepuscolo, avvolgendo il villaggio di Ordon e gran parte di Hyrule. Trasformato in lupo dall'oscurità, Link viene guidato da Midna, una piccola creatura del Crepuscolo dai modi sarcastici, alla ricerca delle Lanterne della Luce per respingere l'ombra. Scoprono che Zant, un usurpatore del Regno del Crepuscolo, ha spodestato la vera sovrana Midna proprio grazie ai poteri concessigli da Ganondorf, evocato dal mondo della luce dopo essere stato giustiziato in seguito a un tentato colpo di stato. Link, riacquistata forma umana e la Master Sword, sconfigge prima Zant e poi, dopo che quest'ultimo tenta di uccidere Midna per impedire la sua restaurazione al trono, affronta Ganondorf stesso in un duello finale a cavallo e poi corpo a corpo, ponendo fine alla sua minaccia e permettendo a Midna di ristabilire l'ordine nel proprio regno.",
+              en: "About a hundred years after Ocarina of Time, in a world where the Hero of Time has faded from memory following his own return to childhood, the shepherd Link is dragged into a dark dimension called the Twilight Realm, which is engulfing the village of Ordon and much of Hyrule. Transformed into a wolf by the darkness, Link is guided by Midna, a small, sarcastic creature of the Twilight, in search of the Lanterns of Light to push back the shadow. They discover that Zant, a usurper of the Twilight Realm, dethroned its rightful ruler Midna thanks to powers granted by Ganondorf, summoned back into the world of light after being executed for an attempted coup. Link, having regained his human form and the Master Sword, defeats Zant first, and then, after Zant attempts to kill Midna to prevent her restoration to the throne, confronts Ganondorf himself in a final duel on horseback followed by hand-to-hand combat, ending his threat and allowing Midna to restore order to her own realm."
+            }
+          }
+        ]
+      },
+      {
+        id: "era-selvaggi",
+        name: { it: "Era dei Selvaggi (tutti i rami convergono)", en: "Era of the Wilds (all branches converge)" },
+        span: { it: "Migliaia di anni dopo", en: "Thousands of years later" },
+        entries: [
+          { id: "breath-of-the-wild", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era dei Selvaggi",
+            releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Breath of the Wild", en: "Breath of the Wild" },
+            synopsis: {
+              it: "Centinaia di anni dopo la Calamità Ganon, un'ondata di corruzione che distrusse il Regno di Hyrule e uccise re, campioni e cavalieri, Link si risveglia da un lungo sonno curativo nel Santuario della Resurrezione, privo di memoria. Guidato dalla voce di una Zelda intrappolata nel Castello di Hyrule, dove trattiene da sola la Calamità da un secolo, Link esplora un mondo aperto vastissimo, recupera i propri ricordi frammentati, libera le quattro Bestie Divine dalla corruzione con l'aiuto dei discendenti dei quattro Campioni caduti e infine affronta Ganon nel cuore del castello, liberando Zelda e ponendo fine a un secolo di rovina. Un capitolo che reimmagina radicalmente la formula della serie in chiave open world, ambientato così lontano nel futuro da rendere gli eventi dei rami precedenti pura leggenda, di cui restano solo tracce archeologiche e racconti tramandati.",
+              en: "Hundreds of years after the Calamity Ganon, a wave of corruption that destroyed the Kingdom of Hyrule and killed its king, champions, and knights, Link awakens from a long, healing sleep in the Shrine of Resurrection, without any memory. Guided by the voice of a Zelda trapped within Hyrule Castle, where she has single-handedly held back the Calamity for a century, Link explores a vast open world, recovers his fragmented memories, frees the four Divine Beasts from corruption with the help of the descendants of the four fallen Champions, and finally confronts Ganon at the heart of the castle, freeing Zelda and ending a century of ruin. A chapter that radically reimagines the series' formula as an open world, set so far in the future that the events of the earlier branches have become pure legend, leaving only archaeological traces and passed-down tales."
+            }
+          },
+          { id: "tears-of-the-kingdom", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era dei Selvaggi",
+            releaseYear: "2023", releaseYearEn: "2023",
+            title: { it: "Tears of the Kingdom", en: "Tears of the Kingdom" },
+            synopsis: {
+              it: "Diretto seguito di Breath of the Wild. Esplorando le rovine sotto il Castello di Hyrule, Link e Zelda risvegliano un corpo mummificato che libera un miasma corrotto, spezzando il braccio di Link e scaraventando Zelda in un abisso sotterraneo. Sopravvissuto grazie a un misterioso braccio meccanico donatogli dallo spirito del re Rauru, fondatore di Hyrule migliaia di anni prima, Link scopre che il corpo risvegliato era Ganondorf stesso, sigillato in un'epoca ancora più remota dopo aver tentato di rovesciare il regno di Rauru e Sonia. Esplorando cielo, superficie e Profondità sotterranee di Hyrule, Link raduna i discendenti dei quattro Saggi delle Bestie Divine e scopre che Zelda, precipitata nel passato, si è sacrificata trasformandosi in un drago eterno per proteggere la Master Sword lungo i millenni. Sconfitto infine Ganondorf nelle Profondità, Link recupera Zelda e la riporta alla forma umana, chiudendo il cerchio aperto migliaia di anni prima dalla fondazione stessa di Hyrule.",
+              en: "A direct sequel to Breath of the Wild. Exploring the ruins beneath Hyrule Castle, Link and Zelda awaken a mummified body that releases a corrupted miasma, shattering Link's arm and hurling Zelda into an underground chasm. Surviving thanks to a mysterious mechanical arm gifted to him by the spirit of King Rauru, Hyrule's founder thousands of years earlier, Link discovers the awakened body was Ganondorf himself, sealed away in an even more remote age after attempting to overthrow the kingdom of Rauru and Sonia. Exploring the sky, surface, and underground Depths of Hyrule, Link gathers the descendants of the four Sages of the Divine Beasts and discovers that Zelda, having fallen into the past, sacrificed herself by transforming into an eternal dragon to protect the Master Sword across the millennia. Having finally defeated Ganondorf in the Depths, Link recovers Zelda and restores her to human form, closing a circle first opened thousands of years earlier by the founding of Hyrule itself."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "legacy-of-kain": {
     id: "legacy-of-kain",
     listTitle: { it: "Legacy of Kain", en: "Legacy of Kain" },
@@ -1655,6 +1870,6 @@ const GAMES = {
 
 const GAME_ORDER = [
   "aitd", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta",
-  "kingdom-hearts", "legacy-of-kain", "lost-planet", "metal-gear-solid",
+  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid",
   "resident-evil", "silent-hill", "remedy-universe", "wolfenstein"
 ];
