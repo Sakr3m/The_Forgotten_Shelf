@@ -371,6 +371,8 @@
   width:max(280px, calc(50vw - 570px));
   z-index:4;
   pointer-events:none; /* la zona in se' non e' cliccabile, solo i post-it dentro */
+  border:2px dashed #22d3ee; /* solo per orientarsi mentre si regola la disposizione */
+  box-sizing:border-box;
 }
 @media (min-width:901px){
   .wish-column{ display:block; }
@@ -382,19 +384,30 @@
    TUTTE le varianti - ma solo quelle scelte in un dato momento
    vengono spostate nelle colonne (vedi script-officina.js). Quelle
    che restano qui dentro, in attesa del prossimo giro, non devono
-   comparire sparse per la pagina: position:relative lo rende il
-   riferimento di posizionamento dei suoi .wish-note (position:
-   absolute), collassato a altezza zero e overflow:hidden le tiene
-   invisibili senza mai display:none - stessa logica gia' usata per
-   .wish-note__answer, qui applicata al contenitore intero. */
+   comparire sparse per la pagina. Ora che .wish-note e' SEMPRE
+   position:fixed (vedi nota li' sotto sul perche'), non basta piu'
+   position:relative sul pool per contenerle: fixed ignora sempre gli
+   antenati non trasformati. Il transform (anche un no-op come questo)
+   rende il pool stesso il "contenitore" dei suoi figli fixed,
+   intrappolandoli dentro alla sua altezza zero/overflow:hidden -
+   stessa invisibilita' di prima, mai display:none, tecnica diversa. */
 #wishPool{
   position:relative;
+  transform:translateZ(0);
   height:0;
   overflow:hidden;
 }
 
+/* SEMPRE position:fixed, mai absolute: prima cambiava tra riposo
+   (absolute) e apertura (fixed), e "position" e' una proprieta' che
+   il CSS non puo' animare in modo continuo - il post-it "saltava" di
+   colpo al centro invece di ingrandirsi con un movimento fluido.
+   Restando sempre fixed, transform/width/top possono transizionare
+   davvero (vedi script-officina.js: la posizione di riposo viene
+   ora calcolata in pixel reali con getBoundingClientRect, non piu'
+   in percentuale). */
 .wish-note{
-  position:absolute;
+  position:fixed;
   top:var(--top, 10%);
   left:var(--left, auto);
   right:var(--right, auto);
@@ -407,7 +420,7 @@
   pointer-events:auto;
   transform:rotate(var(--rot, 0deg));
   box-shadow:0 10px 22px rgba(0,0,0,.4);
-  transition:transform .25s ease, box-shadow .25s ease, width .25s ease, padding .25s ease;
+  transition:transform .25s ease, box-shadow .25s ease, width .25s ease, padding .25s ease, top .25s ease, left .25s ease, right .25s ease;
 }
 .wish-note::before{
   content:"";

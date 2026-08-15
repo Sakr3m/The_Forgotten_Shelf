@@ -562,21 +562,53 @@ function scatterWishNotes(){
   }
 
   const half = Math.ceil(chosen.length / 2);
+
+  // Coordinate in pixel VERI, misurate dal box reale (non piu' in
+  // percentuale: .wish-note e' sempre position:fixed ora, le
+  // percentuali risolverebbero sulla viewport intera, non sul box).
+  const colLeftRect = colLeft.getBoundingClientRect();
+  const colRightRect = colRight.getBoundingClientRect();
+  const NOTE_H_ESTIMATE = 140; // altezza approssimativa di un post-it chiuso
+  const MIN_GAP = 50; // distanza minima richiesta, mai meno
+
+  // Una fascia verticale esclusiva per ciascun post-it del proprio
+  // lato (indice 0,1,2... dentro quel lato, non l'indice globale):
+  // cosi' la distanza minima e' garantita dalla costruzione stessa,
+  // non affidata alla fortuna del numero casuale.
+  let leftSeen = 0, rightSeen = 0;
   chosen.forEach((note, i) => {
-    const col = i < half ? colLeft : colRight;
-    const side = i < half ? "left" : "right";
-    const top = (5 + Math.random() * 83).toFixed(1) + "%";
-    const depth = (6 + Math.random() * 62).toFixed(1) + "%"; // quanto si spinge verso il centro
+    const isLeft = i < half;
+    const col = isLeft ? colLeft : colRight;
+    const rect = isLeft ? colLeftRect : colRightRect;
+    const sideCount = isLeft ? half : (chosen.length - half);
+    const bandIndex = isLeft ? leftSeen++ : rightSeen++;
+    const bandHeight = rect.height / sideCount;
+    const bandTop = rect.top + bandIndex * bandHeight;
+    const maxOffset = Math.max(0, bandHeight - NOTE_H_ESTIMATE - MIN_GAP);
+    const topPx = (bandTop + MIN_GAP / 2 + Math.random() * maxOffset).toFixed(1) + "px";
+
+    const depthFraction = 0.06 + Math.random() * 0.56; // quanto si spinge verso il centro, 6%-62% della larghezza del box
     const rot = (Math.random() * 13 - 6.5).toFixed(1) + "deg";
-    note.style.setProperty("--top", top);
+    const NOTE_W_ESTIMATE = 190;
+
+    note.style.setProperty("--top", topPx);
     note.style.setProperty("--rot", rot);
-    if(side === "left"){
-      note.style.setProperty("--left", depth);
-      note.style.removeProperty("--right");
+    // Sempre ENTRAMBE --left e --right, mai una delle due "auto": con
+    // width esplicita, left vince sempre per il layout vero (regola
+    // CSS quando tutte e tre le misure sono impostate), ma right deve
+    // comunque avere un valore reale, non auto - altrimenti passare
+    // da auto a un numero (aprendo un post-it della colonna destra)
+    // non si anima mai in modo fluido, salta di colpo.
+    let leftPx;
+    if(isLeft){
+      leftPx = rect.left + depthFraction * rect.width;
     } else {
-      note.style.setProperty("--right", depth);
-      note.style.removeProperty("--left");
+      const rightEdge = (window.innerWidth - rect.right) + depthFraction * rect.width;
+      leftPx = window.innerWidth - rightEdge - NOTE_W_ESTIMATE;
     }
+    const rightPx = window.innerWidth - (leftPx + NOTE_W_ESTIMATE);
+    note.style.setProperty("--left", leftPx.toFixed(1) + "px");
+    note.style.setProperty("--right", rightPx.toFixed(1) + "px");
     col.appendChild(note);
   });
 }
