@@ -1923,6 +1923,123 @@ const GAMES = {
     ]
   },
 
+  "prince-of-persia": {
+    id: "prince-of-persia",
+    listTitle: { it: "Prince of Persia", en: "Prince of Persia" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Prince of Persia", en: "Prince of Persia" },
+    blurb: {
+      it: "Acrobazia, trappole letali e manipolazione del tempo in una Persia fantastica. Come Tomb Raider, non ha una linea temporale unica: tre continuità separate, ognuna nata azzerando la precedente, più un capitolo recentissimo che non si sforza nemmeno di dichiarare a quale delle tre appartenga.",
+      en: "Acrobatics, lethal traps, and time manipulation in a fantastical Persia. Like Tomb Raider, it has no single timeline: three separate continuities, each born by resetting the last, plus a very recent chapter that doesn't even bother declaring which of the three it belongs to."
+    },
+    palette: ["#2c1810", "#c9a227", "#4a1a1a"],
+    accentColor: "#c9a227",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "continuita-originale",
+        name: { it: "Continuità Originale", en: "Original Continuity" },
+        span: { it: "1989 – 1999", en: "1989 – 1999" },
+        entries: [
+          { id: "pop-1989", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1989", releaseYear: "1989", releaseYearEn: "1989",
+            title: { it: "Prince of Persia", en: "Prince of Persia" },
+            synopsis: {
+              it: "Un principe senza nome ha sessanta minuti per fuggire dai sotterranei del palazzo, sconfiggere il visir malvagio Jaffar e salvare la principessa che ama, costretta a sposarlo entro un'ora o a morire. Il capostipite del genere platform cinematico, capace di introdurre animazioni fluide e realistiche per l'epoca.",
+              en: "A nameless prince has sixty minutes to escape the palace dungeons, defeat the evil vizier Jaffar, and save the princess he loves, who must marry him within the hour or die. The progenitor of the cinematic platformer genre, notable for introducing fluid, realistic animation for its time."
+            }
+          },
+          { id: "shadow-and-flame", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo il primo gioco", releaseYear: "1993", releaseYearEn: "1993",
+            title: { it: "The Shadow and the Flame", en: "The Shadow and the Flame" },
+            synopsis: {
+              it: "Il Principe, ormai sovrano, viene tradito e apparentemente ucciso dal proprio consigliere Jaffar risorto grazie a un genio malvagio. Salvato da un mago in incognito, deve recuperare tre reliquie magiche per fermare Jaffar una seconda volta.",
+              en: "The Prince, now a ruler, is betrayed and seemingly killed by his advisor Jaffar, resurrected with the help of an evil genie. Saved by a wizard in disguise, he must recover three magical relics to stop Jaffar a second time."
+            }
+          },
+          { id: "pop3d", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo", releaseYear: "1999", releaseYearEn: "1999",
+            title: { it: "Prince of Persia 3D", en: "Prince of Persia 3D" },
+            synopsis: {
+              it: "Il Principe, in visita al fratello del Sultano, si trova invischiato nel rapimento della principessa da parte del cugino Rugnor, per metà tigre. Ultimo capitolo di questa continuità, sviluppato senza il coinvolgimento del creatore originale Jordan Mechner e accolto con tiepidezza.",
+              en: "The Prince, visiting the Sultan's brother, finds himself entangled in the kidnapping of a princess by the half-tiger cousin Rugnor. The last chapter of this continuity, developed without the involvement of original creator Jordan Mechner and met with a lukewarm reception."
+            }
+          }
+        ]
+      },
+      {
+        id: "sabbie-del-tempo",
+        name: { it: "Le Sabbie del Tempo", en: "The Sands of Time" },
+        span: { it: "Persia leggendaria", en: "Legendary Persia" },
+        entries: [
+          { id: "sands-of-time", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "primo della saga",
+            releaseYear: "2003", releaseYearEn: "2003",
+            title: { it: "Sands of Time", en: "Sands of Time" },
+            synopsis: {
+              it: "Il Principe, ingannato dal visir malvagio, libera accidentalmente le Sabbie del Tempo da un pugnale magico, trasformando gli abitanti del palazzo in mostri e concedendo al pugnale stesso il potere di riavvolgere il tempo. Con l'aiuto della principessa Farah, richiude le sabbie nella loro clessidra d'origine, salvando il regno.",
+              en: "The Prince, deceived by the evil vizier, accidentally unleashes the Sands of Time from a magic dagger, turning the palace's inhabitants into monsters and granting the dagger the power to rewind time. With the help of Princess Farah, he seals the sands back into their original hourglass, saving the kingdom."
+            }
+          },
+          { id: "forgotten-sands", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "tra Sands of Time e Warrior Within",
+            releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "The Forgotten Sands", en: "The Forgotten Sands" },
+            synopsis: {
+              it: "In visita al regno del fratello, il Principe scatena per errore un esercito di sabbia risvegliando un potere sigillato secoli prima, e deve collaborare con la maga Razia per fermarlo. Uscito nel 2010, sette anni dopo Sands of Time, ma ambientato narrativamente proprio nell'anno intercorso tra quel gioco e Warrior Within — un vero puzzle di collocazione, non solo un'uscita fuori sequenza.",
+              en: "Visiting his brother's kingdom, the Prince accidentally unleashes an army of sand by awakening a power sealed away centuries earlier, and must work with the sorceress Razia to stop it. Released in 2010, seven years after Sands of Time, but narratively set precisely within the year between that game and Warrior Within — a genuine placement puzzle, not just an out-of-sequence release."
+            }
+          },
+          { id: "warrior-within", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "un anno dopo Sands of Time",
+            releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "Warrior Within", en: "Warrior Within" },
+            synopsis: {
+              it: "Braccato dalla Dahaka, un guardiano del tempo che punisce chiunque abbia alterato il proprio destino, il Principe viaggia indietro nel tempo fino all'Isola del Tempo per distruggere le Sabbie prima ancora della loro creazione, scontrandosi con la Imperatrice Kaileena, futura fonte del loro potere.",
+              en: "Hunted by the Dahaka, a guardian of time that punishes anyone who has altered their fate, the Prince travels back to the Island of Time to destroy the Sands before their very creation, clashing with Empress Kaileena, the future source of their power."
+            }
+          },
+          { id: "two-thrones", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seguito diretto di Warrior Within",
+            releaseYear: "2005", releaseYearEn: "2005",
+            title: { it: "The Two Thrones", en: "The Two Thrones" },
+            synopsis: {
+              it: "Tornato a Babilonia con Kaileena, il Principe la vede uccisa dal visir, che ne assorbe i poteri e scatena nuovamente le Sabbie, infettando lo stesso Principe con un lato oscuro violento. Sconfitto il visir e domato il proprio alter ego, il Principe usa infine il pugnale per riscrivere gli eventi e salvare Kaileena, chiudendo la trilogia.",
+              en: "Having returned to Babylon with Kaileena, the Prince watches her be killed by the vizier, who absorbs her powers and unleashes the Sands once more, infecting the Prince himself with a violent dark side. Having defeated the vizier and tamed his own alter ego, the Prince finally uses the dagger to rewrite events and save Kaileena, closing the trilogy."
+            }
+          }
+        ]
+      },
+      {
+        id: "reboot-2008",
+        name: { it: "Reboot 2008", en: "2008 Reboot" },
+        span: { it: "Continuità indipendente", en: "Independent continuity" },
+        entries: [
+          { id: "pop-2008", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "continuità propria",
+            releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Prince of Persia (2008)", en: "Prince of Persia (2008)" },
+            synopsis: {
+              it: "Un vagabondo senza nome, soprannominato Principe, si allea con Elika, principessa di un regno corrotto dal dio oscuro Ahriman, per purificare la terra prima che il male dilaghi ovunque. Nel finale, contro il volere di Elika, il Principe la resuscita liberando accidentalmente Ahriman: un epilogo controverso, mai approfondito da un vero seguito.",
+              en: "A nameless wanderer, nicknamed Prince, allies with Elika, princess of a kingdom corrupted by the dark god Ahriman, to purify the land before evil spreads everywhere. In the ending, against Elika's wishes, the Prince resurrects her, accidentally freeing Ahriman: a controversial epilogue never followed up by a true sequel."
+            }
+          }
+        ]
+      },
+      {
+        id: "lost-crown",
+        name: { it: "The Lost Crown (continuità propria, non dichiarata)", en: "The Lost Crown (own, undeclared continuity)" },
+        span: { it: "Persia mitologica", en: "Mythological Persia" },
+        entries: [
+          { id: "lost-crown", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "non collegato alle precedenti",
+            releaseYear: "2024", releaseYearEn: "2024",
+            title: { it: "The Lost Crown", en: "The Lost Crown" },
+            synopsis: {
+              it: "Sargon, guerriero d'élite del Clan degli Immortali, insegue il rapitore del principe Ghassan fino al Monte Qaf, un luogo dove il tempo scorre in modo instabile, scoprendo lungo il cammino segreti sul proprio passato e su un'antica maledizione. Capitolo più recente della saga, con struttura metroidvania invece che platform lineare, che Ubisoft stessa non ha mai chiarito collegare a nessuna delle tre continuità precedenti.",
+              en: "Sargon, an elite warrior of the Immortals Clan, pursues the kidnapper of Prince Ghassan to Mount Qaf, a place where time flows unstably, uncovering secrets about his own past and an ancient curse along the way. The saga's most recent chapter, with a metroidvania structure instead of linear platforming, which Ubisoft itself has never clarified as connecting to any of the three previous continuities."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   pokemon: {
     id: "pokemon",
     listTitle: { it: "Pokémon", en: "Pokémon" },
@@ -2688,6 +2805,6 @@ const GAMES = {
 
 const GAME_ORDER = [
   "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "god-of-war", "gta", "halo",
-  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon",
+  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein", "yakuza"
 ];
