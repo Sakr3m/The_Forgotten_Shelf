@@ -576,6 +576,11 @@ function setState(view){
     // (l'elemento e' sempre display:block su desktop, position:fixed,
     // solo il background-image la rende visibile o meno).
     if(el.entryWatermark) el.entryWatermark.style.backgroundImage = "";
+    // Stesso identico bug, sul pannello di controllo della luminosita'
+    // (le tre preimpostazioni + il cursore): mostrato all'apertura di
+    // una voce con filigrana (riga piu' sotto, entro renderEntry),
+    // mai nascosto di nuovo tornando alla home.
+    if(el.watermarkBrightness) el.watermarkBrightness.hidden = true;
     // Ko-fi/Discord tornano al loro posto originale (dentro
     // .stage-controls, prima di tutto il resto) - li' dove stavano
     // prima di essere spostati dentro .brand per la vista voce.
