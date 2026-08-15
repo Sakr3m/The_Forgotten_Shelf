@@ -110,12 +110,17 @@
   filter:none;
 }
 .game-list__row .row-lock[aria-pressed="true"]{
-  background:var(--item-accent, var(--cyan)); color:var(--bg);
+  background:var(--panel); color:var(--item-accent, var(--cyan));
+}
+.game-list__row .row-lock[aria-pressed="true"] path{
+  fill:currentColor; /* l'icona (solo contorno di default, fill:none
+    nell'SVG) diventa piena quando il lucchetto e' acceso - il cerchio
+    intorno resta uguale a sempre, si "illumina" solo l'icona */
 }
 .row-lock[aria-pressed="true"]:hover,
 .row-lock[aria-pressed="true"]:focus,
 .row-lock[aria-pressed="true"]:active{
-  background:var(--item-accent, var(--cyan)); color:var(--bg);
+  background:var(--panel); color:var(--item-accent, var(--cyan));
 }
 #sidebar .row-lock{ right:6px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
 .side-rail .row-lock{ left:6px; } /* stesso discorso, specchiato, sulla colonna destra */
