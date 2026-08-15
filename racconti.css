@@ -36,10 +36,19 @@
    dal bordo esterno, 45px da quello interno (verso lo stage) - lo
    spazio in piu' verso l'interno serve al pulsante lucchetto per
    voce, che vive li' (vedi piu' sotto).
-   Sidebar: 16(contenitore) + 14(qui) = 30 esterno; 16+29 = 45 interno.
-   Side-rail: 20(contenitore) + 10(qui) = 30 esterno; 20+25 = 45 interno. */
-#sidebar .game-list a{ padding-left:14px; padding-right:29px; }
-.side-rail .game-list a{ padding-left:25px; padding-right:10px; }
+   Sidebar: 16(contenitore) + 14(qui) = 30 esterno - questa parte
+   resta padding, la voce puo' ancora "respirare" un po' di sfondo
+   attorno al testo. Il lato interno pero' NON e' piu' padding: e'
+   una vera riduzione di larghezza (width, non padding-right), cosi'
+   lo sfondo/evidenziazione del link si ferma davvero prima della
+   zona del lucchetto, invece di estendersi sotto di lui lasciando
+   solo spazio vuoto - risolve la sovrapposizione visiva vista in
+   hover (segnalata come "mezzaluna"), che il solo spostamento della
+   striscia colorata non bastava a risolvere del tutto.
+   Side-rail: stesso discorso specchiato (riduzione a sinistra invece
+   che a destra, margin-left compensa lo spostamento). */
+#sidebar .game-list a{ width:calc(100% - 45px); padding-left:14px; padding-right:0; }
+.side-rail .game-list a{ width:calc(100% - 45px); margin-left:45px; padding-right:10px; padding-left:0; }
 
 /* La striscia colorata di evidenziazione (hover/attiva) e' sempre sul
    bordo sinistro nella regola condivisa in styles.css - qui, sulla
