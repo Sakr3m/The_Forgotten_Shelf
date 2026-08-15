@@ -77,7 +77,9 @@
   position:absolute; top:0; bottom:0; margin:auto 0;
   width:22px; height:22px; padding:0; box-sizing:border-box;
   display:flex; align-items:center; justify-content:center;
-  border:1.5px solid var(--item-accent, var(--cyan));
+  border:1.5px solid var(--line); /* neutro: il cerchio compare e
+    basta, non si "evidenzia" - solo l'icona qui sotto prende
+    l'accento della voce */
   border-radius:50%;
   background:var(--panel);
   color:var(--item-accent, var(--cyan));
@@ -817,9 +819,3 @@ body[data-entry-animate="true"] #watermarkBrightness{
   animation:tfs-enable-pointer 2.5s linear forwards;
 }
 
-/* ESPERIMENTO temporaneo, solo su Cinere: tolta la striscia colorata
-   (box-shadow inset) dell'evidenziazione, per capire se e' quella a
-   causare il riflesso ancora visibile sul lucchetto, o se la causa e'
-   altrove. Da rimuovere o rendere permanente in base al risultato. */
-#sidebar a[href*="cinere"].is-active,
-#sidebar a[href*="cinere"]:hover{ box-shadow:none; }
