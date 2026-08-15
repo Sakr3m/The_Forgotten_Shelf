@@ -297,7 +297,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      margine base (20px) non bastava, misurato e corretto sul valore
      vero (non calcolato a mano, troppi contributi sparsi tra piu'
      regole per farlo con certezza). */
-  body[data-state="entry"] .entry-panel{ margin-top:15px; }
+  body[data-state="entry"] .entry-panel{ margin-top:10px; }
 }
 .entry-content{
   position:relative; z-index:1;
