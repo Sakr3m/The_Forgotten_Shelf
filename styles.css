@@ -138,6 +138,14 @@ body[data-state="landing"] .brand{ display:none; }
       sempre identico, e lo switch si centra sempre alla stessa altezza. */
   }
 
+  /* Vista voce: stesso discorso della home qui sotto, stessa distanza
+     di 20px dal bordo per brand (che qui ospita anche Ko-fi/Discord,
+     spostati dentro) e stage-controls (switch lingua + volume). */
+  body[data-state="entry"] .stage-topbar .brand,
+  body[data-state="entry"] .stage-topbar .stage-controls{
+    height:auto; align-items:flex-start; margin-top:20px;
+  }
+
   /* Solo in home: qui il pulsante e' unico (nessun music-toggle da
      allineare, quello vive solo nello stato voce), quindi si puo'
      ignorare l'altezza condivisa di sopra e posizionarlo in modo
@@ -347,7 +355,7 @@ body[data-state="landing"] .brand{ display:none; }
 
 .music-toggle{
   display:flex; align-items:center; justify-content:center;
-  width:38px; height:38px; flex-shrink:0;
+  width:40px; height:40px; flex-shrink:0;
   border:1px solid var(--cyan);
   background:var(--panel);
   border-radius:999px;

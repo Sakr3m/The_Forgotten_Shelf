@@ -333,14 +333,19 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   body[data-state="entry"] .brand-icon{ display:none; }
   body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
   body[data-state="entry"] .brand .social-links{
-    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:8px;
   }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
     display:flex;
     border-color:var(--item-accent, var(--cyan));
   }
-  body[data-state="entry"] .kofi-link{ font-size:.76rem; }
+  body[data-state="entry"] .kofi-link{
+    font-size:.76rem;
+    width:auto; padding:0 14px; /* qui il testo e' corto ("KoFi", non
+      "Sostienimi su Ko-fi"), i 180px fissi pensati per la home
+      lasciavano un vuoto enorme intorno alle quattro lettere */
+  }
   body[data-state="entry"] .kofi-link__full{ display:none; }
   body[data-state="entry"] .kofi-link__short{ display:inline; }
   body[data-state="entry"] .discord-link svg{ width:15px; height:15px; }
