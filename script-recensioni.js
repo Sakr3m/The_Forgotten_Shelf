@@ -881,11 +881,14 @@ el.indexLink.addEventListener("click", (ev) => {
     ev.preventDefault();
     backToLanding();
   } else {
-    // Naviga davvero verso index.html: senza un piccolo ritardo il
-    // browser cambia pagina prima che il suono del tap (gia' gestito
-    // dal listener generico piu' in basso) faccia in tempo a partire.
+    // Naviga davvero verso index.html: un piccolo ritardo resta
+    // comunque necessario, non piu' per far PARTIRE il suono del tap
+    // (ora istantaneo, vedi il buffer pre-decodificato piu' in basso)
+    // ma per lasciarlo FINIRE prima che il cambio pagina lo interrompa
+    // a meta'. 300ms e' una stima prudente della sua durata reale (non
+    // misurabile da qui) - da verificare/aggiustare ad orecchio.
     ev.preventDefault();
-    setTimeout(() => { window.location.href = el.indexLink.href; }, 550);
+    setTimeout(() => { window.location.href = el.indexLink.href; }, 300);
   }
 });
 
@@ -1267,13 +1270,55 @@ if(isMobileNav() && el.layout){
 // del brano (.track-skip) è l'unica eccezione voluta, escluso
 // esplicitamente.
 // ---------------------------------------------------------
+// Suono UI al tap, stesso comportamento delle altre pagine. Lo skip
+// del brano (.track-skip) è l'unica eccezione voluta, escluso
+// esplicitamente.
+//
+// Il suono viene scaricato e DECODIFICATO una sola volta, in idle
+// time al caricamento pagina, invece di creare un nuovo Audio() (rete
+// + decodifica da zero) ad ogni singolo click: prima il tempismo
+// variava sensibilmente click dopo click (~85% delle volte suonava,
+// ma mai esattamente nello stesso istante), perché ogni click
+// dipendeva da quanto velocemente rete/decoder rispondevano in quel
+// momento. Con il buffer già pronto in memoria, avviarlo tramite Web
+// Audio API è immediato e sempre identico: nessuna rete, nessuna
+// decodifica al momento del click, solo la riproduzione di un buffer
+// già pronto.
+// ---------------------------------------------------------
 const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
+let tapAudioCtx = null;
+let tapBuffer = null;
+(window.requestIdleCallback || (cb => setTimeout(cb, 1)))(() => {
+  try {
+    tapAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    fetch(TAP_SOUND_URL)
+      .then(r => r.arrayBuffer())
+      .then(data => tapAudioCtx.decodeAudioData(data))
+      .then(buffer => { tapBuffer = buffer; })
+      .catch(() => { /* silenzioso: se fallisce, resta solo il fallback piu' sotto */ });
+  } catch(e) { /* Web Audio non disponibile: nessun problema, resta solo il fallback */ }
+});
+function suonaTap(volume){
+  if(tapAudioCtx && tapBuffer){
+    if(tapAudioCtx.state === "suspended") tapAudioCtx.resume();
+    const source = tapAudioCtx.createBufferSource();
+    source.buffer = tapBuffer;
+    const gain = tapAudioCtx.createGain();
+    gain.gain.value = volume;
+    source.connect(gain).connect(tapAudioCtx.destination);
+    source.start(0);
+  } else {
+    // Buffer non ancora pronto (raro: solo se si clicca prima che il
+    // pre-caricamento finisca) - stesso vecchio metodo come riserva.
+    const tap = new Audio(TAP_SOUND_URL);
+    tap.volume = volume;
+    tap.play().catch(() => {});
+  }
+}
 document.addEventListener("click", (e) => {
   const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link, a.review-tile");
   if(target && !target.classList.contains("track-skip")){
-    const tap = new Audio(TAP_SOUND_URL);
-    tap.volume = isMobileNav() ? 0.3 : 0.1;
-    tap.play().catch(() => { /* bloccato finché non c'è un gesto utente; il click stesso lo è, quindi è solo un fallback */ });
+    suonaTap(isMobileNav() ? 0.3 : 0.1);
   }
 });
 
