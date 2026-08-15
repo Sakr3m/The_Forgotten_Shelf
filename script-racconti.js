@@ -87,6 +87,7 @@ const el = {
   socialLinks: document.querySelector(".social-links"),
   stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
+  panelToggle: document.getElementById("panelToggle"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
   landingPanel: document.getElementById("landingPanel"),
@@ -130,12 +131,20 @@ const mobileBreakpoint = window.matchMedia("(max-width:900px)");
 const MUSIC_ON_KEY = "tfs-music-on";
 const VOLUME_KEY = "tfs-volume";
 const LANG_KEY = "tfs-lang";
+const PANELS_HOVER_KEY = "tfs-panels-hover";
 const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+// Applicato subito, non dopo, cosi' la pagina non mostra per un
+// istante lo stato sbagliato (tabelle aperte) prima di passare a
+// quello salvato (a comparsa) un attimo dopo.
+if(localStorage.getItem(PANELS_HOVER_KEY) === "true"){
+  document.body.dataset.panels = "hover";
+  el.panelToggle.setAttribute("aria-pressed", "true");
+}
 
 // "Gradiometro" — moltiplicatore di luminosità per le filigrane.
 // Prima era un'unica chiave condivisa con la_traccia_del_tempo.html (stesso
@@ -910,6 +919,23 @@ el.musicToggle.addEventListener("click", (ev) => {
     updateMusicPlayback();
   } else {
     el.playlistMenu.hidden ? openPlaylistMenu() : closePlaylistMenu();
+  }
+});
+
+// ---------------------------------------------------------
+// Tabelle a comparsa (sidebar + side-rail sempre aperte di default,
+// oppure nascoste finche' non ci si passa sopra col mouse)
+// ---------------------------------------------------------
+el.panelToggle.addEventListener("click", () => {
+  const acceso = document.body.dataset.panels === "hover";
+  if(acceso){
+    delete document.body.dataset.panels;
+    el.panelToggle.setAttribute("aria-pressed", "false");
+    localStorage.setItem(PANELS_HOVER_KEY, "false");
+  } else {
+    document.body.dataset.panels = "hover";
+    el.panelToggle.setAttribute("aria-pressed", "true");
+    localStorage.setItem(PANELS_HOVER_KEY, "true");
   }
 });
 

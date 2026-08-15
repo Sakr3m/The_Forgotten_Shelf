@@ -597,3 +597,70 @@ body[data-state="entry"] .landing{ display:none; }
     color:#000;
   }
 }
+
+/* ============================================================
+   Pulsante "tabelle a comparsa" — attiva/disattiva la visibilita'
+   permanente delle due colonne laterali (sidebar sinistra + side-rail
+   destra). Da spento (default): tabelle sempre aperte, come sempre
+   stato. Da acceso: le tabelle restano chiuse (contenuto interno
+   quasi invisibile) finche' non ci si passa sopra col mouse, poi si
+   rivelano. Solo desktop: il touch non ha un vero hover, e le due
+   colonne su mobile sono gia' pannelli separati del carosello, non
+   hanno questo problema.
+
+   SCELTA IMPORTANTE: la larghezza delle due colonne (250px, sempre)
+   non cambia MAI, ne' da spento ne' da acceso ne' in hover - solo
+   la visibilita' del contenuto al loro interno. Cosi' lo stage
+   centrale non si sposta mai di un pixel, in nessuno stato: niente
+   "salti" di layout da gestire, garantito dalla struttura stessa
+   invece che da un accorgimento CSS delicato.
+   ============================================================ */
+@media (min-width:901px){
+  .panel-toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:40px; height:40px; box-sizing:border-box;
+    border:1px solid var(--cyan);
+    background:var(--panel);
+    border-radius:50%;
+    color:var(--text-dim);
+    transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .panel-toggle:hover{ color:var(--text); }
+  .panel-toggle svg{ width:20px; height:20px; }
+  /* Di default (spento, tabelle sempre aperte): le due strisce
+     laterali dell'icona restano piene, a segnalare "le colonne sono
+     sempre visibili". */
+  .panel-toggle__left, .panel-toggle__right{ opacity:1; transition:opacity var(--dur-fast) var(--ease); }
+  /* Acceso (tabelle a comparsa): le strisce si svuotano, resta solo
+     il contorno - il pulsante stesso comunica lo stato senza bisogno
+     di leggere nulla. */
+  .panel-toggle[aria-pressed="true"] .panel-toggle__left,
+  .panel-toggle[aria-pressed="true"] .panel-toggle__right{ opacity:0; }
+
+  /* Stato "acceso": applicato sul body da script-racconti.js, letto
+     da localStorage ad ogni caricamento pagina cosi' la scelta
+     resta ricordata. */
+  body[data-panels="hover"] #sidebar .panel-inner,
+  body[data-panels="hover"] .side-rail .panel-inner{
+    opacity:.08; pointer-events:none;
+    transition:opacity .22s ease .18s; /* il "chiudersi" ha un piccolo
+      ritardo (180ms) prima di cominciare - evita che il contenuto
+      sparisca per un attraversamento distratto del mouse, non un
+      vero tentativo di allontanarsi dalla colonna */
+  }
+  /* Indizio visivo permanente anche a riposo: un filo di colore
+     sul bordo interno della colonna, cosi' resta chiaro che li' c'e'
+     qualcosa anche quando il contenuto e' quasi invisibile. */
+  body[data-panels="hover"] #sidebar{ box-shadow:inset -1px 0 0 var(--line); }
+  body[data-panels="hover"] .side-rail{ box-shadow:inset 1px 0 0 var(--line); }
+
+  body[data-panels="hover"] #sidebar:hover .panel-inner,
+  body[data-panels="hover"] #sidebar:focus-within .panel-inner,
+  body[data-panels="hover"] .side-rail:hover .panel-inner,
+  body[data-panels="hover"] .side-rail:focus-within .panel-inner{
+    opacity:1; pointer-events:auto;
+    transition:opacity .18s ease .08s; /* l'"aprirsi" ha un ritardo
+      minimo (80ms), giusto per non scattare su un passaggio del
+      mouse puramente accidentale mentre si punta altrove */
+  }
+}
