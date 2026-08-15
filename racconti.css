@@ -19,10 +19,15 @@
 .side-rail{
   width:var(--rail-width); flex-shrink:0; /* stessa variabile di Timeline (250px), non più 310px per conto suo */
   padding:24px 20px;
-  border-left:1px solid var(--line);
+  border-left:1px solid var(--cyan);
   background:var(--bg-soft);
   overflow-y:auto;
 }
+/* Bordo bianco anche sulla sidebar sinistra, richiesto solo per
+   questa pagina - override qui invece che nel file condiviso
+   styles.css, per non cambiare il colore anche su Il Filo Nascosto e
+   la Timeline, che usano la stessa regola base. */
+#sidebar{ border-right-color:var(--cyan); }
 
 /* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
    posizione in alto (niente più brand sopra la colonna sinistra) e
@@ -639,39 +644,62 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* Stato "acceso": applicato sul body da script-racconti.js, letto
      da localStorage ad ogni caricamento pagina cosi' la scelta
-     resta ricordata. Sparisce tutto - contenuto, sfondo, bordo -
-     non solo le voci della lista: da riposo la colonna non deve
-     lasciare traccia visibile di se', a parte l'icona del pulsante
-     stesso che comunica la modalita' attiva. */
+     resta ricordata. Sparisce tutto - contenuto, sfondo - non solo
+     le voci della lista: da riposo la colonna non deve lasciare
+     traccia visibile di se', a parte l'icona del pulsante stesso che
+     comunica la modalita' attiva. Il bordo resta sempre bianco (vedi
+     .sidebar/.side-rail piu' sotto), acceso o spento che sia.
+
+     Effetto "a cancelli": invece di un semplice sfumato, il
+     contenuto si rivela scorrendo da un lato (clip-path animato),
+     come un vero cancello che si apre - sidebar da sinistra verso
+     destra, side-rail da destra verso sinistra (ognuna si apre dal
+     proprio bordo esterno verso il centro). Si applica sia
+     all'attivazione del pulsante stesso (passaggio da "sempre
+     aperte" a "a comparsa") sia al passaggio del mouse dentro quella
+     modalita' - stessa animazione in entrambi i casi, la transizione
+     CSS gestisce da sola qualunque cambio di stato che tocchi questo
+     valore. */
+  .panel-inner{ clip-path:inset(0 0 0 0); } /* stato base esplicito,
+    necessario perche' la transizione abbia un punto di partenza
+    definito invece di partire da "none" */
+
   body[data-panels="hover"] #sidebar,
   body[data-panels="hover"] .side-rail{
-    background:transparent; border-color:transparent;
-    transition:background .22s ease .18s, border-color .22s ease .18s; /* il
-      "chiudersi" ha un piccolo ritardo (180ms) prima di cominciare -
-      evita che il contenuto sparisca per un attraversamento distratto
-      del mouse, non un vero tentativo di allontanarsi dalla colonna */
+    background:transparent;
+    transition:background .22s ease .18s; /* il "chiudersi" ha un
+      piccolo ritardo (180ms) prima di cominciare - evita che il
+      contenuto sparisca per un attraversamento distratto del mouse,
+      non un vero tentativo di allontanarsi dalla colonna */
   }
-  body[data-panels="hover"] #sidebar .panel-inner,
+  body[data-panels="hover"] #sidebar .panel-inner{
+    clip-path:inset(0 100% 0 0); /* cancello chiuso, tirato verso il
+      proprio bordo sinistro (esterno) */
+    pointer-events:none;
+    transition:clip-path .28s ease .18s;
+  }
   body[data-panels="hover"] .side-rail .panel-inner{
-    opacity:0; pointer-events:none;
-    transition:opacity .22s ease .18s;
+    clip-path:inset(0 0 0 100%); /* stesso discorso, ma tirato verso
+      il bordo destro (esterno) */
+    pointer-events:none;
+    transition:clip-path .28s ease .18s;
   }
 
   body[data-panels="hover"] #sidebar:hover,
   body[data-panels="hover"] #sidebar:focus-within,
   body[data-panels="hover"] .side-rail:hover,
   body[data-panels="hover"] .side-rail:focus-within{
-    background:var(--bg-soft); border-color:var(--line);
-    transition:background .18s ease .08s, border-color .18s ease .08s; /* l'
-      "aprirsi" ha un ritardo minimo (80ms), giusto per non scattare su
-      un passaggio del mouse puramente accidentale mentre si punta
-      altrove */
+    background:var(--bg-soft);
+    transition:background .2s ease .08s; /* l'"aprirsi" ha un ritardo
+      minimo (80ms), giusto per non scattare su un passaggio del
+      mouse puramente accidentale mentre si punta altrove */
   }
   body[data-panels="hover"] #sidebar:hover .panel-inner,
   body[data-panels="hover"] #sidebar:focus-within .panel-inner,
   body[data-panels="hover"] .side-rail:hover .panel-inner,
   body[data-panels="hover"] .side-rail:focus-within .panel-inner{
-    opacity:1; pointer-events:auto;
-    transition:opacity .18s ease .08s;
+    clip-path:inset(0 0 0 0); /* cancello aperto */
+    pointer-events:auto;
+    transition:clip-path .22s ease .08s;
   }
 }
