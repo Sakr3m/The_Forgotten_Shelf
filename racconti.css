@@ -102,7 +102,12 @@
 .row-lock:focus,
 .row-lock:active{
   background:var(--panel); border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan));
-  box-shadow:none; filter:none;
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--item-accent, var(--cyan)) 35%, transparent); /* alone
+    uniforme tutto intorno al cerchio, non direzionale come la
+    striscia (inset 2px 0 0) che causava il riflesso - qui lo spread
+    e' simmetrico su ogni lato, nessun lato piu' "illuminato" di un
+    altro */
+  filter:none;
 }
 .game-list__row .row-lock[aria-pressed="true"]{
   background:var(--item-accent, var(--cyan)); color:var(--bg);
