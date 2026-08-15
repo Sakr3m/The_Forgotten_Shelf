@@ -23,6 +23,13 @@
   background:var(--bg-soft);
   overflow-y:auto;
 }
+/* Voci allineate a destra qui (a sinistra nella sidebar sinistra,
+   gia' cosi' di default nella regola condivisa .game-list button,
+   .game-list a) - richiesto esplicitamente, cosi' ciascuna tabella
+   "guarda" verso il proprio bordo esterno invece che verso il centro
+   della pagina in entrambe. */
+.side-rail .game-list button,
+.side-rail .game-list a{ text-align:right; }
 
 /* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
    posizione in alto (niente più brand sopra la colonna sinistra) e
