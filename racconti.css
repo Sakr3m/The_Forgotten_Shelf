@@ -77,18 +77,16 @@
   position:absolute; top:0; bottom:0; margin:auto 0;
   width:26px; height:26px; padding:0; box-sizing:border-box;
   display:flex; align-items:center; justify-content:center;
-  border:2px solid var(--item-accent, var(--cyan));
+  border:1px solid var(--item-accent, var(--cyan));
   border-radius:50%;
   background:var(--panel);
   color:var(--item-accent, var(--cyan));
-  opacity:0; pointer-events:none;
-  transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  opacity:1; pointer-events:auto; /* sempre visibile - l'hover non
+    fa piu' nulla su questo pulsante, tolta la transizione di comparsa
+    (probabile causa del riflesso mai risolto) */
+  transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .row-lock svg{ width:13px; height:13px; }
-.game-list__row:hover .row-lock,
-.game-list__row:focus-within .row-lock{
-  opacity:1; pointer-events:auto;
-}
 .game-list__row .row-lock[aria-pressed="true"]{
   background:var(--item-accent, var(--cyan)); color:var(--bg);
 }
