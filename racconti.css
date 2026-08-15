@@ -8,7 +8,7 @@
 /* Titolo hero della sezione: EB Garamond corsivo, piu' pesante del
    titolo di voce (.entry-title qui sotto, stesso font ma peso 500)
    per dare piu' impatto all'ingresso in sezione. */
-.landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; }
+.landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; width:360px; margin-left:auto; margin-right:auto; }
 
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su

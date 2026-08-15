@@ -8,7 +8,7 @@
 /* Titolo hero della sezione: Manrope, stesso peso del titolo di voce
    (.entry-title qui sotto) — qui la gerarchia la fa solo la
    dimensione, niente scarto di peso come su altre sezioni. */
-.landing-title{ font-family:'Manrope', sans-serif; font-weight:700; }
+.landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:295px; margin-left:auto; margin-right:auto; }
 
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su

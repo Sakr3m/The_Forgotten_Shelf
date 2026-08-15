@@ -138,6 +138,22 @@ body[data-state="landing"] .brand{ display:none; }
       sempre identico, e lo switch si centra sempre alla stessa altezza. */
   }
 
+  /* Solo in home: qui il pulsante e' unico (nessun music-toggle da
+     allineare, quello vive solo nello stato voce), quindi si puo'
+     ignorare l'altezza condivisa di sopra e posizionarlo in modo
+     esplicito a 20px dal bordo alto, in linea con gli altri pulsanti
+     della barra - senza toccare l'altezza di 38px qui sopra, che
+     serve ancora identica per lo stato voce. */
+  body[data-state="landing"] .stage-topbar .stage-controls{
+    height:auto; align-items:flex-start; margin-top:20px;
+  }
+
+  /* Stesso discorso per index-link: la regola universale qui sopra
+     (.stage-topbar > *) gli darebbe margin-top:15px come a tutti gli
+     altri figli - qui, solo in home, lo si sposta a 20px per restare
+     allineato agli altri pulsanti della barra. */
+  body[data-state="landing"] .stage-topbar .index-link{ margin-top:20px; }
+
   /* Elemento indipendente (non dentro .stage-topbar apposta): copre
      la zona vuota tra il vero bordo alto della pagina e dove iniziano
      i pulsanti (53px = 15px di margine + 38px del pulsante più alto),
@@ -174,7 +190,7 @@ body[data-state="landing"] .brand{ display:none; }
     figli di .stage-controls */
   body[data-state="landing"] .social-links{
     display:flex; align-items:center; gap:10px;
-    position:absolute; left:50%; top:15px; height:40px;
+    position:absolute; left:50%; top:20px; height:40px;
     transform:translateX(-50%);
   }
 }
@@ -574,7 +590,7 @@ body[data-state="landing"] .kofi-link:hover svg{ color:#ef4444; }
 .index-link{
   display:none; align-items:center; justify-content:center; gap:8px;
   width:140px; height:40px; box-sizing:border-box;
-  position:fixed; top:15px; left:270px; z-index:5;
+  position:fixed; top:20px; left:270px; z-index:5;
   border:1px solid var(--cyan);
   background:var(--panel);
   border-radius:999px;
