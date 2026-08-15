@@ -1540,6 +1540,124 @@ const GAMES = {
     ]
   },
 
+  "mortal-kombat": {
+    id: "mortal-kombat",
+    listTitle: { it: "Mortal Kombat", en: "Mortal Kombat" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Mortal Kombat", en: "Mortal Kombat" },
+    blurb: {
+      it: "Un torneo di combattimento tra regni (Earthrealm, Outworld, Netherrealm e altri) che decide il destino dell'universo, tra fatality sanguinose e un cast di guerrieri leggendari. Caso unico in questo archivio: la saga ha riscritto la propria linea temporale due volte, e lo ha fatto come evento della trama stessa, non come semplice reboot di marketing.",
+      en: "A tournament between realms (Earthrealm, Outworld, Netherrealm, and others) that decides the fate of the universe, through bloody fatalities and a cast of legendary warriors. A unique case in this archive: the saga has rewritten its own timeline twice, and did so as an event within the story itself, not as a simple marketing reboot."
+    },
+    palette: ["#8b0000", "#1a1a1a", "#d4af37"],
+    accentColor: "#8b0000",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "timeline-originale",
+        name: { it: "Timeline Originale", en: "Original Timeline" },
+        span: { it: "1992 – 2006", en: "1992 – 2006" },
+        entries: [
+          { id: "mk1-1992", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992", releaseYear: "1992", releaseYearEn: "1992",
+            title: { it: "Mortal Kombat", en: "Mortal Kombat" },
+            synopsis: {
+              it: "Liu Kang e altri guerrieri di Earthrealm partecipano al torneo Mortal Kombat, organizzato dallo stregone Shang Tsung per conto dell'imperatore di Outworld Shao Kahn. Se Outworld vince dieci tornei consecutivi, potrà invadere Earthrealm; Liu Kang sconfigge Shang Tsung, fermando l'invasione per quella generazione.",
+              en: "Liu Kang and other Earthrealm warriors take part in the Mortal Kombat tournament, organised by the sorcerer Shang Tsung on behalf of Outworld's emperor Shao Kahn. If Outworld wins ten consecutive tournaments, it may invade Earthrealm; Liu Kang defeats Shang Tsung, stopping the invasion for that generation."
+            }
+          },
+          { id: "mk2-1993", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1993", releaseYear: "1993", releaseYearEn: "1993",
+            title: { it: "Mortal Kombat II", en: "Mortal Kombat II" },
+            synopsis: {
+              it: "Shao Kahn, infuriato per la sconfitta di Shang Tsung, attira i guerrieri di Earthrealm a Outworld con la promessa di un nuovo torneo, sperando di eliminarli fuori dai vincoli sacri del Mortal Kombat. Liu Kang sconfigge sia Shang Tsung che lo stesso Shao Kahn, sventando ancora una volta l'invasione.",
+              en: "Shao Kahn, enraged by Shang Tsung's defeat, lures Earthrealm's warriors to Outworld with the promise of a new tournament, hoping to eliminate them outside the sacred bounds of Mortal Kombat. Liu Kang defeats both Shang Tsung and Shao Kahn himself, thwarting the invasion once again."
+            }
+          },
+          { id: "mk3-1995", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", releaseYear: "1995", releaseYearEn: "1995",
+            title: { it: "Mortal Kombat 3", en: "Mortal Kombat 3" },
+            synopsis: {
+              it: "Shao Kahn, ignorando le regole del torneo, invade direttamente Earthrealm fondendone le anime con Outworld. La resistenza umana, guidata da Liu Kang e Raiden, sconfigge Kahn nel momento culminante dell'invasione, salvando la Terra.",
+              en: "Shao Kahn, disregarding the tournament's rules, directly invades Earthrealm, merging its souls with Outworld. The human resistance, led by Liu Kang and Raiden, defeats Kahn at the height of the invasion, saving Earth."
+            }
+          },
+          { id: "mk4-1997", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1997", releaseYear: "1997", releaseYearEn: "1997",
+            title: { it: "Mortal Kombat 4", en: "Mortal Kombat 4" },
+            synopsis: {
+              it: "Il dio decaduto Shinnok, liberato dalla propria prigione dimensionale, tenta di conquistare tutti i regni con l'aiuto del traditore Quan Chi. Raiden e i guerrieri di Earthrealm sconfiggono Shinnok, sigillandolo nuovamente.",
+              en: "The fallen god Shinnok, freed from his dimensional prison, attempts to conquer all realms with the help of the traitor Quan Chi. Raiden and Earthrealm's warriors defeat Shinnok, sealing him away once more."
+            }
+          },
+          { id: "deadly-alliance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2002", releaseYear: "2002", releaseYearEn: "2002",
+            title: { it: "Deadly Alliance", en: "Deadly Alliance" },
+            synopsis: {
+              it: "Shang Tsung e Quan Chi uniscono le forze in un'alleanza mortale, uccidendo Liu Kang e sterminando gran parte degli Elder Gods per impossessarsi dei loro poteri. La resistenza dei sopravvissuti riesce a fermare, almeno temporaneamente, l'ascesa dei due stregoni.",
+              en: "Shang Tsung and Quan Chi join forces in a deadly alliance, killing Liu Kang and exterminating most of the Elder Gods to seize their powers. The resistance of the survivors manages to stop, at least temporarily, the two sorcerers' rise to power."
+            }
+          },
+          { id: "deception", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2004", releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "Deception", en: "Deception" },
+            synopsis: {
+              it: "Con Shao Kahn tornato dai morti per vendicare la moglie Sindel, Earthrealm rischia la distruzione totale. Il fantasma di Liu Kang, gli Elder Gods superstiti e Raiden collaborano per sconfiggere Kahn una volta per tutte.",
+              en: "With Shao Kahn returned from the dead to avenge his wife Sindel, Earthrealm risks total destruction. Liu Kang's ghost, the surviving Elder Gods, and Raiden work together to defeat Kahn once and for all."
+            }
+          },
+          { id: "armageddon", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2006", releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Armageddon", en: "Armageddon" },
+            synopsis: {
+              it: "Praticamente ogni guerriero di ogni regno converge sul Monte Argus per la battaglia finale profetizzata, mentre Raiden, disperato di fronte alla prevista sconfitta delle forze del bene, manda un messaggio al proprio io passato pochi istanti prima della morte. Questo gesto, apparentemente vano, sarà la scintilla del primo reset della timeline nel gioco successivo.",
+              en: "Virtually every warrior from every realm converges on Mount Argus for the prophesied final battle, while Raiden, desperate in the face of the good side's foreseen defeat, sends a message to his past self moments before dying. This seemingly futile act becomes the spark for the timeline's first reset in the following game."
+            }
+          }
+        ]
+      },
+      {
+        id: "timeline-rebooted",
+        name: { it: "Timeline Rebooted (reset di Raiden)", en: "Rebooted Timeline (Raiden's reset)" },
+        span: { it: "2011 – 2019", en: "2011 – 2019" },
+        entries: [
+          { id: "mk9-2011", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2011 (retelling di MK1-3)", releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Mortal Kombat (2011)", en: "Mortal Kombat (2011)" },
+            synopsis: {
+              it: "Il messaggio di Raiden dal futuro riscrive gli eventi di MK1-3, spingendo il Raiden di questa nuova timeline a intervenire in modo più diretto per impedire la caduta di Earthrealm. Nonostante gli sforzi, Shao Kahn riesce comunque a invadere la Terra nel finale, aprendo la strada al capitolo successivo.",
+              en: "Raiden's message from the future rewrites the events of MK1-3, pushing this new timeline's Raiden to intervene more directly to prevent Earthrealm's fall. Despite his efforts, Shao Kahn still manages to invade Earth in the finale, paving the way for the next chapter."
+            }
+          },
+          { id: "mkx-2015", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015, con salto a 25 anni dopo", releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Mortal Kombat X", en: "Mortal Kombat X" },
+            synopsis: {
+              it: "Dopo la sconfitta di Shao Kahn, la storia salta di 25 anni: una nuova generazione di guerrieri, tra cui la figlia di Johnny Cage e Sonya Blade, affronta Quan Chi, un esercito di Revenant risvegliati e infine Shinnok, tornato a minacciare Earthrealm.",
+              en: "After Shao Kahn's defeat, the story jumps 25 years ahead: a new generation of warriors, including the daughter of Johnny Cage and Sonya Blade, confronts Quan Chi, an army of awakened Revenants, and finally Shinnok, once again threatening Earthrealm."
+            }
+          },
+          { id: "mk11-2019", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo MKX", releaseYear: "2019", releaseYearEn: "2019",
+            title: { it: "Mortal Kombat 11", en: "Mortal Kombat 11" },
+            synopsis: {
+              it: "Kronika, custode del tempo, cerca di annullare gli interventi di Raiden riportando in vita versioni passate dei guerrieri per riscrivere la storia a proprio favore. Nel finale canonico (Aftermath), Liu Kang assorbe i poteri di Raiden diventando Fire God Liu Kang e sconfigge Kronika, ereditandone il controllo sul tempo: l'atto che innescherà il secondo, più radicale reset della saga.",
+              en: "Kronika, keeper of time, tries to undo Raiden's interventions by resurrecting past versions of the warriors to rewrite history in her favour. In the canonical ending (Aftermath), Liu Kang absorbs Raiden's powers to become Fire God Liu Kang and defeats Kronika, inheriting her control over time — the act that triggers the saga's second, more radical reset."
+            }
+          }
+        ]
+      },
+      {
+        id: "timeline-reborn",
+        name: { it: "Nuova Era (reset di Liu Kang)", en: "New Era (Liu Kang's reset)" },
+        span: { it: "dal 2023", en: "from 2023" },
+        entries: [
+          { id: "mk1-2023", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2023", releaseYear: "2023", releaseYearEn: "2023",
+            title: { it: "Mortal Kombat 1 (2023)", en: "Mortal Kombat 1 (2023)" },
+            synopsis: {
+              it: "Fire God Liu Kang ha ricreato l'intero universo da zero, plasmando destini nuovi per ogni guerriero (Scorpion e Sub-Zero sono qui fratelli cresciuti insieme, non più nemici giurati). La pace forgiata da Liu Kang viene minacciata da Shang Tsung, sopravvissuto al reset e ancora capace di manipolare gli eventi da dietro le quinte, dando il via a un conflitto completamente nuovo che la saga sta ancora scrivendo.",
+              en: "Fire God Liu Kang has recreated the entire universe from scratch, shaping new destinies for every warrior (Scorpion and Sub-Zero are here brothers raised together, no longer sworn enemies). The peace forged by Liu Kang is threatened by Shang Tsung, who survived the reset and remains able to manipulate events from behind the scenes, kicking off an entirely new conflict the saga is still writing."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "metal-gear-solid": {
     id: "metal-gear-solid",
     listTitle: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
@@ -2321,6 +2439,6 @@ const GAMES = {
 
 const GAME_ORDER = [
   "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
-  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid", "pokemon",
+  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid", "mortal-kombat", "pokemon",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein"
 ];
