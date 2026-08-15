@@ -46,6 +46,26 @@
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+/* Bug strutturale corretto: quando il testo di una voce e' lungo
+   abbastanza da eccedere l'altezza della finestra, e' l'intera
+   pagina (html/body) a scorrere in verticale - non .stage, non
+   .layout. Su un browser con scrollbar "classica" (che riserva
+   spazio reale, circa 15-17px, es. Windows/Chrome), questo restringe
+   la larghezza disponibile SOLO quando la scrollbar compare, cioe'
+   solo per le voci abbastanza lunghe da averne bisogno: il risultato
+   e' che elementi posizionati rispetto al bordo destro (come la
+   colonna Libri, o lo switch lingua) finiscono in un punto leggermente
+   diverso tra una voce corta (niente scroll) e una lunga (scroll
+   presente), pur avendo lo stesso identico CSS. Nascondendo la
+   scrollbar (resta scorrevole lo stesso via rotellina/trackpad/
+   tastiera, cambia solo l'aspetto) la larghezza disponibile smette di
+   dipendere dalla lunghezza del testo. Stessa tecnica gia' in uso per
+   il mobile su .stage/.layout, qui estesa a html per il vero
+   contenitore che scorre su desktop. */
+@media (min-width:901px){
+  html{ scrollbar-width:none; }
+  html::-webkit-scrollbar{ display:none; }
+}
 body{
   margin:0;
   background:
