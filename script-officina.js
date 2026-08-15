@@ -47,11 +47,11 @@ const STRINGS = {
   en: {
     brand: "The Wall of Wishes",
     brandMobile: "The Wall\nof Wishes",
-    landingEyebrow: "Coming soon",
+    landingEyebrow: "Work in progress",
     landingTitle: "The Wall of Wishes",
     landingIntro: "A bulletin board of classified ads: tell us what you're looking for, and the Shelf offers you an answer. Every note is a need — ten minutes to fill, an evening to lose, a fear to face — and every need leads straight to a story, a theory, a timeline, or a game that was waiting just for you.",
     landingSub: "Use the side arrows to browse the available projects.",
-    landingSubDesktop: "Still under construction: check back soon.",
+    landingSubDesktop: "The first notes are already up, right below.",
     wishSearchPlaceholder: "Search by theme (e.g. horror, theory, time travel...)",
     wishSearchNote: "This search works by topic/tag, not by exact title: try a theme, a mood, a genre.",
     wishSearchEmpty: "No theme matches what you typed.",
@@ -201,6 +201,7 @@ el.langSwitch.addEventListener("click", () => {
   localStorage.setItem(LANG_KEY, state.lang);
   el.body.dataset.lang = state.lang;
   paintStaticText();
+  applyWishNoteLanguage();
   const reportBtn = document.getElementById("reportBugBtn");
   if(reportBtn) reportBtn.setAttribute("aria-label", t("reportBtnLabel"));
   const reportDesc = document.getElementById("reportDescription");
@@ -612,7 +613,41 @@ function scatterWishNotes(){
   });
 }
 
+// I 26 post-it hanno domanda/risposta/link in italiano gia' scritti
+// nell'HTML (per l'indicizzazione, come sempre su questa bacheca) piu'
+// tre attributi data-ask-en/data-offer-en/data-link-en con la versione
+// inglese. Al primo giro, il testo italiano gia' presente viene
+// salvato negli stessi data-attribute (data-ask-it ecc.), cosi' si
+// puo' tornare all'italiano anche dopo essere passati all'inglese
+// senza doverlo riscrivere da capo. offer usa innerHTML (contiene
+// <strong>), ask e link restano semplice testo.
+function applyWishNoteLanguage(){
+  document.querySelectorAll(".wish-note").forEach(note => {
+    const ask = note.querySelector(".wish-note__ask");
+    const offer = note.querySelector(".wish-note__offer");
+    const link = note.querySelector(".wish-note__link");
+    if(!ask || !offer || !link) return;
+
+    if(!note.dataset.askIt){
+      note.dataset.askIt = ask.textContent;
+      note.dataset.offerIt = offer.innerHTML;
+      note.dataset.linkIt = link.textContent;
+    }
+
+    if(state.lang === "en" && note.dataset.askEn){
+      ask.textContent = note.dataset.askEn;
+      offer.innerHTML = note.dataset.offerEn;
+      link.textContent = note.dataset.linkEn;
+    } else {
+      ask.textContent = note.dataset.askIt;
+      offer.innerHTML = note.dataset.offerIt;
+      link.textContent = note.dataset.linkIt;
+    }
+  });
+}
+
 scatterWishNotes();
+applyWishNoteLanguage();
 setInterval(scatterWishNotes, WISH_CYCLE_MS);
 
 // ---------------------------------------------------------
