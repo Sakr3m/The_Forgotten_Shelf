@@ -609,6 +609,7 @@ function scatterWishNotes(){
     const rightPx = window.innerWidth - (leftPx + NOTE_W_ESTIMATE);
     note.style.setProperty("--left", leftPx.toFixed(1) + "px");
     note.style.setProperty("--right", rightPx.toFixed(1) + "px");
+    note.dataset.homeColumn = col.id;
     col.appendChild(note);
   });
 }
@@ -628,7 +629,17 @@ setInterval(scatterWishNotes, WISH_CYCLE_MS);
 const wishOverlay = document.getElementById("wishOverlay");
 
 function closeAllWishNotes(){
-  document.querySelectorAll(".wish-note.is-open").forEach(n => n.classList.remove("is-open"));
+  document.querySelectorAll(".wish-note.is-open").forEach(n => {
+    n.classList.remove("is-open");
+    // Rimesso al suo posto (era stato spostato sotto <body> per
+    // aprirsi sopra l'overlay per davvero, vedi il click listener
+    // qui sotto): altrimenti, restando li', perderebbe la protezione
+    // dello z-index della colonna e rischierebbe di finire sopra ad
+    // altri elementi della pagina (es. la barra in alto) al
+    // prossimo giro.
+    const home = n.dataset.homeColumn && document.getElementById(n.dataset.homeColumn);
+    if(home) home.appendChild(n);
+  });
   if(wishOverlay) wishOverlay.classList.remove("is-visible");
 }
 
@@ -637,6 +648,17 @@ document.querySelectorAll(".wish-note").forEach(note => {
     const wasOpen = note.classList.contains("is-open");
     closeAllWishNotes();
     if(!wasOpen){
+      // Cruciale: .wish-column ha un suo z-index (4), piu' basso di
+      // quello dell'overlay (10). Anche con is-open a z-index piu'
+      // alto, restando figlio della colonna il post-it non riesce a
+      // "scappare" sopra l'overlay - il suo z-index conta solo
+      // dentro al contenitore che lo contiene, mai oltre. Spostarlo
+      // sotto <body> lo rende fratello vero dell'overlay, allo stesso
+      // livello: solo cosi' il suo z-index piu' alto vince per
+      // davvero, sia nel disegno che nei click (che altrimenti
+      // finivano intercettati dall'overlay, sopra di lui solo in
+      // apparenza).
+      document.body.appendChild(note);
       note.classList.add("is-open");
       if(wishOverlay) wishOverlay.classList.add("is-visible");
     }
