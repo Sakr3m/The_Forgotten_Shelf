@@ -3284,9 +3284,9 @@ const GAMES = {
 
   yakuza: {
     id: "yakuza",
-    listTitle: { it: "Yakuza / Like a Dragon", en: "Yakuza / Like a Dragon" },
+    listTitle: { it: "Yakuza: Like a Dragon", en: "Yakuza: Like a Dragon" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
-    title: { it: "Yakuza / Like a Dragon", en: "Yakuza / Like a Dragon" },
+    title: { it: "Yakuza: Like a Dragon", en: "Yakuza: Like a Dragon" },
     blurb: {
       it: "Il dramma criminale di Kazuma Kiryu, uomo d'onore in un mondo di yakuza che non gli somiglia più, ambientato quasi interamente nel quartiere fittizio di Kamurocho. Melodramma, minigiochi assurdi e combattimenti da strada convivono nella stessa storia, che dopo otto capitoli passa il testimone a un nuovo protagonista, Ichiban Kasuga, senza mai davvero lasciare andare il primo.",
       en: "The crime drama of Kazuma Kiryu, a man of honour in a yakuza world that no longer resembles him, set almost entirely in the fictional district of Kamurocho. Melodrama, absurd minigames, and street brawls coexist in the same story, which after eight chapters hands the torch to a new protagonist, Ichiban Kasuga, without ever quite letting go of the first."
@@ -3375,7 +3375,10 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "elder-scrolls", "fallout", "final-fantasy", "fire-emblem", "gears-of-war", "god-of-war", "gta", "halo",
-  "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
-  "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "warcraft", "wolfenstein", "yakuza"
+  "ace-combat", "aitd", "assassins-creed", "castlevania", "dmc", "diablo", "doom", "dragon-quest", "dying-light",
+  "fallout", "final-fantasy", "fire-emblem", "gears-of-war", "god-of-war", "gta", "halo",
+  "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat",
+  "pokemon", "prince-of-persia", "resident-evil", "silent-hill",
+  "elder-scrolls", "legend-of-zelda", "tomb-raider",
+  "remedy-universe", "warcraft", "wolfenstein", "yakuza"
 ];

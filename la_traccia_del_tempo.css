@@ -16,6 +16,21 @@
   font-family:'JetBrains Mono', monospace; font-weight:700;
 }
 
+/* --- Stesso comportamento del blocco mobile qui sotto ("solo la
+   lista scorre, l'etichetta resta ferma"), versione desktop: la
+   regola condivisa di styles.css fa scorrere l'intero .sidebar
+   (height:100vh; overflow-y:auto), etichetta compresa - qui invece
+   si disattiva quello scroll esterno e si sposta tutto sulla lista
+   interna, che scorre per conto proprio. 88px = 24px di padding
+   sopra + 24px sotto + l'etichetta col suo margine (~40px). --- */
+@media (min-width:901px){
+  .sidebar{ overflow-y:hidden; }
+  .sidebar .game-list{
+    max-height:calc(100vh - 88px);
+    overflow-y:auto;
+  }
+}
+
 @media (max-width:900px){
 
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
