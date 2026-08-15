@@ -41,6 +41,21 @@
 #sidebar .game-list a{ padding-left:14px; padding-right:29px; }
 .side-rail .game-list a{ padding-left:25px; padding-right:10px; }
 
+/* La striscia colorata di evidenziazione (hover/attiva) e' sempre sul
+   bordo sinistro nella regola condivisa in styles.css - qui, sulla
+   colonna destra, si sovrapporrebbe col lucchetto (che vive sul
+   bordo sinistro/interno di questa tabella). Spostata sul bordo
+   destro (offset negativo invece che positivo), coerente anche con
+   l'allineamento a destra del testo qui: ciascuna tabella evidenzia
+   verso il proprio bordo esterno, non sempre verso sinistra a
+   prescindere. */
+.side-rail .game-list button.is-active,
+.side-rail .game-list a.is-active,
+.side-rail .game-list button:hover,
+.side-rail .game-list a:hover{
+  box-shadow:inset -2px 0 0 var(--item-accent, var(--cyan));
+}
+
 /* Pulsante lucchetto per voce: vive nello spazio interno (verso lo
    stage) riservato allargando il padding a 45px piu' sopra. Invisibile
    di default, compare solo passando sopra QUELLA riga precisa (non
