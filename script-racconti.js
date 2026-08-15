@@ -2,6 +2,21 @@
 // RACCONTI — logica di stato e rendering
 // ============================================================
 
+// Il titolo "Storie Senza Cornice" (.brand-text) e altri elementi
+// usano peso 800, che il resto della home non tocca mai (li' il
+// titolo e' nascosto) - risultato: il browser scopre di aver bisogno
+// del file del font peso 800 solo nell'istante esatto in cui si apre
+// una voce, causando un salto di layout visibile (font di riserva ->
+// font vero, con metriche diverse) proprio quando il testo diventa
+// visibile. Il <link rel="preload"> nell'head aiuta gia' (richiesta
+// di rete anticipata), ma qui si forza anche l'intera pipeline di
+// caricamento (fetch + decodifica + registrazione) il piu' presto
+// possibile via JS, non solo la richiesta di rete: document.fonts.load()
+// e' piu' aggressivo di un preload passivo.
+if(document.fonts && document.fonts.load){
+  document.fonts.load("800 1.32rem Inter").catch(() => {});
+}
+
 const STRINGS = {
   it: {
     brand: "Storie Senza Cornice",
