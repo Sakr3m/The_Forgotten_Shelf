@@ -128,6 +128,20 @@
 
         <p class="landing-sub landing-sub--mobile-only" data-i18n="landingSub">Usa le frecce ai lati per esplorare i progetti disponibili.</p>
 
+        <div class="wish-search" id="wishSearch">
+          <div class="wish-search__dropdown" id="wishSearchDropdown" hidden></div>
+          <div class="wish-search__row">
+            <svg class="wish-search__icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" stroke="currentColor" stroke-width="1.6" fill="none"/><line x1="13.2" y1="13.2" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <input type="text" class="wish-search__input" id="wishSearchInput" autocomplete="off" data-i18n-placeholder="wishSearchPlaceholder" placeholder="Cerca per tema (es. horror, teoria, viaggi nel tempo...)">
+          </div>
+          <p class="wish-search__note" data-i18n="wishSearchNote">La ricerca funziona per argomento/tag, non per titolo esatto: prova con un tema, uno stato d'animo, un genere.</p>
+        </div>
+
+        <button type="button" class="wish-steam-toggle" id="wishSteamToggle" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5l1.52-2.2A3.5 3.5 0 0 1 7 15.5a3.5 3.5 0 0 1 4.16-3.44l2.1-3.06A4 4 0 1 1 17 9l-3.02 2.1a3.5 3.5 0 0 1-3.4 4.3l-1.4 2.03c.26.03.53.05.8.05 5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="currentColor"/></svg>
+          <span data-i18n="steamToggleLabel">Sfoglia offerte Steam</span>
+        </button>
+
         <div class="volume-control desktop-audio-control" id="desktopAudioControl">
           <button class="music-toggle desktop-audio-btn" id="desktopAudioToggle" type="button" aria-pressed="true" aria-label="Attiva/disattiva l'audio">
             <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
@@ -153,51 +167,100 @@
       <div class="wish-column wish-column--left" id="wishColumnLeft"></div>
       <div class="wish-column wish-column--right" id="wishColumnRight"></div>
 
+      <div class="steam-column steam-column--left" id="steamColumnLeft" hidden>
+        <p class="steam-column__eyebrow" data-i18n="steamIndieEyebrow">Piccole perle a prezzo bassissimo</p>
+        <a class="steam-item" href="https://store.steampowered.com/app/1794680/Vampire_Survivors/" target="_blank" rel="noopener">
+          <span class="steam-item__title">Vampire Survivors</span>
+          <span class="steam-item__price">4,99 €</span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/239030/Papers_Please/" target="_blank" rel="noopener">
+          <span class="steam-item__title">Papers, Please</span>
+          <span class="steam-item__price">9,99 €</span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/420530/OneShot/" target="_blank" rel="noopener">
+          <span class="steam-item__title">OneShot</span>
+          <span class="steam-item__price">9,99 €</span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/1055540/A_Short_Hike/" target="_blank" rel="noopener">
+          <span class="steam-item__title">A Short Hike</span>
+          <span class="steam-item__price">7,99 €</span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/1150910/World_of_Horror/" target="_blank" rel="noopener">
+          <span class="steam-item__title">World of Horror</span>
+          <span class="steam-item__price">14,99 €</span>
+        </a>
+      </div>
+
+      <div class="steam-column steam-column--right" id="steamColumnRight" hidden>
+        <p class="steam-column__eyebrow" data-i18n="steamSaleEyebrow">In sconto proprio adesso</p>
+        <a class="steam-item" href="https://store.steampowered.com/app/1928720/Catherine_Classic/" target="_blank" rel="noopener">
+          <span class="steam-item__title">Catherine Classic</span>
+          <span class="steam-item__price">4,99 € <span class="steam-item__discount">-75%</span></span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/1980680/Like_a_Dragon_Yakuza_5_Remastered/" target="_blank" rel="noopener">
+          <span class="steam-item__title">Yakuza 5 Remastered</span>
+          <span class="steam-item__price">9,99 €</span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/2513280/Sonic_X_Shadow_Generations/" target="_blank" rel="noopener">
+          <span class="steam-item__title">Sonic X Shadow Generations</span>
+          <span class="steam-item__price">14,99 €</span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/2429640/Lost_Records_Bloom__Rage/" target="_blank" rel="noopener">
+          <span class="steam-item__title">Lost Records: Bloom &amp; Rage</span>
+          <span class="steam-item__price">23,99 € <span class="steam-item__discount">-40%</span></span>
+        </a>
+        <a class="steam-item" href="https://store.steampowered.com/app/2154990/El_Shaddai_ASCENSION_OF_THE_METATRON_HD_Remaster/" target="_blank" rel="noopener">
+          <span class="steam-item__title">El Shaddai HD Remaster</span>
+          <span class="steam-item__price">7,49 € <span class="steam-item__discount">-75%</span></span>
+        </a>
+        <p class="steam-column__note" data-i18n="steamSaleNote">Prezzi e sconti verificati a metà agosto 2026, potrebbero non essere più validi.</p>
+      </div>
+
       <div id="wishPool">
         <!-- Racconti brevi (Storie Senza Cornice) — una domanda per tag reale di ogni voce -->
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="leggenda oscura, fantasy, oscuro, antico" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: qualcosa di oscuro e antico, da leggere in una sola sera</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Cinere</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="horror psicologico, comico, orrore" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: una storia che inizia a farti ridere e finisce a farti stare male</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Diario di un Nuovo Assunto</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="elegia, romantico, malinconico" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: un luogo che sembra sicuro, finché non lo è più</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Il Posto Preferito</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="thriller psicologico, thriller" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: un thriller psicologico da leggere tutto d'un fiato</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Il Testimone</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="surreale" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: qualcosa che non segue le regole del tempo, né quelle della logica</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>L'Ora Sbagliata</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="psicologico, mistero" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: un mistero che si guarda allo specchio e non si riconosce più</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Lo Specchio Cieco</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="racconti-brevi">
+        <button type="button" class="wish-note" data-tags="romantico" data-category="racconti-brevi">
           <p class="wish-note__ask">Cercasi: parole che tolgono il respiro</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Parole Senza Fiato</strong></p>
@@ -206,21 +269,21 @@
         </button>
 
         <!-- Libri a capitoli (Storie Senza Cornice) -->
-        <button type="button" class="wish-note" data-category="libri">
+        <button type="button" class="wish-note" data-tags="dark fantasy viscerale, dark fantasy, saga" data-category="libri">
           <p class="wish-note__ask">Cercasi: una saga dark fantasy lunga da seguire, un capitolo alla volta</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Il Chiamato</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="libri">
+        <button type="button" class="wish-note" data-tags="horror psicologico, orrore" data-category="libri">
           <p class="wish-note__ask">Cercasi: un libro a capitoli che scava nella paura più profonda</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Il Custode del Vuoto</strong></p>
             <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="libri">
+        <button type="button" class="wish-note" data-tags="horror psicologico, orrore" data-category="libri">
           <p class="wish-note__ask">Cercasi: un romanzo horror da leggere un piano alla volta</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>L'Ultimo Piano</strong></p>
@@ -229,42 +292,42 @@
         </button>
 
         <!-- Teorie (Il Filo Nascosto) -->
-        <button type="button" class="wish-note" data-category="teorie">
+        <button type="button" class="wish-note" data-tags="bloodborne, souls-like, lovecraft, teoria" data-category="teorie">
           <p class="wish-note__ask">Cercasi: una teoria per chi non si stanca mai di un incubo lovecraftiano</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la teoria su <strong>Bloodborne</strong> (il sogno infinito)</p>
             <a class="wish-note__link" href="il_filo_nascosto.html">Leggila su Il Filo Nascosto →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="teorie">
+        <button type="button" class="wish-note" data-tags="clair obscur, mistero, teoria" data-category="teorie">
           <p class="wish-note__ask">Cercasi: una teoria sull'ultimo gioco di cui parlano tutti</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la teoria su <strong>Clair Obscur: Expedition 33</strong> (chi è quel bambino)</p>
             <a class="wish-note__link" href="il_filo_nascosto.html">Leggila su Il Filo Nascosto →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="teorie">
+        <button type="button" class="wish-note" data-tags="clair obscur, personaggio, teoria" data-category="teorie">
           <p class="wish-note__ask">Cercasi: un'analisi approfondita di un personaggio chiave, non solo la trama</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la teoria su <strong>Clair Obscur: Expedition 33</strong> (il ruolo di Clea)</p>
             <a class="wish-note__link" href="il_filo_nascosto.html">Leggila su Il Filo Nascosto →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="teorie">
+        <button type="button" class="wish-note" data-tags="final fantasy, ff8, teoria, finale" data-category="teorie">
           <p class="wish-note__ask">Cercasi: una teoria che ribalta tutto quello che pensavi di sapere su un finale</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la teoria su <strong>Final Fantasy VIII</strong> (Squall is dead)</p>
             <a class="wish-note__link" href="il_filo_nascosto.html">Leggila su Il Filo Nascosto →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="teorie">
+        <button type="button" class="wish-note" data-tags="final fantasy, ff8, teoria, antagonista" data-category="teorie">
           <p class="wish-note__ask">Cercasi: un mistero dietro l'antagonista di un classico</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la teoria su <strong>Final Fantasy VIII</strong> (la vera identità di Artemisia)</p>
             <a class="wish-note__link" href="il_filo_nascosto.html">Leggila su Il Filo Nascosto →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="teorie">
+        <button type="button" class="wish-note" data-tags="hollow knight, teoria" data-category="teorie">
           <p class="wish-note__ask">Cercasi: una teoria per chi ha amato un mondo silenzioso e crudele</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la teoria su <strong>Hollow Knight</strong> (il ricettacolo perfetto)</p>
@@ -273,28 +336,28 @@
         </button>
 
         <!-- La Traccia del Tempo -->
-        <button type="button" class="wish-note" data-category="timeline">
+        <button type="button" class="wish-note" data-tags="resident evil, horror, timeline" data-category="timeline">
           <p class="wish-note__ask">Cercasi: l'ordine giusto per affrontare una saga horror lunghissima</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la linea del tempo di <strong>Resident Evil</strong></p>
             <a class="wish-note__link" href="la_traccia_del_tempo.html">Guardala su La Traccia del Tempo →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="timeline">
+        <button type="button" class="wish-note" data-tags="legacy of kain, viaggi nel tempo, timeline" data-category="timeline">
           <p class="wish-note__ask">Cercasi: la cronologia di una saga piena di viaggi nel tempo</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la linea del tempo di <strong>Legacy of Kain</strong></p>
             <a class="wish-note__link" href="la_traccia_del_tempo.html">Guardala su La Traccia del Tempo →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="timeline">
+        <button type="button" class="wish-note" data-tags="silent hill, horror psicologico, timeline" data-category="timeline">
           <p class="wish-note__ask">Cercasi: la linea del tempo di un incubo psicologico stratificato</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la linea del tempo di <strong>Silent Hill</strong></p>
             <a class="wish-note__link" href="la_traccia_del_tempo.html">Guardala su La Traccia del Tempo →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="timeline">
+        <button type="button" class="wish-note" data-tags="metal gear solid, timeline" data-category="timeline">
           <p class="wish-note__ask">Cercasi: l'ordine cronologico di una trama complicatissima</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la linea del tempo di <strong>Metal Gear Solid</strong></p>
@@ -303,28 +366,28 @@
         </button>
 
         <!-- Diari di Gioco -->
-        <button type="button" class="wish-note" data-category="diari">
+        <button type="button" class="wish-note" data-tags="final fantasy, ff7, recensione" data-category="diari">
           <p class="wish-note__ask">Cercasi: un parere onesto su un classico intramontabile</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la recensione di <strong>Final Fantasy VII</strong></p>
             <a class="wish-note__link" href="diari_di_gioco.html">Leggila su Diari di Gioco →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="diari">
+        <button type="button" class="wish-note" data-tags="final fantasy, ff8, recensione" data-category="diari">
           <p class="wish-note__ask">Cercasi: un parere su un capitolo controverso di una saga amatissima</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la recensione di <strong>Final Fantasy VIII</strong></p>
             <a class="wish-note__link" href="diari_di_gioco.html">Leggila su Diari di Gioco →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="diari">
+        <button type="button" class="wish-note" data-tags="final fantasy, ff9, recensione" data-category="diari">
           <p class="wish-note__ask">Cercasi: un'opinione su un capitolo spesso sottovalutato</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la recensione di <strong>Final Fantasy IX</strong></p>
             <a class="wish-note__link" href="diari_di_gioco.html">Leggila su Diari di Gioco →</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="diari">
+        <button type="button" class="wish-note" data-tags="shady part of me, puzzle, platform, recensione" data-category="diari">
           <p class="wish-note__ask">Cercasi: un puzzle-platform diverso da tutti gli altri</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: la recensione di <strong>Shady Part of Me</strong></p>
@@ -333,14 +396,14 @@
         </button>
 
         <!-- Mathemory (hub intero, mai un singolo gioco al suo interno) -->
-        <button type="button" class="wish-note" data-category="mathemory">
+        <button type="button" class="wish-note" data-tags="mathemory, matematica, puzzle" data-category="mathemory">
           <p class="wish-note__ask">Cercasi: qualcosa che metta alla prova la mente, livello dopo livello</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Mathemory</strong>, l'hub di giochi matematici</p>
             <a class="wish-note__link" href="https://sakr3m.github.io/Mathemory/" target="_blank" rel="noopener">Apri Mathemory ↗</a>
           </div>
         </button>
-        <button type="button" class="wish-note" data-category="mathemory">
+        <button type="button" class="wish-note" data-tags="mathemory, matematica, puzzle" data-category="mathemory">
           <p class="wish-note__ask">Cercasi: un gioco punitivo verso la fine, per chi ama la sfida vera</p>
           <div class="wish-note__answer">
             <p class="wish-note__offer">Offresi: <strong>Mathemory</strong>, l'hub di giochi matematici</p>

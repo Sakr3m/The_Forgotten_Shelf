@@ -16,6 +16,13 @@ const STRINGS = {
     landingIntro: "Una bacheca di annunci: dicci cosa cerchi, lo Scaffale ti offre una risposta. Ogni post-it è un bisogno (dieci minuti da riempire, una serata da perdere, una paura da affrontare) e ogni bisogno porta dritto a un racconto, una teoria, una linea del tempo o un gioco che aspettava solo te.",
     landingSub: "Usa le frecce ai lati per esplorare i progetti disponibili.",
     landingSubDesktop: "Ancora in costruzione: torna presto a dare un'occhiata.",
+    wishSearchPlaceholder: "Cerca per tema (es. horror, teoria, viaggi nel tempo...)",
+    wishSearchNote: "La ricerca funziona per argomento/tag, non per titolo esatto: prova con un tema, uno stato d'animo, un genere.",
+    wishSearchEmpty: "Nessun tema corrisponde a quello che hai scritto.",
+    steamToggleLabel: "Sfoglia offerte Steam",
+    steamIndieEyebrow: "Piccole perle a prezzo bassissimo",
+    steamSaleEyebrow: "In sconto proprio adesso",
+    steamSaleNote: "Prezzi e sconti verificati a metà agosto 2026, potrebbero non essere più validi.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -46,6 +53,13 @@ const STRINGS = {
     landingIntro: "A bulletin board of classified ads: tell us what you're looking for, and the Shelf offers you an answer. Every note is a need — ten minutes to fill, an evening to lose, a fear to face — and every need leads straight to a story, a theory, a timeline, or a game that was waiting just for you.",
     landingSub: "Use the side arrows to browse the available projects.",
     landingSubDesktop: "Still under construction: check back soon.",
+    wishSearchPlaceholder: "Search by theme (e.g. horror, theory, time travel...)",
+    wishSearchNote: "This search works by topic/tag, not by exact title: try a theme, a mood, a genre.",
+    wishSearchEmpty: "No theme matches what you typed.",
+    steamToggleLabel: "Browse Steam deals",
+    steamIndieEyebrow: "Tiny gems at a very low price",
+    steamSaleEyebrow: "On sale right now",
+    steamSaleNote: "Prices and discounts checked mid-August 2026, may no longer be valid.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -173,6 +187,9 @@ function paintStaticText(){
     const mobileKey = key + "Mobile";
     const useMobile = mobileBreakpoint.matches && STRINGS[state.lang][mobileKey];
     node.textContent = useMobile ? t(mobileKey) : t(key);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(node => {
+    node.placeholder = t(node.getAttribute("data-i18n-placeholder"));
   });
   document.documentElement.lang = state.lang;
   el.body.dataset.lang = state.lang;
@@ -597,3 +614,75 @@ document.querySelectorAll(".wish-note").forEach(note => {
 });
 
 if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
+
+// ---------------------------------------------------------
+// Ricerca a tag: filtra su data-tags + data-category + il testo
+// della domanda stessa (cosi' funziona anche digitando una parola
+// che compare li' ma non e' un tag formale), su TUTTE le 26 varianti
+// del pool - non solo le 6 mostrate in un dato momento. Fino a 10
+// risultati, il resto resta semplicemente non mostrato (non e' un
+// problema SEO: il testo di tutte e 26 e' comunque gia' nell'HTML a
+// prescindere da questa ricerca, questa e' solo un filtro di
+// visualizzazione). Click su un risultato naviga dritto al link
+// reale di quella voce.
+// ---------------------------------------------------------
+(function initWishSearch(){
+  const input = document.getElementById("wishSearchInput");
+  const dropdown = document.getElementById("wishSearchDropdown");
+  if(!input || !dropdown) return;
+
+  function allNotesSearchable(){
+    return Array.from(document.querySelectorAll(".wish-note")).map(note => {
+      const ask = note.querySelector(".wish-note__ask")?.textContent || "";
+      const offer = note.querySelector(".wish-note__offer")?.textContent || "";
+      const link = note.querySelector(".wish-note__link");
+      const haystack = (ask + " " + offer + " " + (note.dataset.tags || "") + " " + (note.dataset.category || "")).toLowerCase();
+      return { ask, offer, href: link ? link.href : "#", haystack };
+    });
+  }
+
+  function renderResults(query){
+    const q = query.trim().toLowerCase();
+    if(!q){ dropdown.hidden = true; dropdown.innerHTML = ""; return; }
+    const matches = allNotesSearchable().filter(n => n.haystack.includes(q)).slice(0, 10);
+    dropdown.innerHTML = "";
+    if(matches.length === 0){
+      const empty = document.createElement("p");
+      empty.className = "wish-search__empty";
+      empty.textContent = t("wishSearchEmpty");
+      dropdown.appendChild(empty);
+    } else {
+      matches.forEach(m => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "wish-search__result";
+        btn.innerHTML = `<p class="wish-search__result-ask">${m.ask}</p><p class="wish-search__result-offer">${m.offer}</p>`;
+        btn.addEventListener("click", () => { window.location.href = m.href; });
+        dropdown.appendChild(btn);
+      });
+    }
+    dropdown.hidden = false;
+  }
+
+  input.addEventListener("input", () => renderResults(input.value));
+  input.addEventListener("focus", () => { if(input.value.trim()) renderResults(input.value); });
+  document.addEventListener("click", (ev) => {
+    if(!ev.target.closest("#wishSearch")) dropdown.hidden = true;
+  });
+})();
+
+// ---------------------------------------------------------
+// Toggle Steam: i box ai lati mostrano le due liste (indie economici
+// a sinistra, in sconto ora a destra) al posto dei post-it. Un
+// secondo click torna alla bacheca. Non richiama mai scatterWishNotes:
+// non conta come un refresh, i post-it restano esattamente dove
+// erano quando si torna indietro.
+// ---------------------------------------------------------
+(function initSteamToggle(){
+  const btn = document.getElementById("wishSteamToggle");
+  if(!btn) return;
+  btn.addEventListener("click", () => {
+    const isOn = document.body.classList.toggle("is-steam-mode");
+    btn.setAttribute("aria-pressed", String(isOn));
+  });
+})();
