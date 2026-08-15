@@ -13,7 +13,7 @@ const STRINGS = {
     brandMobile: "Il Muro\ndei Desideri",
     landingEyebrow: "In allestimento",
     landingTitle: "Il Muro dei Desideri",
-    landingIntro: "Una bacheca di annunci: dicci cosa cerchi, lo Scaffale ti offre una risposta. Ogni post-it è un bisogno — dieci minuti da riempire, una serata da perdere, una paura da affrontare — e ogni bisogno porta dritto a un racconto, una teoria, una linea del tempo o un gioco che aspettava solo te.",
+    landingIntro: "Una bacheca di annunci: dicci cosa cerchi, lo Scaffale ti offre una risposta. Ogni post-it è un bisogno (dieci minuti da riempire, una serata da perdere, una paura da affrontare) e ogni bisogno porta dritto a un racconto, una teoria, una linea del tempo o un gioco che aspettava solo te.",
     landingSub: "Usa le frecce ai lati per esplorare i progetti disponibili.",
     landingSubDesktop: "Ancora in costruzione: torna presto a dare un'occhiata.",
     kofiLabel: "Sostienimi su Ko-fi",
