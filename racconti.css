@@ -47,8 +47,8 @@
    striscia colorata non bastava a risolvere del tutto.
    Side-rail: stesso discorso specchiato (riduzione a sinistra invece
    che a destra, margin-left compensa lo spostamento). */
-#sidebar .game-list a{ width:calc(100% - 45px); padding-left:14px; padding-right:0; }
-.side-rail .game-list a{ width:calc(100% - 45px); margin-left:45px; padding-right:10px; padding-left:0; }
+#sidebar .game-list a{ padding-left:14px; padding-right:29px; }
+.side-rail .game-list a{ padding-left:25px; padding-right:10px; }
 
 /* La striscia colorata di evidenziazione (hover/attiva) e' sempre sul
    bordo sinistro nella regola condivisa in styles.css - qui, sulla
@@ -75,7 +75,7 @@
 .game-list__row{ position:relative; }
 .game-list__row .row-lock{
   position:absolute; top:0; bottom:0; margin:auto 0;
-  width:22px; height:22px; padding:0; box-sizing:border-box;
+  width:26px; height:26px; padding:0; box-sizing:border-box;
   display:flex; align-items:center; justify-content:center;
   border:1.5px solid var(--item-accent, var(--cyan));
   border-radius:50%;
@@ -84,7 +84,7 @@
   opacity:0; pointer-events:none;
   transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.row-lock svg{ width:11px; height:11px; }
+.row-lock svg{ width:13px; height:13px; }
 .game-list__row:hover .row-lock,
 .game-list__row:focus-within .row-lock{
   opacity:1; pointer-events:auto;
