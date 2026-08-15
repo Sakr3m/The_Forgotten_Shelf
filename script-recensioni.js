@@ -882,20 +882,25 @@ el.indexLink.addEventListener("click", (ev) => {
     backToLanding();
   } else {
     // Naviga davvero verso index.html: il ritardo prima di navigare
-    // non e' piu' un numero indovinato (550ms, che a volte tagliava
-    // comunque la coda del suono se la sua durata reale era
-    // leggermente maggiore) ma il MASSIMO tra due valori: la durata
-    // esatta del suono del tap (letta dal buffer gia' decodificato,
-    // suonaTap() la restituisce), cosi' la pagina non cambia mai
-    // prima che il suono sia davvero finito; e 1 secondo netto
-    // pavimento minimo cosi' la pagina corrente resta visibile un
-    // tempo dignitoso anche se il suono fosse piu' corto. Se il
-    // buffer non e' ancora pronto (raro), suonaTap() restituisce null
-    // e si ricade sul solo pavimento di 1 secondo.
+    // non e' piu' un numero indovinato ne' parte dal momento del
+    // click, ma dal momento in cui il suono del tap e' DAVVERO
+    // partito (via la callback onAvviato di suonaTap, che scatta dopo
+    // l'eventuale resume() del contesto audio se era sospeso) - cosi'
+    // anche nel raro caso in cui serva svegliare il contesto, il
+    // conto alla rovescia non parte in anticipo rispetto al suono
+    // vero. Da quel momento, si aspetta il MASSIMO tra due valori: la
+    // durata esatta del suono (letta dal buffer gia' decodificato),
+    // cosi' la pagina non cambia mai prima che il suono sia davvero
+    // finito; e 1 secondo netto fisso, un pavimento minimo cosi' la
+    // pagina corrente resta visibile un tempo dignitoso anche se il
+    // suono fosse piu' corto. Se il buffer non e' ancora pronto
+    // (raro), la durata e' null e si ricade sul solo pavimento di 1
+    // secondo.
     ev.preventDefault();
-    const durataSuono = suonaTap(isMobileNav() ? 0.3 : 0.1);
-    const attesa = Math.max(1000, durataSuono || 0);
-    setTimeout(() => { window.location.href = el.indexLink.href; }, attesa);
+    suonaTap(isMobileNav() ? 0.3 : 0.1, (durataSuono) => {
+      const attesa = Math.max(1000, durataSuono || 0);
+      setTimeout(() => { window.location.href = el.indexLink.href; }, attesa);
+    });
   }
 });
 
@@ -1316,8 +1321,9 @@ let tapBuffer = null;
 document.addEventListener("pointerdown", () => {
   if(tapAudioCtx && tapAudioCtx.state === "suspended") tapAudioCtx.resume();
 }, { once: true });
-function suonaTap(volume){
+function suonaTap(volume, onAvviato){
   if(tapAudioCtx && tapBuffer){
+    const durata = tapBuffer.duration * 1000; // durata esatta in ms, letta dal buffer - non una stima
     const avvia = () => {
       const source = tapAudioCtx.createBufferSource();
       source.buffer = tapBuffer;
@@ -1325,6 +1331,8 @@ function suonaTap(volume){
       gain.gain.value = volume;
       source.connect(gain).connect(tapAudioCtx.destination);
       source.start(0);
+      if(onAvviato) onAvviato(durata); // chiamato ORA, non prima: se serviva il
+        // resume, questo e' il vero momento in cui il suono parte per davvero
     };
     if(tapAudioCtx.state === "suspended"){
       // resume() e' asincrono: senza aspettarlo, avviare il suono
@@ -1335,14 +1343,13 @@ function suonaTap(volume){
     } else {
       avvia();
     }
-    return tapBuffer.duration * 1000; // durata esatta in ms, letta dal buffer - non una stima
   } else {
     // Buffer non ancora pronto (raro: solo se si clicca prima che il
     // pre-caricamento finisca) - stesso vecchio metodo come riserva.
     const tap = new Audio(TAP_SOUND_URL);
     tap.volume = volume;
     tap.play().catch(() => {});
-    return null; // durata non nota in anticipo con questo metodo
+    if(onAvviato) onAvviato(null); // durata non nota in anticipo con questo metodo
   }
 }
 document.addEventListener("click", (e) => {
