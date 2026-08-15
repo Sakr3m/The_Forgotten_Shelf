@@ -1361,16 +1361,22 @@ function suonaTap(volume){
     gain.gain.value = volume;
     source.connect(gain).connect(tapAudioCtx.destination);
     source.start(0);
+    return tapBuffer.duration * 1000; // exact duration in ms, read from the buffer - not a guess
   } else {
     // Buffer not ready yet (rare: only if clicked before preload
     // finishes) - same old method as a safety net.
     const tap = new Audio(TAP_SOUND_URL);
     tap.volume = volume;
     tap.play().catch(() => {});
+    return null; // duration unknown in advance with this method
   }
 }
 document.addEventListener("click", (e) => {
-  const target = e.target.closest("button, a.kofi-link, a.discord-link, a.index-link");
+  // a.index-link excluded here: it has its own dedicated handling
+  // below, which needs the sound's exact duration to delay
+  // navigation by the right amount (not a guessed number) - if it
+  // stayed here too, the sound would fire twice on the same click.
+  const target = e.target.closest("button, a.kofi-link, a.discord-link");
   if(target && !target.classList.contains("track-skip")){
     suonaTap(mobileBreakpoint.matches ? 0.3 : 0.1);
   }
@@ -1485,17 +1491,25 @@ updateSwipeHints();
 })();
 
 // ---------------------------------------------------------
-// "Torna all'index" naviga verso index.html: un piccolo ritardo
-// resta comunque necessario, non piu' per far PARTIRE il suono del
-// tap (ora istantaneo, vedi il buffer pre-decodificato piu' sopra)
-// ma per lasciarlo FINIRE prima che il cambio pagina lo interrompa a
-// meta'. Qui si ritarda solo la navigazione vera e propria, non si
-// ripete il suono. 550ms: confermato necessario da un test diretto, il suono dura piu' del previsto.
+// "Torna all'index" naviga verso index.html: il ritardo prima di
+// navigare non e' piu' un numero indovinato (550ms, che a volte
+// tagliava comunque la coda del suono se la sua durata reale era
+// leggermente maggiore) ma il MASSIMO tra due valori:
+// - la durata esatta del suono del tap (letta dal buffer gia'
+//   decodificato, suonaTap() la restituisce), cosi' la pagina non
+//   cambia mai prima che il suono sia davvero finito, qualunque sia
+//   la sua durata vera;
+// - 350ms fissi, un pavimento minimo cosi' la pagina corrente resta
+//   visibile un tempo dignitoso anche se il suono fosse piu' corto.
+// Se il buffer non e' ancora pronto (raro), suonaTap() restituisce
+// null e si ricade sul solo pavimento di 350ms.
 // ---------------------------------------------------------
 document.querySelectorAll("a.index-link").forEach(link => {
   link.addEventListener("click", (ev) => {
     ev.preventDefault();
-    setTimeout(() => { window.location.href = link.href; }, 550);
+    const durataSuono = suonaTap(mobileBreakpoint.matches ? 0.3 : 0.1);
+    const attesa = Math.max(350, durataSuono || 0);
+    setTimeout(() => { window.location.href = link.href; }, attesa);
   });
 });
 
