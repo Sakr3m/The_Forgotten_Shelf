@@ -32,61 +32,14 @@
 }
 
 /* ============================================================
-   Card di Mathemory — stesso identico codice del prototipo
-   approvato (officina-card-concept.html), solo riposizionata: a
-   metà strada tra il blocco titolo/descrizione centrale e
-   l'angolo in alto a sinistra dello schermo (coordinate calcolate
-   su quel punto medio reale, non a occhio). Solo desktop.
+   La card di Mathemory desktop (#mathemoryPin) e' stata rimossa
+   insieme al resto del contenuto specifico di Officina: qui viveva
+   il suo posizionamento/hover, ora morto. Le regole di base qui
+   sotto (.card__body, .pin, .cover, .status, .cta, gli angoli)
+   restano invece in uso dalle due copie mobile (.card--mobile),
+   non ancora toccate — verranno riviste nella fase mobile.
    ============================================================ */
 .card{ display:none; }
-@media (min-width:901px){
-  .card{
-    display:block;
-    position:absolute; left:90px; top:320px; /* +30px rispetto alla posizione di partenza */
-    width:280px;
-    background:var(--panel);
-    border:1px solid var(--line);
-    transform:translate(-50%,-50%) rotate(-1.4deg) scale(1);
-    box-shadow:0 18px 34px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.02) inset;
-    transition:transform .3s ease, box-shadow .3s ease, opacity .3s ease;
-    z-index:20; /* sempre sopra tutto: la stage-topbar sticky sta a
-      z-index:10 in styles.css, quindi qui deve superarla per non
-      finire sotto ai pulsanti se la card ci finisce sopra */
-    opacity:0; pointer-events:none; /* trasparente e non interagibile
-      finché non si preme "Mostra progetti": un hover su una card
-      invisibile non deve comunque attivare l'audio */
-  }
-  .card.is-revealed{ opacity:1; pointer-events:auto; }
-  /* Effetto "zoom in avanti": non solo si raddrizza, si ingrandisce
-     leggermente e si solleva, sia da compatta che da espansa —
-     spilla e angoli (fuori da .card__body, vedi sotto) restano
-     sempre visibili in entrambi gli stati, non vengono più tagliati
-     dal clip dell'espansione. */
-  .card:hover{
-    transform:translate(-50%,-50%) rotate(0deg) scale(1.08) translateY(-6px);
-    box-shadow:0 28px 46px rgba(0,0,0,.55);
-  }
-  .card:hover .card__body{ max-height:460px; }
-  /* La card si ingrandisce del 8% in hover (scale(1.08) qui sopra):
-     senza contromisura, il cuore (che vive dentro) si ingrandirebbe
-     insieme a lei, risultando piu' grande degli altri pulsanti della
-     pagina (che stanno fuori dalla card, fermi alla loro dimensione
-     vera). Qui annullo esattamente quell'8% con la proporzione
-     inversa (1/1.08), cosi' il cuore resta alla sua vera dimensione
-     dichiarata anche a card ingrandita. Dentro a questo stesso blocco
-     hover:hover, non fuori: su mobile non c'e' nessuno zoom vero da
-     compensare, quindi il contro-zoom non deve scattare nemmeno lui —
-     un telefono che simula :hover al tocco lo attiverebbe comunque,
-     rimpicciolendo il cuore senza che nulla lo stia ingrandendo. */
-  .card:hover .card__body .title-like{
-    transform:scale(0.9259);
-    transform-origin:left center;
-  }
-  .card:hover .card__body .status, .card:hover .card__body .tagline, .card:hover .card__body .cta, .card:hover .card__body .card-copyright{
-    opacity:1; transition:opacity .25s ease .15s;
-    pointer-events:auto;
-  }
-}
 
 .card__body{
   padding:22px 20px 24px;
@@ -163,7 +116,7 @@
    non c'è.
    ============================================================ */
 .mathemory-panel{ display:none; }
-.landing-sub--mobile-only{ display:none; } /* su desktop c'e' gia' "Mostra progetti" a fare da invito; deve stare PRIMA del blocco mobile qui sotto, altrimenti (stessa specificita', dichiarata dopo) vincerebbe sempre lei nascondendo la nota anche li' */
+.landing-sub--mobile-only{ display:none; } /* su desktop c'e' gia' landing-sub--desktop-only a fare da nota; deve stare PRIMA del blocco mobile qui sotto, altrimenti (stessa specificita', dichiarata dopo) vincerebbe sempre lei nascondendo la nota anche li' */
 @media (max-width:900px){
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso

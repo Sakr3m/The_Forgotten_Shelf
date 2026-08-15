@@ -1,20 +1,21 @@
 // ============================================================
-// OFFICINA — per ora solo la home (stato landing): niente voci,
-// niente colonne. Stessa logica minima di i18n/cambio lingua
-// delle altre pagine, senza lo stato "entry" (qui non esiste
-// ancora nulla da aprire).
+// IL MURO DEI DESIDERI — per ora solo la home (stato landing):
+// niente voci, niente colonne. Stessa logica minima di i18n/cambio
+// lingua delle altre pagine, senza lo stato "entry" (qui non esiste
+// ancora nulla da aprire). Nome file/asset (script-officina.js)
+// rimasto invariato per non doverli rinominare ovunque sono
+// referenziati — solo un dettaglio interno, non visibile all'utente.
 // ============================================================
 
 const STRINGS = {
   it: {
-    brand: "L'Officina Grezza",
-    brandMobile: "L'Officina\nGrezza",
-    landingEyebrow: "Benvenuto nell'officina",
-    landingTitle: "The Forgotten Shelf",
-    landingIntro: "The Forgotten Shelf raccoglie anche i progetti personali che vivono altrove: giochi e strumenti in lavorazione, collegati da qui.",
-    showProjects: "Mostra progetti",
+    brand: "Il Muro dei Desideri",
+    brandMobile: "Il Muro\ndei Desideri",
+    landingEyebrow: "In allestimento",
+    landingTitle: "Il Muro dei Desideri",
+    landingIntro: "Una bacheca di annunci: dicci cosa cerchi, lo Scaffale ti offre una risposta. Ogni post-it è un bisogno — dieci minuti da riempire, una serata da perdere, una paura da affrontare — e ogni bisogno porta dritto a un racconto, una teoria, una linea del tempo o un gioco che aspettava solo te.",
     landingSub: "Usa le frecce ai lati per esplorare i progetti disponibili.",
-    landingSubDesktop: "Premi il pulsante per scoprire i progetti in lavorazione qui sotto.",
+    landingSubDesktop: "Ancora in costruzione: torna presto a dare un'occhiata.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -38,14 +39,13 @@ const STRINGS = {
     reportSelectImage: "Seleziona un file immagine."
   },
   en: {
-    brand: "The Raw Workshop",
-    brandMobile: "The Raw\nWorkshop",
-    landingEyebrow: "Welcome to the workshop",
-    landingTitle: "The Forgotten Shelf",
-    landingIntro: "The Forgotten Shelf also collects personal projects that live elsewhere: games and tools in progress, linked from here.",
-    showProjects: "Show projects",
+    brand: "The Wall of Wishes",
+    brandMobile: "The Wall\nof Wishes",
+    landingEyebrow: "Coming soon",
+    landingTitle: "The Wall of Wishes",
+    landingIntro: "A bulletin board of classified ads: tell us what you're looking for, and the Shelf offers you an answer. Every note is a need — ten minutes to fill, an evening to lose, a fear to face — and every need leads straight to a story, a theory, a timeline, or a game that was waiting just for you.",
     landingSub: "Use the side arrows to browse the available projects.",
-    landingSubDesktop: "Press the button to reveal the projects in progress below.",
+    landingSubDesktop: "Still under construction: check back soon.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     mathemoryCopyright: "© 2026 Sakrem",
@@ -85,11 +85,8 @@ const el = {
   brandBtn: document.getElementById("brandBtn"),
   langSwitch: document.getElementById("langSwitch"),
   eratosteneAudio: document.getElementById("eratosteneAudio"),
-  mathemoryPin: document.getElementById("mathemoryPin"),
-  mathemoryCardBody: document.getElementById("mathemoryCardBody"),
   mathemoryCardBodyLeft: document.getElementById("mathemoryCardBodyLeft"),
   mathemoryCardBodyRight: document.getElementById("mathemoryCardBodyRight"),
-  showProjectsBtn: document.getElementById("showProjectsBtn"),
   desktopAudioToggle: document.getElementById("desktopAudioToggle"),
   desktopVolumeSlider: document.getElementById("desktopVolumeSlider"),
   layout: document.querySelector(".layout"),
@@ -124,12 +121,11 @@ function heartIcon(){
   </svg>`;
 }
 
-// Cuoricino "mi piace" per Mathemory: unico progetto in Officina per
-// ora, quindi stesso workId "mathemory" ovunque — desktop e le due
-// copie mobile (sinistra/destra del carosello "a cerchio") mostrano
-// e aggiornano lo stesso conteggio, dato che rappresentano la stessa
-// identica opera. idSuffix evita collisioni tra gli id delle tre
-// copie. Sempre in fondo alla card, sempre visibile (niente piu'
+// Cuoricino "mi piace" per Mathemory: unico progetto rimasto, solo
+// nelle due copie mobile del carosello "a cerchio" (sinistra/destra),
+// che mostrano e aggiornano lo stesso conteggio, dato che rappresentano
+// la stessa identica opera. idSuffix evita collisioni tra gli id delle
+// due copie. Sempre in fondo alla card, sempre visibile (niente piu'
 // comparsa solo in hover).
 function setupMathemoryLike(cardBody, idSuffix){
   if(!cardBody || !window.ForgottenShelfLikes) return;
@@ -221,25 +217,18 @@ document.addEventListener("visibilitychange", () => {
 // dei due pannelli di Mathemory è a schermo, si ferma altrove
 // (es. tornando alla home).
 // ---------------------------------------------------------
+// ---------------------------------------------------------
+// Pulsante volume della home: tenuto anche se, tolta la card di
+// Mathemory, non c'e' piu' nulla che lo faccia scattare in automatico
+// (l'anteprima sonora al passaggio del mouse viveva sulla card
+// rimossa). Resta comunque funzionante e condiviso con le altre
+// pagine tramite localStorage, pronto per quando Il Muro dei Desideri
+// avra' un proprio audio da controllare.
+// ---------------------------------------------------------
 if(window.matchMedia("(hover:hover)").matches){
   let desktopAudioOn = sharedMusicOn;
   el.desktopAudioToggle?.setAttribute("aria-pressed", String(desktopAudioOn));
 
-  el.mathemoryPin.addEventListener("mouseenter", () => {
-    if(!desktopAudioOn) return;
-    el.eratosteneAudio.currentTime = 0;
-    el.eratosteneAudio.play().catch(() => {});
-  });
-  el.mathemoryPin.addEventListener("mouseleave", () => {
-    el.eratosteneAudio.pause();
-  });
-
-  // Pulsante volume della home: appena sotto "Mostra progetti",
-  // non "a lato" come nelle altre pagine. Vero on/off (a differenza
-  // del pulsante Mostra progetti, che è solo "on") — spegne anche
-  // l'audio già in corso se lo si preme mentre il mouse è ancora
-  // sopra la card. Condiviso con le altre pagine tramite
-  // localStorage: muta qui, resta muto anche altrove (e viceversa).
   if(el.desktopAudioToggle){
     el.desktopAudioToggle.addEventListener("click", () => {
       desktopAudioOn = !desktopAudioOn;
@@ -249,25 +238,10 @@ if(window.matchMedia("(hover:hover)").matches){
     });
   }
 
-  // Barra del volume vera e propria, anche lei condivisa tramite
-  // localStorage con le altre pagine.
   if(el.desktopVolumeSlider){
     el.desktopVolumeSlider.addEventListener("input", () => {
       el.eratosteneAudio.volume = parseFloat(el.desktopVolumeSlider.value);
       localStorage.setItem(VOLUME_KEY, el.desktopVolumeSlider.value);
-    });
-  }
-
-  // La card parte trasparente: un semplice hover non è un gesto
-  // abbastanza "esplicito" per alcuni browser, che bloccano
-  // comunque l'audio finché non c'è un click vero da qualche
-  // parte sulla pagina. Questo pulsante lo fornisce. Solo "on":
-  // una volta rivelata la card, resta rivelata — nessuna logica
-  // di spegnimento.
-  if(el.showProjectsBtn){
-    el.showProjectsBtn.addEventListener("click", () => {
-      el.mathemoryPin.classList.add("is-revealed");
-      el.showProjectsBtn.setAttribute("aria-pressed", "true");
     });
   }
 }
@@ -315,7 +289,7 @@ if(mobileBreakpoint.matches && el.layout){
     syncMobileAudio();
   }
 
-  // La scritta "L'Officina Grezza" (al posto della casetta, quando
+  // La scritta "Il Muro dei Desideri" (al posto della casetta, quando
   // si e' su Mathemory) deve riportare alla home — prima non faceva
   // nulla (il listener vuoto piu' sotto era pensato per quando il
   // pulsante era sempre nascosto, ora invece compare davvero).
@@ -367,10 +341,10 @@ if(mobileBreakpoint.matches && el.layout){
   document.documentElement.classList.add("carousel-ready");
 }
 
-// Cuoricino "mi piace": sulla card di Mathemory, in tutte le sue
-// copie (desktop + le due mobile) — sempre visibile, in fondo alla
-// card.
-setupMathemoryLike(el.mathemoryCardBody, "");
+// Cuoricino "mi piace": sulle due copie mobile della card di
+// Mathemory (la copia desktop e' stata rimossa insieme al resto
+// della card, Il Muro dei Desideri non ha ancora contenuti propri
+// da mettere a like).
 setupMathemoryLike(el.mathemoryCardBodyLeft, "Left");
 setupMathemoryLike(el.mathemoryCardBodyRight, "Right");
 
@@ -378,7 +352,7 @@ paintStaticText();
 
 // ---------------------------------------------------------
 // Suono UI al tap, stesso comportamento delle altre pagine. Nessuno
-// skip brano da escludere qui (Officina non ha .track-skip - solo
+// skip brano da escludere qui (questa pagina non ha .track-skip - solo
 // toggle acceso/spento).
 // ---------------------------------------------------------
 const TAP_SOUND_URL = "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tap.mp3";
