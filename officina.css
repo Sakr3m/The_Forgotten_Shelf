@@ -357,29 +357,32 @@
 
 .wish-column{
   display:none;
-  position:fixed; top:0; bottom:0;
-  flex-direction:column; justify-content:center; align-items:center;
-  gap:44px;
+  position:fixed; top:90px; bottom:0; left:0;
+  width:280px;
   z-index:4;
-  padding:40px 0;
+  pointer-events:none; /* la zona in se' non e' cliccabile, solo i post-it dentro */
 }
 @media (min-width:901px){
-  .wish-column{ display:flex; }
+  .wish-column{ display:block; }
 }
-.wish-column--left{ left:36px; }
-.wish-column--right{ right:36px; }
+.wish-column--left{ left:0; }
+.wish-column--right{ right:0; left:auto; }
 
 .wish-note{
+  position:absolute;
+  top:var(--top, 10%);
+  left:var(--left, auto);
+  right:var(--right, auto);
   width:190px;
   background:#e9d9a0;
   border:none;
   padding:18px 16px 16px;
   text-align:left;
   cursor:pointer;
+  pointer-events:auto;
   transform:rotate(var(--rot, 0deg));
   box-shadow:0 10px 22px rgba(0,0,0,.4);
   transition:transform .25s ease, box-shadow .25s ease, width .25s ease, padding .25s ease;
-  position:relative;
 }
 .wish-note::before{
   content:"";
