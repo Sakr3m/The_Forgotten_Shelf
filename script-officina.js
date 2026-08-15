@@ -502,20 +502,32 @@ function initReportModal(){
 initReportModal();
 
 // ---------------------------------------------------------
-// Bacheca dei desideri: click su un post-it lo apre (si raddrizza,
-// mostra la risposta), un secondo click sullo stesso lo richiude.
-// Aprirne uno chiude gli altri eventualmente aperti, cosi' la
-// bacheca non si affolla. Il link dentro la risposta e' un <a> vero:
-// il click sul link naviga normalmente e non deve richiudere/riaprire
-// nulla, quindi si ferma qui (stopPropagation) prima di raggiungere
-// il pulsante che lo contiene.
+// Bacheca dei desideri: click su un post-it lo stacca dalla colonna
+// e lo apre in overlay al centro (si raddrizza, mostra la risposta);
+// un secondo click sullo stesso, un click sull'overlay scuro dietro,
+// o l'apertura di un altro post-it lo richiude. Il link dentro la
+// risposta e' un <a> vero: il click sul link naviga normalmente e
+// non deve richiudere/riaprire nulla, quindi si ferma qui
+// (stopPropagation) prima di raggiungere il pulsante che lo contiene.
 // ---------------------------------------------------------
+const wishOverlay = document.getElementById("wishOverlay");
+
+function closeAllWishNotes(){
+  document.querySelectorAll(".wish-note.is-open").forEach(n => n.classList.remove("is-open"));
+  if(wishOverlay) wishOverlay.classList.remove("is-visible");
+}
+
 document.querySelectorAll(".wish-note").forEach(note => {
   note.addEventListener("click", () => {
     const wasOpen = note.classList.contains("is-open");
-    document.querySelectorAll(".wish-note.is-open").forEach(n => n.classList.remove("is-open"));
-    if(!wasOpen) note.classList.add("is-open");
+    closeAllWishNotes();
+    if(!wasOpen){
+      note.classList.add("is-open");
+      if(wishOverlay) wishOverlay.classList.add("is-visible");
+    }
   });
   const link = note.querySelector(".wish-note__link");
   if(link) link.addEventListener("click", (ev) => ev.stopPropagation());
 });
+
+if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);

@@ -328,27 +328,57 @@
 }
 
 /* ============================================================
-   Bacheca dei desideri: prova con i primi 5 post-it veri. Storti
-   di base (variabile --rot impostata inline per ognuno, cosi' il
-   disordine non e' mai identico), si raddrizzano ed espandono al
-   click mostrando la risposta - gia' scritta per intero nell'HTML,
-   qui solo nascosta visivamente (non display:none, altrimenti
-   qualche crawler potrebbe trattarla come davvero assente).
+   Bacheca dei desideri: prova con i primi 5 post-it veri, in due
+   colonne fisse ai lati (dove sulle altre pagine stanno sidebar/
+   side-rail), l'intro resta al centro. Storti di base (variabile
+   --rot impostata inline per ognuno, cosi' il disordine non e' mai
+   identico). Al click un post-it si stacca e si apre in overlay al
+   centro dello schermo, sopra l'intro compresa — la risposta e'
+   gia' scritta per intero nell'HTML, qui solo nascosta visivamente
+   (non display:none, altrimenti qualche crawler potrebbe trattarla
+   come davvero assente).
+   Le colonne si centrano verticalmente con flexbox (top:0;bottom:0;
+   justify-content:center), MAI con transform: un genitore con
+   transform diventa il "contenitore" per i figli position:fixed,
+   quindi il post-it aperto (fixed, per centrarsi sul vero schermo)
+   finirebbe ancorato alla colonna invece che alla viewport.
    ============================================================ */
-.wish-board{
-  display:flex; flex-wrap:wrap; justify-content:center; gap:28px 22px;
-  max-width:900px; margin:56px auto 0; padding:0 24px 60px;
+.wish-overlay{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.55);
+  opacity:0; visibility:hidden;
+  transition:opacity .3s ease, visibility 0s linear .3s;
+  z-index:10;
 }
+.wish-overlay.is-visible{
+  opacity:1; visibility:visible;
+  transition:opacity .3s ease, visibility 0s linear 0s;
+}
+
+.wish-column{
+  display:none;
+  position:fixed; top:0; bottom:0;
+  flex-direction:column; justify-content:center; align-items:center;
+  gap:44px;
+  z-index:4;
+  padding:40px 0;
+}
+@media (min-width:901px){
+  .wish-column{ display:flex; }
+}
+.wish-column--left{ left:36px; }
+.wish-column--right{ right:36px; }
+
 .wish-note{
-  width:220px;
+  width:190px;
   background:#e9d9a0;
   border:none;
-  padding:20px 18px 18px;
+  padding:18px 16px 16px;
   text-align:left;
   cursor:pointer;
   transform:rotate(var(--rot, 0deg));
   box-shadow:0 10px 22px rgba(0,0,0,.4);
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:transform .25s ease, box-shadow .25s ease, width .25s ease, padding .25s ease;
   position:relative;
 }
 .wish-note::before{
@@ -364,22 +394,14 @@
 }
 .wish-note__ask{
   font-family:'Caveat', cursive; font-weight:700;
-  font-size:1.35rem; line-height:1.25;
+  font-size:1.3rem; line-height:1.25;
   color:#2a2210;
   margin:0;
 }
 .wish-note__answer{
   max-height:0; opacity:0;
   overflow:hidden;
-  transition:max-height .35s ease, opacity .3s ease, margin-top .35s ease;
-}
-.wish-note.is-open{
-  transform:rotate(0deg) scale(1.06);
-  box-shadow:0 20px 40px rgba(0,0,0,.55);
-  z-index:5;
-}
-.wish-note.is-open .wish-note__answer{
-  max-height:200px; opacity:1; margin-top:14px;
+  transition:max-height .3s ease, opacity .25s ease, margin-top .3s ease;
 }
 .wish-note__offer{
   font-family:'Caveat', cursive; font-weight:700;
@@ -393,7 +415,29 @@
   text-decoration:underline;
 }
 
+/* Aperto: esce dal flusso della colonna, si fissa al vero centro
+   dello schermo (vedi nota sopra sul perche' le colonne non usano
+   transform), sopra l'overlay, dritto e piu' grande, con la risposta
+   finalmente visibile. */
+.wish-note.is-open{
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%) rotate(0deg);
+  width:380px;
+  padding:32px 30px 28px;
+  z-index:11;
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+}
+.wish-note.is-open:hover{
+  transform:translate(-50%,-50%) rotate(0deg);
+}
+.wish-note.is-open .wish-note__ask{ font-size:1.6rem; }
+.wish-note.is-open .wish-note__answer{
+  max-height:300px; opacity:1; margin-top:20px;
+}
+.wish-note.is-open .wish-note__offer{ font-size:1.35rem; }
+.wish-note.is-open .wish-note__link{ font-size:.88rem; }
+
 @media (max-width:900px){
-  .wish-board{ gap:22px 16px; margin-top:40px; padding:0 16px 40px; }
-  .wish-note{ width:44vw; max-width:200px; }
+  .wish-note.is-open{ width:min(84vw, 380px); }
 }
