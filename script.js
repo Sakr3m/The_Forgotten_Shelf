@@ -1352,15 +1352,36 @@ let tapBuffer = null;
       .catch(() => { /* silent: on failure, the fallback below still covers it */ });
   } catch(e) { /* Web Audio unavailable: no problem, the fallback below still covers it */ }
 });
+// Browsers create the AudioContext already "suspended" until there is
+// a real user interaction (anti-autoplay policy): it's created here
+// in idle time, with no gesture at all, so it's almost always born
+// suspended. This listener wakes it up on the very first tap/click
+// anywhere on the page, not just on the sound-triggering buttons - so
+// by the time a real button click happens, the context is already
+// awake most of the time, instead of being discovered suspended right
+// at that moment.
+document.addEventListener("pointerdown", () => {
+  if(tapAudioCtx && tapAudioCtx.state === "suspended") tapAudioCtx.resume();
+}, { once: true });
 function suonaTap(volume){
   if(tapAudioCtx && tapBuffer){
-    if(tapAudioCtx.state === "suspended") tapAudioCtx.resume();
-    const source = tapAudioCtx.createBufferSource();
-    source.buffer = tapBuffer;
-    const gain = tapAudioCtx.createGain();
-    gain.gain.value = volume;
-    source.connect(gain).connect(tapAudioCtx.destination);
-    source.start(0);
+    const avvia = () => {
+      const source = tapAudioCtx.createBufferSource();
+      source.buffer = tapBuffer;
+      const gain = tapAudioCtx.createGain();
+      gain.gain.value = volume;
+      source.connect(gain).connect(tapAudioCtx.destination);
+      source.start(0);
+    };
+    if(tapAudioCtx.state === "suspended"){
+      // resume() is async: starting the sound right after without
+      // waiting for it risks silently losing it exactly when the
+      // early wake-up above didn't have time to run yet (typically
+      // the very first click of the session).
+      tapAudioCtx.resume().then(avvia);
+    } else {
+      avvia();
+    }
     return tapBuffer.duration * 1000; // exact duration in ms, read from the buffer - not a guess
   } else {
     // Buffer not ready yet (rare: only if clicked before preload

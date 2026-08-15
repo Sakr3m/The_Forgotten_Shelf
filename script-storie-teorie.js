@@ -682,15 +682,36 @@ let tapBuffer = null;
       .catch(() => { /* silenzioso: se fallisce, resta solo il fallback piu' sotto */ });
   } catch(e) { /* Web Audio non disponibile: nessun problema, resta solo il fallback */ }
 });
+// I browser creano l'AudioContext gia' "sospeso" finche' non c'e' una
+// vera interazione dell'utente (policy anti-autoplay): qui viene
+// creato in idle time, senza alcun gesto, quindi nasce quasi sempre
+// sospeso. Questo listener lo risveglia al primissimo tocco/click su
+// TUTTA la pagina, non solo sui pulsanti col suono - cosi', quando
+// arriva il click vero su un pulsante, il contesto e' gia' sveglio
+// nella grande maggioranza dei casi, invece di scoprirlo sospeso
+// proprio in quel momento.
+document.addEventListener("pointerdown", () => {
+  if(tapAudioCtx && tapAudioCtx.state === "suspended") tapAudioCtx.resume();
+}, { once: true });
 function suonaTap(volume){
   if(tapAudioCtx && tapBuffer){
-    if(tapAudioCtx.state === "suspended") tapAudioCtx.resume();
-    const source = tapAudioCtx.createBufferSource();
-    source.buffer = tapBuffer;
-    const gain = tapAudioCtx.createGain();
-    gain.gain.value = volume;
-    source.connect(gain).connect(tapAudioCtx.destination);
-    source.start(0);
+    const avvia = () => {
+      const source = tapAudioCtx.createBufferSource();
+      source.buffer = tapBuffer;
+      const gain = tapAudioCtx.createGain();
+      gain.gain.value = volume;
+      source.connect(gain).connect(tapAudioCtx.destination);
+      source.start(0);
+    };
+    if(tapAudioCtx.state === "suspended"){
+      // resume() e' asincrono: senza aspettarlo, avviare il suono
+      // subito dopo rischia di perderlo in silenzio proprio nei casi
+      // in cui il risveglio anticipato qui sopra non ha fatto in
+      // tempo (tipicamente il primissimo click della sessione).
+      tapAudioCtx.resume().then(avvia);
+    } else {
+      avvia();
+    }
     return tapBuffer.duration * 1000; // durata esatta in ms, letta dal buffer - non una stima
   } else {
     // Buffer non ancora pronto (raro: solo se si clicca prima che il
