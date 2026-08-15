@@ -789,6 +789,120 @@ const GAMES = {
     ]
   },
 
+  halo: {
+    id: "halo",
+    listTitle: { it: "Halo", en: "Halo" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Halo", en: "Halo" },
+    blurb: {
+      it: "Una saga fantascientifica di guerra spaziale, incentrata sul supersoldato Master Chief John-117 e la sua alleata artificiale Cortana, nella lotta dell'umanità contro il Covenant e le antiche minacce lasciate indietro dai Precursori. Nata come titolo di lancio dell'Xbox originale, ha definito il genere degli sparatutto in prima persona su console per un'intera generazione.",
+      en: "A science fiction saga of interstellar war, centred on the super-soldier Master Chief John-117 and his artificial ally Cortana, in humanity's fight against the Covenant and the ancient threats left behind by the Precursors. Born as a launch title for the original Xbox, it defined the console first-person shooter genre for an entire generation."
+    },
+    palette: ["#1b3a5c", "#4a7fb5", "#c9c9c9"],
+    accentColor: "#4a7fb5",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "trilogia-originale",
+        name: { it: "Trilogia Originale (Bungie)", en: "Original Trilogy (Bungie)" },
+        span: { it: "2531 – 2552", en: "2531 – 2552" },
+        entries: [
+          { id: "halo-wars", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2531",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Halo Wars", en: "Halo Wars" },
+            synopsis: {
+              it: "Ventun anni prima di Combat Evolved, l'equipaggio della corazzata UNSC Spirit of Fire, guidato dal capitano James Cutter, viene inviato sul pianeta coloniale Harvest per fermare il Covenant, che sta tentando di impossessarsi di un'antica flotta di navi Precursori nascosta sotto la superficie del pianeta. Nel corso della battaglia, la Spirit of Fire scopre e distrugge l'installazione, ma rimane intrappolata alla deriva in un campo di asteroidi mentre insegue la nave ammiraglia Covenant in fuga, ed è costretta a un lungo letargo criogenico che la porterà a risvegliarsi solo decenni più tardi, ben oltre gli eventi della trilogia originale. Primo titolo strategico in tempo reale della serie, sviluppato da Ensemble Studios.",
+              en: "Twenty-one years before Combat Evolved, the crew of the UNSC warship Spirit of Fire, led by Captain James Cutter, is sent to the colony world Harvest to stop the Covenant, who are attempting to seize an ancient fleet of Precursor ships hidden beneath the planet's surface. During the battle, the Spirit of Fire discovers and destroys the installation, but is left stranded adrift in an asteroid field while pursuing the fleeing Covenant flagship, forced into a long cryogenic sleep that will see it awaken only decades later, well beyond the events of the original trilogy. The series' first real-time strategy title, developed by Ensemble Studios."
+            }
+          },
+          { id: "halo-reach", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
+            releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Halo: Reach", en: "Halo: Reach" },
+            synopsis: {
+              it: "Sul pianeta Reach, principale bastione militare dell'umanità al di fuori della Terra, la squadra Spartan Noble Team scopre che il Covenant ha individuato il pianeta e si prepara a invaderlo. Nel corso della disperata difesa, la maggior parte della squadra cade in battaglia uno dopo l'altro, mentre l'ultima sopravvissuta, Noble Six (il personaggio giocante), affida all'AI Cortana e allo Spartan John-117 il compito di portare in salvo dati cruciali sul primo Anello di Halo mai scoperto dall'umanità, prima di soccombere in un ultimo, solitario scontro contro le forze Covenant sul pianeta ormai perduto. L'evento che apre direttamente Combat Evolved: la fuga della Pillar of Autumn da Reach con Master Chief e Cortana a bordo.",
+              en: "On the planet Reach, humanity's principal military bastion outside Earth, the Spartan squad Noble Team discovers that the Covenant has located the planet and is preparing to invade. Over the course of the desperate defence, most of the squad falls in battle one after another, while the last survivor, Noble Six (the playable character), entrusts the AI Cortana and the Spartan John-117 with carrying crucial data on the first Halo ring ever discovered by humanity to safety, before succumbing in one final, solitary last stand against Covenant forces on the now-lost planet. The event that directly opens Combat Evolved: the Pillar of Autumn's escape from Reach with Master Chief and Cortana aboard."
+            }
+          },
+          { id: "combat-evolved", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
+            releaseYear: "2001", releaseYearEn: "2001",
+            title: { it: "Halo: Combat Evolved", en: "Halo: Combat Evolved" },
+            synopsis: {
+              it: "Fuggita da Reach, la Pillar of Autumn viene inseguita dal Covenant fino a un misterioso anello artificiale nello spazio profondo, Halo. Master Chief John-117, risvegliato dal criosonno con l'AI Cortana, sopravvive allo schianto della nave sull'anello ed esplora l'installazione insieme ai marines superstiti e a un gruppo di Elite ribelli, scoprendo che Halo è in realtà un'arma dei Precursori progettata per sterminare ogni forma di vita senziente nella galassia, come misura estrema contro il Flood, un parassita divorante. Quando il Covenant tenta di attivare l'anello credendolo un dispositivo religioso di trascendenza, Master Chief lo distrugge appena in tempo, fuggendo dall'esplosione a bordo di un veicolo Covenant rubato. Il gioco che ha lanciato la serie e, con essa, l'intera console Xbox.",
+              en: "Having fled Reach, the Pillar of Autumn is pursued by the Covenant to a mysterious artificial ring in deep space, Halo. Master Chief John-117, awoken from cryosleep alongside the AI Cortana, survives the ship's crash onto the ring and explores the installation with surviving marines and a group of rebel Elites, discovering that Halo is in truth a Precursor weapon designed to exterminate all sentient life in the galaxy, an extreme measure against the Flood, a devouring parasite. When the Covenant attempts to activate the ring believing it a religious device of transcendence, Master Chief destroys it just in time, escaping the explosion aboard a stolen Covenant vehicle. The game that launched the series and, with it, the entire Xbox console."
+            }
+          },
+          { id: "halo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
+            releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "Halo 2", en: "Halo 2" },
+            synopsis: {
+              it: "Il Covenant, sopravvissuto alla distruzione del primo Halo, invade la Terra stessa in cerca di vendetta e di nuovi Anelli. Su due fronti paralleli, Master Chief difende la Terra e insegue la flotta Covenant fino ad Alta Carità, il loro mondo sacro, mentre l'Arbiter, un Elite caduto in disgrazia e costretto a espiare le proprie colpe, scopre che i Profeti al comando del Covenant conoscono da sempre la vera natura genocida degli Anelli e stanno comunque pianificando di attivarli tutti insieme. Il gioco termina con un violento cliffhanger: Master Chief, appena tornato sulla Terra, riparte immediatamente per fermare l'attivazione simultanea di tutti gli Anelli, lasciando la storia sospesa a metà.",
+              en: "The Covenant, having survived the destruction of the first Halo, invades Earth itself seeking revenge and new rings. Across two parallel fronts, Master Chief defends Earth and pursues the Covenant fleet to High Charity, their holy world, while the Arbiter, a disgraced Elite forced to atone for his failures, discovers that the Prophets leading the Covenant have always known the true genocidal nature of the rings and are nonetheless planning to activate them all together. The game ends on a violent cliffhanger: Master Chief, having just returned to Earth, immediately sets off again to stop the simultaneous activation of every ring, leaving the story hanging mid-plot."
+            }
+          },
+          { id: "halo-3-odst", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Halo 3: ODST", en: "Halo 3: ODST" },
+            synopsis: {
+              it: "Durante la Battaglia della Terra, contemporanea agli eventi di Halo 2, una squadra di soldati d'élite ODST (Orbital Drop Shock Trooper) viene paracadutata sulla città di Nuova Mombasa per intercettare una nave Covenant in fuga, ma finisce dispersa nel caos dell'atterraggio. Il Rookie, unico membro della squadra rimasto isolato, esplora da solo la città devastata nelle ore notturne successive, ricostruendo gradualmente, attraverso indizi lasciati sul campo, le vicende parallele vissute dai propri compagni, fino a ritrovarli e scoprire insieme a loro il ruolo cruciale di un'intelligenza artificiale Precursore chiamata Vergil per le sorti della guerra. Un capitolo più intimo e investigativo, ambientato ai margini della trilogia principale.",
+              en: "During the Battle of Earth, concurrent with the events of Halo 2, a squad of elite ODST (Orbital Drop Shock Trooper) soldiers is dropped into the city of New Mombasa to intercept a fleeing Covenant ship, but is scattered in the chaos of the landing. The Rookie, the sole squad member left isolated, explores the devastated city alone through the following night, gradually piecing together, through clues left in the field, the parallel events experienced by his squadmates, until he finds them again and discovers together with them the crucial role of a Precursor artificial intelligence named Vergil in the fate of the war. A more intimate, investigative chapter set on the margins of the main trilogy."
+            }
+          },
+          { id: "halo-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
+            releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "Halo 3", en: "Halo 3" },
+            synopsis: {
+              it: "Master Chief, l'Arbiter e i loro alleati, umani ed Elite ormai riuniti in un'alleanza contro il Covenant fondamentalista, difendono la Terra dall'attacco finale dei Profeti e scoprono un ultimo Anello, mai attivato, sepolto sotto l'Africa. Inseguendoli fin sull'Arca, l'installazione dei Precursori che costruisce e ripara gli Anelli, gli eroi sconfiggono il Gerarca Profeta della Verità e affrontano il Flood in un ultimo, disperato scontro, prima che Master Chief attivi l'Anello incompleto per distruggere il parassita, sacrificandosi apparentemente insieme a Cortana alla deriva nello spazio profondo. Il capitolo conclusivo della trilogia originale, che chiude il conflitto tra umanità e Covenant.",
+              en: "Master Chief, the Arbiter, and their allies, humans and Elites now united in an alliance against the fundamentalist Covenant, defend Earth from the Prophets' final assault and discover one last, never-activated ring buried beneath Africa. Pursuing them to the Ark, the Precursor installation that builds and repairs the rings, the heroes defeat the Prophet Hierarch of Truth and confront the Flood in one final, desperate battle, before Master Chief activates the incomplete ring to destroy the parasite, apparently sacrificing himself alongside Cortana, adrift in deep space. The concluding chapter of the original trilogy, closing out the conflict between humanity and the Covenant."
+            }
+          }
+        ]
+      },
+      {
+        id: "saga-reclamatore",
+        name: { it: "La Saga del Reclamatore (343 Industries)", en: "The Reclaimer Saga (343 Industries)" },
+        span: { it: "2557 – 2560", en: "2557 – 2560" },
+        entries: [
+          { id: "halo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2557",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Halo 4", en: "Halo 4" },
+            synopsis: {
+              it: "Quattro anni dopo il sacrificio alla fine di Halo 3, la nave alla deriva con Master Chief in criosonno viene attirata dal richiamo di Requiem, un pianeta artificiale dei Precursori. Risvegliato da Cortana, ormai vicina alla rampante follia che affligge le AI troppo longeve, Master Chief affronta il Didatta, un Precursore risvegliato con l'intento di sterminare l'umanità come minaccia alla sopravvivenza della galassia, e una fazione Covenant dissidente. Nel finale, Cortana si sacrifica per fermare il Didatta, lasciando Master Chief solo per la prima volta dall'inizio della serie. Primo capitolo sviluppato interamente da 343 Industries dopo il passaggio di consegne da Bungie.",
+              en: "Four years after the sacrifice at the end of Halo 3, the ship drifting with Master Chief in cryosleep is drawn in by the call of Requiem, an artificial Precursor world. Awakened by Cortana, now nearing the rampancy that afflicts AIs that live too long, Master Chief confronts the Didact, a Precursor awakened with the intent to exterminate humanity as a threat to the galaxy's survival, and a dissident Covenant faction. In the finale, Cortana sacrifices herself to stop the Didact, leaving Master Chief alone for the first time since the series began. The first chapter developed entirely by 343 Industries following the handover from Bungie."
+            }
+          },
+          { id: "halo-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2558",
+            releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Halo 5: Guardians", en: "Halo 5: Guardians" },
+            synopsis: {
+              it: "Un anno dopo la morte di Cortana, la sua intelligenza artificiale riemerge, sopravvissuta all'interno della rete dei Precursori, ma corrotta da un piano megalomane: prendere il controllo dei Guardiani, antiche macchine da guerra dei Precursori, per imporre pace forzata sull'intera galassia sotto il proprio dominio. Master Chief, disobbedendo agli ordini dell'ONI per andare a cercarla, viene a sua volta braccato dalla Squadra Osiris guidata dallo Spartan Jameson Locke, incaricata di riportarlo indietro. I due gruppi finiscono per scontrarsi con Cortana stessa sul pianeta Genesis, senza riuscire a fermarla: il gioco si chiude con Cortana ancora al comando dei Guardiani, minaccia aperta lasciata a Halo Infinite.",
+              en: "A year after Cortana's death, her artificial intelligence resurfaces, having survived within the Precursor network, but corrupted by a megalomaniacal plan: to seize control of the Guardians, ancient Precursor war machines, and impose forced peace on the entire galaxy under her own rule. Master Chief, disobeying ONI orders to go looking for her, is in turn hunted by Fireteam Osiris, led by Spartan Jameson Locke, tasked with bringing him back. The two groups end up clashing with Cortana herself on the planet Genesis, unable to stop her: the game closes with Cortana still in command of the Guardians, an open threat left for Halo Infinite."
+            }
+          },
+          { id: "halo-wars-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2559",
+            releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Halo Wars 2", en: "Halo Wars 2" },
+            synopsis: {
+              it: "Ventotto anni dopo gli eventi del primo Halo Wars, l'equipaggio della Spirit of Fire si risveglia dal lungo criosonno vicino a un'altra installazione Precursore, ritrovandosi coinvolto in un conflitto contro i Banished, una fazione di ex membri del Covenant guidata dal brutale Atriox, intenzionata a impossessarsi delle tecnologie custodite sull'Arca. Il capitano Cutter e i suoi respingono i Banished, ma non prima che Atriox sia riuscito a sottrarre informazioni cruciali sulla sua futura minaccia. Introduce Atriox, che diventerà l'antagonista principale di Halo Infinite.",
+              en: "Twenty-eight years after the events of the first Halo Wars, the crew of the Spirit of Fire awakens from its long cryosleep near another Precursor installation, finding itself drawn into a conflict against the Banished, a faction of former Covenant members led by the brutal Atriox, intent on seizing the technologies kept on the Ark. Captain Cutter and his crew repel the Banished, but not before Atriox manages to extract crucial information for his coming threat. Introduces Atriox, who becomes the main antagonist of Halo Infinite."
+            }
+          },
+          { id: "halo-infinite", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2560",
+            releaseYear: "2021", releaseYearEn: "2021",
+            title: { it: "Halo Infinite", en: "Halo Infinite" },
+            synopsis: {
+              it: "Sconfitto e alla deriva dopo una battaglia perduta contro Atriox e i Banished, Master Chief viene ripescato nei pressi di un nuovo Anello, Zeta Halo, occupato dai Banished stessi. Affiancato da una nuova AI senza nome, forgiata dai ricordi frammentari di Cortana prima della sua caduta, Master Chief esplora un mondo aperto per la prima volta nella serie, libera avamposti dell'UNSC e affronta infine Atriox, scoprendo che sull'Anello si nasconde un pericolo ancora più antico e minaccioso legato alle origini stesse dei Precursori. Pensato esplicitamente come punto di ingresso per nuovi giocatori dopo un decennio di narrazione sempre più stratificata.",
+              en: "Defeated and adrift after a lost battle against Atriox and the Banished, Master Chief is picked up near a new ring, Zeta Halo, occupied by the Banished themselves. Accompanied by a new, unnamed AI, forged from Cortana's fragmentary memories before her fall, Master Chief explores an open world for the first time in the series, liberates UNSC outposts, and finally confronts Atriox, discovering that an even older and more threatening danger tied to the very origins of the Precursors lies hidden on the ring. Explicitly designed as an entry point for new players after a decade of increasingly layered storytelling."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "kingdom-hearts": {
     id: "kingdom-hearts",
     listTitle: { it: "Kingdom Hearts", en: "Kingdom Hearts" },
@@ -1869,7 +1983,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "aitd", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta",
+  "aitd", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid",
   "resident-evil", "silent-hill", "remedy-universe", "wolfenstein"
 ];
