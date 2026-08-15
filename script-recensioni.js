@@ -885,10 +885,9 @@ el.indexLink.addEventListener("click", (ev) => {
     // comunque necessario, non piu' per far PARTIRE il suono del tap
     // (ora istantaneo, vedi il buffer pre-decodificato piu' in basso)
     // ma per lasciarlo FINIRE prima che il cambio pagina lo interrompa
-    // a meta'. 350ms e' una stima prudente della sua durata reale (non
-    // misurabile da qui) - da verificare/aggiustare ad orecchio.
+    // a meta'. 550ms: confermato necessario da un test diretto, il suono dura piu' del previsto.
     ev.preventDefault();
-    setTimeout(() => { window.location.href = el.indexLink.href; }, 350);
+    setTimeout(() => { window.location.href = el.indexLink.href; }, 550);
   }
 });
 

@@ -1080,14 +1080,12 @@ updateSwipeHints();
 // tap (ora istantaneo, vedi il buffer pre-decodificato piu' sopra)
 // ma per lasciarlo FINIRE prima che il cambio pagina lo interrompa a
 // meta'. Qui si ritarda solo la navigazione vera e propria, non si
-// ripete il suono. 350ms e' una stima prudente della sua durata
-// reale (non misurabile da qui) - da verificare/aggiustare ad
-// orecchio.
+// ripete il suono. 550ms: confermato necessario da un test diretto, il suono dura piu' del previsto.
 // ---------------------------------------------------------
 document.querySelectorAll("a.index-link").forEach(link => {
   link.addEventListener("click", (ev) => {
     ev.preventDefault();
-    setTimeout(() => { window.location.href = link.href; }, 350);
+    setTimeout(() => { window.location.href = link.href; }, 550);
   });
 });
 
