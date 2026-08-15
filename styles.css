@@ -451,7 +451,10 @@ body[data-state="landing"] .brand{ display:none; }
 .game-list button, .game-list a{
   display:block; text-decoration:none;
   width:100%; text-align:left; box-sizing:border-box;
-  padding:8px 12px;
+  padding:8px 12px; /* orizzontale sovrascritto per tabella, vedi
+    racconti.css: 30px dal bordo esterno / 45px da quello interno,
+    uniforme su entrambe le colonne nonostante il padding diverso
+    dei due contenitori (sidebar 16px, side-rail 20px) */
   border-radius:var(--radius-sm);
   font-size:.9rem; font-weight:500; color:var(--text-dim);
   transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);

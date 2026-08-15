@@ -31,6 +31,47 @@
 .side-rail .game-list button,
 .side-rail .game-list a{ text-align:right; }
 
+/* Distanze uniformi su entrambe le tabelle nonostante il padding
+   diverso dei due contenitori (sidebar 16px, side-rail 20px): 30px
+   dal bordo esterno, 45px da quello interno (verso lo stage) - lo
+   spazio in piu' verso l'interno serve al pulsante lucchetto per
+   voce, che vive li' (vedi piu' sotto).
+   Sidebar: 16(contenitore) + 14(qui) = 30 esterno; 16+29 = 45 interno.
+   Side-rail: 20(contenitore) + 10(qui) = 30 esterno; 20+25 = 45 interno. */
+#sidebar .game-list a{ padding-left:14px; padding-right:29px; }
+.side-rail .game-list a{ padding-left:25px; padding-right:10px; }
+
+/* Pulsante lucchetto per voce: vive nello spazio interno (verso lo
+   stage) riservato allargando il padding a 45px piu' sopra. Invisibile
+   di default, compare solo passando sopra QUELLA riga precisa (non
+   tutte insieme) - :focus-within incluso per chi naviga da tastiera.
+   Contorno colorato con l'accento della voce (--item-accent, ereditato
+   dal li). Acceso (aria-pressed=true): stesso contorno ma pieno, cosi'
+   resta visibile anche senza hover per ricordare che e' attivo. */
+.game-list__row{ position:relative; }
+.game-list__row .row-lock{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:22px; height:22px; padding:0; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:50%;
+  background:var(--panel);
+  color:var(--item-accent, var(--cyan));
+  opacity:0; pointer-events:none;
+  transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.row-lock svg{ width:11px; height:11px; }
+.game-list__row:hover .row-lock,
+.game-list__row:focus-within .row-lock,
+.game-list__row .row-lock[aria-pressed="true"]{
+  opacity:1; pointer-events:auto;
+}
+.game-list__row .row-lock[aria-pressed="true"]{
+  background:var(--item-accent, var(--cyan)); color:var(--bg);
+}
+#sidebar .row-lock{ right:6px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
+.side-rail .row-lock{ left:6px; } /* stesso discorso, specchiato, sulla colonna destra */
+
 /* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
    posizione in alto (niente più brand sopra la colonna sinistra) e
    stessa colorazione/dimensione dell'etichetta "Teorie". */

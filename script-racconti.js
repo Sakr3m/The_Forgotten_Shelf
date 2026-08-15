@@ -304,6 +304,29 @@ function paintStaticText(){
 // ---------------------------------------------------------
 // Colonne Teorie / Storie Nascoste
 // ---------------------------------------------------------
+// Pulsante lucchetto per voce: compare solo in hover/focus su quella
+// riga precisa (CSS, non JS - vedi racconti.css), contorno colorato
+// con l'accento della voce corrispondente (ereditato dal li tramite
+// --item-accent). Spento di default: per ora non cambia alcun
+// comportamento, la funzione vera arriva in seguito - qui c'e' solo
+// il toggle visivo (aria-pressed) pronto per quando servira'.
+// Elemento fratello dell'anchor, non annidato al suo interno, per
+// evitare due elementi interattivi uno dentro l'altro (non valido).
+function creaLucchetto(){
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "row-lock";
+  btn.setAttribute("aria-pressed", "false");
+  btn.setAttribute("aria-label", "Blocca/sblocca l'animazione di apertura per questa voce");
+  btn.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c1.4 0 2.5 1.1 2.5 2.5v3l1.5 2.5v1H4v-1L5.5 7V4c0-1.4 1.1-2.5 2.5-2.5z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg>`;
+  btn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const acceso = btn.getAttribute("aria-pressed") === "true";
+    btn.setAttribute("aria-pressed", acceso ? "false" : "true");
+  });
+  return btn;
+}
 function renderLists(){
   // L'evidenziazione va confrontata sul campo "game" (condiviso da
   // tutti i capitoli di una stessa opera), non sull'id esatto:
@@ -317,13 +340,15 @@ function renderLists(){
   RACCONTI_ORDER.forEach(id => {
     const item = RACCONTI[id];
     const li = document.createElement("li");
+    li.className = "game-list__row";
+    li.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     const btn = document.createElement("a");
     btn.href = `voci/storie-senza-cornice/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
-    btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
     li.appendChild(btn);
+    li.appendChild(creaLucchetto());
     el.teorieList.appendChild(li);
   });
 
@@ -331,13 +356,15 @@ function renderLists(){
   LIBRI_ORDER.forEach(id => {
     const item = LIBRI[id];
     const li = document.createElement("li");
+    li.className = "game-list__row";
+    li.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     const btn = document.createElement("a");
     btn.href = `voci/storie-senza-cornice/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
-    btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
     li.appendChild(btn);
+    li.appendChild(creaLucchetto());
     el.storieList.appendChild(li);
   });
 }
