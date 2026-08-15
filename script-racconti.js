@@ -324,6 +324,14 @@ function creaLucchetto(){
     ev.stopPropagation();
     const acceso = btn.getAttribute("aria-pressed") === "true";
     btn.setAttribute("aria-pressed", acceso ? "false" : "true");
+    // Un click col mouse lascia il fuoco (focus) sul pulsante, che lo
+    // terrebbe visibile anche dopo aver allontanato il mouse grazie a
+    // :focus-within (necessario invece per chi naviga da tastiera).
+    // event.detail e' 0 solo per un'attivazione da tastiera (Invio/
+    // Spazio su un elemento gia' focalizzato), quindi qui si toglie
+    // il fuoco solo per i click veri col mouse - l'accessibilita' da
+    // tastiera resta intatta.
+    if(ev.detail !== 0) btn.blur();
   });
   return btn;
 }

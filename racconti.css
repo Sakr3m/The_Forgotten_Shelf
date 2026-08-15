@@ -77,8 +77,7 @@
 }
 .row-lock svg{ width:11px; height:11px; }
 .game-list__row:hover .row-lock,
-.game-list__row:focus-within .row-lock,
-.game-list__row .row-lock[aria-pressed="true"]{
+.game-list__row:focus-within .row-lock{
   opacity:1; pointer-events:auto;
 }
 .game-list__row .row-lock[aria-pressed="true"]{
