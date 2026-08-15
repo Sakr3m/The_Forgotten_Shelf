@@ -327,3 +327,73 @@
   }
 }
 
+/* ============================================================
+   Bacheca dei desideri: prova con i primi 5 post-it veri. Storti
+   di base (variabile --rot impostata inline per ognuno, cosi' il
+   disordine non e' mai identico), si raddrizzano ed espandono al
+   click mostrando la risposta - gia' scritta per intero nell'HTML,
+   qui solo nascosta visivamente (non display:none, altrimenti
+   qualche crawler potrebbe trattarla come davvero assente).
+   ============================================================ */
+.wish-board{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:28px 22px;
+  max-width:900px; margin:56px auto 0; padding:0 24px 60px;
+}
+.wish-note{
+  width:220px;
+  background:#e9d9a0;
+  border:none;
+  padding:20px 18px 18px;
+  text-align:left;
+  cursor:pointer;
+  transform:rotate(var(--rot, 0deg));
+  box-shadow:0 10px 22px rgba(0,0,0,.4);
+  transition:transform .25s ease, box-shadow .25s ease;
+  position:relative;
+}
+.wish-note::before{
+  content:"";
+  position:absolute; top:-8px; left:50%; transform:translateX(-50%);
+  width:14px; height:14px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #e8b64b, #a3781f 70%);
+  box-shadow:0 3px 5px rgba(0,0,0,.5);
+}
+.wish-note:hover{
+  transform:rotate(var(--rot, 0deg)) translateY(-4px) scale(1.03);
+  box-shadow:0 16px 30px rgba(0,0,0,.5);
+}
+.wish-note__ask{
+  font-family:'Caveat', cursive; font-weight:700;
+  font-size:1.35rem; line-height:1.25;
+  color:#2a2210;
+  margin:0;
+}
+.wish-note__answer{
+  max-height:0; opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+}
+.wish-note.is-open{
+  transform:rotate(0deg) scale(1.06);
+  box-shadow:0 20px 40px rgba(0,0,0,.55);
+  z-index:5;
+}
+.wish-note.is-open .wish-note__answer{
+  max-height:200px; opacity:1; margin-top:14px;
+}
+.wish-note__offer{
+  font-family:'Caveat', cursive; font-weight:700;
+  font-size:1.15rem; color:#4a3a10;
+  margin:0 0 6px;
+}
+.wish-note__link{
+  display:inline-block;
+  font-family:'Inter', sans-serif; font-size:.78rem; font-weight:600;
+  color:#5c3a12;
+  text-decoration:underline;
+}
+
+@media (max-width:900px){
+  .wish-board{ gap:22px 16px; margin-top:40px; padding:0 16px 40px; }
+  .wish-note{ width:44vw; max-width:200px; }
+}

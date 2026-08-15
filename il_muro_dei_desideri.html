@@ -124,7 +124,7 @@
           Una bacheca di annunci: dicci cosa cerchi, lo Scaffale ti offre una risposta. Ogni post-it è un bisogno — dieci minuti da riempire, una serata da perdere, una paura da affrontare — e ogni bisogno porta dritto a un racconto, una teoria, una linea del tempo o un gioco che aspettava solo te.
         </p>
 
-        <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Ancora in costruzione: torna presto a dare un'occhiata.</p>
+        <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">I primi annunci sono già appesi, qui sotto.</p>
 
         <p class="landing-sub landing-sub--mobile-only" data-i18n="landingSub">Usa le frecce ai lati per esplorare i progetti disponibili.</p>
 
@@ -138,6 +138,58 @@
           </div>
         </div>
       </section>
+
+      <!-- Bacheca dei desideri: prima prova con 5 annunci veri. Ogni
+           post-it ha DOMANDA e RISPOSTA (link compreso) gia' scritte
+           per intero nell'HTML fin dal caricamento della pagina — la
+           CSS nasconde solo visivamente la risposta finche' non si
+           clicca (max-height/opacity, non display:none ne' injection
+           via JS), cosi' Google indicizza tutto il testo comunque.
+           Stesso principio gia' seguito altrove sul sito per i
+           pannelli di voce, qui applicato ai post-it su richiesta
+           esplicita: l'indicizzazione vale piu' della fedeltà a un
+           comportamento "tutto o niente" al click. -->
+      <div class="wish-board" id="wishBoard">
+        <button type="button" class="wish-note" style="--rot:-3deg;">
+          <p class="wish-note__ask">Cercasi: qualcosa di oscuro e antico, da leggere in una sola sera</p>
+          <div class="wish-note__answer">
+            <p class="wish-note__offer">Offresi: <strong>Cinere</strong></p>
+            <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
+          </div>
+        </button>
+
+        <button type="button" class="wish-note" style="--rot:2deg;">
+          <p class="wish-note__ask">Cercasi: una storia che inizia a farti ridere e finisce a farti stare male</p>
+          <div class="wish-note__answer">
+            <p class="wish-note__offer">Offresi: <strong>Diario di un Nuovo Assunto</strong></p>
+            <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
+          </div>
+        </button>
+
+        <button type="button" class="wish-note" style="--rot:-1.5deg;">
+          <p class="wish-note__ask">Cercasi: un thriller psicologico da leggere tutto d'un fiato</p>
+          <div class="wish-note__answer">
+            <p class="wish-note__offer">Offresi: <strong>Il Testimone</strong></p>
+            <a class="wish-note__link" href="storie_senza_cornice.html">Leggilo su Storie Senza Cornice →</a>
+          </div>
+        </button>
+
+        <button type="button" class="wish-note" style="--rot:3.5deg;">
+          <p class="wish-note__ask">Cercasi: un parere onesto su un classico intramontabile</p>
+          <div class="wish-note__answer">
+            <p class="wish-note__offer">Offresi: la recensione di <strong>Final Fantasy VII</strong></p>
+            <a class="wish-note__link" href="diari_di_gioco.html">Leggila su Diari di Gioco →</a>
+          </div>
+        </button>
+
+        <button type="button" class="wish-note" style="--rot:-2.5deg;">
+          <p class="wish-note__ask">Cercasi: qualcosa che metta alla prova la mente, livello dopo livello</p>
+          <div class="wish-note__answer">
+            <p class="wish-note__offer">Offresi: <strong>Mathemory</strong>, l'hub di giochi matematici</p>
+            <a class="wish-note__link" href="https://sakr3m.github.io/Mathemory/" target="_blank" rel="noopener">Apri Mathemory ↗</a>
+          </div>
+        </button>
+      </div>
 
     </main>
 
