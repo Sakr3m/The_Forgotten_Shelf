@@ -2592,6 +2592,96 @@ const GAMES = {
         ]
       }
     ]
+  },
+
+  yakuza: {
+    id: "yakuza",
+    listTitle: { it: "Yakuza / Like a Dragon", en: "Yakuza / Like a Dragon" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Yakuza / Like a Dragon", en: "Yakuza / Like a Dragon" },
+    blurb: {
+      it: "Il dramma criminale di Kazuma Kiryu, uomo d'onore in un mondo di yakuza che non gli somiglia più, ambientato quasi interamente nel quartiere fittizio di Kamurocho. Melodramma, minigiochi assurdi e combattimenti da strada convivono nella stessa storia, che dopo otto capitoli passa il testimone a un nuovo protagonista, Ichiban Kasuga, senza mai davvero lasciare andare il primo.",
+      en: "The crime drama of Kazuma Kiryu, a man of honour in a yakuza world that no longer resembles him, set almost entirely in the fictional district of Kamurocho. Melodrama, absurd minigames, and street brawls coexist in the same story, which after eight chapters hands the torch to a new protagonist, Ichiban Kasuga, without ever quite letting go of the first."
+    },
+    palette: ["#1a1a2e", "#c9a227", "#8b1a1a"],
+    accentColor: "#c9a227",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "main",
+        name: { it: "Continuità Principale", en: "Main Continuity" },
+        span: { it: "1988 – 2024", en: "1988 – 2024" },
+        entries: [
+          { id: "yakuza-0", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1988", releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Yakuza 0", en: "Yakuza 0" },
+            synopsis: {
+              it: "Prequel ambientato diciassette anni prima del primo gioco. Il giovane Kiryu viene incastrato per un omicidio che non ha commesso, mentre Goro Majima, futuro alleato/rivale della saga, gestisce un locale a Osaka per conto del proprio clan mentre nasconde un passato oscuro. Le due storie, inizialmente separate, convergono attorno a un terreno edificabile conteso che diventerà centrale per l'intera mitologia della serie.",
+              en: "A prequel set seventeen years before the first game. Young Kiryu is framed for a murder he didn't commit, while Goro Majima, the saga's future ally/rival, runs a club in Osaka on behalf of his clan while hiding a dark past. The two initially separate stories converge around a disputed plot of land that becomes central to the entire series mythology."
+            }
+          },
+          { id: "yakuza-kiwami", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2005", releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Yakuza Kiwami", en: "Yakuza Kiwami" },
+            synopsis: {
+              it: "Remake del capitolo originale. Kiryu esce di prigione dopo dieci anni scontati per un omicidio in realtà commesso dal proprio fratello di sangue Akira Nishikiyama, per proteggerlo. Scopre che sono scomparsi sia i dieci miliardi di yen del proprio clan sia Yumi, la donna che ama, dando il via a una spirale di tradimenti dentro la famiglia Tojo.",
+              en: "A remake of the original chapter. Kiryu is released from prison after ten years served for a murder actually committed by his blood brother Akira Nishikiyama, in order to protect him. He discovers that both his clan's ten billion yen and Yumi, the woman he loves, have vanished, setting off a spiral of betrayals within the Tojo family."
+            }
+          },
+          { id: "yakuza-kiwami-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2006", releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Yakuza Kiwami 2", en: "Yakuza Kiwami 2" },
+            synopsis: {
+              it: "Remake del secondo capitolo. Ritiratosi dalla vita criminale, Kiryu viene richiamato in azione quando il capo del clan rivale Omi viene assassinato, scatenando una guerra tra famiglie che minaccia di coinvolgere anche la giovane Haruka, sotto la sua tutela dal finale del primo gioco.",
+              en: "A remake of the second chapter. Having retired from criminal life, Kiryu is pulled back into action when the head of the rival Omi clan is assassinated, sparking a war between families that threatens to drag in young Haruka, under his care since the end of the first game."
+            }
+          },
+          { id: "yakuza-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2007 – 2009", releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Yakuza 3", en: "Yakuza 3" },
+            synopsis: {
+              it: "Kiryu gestisce un orfanotrofio a Okinawa insieme ad Haruka, lontano dalla vita del crimine, finché lo sviluppo edilizio della zona non lo riporta a contatto con la famiglia Tojo e con vecchi nemici, costringendolo a difendere ciò che ha costruito.",
+              en: "Kiryu runs an orphanage in Okinawa together with Haruka, far from a life of crime, until real estate development in the area brings him back into contact with the Tojo family and old enemies, forcing him to defend what he has built."
+            }
+          },
+          { id: "yakuza-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010", releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Yakuza 4", en: "Yakuza 4" },
+            synopsis: {
+              it: "Primo capitolo a più protagonisti: uno strozzino, un detective corrotto, un ex membro dei Tojo appena uscito di prigione e Kiryu stesso vedono le proprie storie intrecciarsi attorno a una misteriosa somma di denaro scomparsa e a un cadavere che continua a risorgere, letteralmente, nel corso della trama.",
+              en: "The first chapter with multiple protagonists: a loan shark, a corrupt detective, a former Tojo member fresh out of prison, and Kiryu himself see their stories intertwine around a mysterious sum of missing money and a corpse that keeps literally coming back to life over the course of the plot."
+            }
+          },
+          { id: "yakuza-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2012", releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Yakuza 5", en: "Yakuza 5" },
+            synopsis: {
+              it: "Cinque protagonisti, tra cui Kiryu (ora tassista sotto falso nome) e la giovane Haruka (ormai un'aspirante idol), affrontano storie separate in cinque città diverse del Giappone, che convergono infine in una cospirazione ai vertici del clan Tojo capace di minacciare l'intera organizzazione.",
+              en: "Five protagonists, including Kiryu (now a taxi driver under a false name) and a now-teenage Haruka (an aspiring idol), navigate separate stories across five different Japanese cities, which ultimately converge into a conspiracy at the top of the Tojo clan capable of threatening the entire organisation."
+            }
+          },
+          { id: "yakuza-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2016", releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Yakuza 6: The Song of Life", en: "Yakuza 6: The Song of Life" },
+            synopsis: {
+              it: "Uscito di prigione dopo essersi assunto una colpa non sua per proteggere ancora una volta Haruka, Kiryu la trova scomparsa e scopre l'esistenza di un nipote mai conosciuto, in coma dopo un incidente. La ricerca della verità lo riporta a Onomichi, città natale di Haruka mai esplorata prima, per quello che viene presentato come il capitolo conclusivo della sua storia personale.",
+              en: "Released from prison after taking the fall for a crime not his own to protect Haruka once again, Kiryu finds her missing and discovers the existence of a grandson he never knew, in a coma after an accident. The search for the truth takes him to Onomichi, Haruka's previously unexplored hometown, in what is presented as the concluding chapter of his personal story."
+            }
+          },
+          { id: "like-a-dragon", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019", releaseYear: "2020", releaseYearEn: "2020",
+            title: { it: "Yakuza: Like a Dragon", en: "Yakuza: Like a Dragon" },
+            synopsis: {
+              it: "Passaggio di testimone a un nuovo protagonista, Ichiban Kasuga, che si assume la colpa di un omicidio per lealtà verso il proprio clan e ne esce diciotto anni dopo per scoprire di essere stato tradito e abbandonato. Nella nuova città di Yokohama/Isezaki Ijincho, Ichiban ricostruisce sé stesso affrontando una cospirazione che coinvolge il proprio ex clan, in un cambio radicale di formula: combattimento a turni invece che in tempo reale.",
+              en: "A handover to a new protagonist, Ichiban Kasuga, who takes the blame for a murder out of loyalty to his clan and emerges eighteen years later to discover he was betrayed and abandoned. In the new city of Yokohama/Isezaki Ijincho, Ichiban rebuilds himself while confronting a conspiracy involving his former clan, in a radical formula shift: turn-based combat instead of real-time."
+            }
+          },
+          { id: "infinite-wealth", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2023 (con flashback al 2000)", releaseYear: "2024", releaseYearEn: "2024",
+            title: { it: "Like a Dragon: Infinite Wealth", en: "Like a Dragon: Infinite Wealth" },
+            synopsis: {
+              it: "Ichiban e Kiryu, ormai malato terminale e sotto falsa identità, uniscono le forze per un viaggio che li porta dal Giappone alle Hawaii, sulle tracce della madre di Ichiban mai conosciuta. Prima vera collaborazione diretta tra i due protagonisti della saga, con capitoli flashback ambientati nel 2000 che approfondiscono il passato di Kiryu.",
+              en: "Ichiban and Kiryu, now terminally ill and living under a false identity, join forces for a journey that takes them from Japan to Hawaii, on the trail of Ichiban's mother, whom he never knew. The first true direct collaboration between the saga's two protagonists, with flashback chapters set in 2000 that deepen Kiryu's past."
+            }
+          }
+        ]
+      }
+    ]
   }
 
 };
@@ -2599,5 +2689,5 @@ const GAMES = {
 const GAME_ORDER = [
   "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon",
-  "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein"
+  "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein", "yakuza"
 ];
