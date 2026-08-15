@@ -436,16 +436,16 @@ document.addEventListener("click", (e) => {
 //   decodificato, suonaTap() la restituisce), cosi' la pagina non
 //   cambia mai prima che il suono sia davvero finito, qualunque sia
 //   la sua durata vera;
-// - 350ms fissi, un pavimento minimo cosi' la pagina corrente resta
+// - 1 secondo netto (1000ms) fisso, un pavimento minimo cosi' la pagina corrente resta
 //   visibile un tempo dignitoso anche se il suono fosse piu' corto.
 // Se il buffer non e' ancora pronto (raro), suonaTap() restituisce
-// null e si ricade sul solo pavimento di 350ms.
+// null e si ricade sul solo pavimento di 1 secondo.
 // ---------------------------------------------------------
 document.querySelectorAll("a.index-link").forEach(link => {
   link.addEventListener("click", (ev) => {
     ev.preventDefault();
     const durataSuono = suonaTap(mobileBreakpoint.matches ? 0.3 : 0.1);
-    const attesa = Math.max(350, durataSuono || 0);
+    const attesa = Math.max(1000, durataSuono || 0);
     setTimeout(() => { window.location.href = link.href; }, attesa);
   });
 });

@@ -887,14 +887,14 @@ el.indexLink.addEventListener("click", (ev) => {
     // leggermente maggiore) ma il MASSIMO tra due valori: la durata
     // esatta del suono del tap (letta dal buffer gia' decodificato,
     // suonaTap() la restituisce), cosi' la pagina non cambia mai
-    // prima che il suono sia davvero finito; e 350ms fissi, un
+    // prima che il suono sia davvero finito; e 1 secondo netto
     // pavimento minimo cosi' la pagina corrente resta visibile un
     // tempo dignitoso anche se il suono fosse piu' corto. Se il
     // buffer non e' ancora pronto (raro), suonaTap() restituisce null
-    // e si ricade sul solo pavimento di 350ms.
+    // e si ricade sul solo pavimento di 1 secondo.
     ev.preventDefault();
     const durataSuono = suonaTap(isMobileNav() ? 0.3 : 0.1);
-    const attesa = Math.max(350, durataSuono || 0);
+    const attesa = Math.max(1000, durataSuono || 0);
     setTimeout(() => { window.location.href = el.indexLink.href; }, attesa);
   }
 });
