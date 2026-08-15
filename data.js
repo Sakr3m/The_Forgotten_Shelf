@@ -4,6 +4,68 @@
 
 const GAMES = {
 
+  "ace-combat": {
+    id: "ace-combat",
+    listTitle: { it: "Ace Combat", en: "Ace Combat" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Ace Combat", en: "Ace Combat" },
+    blurb: {
+      it: "Guerre aeree combattute su Strangereal, una Terra parallela quasi identica alla nostra ma con geografia e storia proprie, segnata dall'impatto di un asteroide negli anni '90 che ha ridisegnato gli equilibri geopolitici per decenni. Non tutti i capitoli della saga condividono la stessa continuità: questa voce copre la cosiddetta \"Vera Strangereal\", il filone realmente connesso da personaggi ed eventi ricorrenti (Zero, 04, 5, 6, 7). Altri titoli come Air Combat, Ace Combat 2 e il particolare Ace Combat 3: Electrosphere esistono sullo stesso pianeta ma restano ai margini, con legami narrativi minimi o assenti verso il resto della saga.",
+      en: "Aerial wars fought over Strangereal, a parallel Earth nearly identical to ours but with its own geography and history, shaped by an asteroid impact in the '90s that redrew geopolitical balances for decades. Not every chapter of the saga shares the same continuity: this entry covers the so-called \"True Strangereal\", the thread genuinely connected by recurring characters and events (Zero, 04, 5, 6, 7). Other titles like Air Combat, Ace Combat 2, and the peculiar Ace Combat 3: Electrosphere exist on the same planet but remain on the margins, with minimal or no narrative ties to the rest of the saga."
+    },
+    palette: ["#1a3a5c", "#c9c9c9", "#8b0000"],
+    accentColor: "#1a3a5c",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "vera-strangereal",
+        name: { it: "La Vera Strangereal", en: "True Strangereal" },
+        span: { it: "1995 – anni 2020", en: "1995 – 2020s" },
+        entries: [
+          { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Guerra di Belka)", releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Ace Combat Zero: The Belkan War", en: "Ace Combat Zero: The Belkan War" },
+            synopsis: {
+              it: "Il pilota mercenario Cypher combatte nella Guerra di Belka, conflitto scatenato dalla crisi economica seguita all'impatto dell'asteroide Ulisse, affiancato dal compagno Pixy. Nel finale, Belka usa testate nucleari sul proprio stesso territorio per fermare l'avanzata nemica, un evento la cui ombra si allungherà su tutti i conflitti successivi della continuità.",
+              en: "Mercenary pilot Cypher fights in the Belkan War, a conflict sparked by the economic crisis following the Ulysses asteroid impact, alongside his wingman Pixy. In the finale, Belka uses nuclear warheads on its own territory to halt the enemy advance, an event whose shadow looms over every subsequent conflict in the continuity."
+            }
+          },
+          { id: "ace-04", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2003 – 2005 (Guerra Continentale)", releaseYear: "2001", releaseYearEn: "2001",
+            title: { it: "Ace Combat 04: Shattered Skies", en: "Ace Combat 04: Shattered Skies" },
+            synopsis: {
+              it: "Il pilota Mobius 1 affronta la Guerra Continentale tra Usea ed Erusea, culminata nell'attivazione della Stonehenge, una batteria di cannoni anti-aerei mai vista prima capace di abbattere qualunque velivolo in volo. Il gioco che ha coniato ufficialmente il nome Strangereal e definito il tono della saga da lì in avanti.",
+              en: "Pilot Mobius 1 fights in the Continental War between Usea and Erusea, culminating in the activation of Stonehenge, an unprecedented anti-air cannon battery capable of shooting down any aircraft in flight. The game that officially coined the name Strangereal and defined the saga's tone from that point on."
+            }
+          },
+          { id: "ace-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010 (Guerra del Circum-Pacifico)", releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "Ace Combat 5: The Unsung War", en: "Ace Combat 5: The Unsung War" },
+            synopsis: {
+              it: "Il pilota Blaze e lo Squadrone Wardog affrontano la Guerra del Circum-Pacifico tra Osea e Yuktobania, scoprendo che il conflitto è stato in realtà orchestrato da una fazione interna oseana per innescare una guerra profittevole, in un racconto che mette al centro il rapporto tra Blaze e il proprio ufficiale di collegamento Nagase.",
+              en: "Pilot Blaze and the Wardog Squadron fight in the Circum-Pacific War between Osea and Yuktobania, discovering the conflict was actually orchestrated by an internal Osean faction to trigger a profitable war, in a story centred on the relationship between Blaze and his liaison officer Nagase."
+            }
+          },
+          { id: "ace-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo Ace Combat 5", releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "Ace Combat 6: Fires of Liberation", en: "Ace Combat 6: Fires of Liberation" },
+            synopsis: {
+              it: "Il pilota Shamrock difende la capitale oseana Gracemeria da un'invasione a sorpresa da parte di Emmeria, mentre la resistenza civile e i piloti oseani superstiti tentano di liberare la città occupata. Primo capitolo interamente sviluppato per console next-gen dell'epoca, con enfasi sull'impatto della guerra sulla popolazione civile.",
+              en: "Pilot Shamrock defends the Osean capital Gracemeria from a surprise invasion by Emmeria, while civilian resistance and surviving Osean pilots attempt to liberate the occupied city. The first chapter developed entirely for the next-gen consoles of its time, with an emphasis on the war's impact on the civilian population."
+            }
+          },
+          { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni 2020", releaseYear: "2019", releaseYearEn: "2019",
+            title: { it: "Ace Combat 7: Skies Unknown", en: "Ace Combat 7: Skies Unknown" },
+            synopsis: {
+              it: "Il pilota Trigger, incarcerato ingiustamente e poi reintegrato come pilota di riserva, difende Osea da una nuova invasione erusiana capeggiata da droni da combattimento autonomi, mentre incrocia più volte il proprio destino con quello di Cypher e Pixy, protagonisti di Ace Combat Zero riemersi decenni dopo. Capitolo più recente della continuità principale, che chiude idealmente il cerchio aperto nel 2006.",
+              en: "Pilot Trigger, wrongfully imprisoned and later reinstated as a reserve pilot, defends Osea from a new Erusean invasion led by autonomous combat drones, repeatedly crossing paths with the fates of Cypher and Pixy, protagonists of Ace Combat Zero resurfacing decades later. The most recent chapter of the main continuity, ideally closing the circle opened in 2006."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   aitd: {
     id: "aitd",
     listTitle: { it: "Alone in the Dark", en: "Alone in the Dark" },
@@ -2963,7 +3025,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "gears-of-war", "god-of-war", "gta", "halo",
+  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "gears-of-war", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein", "yakuza"
 ];
