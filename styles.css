@@ -81,6 +81,17 @@ body[data-state="landing"] .brand{ display:none; }
   background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
   white-space:nowrap;
 }
+@media (min-width:901px){
+  /* Vista voce: .brand usa align-items:flex-start (serve ai pulsanti
+     Ko-fi/Discord, alti 40px, per allinearsi bene tra loro), ma il
+     titolo non ha un'altezza propria di 40px come loro - senza
+     questo resterebbe "appiccicato" in cima invece di centrarsi
+     rispetto ai pulsanti accanto, nonostante il bordo superiore
+     combaci comunque a 20px per puro caso. */
+  body[data-state="entry"] .brand-text{
+    height:40px; display:flex; align-items:center;
+  }
+}
 
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
@@ -227,6 +238,16 @@ body[data-state="landing"] .brand{ display:none; }
   border-radius:14px;
   max-width:280px;
 }
+/* Bug corretto: l'attributo hidden e la classe .track-info hanno la
+   stessa specificita' CSS (una per attributo, una per classe) - senza
+   questa regola piu' specifica, display:flex qui sopra vinceva
+   sull'hidden nativo del browser (arriva dopo nel foglio di stile),
+   lasciando l'elemento a occupare comunque il proprio spazio reale
+   anche da nascosto. Effetto a catena: .music-control (il
+   contenitore, altezza automatica) risultava piu' alto del dovuto,
+   e il music-toggle al suo interno si centrava piu' in basso del
+   previsto invece che al bordo giusto. */
+.track-info[hidden]{ display:none; }
 .track-info__row{ display:flex; align-items:center; gap:8px; }
 .track-info__text{ display:flex; flex-direction:column; line-height:1.25; overflow:hidden; }
 .track-info__title{ font-size:.74rem; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
