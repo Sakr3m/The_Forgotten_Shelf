@@ -546,15 +546,19 @@ body[data-state="entry"] .landing{ display:none; }
    su la_traccia_del_tempo.html (.title-watermark): grande immagine di sfondo,
    sfumata verso il testo, molto trasparente, dietro al contenuto
    (z-index:0, .entry-content sopra a z-index:1) e non interagibile.
-   Qui non c'è la dipendenza da --rail-width di Timeline (nessuna
-   colonna laterale su questa pagina in vista voce), quindi ancorata
-   direttamente al bordo destro della finestra.
+   Ancorata a right:var(--rail-width) (250px, la larghezza della
+   colonna destra), non piu' al vero bordo della finestra: quando
+   questa regola e' stata scritta non esisteva ancora una colonna
+   laterale in vista voce su questa pagina, ma ora c'e' (Libri) e la
+   filigrana le sconfinava sotto invece di fermarsi al suo bordo
+   sinistro. Stesso pattern gia' in uso altrove nel sito per lo
+   stesso identico problema.
    ============================================================ */
 .entry-watermark{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:245px; bottom:0; right:0; width:42vw; /* 245px =
+    position:fixed; top:245px; bottom:0; right:var(--rail-width); width:42vw; /* 245px =
       bordo inferiore reale di #pageHeader (banner), misurato — prima
       partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
       al banner e al testo sotto, invece di fermarsi li' */
