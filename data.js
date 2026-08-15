@@ -2012,6 +2012,143 @@ const GAMES = {
     ]
   },
 
+  "tomb-raider": {
+    id: "tomb-raider",
+    listTitle: { it: "Tomb Raider", en: "Tomb Raider" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Tomb Raider", en: "Tomb Raider" },
+    blurb: {
+      it: "Le avventure dell'archeologa Lara Croft tra tombe perdute, civiltà scomparse e artefatti soprannaturali. A differenza delle altre saghe di questo archivio, Tomb Raider non ha una linea temporale unica: nella sua storia ha avuto tre continuità separate e non collegate tra loro, ognuna nata azzerando la precedente invece di proseguirla. Solo di recente (2025-2026) Crystal Dynamics ha dichiarato l'intenzione di unificarle con il remake Legacy of Atlantis, non ancora uscito al momento di questa scheda.",
+      en: "The adventures of archaeologist Lara Croft among lost tombs, vanished civilisations, and supernatural artefacts. Unlike the other franchises in this archive, Tomb Raider does not have a single timeline: over its history it has had three separate, unconnected continuities, each born by resetting the previous one rather than continuing it. Only recently (2025-2026) has Crystal Dynamics announced the intention to unify them with the remake Legacy of Atlantis, not yet released at the time of writing."
+    },
+    palette: ["#5c1a1a", "#c9a227", "#2e2e2e"],
+    accentColor: "#c9a227",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "continuita-classica",
+        name: { it: "Continuità Classica (Core Design)", en: "Classic Continuity (Core Design)" },
+        span: { it: "1996 – 2003", en: "1996 – 2003" },
+        entries: [
+          { id: "tr1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996",
+            releaseYear: "1996", releaseYearEn: "1996",
+            title: { it: "Tomb Raider", en: "Tomb Raider" },
+            synopsis: {
+              it: "Ingaggiata da un'imprenditrice per recuperare un manufatto Atlante chiamato lo Scion, l'archeologa Lara Croft esplora le rovine del Perù, la Grecia, l'Egitto e infine Atlantide stessa, scoprendo che la vera committente, Jacqueline Natla, è una sopravvissuta immortale della civiltà atlantidea intenzionata a resuscitare la propria antica potenza distruttiva. Lara sconfigge Natla nel cuore di Atlantide, impedendo la catastrofe. Il gioco che ha inventato il genere action-adventure archeologico su console, e reso Lara Croft un'icona globale.",
+              en: "Hired by a businesswoman to recover an Atlantean artefact called the Scion, archaeologist Lara Croft explores the ruins of Peru, Greece, Egypt, and finally Atlantis itself, discovering that her true employer, Jacqueline Natla, is an immortal survivor of the Atlantean civilisation intent on resurrecting its ancient destructive power. Lara defeats Natla at the heart of Atlantis, averting catastrophe. The game that invented the archaeological action-adventure genre on consoles, and turned Lara Croft into a global icon."
+            }
+          },
+          { id: "tr2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1997",
+            releaseYear: "1997", releaseYearEn: "1997",
+            title: { it: "Tomb Raider II", en: "Tomb Raider II" },
+            synopsis: {
+              it: "Lara dà la caccia al Pugnale di Xian, un artefatto in grado di trasformare chi lo impugna in un drago, prima che possa cadere nelle mani di Marco Bartoli, un culto criminale che intende usarlo per ottenere potere sovrumano. Tra Venezia, il Mare Cinese Meridionale e le montagne cinesi, Lara affronta la Fratellanza del Drago capeggiata da Bartoli, recupera il pugnale e lo distrugge in un vulcano, impedendo che il suo potere venga usato per il male.",
+              en: "Lara hunts for the Dagger of Xian, an artefact able to transform its wielder into a dragon, before it can fall into the hands of Marco Bartoli, a criminal cult intent on using it to gain superhuman power. Across Venice, the South China Sea, and the Chinese mountains, Lara confronts the Brotherhood of the Dragon led by Bartoli, recovers the dagger, and destroys it in a volcano, preventing its power from being used for evil."
+            }
+          },
+          { id: "tr3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1998",
+            releaseYear: "1998", releaseYearEn: "1998",
+            title: { it: "Tomb Raider III", en: "Tomb Raider III" },
+            synopsis: {
+              it: "Lara insegue i frammenti di un meteorite antichissimo, l'Infada, i cui poteri sono ambiti sia da un'organizzazione paramilitare privata sia dallo spregiudicato collezionista Sophia Leigh, viaggiando tra India, Isole del Pacifico Meridionale, Londra, Nevada e Antartide. Recuperati tutti i frammenti, Lara scopre che il meteorite ha origini aliene e ne distrugge il potenziale distruttivo, ponendo fine alla corsa per il suo controllo.",
+              en: "Lara pursues the fragments of an ancient meteorite, the Infada Stone, whose powers are coveted by both a private paramilitary organisation and the ruthless collector Sophia Leigh, travelling across India, the South Pacific Islands, London, Nevada, and Antarctica. Having recovered all the fragments, Lara discovers the meteorite's origins are alien and destroys its destructive potential, ending the race for its control."
+            }
+          },
+          { id: "last-revelation", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1999",
+            releaseYear: "1999", releaseYearEn: "1999",
+            title: { it: "Tomb Raider: The Last Revelation", en: "Tomb Raider: The Last Revelation" },
+            synopsis: {
+              it: "Tornata in Egitto per la prima volta dal gioco originale, Lara scopre di aver risvegliato inavvertitamente da bambina, durante una spedizione col proprio mentore Von Croy, il dio egizio del caos Seth, imprigionato da millenni. Per rimediare all'errore, Lara raccoglie l'Amuleto di Horus in grado di sigillare nuovamente Seth, ma nel farlo resta apparentemente intrappolata sotto le macerie del tempio in esplosione insieme al dio sconfitto. Il gioco si chiude con la presunta morte di Lara, elemento narrativo poi ripreso e reinterpretato in Chronicles.",
+              en: "Returning to Egypt for the first time since the original game, Lara discovers she inadvertently awakened, as a child during an expedition with her mentor Von Croy, the Egyptian god of chaos Seth, imprisoned for millennia. To fix her mistake, Lara gathers the Amulet of Horus, able to reseal Seth, but in doing so appears to be trapped beneath the rubble of the collapsing temple alongside the defeated god. The game ends with Lara's apparent death, a narrative element later revisited and reinterpreted in Chronicles."
+            }
+          },
+          { id: "chronicles", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "prima di Last Revelation (raccontato dopo)",
+            releaseYear: "2000", releaseYearEn: "2000",
+            title: { it: "Tomb Raider Chronicles", en: "Tomb Raider Chronicles" },
+            synopsis: {
+              it: "Durante una veglia funebre in memoria di Lara, creduta morta alla fine di The Last Revelation, amici e colleghi si ritrovano a raccontarsi a vicenda avventure passate mai narrate prima: una caccia al tesoro a Roma, un'indagine su una nave affondata al largo dell'Irlanda, una missione a San Pietroburgo e un'infiltrazione in un grattacielo di Manhattan alla ricerca di reliquie mistiche. Un'antologia di episodi indipendenti, ambientati cronologicamente prima di Last Revelation ma narrati come flashback dopo la sua conclusione, che nel finale lascia intendere che Lara sia in realtà sopravvissuta.",
+              en: "During a memorial gathering for Lara, believed dead at the end of The Last Revelation, friends and colleagues take turns recounting past adventures never told before: a treasure hunt in Rome, an investigation into a sunken ship off the coast of Ireland, a mission in Saint Petersburg, and an infiltration of a Manhattan skyscraper in search of mystical relics. An anthology of standalone episodes, chronologically set before Last Revelation but narrated as flashbacks after its conclusion, whose ending hints that Lara may in fact have survived."
+            }
+          },
+          { id: "angel-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2003",
+            releaseYear: "2003", releaseYearEn: "2003",
+            title: { it: "Tomb Raider: The Angel of Darkness", en: "Tomb Raider: The Angel of Darkness" },
+            synopsis: {
+              it: "Confermata sopravvissuta agli eventi di Last Revelation, Lara viene incastrata per l'omicidio del proprio ex mentore Werner Von Croy a Parigi, e indaga per conto proprio scoprendo il coinvolgimento di una setta esoterica, i Cabal, intenzionata a resuscitare un antico essere immortale chiamato Boaz attraverso l'uso di dipinti magici capaci di generare mostri viventi. Ultimo capitolo sviluppato da Core Design, concepito come primo episodio di una nuova trilogia poi mai completata a causa della travagliata accoglienza critica e commerciale del gioco, che portò Eidos a trasferire lo sviluppo della serie a Crystal Dynamics.",
+              en: "Confirmed to have survived the events of Last Revelation, Lara is framed for the murder of her former mentor Werner Von Croy in Paris, and investigates on her own, uncovering the involvement of an esoteric sect, the Cabal, intent on resurrecting an ancient immortal being called Boaz through the use of magical paintings capable of spawning living monsters. The last chapter developed by Core Design, conceived as the first episode of a new trilogy never completed due to the game's troubled critical and commercial reception, which led Eidos to move the series' development to Crystal Dynamics."
+            }
+          }
+        ]
+      },
+      {
+        id: "continuita-legend",
+        name: { it: "Continuità Legend (Crystal Dynamics, prima trilogia)", en: "Legend Continuity (Crystal Dynamics, first trilogy)" },
+        span: { it: "2006 – 2008", en: "2006 – 2008" },
+        entries: [
+          { id: "anniversary", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "cronologicamente il primo di questa continuità",
+            releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "Tomb Raider: Anniversary", en: "Tomb Raider: Anniversary" },
+            synopsis: {
+              it: "Remake del gioco originale del 1996 per il decimo anniversario della serie, con motore grafico e meccaniche riprese da Legend. Lara viene ingaggiata per recuperare lo Scion, un manufatto della civiltà atlantidea, riscoprendo lungo il cammino tra Perù, Grecia, Egitto e Atlantide la vera natura della sua committente Jacqueline Natla. Pur uscito nel 2007, un anno DOPO Legend, racconta la storia più antica di questa continuità: la scelta narrativa colloca il vero inizio della carriera di Lara qui, non nel gioco uscito per primo.",
+              en: "A remake of the original 1996 game for the series' tenth anniversary, using the engine and mechanics from Legend. Lara is hired to recover the Scion, an artefact of the Atlantean civilisation, discovering along the way across Peru, Greece, Egypt, and Atlantis the true nature of her employer, Jacqueline Natla. Although released in 2007, a year AFTER Legend, it tells the earliest story in this continuity: a narrative choice that places the true beginning of Lara's career here, not in the game that released first."
+            }
+          },
+          { id: "legend", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo Anniversary",
+            releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Tomb Raider: Legend", en: "Tomb Raider: Legend" },
+            synopsis: {
+              it: "Lara indaga sulla scomparsa della propria madre, avvenuta durante un incidente aereo nell'infanzia di Lara stessa in circostanze rimaste misteriose, seguendo le tracce di Excalibur e della mitica Avalon attraverso Bolivia, Perù, Ghiacci del Nord, Giappone e Inghilterra. Nel corso dell'indagine, Lara si scontra con l'ex collega diventata rivale Amanda Evert e con James Rutland, entrambi coinvolti a vario titolo nella tragedia che colpì la sua famiglia, scoprendo infine che la madre potrebbe essere ancora viva, intrappolata in una dimensione parallela. Il reboot che ha rilanciato la serie sotto Crystal Dynamics dopo la crisi di Angel of Darkness.",
+              en: "Lara investigates the disappearance of her mother, which occurred in a plane crash during Lara's own childhood under mysterious circumstances, following the trail of Excalibur and mythical Avalon across Bolivia, Peru, the Norwegian ice fields, Japan, and England. In the course of the investigation, Lara clashes with her former colleague turned rival Amanda Evert and with James Rutland, both involved in various ways in the tragedy that struck her family, ultimately discovering that her mother may still be alive, trapped in a parallel dimension. The reboot that relaunched the series under Crystal Dynamics after the crisis of Angel of Darkness."
+            }
+          },
+          { id: "underworld", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo Legend",
+            releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Tomb Raider: Underworld", en: "Tomb Raider: Underworld" },
+            synopsis: {
+              it: "Diretto seguito di Legend. Sulle tracce di un martello capace di aprire una porta verso il regno norreno di Helheim, Lara viaggia tra Mediterraneo, Thailandia, Messico e Artico, scontrandosi nuovamente con Amanda Evert e con Jacqueline Natla, sopravvissuta e riemersa dagli eventi di Anniversary. Nel finale, dopo aver scoperto ulteriori verità sulla scomparsa della madre e sulla morte del padre, Lara viene apparentemente uccisa da un colpo sparato da Natla — cliffhanger poi lasciato irrisolto con la chiusura definitiva di questa trilogia e il passaggio alla continuità Survivor.",
+              en: "A direct sequel to Legend. On the trail of a hammer capable of opening a door to the Norse realm of Helheim, Lara travels across the Mediterranean, Thailand, Mexico, and the Arctic, clashing once more with Amanda Evert and with Jacqueline Natla, having survived and resurfaced from the events of Anniversary. In the finale, after uncovering further truths about her mother's disappearance and her father's death, Lara is apparently killed by a shot fired by Natla — a cliffhanger left unresolved as this trilogy came to its definitive close and the series moved on to the Survivor continuity."
+            }
+          }
+        ]
+      },
+      {
+        id: "continuita-survivor",
+        name: { it: "Continuità Survivor (Crystal Dynamics, seconda trilogia)", en: "Survivor Continuity (Crystal Dynamics, second trilogy)" },
+        span: { it: "2013 – 2018", en: "2013 – 2018" },
+        entries: [
+          { id: "tr2013", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Tomb Raider (2013)", en: "Tomb Raider (2013)" },
+            synopsis: {
+              it: "Reboot totale delle origini di Lara. Naufragata sull'isola sovrannaturale di Yamatai insieme all'equipaggio della nave Endurance durante una spedizione archeologica, la giovane e inesperta Lara Croft, alla sua prima vera missione sul campo, deve sopravvivere agli agguati del culto dei Solari, custodi dell'isola, e alle forze soprannaturali legate alla defunta imperatrice-sole Himiko, mentre cerca di salvare i propri compagni catturati. Nel corso della disperata lotta per la sopravvivenza, Lara si trasforma da studiosa timorosa in sopravvissuta risoluta, sconfiggendo infine lo spirito di Himiko e fuggendo dall'isola.",
+              en: "A total reboot of Lara's origins. Shipwrecked on the supernatural island of Yamatai together with the crew of the ship Endurance during an archaeological expedition, the young and inexperienced Lara Croft, on her first true field mission, must survive ambushes from the Solarii cult, guardians of the island, and supernatural forces tied to the deceased sun-empress Himiko, all while trying to save her captured companions. Over the course of the desperate fight for survival, Lara transforms from a fearful scholar into a resolute survivor, ultimately defeating Himiko's spirit and escaping the island."
+            }
+          },
+          { id: "rise-of-the-tomb-raider", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015",
+            releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Rise of the Tomb Raider", en: "Rise of the Tomb Raider" },
+            synopsis: {
+              it: "Sulle tracce del padre, screditato in vita per le proprie ricerche sull'immortalità, Lara viaggia in Siberia in cerca della leggendaria Città Perduta di Kitezh, entrando in conflitto con Trinity, un'organizzazione paramilitare segreta che cerca lo stesso artefatto per scopi propri. Lara si allea con Jacob, custode della città, e sua figlia Sofia contro il comandante di Trinity Konstantin, sconfiggendolo e impedendo a Trinity di impossessarsi della fonte di immortalità, riscattando così anche la memoria del padre.",
+              en: "Following in her father's footsteps, discredited in life for his research into immortality, Lara travels to Siberia in search of the legendary Lost City of Kitezh, coming into conflict with Trinity, a secret paramilitary organisation seeking the same artefact for its own purposes. Lara allies with Jacob, the city's guardian, and his daughter Sofia against Trinity's commander Konstantin, defeating him and preventing Trinity from seizing the source of immortality, thereby also redeeming her father's memory."
+            }
+          },
+          { id: "shadow-of-the-tomb-raider", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2018",
+            releaseYear: "2018", releaseYearEn: "2018",
+            title: { it: "Shadow of the Tomb Raider", en: "Shadow of the Tomb Raider" },
+            synopsis: {
+              it: "Nel tentativo di impedire a Trinity di innescare un cataclisma Maya profetizzato, Lara stessa attiva accidentalmente il disastro, scatenando terremoti e inondazioni che devastano l'America Centrale. Sentendosi responsabile, Lara viaggia tra Messico e Perù per fermare Trinity e il suo comandante Dominguez prima che possa completare il rituale apocalittico usando un pugnale sacro, affrontando lungo il cammino le conseguenze dirette delle proprie azioni sulle comunità locali. Capitolo conclusivo della trilogia Survivor, in cui Lara diventa infine pienamente la Tomb Raider.",
+              en: "In attempting to stop Trinity from triggering a prophesied Mayan cataclysm, Lara herself accidentally sets the disaster in motion, unleashing earthquakes and floods that devastate Central America. Feeling responsible, Lara travels across Mexico and Peru to stop Trinity and its commander Dominguez before he can complete the apocalyptic ritual using a sacred dagger, confronting along the way the direct consequences of her own actions on local communities. The concluding chapter of the Survivor trilogy, in which Lara finally becomes the Tomb Raider in full."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "remedy-universe": {
     id: "remedy-universe",
     listTitle: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
@@ -2152,5 +2289,5 @@ const GAMES = {
 const GAME_ORDER = [
   "aitd", "assassins-creed", "castlevania", "dmc", "doom", "dragon-quest", "dying-light", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "metal-gear-solid",
-  "resident-evil", "silent-hill", "remedy-universe", "wolfenstein"
+  "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein"
 ];
