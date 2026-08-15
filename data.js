@@ -1001,6 +1001,75 @@ const GAMES = {
     ]
   },
 
+  fallout: {
+    id: "fallout",
+    listTitle: { it: "Fallout", en: "Fallout" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Fallout", en: "Fallout" },
+    blurb: {
+      it: "Un'America retrofuturista devastata dalla Grande Guerra nucleare del 2077, dove estetica anni '50 e tecnologia atomica convivono in un wasteland pieno di mutanti, fazioni in guerra e satira sul sogno americano. Ogni gioco è ambientato decenni dopo il precedente, in una regione diversa degli Stati Uniti.",
+      en: "A retro-futuristic America devastated by the Great War of 2077, where 1950s aesthetics and atomic technology coexist in a wasteland full of mutants, warring factions, and satire of the American dream. Each game is set decades after the last, in a different region of the United States."
+    },
+    palette: ["#4a5c2a", "#c9a227", "#1a1a1a"],
+    accentColor: "#4a5c2a",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "main",
+        name: { it: "Wasteland Americano", en: "American Wasteland" },
+        span: { it: "2102 – 2287", en: "2102 – 2287" },
+        entries: [
+          { id: "fallout-76", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2102", releaseYear: "2018", releaseYearEn: "2018",
+            title: { it: "Fallout 76", en: "Fallout 76" },
+            synopsis: {
+              it: "Venticinque anni dopo la Grande Guerra, i primi abitanti del Vault 76 emergono in Virginia Occidentale con l'incarico di ricostruire l'America. Capitolo cronologicamente più antico, e unico della saga interamente online, dove i giocatori affrontano gli Scorched, una piaga mutante che minaccia i tentativi di ricolonizzazione.",
+              en: "Twenty-five years after the Great War, the first inhabitants of Vault 76 emerge in West Virginia tasked with rebuilding America. The chronologically earliest chapter, and the only one in the saga entirely online, where players face the Scorched, a mutant plague threatening resettlement efforts."
+            }
+          },
+          { id: "fallout-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2161", releaseYear: "1997", releaseYearEn: "1997",
+            title: { it: "Fallout", en: "Fallout" },
+            synopsis: {
+              it: "Il Vault 13, in California, rischia di esaurire il chip idrico che ne garantisce la sopravvivenza. Il Prescelto viene inviato in superficie a recuperarne uno sostitutivo, scoprendo lungo il cammino il piano del Master, un essere mutante che vuole assimilare l'intera umanità superstite in un unico organismo collettivo. Il gioco capostipite dell'intera saga.",
+              en: "Vault 13, in California, risks running out of the water chip that guarantees its survival. The Vault Dweller is sent to the surface to find a replacement, discovering along the way the plan of the Master, a mutant being who wants to assimilate all surviving humanity into a single collective organism. The progenitor game of the entire saga."
+            }
+          },
+          { id: "fallout-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2241", releaseYear: "1998", releaseYearEn: "1998",
+            title: { it: "Fallout 2", en: "Fallout 2" },
+            synopsis: {
+              it: "Ottant'anni dopo il primo gioco, il Prescelto degli Eletti parte dal villaggio di Arroyo, fondato dai discendenti del primo Vault Dweller, alla ricerca del Giardino dell'Eden, un dispositivo capace di rendere di nuovo fertile la terra. Lungo il viaggio scopre i piani dell'Enclave, resti del governo pre-guerra intenzionati a sterminare ogni forma di vita mutata per ripopolare l'America con i soli «puri».",
+              en: "Eighty years after the first game, the Chosen One sets out from the village of Arroyo, founded by descendants of the first Vault Dweller, in search of the Garden of Eden Creation Kit, a device able to make the land fertile again. Along the journey they uncover the plans of the Enclave, remnants of the pre-war government intent on exterminating all mutated life to repopulate America with the «pure» alone."
+            }
+          },
+          { id: "fallout-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2277", releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Fallout 3", en: "Fallout 3" },
+            synopsis: {
+              it: "Nato e cresciuto nel Vault 101 a Washington D.C., il Sopravvissuto ne esce sulle tracce del padre, scomparso misteriosamente, scoprendo il suo coinvolgimento nel Progetto Purezza, un tentativo di depurare l'acqua radioattiva del Fiume Potomac, conteso dall'Enclave che intende usarlo per sterminare i mutanti invece che curarli.",
+              en: "Born and raised in Vault 101 in Washington D.C., the Lone Wanderer leaves in search of their father, who has mysteriously disappeared, discovering his involvement in Project Purity, an attempt to purify the irradiated water of the Potomac River, contested by the Enclave, which intends to use it to exterminate mutants rather than cure them."
+            }
+          },
+          { id: "new-vegas", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2281", releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Fallout: New Vegas", en: "Fallout: New Vegas" },
+            synopsis: {
+              it: "Il Corriere, lasciato per morto dopo essere stato derubato di un misterioso pacchetto (una fiche di platino), sopravvive e insegue il proprio aggressore fino a New Vegas, scoprendo di trovarsi al centro di una contesa tra la Legione di Cesare, la Nuova Repubblica della California e il misterioso Mr. House per il controllo della Diga di Hoover e dell'intera regione.",
+              en: "The Courier, left for dead after being robbed of a mysterious package (a platinum chip), survives and pursues their attacker to New Vegas, discovering they stand at the centre of a dispute between Caesar's Legion, the New California Republic, and the mysterious Mr. House for control of Hoover Dam and the entire region."
+            }
+          },
+          { id: "fallout-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2287", releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Fallout 4", en: "Fallout 4" },
+            synopsis: {
+              it: "Il Sopravvissuto Unico, criogenizzato nel Vault 111 poco prima della Grande Guerra, si risveglia decenni dopo avendo assistito all'omicidio del coniuge e al rapimento del proprio figlio neonato. La ricerca del bambino, ormai adulto e a capo dell'Istituto (un'organizzazione segreta che crea sintetici umanoidi), lo porta al centro di un conflitto tra fazioni sul futuro stesso del Commonwealth del Massachusetts.",
+              en: "The Sole Survivor, cryogenically frozen in Vault 111 shortly before the Great War, awakens decades later having witnessed their spouse's murder and their infant son's kidnapping. The search for the child, now an adult and head of the Institute (a secretive organisation that creates synthetic humanoids), draws them into a factional conflict over the very future of the Commonwealth of Massachusetts."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "dying-light": {
     id: "dying-light",
     listTitle: { it: "Dying Light", en: "Dying Light" },
@@ -3240,7 +3309,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "elder-scrolls", "gears-of-war", "god-of-war", "gta", "halo",
+  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "elder-scrolls", "fallout", "gears-of-war", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "warcraft", "wolfenstein", "yakuza"
 ];
