@@ -355,20 +355,24 @@
   transition:opacity .3s ease, visibility 0s linear 0s;
 }
 
-/* Le due zone: 100px dal bordo schermo piu' vicino, 150px dall'intro
+/* Le due zone: 50px dal bordo schermo piu' vicino, 100px dall'intro
    (che ha max-width:640px, centrata sul 50% dello stage - a sua
    volta simmetrico sul vero centro della viewport nonostante il
    margine di correzione qui sopra, essendo 250px su ENTRAMBI i lati).
    Larghezza risultante: 50vw meno mezza larghezza dell'intro (320px)
-   meno i 150px di distanza meno i 100px dal bordo = 50vw - 570px.
+   meno i 100px di distanza meno i 50px dal bordo = 50vw - 470px.
    Il max() e' un paracadute sotto una certa larghezza di finestra,
-   sotto cui la formula pura darebbe una zona troppo stretta per 7
-   post-it - a quel punto si perde la precisione dei 150px/100px,
-   meglio che un layout rotto. */
+   sotto cui la formula pura darebbe una zona troppo stretta per 3
+   post-it - a quel punto si perde la precisione dei 100px/50px,
+   meglio che un layout rotto.
+   Verticale: 90px sopra (sotto la riga di Torna all'index/Ko-fi/
+   selettore lingua) e altrettanto sotto (sopra Segnala bug, che sta
+   li' in basso a sinistra) - stessa distanza sopra e sotto, non piu'
+   bottom:0 che arrivava a toccare il pulsante. */
 .wish-column{
   display:none;
-  position:fixed; top:90px; bottom:0;
-  width:max(280px, calc(50vw - 570px));
+  position:fixed; top:90px; bottom:90px;
+  width:max(280px, calc(50vw - 470px));
   z-index:4;
   pointer-events:none; /* la zona in se' non e' cliccabile, solo i post-it dentro */
   border:2px dashed #22d3ee; /* solo per orientarsi mentre si regola la disposizione */
@@ -377,8 +381,8 @@
 @media (min-width:901px){
   .wish-column{ display:block; }
 }
-.wish-column--left{ left:100px; }
-.wish-column--right{ right:100px; left:auto; }
+.wish-column--left{ left:50px; }
+.wish-column--right{ right:50px; left:auto; }
 
 /* Il pool (#wishPool nell'HTML) e' il contenitore di partenza di
    TUTTE le varianti - ma solo quelle scelte in un dato momento
@@ -562,8 +566,8 @@
 
 .steam-column{
   display:none;
-  position:fixed; top:90px; bottom:0;
-  width:max(280px, calc(50vw - 570px));
+  position:fixed; top:90px; bottom:90px;
+  width:max(280px, calc(50vw - 470px));
   z-index:4;
   flex-direction:column; gap:14px;
   overflow-y:auto;
@@ -573,8 +577,8 @@ body.is-steam-mode .steam-column{ display:flex; }
 @media (min-width:901px){
   body.is-steam-mode .wish-column{ display:none; }
 }
-.steam-column--left{ left:100px; }
-.steam-column--right{ right:100px; }
+.steam-column--left{ left:50px; }
+.steam-column--right{ right:50px; }
 
 .steam-column__eyebrow{
   font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
