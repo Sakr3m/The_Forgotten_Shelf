@@ -1070,6 +1070,72 @@ const GAMES = {
     ]
   },
 
+  "final-fantasy": {
+    id: "final-fantasy",
+    listTitle: { it: "Final Fantasy", en: "Final Fantasy" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Final Fantasy", en: "Final Fantasy" },
+    blurb: {
+      it: "Cristalli, Chocobo, un personaggio di nome Cid in ogni capitolo: la saga JRPG più longeva e influente del medium, che da sempre rinuncia deliberatamente a una continuità condivisa in favore di mondi, cast e sistemi di combattimento sempre nuovi ad ogni numero.",
+      en: "Crystals, Chocobos, a character named Cid in every chapter: the medium's longest-running and most influential JRPG saga, which has always deliberately forgone a shared continuity in favour of new worlds, casts, and combat systems with every number."
+    },
+    palette: ["#1a3a5c", "#c9a227", "#c41e3a"],
+    accentColor: "#c9a227",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    noTimeline: true,
+    canonNote: {
+      intro: {
+        it: "A differenza di Doom, qui non c'è nemmeno un'ambiguità da risolvere: ogni capitolo numerato di Final Fantasy è, per scelta dichiarata degli sviluppatori fin dall'inizio, un mondo a sé, con propri personaggi, propria ambientazione e proprio sistema di combattimento, senza alcuna pretesa di continuità con gli altri numeri. I legami che si notano tra un capitolo e l'altro (il nome Cid dato a un personaggio diverso in ogni gioco, i Chocobo, i Moogle, i Cristalli come dispositivo narrativo ricorrente) sono firme stilistiche della saga, non indizi di un mondo condiviso. Le uniche vere continuità narrative esistono all'interno di un singolo numero: la Compilation of Final Fantasy VII (Crisis Core, Advent Children, Dirge of Cerberus, tutte ambientate nello stesso mondo di FFVII), il dittico X/X-2, la trilogia di Final Fantasy XIII (XIII, XIII-2, Lightning Returns) e l'universo espanso di Final Fantasy XV (il film Kingsglaive, la serie animata Brotherhood).",
+        en: "Unlike Doom, there isn't even an ambiguity to resolve here: every numbered Final Fantasy chapter is, by the developers' explicit choice from the very beginning, its own world, with its own characters, setting, and combat system, with no pretense of continuity with the other numbers. The threads that show up between one chapter and the next (the name Cid given to a different character in every game, Chocobos, Moogles, Crystals as a recurring narrative device) are stylistic signatures of the saga, not clues to a shared world. The only real narrative continuities exist within a single number: the Compilation of Final Fantasy VII (Crisis Core, Advent Children, Dirge of Cerberus, all set in FFVII's same world), the X/X-2 duology, the Final Fantasy XIII trilogy (XIII, XIII-2, Lightning Returns), and the expanded universe of Final Fantasy XV (the film Kingsglaive, the anime series Brotherhood)."
+      },
+      titles: {
+        it: "I, II, III, IV, V, VI, VII (+ Compilation), VIII, IX, X (+ X-2), XI (MMO), XII, XIII (+ XIII-2, Lightning Returns), XIV (MMO), XV (+ Kingsglaive, Brotherhood), XVI — mondi indipendenti, nessuna linea temporale tra un numero e l'altro",
+        en: "I, II, III, IV, V, VI, VII (+ Compilation), VIII, IX, X (+ X-2), XI (MMO), XII, XIII (+ XIII-2, Lightning Returns), XIV (MMO), XV (+ Kingsglaive, Brotherhood), XVI — independent worlds, no timeline between one number and the next"
+      },
+      outro: {
+        it: "Ogni capitolo, comprese le eventuali recensioni presenti altrove su questo sito, va quindi considerato e giudicato come un'opera a sé stante, non come un tassello di una storia più grande.",
+        en: "Each chapter, including any reviews found elsewhere on this site, should therefore be considered and judged as a standalone work, not as a piece of a larger story."
+      }
+    }
+  },
+
+  "fire-emblem": {
+    id: "fire-emblem",
+    listTitle: { it: "Fire Emblem", en: "Fire Emblem" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Fire Emblem", en: "Fire Emblem" },
+    blurb: {
+      it: "Strategia a turni su griglia con un costo emotivo reale: nella maggior parte dei capitoli, un'unità caduta in battaglia resta morta per sempre. A differenza di Final Fantasy, qui esistono davvero alcuni cluster di continuità confermata tra continenti diversi, anche se la saga nel suo complesso non ha mai avuto una linea temporale unica.",
+      en: "Grid-based tactical strategy with a real emotional cost: in most chapters, a unit fallen in battle stays dead for good. Unlike Final Fantasy, some genuinely confirmed continuity clusters do exist between different continents here, even though the saga as a whole has never had a single timeline."
+    },
+    palette: ["#8b1a1a", "#1a3a5c", "#c9a227"],
+    accentColor: "#8b1a1a",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    noTimeline: true,
+    canonNote: {
+      intro: {
+        it: "Più sfumata di Final Fantasy: qui non tutto è indipendente. Esistono almeno due cluster di continuità confermata dagli stessi sviluppatori. Il primo, il più esteso, collega Shadow Dragon, Mystery of the Emblem (e il remake New Mystery of the Emblem), Gaiden/Echoes: Shadows of Valentia e infine Awakening, ambientato duemila anni dopo sugli stessi continenti di Archanea e Valentia, semplicemente rinominati Ylisse e Valm nel frattempo — Awakening cita esplicitamente Marth ed eroi del passato come figure storiche leggendarie. Il secondo cluster, più piccolo, collega Genealogy of the Holy War e Thracia 776 sul continente di Jugdral, e un terzo Path of Radiance e Radiant Dawn su Tellius. Fates, uscito dopo Awakening, contiene solo accenni non confermati a un possibile legame con Ylisse (un personaggio di Awakening compare in una missione bonus), mai chiarito ufficialmente. Tutti gli altri capitoli (Sacred Stones, Three Houses, Engage e le uscite mobile) restano mondi a sé, senza legami dichiarati con nessuno dei cluster precedenti.",
+        en: "More nuanced than Final Fantasy: not everything here is independent. At least two continuity clusters are confirmed by the developers themselves. The largest one links Shadow Dragon, Mystery of the Emblem (and its remake New Mystery of the Emblem), Gaiden/Echoes: Shadows of Valentia, and finally Awakening, set two thousand years later on the same continents of Archanea and Valentia, simply renamed Ylisse and Valm in the meantime — Awakening explicitly references Marth and past heroes as legendary historical figures. A second, smaller cluster links Genealogy of the Holy War and Thracia 776 on the continent of Jugdral, and a third links Path of Radiance and Radiant Dawn on Tellius. Fates, released after Awakening, contains only unconfirmed hints of a possible link to Ylisse (an Awakening character appears in a bonus mission), never officially clarified. Every other chapter (Sacred Stones, Three Houses, Engage, and the mobile releases) remains its own world, with no declared ties to any of the previous clusters."
+      },
+      titles: {
+        it: "Cluster Archanea-Valentia-Ylisse: Shadow Dragon → Mystery of the Emblem → Gaiden/Echoes: Shadows of Valentia → Awakening (2000 anni dopo). Cluster Jugdral: Genealogy of the Holy War → Thracia 776. Cluster Tellius: Path of Radiance → Radiant Dawn. Tutti gli altri capitoli: mondi indipendenti",
+        en: "Archanea-Valentia-Ylisse cluster: Shadow Dragon → Mystery of the Emblem → Gaiden/Echoes: Shadows of Valentia → Awakening (2000 years later). Jugdral cluster: Genealogy of the Holy War → Thracia 776. Tellius cluster: Path of Radiance → Radiant Dawn. Every other chapter: independent worlds"
+      },
+      outro: {
+        it: "Anche dentro ai cluster confermati, i legami restano leggeri: nomi di divinità ricorrenti, un'eredità storica citata di sfuggita, mai un vero intreccio di trame come nelle saghe con una timeline unica vera e propria.",
+        en: "Even within the confirmed clusters, the ties remain light: recurring deity names, a historical legacy mentioned in passing, never a genuine plot intertwining like sagas with a true single timeline."
+      }
+    }
+  },
+
   "dying-light": {
     id: "dying-light",
     listTitle: { it: "Dying Light", en: "Dying Light" },
@@ -3309,7 +3375,7 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "elder-scrolls", "fallout", "gears-of-war", "god-of-war", "gta", "halo",
+  "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "elder-scrolls", "fallout", "final-fantasy", "fire-emblem", "gears-of-war", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
   "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "warcraft", "wolfenstein", "yakuza"
 ];
