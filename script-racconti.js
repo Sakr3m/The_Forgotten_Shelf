@@ -445,8 +445,11 @@ function buildAllEntryPanels(){
 
 // Legge lo stato salvato del lucchetto per la voce che si sta per
 // aprire e attiva/disattiva la sequenza di comparsa (vedi le regole
-// body[data-entry-animate="true"] in racconti.css). Il
-// removeAttribute + reflow forzato (void ...offsetWidth) prima di
+// body[data-entry-animate="true"] in racconti.css). LOGICA: lucchetto
+// SPENTO (default, il caso normale finche' l'utente non lo accende
+// per quella voce) = l'animazione si vede; lucchetto ACCESO = niente
+// animazione, la voce carica diretta com'era prima di questa feature.
+// Il removeAttribute + reflow forzato (void ...offsetWidth) prima di
 // riaggiungere l'attributo serve a far ripartire l'animazione da capo
 // anche passando da una voce animata a un'altra voce anch'essa
 // animata - senza, il browser non noterebbe alcun cambiamento (stesso
@@ -454,7 +457,7 @@ function buildAllEntryPanels(){
 function applicaAnimazioneVoce(id){
   const acceso = localStorage.getItem(LOCK_KEY_PREFIX + id) === "true";
   document.body.removeAttribute("data-entry-animate");
-  if(acceso){
+  if(!acceso){
     void document.body.offsetWidth;
     document.body.setAttribute("data-entry-animate", "true");
   }
