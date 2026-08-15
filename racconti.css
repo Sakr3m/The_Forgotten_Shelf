@@ -112,10 +112,10 @@
 .game-list__row .row-lock[aria-pressed="true"]{
   background:var(--panel); color:var(--item-accent, var(--cyan));
 }
-.game-list__row .row-lock[aria-pressed="true"] path{
-  fill:currentColor; /* l'icona (solo contorno di default, fill:none
-    nell'SVG) diventa piena quando il lucchetto e' acceso - il cerchio
-    intorno resta uguale a sempre, si "illumina" solo l'icona */
+.game-list__row .row-lock[aria-pressed="true"] rect{
+  fill:currentColor; /* solo il corpo (rettangolo) si riempie -
+    la staffa (l'arco sopra) resta un contorno anche da acceso,
+    come un vero lucchetto chiuso */
 }
 .row-lock[aria-pressed="true"]:hover,
 .row-lock[aria-pressed="true"]:focus,

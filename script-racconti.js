@@ -320,7 +320,7 @@ function creaLucchetto(id){
   const acceso = localStorage.getItem(LOCK_KEY_PREFIX + id) === "true";
   btn.setAttribute("aria-pressed", acceso ? "true" : "false");
   btn.setAttribute("aria-label", "Blocca/sblocca l'animazione di apertura per questa voce");
-  btn.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c1.4 0 2.5 1.1 2.5 2.5v3l1.5 2.5v1H4v-1L5.5 7V4c0-1.4 1.1-2.5 2.5-2.5z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg>`;
+  btn.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>`;
   btn.addEventListener("click", (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
