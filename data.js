@@ -2797,6 +2797,152 @@ const GAMES = {
     ]
   },
 
+  warcraft: {
+    id: "warcraft",
+    listTitle: { it: "Warcraft", en: "Warcraft" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Warcraft", en: "Warcraft" },
+    blurb: {
+      it: "Il mondo di Azeroth, dalla guerra tra Alleanza e Orda fino a minacce cosmiche capaci di minacciare la realtà stessa. La saga più vasta di questo archivio: tre giochi di strategia in tempo reale che hanno gettato le fondamenta, seguiti da vent'anni ininterrotti di espansioni per il gioco di ruolo online World of Warcraft, ognuna un capitolo narrativo a sé. Qui coperte solo le espansioni principali, non i dettagli delle singole patch o raid.",
+      en: "The world of Azeroth, from the war between the Alliance and the Horde to cosmic threats capable of endangering reality itself. The largest saga in this archive: three real-time strategy games that laid the groundwork, followed by twenty uninterrupted years of expansions for the MMORPG World of Warcraft, each its own narrative chapter. Only the main expansions are covered here, not individual patches or raids."
+    },
+    palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
+    accentColor: "#c9a227",
+    tracks: [],
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Avatar.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Banner.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
+    watermarkOpacity: 0.18,
+    universes: [
+      {
+        id: "trilogia-rts",
+        name: { it: "Trilogia RTS", en: "RTS Trilogy" },
+        span: { it: "Prima Guerra – Terza Guerra", en: "First War – Third War" },
+        entries: [
+          { id: "warcraft-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Prima Guerra", releaseYear: "1994", releaseYearEn: "1994",
+            title: { it: "Warcraft: Orcs & Humans", en: "Warcraft: Orcs & Humans" },
+            synopsis: {
+              it: "Gli orchi, giunti su Azeroth attraverso il Portale Oscuro aperto dal mago corrotto Medivh, invadono il regno umano di Stormwind, dando inizio alla Prima Guerra tra le due specie.",
+              en: "The orcs, having arrived on Azeroth through the Dark Portal opened by the corrupted mage Medivh, invade the human kingdom of Stormwind, starting the First War between the two species."
+            }
+          },
+          { id: "warcraft-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Seconda Guerra", releaseYear: "1995", releaseYearEn: "1995",
+            title: { it: "Warcraft II: Tides of Darkness", en: "Warcraft II: Tides of Darkness" },
+            synopsis: {
+              it: "Sconfitti a Stormwind, gli orchi dell'Horde riorganizzato invadono il resto di Azeroth; umani, elfi e nani formano l'Alleanza per respingerli nella Seconda Guerra, chiudendola con la cacciata dell'Horde da Azeroth stessa.",
+              en: "Defeated at Stormwind, the orcs of the reorganised Horde invade the rest of Azeroth; humans, elves, and dwarves form the Alliance to repel them in the Second War, ending it by driving the Horde out of Azeroth itself."
+            }
+          },
+          { id: "warcraft-2-btdp", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo la Seconda Guerra", releaseYear: "1996", releaseYearEn: "1996",
+            title: { it: "Beyond the Dark Portal", en: "Beyond the Dark Portal" },
+            synopsis: {
+              it: "L'Alleanza attraversa il Portale Oscuro fino a Draenor, il mondo natale degli orchi ormai devastato dalla propria stessa corruzione, per porre fine alla minaccia alla radice prima che possa tornare a colpire Azeroth.",
+              en: "The Alliance crosses the Dark Portal to Draenor, the orcs' home world now ravaged by its own corruption, to end the threat at its root before it can strike Azeroth again."
+            }
+          },
+          { id: "warcraft-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Terza Guerra", releaseYear: "2002", releaseYearEn: "2002",
+            title: { it: "Warcraft III: Reign of Chaos", en: "Warcraft III: Reign of Chaos" },
+            synopsis: {
+              it: "Il principe Arthas Menethil cade nella corruzione per fermare una piaga di non-morti, diventando egli stesso il primo Cavaliere della Morte al servizio del Flagello, mentre la Legione Infuocata manovra nell'ombra per aprire un varco verso Azeroth attraverso il Pozzo dell'Eternità.",
+              en: "Prince Arthas Menethil falls into corruption trying to stop an undead plague, becoming the first Death Knight in service to the Scourge, while the Burning Legion manoeuvres in the shadows to open a breach into Azeroth through the Well of Eternity."
+            }
+          },
+          { id: "warcraft-3-tft", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo Reign of Chaos", releaseYear: "2003", releaseYearEn: "2003",
+            title: { it: "The Frozen Throne", en: "The Frozen Throne" },
+            synopsis: {
+              it: "Arthas, ormai Re dei Non Morti, uccide il proprio padre e si fonde con Ner'zhul diventando il Re dei Liches, mentre gli elfi della notte e gli orchi guidati da Thrall respingono l'invasione della Legione Infuocata, chiudendo la Terza Guerra con un mondo profondamente trasformato.",
+              en: "Arthas, now the Lich King's champion, kills his own father and merges with Ner'zhul to become the Lich King, while the night elves and the orcs led by Thrall repel the Burning Legion's invasion, closing the Third War with a profoundly transformed world."
+            }
+          }
+        ]
+      },
+      {
+        id: "world-of-warcraft",
+        name: { it: "World of Warcraft", en: "World of Warcraft" },
+        span: { it: "2004 – oggi", en: "2004 – present" },
+        entries: [
+          { id: "wow-vanilla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo la Terza Guerra", releaseYear: "2004", releaseYearEn: "2004",
+            title: { it: "World of Warcraft", en: "World of Warcraft" },
+            synopsis: {
+              it: "Il gioco di ruolo online che trasforma Azeroth in un mondo persistente e condiviso, con Alleanza e Orda ancora in guerra mentre nuove minacce, tra cui i draghi corrotti dell'Incubo dello Smeraldo, emergono ai margini del conflitto.",
+              en: "The online role-playing game that turns Azeroth into a persistent, shared world, with the Alliance and the Horde still at war while new threats, including the corrupted dragons of the Emerald Nightmare, emerge at the edges of the conflict."
+            }
+          },
+          { id: "burning-crusade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "prima espansione", releaseYear: "2007", releaseYearEn: "2007",
+            title: { it: "The Burning Crusade", en: "The Burning Crusade" },
+            synopsis: {
+              it: "Il Portale Oscuro si riapre verso Draenor, ormai frammentato in Outland: gli eroi vi si spingono per fermare Illidan Grande Traditore e la Legione Infuocata, tornata a minacciare Azeroth dopo gli eventi di Warcraft III.",
+              en: "The Dark Portal reopens toward Draenor, now shattered into Outland: heroes venture there to stop Illidan the Betrayer and the Burning Legion, once again threatening Azeroth after the events of Warcraft III."
+            }
+          },
+          { id: "wrath-of-the-lich-king", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seconda espansione", releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Wrath of the Lich King", en: "Wrath of the Lich King" },
+            synopsis: {
+              it: "Gli eroi marciano su Northrend per porre fine una volta per tutte al regno di Arthas, ormai completamente il Re dei Liches, affrontandolo infine nella Cittadella della Corona di Ghiaccio.",
+              en: "Heroes march on Northrend to end Arthas's reign once and for all, now fully the Lich King, finally confronting him at the Icecrown Citadel."
+            }
+          },
+          { id: "cataclysm", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "terza espansione", releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Cataclysm", en: "Cataclysm" },
+            synopsis: {
+              it: "Deathwing, il Dragone Nero corrotto, emerge dalle profondità di Azeroth devastandone la superficie e ridisegnandone letteralmente la geografia, mentre gli eroi si alleano per fermarlo prima che possa distruggere il mondo stesso.",
+              en: "Deathwing, the corrupted Black Dragon, emerges from Azeroth's depths, devastating its surface and literally reshaping its geography, while heroes join forces to stop him before he can destroy the world itself."
+            }
+          },
+          { id: "mists-of-pandaria", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "quarta espansione", releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Mists of Pandaria", en: "Mists of Pandaria" },
+            synopsis: {
+              it: "Il continente nascosto di Pandaria riemerge dalla nebbia dopo secoli di isolamento; Alleanza e Orda, seguendovi, riaccendono il proprio conflitto proprio mentre lo scoprono, mettendo a rischio la sua fragile pace.",
+              en: "The hidden continent of Pandaria re-emerges from the mist after centuries of isolation; the Alliance and the Horde, following it there, reignite their conflict just as they discover it, endangering its fragile peace."
+            }
+          },
+          { id: "warlords-of-draenor", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "quinta espansione", releaseYear: "2014", releaseYearEn: "2014",
+            title: { it: "Warlords of Draenor", en: "Warlords of Draenor" },
+            synopsis: {
+              it: "Un viaggio nel tempo porta gli eroi su una Draenor alternativa, ancora integra, dove un'Orda di Ferro capeggiata da signori della guerra orcheschi minaccia di invadere Azeroth prima ancora che la storia originale abbia inizio.",
+              en: "A journey through time brings heroes to an alternate, still-intact Draenor, where an Iron Horde led by orcish warlords threatens to invade Azeroth before the original history has even begun."
+            }
+          },
+          { id: "legion", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "sesta espansione", releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Legion", en: "Legion" },
+            synopsis: {
+              it: "La Legione Infuocata invade Azeroth con la sua forza più massiccia di sempre; gli eroi diventano Cavalieri della Morte, Cacciatori di Demoni e altre classi d'elite per fermarla, mentre Illidan stesso torna in campo come alleato inatteso.",
+              en: "The Burning Legion invades Azeroth with its most massive force ever; heroes become Death Knights, Demon Hunters, and other elite classes to stop it, while Illidan himself returns to the field as an unexpected ally."
+            }
+          },
+          { id: "battle-for-azeroth", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "settima espansione", releaseYear: "2018", releaseYearEn: "2018",
+            title: { it: "Battle for Azeroth", en: "Battle for Azeroth" },
+            synopsis: {
+              it: "Sconfitta la Legione, Alleanza e Orda tornano a scontrarsi tra loro per il controllo di Azerite, una sostanza rivelatasi il sangue stesso del pianeta, mentre l'antico titano corrotto N'Zoth manipola entrambe le fazioni da dietro le quinte.",
+              en: "With the Legion defeated, the Alliance and the Horde clash again over control of Azerite, a substance revealed to be the planet's own blood, while the ancient corrupted titan N'Zoth manipulates both factions from behind the scenes."
+            }
+          },
+          { id: "shadowlands", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "ottava espansione", releaseYear: "2020", releaseYearEn: "2020",
+            title: { it: "Shadowlands", en: "Shadowlands" },
+            synopsis: {
+              it: "La morte di Sylvanas Windrunner spalanca un varco verso i Territori delle Ombre, l'aldilà stesso di Azeroth, dove il tessuto della morte è stato corrotto dal Custode Torghast: un intero regno cosmico da salvare dal collasso.",
+              en: "Sylvanas Windrunner's death tears open a rift into the Shadowlands, Azeroth's own afterlife, where the very fabric of death has been corrupted by the Jailer: an entire cosmic realm to save from collapse."
+            }
+          },
+          { id: "dragonflight", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "nona espansione", releaseYear: "2022", releaseYearEn: "2022",
+            title: { it: "Dragonflight", en: "Dragonflight" },
+            synopsis: {
+              it: "Gli eroi viaggiano nelle Isole dei Draghi, patria ancestrale degli stirpi draconiche, per aiutarle a ricostruire la propria società dopo secoli di assenza dagli affari di Azeroth, in un'espansione dal tono più luminoso dopo il cupo capitolo precedente.",
+              en: "Heroes travel to the Dragon Isles, the ancestral home of the dragonflights, to help them rebuild their society after centuries away from Azeroth's affairs, in an expansion with a notably brighter tone after the previous, grimmer chapter."
+            }
+          },
+          { id: "the-war-within", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decima espansione", releaseYear: "2024", releaseYearEn: "2024",
+            title: { it: "The War Within", en: "The War Within" },
+            synopsis: {
+              it: "Gli eroi scendono nelle profondità sotterranee di Azeroth per fermare i Nerubiani risvegliati e il Vuoto Nero che li corrompe, scoprendo che il cuore pulsante del pianeta stesso è in pericolo. Prima delle tre espansioni annunciate della trilogia \"Worldsoul Saga\".",
+              en: "Heroes descend into Azeroth's underground depths to stop the awakened Nerubians and the Void corrupting them, discovering that the planet's own beating heart is in danger. The first of three announced expansions in the \"Worldsoul Saga\" trilogy."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "remedy-universe": {
     id: "remedy-universe",
     listTitle: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
@@ -3027,5 +3173,5 @@ const GAMES = {
 const GAME_ORDER = [
   "ace-combat", "aitd", "assassins-creed", "castlevania", "diablo", "dmc", "doom", "dragon-quest", "dying-light", "gears-of-war", "god-of-war", "gta", "halo",
   "kingdom-hearts", "legacy-of-kain", "legend-of-zelda", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat", "pokemon", "prince-of-persia",
-  "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "wolfenstein", "yakuza"
+  "resident-evil", "silent-hill", "tomb-raider", "remedy-universe", "warcraft", "wolfenstein", "yakuza"
 ];
