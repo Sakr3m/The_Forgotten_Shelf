@@ -288,12 +288,19 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 
 /* Switch lingua e controlli musica: fanno parte del sistema condiviso
    .stage-topbar in styles.css (stesso di la_traccia_del_tempo.html), che li rende
-   "senza peso" nel flusso e a 100px dal bordo destro di default.
-   Solo qui, dentro la pagina di una voce (non in home, dove restano
-   a 100px), li riporto a 50px: la colonna Storie Nascoste riduce
-   ulteriormente lo spazio disponibile, quindi 100px sarebbe troppo. */
+   "senza peso" nel flusso e a 100px dal bordo destro di default -
+   uniformato: prima qui, in vista voce, veniva riportato a 50px per
+   lasciare piu' spazio alla colonna Storie Nascoste, ora resta a
+   100px ovunque come richiesto esplicitamente. */
 @media (min-width:901px){
-  body[data-state="entry"] .stage-topbar .stage-controls{ margin-right:-50px; }
+
+  /* Il file condiviso styles.css riduce .brand da 100 a 50px dal
+     bordo (margin-left:-50px) per ogni pagina che lo usa - qui,
+     solo su questa pagina, si annulla per tornare a 100px come
+     richiesto esplicitamente, senza toccare il file condiviso (che
+     cambierebbe la stessa cosa anche su Il Filo Nascosto e la
+     Timeline, mai discusse in questo contesto). */
+  .stage-topbar .brand{ margin-left:0; }
 
   /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
      link col trattino sotto di default, mai tolto su desktop - solo
@@ -546,22 +553,27 @@ body[data-state="entry"] .landing{ display:none; }
    su la_traccia_del_tempo.html (.title-watermark): grande immagine di sfondo,
    sfumata verso il testo, molto trasparente, dietro al contenuto
    (z-index:0, .entry-content sopra a z-index:1) e non interagibile.
-   Ancorata a right:var(--rail-width) (250px, la larghezza della
-   colonna destra), non piu' al vero bordo della finestra: quando
-   questa regola e' stata scritta non esisteva ancora una colonna
-   laterale in vista voce su questa pagina, ma ora c'e' (Libri) e la
-   filigrana le sconfinava sotto invece di fermarsi al suo bordo
-   sinistro. Stesso pattern gia' in uso altrove nel sito per lo
-   stesso identico problema.
+   Ritagliata con clip-path all'altezza della colonna destra (Libri),
+   che a differenza di quando questa regola e' stata scritta la prima
+   volta ora esiste anche in vista voce su questa pagina - senza il
+   ritaglio, la filigrana le sconfinava sotto. Il box e la scala
+   dell'immagine (right:0, width:42vw) restano quelli originali:
+   cambiare quei valori per "spostare" la filigrana la rimpicciolisce
+   soltanto (background-size:contain ricalcola la scala su un box piu'
+   stretto) - il clip-path invece taglia via la parte in eccesso senza
+   toccare la scala di cio' che resta visibile, un vero ritaglio.
    ============================================================ */
 .entry-watermark{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:245px; bottom:0; right:var(--rail-width); width:42vw; /* 245px =
+    position:fixed; top:245px; bottom:0; right:0; width:42vw; /* 245px =
       bordo inferiore reale di #pageHeader (banner), misurato — prima
       partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
       al banner e al testo sotto, invece di fermarsi li' */
+    clip-path:inset(0 var(--rail-width) 0 0); /* taglia via, dal bordo
+      destro del box, una fascia larga quanto la colonna Libri - lo
+      stesso confine dove la colonna comincia */
     background-size:contain; background-repeat:no-repeat; background-position:center bottom; /* 04/08:
       da "center" a "center bottom" — l'immagine si ancora al fondo del
       box (che gia' tocca bottom:0, cioe' il bordo pagina) invece di
