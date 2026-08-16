@@ -1346,7 +1346,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
     icona+testo torna centrato nella pillola. */
 
   /* Distanze del blocco hero riviste. */
-  .landing-title{ font-size:30px; line-height:30px; margin-top:35px; }
+  .landing-title{ font-size:25px; line-height:25px; margin-top:35px; }
   .landing-intro{ margin-top:15px; }
   .landing-sub{ margin-top:50px; }
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
@@ -1455,31 +1455,29 @@ body[data-entry-animate="true"] #watermarkBrightness{
    ============================================================ */
 @media (max-width:900px){
   /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea ANCH'ESSA
-     25px (non piu' 20px) - elimina alla radice l'incertezza del
-     testo che sporgeva dal proprio box quando la riga era piu'
-     piccola del font: ora box CSS e testo visivo coincidono
-     esattamente, nessuna stima necessaria.
-     Margini sopra/sotto ora UGUALI (20px/20px): il calcolo
-     precedente (9px sopra) considerava la distanza dalla riga
-     dell'header FUORI dal pannello, che ha gia' 76px di padding
-     suo - un ragionamento corretto sulla carta ma che non si vede
-     affatto a occhio: quello che si percepisce davvero e' solo lo
-     spazio immediato sopra/sotto il titolino, dove 9px e 20px
-     erano visibilmente sbilanciati. */
+     25px - box CSS e testo visivo coincidono esattamente.
+     Margini: TORNATO al calcolo originale (9px sopra, 20px sotto),
+     dopo un tentativo intermedio errato (margini CSS uguali, 20/20)
+     che sembrava piu' "onesto" ma in realta' NON dava affatto
+     distanze visive uguali - il pannello ha gia' 76px di padding
+     suo prima del titolino, che si somma comunque alla distanza
+     verso la riga dell'header (fuori dal pannello): 76+9-65=20px
+     verso l'header, 20px diretto verso la prima voce (che segue
+     subito, senza altro spazio in mezzo) - questi SI' sono davvero
+     20px/20px totali, verificato col conto completo. */
   .sidebar-eyebrow, .rail-label{
     font-size:25px; line-height:25px;
-    margin-top:20px; margin-bottom:20px;
+    margin-top:9px; margin-bottom:20px;
   }
 
   /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
      18px - sovrascrivo qui solo per mobile, il valore comune in
      styles.css/racconti.css resta 18px per desktop). */
   .game-list button, .game-list a{
-    line-height:20px;
+    line-height:25px;
     padding-top:5px; padding-bottom:5px;
   } /* Altezza totale della voce (padding + interlinea) portata a
-    30px: 5px sopra + 20px interlinea + 5px sotto (prima 25px, poi
-    corretto perche' troppo poco).
+    35px (era 30): 5px sopra + 25px interlinea (era 20) + 5px sotto.
     Testo, sfondo/evidenziazione in hover e striscia colorata seguono
     tutti l'altezza della voce, quindi si restringono/allargano
     insieme in un colpo solo, senza bisogno di toccarli uno per uno. */
