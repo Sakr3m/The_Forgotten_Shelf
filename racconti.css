@@ -1500,26 +1500,19 @@ body[data-entry-animate="true"] #watermarkBrightness{
     box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
   }
 
-  /* Margini laterali delle voci: 15px dal pannello sul lato esterno
-     (dove non c'e' la striscia). Sul lato interno (dove vive la
-     striscia, sempre a sinistra per entrambe le colonne) diventa
-     23px per via degli 8px di separazione aggiunti piu' sotto.
-     Larghezza tornata a 100% semplice (era ridotta per lasciare
-     spazio al lucchetto, che pero' su mobile e' nascosto: non serve
-     piu' nessuna riduzione, stessa larghezza piena di Il Filo
-     Nascosto). */
+  /* Margini laterali delle voci: il box/striscia resta a 15px dal
+     pannello (invariato). Il testo dentro arriva a un massimo di
+     20px su ENTRAMBI i lati (15+5px di padding proprio, simmetrico -
+     non piu' solo sul lato con la striscia). Larghezza tornata a
+     100% semplice (era ridotta per lasciare spazio al lucchetto, che
+     pero' su mobile e' nascosto: non serve piu' nessuna riduzione,
+     stessa larghezza piena di Il Filo Nascosto). */
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
   .side-rail{ padding-left:15px; padding-right:15px; padding-top:90px; }
-  #sidebar .game-list a{ width:100%; padding-left:8px; padding-right:0; } /* FIX: la
-    striscia vive sempre a sinistra (nessuno specchiamento, rubato da
-    Il Filo Nascosto) - con padding-left:0 il testo (qui allineato a
-    sinistra) partiva esattamente dove vive lei, sovrapponendosi.
-    8px di separazione: il lato sinistro/interno diventa 15+8=23px dal
-    bordo (non piu' 15 netti), quello destro/esterno resta 15px. */
-  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:8px; padding-right:0; } /* stesso
-    motivo: qui il testo e' allineato a destra, meno a rischio di
-    toccare la striscia (a sinistra) per titoli brevi, ma quelli
-    lunghi potrebbero comunque arrivarci - stessa protezione. */
+  #sidebar .game-list a{ width:100%; padding-left:5px; padding-right:5px; } /* Box/striscia
+    a 15px netti (dal padding del pannello sopra), testo a 15+5=20px
+    su ENTRAMBI i lati - non piu' solo sul lato con la striscia. */
+  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:5px; padding-right:5px; } /* stesso, specchiato */
 
   /* Lucchetto per voce: niente lucchetto su mobile, nascosto del
      tutto (richiesto esplicitamente - cambio rispetto a un tentativo
