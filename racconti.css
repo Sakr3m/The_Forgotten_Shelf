@@ -258,7 +258,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   background:var(--panel-raised);
 }
 .entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
-.entry-game-trigger .chevron{ width:10px; height:5px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
+.entry-game-trigger .chevron{ width:10px; height:10px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
 .entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
 
 .entry-game-menu{
