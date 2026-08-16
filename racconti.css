@@ -89,12 +89,10 @@
    striscia colorata non bastava a risolvere del tutto.
    Side-rail: stesso discorso specchiato (riduzione a sinistra invece
    che a destra, margin-left compensa lo spostamento). */
-#sidebar .game-list a{ padding-left:14px; padding-right:29px; }
-.side-rail .game-list a{ padding-left:25px; padding-right:14px; } /* 14px come
-  la sidebar (non piu' 10): con la striscia colorata a 5px, il vuoto
-  tra testo e striscia era 14-5=9px a sinistra ma solo 10-5=5px a
-  destra - stesso valore di padding su entrambi i lati pareggia il
-  distacco visivo (9px anche a destra ora). */
+#sidebar .game-list a{ width:calc(100% - 45px); padding-left:14px; padding-right:0; }
+.side-rail .game-list a{ width:calc(100% - 45px); margin-left:45px; padding-right:14px; padding-left:0; } /* 14px
+  esterno come la sidebar - il vuoto tra testo e striscia colorata
+  (5px) resta 9px su entrambi i lati, tarato stamattina. */
 
 /* La striscia colorata di evidenziazione (hover/attiva) e' sempre sul
    bordo sinistro nella regola condivisa in styles.css - qui, sulla
