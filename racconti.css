@@ -1514,8 +1514,12 @@ body[data-entry-animate="true"] #watermarkBrightness{
      (impostato piu' sotto); qui si aggiunge il resto. */
   .sidebar{ padding-left:20px; padding-right:20px; padding-top:85px; }
   .side-rail{ padding-left:20px; padding-right:20px; padding-top:85px; }
-  #sidebar .game-list a{ width:100%; padding-left:5px; padding-right:0; }
-  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:0; padding-right:5px; }
+  #sidebar .game-list a{ width:100%; margin-left:-5px; padding-left:10px; padding-right:0; } /* striscia
+    spostata 5px verso l'esterno: il margine negativo sposta il bordo
+    sinistro del blocco (dove vive la striscia, box-shadow) di 5px in
+    quella direzione; il padding compensato (5->10) mantiene il testo
+    esattamente dov'era prima. */
+  #storieRail .game-list a{ width:100%; margin-left:0; margin-right:-5px; padding-left:0; padding-right:10px; } /* stesso discorso, specchiato */
 
   /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
      touch-device non hanno un hover affidabile - l'utente non
