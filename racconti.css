@@ -1515,10 +1515,10 @@ body[data-entry-animate="true"] #watermarkBrightness{
      stessa larghezza piena di Il Filo Nascosto). */
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
   .side-rail{ padding-left:15px; padding-right:15px; padding-top:90px; }
-  #sidebar .game-list a{ width:100%; padding-left:5px; padding-right:5px; } /* Box/striscia
-    a 15px netti (dal padding del pannello sopra), testo a 15+5=20px
-    su ENTRAMBI i lati - non piu' solo sul lato con la striscia. */
-  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:5px; padding-right:5px; } /* stesso, specchiato */
+  #sidebar .game-list a{ width:100%; padding-left:15px; padding-right:15px; } /* Box/striscia
+    a 15px netti (dal padding del pannello sopra), testo a 15+15=30px
+    su ENTRAMBI i lati. */
+  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* stesso, specchiato */
 
   /* Lucchetto per voce: niente lucchetto su mobile, nascosto del
      tutto (richiesto esplicitamente - cambio rispetto a un tentativo
