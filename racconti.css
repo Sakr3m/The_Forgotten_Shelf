@@ -425,10 +425,15 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      tag restano fermi in vista - stessa tecnica gia' usata stamattina
      per la lista voci in sidebar (contenitore ad altezza fissa,
      flex:0 0 auto sugli elementi fissi, flex:1+overflow-y:auto su
-     quello che deve scorrere). 92px = 15px della topbar + 65px della
-     riga header + 12px di margine del titolo qui sopra: lo spazio
-     rimanente lo occupa .entry-content-text, che smette di crescere
-     col testo e lascia scorrere solo .entry-body al suo interno. */
+     quello che deve scorrere). Non basta pero' fissare l'altezza del
+     contenitore (.entry-content-text sotto): se la PAGINA stessa puo'
+     ancora scorrere, l'intero blocco - titolo compreso - si sposta
+     comunque insieme al resto, come infatti succedeva. Va bloccato lo
+     scroll della pagina stessa (qui sotto), cosi' l'unico scroll
+     possibile resta quello interno di .entry-body. 92px = 15px della
+     topbar + 65px della riga header + 12px di margine del titolo. */
+  body[data-state="entry"]{ overflow:hidden; height:100vh; }
+  html:has(body[data-state="entry"]){ overflow:hidden; height:100vh; }
   body[data-state="entry"] .entry-content-text{
     height:calc(100vh - 92px);
     overflow:hidden;
