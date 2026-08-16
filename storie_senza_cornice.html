@@ -227,6 +227,39 @@
     </aside>
   </div>
 
+  <script>
+    /* Fix per il bug: su mobile il carosello (.layout) parte allo
+       scroll 0, che mostra la SIDEBAR (primo pannello, vuota finche'
+       lo script principale non la popola) invece della home
+       (pannello centrale, .stage). Un primo tentativo con
+       scrollIntoView() e' stato tolto: chiamato cosi' presto, prima
+       che il layout fosse del tutto stabile, ha causato una rottura
+       peggiore del problema originale (probabile interazione con lo
+       scroll-snap durante un layout non ancora definitivo).
+       Approccio diverso, piu' sicuro: assegnazione DIRETTA di
+       scrollLeft, non scrollIntoView(). Nessun calcolo di
+       "allineamento migliore", nessuna interpretazione da parte del
+       browser - solo un salto immediato a un valore preciso.
+       Il valore (stageEl.offsetLeft) e' affidabile fin da subito:
+       la sidebar prima di lui ha width:100vw fissa su mobile (vedi
+       styles.css), un valore che dipende solo dalla larghezza dello
+       schermo, mai dai font o dal contenuto (che a questo punto non
+       ha ancora fatto in tempo a caricare). avvolto in try/catch:
+       se per qualunque motivo imprevisto qualcosa va storto qui,
+       fallisce in silenzio senza rompere il resto della pagina - lo
+       script principale (in fondo a script-racconti.js) resta
+       comunque presente come rete di sicurezza, corregge la
+       posizione piu' tardi se questo tentativo anticipato non fosse
+       bastato. */
+    try {
+      if (window.matchMedia("(max-width:900px)").matches) {
+        var layoutEl = document.querySelector(".layout");
+        var stageEl = document.getElementById("stage");
+        if (layoutEl && stageEl) layoutEl.scrollLeft = stageEl.offsetLeft;
+      }
+    } catch (e) {}
+  </script>
+
   <script src="data.js?v=20260809"></script>
   <script src="data-shared-tracks.js?v=20260812"></script>
   <script src="data-storie-teorie.js?v=20260809"></script>
