@@ -512,6 +512,14 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
     direction:ltr;
     unicode-bidi:isolate;
   }
+  body[data-state="entry"] .entry-body .title-like{
+    direction:ltr;
+    unicode-bidi:isolate;
+  } /* FIX: il widget dei like vive dentro .entry-body come elemento
+    separato dal testo (appeso li' da appendLikeWidget in
+    script-racconti.js) - la protezione data al solo .text-highlight
+    non lo copriva, quindi si specchiava (icona/testo in ordine
+    invertito) per lo stesso motivo del testo prima del fix. */
   body[data-state="entry"] .entry-body::-webkit-scrollbar{
     width:6px;
   }
