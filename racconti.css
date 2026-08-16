@@ -561,7 +561,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   body[data-state="entry"] .brand-icon{ display:none; }
   body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
   body[data-state="entry"] .brand .social-links{
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:15px;
   }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
@@ -1012,5 +1012,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .entry-game-trigger{
     border-width:2px;
   }
+
+  /* Home: gap tra Discord e Ko-fi portato a 15px (era 10px nel file
+     condiviso styles.css, qui sovrascritto solo per questa pagina).
+     Nelle voci lo stesso valore vive gia' sopra, su .brand
+     .social-links. */
+  body[data-state="landing"] .social-links{ gap:15px; }
 }
 
