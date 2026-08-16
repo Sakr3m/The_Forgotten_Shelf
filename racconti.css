@@ -897,6 +897,21 @@ body[data-state="entry"] .landing{ display:none; }
     background:var(--item-accent, var(--cyan));
     color:#000;
   }
+
+  /* Ritardo hover: la barra deve comparire solo dopo almeno 1s di
+     hover continuo nella sua area, non al primo passaggio distratto
+     del mouse - altrimenti "crea casini" (comparse/scomparse rapide
+     e involontarie). Il ritardo vale solo QUI, sull'apparizione (le
+     regole :hover, quelle che spingono opacity a 1): la scomparsa
+     (regola base, .watermark-brightness-line__slider/__tick/__preset
+     senza :hover, gia' definita in styles.css) resta rapida e senza
+     ritardo, cosi' basta allontanare il mouse per farla sparire
+     subito, senza dover aspettare. */
+  .watermark-brightness-line:hover .watermark-brightness-line__slider,
+  .watermark-brightness-line:hover .watermark-brightness-line__tick,
+  .watermark-brightness-line:hover .watermark-brightness-line__preset{
+    transition-delay:1s;
+  }
 }
 
 /* ============================================================
