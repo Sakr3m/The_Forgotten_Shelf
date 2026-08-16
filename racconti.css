@@ -14,10 +14,28 @@
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
 @media (min-width:901px){
-  #sidebar{ width:250px; } /* allineata a Timeline, entrambe 250px */
+  /* PROVA: 300px invece di 250 (var(--rail-width) resta 250 nel file
+     condiviso, qui la si sovrascrive in modo esplicito sul side-rail
+     invece di toccare la variabile - altrimenti sarebbe cambiata
+     anche su la_traccia_del_tempo.html, mai discussa in questo
+     contesto). */
+  #sidebar{ width:300px; }
+  .side-rail{ width:300px; }
+
+  /* report-bug-btn (in styles.css) e' ancorato a sidebar(250px)+100 =
+     350px dal bordo sinistro reale, per restare 100px dalla tabella
+     come da standard del sito. Con la sidebar a 300px quello stesso
+     calcolo va rifatto qui: 300+100 = 400px, solo su questa pagina. */
+  .report-bug-btn{ left:400px; }
+
+  /* Anche la barra di luminosita' della filigrana (.watermark-
+     brightness-line) e' ancorata nel file condiviso a 250px da
+     entrambi i lati (larghezza delle due tabelle prima di oggi) -
+     va spostata a 300px insieme a loro, solo su questa pagina. */
+  .watermark-brightness-line{ left:300px; right:300px; }
 }
 .side-rail{
-  width:var(--rail-width); flex-shrink:0; /* stessa variabile di Timeline (250px), non più 310px per conto suo */
+  flex-shrink:0;
   padding:24px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
@@ -753,9 +771,11 @@ body[data-state="entry"] .landing{ display:none; }
       bordo inferiore reale di #pageHeader (banner), misurato — prima
       partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
       al banner e al testo sotto, invece di fermarsi li' */
-    clip-path:inset(0 var(--rail-width) 0 0); /* taglia via, dal bordo
+    clip-path:inset(0 300px 0 0); /* taglia via, dal bordo
       destro del box, una fascia larga quanto la colonna Libri - lo
-      stesso confine dove la colonna comincia */
+      stesso confine dove la colonna comincia. 300px fisso invece
+      di var(--rail-width): qui la colonna e' larga 300px solo su
+      questa pagina, la variabile condivisa resta a 250. */
     background-size:contain; background-repeat:no-repeat; background-position:center bottom; /* 04/08:
       da "center" a "center bottom" — l'immagine si ancora al fondo del
       box (che gia' tocca bottom:0, cioe' il bordo pagina) invece di
