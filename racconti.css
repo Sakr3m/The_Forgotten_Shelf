@@ -5,10 +5,22 @@
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
-/* Titolo hero della sezione: EB Garamond corsivo, piu' pesante del
-   titolo di voce (.entry-title qui sotto, stesso font ma peso 500)
-   per dare piu' impatto all'ingresso in sezione. */
-.landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; width:360px; margin-left:auto; margin-right:auto; font-size:40px; line-height:50px; margin-top:35px; }
+/* Blocco hero della home: font-size e line-height fissati in px e
+   arrotondati a multipli di 5 (erano tutti in rem, valori non tondi:
+   .75rem=12px, 1rem=16px, .88rem=14.08px), poi ingranditi del 25% su
+   richiesta esplicita. Stessi identici numeri per IT ed EN: il
+   font-size non dipende dalla lingua, solo il testo cambia.
+   Tutto dentro una media query desktop: senza, queste regole (nessun
+   selettore piu' specifico delle regole mobile in styles.css)
+   vincerebbero comunque anche li' per puro ordine di caricamento del
+   file, rompendo le misure mobile gia' esistenti. */
+@media (min-width:901px){
+  .landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:45px; }
+  .landing-eyebrow{ font-size:15px; line-height:15px; }
+  .landing-intro{ font-size:20px; line-height:30px; margin-top:20px; max-width:800px; }
+  .landing-sub{ font-size:20px; line-height:25px; margin-top:65px; }
+  .landing{ max-width:950px; }
+}
 
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
@@ -1140,13 +1152,4 @@ body[data-entry-animate="true"] #watermarkBrightness{
    contenuto dentro si riassestava). report-bug-btn aveva gia' questa
    proprieta', questi due no - stesso trattamento, ora coerente. */
 .kofi-link, .index-link{ white-space:nowrap; }
-
-/* Blocco hero della home: font-size e line-height fissati in px e
-   arrotondati a multipli di 5 (erano tutti in rem, valori non tondi:
-   .75rem=12px, 1rem=16px, .88rem=14.08px). Il titolo (.landing-title)
-   e' gia' sistemato qui sopra. Stessi identici numeri per IT ed EN:
-   il font-size non dipende dalla lingua, solo il testo cambia. */
-.landing-eyebrow{ font-size:10px; line-height:10px; }
-.landing-intro{ font-size:15px; line-height:25px; margin-top:15px; }
-.landing-sub{ font-size:15px; line-height:20px; margin-top:50px; }
 
