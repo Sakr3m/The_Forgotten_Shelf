@@ -1139,14 +1139,23 @@ body[data-entry-animate="true"] #watermarkBrightness{
    styles.css resta invariato. Ristretta a #sidebar: .side-rail ha
    gia' la propria versione specchiata (-5px) qui sopra, una regola
    generica .game-list aggiunta in fondo al file vincerebbe anche li'
-   per ordine e romperebbe lo specchiamento. --- */
-#sidebar .game-list button.is-active:not(.row-lock),
-#sidebar .game-list a.is-active{
-  box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
-}
-#sidebar .game-list button:hover:not(.row-lock),
-#sidebar .game-list a:hover{
-  box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+   per ordine e romperebbe lo specchiamento.
+   FIX: questa regola non era MAI stata avvolta in una media query
+   (a differenza della sua gemella specchiata per .side-rail, che
+   invece e' correttamente dentro @media min-width:901px) - vinceva
+   quindi anche su mobile, grazie all'ID piu' specifico della classe
+   usata nelle regole mobile piu' recenti, facendo crescere la
+   striscia a 5px invece di restare i 3px voluti. Ora e' desktop-only
+   come doveva essere fin dall'inizio. --- */
+@media (min-width:901px){
+  #sidebar .game-list button.is-active:not(.row-lock),
+  #sidebar .game-list a.is-active{
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+  }
+  #sidebar .game-list button:hover:not(.row-lock),
+  #sidebar .game-list a:hover{
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+  }
 }
 
 /* --- PROVA: stesso trattamento anche sui pulsanti veri (2px invece
