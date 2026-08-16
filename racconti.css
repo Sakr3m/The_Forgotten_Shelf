@@ -819,7 +819,15 @@ body[data-state="entry"] .landing{ display:none; }
       senza bisogno di ritagliarla ulteriormente. */
     -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
     mask-image:linear-gradient(90deg, transparent, black 35%);
-    opacity:.35;
+    /* --- DEBUG/PROVA: box tratteggiato ciano per vedere i confini
+       esatti del contenitore mentre lavoriamo sulle misure. opacity
+       alzata a 1 (era .35) solo per questo motivo: un bordo dentro
+       un elemento con opacity ridotta erediterebbe la stessa
+       trasparenza e sarebbe troppo tenue per essere utile. Da
+       togliere (bordo + opacity tornata a .35) una volta finito. --- */
+    border:2px dashed var(--cyan);
+    box-sizing:border-box;
+    opacity:1; /* PROVA: era .35, alzata per vedere bene il bordo tratteggiato di debug */
     pointer-events:none;
     z-index:0;
   }
