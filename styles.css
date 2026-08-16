@@ -454,7 +454,7 @@ body[data-state="landing"] .brand{ display:none; }
 }
 .sidebar-eyebrow{
   font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:14px; padding:0 8px;
+  color:var(--text-faint); margin-bottom:33px; padding:0 8px;
   text-align:center;
   line-height:14px; /* = font-size, riga aderente al testo: a 33px dal
     bordo (9px di margin-top + 24px di padding del pannello), 14px di
@@ -495,7 +495,7 @@ body[data-state="landing"] .brand{ display:none; }
 }
 .rail-label{
   font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  color:var(--cyan); margin-bottom:23px; padding-bottom:10px; border-bottom:1px solid var(--line);
   text-align:center;
   line-height:14px; /* stessa logica di .sidebar-eyebrow qui sopra */
 }
