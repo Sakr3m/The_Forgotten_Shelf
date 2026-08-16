@@ -490,20 +490,27 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   body[data-state="entry"] .entry-body{
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
-    /* NIENTE trucco RTL/LTR qui (era stato provato per spostare la
-       scrollbar a sinistra, come sulle tabelle) - su prosa vera,
-       diversamente da una lista di voci discrete, il contesto RTL
-       corrompe la punteggiatura del testo (riordino imprevedibile dei
-       caratteri neutri secondo l'algoritmo bidi del browser). Tolto
-       subito: la scrollbar resta quindi sul lato destro standard,
-       responsabilita' da riprendere con un metodo diverso (es. una
-       finta scrollbar disegnata a mano, non quella nativa del
-       browser) se si vuole ancora spostarla a sinistra in sicurezza. */
+    /* Scrollbar sul lato sinistro, a 3px dalla riga della tabella:
+       stesso trucco RTL di prima, ma stavolta con unicode-bidi:isolate
+       sul testo interno (vedi .text-highlight piu' sotto) - la
+       proprieta' mancata nel tentativo precedente, che crea un vero
+       confine di isolamento bidi (lo stesso meccanismo del tag HTML
+       <bdi>), impedendo alla punteggiatura di risentire del contesto
+       RTL del genitore. margin-left/width/padding-left che spostano
+       fisicamente il box vivono nell'altra regola .entry-body piu'
+       sotto in questo file (quella con 100px/300px nel commento) -
+       tenuti in un solo posto per non doverli aggiornare in due punti
+       diversi ogni volta. */
+    direction:rtl;
     scrollbar-width:thin;
     scrollbar-color:transparent transparent;
   }
   body[data-state="entry"] .entry-body:hover{
     scrollbar-color:var(--line) transparent;
+  }
+  body[data-state="entry"] .entry-body .text-highlight{
+    direction:ltr;
+    unicode-bidi:isolate;
   }
   body[data-state="entry"] .entry-body::-webkit-scrollbar{
     width:6px;
@@ -583,16 +590,22 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
 
   /* Corpo del testo: 100px esatti dalla sidebar sinistra (lo stage ha
-     gia' 25px di padding suo, qui se ne aggiungono altri 75) e
-     massimo fino a 300px dalla tabella Libri a destra (stessa logica:
-     25 dello stage + 275 qui = 300 netti). box-sizing:border-box
-     perche' il padding si sottragga dalla larghezza invece di
-     aggiungersi; max-width rimosso (era 1080px nella regola di base)
-     perche' altrimenti avrebbe tagliato il testo prima di arrivare
-     davvero a quei 300px su schermi non larghissimi. */
+     gia' 25px di padding suo, qui se ne aggiungono altri 97 - saliti
+     da 75 per compensare il margine negativo qui sotto, che sposta il
+     box quasi fino al bordo per la scrollbar) e massimo fino a 300px
+     dalla tabella Libri a destra (25 dello stage + 275 qui = 300
+     netti, invariato). box-sizing:border-box perche' il padding si
+     sottragga dalla larghezza invece di aggiungersi; max-width
+     rimosso (era 1080px nella regola di base) perche' altrimenti
+     avrebbe tagliato il testo prima di arrivare davvero a quei 300px
+     su schermi non larghissimi. ATTENZIONE: margin-left/width/
+     padding-left ripetuti qui devono restare identici alla regola
+     scrollbar piu' sopra (stesso selettore, questa vince per ordine
+     nel file) - se si cambia un valore la' va cambiato anche qui. */
   .entry-body{
-    width:100%; align-self:flex-start; box-sizing:border-box;
-    padding-left:75px; padding-right:275px;
+    width:calc(100% + 22px); align-self:flex-start; box-sizing:border-box;
+    margin-left:-22px;
+    padding-left:97px; padding-right:275px;
     max-width:none;
   }
 }
