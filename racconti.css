@@ -1544,7 +1544,13 @@ body[data-entry-animate="true"] #watermarkBrightness{
    - GIALLO: la prima voce della lista (primo elemento).
    ============================================================ */
 @media (max-width:900px){
-  .sidebar, .side-rail{ border:3px dashed red; box-sizing:border-box; }
+  #sidebar .panel-inner, #storieRail .panel-inner{ border:3px dashed red; box-sizing:border-box; } /* FIX:
+    prima il bordo era su .sidebar/.side-rail, che parte da y:0 dello
+    schermo INTERO (dietro l'header, sovrapposto sopra con
+    position:fixed) - una parte del bordo restava nascosta,
+    impossibile da vedere. .panel-inner invece inizia DOPO il
+    padding-top del pannello, quindi il suo bordo superiore mostra
+    esattamente il punto vero in cui comincia il contenuto. */
   .sidebar-eyebrow, .rail-label{ border:3px dashed cyan; box-sizing:border-box; }
   .game-list__row:first-child{ border:3px dashed yellow; box-sizing:border-box; }
 }
