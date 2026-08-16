@@ -971,3 +971,24 @@ body[data-entry-animate="true"] #watermarkBrightness{
   box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
 }
 
+/* --- PROVA: stesso trattamento (3px invece di 1px) anche sui
+   pulsanti veri, sia in home (report-bug-btn, kofi-link, discord-
+   link, index-link, lang-switch, music-toggle, panel-toggle) sia
+   dentro le voci (lang-switch, music-toggle, entry-game-trigger -
+   gli altri quattro non compaiono li'). Solo su questa pagina,
+   styles.css resta a 1px per tutte le altre. Solo desktop: su
+   mobile i pulsanti sono gia' piu' piccoli (35-37px invece di 40),
+   un bordo da 3px li avrebbe resi sproporzionati. --- */
+@media (min-width:901px){
+  .report-bug-btn,
+  .kofi-link,
+  .discord-link,
+  .index-link,
+  .lang-switch,
+  .music-toggle,
+  .panel-toggle,
+  .entry-game-trigger{
+    border-width:3px;
+  }
+}
+
