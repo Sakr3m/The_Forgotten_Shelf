@@ -1537,20 +1537,27 @@ body[data-entry-animate="true"] #watermarkBrightness{
    DEBUG/PROVA - TEMPORANEO: bordi colorati per vedere insieme i box
    reali invece di continuare a calcolarli alla cieca. Da togliere
    una volta chiarito il problema del titolino non centrato.
-   - ROSSO: il pannello (sidebar/side-rail) - il suo bordo interno e'
-     dove finisce il padding-top (85px), cioe' dove il titolino
-     dovrebbe iniziare.
+   - ROSSO: il pannello (sidebar/side-rail) intero - la parte alta
+     resta dietro l'header (sovrapposto sopra, position:fixed),
+     quindi nascosta - e' normale, serve solo a vedere dove finisce
+     in basso.
+   - VERDE FOSFORESCENTE: riga indipendente, disegnata esattamente a
+     65px dal bordo dello schermo - la mia TEORIA su dove sta la riga
+     di confine dell'header (65px = 15px di padding sopra + 35px dei
+     pulsanti + 15px di padding sotto). Se questa riga verde non
+     coincide con quello che vedi tu come "fine dell'header", la mia
+     teoria e' sbagliata da qualche parte.
    - CIANO: il titolino stesso (sidebar-eyebrow/rail-label).
    - GIALLO: la prima voce della lista (primo elemento).
    ============================================================ */
 @media (max-width:900px){
-  #sidebar .panel-inner, #storieRail .panel-inner{ border:3px dashed red; box-sizing:border-box; } /* FIX:
-    prima il bordo era su .sidebar/.side-rail, che parte da y:0 dello
-    schermo INTERO (dietro l'header, sovrapposto sopra con
-    position:fixed) - una parte del bordo restava nascosta,
-    impossibile da vedere. .panel-inner invece inizia DOPO il
-    padding-top del pannello, quindi il suo bordo superiore mostra
-    esattamente il punto vero in cui comincia il contenuto. */
+  .sidebar, .side-rail{ border:3px dashed red; box-sizing:border-box; }
+  body[data-state="landing"]::after{
+    content:"";
+    position:fixed; top:65px; left:0; right:0; height:3px;
+    background:lime;
+    z-index:9999; pointer-events:none;
+  }
   .sidebar-eyebrow, .rail-label{ border:3px dashed cyan; box-sizing:border-box; }
   .game-list__row:first-child{ border:3px dashed yellow; box-sizing:border-box; }
 }
