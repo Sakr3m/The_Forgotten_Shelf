@@ -942,7 +942,15 @@ body[data-state="entry"] .landing{ display:none; }
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
   /* Richiesto esplicitamente: visibile anche in vista voce, non piu'
-     solo in home (prima c'era un display:none qui, tolto). */
+     solo in home (prima c'era un display:none qui, tolto). Qui
+     eredita anche il colore dell'opera aperta (--item-accent) per
+     contorno e icona, come gli altri pulsanti della pagina in questa
+     vista (musica, Ko-fi, Discord). In home resta ciano/grigio di
+     base, dato che --item-accent non ha senso senza una voce aperta. */
+  body[data-state="entry"] .panel-toggle{
+    border-color:var(--item-accent, var(--cyan));
+    color:var(--item-accent, var(--cyan));
+  }
   .panel-toggle:hover{ color:var(--text); }
   .panel-toggle svg{ width:20px; height:20px; }
   /* Di default (spento, tabelle sempre aperte): le due strisce
