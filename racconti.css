@@ -1087,5 +1087,15 @@ body[data-entry-animate="true"] #watermarkBrightness{
      il pulsante resta sempre fermo. */
   .music-control{ height:40px; }
   .track-info{ align-self:center; }
+
+  /* Il widget del like ora vive dentro .entry-body (vedi
+     script-racconti.js: serviva per farlo scorrere insieme al testo
+     invece di restare tagliato fuori dall'area bloccata della
+     pagina). Prima stava in un contenitore centrato a se stante ed
+     era inline-flex; qui dentro il testo, allineato a sinistra,
+     serve display:flex normale (va sempre a riga propria, sotto
+     l'ultima riga del racconto, invece di restare in linea con
+     l'ultima parola). */
+  .entry-body .title-like{ display:flex; }
 }
 

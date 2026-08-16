@@ -423,13 +423,19 @@ function updatePanelText(key){
     <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-copyright">${t("entryCopyright")}</p>
     ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
-    <p class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></p>
+    <div class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></div>
   `;
   // l'etichetta del cuoricino ("Lascia un like"/"Leave a like") va
   // ricostruita anche lei al cambio lingua, appendLikeWidget rimuove
   // da solo quello vecchio prima di aggiungerne uno nuovo, quindi e'
-  // sicuro richiamarla di nuovo qui.
-  appendLikeWidget(rec.panel, rec.id);
+  // sicuro richiamarla di nuovo qui. Aggiunta DENTRO .entry-body (non
+  // piu' su rec.panel, il pannello intero): su Storie Senza Cornice
+  // .entry-body e' ora l'unica area scorrevole della voce (titolo/tag/
+  // copyright restano fermi) - se il like resta fuori da li' finisce
+  // tagliato sotto il bordo bloccato della pagina, mai raggiungibile.
+  // Dentro .entry-body invece scorre insieme al testo, come dovrebbe.
+  const bodyEl = rec.textWrap.querySelector(".entry-body");
+  appendLikeWidget(bodyEl || rec.panel, rec.id);
 }
 
 function updateAllPanelsText(){
