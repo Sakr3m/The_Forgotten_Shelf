@@ -52,7 +52,7 @@
      height:auto perche' ora sono due righe, non piu' una sola da
      20px fissi. */
   .watermark-brightness-line{
-    left:400px; right:400px; top:83px;
+    left:400px; right:400px; top:81px;
     flex-direction:column; align-items:stretch;
     height:auto;
   }
