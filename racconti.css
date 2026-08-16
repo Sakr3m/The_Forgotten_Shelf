@@ -80,7 +80,7 @@
 .side-rail .game-list a.is-active,
 .side-rail .game-list button:hover,
 .side-rail .game-list a:hover{
-  box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan));
+  box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
 }
 
 /* Pulsante lucchetto per voce: vive nello spazio interno (verso lo
@@ -961,30 +961,31 @@ body[data-entry-animate="true"] #watermarkBrightness{
 }
 
 /* --- PROVA: contorno colorato delle voci (attiva/hover) portato da
-   2px a 3px. Vale sia in home che nelle voci, dato che la regola
-   condivisa in styles.css non distingue i due stati - qui la
-   sovrascrivo solo per questa pagina, styles.css resta invariato.
-   Ristretta a #sidebar: .side-rail ha gia' la propria versione
-   specchiata (-3px) qui sopra, una regola generica .game-list
-   aggiunta in fondo al file vincerebbe anche li' per ordine e
-   romperebbe lo specchiamento. --- */
+   2px a 5px (prima un tentativo intermedio a 3px). Vale sia in home
+   che nelle voci, dato che la regola condivisa in styles.css non
+   distingue i due stati - qui la sovrascrivo solo per questa pagina,
+   styles.css resta invariato. Ristretta a #sidebar: .side-rail ha
+   gia' la propria versione specchiata (-5px) qui sopra, una regola
+   generica .game-list aggiunta in fondo al file vincerebbe anche li'
+   per ordine e romperebbe lo specchiamento. --- */
 #sidebar .game-list button.is-active:not(.row-lock),
 #sidebar .game-list a.is-active{
-  box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
+  box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
 }
 #sidebar .game-list button:hover:not(.row-lock),
 #sidebar .game-list a:hover{
-  box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
+  box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
 }
 
-/* --- PROVA: stesso trattamento (3px invece di 1px) anche sui
-   pulsanti veri, sia in home (report-bug-btn, kofi-link, discord-
-   link, index-link, lang-switch, music-toggle, panel-toggle) sia
-   dentro le voci (lang-switch, music-toggle, entry-game-trigger -
-   gli altri quattro non compaiono li'). Solo su questa pagina,
-   styles.css resta a 1px per tutte le altre. Solo desktop: su
-   mobile i pulsanti sono gia' piu' piccoli (35-37px invece di 40),
-   un bordo da 3px li avrebbe resi sproporzionati. --- */
+/* --- PROVA: stesso trattamento anche sui pulsanti veri (2px invece
+   di 1px - prima un tentativo a 3px, si e' scelto di tenere le due
+   cose separate: 2px sui pulsanti, 5px sulla striscia delle voci
+   qui sopra), sia in home (report-bug-btn, kofi-link, discord-link,
+   index-link, lang-switch, music-toggle, panel-toggle) sia dentro
+   le voci (lang-switch, music-toggle, entry-game-trigger - gli
+   altri quattro non compaiono li'). Solo su questa pagina, styles.css
+   resta a 1px per tutte le altre. Solo desktop: su mobile i pulsanti
+   sono gia' piu' piccoli (35-37px invece di 40). --- */
 @media (min-width:901px){
   .report-bug-btn,
   .kofi-link,
@@ -994,7 +995,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .music-toggle,
   .panel-toggle,
   .entry-game-trigger{
-    border-width:3px;
+    border-width:2px;
   }
 }
 
