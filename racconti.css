@@ -752,7 +752,10 @@ body[data-state="entry"] .landing{ display:none; }
   .track-info__game{ display:none; }
 
   .entry-panel{ margin-top:16px; max-width:100%; }
-  .entry-title{ font-size:1.3rem; max-width:100%; }
+  .entry-title{ font-size:30px; line-height:30px; max-width:100%; } /* interlinea
+    uguale al font-size (era 42px ereditati, con font 1.3rem/20.8px -
+    box molto piu' alto del testo vero, stesso problema del titolino
+    appena risolto). Ora coincidono, nessun vuoto extra sopra/sotto. */
   .entry-body{ max-width:100%; font-size:.92rem; }
 
   /* Niente slider del volume su mobile, solo il pulsante toggle. */
@@ -859,7 +862,7 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
      valori condivisi (12px/12px/33px) mai toccati qui. */
-  .entry-copyright{ margin-top:5px; }
+  .entry-copyright{ margin-top:5px; font-size:10px; }
   .entry-tag{ margin-top:10px; }
   .entry-body{ margin-top:30px; }
   body[data-state="entry"] .music-control{
