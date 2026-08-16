@@ -375,7 +375,7 @@ function renderLists(){
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
     li.appendChild(btn);
-    li.appendChild(creaLucchetto(id));
+    li.appendChild(creaLucchetto(item.game));
     el.teorieList.appendChild(li);
   });
 
@@ -391,7 +391,7 @@ function renderLists(){
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
     li.appendChild(btn);
-    li.appendChild(creaLucchetto(id));
+    li.appendChild(creaLucchetto(item.game));
     el.storieList.appendChild(li);
   });
 }
@@ -475,8 +475,8 @@ function buildAllEntryPanels(){
 // anche passando da una voce animata a un'altra voce anch'essa
 // animata - senza, il browser non noterebbe alcun cambiamento (stesso
 // valore dell'attributo di prima) e le regole non si riattiverebbero.
-function applicaAnimazioneVoce(id){
-  const acceso = localStorage.getItem(LOCK_KEY_PREFIX + id) === "true";
+function applicaAnimazioneVoce(entry){
+  const acceso = localStorage.getItem(LOCK_KEY_PREFIX + entry.game) === "true";
   document.body.removeAttribute("data-entry-animate");
   if(!acceso){
     void document.body.offsetWidth;
@@ -490,7 +490,7 @@ function renderEntry(){
     return;
   }
 
-  applicaAnimazioneVoce(state.entryId);
+  applicaAnimazioneVoce(entry);
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   const isMobile = window.matchMedia("(max-width:900px)").matches;
