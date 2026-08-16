@@ -829,7 +829,7 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.4);
+    position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.45);
     /* 230px = dove inizia davvero lo spazio del testo, non piu' la
        riga dell'header (80px). Somma: 80 (bordo riga header) + 12
        (margine di .entry-panel) + 42 (altezza del titolo, 35px di
@@ -841,7 +841,7 @@ body[data-state="entry"] .landing{ display:none; }
        li', non piu' a right:0 (bordo vero della finestra, DIETRO
        Libri - motivo per cui prima le filigrane sparivano del tutto,
        il clip-path lasciava visibile solo la fascia gia' coperta
-       dalla colonna). width: 40% dell'area (100vw meno le due
+       dalla colonna). width: 45% dell'area (100vw meno le due
        tabelle da 300px ciascuna = larghezza dello stage). */
     background-size:auto 100%; background-repeat:no-repeat; background-position:right center; /* auto 100%:
       l'immagine riempie sempre tutta l'altezza del box (dalla riga
@@ -849,8 +849,8 @@ body[data-state="entry"] .landing{ display:none; }
       Ancorata a destra (right center) dentro al box, che essendo
       largo esattamente 1/3 dell'area la contiene gia' correttamente
       senza bisogno di ritagliarla ulteriormente. */
-    -webkit-mask-image:linear-gradient(90deg, transparent, black 7%);
-    mask-image:linear-gradient(90deg, transparent, black 7%);
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 5%);
+    mask-image:linear-gradient(90deg, transparent, black 5%);
     /* --- DEBUG/PROVA: box tratteggiato ciano per vedere i confini
        esatti del contenitore mentre lavoriamo sulle misure. opacity
        alzata a 1 (era .35) solo per questo motivo: un bordo dentro
