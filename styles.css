@@ -1228,9 +1228,6 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     padding:12px 14px; /* +20% rispetto ai 10px/12px di base (font invariato,
       solo l'area colorata/toccabile cresce) */
   }
-  .game-list li:first-child{ margin-top:21px; } /* meta dell'altezza di una
-    voce (~42px con il nuovo padding), cosi la prima non parte a filo del
-    bordo alto */
   .sidebar-eyebrow, .rail-label{ text-align:center; }
 
   /* --- Stage --- */

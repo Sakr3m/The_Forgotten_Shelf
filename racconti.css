@@ -1507,20 +1507,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
     alcuni browser, mostrando l'evidenziazione anche quando la voce
     non e' davvero selezionata. */
 
-  /* FIX - CAUSA VERA dello spazio in eccesso tra titolino e prima
-     voce: styles.css ha una regola legacy, precedente a tutto il
-     lavoro di oggi sui titolini, che aggiunge margin-top:21px al
-     primo elemento della lista (pensata per un layout diverso, dove
-     la distanza andava creata cosi'). Questa regola e' rimasta
-     attiva e si sommava silenziosamente al margin-bottom del
-     titolino, senza comparire in nessuno dei calcoli fatti finora -
-     era invisibile perche' vive nel file condiviso, mai controllato
-     per questo problema specifico. Azzerata SOLO qui (racconti.css,
-     non tocco styles.css: potrebbe ancora servire ad altre pagine) -
-     ora il titolino controlla la distanza da solo, con margin-bottom,
-     senza bisogno di nessun margine extra sulla voce stessa. */
-  .game-list li:first-child{ margin-top:0; }
-
   /* Margini laterali delle voci: 20px dal pannello. Piu' 5px extra
      sul lato dove vive la striscia colorata (sinistra per sidebar,
      destra per side-rail), richiesti esplicitamente - senza, il
