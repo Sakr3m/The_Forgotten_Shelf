@@ -62,7 +62,7 @@
 .side-rail .game-list a.is-active,
 .side-rail .game-list button:hover,
 .side-rail .game-list a:hover{
-  box-shadow:inset -2px 0 0 var(--item-accent, var(--cyan));
+  box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan));
 }
 
 /* Pulsante lucchetto per voce: vive nello spazio interno (verso lo
@@ -932,5 +932,22 @@ body[data-entry-animate="true"] .entry-panel{
 }
 body[data-entry-animate="true"] #watermarkBrightness{
   animation:tfs-enable-pointer 3s linear forwards;
+}
+
+/* --- PROVA: contorno colorato delle voci (attiva/hover) portato da
+   2px a 3px. Vale sia in home che nelle voci, dato che la regola
+   condivisa in styles.css non distingue i due stati - qui la
+   sovrascrivo solo per questa pagina, styles.css resta invariato.
+   Ristretta a #sidebar: .side-rail ha gia' la propria versione
+   specchiata (-3px) qui sopra, una regola generica .game-list
+   aggiunta in fondo al file vincerebbe anche li' per ordine e
+   romperebbe lo specchiamento. --- */
+#sidebar .game-list button.is-active:not(.row-lock),
+#sidebar .game-list a.is-active{
+  box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
+}
+#sidebar .game-list button:hover:not(.row-lock),
+#sidebar .game-list a:hover{
+  box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
 }
 
