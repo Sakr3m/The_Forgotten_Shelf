@@ -178,7 +178,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 }
 .entry-game-trigger{
   display:flex; align-items:center; gap:8px;
-  height:36px; padding:0 16px;
+  height:40px; box-sizing:border-box; padding:0 16px;
   border:1px solid var(--item-accent, var(--cyan));
   background:var(--panel);
   border-radius:999px;
