@@ -1307,6 +1307,15 @@ body[data-entry-animate="true"] #watermarkBrightness{
      loro (10px, era 8) - override della regola condivisa in
      styles.css, che vale anche per altre pagine: qui la sovrascrivo
      solo per Storie Senza Cornice, senza toccare il file comune. */
-  .stage-controls{ top:15px; gap:10px; }
+  .stage-controls{ top:15px; right:15px; gap:10px; }
+
+  /* Torna all'index (a sinistra, isolato dal gruppo): era
+     position:static, cioe' seguiva il flusso naturale della pagina
+     invece di una coordinata precisa - impossibile garantire un
+     valore esatto cosi'. Riportato a position:fixed (come nella
+     regola base, desktop) con coordinate esplicite: stessa distanza
+     dal bordo richiesta anche per il gruppo di destra (15px), stessa
+     quota dall'alto degli altri pulsanti. */
+  .index-link{ position:fixed; top:15px; left:15px; }
 }
 
