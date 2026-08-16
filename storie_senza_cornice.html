@@ -227,6 +227,28 @@
     </aside>
   </div>
 
+  <script>
+    /* Fix: su mobile il carosello (.layout) parte allo scroll 0, che
+       mostra la SIDEBAR (primo pannello) invece della home (pannello
+       centrale, .stage) - lo script vero che corregge la posizione
+       (stageEl.scrollIntoView) vive in fondo a script-racconti.js,
+       che pero' parte solo DOPO aver scaricato ed eseguito tutti i
+       file dati piu' pesanti (data.js, data-racconti.js ecc). Su
+       connessioni piu' lente quel ritardo si vede: per un attimo
+       compare la sidebar (vuota, la lista non e' stata ancora
+       popolata) prima che la pagina scatti sulla home - da qui il
+       "a volte, non sempre" segnalato: dipende da quanto ci mette
+       quel caricamento. Questo scriptino minuscolo gira invece
+       SUBITO, appena il browser arriva a questo punto dell'HTML -
+       ben prima che i file pesanti comincino anche solo a scaricare -
+       eliminando quasi del tutto la finestra in cui il problema puo'
+       capitare. */
+    if (window.matchMedia("(max-width:900px)").matches) {
+      var stageEl = document.getElementById("stage");
+      if (stageEl) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+    }
+  </script>
+
   <script src="data.js?v=20260809"></script>
   <script src="data-shared-tracks.js?v=20260812"></script>
   <script src="data-storie-teorie.js?v=20260809"></script>

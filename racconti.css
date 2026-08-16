@@ -1282,13 +1282,18 @@ body[data-entry-animate="true"] #watermarkBrightness{
 @media (max-width:900px){
   .landing-video-btn{
     display:flex; align-items:center; justify-content:center; gap:8px;
-    height:35px; box-sizing:border-box; padding:0 22px;
-    margin-top:30px;
+    height:35px; box-sizing:border-box; padding:0 22px 0 17px;
+    margin-top:50px;
     border:1px solid var(--cyan);
     background:var(--panel);
     border-radius:999px;
     font-size:13px; font-weight:600; color:var(--text-dim);
-  }
+  } /* padding asimmetrico (17px sinistra, 22px destra) apposta:
+    l'icona play (triangolo) ha piu' spazio vuoto trasparente nel suo
+    stesso riquadro sul lato sinistro che su quello destro (il
+    disegno stesso, non un errore di padding) - compensato riducendo
+    il padding-left di 5px, cosi' il "peso visivo" combinato di
+    icona+testo torna centrato nella pillola. */
 
   /* Distanze del blocco hero riviste. */
   .landing-title{ margin-top:35px; }
