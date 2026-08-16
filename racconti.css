@@ -1132,3 +1132,12 @@ body[data-entry-animate="true"] #watermarkBrightness{
   }
 }
 
+/* Fix: "Sostienimi su Ko-fi" e "Torna all'index" andavano visibilmente
+   a capo su due righe per un attimo al caricamento/refresh - il font
+   di riserva (prima che Inter finisse di caricare) occupa piu' spazio
+   di quello vero, e senza white-space:nowrap il testo si adattava
+   spezzandosi su due righe dentro il pillolo (larghezza fissa, ma il
+   contenuto dentro si riassestava). report-bug-btn aveva gia' questa
+   proprieta', questi due no - stesso trattamento, ora coerente. */
+.kofi-link, .index-link{ white-space:nowrap; }
+
