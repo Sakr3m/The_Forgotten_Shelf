@@ -687,8 +687,8 @@ body[data-state="entry"] .landing{ display:none; }
      riprogettato per essere centrato usa questo valore invece del
      proprio margin-top), il titolino stesso ha margini 0+20px. --- */
   .sidebar .game-list, .side-rail .game-list{
-    max-height:calc(100vh - 155px);
-    max-height:calc(100dvh - 155px);
+    max-height:calc(100vh - 165px);
+    max-height:calc(100dvh - 165px);
     overflow-y:auto;
   }
 
@@ -1470,7 +1470,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      numero per lato, ciascuno verificabile da solo. */
   .sidebar-eyebrow, .rail-label{
     font-size:25px; line-height:25px;
-    margin-top:0; margin-bottom:20px;
+    margin-top:0; margin-bottom:25px;
   }
 
   /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
@@ -1485,26 +1485,17 @@ body[data-entry-animate="true"] #watermarkBrightness{
     tutti l'altezza della voce, quindi si restringono/allargano
     insieme in un colpo solo, senza bisogno di toccarli uno per uno. */
 
-  /* Striscia colorata: cambio di programma - non piu' permanente,
-     solo sulla voce SELEZIONATA (.is-active), niente hover (sui
-     touch-device non e' affidabile). Sottile 3px (era 5px solo su
-     desktop in quello stato, 2px di default altrove). Selettore con
-     #sidebar/#storieRail (ID, piu' specifico della sola classe) per
-     vincere sulle regole gia' esistenti in styles.css. Direzione
-     invariata: sidebar verso il bordo esterno (sinistra), side-rail
-     verso il suo bordo esterno (destra) - specchiate. */
-  #sidebar .game-list a.is-active{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); }
-  #storieRail .game-list a.is-active{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); }
-  #sidebar .game-list a:not(.is-active),
-  #storieRail .game-list a:not(.is-active){
+  /* Nessuna evidenziazione: richiesto esplicitamente di togliere
+     striscia, sfondo e cambio di colore/peso del testo - le voci
+     restano sempre uguali a se stesse, selezionate o no, hover o no.
+     Azzerato incondizionatamente (non piu' solo su :not(.is-active))
+     con #sidebar/#storieRail (ID, vince su tutte le regole gia'
+     esistenti in styles.css, comprese quelle per .is-active). */
+  #sidebar .game-list a,
+  #storieRail .game-list a{
     box-shadow:none; background:none;
     color:var(--text-dim); font-weight:500;
-  } /* azzera esplicitamente tutto l'effetto hover che styles.css
-    applicherebbe comunque (sfondo, colore, peso del testo, striscia)
-    - su mobile l'hover puo' restare "incollato" dopo un tocco su
-    alcuni browser, mostrando l'evidenziazione anche quando la voce
-    non e' davvero selezionata. I valori qui sono lo stato di riposo
-    normale (styles.css, .game-list button/a base). */
+  }
 
   /* Margini laterali delle voci: 20px dal pannello. Piu' 5px extra
      sul lato dove vive la striscia colorata (sinistra per sidebar,
@@ -1512,8 +1503,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
      testo tocca la striscia (entrambi partivano dallo stesso bordo,
      padding a 0 su quel lato). Il pannello ha 20px di padding suo
      (impostato piu' sotto); qui si aggiunge il resto. */
-  .sidebar{ padding-left:20px; padding-right:20px; padding-top:85px; }
-  .side-rail{ padding-left:20px; padding-right:20px; padding-top:85px; }
+  .sidebar{ padding-left:20px; padding-right:20px; padding-top:90px; }
+  .side-rail{ padding-left:20px; padding-right:20px; padding-top:90px; }
   #sidebar .game-list a{ width:100%; margin-left:-5px; padding-left:10px; padding-right:0; } /* striscia
     spostata 5px verso l'esterno: il margine negativo sposta il bordo
     sinistro del blocco (dove vive la striscia, box-shadow) di 5px in
