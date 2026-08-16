@@ -15,6 +15,16 @@
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
 @media (min-width:901px){
   #sidebar{ width:250px; } /* allineata a Timeline, entrambe 250px */
+
+  /* "Racconti Brevi"/"Libri" allineate al centro verticale dei
+     pulsanti in alto (40px di altezza, 20px di margine dal bordo =
+     centro a 40px dal bordo pagina). Partendo dai 24px di padding
+     del pannello, il testo da solo ha il centro intorno ai 30px -
+     10px di margin-top in piu' lo spostano giu' fino a combaciare.
+     Solo su questa pagina: styles.css resta invariato perche' le
+     stesse classi servono anche a Il Filo Nascosto e alla Timeline,
+     mai discusse in questo contesto. */
+  .sidebar-eyebrow, .rail-label{ margin-top:10px; }
 }
 .side-rail{
   width:var(--rail-width); flex-shrink:0; /* stessa variabile di Timeline (250px), non più 310px per conto suo */
