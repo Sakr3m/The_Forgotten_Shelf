@@ -1525,3 +1525,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
 }
 
 
+
+/* DEBUG/PROVA - TEMPORANEO: bordo sul vero contenitore del titolino
+   (non solo il testo) + sfondo sulla lista, per vedere se c'e' dello
+   spazio nascosto tra i due che il calcolo CSS non spiega. */
+@media (max-width:900px){
+  .eyebrow-wrap{ border:3px dashed magenta; box-sizing:border-box; }
+  .game-list{ background:rgba(0,255,0,.15); }
+}
