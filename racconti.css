@@ -40,11 +40,11 @@
      height:auto perche' ora sono due righe, non piu' una sola da
      20px fissi. */
   .watermark-brightness-line{
-    left:300px; right:300px; top:83px;
-    flex-direction:column; align-items:center;
+    left:400px; right:400px; top:83px;
+    flex-direction:column; align-items:stretch;
     height:auto;
   }
-  .watermark-brightness-line__track{ order:1; }
+  .watermark-brightness-line__track{ order:1; max-width:none; }
 }
 .side-rail{
   flex-shrink:0;
@@ -845,7 +845,7 @@ body[data-state="entry"] .landing{ display:none; }
   .watermark-brightness-line__presets{
     display:flex; align-items:center; gap:4px;
     order:2; margin-right:0; margin-top:6px;
-    width:100%; max-width:900px; justify-content:flex-end;
+    width:100%; justify-content:flex-end;
   }
   .watermark-brightness-line__preset{
     width:22px; height:26px;
@@ -984,14 +984,12 @@ body[data-state="entry"] .landing{ display:none; }
   100%{ pointer-events:auto; }
 }
 
-body[data-entry-animate="true"] #pageHeaderBanner,
-body[data-entry-animate="true"] .game-header__banner-overlay,
-body[data-entry-animate="true"] #entryWatermarkWrap{
+body[data-entry-animate="true"] .entry-panel{
   opacity:0;
   animation:tfs-fade-in 1s ease forwards;
   animation-delay:.5s;
 }
-body[data-entry-animate="true"] .entry-panel{
+body[data-entry-animate="true"] #entryWatermarkWrap{
   opacity:0;
   animation:tfs-fade-in 2s ease forwards;
   animation-delay:1s;
@@ -1054,5 +1052,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
      trackInfo puo' sporgere sopra/sotto senza far crescere la riga,
      il pulsante resta sempre fermo. */
   .music-control{ height:40px; }
+  .track-info{ align-self:center; }
 }
 
