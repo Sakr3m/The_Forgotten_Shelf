@@ -1163,8 +1163,16 @@ body[data-entry-animate="true"] #watermarkBrightness{
    di quello vero, e senza white-space:nowrap il testo si adattava
    spezzandosi su due righe dentro il pillolo (larghezza fissa, ma il
    contenuto dentro si riassestava). report-bug-btn aveva gia' questa
-   proprieta', questi due no - stesso trattamento, ora coerente. */
-.kofi-link, .index-link{ white-space:nowrap; }
+   proprieta', questi due no - stesso trattamento, ora coerente.
+   Solo desktop: li' il pulsante ha una larghezza fissa (180px/140px)
+   quindi nowrap e' innocuo, il testo semplicemente non va piu' a capo
+   dentro quello spazio. Su mobile invece non ha una larghezza fissa -
+   forzare nowrap li' faceva allargare il pulsante quanto serviva per
+   stare su una riga sola, invece di lasciarlo andare a capo con
+   calma dentro lo spazio che ha. */
+@media (min-width:901px){
+  .kofi-link, .index-link{ white-space:nowrap; }
+}
 
 /* Pulsante "Riproduci video" - per ora senza funzione, nessun video
    ancora agganciato (verra' aperto in un player YouTube incorporato,
