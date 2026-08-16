@@ -1533,4 +1533,19 @@ body[data-entry-animate="true"] #watermarkBrightness{
     applicaAnimazioneVoce in script-racconti.js). */
 }
 
+/* ============================================================
+   DEBUG/PROVA - TEMPORANEO: bordi colorati per vedere insieme i box
+   reali invece di continuare a calcolarli alla cieca. Da togliere
+   una volta chiarito il problema del titolino non centrato.
+   - ROSSO: il pannello (sidebar/side-rail) - il suo bordo interno e'
+     dove finisce il padding-top (85px), cioe' dove il titolino
+     dovrebbe iniziare.
+   - CIANO: il titolino stesso (sidebar-eyebrow/rail-label).
+   - GIALLO: la prima voce della lista (primo elemento).
+   ============================================================ */
+@media (max-width:900px){
+  .sidebar, .side-rail{ border:3px dashed red; box-sizing:border-box; }
+  .sidebar-eyebrow, .rail-label{ border:3px dashed cyan; box-sizing:border-box; }
+  .game-list__row:first-child{ border:3px dashed yellow; box-sizing:border-box; }
+}
 
