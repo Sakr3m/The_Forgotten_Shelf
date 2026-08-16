@@ -1473,59 +1473,33 @@ body[data-entry-animate="true"] #watermarkBrightness{
     margin-top:0; margin-bottom:25px;
   }
 
-  /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
-     18px - sovrascrivo qui solo per mobile, il valore comune in
-     styles.css/racconti.css resta 18px per desktop). */
+  /* Voci: TUTTE le caratteristiche (altezza, font-size interno,
+     evidenziazione) rubate pari pari da Il Filo Nascosto, che non ha
+     nessuna regola mobile propria per questo - eredita interamente il
+     comportamento condiviso in styles.css (line-height:18px, padding
+     12px/14px, striscia 2px al 45% sempre visibile + gradiente/2px
+     pieno su .is-active, stessa direzione su entrambe le colonne,
+     nessuno specchiamento). L'UNICA cosa che resta diversa, richiesta
+     esplicitamente: lo spessore della striscia, 3px invece di 2px -
+     sia nella versione permanente (45% di opacita') sia in quella
+     piena su .is-active. Stessa specificita' della regola condivisa,
+     vince per ordine nel file (racconti.css carica dopo styles.css). */
   .game-list button, .game-list a{
-    line-height:25px;
-    padding-top:5px; padding-bottom:5px;
-  } /* Altezza totale della voce (padding + interlinea) portata a
-    35px (era 30): 5px sopra + 25px interlinea (era 20) + 5px sotto.
-    Testo, sfondo/evidenziazione in hover e striscia colorata seguono
-    tutti l'altezza della voce, quindi si restringono/allargano
-    insieme in un colpo solo, senza bisogno di toccarli uno per uno. */
+    box-shadow:inset 3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+  }
+  .game-list button.is-active, .game-list a.is-active{
+    box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
+  }
 
-  /* Evidenziazione: striscia colorata 3px, solo sulla voce
-     SELEZIONATA (.is-active), niente hover (sui touch-device non e'
-     affidabile). Selettore con #sidebar/#storieRail (ID) per vincere
-     sulle regole gia' esistenti in styles.css - CONFERMATO che vince
-     anche sull'altra regola legacy trovata li' (striscia permanente
-     2px al 45% di opacita' su OGNI voce, pensata per l'assenza di
-     hover su mobile prima di questo rework): l'ID ha piu' peso di
-     qualunque combinazione di sole classi, quindi vince a prescindere
-     dall'ordine nel file. Direzione: sidebar verso il bordo esterno
-     (sinistra), side-rail verso il suo bordo esterno (destra) -
-     specchiate. */
-  #sidebar .game-list a.is-active{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); background:none; } /* FIX:
-    mancava background:none anche qui - la voce selezionata ereditava
-    ancora lo sfondo pieno a tutta pillola dalla regola condivisa in
-    styles.css (background:linear-gradient(...) su .is-active), non
-    la sottile striscia di 3px che doveva restare l'unico segno. */
-  #storieRail .game-list a.is-active{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); background:none; }
-  #sidebar .game-list a:not(.is-active),
-  #storieRail .game-list a:not(.is-active){
-    box-shadow:none; background:none;
-    color:var(--text-dim); font-weight:500;
-  } /* azzera esplicitamente tutto l'effetto hover che styles.css
-    applicherebbe comunque (sfondo, colore, peso del testo, striscia)
-    - su mobile l'hover puo' restare "incollato" dopo un tocco su
-    alcuni browser, mostrando l'evidenziazione anche quando la voce
-    non e' davvero selezionata. */
-
-  /* Margini laterali delle voci: 20px dal pannello. Piu' 5px extra
-     sul lato dove vive la striscia colorata (sinistra per sidebar,
-     destra per side-rail), richiesti esplicitamente - senza, il
-     testo tocca la striscia (entrambi partivano dallo stesso bordo,
-     padding a 0 su quel lato). Il pannello ha 20px di padding suo
-     (impostato piu' sotto); qui si aggiunge il resto. */
+  /* Margini laterali delle voci: 20px dal pannello, invariato -
+     larghezza tornata a 100% semplice (era ridotta per lasciare
+     spazio al lucchetto, che pero' qui su mobile e' nascosto: non
+     serve piu' nessuna riduzione, stessa larghezza piena di Il Filo
+     Nascosto). */
   .sidebar{ padding-left:20px; padding-right:20px; padding-top:90px; }
   .side-rail{ padding-left:20px; padding-right:20px; padding-top:90px; }
-  #sidebar .game-list a{ width:100%; margin-left:-5px; padding-left:10px; padding-right:0; } /* striscia
-    spostata 5px verso l'esterno: il margine negativo sposta il bordo
-    sinistro del blocco (dove vive la striscia, box-shadow) di 5px in
-    quella direzione; il padding compensato (5->10) mantiene il testo
-    esattamente dov'era prima. */
-  #storieRail .game-list a{ width:100%; margin-left:0; margin-right:-5px; padding-left:0; padding-right:10px; } /* stesso discorso, specchiato */
+  #sidebar .game-list a{ width:100%; }
+  #storieRail .game-list a{ width:100%; margin-left:0; }
 
   /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
      touch-device non hanno un hover affidabile - l'utente non
