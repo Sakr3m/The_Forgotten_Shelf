@@ -441,11 +441,25 @@ body[data-state="landing"] .brand{ display:none; }
     height:100vh;
     overflow-y:auto;
   }
+
+  /* "Racconti Brevi"/"Libri"/etichette equivalenti allineate al
+     centro verticale dei pulsanti in alto (40px di altezza, 20px di
+     margine dal bordo = centro a 40px dal bordo pagina). Partendo
+     dai 24px di padding del pannello, con altezza fissa di 12px
+     (vedi qui sotto) il testo da solo avrebbe il centro a 30px -
+     10px di margin-top in piu' lo spostano giu' fino a combaciare.
+     Nel file condiviso: vale per ogni pagina che usa queste classi
+     (Storie Senza Cornice, Il Filo Nascosto, la Timeline). */
+  .sidebar-eyebrow, .rail-label{ margin-top:10px; }
 }
 .sidebar-eyebrow{
   font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
   color:var(--text-faint); margin-bottom:14px; padding:0 8px;
   text-align:center;
+  line-height:12px; /* altezza fissa (12px), non piu' l'interlinea di
+    default del browser - serve certezza per allinearla al centro dei
+    pulsanti qui sotto, indipendente da come il browser calcola
+    "normal" per questo font/dimensione. */
 }
 .game-list{ display:flex; flex-direction:column; gap:2px; }
 .game-list button, .game-list a{
@@ -484,6 +498,7 @@ body[data-state="landing"] .brand{ display:none; }
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   color:var(--cyan); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--line);
   text-align:center;
+  line-height:12px; /* stessa logica di .sidebar-eyebrow qui sopra */
 }
 
 /* ============================================================
