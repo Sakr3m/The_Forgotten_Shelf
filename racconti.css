@@ -1164,7 +1164,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-video-btn{
     display:flex; align-items:center; justify-content:center; gap:8px;
     height:40px; box-sizing:border-box; padding:0 22px;
-    margin-top:30px;
+    margin-top:50px;
     border:1px solid var(--cyan);
     background:var(--panel);
     border-radius:999px;
