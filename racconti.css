@@ -199,14 +199,12 @@ body[data-state="landing"] #pageHeader{ display:none; }
 body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 @media (min-width:901px){
   body[data-state="entry"] .entry-game-picker{
-    display:block;
-    position:absolute; right:75px; bottom:20px; z-index:2;
-    /* 100px dal bordo destro reale (75 qui + 25 dal padding
-       dell'header contenitore), come switch lingua/index-link -
-       prima era a 50px (right:25px), mai aggiornato quando quello
-       standard e' passato da 50 a 100px altrove in vista voce.
-       bottom:20px (era 15px) per lo stesso standard di distanza dal
-       bordo usato da tutti gli altri pulsanti del sito. */
+    display:flex;
+    /* Prima era position:absolute dentro #pageHeader (da cui l'ho
+       spostato: ora vive dentro .stage-controls, tra il pulsante del
+       volume e lo switch lingua). Qui non serve piu' nessun
+       posizionamento assoluto: e' un elemento normale della riga
+       flex, l'ordine nel DOM decide gia' da solo la sua posizione. */
   }
 }
 .entry-game-trigger{
