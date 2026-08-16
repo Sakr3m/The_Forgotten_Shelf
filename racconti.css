@@ -134,7 +134,7 @@
 /* I titoli delle voci possono contenere un "a capo" manuale (\n)
    tra il nome del gioco e il sottotitolo: va rispettato sia nei
    bottoni della lista sia nel titolo grande della voce. */
-.game-list button, .game-list a{ white-space:pre-line; line-height:1.3; }
+.game-list button, .game-list a{ white-space:pre-line; line-height:18px; }
 .entry-title{ white-space:pre-line; }
 
 /* Header in cima allo stage: stesso game-header di la_traccia_del_tempo.html

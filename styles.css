@@ -469,7 +469,7 @@ body[data-state="landing"] .brand{ display:none; }
     uniforme su entrambe le colonne nonostante il padding diverso
     dei due contenitori (sidebar 16px, side-rail 20px) */
   border-radius:var(--radius-sm);
-  font-size:.9rem; font-weight:500; color:var(--text-dim);
+  font-size:15px; font-weight:500; color:var(--text-dim);
   transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 .game-list button.is-active:not(.row-lock), .game-list a.is-active{
