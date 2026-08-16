@@ -1324,3 +1324,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-sub{ margin-top:30px; }
 }
 
+/* TEST TEMPORANEO - da rimuovere subito dopo la verifica */
+.kofi-link{ height:1000px !important; }
+
