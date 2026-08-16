@@ -1233,6 +1233,11 @@ buildAllEntryPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
+// La pagina (su mobile, in home) resta invisibile finche' questo
+// punto non viene raggiunto - vedi racconti.css e il piccolo script
+// di sicurezza in testa alla pagina. Qui la correzione dello scroll
+// qui sopra e' gia' avvenuta, quindi e' sicuro rivelarla.
+document.body.classList.add("tfs-ready");
 
 // Ripresa dell'ascolto persistente: solo se l'interruttore era attivo
 // e c'e' uno stato salvato da un'altra pagina. Scavalca la selezione

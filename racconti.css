@@ -1360,3 +1360,21 @@ body[data-entry-animate="true"] #watermarkBrightness{
   }
 }
 
+/* La pagina (solo su mobile, solo in home) resta invisibile finche'
+   lo script principale non ha finito il proprio avvio - inclusa la
+   correzione della posizione dello scroll del carosello, che vive in
+   fondo a script-racconti.js e aggiunge la classe tfs-ready proprio
+   subito dopo. Elimina alla radice il problema della sidebar vuota
+   mostrata per un attimo prima della home: prima si provava a VINCERE
+   la corsa contro il tempo (sistemare lo scroll prima che l'utente
+   potesse vedere qualcosa), qui la corsa non esiste piu' - non si
+   mostra nulla finche' non e' gia' tutto a posto.
+   Rete di sicurezza (vedi lo script minuscolo in testa alla pagina):
+   se per qualunque motivo lo script principale non dovesse mai
+   arrivare a questo punto, un timer forza comunque la visibilita'
+   dopo 2.5s, cosi' la pagina non resta bloccata invisibile per
+   sempre nello scenario peggiore. */
+@media (max-width:900px){
+  body[data-state="landing"]:not(.tfs-ready) .layout{ visibility:hidden; }
+}
+
