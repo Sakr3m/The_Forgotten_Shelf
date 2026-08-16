@@ -898,7 +898,7 @@ body[data-state="entry"] .landing{ display:none; }
     color:#000;
   }
 
-  /* Ritardo hover: la barra deve comparire solo dopo almeno 1s di
+  /* Ritardo hover: la barra deve comparire solo dopo almeno 0.5s di
      hover continuo nella sua area, non al primo passaggio distratto
      del mouse - altrimenti "crea casini" (comparse/scomparse rapide
      e involontarie). Il ritardo vale solo QUI, sull'apparizione (le
@@ -910,7 +910,7 @@ body[data-state="entry"] .landing{ display:none; }
   .watermark-brightness-line:hover .watermark-brightness-line__slider,
   .watermark-brightness-line:hover .watermark-brightness-line__tick,
   .watermark-brightness-line:hover .watermark-brightness-line__preset{
-    transition-delay:1s;
+    transition-delay:.5s;
   }
 }
 
