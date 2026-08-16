@@ -31,8 +31,11 @@
   /* Anche la barra di luminosita' della filigrana (.watermark-
      brightness-line) e' ancorata nel file condiviso a 250px da
      entrambi i lati (larghezza delle due tabelle prima di oggi) -
-     va spostata a 300px insieme a loro, solo su questa pagina. */
-  .watermark-brightness-line{ left:300px; right:300px; }
+     va spostata a 300px insieme a loro, solo su questa pagina.
+     top:95px = appena sotto la riga dell'header (80px di bordo
+     inferiore + 15px di respiro), era 237px nella regola condivisa
+     (pensata per il vecchio banner intero). */
+  .watermark-brightness-line{ left:300px; right:300px; top:95px; }
 }
 .side-rail{
   flex-shrink:0;
@@ -792,15 +795,18 @@ body[data-state="entry"] .landing{ display:none; }
       bordo inferiore reale di #pageHeader ora che la riga e' ridotta
       a 65px (15px di top sticky + 65px di altezza), allineato con
       l'inizio della prima voce in sidebar */
-    clip-path:inset(0 300px 0 0); /* taglia via, dal bordo
-      destro del box, una fascia larga quanto la colonna Libri - lo
-      stesso confine dove la colonna comincia. 300px fisso invece
-      di var(--rail-width): qui la colonna e' larga 300px solo su
-      questa pagina, la variabile condivisa resta a 250. */
-    background-size:contain; background-repeat:no-repeat; background-position:center bottom; /* 04/08:
-      da "center" a "center bottom" — l'immagine si ancora al fondo del
-      box (che gia' tocca bottom:0, cioe' il bordo pagina) invece di
-      restare centrata verticalmente con vuoto sopra/sotto. */
+    clip-path:inset(0 0 0 66.667%); /* mostra solo il terzo piu' a
+      destra del box (66.667% tagliato via da sinistra): l'immagine,
+      ora ingrandita per riempire tutta l'altezza, non deve sporgere
+      oltre 1/3 dell'area partendo da destra. Sostituisce il vecchio
+      clip-path:inset(0 300px 0 0), pensato per un motivo diverso
+      (evitare che il box sporgesse sotto la colonna Libri). */
+    background-size:auto 100%; background-repeat:no-repeat; background-position:right center; /* auto 100%:
+      l'immagine riempie sempre tutta l'altezza del box (dalla riga
+      dell'header fino in fondo), la larghezza segue in proporzione.
+      Ancorata a destra (right center, non piu' center bottom) dato
+      che ora e' il clip-path a decidere quanto se ne vede, non piu'
+      il posizionamento dell'immagine stessa. */
     -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
     mask-image:linear-gradient(90deg, transparent, black 35%);
     opacity:.35;
