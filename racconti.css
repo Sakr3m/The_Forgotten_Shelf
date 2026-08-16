@@ -490,21 +490,20 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   body[data-state="entry"] .entry-body{
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
-    /* Scrollbar sul lato SINISTRO (nell'area vuota del padding, non
-       sul bordo destro dove il browser la metterebbe di default):
-       stesso trucco gia' usato per la tabella Libri - direction:rtl
-       sul contenitore che scorre sposta la scrollbar a sinistra,
-       direction:ltr sul testo dentro (vedi .text-highlight qui sotto)
-       mantiene la lettura/allineamento normale, invariati. */
-    direction:rtl;
+    /* NIENTE trucco RTL/LTR qui (era stato provato per spostare la
+       scrollbar a sinistra, come sulle tabelle) - su prosa vera,
+       diversamente da una lista di voci discrete, il contesto RTL
+       corrompe la punteggiatura del testo (riordino imprevedibile dei
+       caratteri neutri secondo l'algoritmo bidi del browser). Tolto
+       subito: la scrollbar resta quindi sul lato destro standard,
+       responsabilita' da riprendere con un metodo diverso (es. una
+       finta scrollbar disegnata a mano, non quella nativa del
+       browser) se si vuole ancora spostarla a sinistra in sicurezza. */
     scrollbar-width:thin;
     scrollbar-color:transparent transparent;
   }
   body[data-state="entry"] .entry-body:hover{
     scrollbar-color:var(--line) transparent;
-  }
-  body[data-state="entry"] .entry-body .text-highlight{
-    direction:ltr;
   }
   body[data-state="entry"] .entry-body::-webkit-scrollbar{
     width:6px;
@@ -583,23 +582,17 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      danno da qui in poi entry-body con i suoi padding di 25px. */
   .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
 
-  /* Corpo del testo: 100px esatti dalla sidebar sinistra (stesso
-     punto di partenza del pulsante Discord in alto) e massimo fino a
-     300px dalla tabella Libri a destra - entrambi misurati dal bordo
-     VERO della pagina (sidebar/side-rail), non dal bordo dello stage.
-     Il box stesso pero' e' spostato fino quasi al bordo sinistro
-     dello stage (margin-left:-25px, che annulla il padding proprio
-     dello stage) cosi' la sua scrollbar (vedi il trucco RTL/LTR piu'
-     sotto) si ritrova attaccata alla riga divisoria, non 25px piu' in
-     la' - stessa tecnica del margine negativo + padding compensato
-     gia' usata stamattina per le voci mobile. width aumentata della
-     stessa quantita' per non spostare anche il bordo destro (dove il
-     testo va a capo). padding-left sale da 75 a 100 per compensare,
-     mantenendo il testo esattamente ai 100px netti voluti. */
+  /* Corpo del testo: 100px esatti dalla sidebar sinistra (lo stage ha
+     gia' 25px di padding suo, qui se ne aggiungono altri 75) e
+     massimo fino a 300px dalla tabella Libri a destra (stessa logica:
+     25 dello stage + 275 qui = 300 netti). box-sizing:border-box
+     perche' il padding si sottragga dalla larghezza invece di
+     aggiungersi; max-width rimosso (era 1080px nella regola di base)
+     perche' altrimenti avrebbe tagliato il testo prima di arrivare
+     davvero a quei 300px su schermi non larghissimi. */
   .entry-body{
-    width:calc(100% + 25px); align-self:flex-start; box-sizing:border-box;
-    margin-left:-25px;
-    padding-left:100px; padding-right:275px;
+    width:100%; align-self:flex-start; box-sizing:border-box;
+    padding-left:75px; padding-right:275px;
     max-width:none;
   }
 }
