@@ -831,7 +831,7 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.35);
+    position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.4);
     /* 230px = dove inizia davvero lo spazio del testo, non piu' la
        riga dell'header (80px). Somma: 80 (bordo riga header) + 12
        (margine di .entry-panel) + 42 (altezza del titolo, 35px di
@@ -843,7 +843,7 @@ body[data-state="entry"] .landing{ display:none; }
        li', non piu' a right:0 (bordo vero della finestra, DIETRO
        Libri - motivo per cui prima le filigrane sparivano del tutto,
        il clip-path lasciava visibile solo la fascia gia' coperta
-       dalla colonna). width: 35% dell'area (100vw meno le due
+       dalla colonna). width: 40% dell'area (100vw meno le due
        tabelle da 300px ciascuna = larghezza dello stage). */
     background-size:auto 100%; background-repeat:no-repeat; background-position:right center; /* auto 100%:
       l'immagine riempie sempre tutta l'altezza del box (dalla riga
