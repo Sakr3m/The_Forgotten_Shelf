@@ -1458,14 +1458,17 @@ body[data-entry-animate="true"] #watermarkBrightness{
      25px (non piu' 20px) - elimina alla radice l'incertezza del
      testo che sporgeva dal proprio box quando la riga era piu'
      piccola del font: ora box CSS e testo visivo coincidono
-     esattamente, nessuna stima necessaria. Il pannello ha 76px di
-     padding-top, la riga dell'header sta a 65px da li': margin-top
-     9px porta il bordo del titolino (che ora e' anche il suo punto
-     visivo) a esattamente 20px da quella riga (76+9-65=20).
-     margin-bottom 20px diretto per lo stesso motivo sotto. */
+     esattamente, nessuna stima necessaria.
+     Margini sopra/sotto ora UGUALI (20px/20px): il calcolo
+     precedente (9px sopra) considerava la distanza dalla riga
+     dell'header FUORI dal pannello, che ha gia' 76px di padding
+     suo - un ragionamento corretto sulla carta ma che non si vede
+     affatto a occhio: quello che si percepisce davvero e' solo lo
+     spazio immediato sopra/sotto il titolino, dove 9px e 20px
+     erano visibilmente sbilanciati. */
   .sidebar-eyebrow, .rail-label{
     font-size:25px; line-height:25px;
-    margin-top:9px; margin-bottom:20px;
+    margin-top:20px; margin-bottom:20px;
   }
 
   /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
