@@ -66,7 +66,11 @@
    Side-rail: stesso discorso specchiato (riduzione a sinistra invece
    che a destra, margin-left compensa lo spostamento). */
 #sidebar .game-list a{ padding-left:14px; padding-right:29px; }
-.side-rail .game-list a{ padding-left:25px; padding-right:10px; }
+.side-rail .game-list a{ padding-left:25px; padding-right:14px; } /* 14px come
+  la sidebar (non piu' 10): con la striscia colorata a 5px, il vuoto
+  tra testo e striscia era 14-5=9px a sinistra ma solo 10-5=5px a
+  destra - stesso valore di padding su entrambi i lati pareggia il
+  distacco visivo (9px anche a destra ora). */
 
 /* La striscia colorata di evidenziazione (hover/attiva) e' sempre sul
    bordo sinistro nella regola condivisa in styles.css - qui, sulla
