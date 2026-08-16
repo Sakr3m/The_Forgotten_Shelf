@@ -282,9 +282,29 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
    centrale — solo su desktop, sul mobile sono pannelli del carosello
    a scorrimento orizzontale (vedi sezione mobile più sotto). */
 @media (min-width:901px){
+  /* Prima l'overflow-y:auto stava sull'intero pannello (#sidebar/
+     .side-rail): quando le voci superavano lo spazio disponibile,
+     scorreva tutto insieme, etichetta "Racconti brevi"/"Libri"
+     compresa, invece di restare ferma in cima. Ora il pannello non
+     scorre più lui stesso: e' .panel-inner a diventare un contenitore
+     flex verticale alto quanto il pannello (height:100%), con
+     l'etichetta a dimensione fissa e SOLO la lista (.game-list) che
+     si allarga a riempire lo spazio restante e scorre per conto suo
+     (min-height:0 e' necessario, altrimenti un figlio flex non si
+     restringe mai sotto l'altezza del proprio contenuto). Stesso
+     schema già in uso su la_traccia_del_tempo.html. */
   #sidebar, #storieRail{
     position:sticky; top:0; align-self:flex-start;
     height:100vh;
+    overflow-y:hidden;
+  }
+  #sidebar .panel-inner, #storieRail .panel-inner{
+    height:100%;
+    display:flex; flex-direction:column;
+    min-height:0;
+  }
+  #sidebar .game-list, #storieRail .game-list{
+    flex:1 1 auto; min-height:0;
     overflow-y:auto;
   }
 }

@@ -10,7 +10,27 @@ const RACCONTI_ORDER = [
   "il-testimone",
   "l-ora-sbagliata",
   "lo-specchio-cieco",
-  "parole-senza-fiato"
+  "parole-senza-fiato",
+  "placeholder-01",
+  "placeholder-02",
+  "placeholder-03",
+  "placeholder-04",
+  "placeholder-05",
+  "placeholder-06",
+  "placeholder-07",
+  "placeholder-08",
+  "placeholder-09",
+  "placeholder-10",
+  "placeholder-11",
+  "placeholder-12",
+  "placeholder-13",
+  "placeholder-14",
+  "placeholder-15",
+  "placeholder-16",
+  "placeholder-17",
+  "placeholder-18",
+  "placeholder-19",
+  "placeholder-20"
 ];
 
 const RACCONTI = {
@@ -909,6 +929,166 @@ Neither.
 
 Their lips were sealed, as is right. But their hearts, in the moment they found each other, pronounced those words silently in their place.`
     }
+  },
+  "placeholder-01": {
+    game: "placeholder-01",
+    gameLabel: { it: "Placeholder 01", en: "Placeholder 01" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 01", en: "Placeholder 01" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-02": {
+    game: "placeholder-02",
+    gameLabel: { it: "Placeholder 02", en: "Placeholder 02" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 02", en: "Placeholder 02" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-03": {
+    game: "placeholder-03",
+    gameLabel: { it: "Placeholder 03", en: "Placeholder 03" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 03", en: "Placeholder 03" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-04": {
+    game: "placeholder-04",
+    gameLabel: { it: "Placeholder 04", en: "Placeholder 04" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 04", en: "Placeholder 04" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-05": {
+    game: "placeholder-05",
+    gameLabel: { it: "Placeholder 05", en: "Placeholder 05" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 05", en: "Placeholder 05" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-06": {
+    game: "placeholder-06",
+    gameLabel: { it: "Placeholder 06", en: "Placeholder 06" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 06", en: "Placeholder 06" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-07": {
+    game: "placeholder-07",
+    gameLabel: { it: "Placeholder 07", en: "Placeholder 07" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 07", en: "Placeholder 07" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-08": {
+    game: "placeholder-08",
+    gameLabel: { it: "Placeholder 08", en: "Placeholder 08" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 08", en: "Placeholder 08" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-09": {
+    game: "placeholder-09",
+    gameLabel: { it: "Placeholder 09", en: "Placeholder 09" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 09", en: "Placeholder 09" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-10": {
+    game: "placeholder-10",
+    gameLabel: { it: "Placeholder 10", en: "Placeholder 10" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 10", en: "Placeholder 10" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-11": {
+    game: "placeholder-11",
+    gameLabel: { it: "Placeholder 11", en: "Placeholder 11" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 11", en: "Placeholder 11" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-12": {
+    game: "placeholder-12",
+    gameLabel: { it: "Placeholder 12", en: "Placeholder 12" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 12", en: "Placeholder 12" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-13": {
+    game: "placeholder-13",
+    gameLabel: { it: "Placeholder 13", en: "Placeholder 13" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 13", en: "Placeholder 13" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-14": {
+    game: "placeholder-14",
+    gameLabel: { it: "Placeholder 14", en: "Placeholder 14" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 14", en: "Placeholder 14" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-15": {
+    game: "placeholder-15",
+    gameLabel: { it: "Placeholder 15", en: "Placeholder 15" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 15", en: "Placeholder 15" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-16": {
+    game: "placeholder-16",
+    gameLabel: { it: "Placeholder 16", en: "Placeholder 16" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 16", en: "Placeholder 16" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-17": {
+    game: "placeholder-17",
+    gameLabel: { it: "Placeholder 17", en: "Placeholder 17" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 17", en: "Placeholder 17" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-18": {
+    game: "placeholder-18",
+    gameLabel: { it: "Placeholder 18", en: "Placeholder 18" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 18", en: "Placeholder 18" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-19": {
+    game: "placeholder-19",
+    gameLabel: { it: "Placeholder 19", en: "Placeholder 19" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 19", en: "Placeholder 19" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-20": {
+    game: "placeholder-20",
+    gameLabel: { it: "Placeholder 20", en: "Placeholder 20" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder 20", en: "Placeholder 20" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
   }
 };
 
