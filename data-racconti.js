@@ -278,7 +278,7 @@ His eyes went wide.
   "il-testimone": {
     game: "il-testimone",
     gameLabel: { it: "Il Testimone", en: "The Witness" },
-    accentColor: "#c470e0",
+    accentColor: "#d4c93a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Testimone%20Filigrana.jpg",
@@ -729,7 +729,7 @@ It was her.`
   "lo-specchio-cieco": {
     game: "lo-specchio-cieco",
     gameLabel: { it: "Lo Specchio Cieco", en: "The Blind Mirror" },
-    accentColor: "#87ceeb",
+    accentColor: "#a8b8c0",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lo%20Specchio%20Cieco%20Filigrana.jpg",
@@ -877,7 +877,7 @@ She walked on.`
   "parole-senza-fiato": {
     game: "parole-senza-fiato",
     gameLabel: { it: "Parole Senza Fiato", en: "Breathless Words" },
-    accentColor: "#e8112d",
+    accentColor: "#e0748a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Filigrana.jpg",
@@ -922,7 +922,7 @@ const LIBRI = {
   "il-chiamato-1": {
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
-    accentColor: "#6a0dad",
+    accentColor: "#b8283a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
@@ -1750,7 +1750,7 @@ He gripped the sword hilt.
   "il-chiamato-2": {
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
-    accentColor: "#6a0dad",
+    accentColor: "#b8283a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
@@ -2546,7 +2546,7 @@ The trees swallowed him.`
   "il-chiamato-3": {
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
-    accentColor: "#6a0dad",
+    accentColor: "#b8283a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
@@ -2902,7 +2902,7 @@ A pause.
   "il-chiamato-4": {
     game: "il-chiamato",
     gameLabel: { it: "Il Chiamato", en: "The Called" },
-    accentColor: "#6a0dad",
+    accentColor: "#b8283a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Il%20Chiamato%20Filigrana.jpg",
@@ -4243,7 +4243,7 @@ And added the ninth.`
     game: "l-ultimo-piano",
     forceGamePicker: true,
     gameLabel: { it: "L'Ultimo Piano", en: "The Last Floor" },
-    accentColor: "#cc9a3a",
+    accentColor: "#a8b03a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Mobile.jpg",
     filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Filigrana.jpg",
