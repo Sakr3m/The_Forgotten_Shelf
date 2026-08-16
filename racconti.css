@@ -125,14 +125,11 @@
 #sidebar .row-lock{ right:6px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
 .side-rail .row-lock{ left:6px; } /* stesso discorso, specchiato, sulla colonna destra */
 
-/* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
-   posizione in alto (niente più brand sopra la colonna sinistra) e
-   stessa colorazione/dimensione dell'etichetta "Teorie". */
-.rail-label{
-  font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:33px; padding:0 8px 0;
-  border-bottom:none;
-}
+/* "Teorie" e "Storie Nascoste" trattate allo stesso modo: nessun
+   override qui, .rail-label eredita da styles.css la stessa identica
+   regola di .sidebar-eyebrow (stesso font, colore, margini) - prima
+   c'era una copia separata da tenere allineata a mano, causa di piu'
+   di un bug quando le due finivano fuori sincrono. */
 
 /* I titoli delle voci possono contenere un "a capo" manuale (\n)
    tra il nome del gioco e il sottotitolo: va rispettato sia nei

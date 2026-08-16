@@ -24,14 +24,9 @@
   overflow-y:auto;
 }
 
-/* "Teorie" e "Storie Nascoste" trattate allo stesso modo: stessa
-   posizione in alto (niente più brand sopra la colonna sinistra) e
-   stessa colorazione/dimensione dell'etichetta "Teorie". */
-.rail-label{
-  font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:33px; padding:0 8px 0;
-  border-bottom:none;
-}
+/* "Teorie" e "Storie Nascoste" trattate allo stesso modo: nessun
+   override qui, .rail-label eredita da styles.css la stessa identica
+   regola di .sidebar-eyebrow - vedi nota in racconti.css. */
 
 /* I titoli delle voci possono contenere un "a capo" manuale (\n)
    tra il nome del gioco e il sottotitolo: va rispettato sia nei

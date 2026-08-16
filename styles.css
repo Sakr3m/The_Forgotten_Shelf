@@ -452,7 +452,7 @@ body[data-state="landing"] .brand{ display:none; }
      (Storie Senza Cornice, Il Filo Nascosto, la Timeline). */
   .sidebar-eyebrow, .rail-label{ margin-top:9px; }
 }
-.sidebar-eyebrow{
+.sidebar-eyebrow, .rail-label{
   font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
   color:var(--text-faint); margin-bottom:33px; padding:0 8px;
   text-align:center;
@@ -492,12 +492,6 @@ body[data-state="landing"] .brand{ display:none; }
   border-left:1px solid var(--line);
   background:var(--bg-soft);
   overflow-y:auto;
-}
-.rail-label{
-  font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:23px; padding-bottom:10px; border-bottom:1px solid var(--line);
-  text-align:center;
-  line-height:14px; /* stessa logica di .sidebar-eyebrow qui sopra */
 }
 
 /* ============================================================
