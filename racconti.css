@@ -692,6 +692,11 @@ body[data-state="entry"] .landing{ display:none; }
   .discord-link{ width:35px; height:35px; color:var(--cyan); }
   .kofi-link{
     height:35px; box-sizing:border-box;
+    width:auto; /* FIX: la regola base (styles.css, pensata per il
+      pulsante lungo di desktop) fissa width:180px senza media query
+      - su mobile vinceva comunque, ignorando il testo breve "KoFi"
+      e restando largo quanto su desktop. Con width:auto torna a
+      dimensionarsi sul contenuto vero (icona + "KoFi" + padding). */
     text-decoration:none;
   }
   .kofi-link__short{ color:var(--cyan); }
@@ -1297,5 +1302,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-title{ margin-top:35px; }
   .landing-intro{ margin-top:20px; }
   .landing-sub{ margin-top:30px; }
+
+  /* Distanza pulsanti header dal bordo superiore (15px, era 14) e tra
+     loro (10px, era 8) - override della regola condivisa in
+     styles.css, che vale anche per altre pagine: qui la sovrascrivo
+     solo per Storie Senza Cornice, senza toccare il file comune. */
+  .stage-controls{ top:15px; gap:10px; }
 }
 
