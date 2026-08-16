@@ -15,10 +15,10 @@
    vincerebbero comunque anche li' per puro ordine di caricamento del
    file, rompendo le misure mobile gia' esistenti. */
 @media (min-width:901px){
-  .landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:45px; }
+  .landing-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:30px; }
   .landing-eyebrow{ font-size:15px; line-height:15px; }
-  .landing-intro{ font-size:20px; line-height:30px; margin-top:20px; max-width:800px; }
-  .landing-sub{ font-size:15px; line-height:20px; margin-top:65px; }
+  .landing-intro{ font-size:20px; line-height:30px; margin-top:15px; max-width:800px; }
+  .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
   .landing{ max-width:950px; }
 }
 
