@@ -1437,23 +1437,18 @@ body[data-entry-animate="true"] #watermarkBrightness{
    esplicita di oggi. Tutto scoped qui, non tocca desktop.
    ============================================================ */
 @media (max-width:900px){
-  /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea 20px, 20px
-     dalla riga dell'header sopra e 20px dalla prima voce sotto -
-     misurati dal punto VISIVO del testo, non dal solo box CSS.
-     Con font-size(25px) piu' grande della riga(20px), il testo
-     "sporge" dal proprio line-box di 5px totali - stimati circa
-     2.5px per lato (l'esatta proporzione dipende dal font, non
-     calcolabile con precisione assoluta via CSS). Il pannello ha
-     76px di padding-top, la riga dell'header sta a 65px da li':
-     margin-top 12px (invece di 9, +2.5 per il testo che sporge
-     sopra il box) porta il punto visivo a ~20px da quella riga.
-     margin-bottom 18px (invece di 20, -2.5 per il testo che sporge
-     sotto) porta il punto visivo della prima voce a ~20px anche
-     sotto. Stima, non garanzia pixel-perfect: se dal vivo risulta
-     ancora sfalsato, correggere di conseguenza. */
+  /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea ANCH'ESSA
+     25px (non piu' 20px) - elimina alla radice l'incertezza del
+     testo che sporgeva dal proprio box quando la riga era piu'
+     piccola del font: ora box CSS e testo visivo coincidono
+     esattamente, nessuna stima necessaria. Il pannello ha 76px di
+     padding-top, la riga dell'header sta a 65px da li': margin-top
+     9px porta il bordo del titolino (che ora e' anche il suo punto
+     visivo) a esattamente 20px da quella riga (76+9-65=20).
+     margin-bottom 20px diretto per lo stesso motivo sotto. */
   .sidebar-eyebrow, .rail-label{
-    font-size:25px; line-height:20px;
-    margin-top:12px; margin-bottom:18px;
+    font-size:25px; line-height:25px;
+    margin-top:9px; margin-bottom:20px;
   }
 
   /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
