@@ -1153,3 +1153,26 @@ body[data-entry-animate="true"] #watermarkBrightness{
    proprieta', questi due no - stesso trattamento, ora coerente. */
 .kofi-link, .index-link{ white-space:nowrap; }
 
+/* Pulsante "Riproduci video" - per ora senza funzione, nessun video
+   ancora agganciato (verra' aperto in un player YouTube incorporato,
+   che porta gia' il proprio controllo volume: non serve un nostro
+   pulsante volume separato). Stessa pillola degli altri pulsanti
+   della pagina (bordo 1px come standard, non i 2px di prova sui
+   pulsanti dell'header - questo vive nel corpo della home, non nella
+   barra fissa in alto), centrato sotto il sub, 40px di altezza. */
+@media (min-width:901px){
+  .landing-video-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    height:40px; box-sizing:border-box; padding:0 22px;
+    margin-top:30px;
+    border:1px solid var(--cyan);
+    background:var(--panel);
+    border-radius:999px;
+    font-size:15px; font-weight:600; color:var(--text-dim);
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
+  .landing-video-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
+}
+
