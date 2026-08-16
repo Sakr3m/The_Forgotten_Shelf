@@ -1488,9 +1488,14 @@ body[data-entry-animate="true"] #watermarkBrightness{
   /* Evidenziazione: striscia colorata 3px, solo sulla voce
      SELEZIONATA (.is-active), niente hover (sui touch-device non e'
      affidabile). Selettore con #sidebar/#storieRail (ID) per vincere
-     sulle regole gia' esistenti in styles.css. Direzione: sidebar
-     verso il bordo esterno (sinistra), side-rail verso il suo bordo
-     esterno (destra) - specchiate. */
+     sulle regole gia' esistenti in styles.css - CONFERMATO che vince
+     anche sull'altra regola legacy trovata li' (striscia permanente
+     2px al 45% di opacita' su OGNI voce, pensata per l'assenza di
+     hover su mobile prima di questo rework): l'ID ha piu' peso di
+     qualunque combinazione di sole classi, quindi vince a prescindere
+     dall'ordine nel file. Direzione: sidebar verso il bordo esterno
+     (sinistra), side-rail verso il suo bordo esterno (destra) -
+     specchiate. */
   #sidebar .game-list a.is-active{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); background:none; } /* FIX:
     mancava background:none anche qui - la voce selezionata ereditava
     ancora lo sfondo pieno a tutta pillola dalla regola condivisa in
