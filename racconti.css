@@ -1526,10 +1526,22 @@ body[data-entry-animate="true"] #watermarkBrightness{
 
 
 
-/* DEBUG/PROVA - TEMPORANEO: bordo sul vero contenitore del titolino
-   (non solo il testo) + sfondo sulla lista, per vedere se c'e' dello
-   spazio nascosto tra i due che il calcolo CSS non spiega. */
+/* DEBUG/PROVA - TEMPORANEO: due blocchi colorati disegnati esattamente
+   nelle due zone di spazio (non intorno agli elementi) - entrambi
+   25px sulla carta. Se il calcolo e' giusto devono apparire identici;
+   se uno e' visibilmente piu' grande dell'altro, quello e' il gap che
+   nasconde lo spazio in piu'.
+   - ARANCIONE: spazio tra la riga dell'header (65px) e il titolino
+     (che inizia a 90px) - 25px teorici.
+   - VIOLA: spazio tra la fine del titolino (65+25=115px) e la prima
+     voce (che inizia a 115+25=140px) - 25px teorici. */
 @media (max-width:900px){
-  .eyebrow-wrap{ border:3px dashed magenta; box-sizing:border-box; }
-  .game-list{ background:rgba(0,255,0,.15); }
+  body[data-state="landing"]::before{
+    content:""; position:fixed; top:65px; left:0; width:40px; height:25px;
+    background:orange; z-index:9999; pointer-events:none;
+  }
+  body[data-state="landing"]::after{
+    content:""; position:fixed; top:115px; left:0; width:40px; height:25px;
+    background:purple; z-index:9999; pointer-events:none;
+  }
 }
