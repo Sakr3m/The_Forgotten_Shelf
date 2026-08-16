@@ -227,13 +227,33 @@
     </aside>
   </div>
 
+  <!-- Ordine rivisto: prima SOLO cio' che serve davvero per mostrare
+       la home e la lista delle voci (data-racconti.js e' autonomo,
+       nessuna dipendenza dagli altri file dati). script-racconti.js
+       parte quindi molto prima, comprese le righe finali di avvio che
+       correggono la posizione dello scroll su mobile - la causa vera
+       del bug della sidebar vuota mostrata per un attimo su
+       connessioni lente: Il Filo Nascosto non lo ha mai avuto perche'
+       carica un solo file dati necessario, contro i quattro che
+       Storie Senza Cornice caricava qui PRIMA di script-racconti.js,
+       tutti per una sola funzione (buildPlaylistLibrary, il menu
+       della playlist musicale) mai chiamata al caricamento - solo
+       quando l'utente apre quel menu. Rimandati dopo: si scaricano
+       comunque, in parallelo, mentre lo script principale gia' lavora
+       - se l'utente aprisse il menu prima che abbiano finito, il
+       codice li gestisce gia' con controlli difensivi (typeof
+       X !== "undefined"), mostrando solo i gruppi gia' pronti invece
+       di rompersi. Stessa cosa per likes.js (il cuoricino nelle
+       voci): usato solo quando si apre una voce specifica, mai in
+       home, con lo stesso tipo di controllo difensivo gia' presente
+       nel codice. -->
+  <script src="data-racconti.js?v=2026081601"></script>
+  <script src="script-racconti.js?v=2026081602"></script>
+  <script src="stats.js?v=20260809"></script>
   <script src="data.js?v=20260809"></script>
   <script src="data-shared-tracks.js?v=20260812"></script>
   <script src="data-storie-teorie.js?v=20260809"></script>
   <script src="data-diari-tracks.js?v=20260812"></script>
-  <script src="data-racconti.js?v=2026081601"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script-racconti.js?v=2026081602"></script>
-  <script src="stats.js?v=20260809"></script>
 </body>
 </html>
