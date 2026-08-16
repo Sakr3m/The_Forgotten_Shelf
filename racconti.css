@@ -1444,16 +1444,20 @@ body[data-entry-animate="true"] #watermarkBrightness{
     non e' davvero selezionata. I valori qui sono lo stato di riposo
     normale (styles.css, .game-list button/a base). */
 
-  /* Larghezza delle voci estesa a comprendere anche la zona del
-     lucchetto (prima esclusa apposta, width:calc(100% - 45px), per
-     evitare che lo sfondo colorato in hover ci finisse sotto - qui
-     su mobile passiamo a padding invece che riduzione di larghezza,
-     dato che il lucchetto ora e' sempre visibile sopra comunque:
-     un padding piu' stretto (35px, contro il lucchetto di 26px+6px
-     di margine) lascia comunque respiro al testo senza escludere
-     davvero quella zona dalla riga. */
-  #sidebar .game-list a{ width:100%; padding-right:35px; }
-  .side-rail .game-list a{ width:100%; margin-left:0; padding-left:35px; }
+  /* Margini delle voci portati a 15px dal pannello su entrambi i
+     lati, per entrambe le tabelle - richiesto esplicitamente. Prima
+     c'era un'asimmetria voluta (30px esterno / 51px interno, la
+     parte interna piu' larga per lasciare spazio al lucchetto) - ora
+     che il lucchetto e' nascosto su mobile quella riserva non serve
+     piu', quindi si torna a un margine uguale ovunque. Il pannello
+     ha gia' 16px di padding suo (base, invariato); qui si scende a
+     15px diretto sul pannello stesso e si azzera il padding
+     residuo sulle voci, cosi' il totale combinato e' esattamente
+     15px su ogni lato. */
+  .sidebar{ padding-left:15px; padding-right:15px; }
+  .side-rail{ padding-left:15px; padding-right:15px; }
+  #sidebar .game-list a{ width:100%; padding-left:0; padding-right:0; }
+  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:0; padding-right:0; }
 
   /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
      touch-device non hanno un hover affidabile - l'utente non
