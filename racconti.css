@@ -402,7 +402,10 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
     display:none;
   }
   body[data-state="entry"] #pageHeader{
-    height:65px; max-height:65px; padding:0;
+    height:65px; max-height:65px; padding:0; margin-bottom:0;
+    /* margin-bottom:0 - la regola condivisa .game-header porta 40px
+       di suo, che si sommavano ai 33px di .entry-panel qui sotto
+       dando 73px reali invece dei 33 richiesti. */
   }
   body[data-state="entry"] .entry-panel{ margin-top:33px; }
 }
