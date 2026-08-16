@@ -1507,11 +1507,16 @@ body[data-entry-animate="true"] #watermarkBrightness{
      Nascosto). */
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
   .side-rail{ padding-left:15px; padding-right:15px; padding-top:90px; }
-  #sidebar .game-list a{ width:100%; padding-left:0; padding-right:0; }
-  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:0; padding-right:0; } /* distanza
-    totale dal bordo portata a 15px (era 20+14=34): il pannello crea
-    tutto lo spazio da solo, il padding proprio della voce (14px
-    condivisi da styles.css) azzerato qui. */
+  #sidebar .game-list a{ width:100%; padding-left:8px; padding-right:0; } /* FIX: la
+    striscia vive sempre a sinistra (nessuno specchiamento, rubato da
+    Il Filo Nascosto) - con padding-left:0 il testo (qui allineato a
+    sinistra) partiva esattamente dove vive lei, sovrapponendosi.
+    8px di separazione: il lato sinistro/interno diventa 15+8=23px dal
+    bordo (non piu' 15 netti), quello destro/esterno resta 15px. */
+  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:8px; padding-right:0; } /* stesso
+    motivo: qui il testo e' allineato a destra, meno a rischio di
+    toccare la striscia (a sinistra) per titoli brevi, ma quelli
+    lunghi potrebbero comunque arrivarci - stessa protezione. */
 
   /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
      touch-device non hanno un hover affidabile - l'utente non
