@@ -661,8 +661,16 @@ body[data-state="entry"] .landing{ display:none; }
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
      accorgimento gia' su index.html): html/body fissati, cosi' la
-     pagina non "respira" a ogni gesto verticale. --- */
-  html, body{ overflow:hidden; height:100%; }
+     pagina non "respira" a ogni gesto verticale. FIX: prima questo
+     blocco valeva su TUTTO mobile, home e vista voce insieme - in
+     voce pero' non esiste (su mobile) nessun meccanismo di scroll
+     interno alternativo, quindi bloccare anche li' lo scroll della
+     pagina rendeva irraggiungibile qualunque cosa sotto la prima
+     schermata, like compreso. Ristretto alla sola home
+     (body[data-state="landing"], dove serve davvero per il
+     carosello), la vista voce torna scorrevole normalmente. --- */
+  html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
+  body[data-state="landing"]{ overflow:hidden; height:100%; }
 
   /* --- Titolo fisso, solo le voci scorrono: stavolta SENZA toccare
      .sidebar/.side-rail (il pannello che contiene tutto) — quello
@@ -1338,7 +1346,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
     icona+testo torna centrato nella pillola. */
 
   /* Distanze del blocco hero riviste. */
-  .landing-title{ margin-top:35px; }
+  .landing-title{ font-size:35px; line-height:35px; margin-top:35px; }
   .landing-intro{ margin-top:15px; }
   .landing-sub{ margin-top:50px; }
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
