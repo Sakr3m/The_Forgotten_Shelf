@@ -320,14 +320,16 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      fisiche - text-align:right, padding-left/right - mai logiche,
      quindi resta identico; direction:ltr sulle righe stesse e'
      comunque una sicurezza in piu' contro un possibile riordino
-     bidirezionale del testo). Il margine di 3px (sul lato interno
-     per entrambe) stacca il bordo della lista dalla riga divisoria
-     di quel tanto, cosi' la scrollbar - che il browser disegna
-     sempre incollata al bordo dell'elemento - si ritrova esattamente
-     a 3px da quella riga invece che incollata sopra. --- */
-  #sidebar .game-list{ margin-right:3px; }
+     bidirezionale del testo). Il margine di 1px (sul lato interno
+     per entrambe, ridotto da 3 - troppo distante dal bordo, sembrava
+     "persa" a meta' invece che incollata alla riga) stacca il bordo
+     della lista dalla riga divisoria di quel tanto, cosi' la
+     scrollbar - che il browser disegna sempre incollata al bordo
+     dell'elemento - si ritrova quasi a ridosso della riga invece che
+     incollata sopra. --- */
+  #sidebar .game-list{ margin-right:1px; }
   #storieRail .game-list{
-    direction:rtl; margin-left:3px;
+    direction:rtl; margin-left:1px;
   }
   #storieRail .game-list > li{ direction:ltr; }
 
