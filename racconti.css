@@ -383,16 +383,11 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
    centrato (differenza rispetto a storie-teorie.css). */
 .entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
 @media (min-width:901px){
-  /* PROVA: banner nascosto in vista voce. Titolo, copyright e tag
-     erano gia' centrati (li' sotto restano cosi', .entry-content
-     non cambia) - senza il banner sopra di loro (230px + margini)
-     salgono a occupare quello spazio, il corpo del testo li segue
-     piu' in alto di prima. margin-top:100px lascia solo lo spazio
-     per non finire sotto la barra dei pulsanti fissi in alto (~60px
-     di ingombro reale) piu' un margine di respiro - valore di prova,
-     da aggiustare a vista. */
-  body[data-state="entry"] #pageHeader{ display:none; }
-  body[data-state="entry"] .entry-panel{ margin-top:100px; }
+  /* Titolo della voce a 100px dal bordo inferiore del banner - il
+     margine base (20px) non bastava, misurato e corretto sul valore
+     vero (non calcolato a mano, troppi contributi sparsi tra piu'
+     regole per farlo con certezza). */
+  body[data-state="entry"] .entry-panel{ margin-top:10px; }
 }
 .entry-content{
   position:relative; z-index:1;
@@ -772,11 +767,10 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:60px; bottom:0; right:0; width:42vw; /* 60px =
-      spazio sotto la barra dei pulsanti fissi in alto, stesso valore
-      di riferimento usato per .entry-panel qui sopra ora che il
-      banner e' nascosto - prima era 245px (bordo inferiore del
-      banner), ora non serve piu' */
+    position:fixed; top:245px; bottom:0; right:0; width:42vw; /* 245px =
+      bordo inferiore reale di #pageHeader (banner), misurato — prima
+      partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
+      al banner e al testo sotto, invece di fermarsi li' */
     clip-path:inset(0 300px 0 0); /* taglia via, dal bordo
       destro del box, una fascia larga quanto la colonna Libri - lo
       stesso confine dove la colonna comincia. 300px fisso invece
