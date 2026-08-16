@@ -854,7 +854,7 @@ body[data-state="entry"] .landing{ display:none; }
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:66px; right:0; z-index:2;
+    position:absolute; top:51px; right:0; z-index:2;
   }
   body[data-state="entry"] .entry-game-trigger{
     height:35px; padding:0 12px; font-size:.76rem;
@@ -867,11 +867,17 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-body{ margin-top:30px; }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-12px; right:0; z-index:2; /* alzato di 12px: la
-      distanza tra il bordo sopra del banner e questo riquadro combacia
-      cosi' esattamente (8px) con quella tra il bordo sotto del banner
-      e la tendina — valori fissi, nessun testo di lunghezza variabile
-      in gioco qui, quindi un numero CSS statico basta ed e' preciso */
+    position:absolute; top:-14px; right:0; z-index:2; /* 15px dalla
+      parte alta del banner (era -12px, 17px - richiesto esplicito
+      per allinearlo alla stessa distanza (15px) della tendina dalla
+      parte bassa. */
+    height:35px; /* fissa, come il pulsante volume - senza, il
+      contenitore cresce quando compare la tabellina col nome del
+      brano (piu' alta del solo pulsante), e il pulsante (centrato al
+      suo interno con align-items:center) si sposta per restare al
+      centro della riga cresciuta. Con l'altezza fissa il pulsante
+      resta sempre fermo, e la tabellina - centrata a lui nella
+      stessa riga - resta centrata di conseguenza. */
   }
   body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
 
