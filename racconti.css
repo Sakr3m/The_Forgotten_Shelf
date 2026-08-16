@@ -307,6 +307,57 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
   }
+
+  /* --- Scrollbar delle due liste: entrambe sul lato che guarda il
+     centro pagina (quello con la riga divisoria), non su quello
+     esterno. A sinistra (Racconti brevi) e' gia' cosi' di default,
+     dato che il browser disegna la scrollbar sul bordo destro
+     dell'elemento che scorre. A destra (Libri) invece il default
+     sarebbe il bordo destro ESTERNO della pagina: qui si forza il
+     lato sinistro con direction:rtl sul contenitore che scorre (la
+     scrollbar segue la direction, il contenuto no perche' tutto
+     l'allineamento della colonna e' gia' scritto con proprieta'
+     fisiche - text-align:right, padding-left/right - mai logiche,
+     quindi resta identico; direction:ltr sulle righe stesse e'
+     comunque una sicurezza in piu' contro un possibile riordino
+     bidirezionale del testo). Il margine di 3px (sul lato interno
+     per entrambe) stacca il bordo della lista dalla riga divisoria
+     di quel tanto, cosi' la scrollbar - che il browser disegna
+     sempre incollata al bordo dell'elemento - si ritrova esattamente
+     a 3px da quella riga invece che incollata sopra. --- */
+  #sidebar .game-list{ margin-right:3px; }
+  #storieRail .game-list{
+    direction:rtl; margin-left:3px;
+  }
+  #storieRail .game-list > li{ direction:ltr; }
+
+  /* Aspetto sottile, in linea con la palette del sito (--line a
+     riposo, --cyan in hover, come qualunque altro bordo/accento) al
+     posto della scrollbar grigia di sistema. scrollbar-color/-width
+     per Firefox, gli pseudo-elementi ::-webkit-scrollbar-* per
+     Chrome/Safari/Edge - le due sintassi coprono tutti i browser
+     desktop rilevanti, nessuna esclusa. */
+  #sidebar .game-list, #storieRail .game-list{
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar,
+  #storieRail .game-list::-webkit-scrollbar{
+    width:6px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-track,
+  #storieRail .game-list::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb,
+  #storieRail .game-list::-webkit-scrollbar-thumb{
+    background:var(--line);
+    border-radius:999px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover,
+  #storieRail .game-list::-webkit-scrollbar-thumb:hover{
+    background:var(--cyan);
+  }
 }
 
 /* Pannello voce (racconto breve o libro) — stessa impaginazione
