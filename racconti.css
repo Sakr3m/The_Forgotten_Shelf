@@ -466,20 +466,21 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      danno da qui in poi entry-body con i suoi padding di 25px. */
   .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
 
-  /* Il testo a sinistra deve partire esattamente da dove inizia la
-     tazzina del logo Ko-fi in alto (.brand-icon), non dal bordo dello
-     stage: 25px è la distanza misurata fra i due, costante su desktop
-     a prescindere dalla larghezza finestra (sidebar e padding dello
-     stage sono entrambi fissi, non proporzionali al viewport). Solo
-     PC: su mobile la tazzina segue una formula di posizionamento
-     diversa (regola .brand non sovrascritta da .stage-topbar .brand),
-     quindi lo stesso offset lì non varrebbe.
-     width:100% esplicito è necessario: senza, su schermi larghi (dove
-     lo spazio disponibile supera i 1080px di max-width) il box si
-     restringe al contenuto e .entry-content lo CENTRA, staccandolo
-     dal bordo sinistro — il padding da solo non basta a farlo partire
-     dalla tazzina in quel caso. */
-  .entry-body{ width:100%; align-self:flex-start; padding-left:25px; }
+  /* Corpo del testo: 100px esatti dalla sidebar sinistra (stesso
+     punto di partenza del pulsante Discord in alto - lo stage ha gia'
+     25px di padding suo, qui se ne aggiungono altri 75 per arrivare
+     a 100 netti) e massimo fino a 300px dalla tabella Libri a destra
+     (stessa logica sul lato opposto: 25px gia' dati dallo stage +
+     275px qui = 300 netti). box-sizing:border-box perche' il padding
+     si sottragga dalla larghezza invece di aggiungersi; max-width
+     rimosso (era 1080px nella regola di base) perche' altrimenti
+     avrebbe tagliato il testo prima di arrivare davvero a quei
+     300px su schermi che non sono larghissimi. */
+  .entry-body{
+    width:100%; align-self:flex-start; box-sizing:border-box;
+    padding-left:75px; padding-right:275px;
+    max-width:none;
+  }
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
