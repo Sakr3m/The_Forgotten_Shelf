@@ -1307,15 +1307,21 @@ body[data-entry-animate="true"] #watermarkBrightness{
      loro (10px, era 8) - override della regola condivisa in
      styles.css, che vale anche per altre pagine: qui la sovrascrivo
      solo per Storie Senza Cornice, senza toccare il file comune. */
-  .stage-controls{ top:15px; right:15px; gap:10px; }
+  .stage-controls{ gap:10px; }
 
-  /* Torna all'index (a sinistra, isolato dal gruppo): era
-     position:static, cioe' seguiva il flusso naturale della pagina
-     invece di una coordinata precisa - impossibile garantire un
-     valore esatto cosi'. Riportato a position:fixed (come nella
-     regola base, desktop) con coordinate esplicite: stessa distanza
-     dal bordo richiesta anche per il gruppo di destra (15px), stessa
-     quota dall'alto degli altri pulsanti. */
-  .index-link{ position:fixed; top:15px; left:15px; }
+  /* Vero fix per le distanze dal bordo: la barra in home
+     (.stage-topbar, regola in styles.css) usa justify-content:
+     space-between con DUE figli diretti - index-link (sinistra) e
+     stage-controls (destra) - divisi automaticamente dal proprio
+     padding, non da una posizione assoluta impostata su ciascuno
+     (in questo contesto entrambi hanno position:static/auto, vedi
+     styles.css). Il padding era 14px sopra/sotto e 16px ai lati:
+     portato a 15px uniforme, risolve in un colpo solo la distanza
+     dall'alto E da entrambi i bordi laterali, senza dover posizionare
+     i due elementi singolarmente (un tentativo precedente aveva
+     provato a farlo con position:fixed su index-link, rompendo lo
+     space-between: con un solo figlio rimasto nel flusso, viene
+     spinto tutto a sinistra invece di dividersi). */
+  body[data-state="landing"] .stage-topbar{ padding:15px; }
 }
 
