@@ -1482,22 +1482,28 @@ body[data-entry-animate="true"] #watermarkBrightness{
     margin-top:0; margin-bottom:25px;
   }
 
-  /* Voci: TUTTE le caratteristiche (altezza, font-size interno,
-     evidenziazione) rubate pari pari da Il Filo Nascosto, che non ha
-     nessuna regola mobile propria per questo - eredita interamente il
-     comportamento condiviso in styles.css (line-height:18px, padding
-     12px/14px, striscia 2px al 45% sempre visibile + gradiente/2px
-     pieno su .is-active, stessa direzione su entrambe le colonne,
-     nessuno specchiamento). L'UNICA cosa che resta diversa, richiesta
-     esplicitamente: lo spessore della striscia, 3px invece di 2px -
-     sia nella versione permanente (45% di opacita') sia in quella
-     piena su .is-active. Stessa specificita' della regola condivisa,
-     vince per ordine nel file (racconti.css carica dopo styles.css). */
+  /* Voci: altezza e font-size interno rubati pari pari da Il Filo
+     Nascosto (nessuna regola mobile propria li', eredita styles.css:
+     line-height:18px, padding 12px/14px). Striscia: spessore 3px
+     invece di 2px (richiesto esplicitamente), sia nella versione
+     permanente (45% di opacita') sia in quella piena su .is-active.
+     Direzione: SPECCHIATA sulla colonna destra (#storieRail piu'
+     sotto) - li' il testo e' allineato a destra, la striscia a
+     sinistra (rubata cosi' da Il Filo Nascosto, senza specchiamento)
+     finiva lontana dal testo che dovrebbe segnalare. Qui sulla
+     sidebar sinistra invece resta a sinistra, coerente col testo
+     anche lui allineato li'. */
   .game-list button, .game-list a{
     box-shadow:inset 3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
   }
   .game-list button.is-active, .game-list a.is-active{
     box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
+  }
+  #storieRail .game-list button, #storieRail .game-list a{
+    box-shadow:inset -3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+  }
+  #storieRail .game-list button.is-active, #storieRail .game-list a.is-active{
+    box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan));
   }
 
   /* Margini laterali delle voci: il box/striscia resta a 15px dal
