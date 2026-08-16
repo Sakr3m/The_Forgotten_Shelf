@@ -20,7 +20,7 @@ const STRINGS = {
     leaveALike: "Lascia un like",
     reportBtnLabel: "Segnala bug",
     reportTitle: "Segnala un problema",
-    reportIntro: "Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto — la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto.",
+    reportIntro: "Hai trovato qualcosa che non funziona? Descrivi cosa è successo qui sotto: la descrizione è obbligatoria, l'immagine è facoltativa ma aiuta molto.",
     reportDescLabel: "Descrizione",
     reportDescPlaceholder: "Cosa è successo, e in quale pagina?",
     reportImageLabel: "Immagine (facoltativa)",
