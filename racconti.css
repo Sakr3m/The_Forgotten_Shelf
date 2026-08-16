@@ -598,22 +598,23 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
 
   /* Corpo del testo: 100px esatti dalla sidebar sinistra (lo stage ha
-     gia' 25px di padding suo, qui se ne aggiungono altri 97 - saliti
+     gia' 25px di padding suo, qui se ne aggiungono altri 80 - saliti
      da 75 per compensare il margine negativo qui sotto, che sposta il
-     box quasi fino al bordo per la scrollbar) e massimo fino a 300px
-     dalla tabella Libri a destra (25 dello stage + 275 qui = 300
-     netti, invariato). box-sizing:border-box perche' il padding si
-     sottragga dalla larghezza invece di aggiungersi; max-width
-     rimosso (era 1080px nella regola di base) perche' altrimenti
-     avrebbe tagliato il testo prima di arrivare davvero a quei 300px
-     su schermi non larghissimi. ATTENZIONE: margin-left/width/
-     padding-left ripetuti qui devono restare identici alla regola
-     scrollbar piu' sopra (stesso selettore, questa vince per ordine
-     nel file) - se si cambia un valore la' va cambiato anche qui. */
+     box verso il bordo per la scrollbar, fermandola a 20px dalla riga
+     della tabella) e massimo fino a 300px dalla tabella Libri a
+     destra (25 dello stage + 275 qui = 300 netti, invariato).
+     box-sizing:border-box perche' il padding si sottragga dalla
+     larghezza invece di aggiungersi; max-width rimosso (era 1080px
+     nella regola di base) perche' altrimenti avrebbe tagliato il
+     testo prima di arrivare davvero a quei 300px su schermi non
+     larghissimi. ATTENZIONE: margin-left/width/padding-left ripetuti
+     qui devono restare identici alla regola scrollbar piu' sopra
+     (stesso selettore, questa vince per ordine nel file) - se si
+     cambia un valore la' va cambiato anche qui. */
   .entry-body{
-    width:calc(100% + 22px); align-self:flex-start; box-sizing:border-box;
-    margin-left:-22px;
-    padding-left:97px; padding-right:275px;
+    width:calc(100% + 5px); align-self:flex-start; box-sizing:border-box;
+    margin-left:-5px;
+    padding-left:80px; padding-right:275px;
     max-width:none;
   }
 }
