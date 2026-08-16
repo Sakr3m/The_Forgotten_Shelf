@@ -1500,10 +1500,13 @@ body[data-entry-animate="true"] #watermarkBrightness{
     box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
   }
 
-  /* Margini laterali delle voci: 20px dal pannello, invariato -
-     larghezza tornata a 100% semplice (era ridotta per lasciare
-     spazio al lucchetto, che pero' qui su mobile e' nascosto: non
-     serve piu' nessuna riduzione, stessa larghezza piena di Il Filo
+  /* Margini laterali delle voci: 15px dal pannello sul lato esterno
+     (dove non c'e' la striscia). Sul lato interno (dove vive la
+     striscia, sempre a sinistra per entrambe le colonne) diventa
+     23px per via degli 8px di separazione aggiunti piu' sotto.
+     Larghezza tornata a 100% semplice (era ridotta per lasciare
+     spazio al lucchetto, che pero' su mobile e' nascosto: non serve
+     piu' nessuna riduzione, stessa larghezza piena di Il Filo
      Nascosto). */
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
   .side-rail{ padding-left:15px; padding-right:15px; padding-top:90px; }
@@ -1518,16 +1521,15 @@ body[data-entry-animate="true"] #watermarkBrightness{
     toccare la striscia (a sinistra) per titoli brevi, ma quelli
     lunghi potrebbero comunque arrivarci - stessa protezione. */
 
-  /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
-     touch-device non hanno un hover affidabile - l'utente non
-     saprebbe nemmeno che esiste). Stessa specificita' della regola
-     base che lo nasconde (.game-list__row .row-lock), vince per
-     ordine nel file essendo dichiarata dopo. */
-  .game-list__row .row-lock{ display:none; } /* niente lucchetto su
-    mobile - richiesto esplicitamente, cambio rispetto a "sempre
-    visibile" di poco fa. Senza lucchetto, niente controllo
-    sull'animazione: le voci caricano sempre dirette (vedi
-    applicaAnimazioneVoce in script-racconti.js). */
+  /* Lucchetto per voce: niente lucchetto su mobile, nascosto del
+     tutto (richiesto esplicitamente - cambio rispetto a un tentativo
+     precedente "sempre visibile", poi scartato). Stessa specificita'
+     della regola base che lo nasconde gia' di suo
+     (.game-list__row .row-lock), ridondante ma esplicito. Senza
+     lucchetto, niente controllo sull'animazione: le voci caricano
+     sempre dirette (vedi applicaAnimazioneVoce in
+     script-racconti.js). */
+  .game-list__row .row-lock{ display:none; }
 }
 
 
