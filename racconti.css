@@ -458,7 +458,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
        di suo, che si sommavano ai 33px di .entry-panel qui sotto
        dando 73px reali invece dei 33 richiesti. */
   }
-  body[data-state="entry"] .entry-panel{ margin-top:12px; }
+  body[data-state="entry"] .entry-panel{ margin-top:20px; }
 
   /* Scroll isolato: solo il corpo del testo scorre, titolo/copyright/
      tag restano fermi in vista - stessa tecnica gia' usata stamattina
@@ -469,12 +469,13 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      ancora scorrere, l'intero blocco - titolo compreso - si sposta
      comunque insieme al resto, come infatti succedeva. Va bloccato lo
      scroll della pagina stessa (qui sotto), cosi' l'unico scroll
-     possibile resta quello interno di .entry-body. 92px = 15px della
-     topbar + 65px della riga header + 12px di margine del titolo. */
+     possibile resta quello interno di .entry-body. 100px = 15px della
+     topbar + 65px della riga header + 20px di margine del titolo
+     (era 92 = 15+65+12, aggiornato insieme al margine qui sopra). */
   body[data-state="entry"]{ overflow:hidden; height:100vh; }
   html:has(body[data-state="entry"]){ overflow:hidden; height:100vh; }
   body[data-state="entry"] .entry-content-text{
-    height:calc(100vh - 92px);
+    height:calc(100vh - 100px);
     overflow:hidden;
   }
   body[data-state="entry"] .entry-title,
@@ -579,18 +580,22 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
 
   /* Corpo del testo: 100px esatti dalla sidebar sinistra (stesso
-     punto di partenza del pulsante Discord in alto - lo stage ha gia'
-     25px di padding suo, qui se ne aggiungono altri 75 per arrivare
-     a 100 netti) e massimo fino a 300px dalla tabella Libri a destra
-     (stessa logica sul lato opposto: 25px gia' dati dallo stage +
-     275px qui = 300 netti). box-sizing:border-box perche' il padding
-     si sottragga dalla larghezza invece di aggiungersi; max-width
-     rimosso (era 1080px nella regola di base) perche' altrimenti
-     avrebbe tagliato il testo prima di arrivare davvero a quei
-     300px su schermi che non sono larghissimi. */
+     punto di partenza del pulsante Discord in alto) e massimo fino a
+     300px dalla tabella Libri a destra - entrambi misurati dal bordo
+     VERO della pagina (sidebar/side-rail), non dal bordo dello stage.
+     Il box stesso pero' e' spostato fino quasi al bordo sinistro
+     dello stage (margin-left:-25px, che annulla il padding proprio
+     dello stage) cosi' la sua scrollbar (vedi il trucco RTL/LTR piu'
+     sotto) si ritrova attaccata alla riga divisoria, non 25px piu' in
+     la' - stessa tecnica del margine negativo + padding compensato
+     gia' usata stamattina per le voci mobile. width aumentata della
+     stessa quantita' per non spostare anche il bordo destro (dove il
+     testo va a capo). padding-left sale da 75 a 100 per compensare,
+     mantenendo il testo esattamente ai 100px netti voluti. */
   .entry-body{
-    width:100%; align-self:flex-start; box-sizing:border-box;
-    padding-left:75px; padding-right:275px;
+    width:calc(100% + 25px); align-self:flex-start; box-sizing:border-box;
+    margin-left:-25px;
+    padding-left:100px; padding-right:275px;
     max-width:none;
   }
 }
