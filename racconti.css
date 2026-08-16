@@ -1346,7 +1346,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
     icona+testo torna centrato nella pillola. */
 
   /* Distanze del blocco hero riviste. */
-  .landing-title{ font-size:35px; line-height:35px; margin-top:35px; }
+  .landing-title{ font-size:30px; line-height:30px; margin-top:35px; }
   .landing-intro{ margin-top:15px; }
   .landing-sub{ margin-top:50px; }
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
