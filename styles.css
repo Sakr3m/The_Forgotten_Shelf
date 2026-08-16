@@ -450,14 +450,14 @@ body[data-state="landing"] .brand{ display:none; }
      10px di margin-top in piu' lo spostano giu' fino a combaciare.
      Nel file condiviso: vale per ogni pagina che usa queste classi
      (Storie Senza Cornice, Il Filo Nascosto, la Timeline). */
-  .sidebar-eyebrow, .rail-label{ margin-top:6px; }
+  .sidebar-eyebrow, .rail-label{ margin-top:9px; }
 }
 .sidebar-eyebrow{
-  font-size:20px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
   color:var(--text-faint); margin-bottom:14px; padding:0 8px;
   text-align:center;
-  line-height:20px; /* = font-size, riga aderente al testo: a 30px dal
-    bordo (6px di margin-top + 24px di padding del pannello), 20px di
+  line-height:14px; /* = font-size, riga aderente al testo: a 33px dal
+    bordo (9px di margin-top + 24px di padding del pannello), 14px di
     altezza porta il centro a 40px, come i pulsanti in alto. */
 }
 .game-list{ display:flex; flex-direction:column; gap:2px; }
@@ -494,10 +494,10 @@ body[data-state="landing"] .brand{ display:none; }
   overflow-y:auto;
 }
 .rail-label{
-  font-size:20px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   color:var(--cyan); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--line);
   text-align:center;
-  line-height:20px; /* stessa logica di .sidebar-eyebrow qui sopra */
+  line-height:14px; /* stessa logica di .sidebar-eyebrow qui sopra */
 }
 
 /* ============================================================
