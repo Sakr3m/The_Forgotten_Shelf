@@ -460,7 +460,7 @@ body[data-state="landing"] .brand{ display:none; }
     bordo (9px di margin-top + 24px di padding del pannello), 14px di
     altezza porta il centro a 40px, come i pulsanti in alto. */
 }
-.game-list{ display:flex; flex-direction:column; gap:2px; }
+.game-list{ display:flex; flex-direction:column; gap:3px; }
 .game-list button, .game-list a{
   display:block; text-decoration:none;
   width:100%; text-align:left; box-sizing:border-box;
