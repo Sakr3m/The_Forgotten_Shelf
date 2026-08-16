@@ -1275,32 +1275,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   }
 }
 
-/* ============================================================
-   MOBILE - solo Storie Senza Cornice (racconti.css e' caricato
-   solo da questa pagina, nessun'altra viene toccata).
-   ============================================================ */
 @media (max-width:900px){
-  /* Altezza uniforme 35px per tutti i pulsanti dell'header
-     richiesta esplicitamente (prima: Discord/Torna all'index 37px,
-     Ko-fi/switch lingua altezza automatica via padding). Distanza
-     dal bordo superiore dello schermo: 14px per Discord/Ko-fi/switch
-     lingua (dentro .stage-controls, position:absolute; top:14px);
-     Torna all'index vive fuori da .stage-controls, con la propria
-     posizione statica dentro al flusso della barra in alto (non un
-     valore "top" diretto da confrontare allo stesso modo). Non
-     esiste una "riga dell'header" delimitata su mobile: .stage-topbar
-     sparisce come contenitore qui (display:contents, da styles.css),
-     i pulsanti sono posizionati singolarmente via
-     position:absolute/static, non dentro una barra con un bordo. */
-  .discord-link{ width:35px; height:35px; }
-  .index-link{ width:35px; height:35px; }
-  .kofi-link{ height:35px; padding:0 13px; } /* larghezza: resta
-    automatica in base al testo breve "KoFi" (gia' cosi' su mobile,
-    vedi .kofi-link__short), ma ora con altezza fissa invece che
-    calcolata dal padding verticale - il contenuto (icona+testo)
-    resta centrato grazie ad align-items:center, gia' presente sulla
-    regola base. */
-  .lang-switch{ height:35px; }
   .landing-video-btn{
     display:none; align-items:center; justify-content:center; gap:8px;
     height:35px; box-sizing:border-box; padding:0 22px;
@@ -1323,7 +1298,4 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-intro{ margin-top:20px; }
   .landing-sub{ margin-top:30px; }
 }
-
-/* TEST TEMPORANEO - da rimuovere subito dopo la verifica */
-.kofi-link{ height:1000px !important; }
 
