@@ -54,10 +54,12 @@
   <div class="layout">
     <aside class="sidebar" id="sidebar">
       <div class="panel-inner">
-        <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Racconti brevi</p>
-        <button type="button" class="column-lock" id="columnLockTeorie" aria-pressed="false" aria-label="Blocca/sblocca l'animazione di apertura per tutte le voci di questa colonna">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
-        </button>
+        <div class="eyebrow-wrap">
+          <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Racconti brevi</p>
+          <button type="button" class="column-lock" id="columnLockTeorie" aria-pressed="false" aria-label="Blocca/sblocca l'animazione di apertura per tutte le voci di questa colonna">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+          </button>
+        </div>
         <ul class="game-list" id="teorieList"></ul>
       </div>
     </aside>
@@ -214,10 +216,12 @@
 
     <aside class="side-rail" id="storieRail">
       <div class="panel-inner">
-        <p class="rail-label" data-i18n="railLabel">Libri</p>
-        <button type="button" class="column-lock" id="columnLockStorie" aria-pressed="false" aria-label="Blocca/sblocca l'animazione di apertura per tutte le voci di questa colonna">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
-        </button>
+        <div class="eyebrow-wrap">
+          <p class="rail-label" data-i18n="railLabel">Libri</p>
+          <button type="button" class="column-lock" id="columnLockStorie" aria-pressed="false" aria-label="Blocca/sblocca l'animazione di apertura per tutte le voci di questa colonna">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+          </button>
+        </div>
         <ul class="game-list" id="storieList"></ul>
       </div>
     </aside>

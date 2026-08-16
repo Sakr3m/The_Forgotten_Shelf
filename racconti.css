@@ -1168,24 +1168,37 @@ body[data-entry-animate="true"] #watermarkBrightness{
   }
   .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
   .landing-video-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
+  .landing-video-btn[hidden]{ display:none; } /* stesso bug gia' visto
+    sulla barra di luminosita': display:flex qui sopra ha la stessa
+    specificita' della regola predefinita del browser per [hidden] e
+    vince sempre lei per ordine nel foglio di stile - senza questa
+    riga il pulsante resta visibile anche da nascosto. */
 
   /* Lucchetto "master" per colonna: blocca/sblocca insieme tutti i
      lucchetti delle singole opere di quella tabella (vedi script-
-     racconti.js). Vive DENTRO il titolino (.sidebar-eyebrow/.rail-
-     label, reso position:relative apposta) invece che nel pannello
-     intero: cosi' si posiziona rispetto a lui con precisione, senza
-     bisogno di calcolare a mano la sua quota verticale - e soprattutto
-     senza spostare il titolino dal centro, che resta text-align:center
-     come sempre (il lucchetto e' assoluto, esce dal flusso normale).
-     Stessa forma/dimensione del lucchetto per singola voce (26px,
-     stesso trattamento colore/hover), stesso identico inset di 6px
-     dal bordo interno usato li' (#sidebar .row-lock/.side-rail
-     .row-lock), per allinearsi visivamente in verticale con loro. */
-  .sidebar-eyebrow, .rail-label{ position:relative; }
+     racconti.js). FIX: prima .column-lock era un FRATELLO del
+     titolino nell'HTML (non un figlio), quindi il position:relative
+     sul titolino non gli serviva a nulla - si posizionava rispetto
+     al prossimo antenato posizionato piu' in alto (#sidebar, l'intera
+     colonna), finendo a meta' altezza invece che accanto al titolino.
+     Ora vive dentro .eyebrow-wrap, un contenitore comune per titolino
+     + lucchetto (non dentro il titolino stesso: node.textContent nella
+     traduzione lo cancellerebbe ad ogni cambio lingua). Il wrapper
+     eredita i margini che prima stavano sul titolino (33px sotto,
+     +9px sopra su desktop - stessi valori, stesso effetto visivo),
+     il titolino li azzera. Il centro resta intatto: text-align:center
+     e' ancora sul titolino, invariato, il lucchetto e' assoluto e non
+     tocca il flusso. Stessa forma/dimensione del lucchetto per
+     singola voce (26px, stesso trattamento colore/hover), stesso
+     identico inset di 6px dal bordo interno usato li' (#sidebar
+     .row-lock/.side-rail .row-lock), per allinearsi in verticale. */
+  .eyebrow-wrap{ position:relative; margin-top:9px; }
+  .sidebar-eyebrow, .rail-label{ margin:0; }
   .column-lock{
+    display:flex;
     position:absolute; top:50%; transform:translateY(-50%);
     width:26px; height:26px; padding:0; box-sizing:border-box;
-    display:flex; align-items:center; justify-content:center;
+    align-items:center; justify-content:center;
     border:1px solid var(--cyan);
     border-radius:50%;
     background:var(--panel);
@@ -1217,4 +1230,10 @@ body[data-entry-animate="true"] #watermarkBrightness{
     background:var(--panel); color:var(--cyan);
   }
 }
+.column-lock{ display:none; } /* nascosto di default (mobile incluso),
+  mostrato solo dentro la media query desktop qui sopra - la feature
+  non e' stata progettata per mobile in questa fase. */
+.eyebrow-wrap{ margin-bottom:33px; } /* stesso margine che prima stava
+  sul titolino, vale a tutte le dimensioni (era gia' cosi', non solo
+  desktop) - il titolino stesso lo ha azzerato qui sopra. */
 
