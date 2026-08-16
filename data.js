@@ -24,7 +24,7 @@ const GAMES = {
       {
         id: "vera-strangereal",
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
-        span: { it: "1995 – anni 2020", en: "1995 – 2020s" },
+        span: { it: "1995 – 2019", en: "1995 – 2019" },
         entries: [
           { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Guerra di Belka)", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Ace Combat Zero: The Belkan War", en: "Ace Combat Zero: The Belkan War" },
