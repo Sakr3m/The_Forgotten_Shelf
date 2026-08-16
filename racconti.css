@@ -419,7 +419,29 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
        di suo, che si sommavano ai 33px di .entry-panel qui sotto
        dando 73px reali invece dei 33 richiesti. */
   }
-  body[data-state="entry"] .entry-panel{ margin-top:33px; }
+  body[data-state="entry"] .entry-panel{ margin-top:12px; }
+
+  /* Scroll isolato: solo il corpo del testo scorre, titolo/copyright/
+     tag restano fermi in vista - stessa tecnica gia' usata stamattina
+     per la lista voci in sidebar (contenitore ad altezza fissa,
+     flex:0 0 auto sugli elementi fissi, flex:1+overflow-y:auto su
+     quello che deve scorrere). 92px = 15px della topbar + 65px della
+     riga header + 12px di margine del titolo qui sopra: lo spazio
+     rimanente lo occupa .entry-content-text, che smette di crescere
+     col testo e lascia scorrere solo .entry-body al suo interno. */
+  body[data-state="entry"] .entry-content-text{
+    height:calc(100vh - 92px);
+    overflow:hidden;
+  }
+  body[data-state="entry"] .entry-title,
+  body[data-state="entry"] .entry-copyright,
+  body[data-state="entry"] .entry-tag{
+    flex:0 0 auto;
+  }
+  body[data-state="entry"] .entry-body{
+    flex:1 1 auto; min-height:0;
+    overflow-y:auto;
+  }
 }
 .entry-content{
   position:relative; z-index:1;
@@ -469,7 +491,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   color:var(--item-accent, var(--cyan));
 }
 .entry-body{
-  margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
+  margin-top:33px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:left; max-width:1080px;
 }
 @media (min-width:901px){
