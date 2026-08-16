@@ -192,14 +192,13 @@ body[data-state="landing"] #pageHeader{ display:none; }
 
 /* Pulsante a tendina con le altre teorie/storie dello stesso gioco
    (per ora una sola per gioco, ma pronto per quando ce ne saranno
-   di più). Il pulsante sta dentro #pageHeader (si muove con lui,
-   che è sticky) — 15px sopra la riga di confine, la stessa distanza
-   che c'è tra i pulsanti sopra e il bordo alto della pagina.
-   Il MENU invece non è dentro #pageHeader: quel box ha
-   overflow:hidden (serve per ritagliare la banner), quindi un menu
-   a tendina lì dentro verrebbe tagliato via appena esce dal bordo
-   basso. È un elemento a parte, posizionato via JS (position:fixed,
-   coordinate prese dal trigger reale) così scavalca il ritaglio.
+   di più). Vive dentro .stage-controls, tra il pulsante del volume e
+   lo switch lingua (vedi la regola desktop qui sotto) - prima stava
+   dentro #pageHeader, spostato via.
+   Il MENU (l'elenco a comparsa quando lo si apre) resta invece un
+   elemento a parte, posizionato via JS (position:fixed, coordinate
+   prese dal trigger reale): se vivesse dentro un contenitore con
+   overflow:hidden verrebbe tagliato via appena esce dal bordo.
    Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
 /* Nascosto anche quando la voce non ha altri capitoli collegati
@@ -1019,24 +1018,26 @@ body[data-state="entry"] .landing{ display:none; }
    Sequenza di comparsa per voce, attivabile con il lucchetto (vedi
    script-racconti.js: applicaAnimazioneVoce() aggiunge/toglie
    body[data-entry-animate="true"] ad ogni apertura di voce, in base
-   allo stato salvato di QUELLA voce specifica). Da lucchetto acceso
+   allo stato salvato per QUELL'OPERA - item.game, condiviso da tutti
+   i suoi capitoli, non il singolo id-capitolo). Da lucchetto acceso
    nessuna di queste regole si applica: la pagina compare com'e' oggi,
-   istantanea. Da lucchetto spento (default), invece, questa sequenza.
+   istantanea, per qualunque capitolo. Da lucchetto spento (default),
+   invece, questa sequenza, che riparte da capo a ogni cambio voce
+   (anche dalla tendina).
 
    I pulsanti (.stage-topbar, e anche il selettore capitoli
-   .entry-game-picker anche se vive dentro #pageHeader) NON fanno
-   parte della sequenza: sono gia' li' fin da subito, nessun fade-in,
-   esattamente come oggi. L'animazione punta al banner e all'overlay
-   specificamente (non a tutto #pageHeader), cosi' il picker - un
-   fratello di questi due, non un figlio - resta fuori dalla sfumatura
-   pur vivendo nello stesso contenitore.
-   Restano due fasi vere, scaglionate:
-   1) Banner + Filigrana insieme
-      (#pageHeaderBanner, .game-header__banner-overlay,
-      #entryWatermarkWrap): 1s, parte a 0.5s dal click (finisce a 1.5s)
-   2) Testo (.entry-panel):              2s,   parte a 1s dal click
+   .entry-game-picker) NON fanno parte della sequenza: sono gia' li'
+   fin da subito, nessun fade-in.
+
+   Due fasi vere, scaglionate (invertite rispetto a prima: quando
+   c'era ancora il banner, lui e la filigrana comparivano insieme per
+   primi e il testo dopo - ora che il banner e' sparito ed e' il
+   testo a prendersi il suo posto, il testo compare per primo):
+   1) Testo (.entry-panel):        1s, parte a 0.5s dal click
+      (finisce a 1.5s)
+   2) Filigrana (#entryWatermarkWrap): 2s, parte a 1s dal click
       (finisce a 3s), fade-in semplice di tutto il blocco insieme -
-      la versione precedente (rivelazione diagonale via maschera
+      una versione precedente (rivelazione diagonale via maschera
       animata) causava sfarfallio, tolta.
    Totale sequenza: 3s - la barra di luminosita' della filigrana
    resta non interattiva (pointer-events) fino a quel momento incluso,

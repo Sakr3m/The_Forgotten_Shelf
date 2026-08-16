@@ -187,7 +187,13 @@
 
         <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.</p>
 
-        <button type="button" class="landing-video-btn" id="landingVideoBtn">
+        <!-- Nascosto (hidden) apposta: non e' codice morto, e' in
+             attesa del video da agganciare (player YouTube incorporato,
+             che porta gia' il proprio controllo volume). Struttura e
+             stile gia' pronti in racconti.css (.landing-video-btn) -
+             quando arriva il video basta togliere l'attributo hidden
+             e collegare il click. */
+        <button type="button" class="landing-video-btn" id="landingVideoBtn" hidden>
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5.5v9l7.5-4.5L7 5.5z" fill="currentColor"/></svg>
           <span data-i18n="landingVideoBtn">Riproduci video</span>
         </button>
