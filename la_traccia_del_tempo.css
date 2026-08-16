@@ -417,15 +417,23 @@
   .discord-link{ color:var(--text-faint); }
 
   /* --- Altezza uniforme di tutti i pulsanti (casetta, Ko-fi,
-     Discord, switch lingua), sia in home che nelle voci: qui si
-     allineano tutti a 38px netti con box-sizing:border-box. La forma
-     resta quella di ciascuno (pillola per Ko-fi/casetta/switch,
+     Discord, switch lingua), sia in home che nelle voci: 40px netti
+     con box-sizing:border-box (aggiornato da 38 - nuovo standard di
+     misure concordato, gia' applicato su Storie Senza Cornice). La
+     forma resta quella di ciascuno (pillola per Ko-fi/casetta/switch,
      cerchio per Discord) — solo la LARGHEZZA di Ko-fi cambia un po'
      (testo piu' corto nelle voci, "KoFi" invece del testo lungo). --- */
   .kofi-link, .index-link, .discord-link, .lang-switch{
-    height:38px; box-sizing:border-box;
+    height:40px; box-sizing:border-box;
   }
-  .discord-link{ width:38px; }
+  .discord-link{ width:40px; }
+
+  /* Il file condiviso styles.css riduce .brand da 100 a 50px dal
+     bordo della sidebar (margin-left:-50px) per ogni pagina che lo
+     usa - qui si annulla per tornare a 100px, come gia' fatto su
+     Storie Senza Cornice, senza toccare il file condiviso (che
+     cambierebbe la stessa cosa anche su Il Filo Nascosto). */
+  .stage-topbar .brand{ margin-left:0; }
 
   /* --- Vista "game"/"title" (l'equivalente qui della vista voce
      delle altre pagine — questa non usa lo stato "entry"): la
