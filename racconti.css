@@ -1541,11 +1541,24 @@ body[data-entry-animate="true"] #watermarkBrightness{
    che potevano riflettere la stessa mia ipotesi sbagliata invece di
    verificarla). Se c'e' un vuoto visibile tra i due colori, quello e'
    lo spazio in eccesso vero, senza nessun calcolo di mezzo.
-   - ARANCIONE: la vera box del titolino (sfondo pieno, dal suo bordo
-     superiore reale a quello inferiore reale).
-   - VIOLA: la vera box della lista (.game-list) - il suo bordo
-     superiore mostra esattamente dove inizia davvero la prima voce. */
+   - ARANCIONE PIENO: la vera box del titolino (sfondo pieno, dal suo
+     bordo superiore reale a quello inferiore reale).
+   - VIOLA PIENO: la vera box della lista (.game-list) - il suo
+     bordo superiore mostra esattamente dove inizia davvero la prima
+     voce.
+   - QUADRATINI a bordo schermo (confermati corretti): stessa idea di
+     prima, a coordinate FISSE calcolate (65px/115px, teoriche) -
+     tenuti insieme ai colori pieni per il confronto diretto nello
+     stesso screenshot. */
 @media (max-width:900px){
   .sidebar-eyebrow, .rail-label{ background:orange; }
   .game-list{ background:purple; }
+  body::before{
+    content:""; position:fixed; top:65px; left:0; width:40px; height:25px;
+    background:orange; border:2px solid white; z-index:9999; pointer-events:none;
+  }
+  body::after{
+    content:""; position:fixed; top:115px; left:0; width:40px; height:25px;
+    background:purple; border:2px solid white; z-index:9999; pointer-events:none;
+  }
 }
