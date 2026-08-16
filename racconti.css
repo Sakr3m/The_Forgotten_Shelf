@@ -817,8 +817,8 @@ body[data-state="entry"] .landing{ display:none; }
       Ancorata a destra (right center) dentro al box, che essendo
       largo esattamente 1/3 dell'area la contiene gia' correttamente
       senza bisogno di ritagliarla ulteriormente. */
-    -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
-    mask-image:linear-gradient(90deg, transparent, black 35%);
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 15%);
+    mask-image:linear-gradient(90deg, transparent, black 15%);
     /* --- DEBUG/PROVA: box tratteggiato ciano per vedere i confini
        esatti del contenitore mentre lavoriamo sulle misure. opacity
        alzata a 1 (era .35) solo per questo motivo: un bordo dentro
