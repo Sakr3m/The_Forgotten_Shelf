@@ -1542,11 +1542,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
    - VIOLA: spazio tra la fine del titolino (65+25=115px) e la prima
      voce (che inizia a 115+25=140px) - 25px teorici. */
 @media (max-width:900px){
-  body[data-state="landing"]::before{
+  body::before{
     content:""; position:fixed; top:65px; left:0; width:40px; height:25px;
     background:orange; z-index:9999; pointer-events:none;
   }
-  body[data-state="landing"]::after{
+  body::after{
     content:""; position:fixed; top:115px; left:0; width:40px; height:25px;
     background:purple; z-index:9999; pointer-events:none;
   }
