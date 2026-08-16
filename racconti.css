@@ -1491,8 +1491,12 @@ body[data-entry-animate="true"] #watermarkBrightness{
      sulle regole gia' esistenti in styles.css. Direzione: sidebar
      verso il bordo esterno (sinistra), side-rail verso il suo bordo
      esterno (destra) - specchiate. */
-  #sidebar .game-list a.is-active{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); }
-  #storieRail .game-list a.is-active{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); }
+  #sidebar .game-list a.is-active{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); background:none; } /* FIX:
+    mancava background:none anche qui - la voce selezionata ereditava
+    ancora lo sfondo pieno a tutta pillola dalla regola condivisa in
+    styles.css (background:linear-gradient(...) su .is-active), non
+    la sottile striscia di 3px che doveva restare l'unico segno. */
+  #storieRail .game-list a.is-active{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); background:none; }
   #sidebar .game-list a:not(.is-active),
   #storieRail .game-list a:not(.is-active){
     box-shadow:none; background:none;
@@ -1532,22 +1536,16 @@ body[data-entry-animate="true"] #watermarkBrightness{
 
 
 
-/* DEBUG/PROVA - TEMPORANEO: due blocchi colorati disegnati esattamente
-   nelle due zone di spazio (non intorno agli elementi) - entrambi
-   25px sulla carta. Se il calcolo e' giusto devono apparire identici;
-   se uno e' visibilmente piu' grande dell'altro, quello e' il gap che
-   nasconde lo spazio in piu'.
-   - ARANCIONE: spazio tra la riga dell'header (65px) e il titolino
-     (che inizia a 90px) - 25px teorici.
-   - VIOLA: spazio tra la fine del titolino (65+25=115px) e la prima
-     voce (che inizia a 115+25=140px) - 25px teorici. */
+/* DEBUG/PROVA - TEMPORANEO: sfondo colorato DIRETTAMENTE sugli
+   elementi veri (non piu' quadratini a posizione calcolata da me,
+   che potevano riflettere la stessa mia ipotesi sbagliata invece di
+   verificarla). Se c'e' un vuoto visibile tra i due colori, quello e'
+   lo spazio in eccesso vero, senza nessun calcolo di mezzo.
+   - ARANCIONE: la vera box del titolino (sfondo pieno, dal suo bordo
+     superiore reale a quello inferiore reale).
+   - VIOLA: la vera box della lista (.game-list) - il suo bordo
+     superiore mostra esattamente dove inizia davvero la prima voce. */
 @media (max-width:900px){
-  body::before{
-    content:""; position:fixed; top:65px; left:0; width:40px; height:25px;
-    background:orange; z-index:9999; pointer-events:none;
-  }
-  body::after{
-    content:""; position:fixed; top:115px; left:0; width:40px; height:25px;
-    background:purple; z-index:9999; pointer-events:none;
-  }
+  .sidebar-eyebrow, .rail-label{ background:orange; }
+  .game-list{ background:purple; }
 }
