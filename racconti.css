@@ -683,6 +683,31 @@ body[data-state="entry"] .landing{ display:none; }
     overflow-y:auto;
   }
 
+  /* Scrollbar sottile e colorata, stesso stile gia' in uso su
+     desktop (linea a riposo, ciano in hover) al posto di quella
+     nativa di sistema - mancava del tutto su mobile. */
+  #sidebar .game-list, #storieRail .game-list{
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar,
+  #storieRail .game-list::-webkit-scrollbar{
+    width:6px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-track,
+  #storieRail .game-list::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb,
+  #storieRail .game-list::-webkit-scrollbar-thumb{
+    background:var(--line);
+    border-radius:999px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover,
+  #storieRail .game-list::-webkit-scrollbar-thumb:hover{
+    background:var(--cyan);
+  }
+
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
      index-link e discord-link arrivano gia' dimensionati da
      styles.css (37px condivisi), qui li porto entrambi a 35px senza
