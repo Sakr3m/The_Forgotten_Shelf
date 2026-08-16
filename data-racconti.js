@@ -1095,7 +1095,27 @@ Their lips were sealed, as is right. But their hearts, in the moment they found 
 const LIBRI_ORDER = [
   "il-chiamato-1",
   "il-custode-del-vuoto-1",
-  "l-ultimo-piano-1"
+  "l-ultimo-piano-1",
+  "placeholder-l-01",
+  "placeholder-l-02",
+  "placeholder-l-03",
+  "placeholder-l-04",
+  "placeholder-l-05",
+  "placeholder-l-06",
+  "placeholder-l-07",
+  "placeholder-l-08",
+  "placeholder-l-09",
+  "placeholder-l-10",
+  "placeholder-l-11",
+  "placeholder-l-12",
+  "placeholder-l-13",
+  "placeholder-l-14",
+  "placeholder-l-15",
+  "placeholder-l-16",
+  "placeholder-l-17",
+  "placeholder-l-18",
+  "placeholder-l-19",
+  "placeholder-l-20"
 ];
 
 const LIBRI = {
@@ -4687,5 +4707,165 @@ The doors closed behind him with a dry, definitive bang.
 
 And Caelen was alone, on that strange floor.`
     }
+  },
+  "placeholder-l-01": {
+    game: "placeholder-l-01",
+    gameLabel: { it: "Placeholder Libro 01", en: "Placeholder Book 01" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 01", en: "Placeholder Book 01" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-02": {
+    game: "placeholder-l-02",
+    gameLabel: { it: "Placeholder Libro 02", en: "Placeholder Book 02" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 02", en: "Placeholder Book 02" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-03": {
+    game: "placeholder-l-03",
+    gameLabel: { it: "Placeholder Libro 03", en: "Placeholder Book 03" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 03", en: "Placeholder Book 03" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-04": {
+    game: "placeholder-l-04",
+    gameLabel: { it: "Placeholder Libro 04", en: "Placeholder Book 04" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 04", en: "Placeholder Book 04" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-05": {
+    game: "placeholder-l-05",
+    gameLabel: { it: "Placeholder Libro 05", en: "Placeholder Book 05" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 05", en: "Placeholder Book 05" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-06": {
+    game: "placeholder-l-06",
+    gameLabel: { it: "Placeholder Libro 06", en: "Placeholder Book 06" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 06", en: "Placeholder Book 06" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-07": {
+    game: "placeholder-l-07",
+    gameLabel: { it: "Placeholder Libro 07", en: "Placeholder Book 07" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 07", en: "Placeholder Book 07" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-08": {
+    game: "placeholder-l-08",
+    gameLabel: { it: "Placeholder Libro 08", en: "Placeholder Book 08" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 08", en: "Placeholder Book 08" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-09": {
+    game: "placeholder-l-09",
+    gameLabel: { it: "Placeholder Libro 09", en: "Placeholder Book 09" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 09", en: "Placeholder Book 09" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-10": {
+    game: "placeholder-l-10",
+    gameLabel: { it: "Placeholder Libro 10", en: "Placeholder Book 10" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 10", en: "Placeholder Book 10" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-11": {
+    game: "placeholder-l-11",
+    gameLabel: { it: "Placeholder Libro 11", en: "Placeholder Book 11" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 11", en: "Placeholder Book 11" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-12": {
+    game: "placeholder-l-12",
+    gameLabel: { it: "Placeholder Libro 12", en: "Placeholder Book 12" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 12", en: "Placeholder Book 12" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-13": {
+    game: "placeholder-l-13",
+    gameLabel: { it: "Placeholder Libro 13", en: "Placeholder Book 13" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 13", en: "Placeholder Book 13" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-14": {
+    game: "placeholder-l-14",
+    gameLabel: { it: "Placeholder Libro 14", en: "Placeholder Book 14" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 14", en: "Placeholder Book 14" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-15": {
+    game: "placeholder-l-15",
+    gameLabel: { it: "Placeholder Libro 15", en: "Placeholder Book 15" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 15", en: "Placeholder Book 15" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-16": {
+    game: "placeholder-l-16",
+    gameLabel: { it: "Placeholder Libro 16", en: "Placeholder Book 16" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 16", en: "Placeholder Book 16" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-17": {
+    game: "placeholder-l-17",
+    gameLabel: { it: "Placeholder Libro 17", en: "Placeholder Book 17" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 17", en: "Placeholder Book 17" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-18": {
+    game: "placeholder-l-18",
+    gameLabel: { it: "Placeholder Libro 18", en: "Placeholder Book 18" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 18", en: "Placeholder Book 18" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-19": {
+    game: "placeholder-l-19",
+    gameLabel: { it: "Placeholder Libro 19", en: "Placeholder Book 19" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 19", en: "Placeholder Book 19" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
+  },
+  "placeholder-l-20": {
+    game: "placeholder-l-20",
+    gameLabel: { it: "Placeholder Libro 20", en: "Placeholder Book 20" },
+    accentColor: "#6b7280",
+    title: { it: "Placeholder Libro 20", en: "Placeholder Book 20" },
+    tag: { it: "voce di prova per testare lo scroll", en: "test entry to check scrolling" },
+    body: { it: "", en: "" }
   }
 };
