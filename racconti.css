@@ -1118,3 +1118,17 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .entry-body .title-like{ display:flex; }
 }
 
+@media (min-width:901px){
+  /* Fix: la striscia colorata delle voci (box-shadow inset) lasciava
+     un artefatto visivo "scintillante" ai bordi arrotondati quando
+     l'hover si spostava via - dovuto al browser che anima il
+     box-shadow insieme al border-radius, ridisegnando la sagoma ogni
+     frame con antialiasing incoerente. Piu' visibile ora che la
+     striscia e' spessa 5px (prima 1-2px, meno percepibile). Tolto
+     box-shadow dalle proprieta' animate: compare/scompare di scatto
+     invece di sfumare, niente piu' frame intermedi da ridisegnare. */
+  .game-list button, .game-list a{
+    transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+}
+
