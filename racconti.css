@@ -387,11 +387,24 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
    centrato (differenza rispetto a storie-teorie.css). */
 .entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
 @media (min-width:901px){
-  /* Titolo della voce a 100px dal bordo inferiore del banner - il
-     margine base (20px) non bastava, misurato e corretto sul valore
-     vero (non calcolato a mano, troppi contributi sparsi tra piu'
-     regole per farlo con certezza). */
-  body[data-state="entry"] .entry-panel{ margin-top:10px; }
+  /* PROVA: banner tolto, riga dell'header TENUTA (bordo sotto
+     compreso, e' la stessa .game-header condivisa, qui solo ridotta
+     di altezza dato che non deve piu' contenere un'immagine). Il
+     selettore capitoli (.entry-game-picker) resta dentro questa
+     riga, ancorato al suo bordo inferiore (bottom:20px) - si sposta
+     su con lei senza bisogno di toccarlo. Titolo/copyright/tag non
+     si spostano nel DOM (restano dentro .entry-panel, subito sotto):
+     con la riga ridotta a 90px invece di 230px, si ritrovano di
+     fatto "al posto del banner", il testo del corpo li segue piu'
+     in alto di prima. */
+  body[data-state="entry"] .game-header__banner,
+  body[data-state="entry"] .game-header__banner-overlay{
+    display:none;
+  }
+  body[data-state="entry"] #pageHeader{
+    height:90px; max-height:90px; padding:0;
+  }
+  body[data-state="entry"] .entry-panel{ margin-top:20px; }
 }
 .entry-content{
   position:relative; z-index:1;
@@ -771,10 +784,10 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:245px; bottom:0; right:0; width:42vw; /* 245px =
-      bordo inferiore reale di #pageHeader (banner), misurato — prima
-      partiva da top:0 (tutto lo schermo) e finiva per sovrapporsi
-      al banner e al testo sotto, invece di fermarsi li' */
+    position:fixed; top:105px; bottom:0; right:0; width:42vw; /* 105px =
+      bordo inferiore reale di #pageHeader ora che la riga e' ridotta
+      a 90px (15px di top sticky + 90px di altezza) invece dei 245px
+      di quando conteneva il banner intero */
     clip-path:inset(0 300px 0 0); /* taglia via, dal bordo
       destro del box, una fascia larga quanto la colonna Libri - lo
       stesso confine dove la colonna comincia. 300px fisso invece
