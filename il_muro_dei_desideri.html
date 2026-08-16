@@ -17,6 +17,16 @@
 <link rel="stylesheet" href="officina.css?v=20260815a">
 </head>
 <body data-state="landing" data-lang="it">
+<script>
+  /* Rete di sicurezza per il fix "carousel-ready" gia' esistente in
+     script-officina.js/officina.css (nasconde il carosello finche' non
+     e' posizionato sulla home, stessa tecnica adottata oggi anche su
+     Storie Senza Cornice/Il Filo Nascosto/La Traccia del Tempo). Se lo
+     script principale non dovesse mai arrivare al punto che rivela la
+     pagina, questo timer indipendente forza comunque la visibilita'
+     dopo 2.5s. */
+  setTimeout(function(){ document.documentElement.classList.add("carousel-ready"); }, 2500);
+</script>
 
     <button type="button" class="report-bug-btn" id="reportBugBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"/><path d="M4 4h11l-2 4 2 4H4"/></svg>

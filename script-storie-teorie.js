@@ -744,6 +744,12 @@ buildAllEntryPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
+// La pagina (su mobile, in home) resta invisibile finche' questo
+// punto non viene raggiunto - vedi storie-teorie.css e il piccolo
+// script di sicurezza in testa alla pagina. Stessa tecnica adottata
+// su Storie Senza Cornice, per lo stesso bug (sidebar vuota mostrata
+// per un attimo prima della home su connessioni lente).
+document.body.classList.add("tfs-ready");
 
 // Ripresa dell'ascolto persistente: solo se l'interruttore era attivo
 // e c'e' uno stato salvato da un'altra pagina. Scavalca la selezione

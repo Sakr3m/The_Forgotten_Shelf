@@ -17,6 +17,14 @@
 <link rel="stylesheet" href="storie-teorie.css?v=20260815a">
 </head>
 <body data-state="landing" data-lang="it">
+<script>
+  /* Rete di sicurezza per il fix della pagina nascosta finche' non e'
+     pronta (vedi storie-teorie.css e script-storie-teorie.js, stessa
+     tecnica adottata su Storie Senza Cornice). Se lo script principale
+     non dovesse mai arrivare al punto che rivela la pagina, questo
+     timer indipendente forza comunque la visibilita' dopo 2.5s. */
+  setTimeout(function(){ document.body.classList.add("tfs-ready"); }, 2500);
+</script>
 
     <button type="button" class="report-bug-btn" id="reportBugBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"/><path d="M4 4h11l-2 4 2 4H4"/></svg>

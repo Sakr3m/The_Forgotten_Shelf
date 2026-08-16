@@ -439,3 +439,17 @@ body[data-state="entry"] .landing{ display:none; }
      per righe aggiuntive. */
   body[data-state="entry"] .stage{ padding-top:60px; }
 }
+
+/* La pagina (solo su mobile, solo in home) resta invisibile finche'
+   lo script principale non ha finito il proprio avvio - inclusa la
+   correzione della posizione dello scroll del carosello, che vive in
+   fondo a script-storie-teorie.js e aggiunge la classe tfs-ready
+   proprio subito dopo. Stessa tecnica adottata su Storie Senza
+   Cornice per lo stesso bug (sidebar vuota mostrata per un attimo
+   prima della home su connessioni lente). Rete di sicurezza (vedi lo
+   script minuscolo in testa alla pagina): un timer forza comunque la
+   visibilita' dopo 2.5s se lo script principale non dovesse mai
+   arrivarci. */
+@media (max-width:900px){
+  body[data-state="landing"]:not(.tfs-ready) .layout{ visibility:hidden; }
+}
