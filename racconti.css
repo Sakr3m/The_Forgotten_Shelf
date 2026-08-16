@@ -441,6 +441,10 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   body[data-state="entry"] .entry-body{
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
+    scrollbar-width:none; /* Firefox */
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar{
+    display:none; /* Chrome/Safari/Edge */
   }
 }
 .entry-content{
@@ -476,18 +480,18 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
   width:100%;
 }
-.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:42px; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{
-  margin:10px auto 0; width:fit-content;
-  font-size:.7rem; color:var(--text-faint);
+  margin:12px auto 0; width:fit-content;
+  font-size:12px; line-height:14px; color:var(--text-faint);
   letter-spacing:.02em;
 }
 .entry-tag{
-  margin:14px auto 0; width:fit-content;
+  margin:12px auto 0; width:fit-content;
   padding:5px 14px;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:999px;
-  font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  font-size:.7rem; line-height:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--item-accent, var(--cyan));
 }
 .entry-body{
@@ -822,16 +826,20 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:80px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.35);
-    /* 80px = bordo inferiore reale di #pageHeader ora che la riga e'
-       ridotta a 65px (15px di top sticky + 65px di altezza).
+    position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.35);
+    /* 230px = dove inizia davvero lo spazio del testo, non piu' la
+       riga dell'header (80px). Somma: 80 (bordo riga header) + 12
+       (margine di .entry-panel) + 42 (altezza del titolo, 35px di
+       font-size + line-height 42) + 12 (titolo->copyright) + 14
+       (altezza del copyright, 12px di font-size + line-height 14) +
+       12 (copyright->tag) + 25 (altezza del tag, fissata) + 33
+       (margine di .entry-body prima del testo vero) = 230px.
        right:300px = larghezza della colonna Libri: il box si ferma
        li', non piu' a right:0 (bordo vero della finestra, DIETRO
        Libri - motivo per cui prima le filigrane sparivano del tutto,
        il clip-path lasciava visibile solo la fascia gia' coperta
        dalla colonna). width: 35% dell'area (100vw meno le due
-       tabelle da 300px ciascuna = larghezza dello stage), era 1/3
-       (33.33%), portata a 35% come richiesto. */
+       tabelle da 300px ciascuna = larghezza dello stage). */
     background-size:auto 100%; background-repeat:no-repeat; background-position:right center; /* auto 100%:
       l'immagine riempie sempre tutta l'altezza del box (dalla riga
       dell'header fino in fondo), la larghezza segue in proporzione.
