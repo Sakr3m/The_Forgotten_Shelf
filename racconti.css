@@ -1188,7 +1188,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
    barra fissa in alto), centrato sotto il sub, 40px di altezza. */
 @media (min-width:901px){
   .landing-video-btn{
-    display:flex; align-items:center; justify-content:center; gap:8px;
+    display:none; align-items:center; justify-content:center; gap:8px;
     height:40px; box-sizing:border-box; padding:0 22px;
     margin-top:50px;
     border:1px solid var(--cyan);
@@ -1197,14 +1197,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
     font-size:15px; font-weight:600; color:var(--text-dim);
     cursor:pointer;
     transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  }
+  } /* display:none: su desktop resta nascosto in attesa del video
+    vero (richiesto solo su mobile per ora). Non serve piu' [hidden]
+    per farlo, dato che l'attributo e' stato tolto dall'HTML. */
   .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
   .landing-video-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
-  .landing-video-btn[hidden]{ display:none; } /* stesso bug gia' visto
-    sulla barra di luminosita': display:flex qui sopra ha la stessa
-    specificita' della regola predefinita del browser per [hidden] e
-    vince sempre lei per ordine nel foglio di stile - senza questa
-    riga il pulsante resta visibile anche da nascosto. */
 }
 
 .column-lock{ display:none; } /* nascosto di default (mobile incluso),
@@ -1282,26 +1279,22 @@ body[data-entry-animate="true"] #watermarkBrightness{
 
 @media (max-width:900px){
   .landing-video-btn{
-    display:none; align-items:center; justify-content:center; gap:8px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
     height:35px; box-sizing:border-box; padding:0 22px;
     margin-top:30px;
     border:1px solid var(--cyan);
     background:var(--panel);
     border-radius:999px;
     font-size:13px; font-weight:600; color:var(--text-dim);
-  } /* display:none qui e' ridondante con l'attributo hidden gia' sul
-    pulsante (nessun rischio del bug [hidden] visto stamattina: qui
-    non c'e' nessun display:flex a parita' di specificita' che possa
-    vincere su [hidden], dato che non e' mai stato mostrato su mobile
-    finora) - definita comunque pronta con le stesse misure desktop
-    (scalate: 35px invece di 40px), cosi' quando arrivera' il video
-    bastera' togliere hidden anche qui senza dover tornare a
-    disegnarla da capo. */
+  }
 
   /* Distanze del blocco hero riviste. */
   .landing-title{ margin-top:35px; }
-  .landing-intro{ margin-top:20px; }
-  .landing-sub{ margin-top:30px; }
+  .landing-intro{ margin-top:15px; }
+  .landing-sub{ margin-top:50px; }
+  body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
+    laterali del blocco a 15px per lato (era 16px, 32px totali nel
+    file condiviso styles.css) - override solo su questa pagina. */
 
   /* Distanza pulsanti header dal bordo superiore (15px, era 14) e tra
      loro (10px, era 8) - override della regola condivisa in
