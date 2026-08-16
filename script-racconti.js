@@ -514,6 +514,13 @@ function buildAllEntryPanels(){
 // animata - senza, il browser non noterebbe alcun cambiamento (stesso
 // valore dell'attributo di prima) e le regole non si riattiverebbero.
 function applicaAnimazioneVoce(entry){
+  // Su mobile niente lucchetto, quindi niente animazione: le voci
+  // caricano sempre dirette, a prescindere da qualunque stato salvato
+  // in precedenza (es. da una sessione desktop sullo stesso browser).
+  if(mobileBreakpoint.matches){
+    document.body.removeAttribute("data-entry-animate");
+    return;
+  }
   const acceso = localStorage.getItem(LOCK_KEY_PREFIX + entry.game) === "true";
   document.body.removeAttribute("data-entry-animate");
   if(!acceso){

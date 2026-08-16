@@ -1423,23 +1423,26 @@ body[data-entry-animate="true"] #watermarkBrightness{
      styles.css/racconti.css resta 18px per desktop). */
   .game-list button, .game-list a{ line-height:20px; }
 
-  /* Striscia colorata: ora PERMANENTE (non piu' solo su hover/attiva)
-     e sottile 3px (era 5px solo su desktop in quello stato, 2px di
-     default altrove) - ogni voce mostra sempre il proprio colore
-     identita'. Selettore con #sidebar/.side-rail (piu' specifico
-     della sola classe) per vincere sulle regole condizionali
-     esistenti (:hover/.is-active) a prescindere dallo stato.
-     Direzione invariata rispetto a prima: sidebar verso il bordo
-     esterno (sinistra), side-rail verso il suo bordo esterno
-     (destra) - specchiate, come gia' impostato oggi per il lato
-     destro coi fix della mezzaluna. */
-  #sidebar .game-list a{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); }
-  #storieRail .game-list a{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); } /* FIX:
-    #storieRail (ID) invece di .side-rail (classe) - con la sola
-    classe perdeva contro la vecchia regola "attiva/hover" ancora a
-    5px (piu' specifica, tre classi), che tornava a vincere quando
-    una voce veniva selezionata. Con l'ID vince sempre, come gia'
-    succedeva correttamente per #sidebar qui sopra. */
+  /* Striscia colorata: cambio di programma - non piu' permanente,
+     solo sulla voce SELEZIONATA (.is-active), niente hover (sui
+     touch-device non e' affidabile). Sottile 3px (era 5px solo su
+     desktop in quello stato, 2px di default altrove). Selettore con
+     #sidebar/#storieRail (ID, piu' specifico della sola classe) per
+     vincere sulle regole gia' esistenti in styles.css. Direzione
+     invariata: sidebar verso il bordo esterno (sinistra), side-rail
+     verso il suo bordo esterno (destra) - specchiate. */
+  #sidebar .game-list a.is-active{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); }
+  #storieRail .game-list a.is-active{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); }
+  #sidebar .game-list a:not(.is-active),
+  #storieRail .game-list a:not(.is-active){
+    box-shadow:none; background:none;
+    color:var(--text-dim); font-weight:500;
+  } /* azzera esplicitamente tutto l'effetto hover che styles.css
+    applicherebbe comunque (sfondo, colore, peso del testo, striscia)
+    - su mobile l'hover puo' restare "incollato" dopo un tocco su
+    alcuni browser, mostrando l'evidenziazione anche quando la voce
+    non e' davvero selezionata. I valori qui sono lo stato di riposo
+    normale (styles.css, .game-list button/a base). */
 
   /* Larghezza delle voci estesa a comprendere anche la zona del
      lucchetto (prima esclusa apposta, width:calc(100% - 45px), per
@@ -1457,7 +1460,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
      saprebbe nemmeno che esiste). Stessa specificita' della regola
      base che lo nasconde (.game-list__row .row-lock), vince per
      ordine nel file essendo dichiarata dopo. */
-  .game-list__row .row-lock{ opacity:1; pointer-events:auto; }
+  .game-list__row .row-lock{ display:none; } /* niente lucchetto su
+    mobile - richiesto esplicitamente, cambio rispetto a "sempre
+    visibile" di poco fa. Senza lucchetto, niente controllo
+    sull'animazione: le voci caricano sempre dirette (vedi
+    applicaAnimazioneVoce in script-racconti.js). */
 }
 
 
