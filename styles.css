@@ -1263,7 +1263,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .discord-link{ width:37px; height:37px; }
   .discord-link svg{ width:17px; height:17px; }
   .lang-switch{ padding:8px 11px; font-size:.79rem; }
-  .music-toggle{ width:37px; height:37px; }
+  .music-toggle{ width:35px; height:35px; }
 
   /* In home, i 3 pulsanti (home, Ko-fi al centro, switch) diventano
      una barra unica a tutta larghezza con sfondo pieno e riga sotto

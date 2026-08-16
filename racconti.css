@@ -745,7 +745,7 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .stage-topbar{
     display:flex; align-items:center; justify-content:space-between;
     position:fixed; top:0; left:0; right:0;
-    padding:14px 16px;
+    padding:15px;
     background:var(--bg);
     border-bottom:1px solid var(--line);
     z-index:50;
@@ -794,7 +794,7 @@ body[data-state="entry"] .landing{ display:none; }
   /* Banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:70px; left:0; right:0; height:130px;
+    position:absolute; top:66px; left:0; right:0; height:130px;
     margin:0; padding:0; border:none;
     border-radius:0; /* .game-header (condivisa) porta border-radius:var(--radius):
       qui invece il banner deve andare a piena tela, bordo a bordo, non con
@@ -826,10 +826,10 @@ body[data-state="entry"] .landing{ display:none; }
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:70px; right:0; z-index:2;
+    position:absolute; top:66px; right:0; z-index:2;
   }
   body[data-state="entry"] .entry-game-trigger{
-    height:32px; padding:0 12px; font-size:.76rem;
+    height:35px; padding:0 12px; font-size:.76rem;
   }
   body[data-state="entry"] .music-control{
     display:flex;
@@ -844,7 +844,7 @@ body[data-state="entry"] .landing{ display:none; }
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
-  body[data-state="entry"] .stage{ padding-top:60px; }
+  body[data-state="entry"] .stage{ padding-top:65px; }
 }
 
 /* ============================================================
