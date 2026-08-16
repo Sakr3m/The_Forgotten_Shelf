@@ -674,10 +674,12 @@ body[data-state="entry"] .landing{ display:none; }
      mai bisogno di scorrere (il suo overflow-y:auto resta li' pronto
      ma inattivo), solo la lista scorre quando le voci sono troppe.
      130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
-     margine (~27px), gia' cosi' su entrambi i pannelli. --- */
+     margine (~27px), gia' cosi' su entrambi i pannelli. Aggiornato a
+     150px: il titolino ora e' piu' grande (25px, margini 9+20px),
+     ingombro totale ~49px invece dei ~27px di prima. --- */
   .sidebar .game-list, .side-rail .game-list{
-    max-height:calc(100vh - 130px);
-    max-height:calc(100dvh - 130px);
+    max-height:calc(100vh - 150px);
+    max-height:calc(100dvh - 150px);
     overflow-y:auto;
   }
 
@@ -1398,4 +1400,59 @@ body[data-entry-animate="true"] #watermarkBrightness{
 @media (min-width:901px){
   body:not(.tfs-desktop-ready){ visibility:hidden; }
 }
+
+/* ============================================================
+   MOBILE - titolini, voci, striscia colorata, lucchetto: richiesta
+   esplicita di oggi. Tutto scoped qui, non tocca desktop.
+   ============================================================ */
+@media (max-width:900px){
+  /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea 20px,
+     20px dalla riga dell'header sopra e 20px dalla prima voce sotto.
+     Il pannello ha gia' 76px di padding-top (distanza dal bordo
+     schermo), la riga dell'header sta a 65px da li' - per arrivare
+     a 20px di distanza da quella riga serve un margin-top di 9px
+     sul titolino stesso (76+9-65=20). Il margin-bottom diventa
+     20px diretto, sostituendo i 33px ereditati dalla regola comune. */
+  .sidebar-eyebrow, .rail-label{
+    font-size:25px; line-height:20px;
+    margin-top:9px; margin-bottom:20px;
+  }
+
+  /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
+     18px - sovrascrivo qui solo per mobile, il valore comune in
+     styles.css/racconti.css resta 18px per desktop). */
+  .game-list button, .game-list a{ line-height:20px; }
+
+  /* Striscia colorata: ora PERMANENTE (non piu' solo su hover/attiva)
+     e sottile 3px (era 5px solo su desktop in quello stato, 2px di
+     default altrove) - ogni voce mostra sempre il proprio colore
+     identita'. Selettore con #sidebar/.side-rail (piu' specifico
+     della sola classe) per vincere sulle regole condizionali
+     esistenti (:hover/.is-active) a prescindere dallo stato.
+     Direzione invariata rispetto a prima: sidebar verso il bordo
+     esterno (sinistra), side-rail verso il suo bordo esterno
+     (destra) - specchiate, come gia' impostato oggi per il lato
+     destro coi fix della mezzaluna. */
+  #sidebar .game-list a{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); }
+  .side-rail .game-list a{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); }
+
+  /* Larghezza delle voci estesa a comprendere anche la zona del
+     lucchetto (prima esclusa apposta, width:calc(100% - 45px), per
+     evitare che lo sfondo colorato in hover ci finisse sotto - qui
+     su mobile passiamo a padding invece che riduzione di larghezza,
+     dato che il lucchetto ora e' sempre visibile sopra comunque:
+     un padding piu' stretto (35px, contro il lucchetto di 26px+6px
+     di margine) lascia comunque respiro al testo senza escludere
+     davvero quella zona dalla riga. */
+  #sidebar .game-list a{ width:100%; padding-right:35px; }
+  .side-rail .game-list a{ width:100%; margin-left:0; padding-left:35px; }
+
+  /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
+     touch-device non hanno un hover affidabile - l'utente non
+     saprebbe nemmeno che esiste). Stessa specificita' della regola
+     base che lo nasconde (.game-list__row .row-lock), vince per
+     ordine nel file essendo dichiarata dopo. */
+  .game-list__row .row-lock{ opacity:1; pointer-events:auto; }
+}
+
 
