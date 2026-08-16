@@ -140,7 +140,7 @@
 .game-list__row{ position:relative; }
 .game-list__row .row-lock{
   position:absolute; top:0; bottom:0; margin:auto 0;
-  width:26px; height:26px; padding:0; box-sizing:border-box;
+  width:25px; height:25px; padding:0; box-sizing:border-box;
   display:flex; align-items:center; justify-content:center;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:50%;
@@ -153,7 +153,7 @@
   outline:none;
   transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.row-lock svg{ width:13px; height:13px; }
+.row-lock svg{ width:15px; height:15px; }
 .game-list__row:hover .row-lock,
 .game-list__row:focus-within .row-lock{
   opacity:1; pointer-events:auto;
@@ -258,7 +258,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   background:var(--panel-raised);
 }
 .entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
-.entry-game-trigger .chevron{ width:10px; height:7px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
+.entry-game-trigger .chevron{ width:10px; height:5px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
 .entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
 
 .entry-game-menu{
@@ -513,18 +513,18 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
   width:100%;
 }
-.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:42px; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{
-  margin:12px auto 0; width:fit-content;
-  font-size:12px; line-height:14px; color:var(--text-faint);
+  margin:10px auto 0; width:fit-content;
+  font-size:10px; line-height:15px; color:var(--text-faint);
   letter-spacing:.02em;
 }
 .entry-tag{
-  margin:12px auto 0; width:fit-content;
+  margin:15px auto 0; width:fit-content;
   padding:5px 14px;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:999px;
-  font-size:.7rem; line-height:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  font-size:.7rem; line-height:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--item-accent, var(--cyan));
 }
 .entry-body{
@@ -959,7 +959,7 @@ body[data-state="entry"] .landing{ display:none; }
     width:100%; justify-content:flex-end;
   }
   .watermark-brightness-line__preset{
-    width:22px; height:26px;
+    width:20px; height:25px;
     display:flex; align-items:center; justify-content:center;
     border:2px solid var(--item-accent, var(--cyan));
     border-radius:5px;
@@ -1263,7 +1263,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
     vero (richiesto solo su mobile per ora). Non serve piu' [hidden]
     per farlo, dato che l'attributo e' stato tolto dall'HTML. */
   .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
-  .landing-video-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
+  .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; }
 }
 
 .column-lock{ display:none; } /* nascosto di default (mobile incluso),
@@ -1305,7 +1305,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .column-lock{
     display:flex;
     position:absolute; top:50%; transform:translateY(-50%);
-    width:26px; height:26px; padding:0; box-sizing:border-box;
+    width:25px; height:25px; padding:0; box-sizing:border-box;
     align-items:center; justify-content:center;
     border:1px solid var(--cyan);
     border-radius:50%;
@@ -1316,7 +1316,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
     outline:none;
     transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .column-lock svg{ width:13px; height:13px; }
+  .column-lock svg{ width:15px; height:15px; }
   #sidebar .column-lock{ right:6px; }
   .side-rail .column-lock{ left:6px; }
   #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
@@ -1402,7 +1402,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
     del browser per [hidden]) vincerebbe comunque, mostrando il
     pulsante anche da nascosto - stesso bug gia' preso due volte oggi
     altrove su questa pagina. */
-  .landing-video-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; } /* FIX:
+  .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; } /* FIX:
     mancava su mobile - esisteva solo nella media query desktop, dove
     il pulsante era sempre stato visibile finora. Ora che compare
     anche su mobile, senza questa riga l'SVG (senza width/height sul
