@@ -1201,9 +1201,13 @@ body[data-entry-animate="true"] #watermarkBrightness{
   avrebbe vinto sempre lui per ordine nel file, ignorando il
   display:flex desktop nonostante la media query corrispondesse
   (esattamente il bug appena preso e corretto). */
-.eyebrow-wrap{ margin-bottom:33px; } /* stesso margine che prima stava
-  sul titolino, vale a tutte le dimensioni (era gia' cosi', non solo
-  desktop) - il titolino stesso lo ha azzerato piu' sotto. */
+.eyebrow-wrap{ margin-bottom:0; } /* su mobile il titolino tiene il
+  proprio margine originale (mai toccato li', vedi styles.css) - il
+  wrapper qui non deve aggiungerne un altro sopra, altrimenti si
+  raddoppia lo spazio (i margini di un figlio dentro un flex item non
+  collassano con quelli del contenitore, quindi si sommerebbero
+  davvero, non solo sulla carta). Il valore vero (33px) vive nella
+  media query desktop qui sotto, dove il titolino lo ha azzerato. */
 
 /* Lucchetto "master" per colonna: blocca/sblocca insieme tutti i
    lucchetti delle singole opere di quella tabella (vedi script-
@@ -1224,7 +1228,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
    identico inset di 6px dal bordo interno usato li' (#sidebar
    .row-lock/.side-rail .row-lock), per allinearsi in verticale. */
 @media (min-width:901px){
-  .eyebrow-wrap{ position:relative; margin-top:9px; }
+  .eyebrow-wrap{ position:relative; margin-top:9px; margin-bottom:33px; }
   .sidebar-eyebrow, .rail-label{ margin:0; }
   .column-lock{
     display:flex;
