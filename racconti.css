@@ -102,9 +102,9 @@
    l'allineamento a destra del testo qui: ciascuna tabella evidenzia
    verso il proprio bordo esterno, non sempre verso sinistra a
    prescindere. */
-.side-rail .game-list button.is-active,
+.side-rail .game-list button.is-active:not(.row-lock),
 .side-rail .game-list a.is-active,
-.side-rail .game-list button:hover,
+.side-rail .game-list button:hover:not(.row-lock),
 .side-rail .game-list a:hover{
   box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   /* Il gradiente di sfondo (background, non lo box-shadow qui sopra)
@@ -120,6 +120,15 @@
      restare forte proprio li'. */
   background:linear-gradient(270deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
 }
+/* :not(.row-lock) sui selettori button qui sopra: mancava (la
+   sidebar sinistra ce l'ha gia', vedi piu' sotto in fondo al file) -
+   senza, il lucchetto (un <button> dentro .game-list) veniva colpito
+   anche lui da questo sfondo rettangolare + bordo colorato quando ci
+   passavi sopra col mouse direttamente, tagliato dal suo stesso
+   cerchio (border-radius:50%): la vera causa della "mezzaluna",
+   non il gradiente da solo. .game-list a.is-active/:hover restano
+   senza :not() perche' il lucchetto e' un <button>, mai un <a> -
+   nessun rischio che li' venga colpito. */
 
 /* Pulsante lucchetto per voce: vive nello spazio interno (verso lo
    stage) riservato allargando il padding a 45px piu' sopra. Invisibile
