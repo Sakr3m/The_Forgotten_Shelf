@@ -397,9 +397,16 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      posto della scrollbar grigia di sistema. scrollbar-color/-width
      per Firefox, gli pseudo-elementi ::-webkit-scrollbar-* per
      Chrome/Safari/Edge - le due sintassi coprono tutti i browser
-     desktop rilevanti, nessuna esclusa. */
+     desktop rilevanti, nessuna esclusa.
+     Visibile SOLO in hover sul pannello, immediato (nessuna
+     transizione/ritardo aggiunto qui: a riposo il thumb e'
+     semplicemente trasparente, in hover diventa var(--line) di
+     scatto, nessun 0.5s di attesa). */
   #sidebar .game-list, #storieRail .game-list{
     scrollbar-width:thin;
+    scrollbar-color:transparent transparent;
+  }
+  #sidebar:hover .game-list, #storieRail:hover .game-list{
     scrollbar-color:var(--line) transparent;
   }
   #sidebar .game-list::-webkit-scrollbar,
@@ -412,8 +419,12 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   }
   #sidebar .game-list::-webkit-scrollbar-thumb,
   #storieRail .game-list::-webkit-scrollbar-thumb{
-    background:var(--line);
+    background:transparent;
     border-radius:999px;
+  }
+  #sidebar:hover .game-list::-webkit-scrollbar-thumb,
+  #storieRail:hover .game-list::-webkit-scrollbar-thumb{
+    background:var(--line);
   }
   #sidebar .game-list::-webkit-scrollbar-thumb:hover,
   #storieRail .game-list::-webkit-scrollbar-thumb:hover{
@@ -474,10 +485,37 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   body[data-state="entry"] .entry-body{
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
-    scrollbar-width:none; /* Firefox */
+    /* Scrollbar sul lato SINISTRO (nell'area vuota del padding, non
+       sul bordo destro dove il browser la metterebbe di default):
+       stesso trucco gia' usato per la tabella Libri - direction:rtl
+       sul contenitore che scorre sposta la scrollbar a sinistra,
+       direction:ltr sul testo dentro (vedi .text-highlight qui sotto)
+       mantiene la lettura/allineamento normale, invariati. */
+    direction:rtl;
+    scrollbar-width:thin;
+    scrollbar-color:transparent transparent;
+  }
+  body[data-state="entry"] .entry-body:hover{
+    scrollbar-color:var(--line) transparent;
+  }
+  body[data-state="entry"] .entry-body .text-highlight{
+    direction:ltr;
   }
   body[data-state="entry"] .entry-body::-webkit-scrollbar{
-    display:none; /* Chrome/Safari/Edge */
+    width:6px;
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar-thumb{
+    background:transparent;
+    border-radius:999px;
+  }
+  body[data-state="entry"] .entry-body:hover::-webkit-scrollbar-thumb{
+    background:var(--line);
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar-thumb:hover{
+    background:var(--cyan);
   }
 }
 .entry-content{
