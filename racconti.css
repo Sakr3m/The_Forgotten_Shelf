@@ -402,7 +402,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
     display:none;
   }
   body[data-state="entry"] #pageHeader{
-    height:90px; max-height:90px; padding:0;
+    height:65px; max-height:65px; padding:0;
   }
   body[data-state="entry"] .entry-panel{ margin-top:20px; }
 }
@@ -784,10 +784,10 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .entry-watermark{
     display:block;
-    position:fixed; top:105px; bottom:0; right:0; width:42vw; /* 105px =
+    position:fixed; top:80px; bottom:0; right:0; width:42vw; /* 80px =
       bordo inferiore reale di #pageHeader ora che la riga e' ridotta
-      a 90px (15px di top sticky + 90px di altezza) invece dei 245px
-      di quando conteneva il banner intero */
+      a 65px (15px di top sticky + 65px di altezza), allineato con
+      l'inizio della prima voce in sidebar */
     clip-path:inset(0 300px 0 0); /* taglia via, dal bordo
       destro del box, una fascia larga quanto la colonna Libri - lo
       stesso confine dove la colonna comincia. 300px fisso invece
