@@ -287,11 +287,16 @@ body[data-state="entry"] .landing{ display:none; }
      quando le voci sono troppe. Limite di altezza sulla <ul> stessa
      (non sul pannello, che gestisce lo scroll-snap del carosello e
      non va toccato — causerebbe la stessa rottura gia' vista su
-     Storie Senza Cornice). 130px = 76px di padding sopra + 24px
-     sotto + l'etichetta col suo margine. --- */
+     Storie Senza Cornice). 150px = 76px di padding sopra + 24px sotto
+     + il titolino, che ora occupa 47px (14px di testo + 33px di
+     margine verso la prima voce) + qualche px di margine di
+     sicurezza. Aggiornato da 130: il vecchio numero era calcolato sul
+     margine precedente del titolino (~14px), troppo piccolo ora che
+     e' salito a 33 (stessa modifica in styles.css, condivisa con
+     Storie Senza Cornice). --- */
   .sidebar .game-list, .side-rail .game-list{
-    max-height:calc(100vh - 130px);
-    max-height:calc(100dvh - 130px);
+    max-height:calc(100vh - 150px);
+    max-height:calc(100dvh - 150px);
     overflow-y:auto;
   }
 

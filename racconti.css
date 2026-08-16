@@ -566,11 +566,15 @@ body[data-state="entry"] .landing{ display:none; }
      sempre dentro l'altezza dello schermo, il pannello stesso non ha
      mai bisogno di scorrere (il suo overflow-y:auto resta li' pronto
      ma inattivo), solo la lista scorre quando le voci sono troppe.
-     130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
-     margine (~27px), gia' cosi' su entrambi i pannelli. --- */
+     150px = 76px di padding sopra + 24px sotto + il titolino, che ora
+     occupa 47px (14px di testo + 33px di margine verso la prima voce,
+     lo stesso valore su entrambe le colonne per costruzione, non solo
+     per coincidenza) + qualche px di margine di sicurezza. Aggiornato
+     da 130: il vecchio numero era calcolato sul margine precedente
+     del titolino (~14px), troppo piccolo ora che e' salito a 33. --- */
   .sidebar .game-list, .side-rail .game-list{
-    max-height:calc(100vh - 130px);
-    max-height:calc(100dvh - 130px);
+    max-height:calc(100vh - 150px);
+    max-height:calc(100dvh - 150px);
     overflow-y:auto;
   }
 
