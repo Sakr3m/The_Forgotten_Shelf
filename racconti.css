@@ -683,11 +683,12 @@ body[data-state="entry"] .landing{ display:none; }
      ma inattivo), solo la lista scorre quando le voci sono troppe.
      130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
      margine (~27px), gia' cosi' su entrambi i pannelli. Aggiornato a
-     150px: il titolino ora e' piu' grande (25px, margini 9+20px),
-     ingombro totale ~49px invece dei ~27px di prima. --- */
+     155px: padding-top del pannello ora 85px (era 76, il titolino
+     riprogettato per essere centrato usa questo valore invece del
+     proprio margin-top), il titolino stesso ha margini 0+20px. --- */
   .sidebar .game-list, .side-rail .game-list{
-    max-height:calc(100vh - 150px);
-    max-height:calc(100dvh - 150px);
+    max-height:calc(100vh - 155px);
+    max-height:calc(100dvh - 155px);
     overflow-y:auto;
   }
 
@@ -1456,18 +1457,20 @@ body[data-entry-animate="true"] #watermarkBrightness{
 @media (max-width:900px){
   /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea ANCH'ESSA
      25px - box CSS e testo visivo coincidono esattamente.
-     Margini: TORNATO al calcolo originale (9px sopra, 20px sotto),
-     dopo un tentativo intermedio errato (margini CSS uguali, 20/20)
-     che sembrava piu' "onesto" ma in realta' NON dava affatto
-     distanze visive uguali - il pannello ha gia' 76px di padding
-     suo prima del titolino, che si somma comunque alla distanza
-     verso la riga dell'header (fuori dal pannello): 76+9-65=20px
-     verso l'header, 20px diretto verso la prima voce (che segue
-     subito, senza altro spazio in mezzo) - questi SI' sono davvero
-     20px/20px totali, verificato col conto completo. */
+     Margini RIPROGETTATI: invece di calcolare la distanza
+     dall'header sommando due contesti diversi (padding del pannello
+     + margine del titolino - matematica a incrocio che ha continuato
+     a dare risultati sbagliati nonostante il conto sembrasse giusto
+     sulla carta), ora il padding-top del pannello stesso CREA DA
+     SOLO l'intero spazio sopra (vedi .sidebar/.side-rail piu' sotto,
+     85px = 65px di riga header + 20px di spazio voluto) - il
+     titolino ha margin-top:0, nessuna somma da fare. margin-bottom
+     resta 20px diretto, identico meccanismo di prima (nessun'altra
+     spaziatura si frappone tra titolino e prima voce). Un solo
+     numero per lato, ciascuno verificabile da solo. */
   .sidebar-eyebrow, .rail-label{
     font-size:25px; line-height:25px;
-    margin-top:9px; margin-bottom:20px;
+    margin-top:0; margin-bottom:20px;
   }
 
   /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
@@ -1503,20 +1506,16 @@ body[data-entry-animate="true"] #watermarkBrightness{
     non e' davvero selezionata. I valori qui sono lo stato di riposo
     normale (styles.css, .game-list button/a base). */
 
-  /* Margini delle voci portati a 15px dal pannello su entrambi i
-     lati, per entrambe le tabelle - richiesto esplicitamente. Prima
-     c'era un'asimmetria voluta (30px esterno / 51px interno, la
-     parte interna piu' larga per lasciare spazio al lucchetto) - ora
-     che il lucchetto e' nascosto su mobile quella riserva non serve
-     piu', quindi si torna a un margine uguale ovunque. Il pannello
-     ha gia' 16px di padding suo (base, invariato); qui si scende a
-     15px diretto sul pannello stesso e si azzera il padding
-     residuo sulle voci, cosi' il totale combinato e' esattamente
-     15px su ogni lato. */
-  .sidebar{ padding-left:20px; padding-right:20px; }
-  .side-rail{ padding-left:20px; padding-right:20px; }
-  #sidebar .game-list a{ width:100%; padding-left:0; padding-right:0; }
-  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:0; padding-right:0; }
+  /* Margini laterali delle voci: 20px dal pannello. Piu' 5px extra
+     sul lato dove vive la striscia colorata (sinistra per sidebar,
+     destra per side-rail), richiesti esplicitamente - senza, il
+     testo tocca la striscia (entrambi partivano dallo stesso bordo,
+     padding a 0 su quel lato). Il pannello ha 20px di padding suo
+     (impostato piu' sotto); qui si aggiunge il resto. */
+  .sidebar{ padding-left:20px; padding-right:20px; padding-top:85px; }
+  .side-rail{ padding-left:20px; padding-right:20px; padding-top:85px; }
+  #sidebar .game-list a{ width:100%; padding-left:5px; padding-right:0; }
+  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:0; padding-right:5px; }
 
   /* Lucchetto per voce: sempre visibile su mobile, non su hover (i
      touch-device non hanno un hover affidabile - l'utente non
