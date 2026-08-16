@@ -107,6 +107,8 @@ const el = {
   panelToggle: document.getElementById("panelToggle"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
+  columnLockTeorie: document.getElementById("columnLockTeorie"),
+  columnLockStorie: document.getElementById("columnLockStorie"),
   landingPanel: document.getElementById("landingPanel"),
   entryPanel: document.getElementById("entryPanel"),
   entryContent: document.getElementById("entryContent"),
@@ -396,7 +398,41 @@ function renderLists(){
     li.appendChild(creaLucchetto(item.game));
     el.storieList.appendChild(li);
   });
+
+  aggiornaLucchettoColonna(el.columnLockTeorie, RACCONTI_ORDER, RACCONTI);
+  aggiornaLucchettoColonna(el.columnLockStorie, LIBRI_ORDER, LIBRI);
 }
+
+// Lucchetto "master" per colonna: acceso (tutte bloccate) solo se
+// OGNI opera della colonna ha il proprio lucchetto acceso - basta
+// una sola voce sbloccata perche' il master risulti spento. Ogni
+// voce nell'ORDER corrisponde gia' a un'opera diversa (item.game),
+// nessun duplicato da filtrare.
+function aggiornaLucchettoColonna(btn, order, data){
+  if(!btn) return;
+  const tutteBloccate = order.every(id => localStorage.getItem(LOCK_KEY_PREFIX + data[id].game) === "true");
+  btn.setAttribute("aria-pressed", tutteBloccate ? "true" : "false");
+}
+
+// Click sul lucchetto master: non e' un semplice toggle del proprio
+// stato, impone lo STESSO stato a tutte le opere della colonna (le
+// voci gia' nello stato giusto non cambiano nulla, si riscrive lo
+// stesso valore che avevano gia'). Poi si richiama renderLists() per
+// aggiornare subito anche i lucchetti delle singole voci in lista.
+function collegaLucchettoColonna(btn, order, data){
+  if(!btn) return;
+  btn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    const nuovoStato = btn.getAttribute("aria-pressed") !== "true";
+    order.forEach(id => {
+      localStorage.setItem(LOCK_KEY_PREFIX + data[id].game, nuovoStato ? "true" : "false");
+    });
+    renderLists();
+    if(ev.detail !== 0) btn.blur();
+  });
+}
+collegaLucchettoColonna(el.columnLockTeorie, RACCONTI_ORDER, RACCONTI);
+collegaLucchettoColonna(el.columnLockStorie, LIBRI_ORDER, LIBRI);
 
 function currentEntry(){
   if(!state.entryId) return null;

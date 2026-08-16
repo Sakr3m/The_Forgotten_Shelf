@@ -862,15 +862,8 @@ body[data-state="entry"] .landing{ display:none; }
       senza bisogno di ritagliarla ulteriormente. */
     -webkit-mask-image:linear-gradient(90deg, transparent, black 5%);
     mask-image:linear-gradient(90deg, transparent, black 5%);
-    /* --- DEBUG/PROVA: box tratteggiato ciano per vedere i confini
-       esatti del contenitore mentre lavoriamo sulle misure. opacity
-       alzata a 1 (era .35) solo per questo motivo: un bordo dentro
-       un elemento con opacity ridotta erediterebbe la stessa
-       trasparenza e sarebbe troppo tenue per essere utile. Da
-       togliere (bordo + opacity tornata a .35) una volta finito. --- */
-    border:2px dashed var(--cyan);
     box-sizing:border-box;
-    opacity:1; /* PROVA: era .35, alzata per vedere bene il bordo tratteggiato di debug */
+    opacity:.35;
     pointer-events:none;
     z-index:0;
   }
@@ -1175,5 +1168,53 @@ body[data-entry-animate="true"] #watermarkBrightness{
   }
   .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
   .landing-video-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
+
+  /* Lucchetto "master" per colonna: blocca/sblocca insieme tutti i
+     lucchetti delle singole opere di quella tabella (vedi script-
+     racconti.js). Vive DENTRO il titolino (.sidebar-eyebrow/.rail-
+     label, reso position:relative apposta) invece che nel pannello
+     intero: cosi' si posiziona rispetto a lui con precisione, senza
+     bisogno di calcolare a mano la sua quota verticale - e soprattutto
+     senza spostare il titolino dal centro, che resta text-align:center
+     come sempre (il lucchetto e' assoluto, esce dal flusso normale).
+     Stessa forma/dimensione del lucchetto per singola voce (26px,
+     stesso trattamento colore/hover), stesso identico inset di 6px
+     dal bordo interno usato li' (#sidebar .row-lock/.side-rail
+     .row-lock), per allinearsi visivamente in verticale con loro. */
+  .sidebar-eyebrow, .rail-label{ position:relative; }
+  .column-lock{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:26px; height:26px; padding:0; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--cyan);
+    border-radius:50%;
+    background:var(--panel);
+    color:var(--cyan);
+    opacity:0; pointer-events:none;
+    -webkit-tap-highlight-color:transparent;
+    outline:none;
+    transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .column-lock svg{ width:13px; height:13px; }
+  #sidebar .column-lock{ right:6px; }
+  .side-rail .column-lock{ left:6px; }
+  #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
+  .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
+    opacity:1; pointer-events:auto;
+  }
+  .column-lock:hover, .column-lock:focus, .column-lock:active{
+    background:var(--panel); border-color:var(--cyan); color:var(--cyan);
+    box-shadow:0 0 0 2px color-mix(in srgb, var(--cyan) 35%, transparent);
+    filter:none;
+  }
+  .column-lock[aria-pressed="true"]{
+    background:var(--panel); color:var(--cyan);
+  }
+  .column-lock[aria-pressed="true"] rect{ fill:currentColor; }
+  .column-lock[aria-pressed="true"]:hover,
+  .column-lock[aria-pressed="true"]:focus,
+  .column-lock[aria-pressed="true"]:active{
+    background:var(--panel); color:var(--cyan);
+  }
 }
 
