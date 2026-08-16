@@ -1360,21 +1360,42 @@ body[data-entry-animate="true"] #watermarkBrightness{
   }
 }
 
-/* La pagina (solo su mobile, solo in home) resta invisibile finche'
-   lo script principale non ha finito il proprio avvio - inclusa la
-   correzione della posizione dello scroll del carosello, che vive in
-   fondo a script-racconti.js e aggiunge la classe tfs-ready proprio
-   subito dopo. Elimina alla radice il problema della sidebar vuota
-   mostrata per un attimo prima della home: prima si provava a VINCERE
-   la corsa contro il tempo (sistemare lo scroll prima che l'utente
-   potesse vedere qualcosa), qui la corsa non esiste piu' - non si
-   mostra nulla finche' non e' gia' tutto a posto.
+/* ============================================================
+   MOBILE: le tabelle laterali (sidebar/side-rail) restano SEMPRE
+   invisibili di default - garantito da puro CSS, non dipende dal
+   tempismo di alcuno script (stessa idea gia' in uso su Il Muro dei
+   Desideri: il browser "non le vede" fin da subito, quindi lo scroll
+   che parte comunque a 0 di suo non mostra mai il loro contenuto).
+   Tornano visibili solo con tfs-ready, lo stesso segnale aggiunto in
+   fondo a script-racconti.js subito dopo la correzione dello scroll
+   gia' esistente - a quel punto la home (con le sue liste, dato che
+   sono le stesse .sidebar/.side-rail) e' gia' pronta, quindi non c'e'
+   bisogno di un secondo segnale separato solo per lei.
    Rete di sicurezza (vedi lo script minuscolo in testa alla pagina):
-   se per qualunque motivo lo script principale non dovesse mai
-   arrivare a questo punto, un timer forza comunque la visibilita'
-   dopo 2.5s, cosi' la pagina non resta bloccata invisibile per
-   sempre nello scenario peggiore. */
+   un timer forza comunque tfs-ready dopo 2.5s se lo script principale
+   non dovesse mai arrivarci.
+   ============================================================ */
 @media (max-width:900px){
-  body[data-state="landing"]:not(.tfs-ready) .layout{ visibility:hidden; }
+  body[data-state="landing"]:not(.tfs-ready) #sidebar,
+  body[data-state="landing"]:not(.tfs-ready) .side-rail{
+    visibility:hidden;
+  }
+}
+
+/* ============================================================
+   DESKTOP: l'intera pagina resta invisibile finche' non sono pronti
+   SIA lo script principale SIA i font (probabile causa dei
+   riposizionamenti/ridimensionamenti che si "auto-correggono" in
+   vista - il testo cambia dimensione quando il font vero sostituisce
+   quello di riserva). tfs-desktop-ready e' un segnale a parte da
+   tfs-ready (quello mobile): usa document.fonts.ready, una vera API
+   del browser che si risolve solo a font effettivamente caricati -
+   se lo agganciassi allo stesso tfs-ready di sopra, rallenterebbe
+   anche la rivelazione della home su mobile, che invece deve restare
+   legata solo al proprio caricamento (dati/testo), non ai font.
+   Stessa rete di sicurezza (2.5s) nello script in testa alla pagina.
+   ============================================================ */
+@media (min-width:901px){
+  body:not(.tfs-desktop-ready){ visibility:hidden; }
 }
 

@@ -19,18 +19,42 @@
 </head>
 <body data-state="landing" data-lang="it">
 <script>
-  /* Rete di sicurezza per il fix della pagina nascosta finche' non e'
-     pronta (vedi racconti.css, body:not(.tfs-ready) .layout - e la
-     riga in fondo a script-racconti.js che aggiunge tfs-ready appena
-     la correzione dello scroll e' avvenuta). Se per qualunque motivo
-     imprevisto lo script principale non dovesse mai arrivare a quel
-     punto (errore, connessione interrotta), questo timer indipendente
-     forza comunque la visibilita' dopo 2.5s - la pagina resta al
-     peggio con lo scroll nel posto sbagliato, MAI invisibile per
-     sempre. Non tocca lo scroll in nessun modo: e' solo un timer,
-     nessuna manipolazione della posizione, a differenza dei tentativi
+  /* Reti di sicurezza per il fix della pagina nascosta finche' non e'
+     pronta - due segnali separati (vedi racconti.css e
+     script-racconti.js):
+     - tfs-ready (mobile): rivela le tabelle laterali (sidebar/side-
+       rail), che restano invisibili di default via puro CSS finche'
+       non arriva.
+     - tfs-desktop-ready (desktop): rivela l'intera pagina, che resta
+       invisibile finche' script E font non sono entrambi pronti.
+     Se per qualunque motivo imprevisto lo script principale non
+     dovesse mai arrivare al punto giusto, questi timer indipendenti
+     forzano comunque la visibilita' dopo 2.5s - mai una pagina
+     bloccata invisibile per sempre nello scenario peggiore. Non
+     toccano lo scroll in nessun modo: solo timer, nessuna
+     manipolazione della posizione, a differenza dei tentativi
      precedenti che sono sempre stati la causa dei problemi. */
   setTimeout(function(){ document.body.classList.add("tfs-ready"); }, 2500);
+  setTimeout(function(){ document.body.classList.add("tfs-desktop-ready"); }, 2500);
+
+  /* Blocco dello swipe verso le tabelle laterali (sidebar/side-rail)
+     finche' l'INTERO caricamento della pagina non e' completo, non
+     solo la home - evita di poter scorrere verso tabelle ancora
+     vuote nella finestra tra "home visibile" e "tutto pronto
+     davvero". Stessa tecnica gia' collaudata su Il Muro dei Desideri
+     (touchmove + preventDefault) - NON touch-action, che aveva gia'
+     rotto lo swipe orizzontale su questa pagina in passato (vedi
+     commento in styles.css). */
+  if(window.matchMedia("(max-width:900px)").matches){
+    var tfsLayoutEl = document.querySelector(".layout");
+    var tfsBlockSwipe = function(ev){ ev.preventDefault(); };
+    var tfsUnblockSwipe = function(){
+      if(tfsLayoutEl) tfsLayoutEl.removeEventListener("touchmove", tfsBlockSwipe);
+    };
+    if(tfsLayoutEl) tfsLayoutEl.addEventListener("touchmove", tfsBlockSwipe, { passive:false });
+    window.addEventListener("load", tfsUnblockSwipe);
+    setTimeout(tfsUnblockSwipe, 6000); // rete di sicurezza extra, nel caso window.load non arrivi mai
+  }
 </script>
 
     <button type="button" class="report-bug-btn" id="reportBugBtn">

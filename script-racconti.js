@@ -1233,11 +1233,26 @@ buildAllEntryPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
 updateSwipeHints();
-// La pagina (su mobile, in home) resta invisibile finche' questo
-// punto non viene raggiunto - vedi racconti.css e il piccolo script
-// di sicurezza in testa alla pagina. Qui la correzione dello scroll
-// qui sopra e' gia' avvenuta, quindi e' sicuro rivelarla.
+// Su mobile, le tabelle laterali (sidebar/side-rail) restano
+// invisibili finche' questo punto non viene raggiunto - vedi
+// racconti.css e il piccolo script di sicurezza in testa alla
+// pagina. Qui la correzione dello scroll qui sopra e' gia' avvenuta,
+// quindi e' sicuro rivelarle.
 document.body.classList.add("tfs-ready");
+// Su desktop, l'intera pagina resta invisibile finche' non sono
+// pronti SIA questo avvio SIA i font veri (probabile causa dei
+// riposizionamenti che si "auto-correggono" in vista) - document.
+// fonts.ready e' una vera API del browser, si risolve solo quando i
+// font sono davvero caricati e applicati. Controllo di sicurezza per
+// browser che non la supportano (rara, ma meglio non rischiare una
+// pagina bloccata invisibile per sempre su quei casi).
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(() => {
+    document.body.classList.add("tfs-desktop-ready");
+  });
+} else {
+  document.body.classList.add("tfs-desktop-ready");
+}
 
 // Ripresa dell'ascolto persistente: solo se l'interruttore era attivo
 // e c'e' uno stato salvato da un'altra pagina. Scavalca la selezione
