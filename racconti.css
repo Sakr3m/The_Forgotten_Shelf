@@ -782,7 +782,7 @@ body[data-state="entry"] .landing{ display:none; }
     height:35px; box-sizing:border-box;
     display:flex; align-items:center; justify-content:center;
     padding:0; /* niente padding extra: il gap dal bordo lo da' gia'
-      .stage-topbar (16px), stessa distanza dello switch lingua dal
+      .stage-topbar (15px), stessa distanza dello switch lingua dal
       bordo destro — un padding qui lo avrebbe solo raddoppiato */
     border:none; background:none;
     font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
@@ -847,7 +847,7 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:132px;
+    padding-top:131px;
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
@@ -856,6 +856,12 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-game-trigger{
     height:35px; padding:0 12px; font-size:.76rem;
   }
+
+  /* Nuove distanze richieste, SOLO mobile - desktop resta con i
+     valori condivisi (12px/12px/33px) mai toccati qui. */
+  .entry-copyright{ margin-top:5px; }
+  .entry-tag{ margin-top:10px; }
+  .entry-body{ margin-top:30px; }
   body[data-state="entry"] .music-control{
     display:flex;
     position:absolute; top:-12px; right:0; z-index:2; /* alzato di 12px: la
@@ -1431,16 +1437,23 @@ body[data-entry-animate="true"] #watermarkBrightness{
    esplicita di oggi. Tutto scoped qui, non tocca desktop.
    ============================================================ */
 @media (max-width:900px){
-  /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea 20px,
-     20px dalla riga dell'header sopra e 20px dalla prima voce sotto.
-     Il pannello ha gia' 76px di padding-top (distanza dal bordo
-     schermo), la riga dell'header sta a 65px da li' - per arrivare
-     a 20px di distanza da quella riga serve un margin-top di 9px
-     sul titolino stesso (76+9-65=20). Il margin-bottom diventa
-     20px diretto, sostituendo i 33px ereditati dalla regola comune. */
+  /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea 20px, 20px
+     dalla riga dell'header sopra e 20px dalla prima voce sotto -
+     misurati dal punto VISIVO del testo, non dal solo box CSS.
+     Con font-size(25px) piu' grande della riga(20px), il testo
+     "sporge" dal proprio line-box di 5px totali - stimati circa
+     2.5px per lato (l'esatta proporzione dipende dal font, non
+     calcolabile con precisione assoluta via CSS). Il pannello ha
+     76px di padding-top, la riga dell'header sta a 65px da li':
+     margin-top 12px (invece di 9, +2.5 per il testo che sporge
+     sopra il box) porta il punto visivo a ~20px da quella riga.
+     margin-bottom 18px (invece di 20, -2.5 per il testo che sporge
+     sotto) porta il punto visivo della prima voce a ~20px anche
+     sotto. Stima, non garanzia pixel-perfect: se dal vivo risulta
+     ancora sfalsato, correggere di conseguenza. */
   .sidebar-eyebrow, .rail-label{
     font-size:25px; line-height:20px;
-    margin-top:9px; margin-bottom:20px;
+    margin-top:12px; margin-bottom:18px;
   }
 
   /* Voci: font-size resta 15px (invariato), interlinea a 20px (era
