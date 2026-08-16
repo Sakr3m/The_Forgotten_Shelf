@@ -941,10 +941,8 @@ body[data-state="entry"] .landing{ display:none; }
     color:var(--text-dim);
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
-  /* Bug corretto: mancava del tutto la condizione di stato, restava
-     visibile anche nella vista voce (dove le due colonne laterali si
-     comportano in modo diverso e il pulsante non ha senso). */
-  body[data-state="entry"] .panel-toggle{ display:none; }
+  /* Richiesto esplicitamente: visibile anche in vista voce, non piu'
+     solo in home (prima c'era un display:none qui, tolto). */
   .panel-toggle:hover{ color:var(--text); }
   .panel-toggle svg{ width:20px; height:20px; }
   /* Di default (spento, tabelle sempre aperte): le due strisce
