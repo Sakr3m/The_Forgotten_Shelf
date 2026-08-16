@@ -476,7 +476,11 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   html:has(body[data-state="entry"]){ overflow:hidden; height:100vh; }
   body[data-state="entry"] .entry-content-text{
     height:calc(100vh - 100px);
-    overflow:hidden;
+    overflow-y:hidden; overflow-x:visible; /* FIX: overflow:hidden
+      (entrambi gli assi) tagliava anche il pezzetto di .entry-body
+      che sporge a sinistra per via del margine negativo (spostamento
+      della scrollbar) - bloccato solo il verticale, che è l'unico a
+      dover restare fermo qui. */
   }
   body[data-state="entry"] .entry-title,
   body[data-state="entry"] .entry-copyright,
