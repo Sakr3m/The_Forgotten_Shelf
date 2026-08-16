@@ -1434,7 +1434,12 @@ body[data-entry-animate="true"] #watermarkBrightness{
      (destra) - specchiate, come gia' impostato oggi per il lato
      destro coi fix della mezzaluna. */
   #sidebar .game-list a{ box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan)); }
-  .side-rail .game-list a{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); }
+  #storieRail .game-list a{ box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan)); } /* FIX:
+    #storieRail (ID) invece di .side-rail (classe) - con la sola
+    classe perdeva contro la vecchia regola "attiva/hover" ancora a
+    5px (piu' specifica, tre classi), che tornava a vincere quando
+    una voce veniva selezionata. Con l'ID vince sempre, come gia'
+    succedeva correttamente per #sidebar qui sopra. */
 
   /* Larghezza delle voci estesa a comprendere anche la zona del
      lucchetto (prima esclusa apposta, width:calc(100% - 45px), per
