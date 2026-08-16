@@ -1423,12 +1423,13 @@ body[data-entry-animate="true"] #watermarkBrightness{
      styles.css/racconti.css resta 18px per desktop). */
   .game-list button, .game-list a{
     line-height:20px;
-    padding-top:2.5px; padding-bottom:2.5px;
+    padding-top:5px; padding-bottom:5px;
   } /* Altezza totale della voce (padding + interlinea) portata a
-    25px, non piu' 36px: 2.5px sopra + 20px interlinea + 2.5px sotto.
+    30px: 5px sopra + 20px interlinea + 5px sotto (prima 25px, poi
+    corretto perche' troppo poco).
     Testo, sfondo/evidenziazione in hover e striscia colorata seguono
-    tutti l'altezza della voce, quindi si restringono insieme in un
-    colpo solo, senza bisogno di toccarli uno per uno. */
+    tutti l'altezza della voce, quindi si restringono/allargano
+    insieme in un colpo solo, senza bisogno di toccarli uno per uno. */
 
   /* Striscia colorata: cambio di programma - non piu' permanente,
      solo sulla voce SELEZIONATA (.is-active), niente hover (sui
