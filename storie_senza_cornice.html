@@ -227,39 +227,6 @@
     </aside>
   </div>
 
-  <script>
-    /* Fix per il bug della sidebar vuota mostrata per un attimo prima
-       della home su mobile. Due tentativi precedenti (scrollIntoView
-       e scrollLeft diretto, entrambi eseguiti "presto" solo per
-       posizione nel file HTML) rompevano la pagina SOLO a cache
-       svuotata - indizio chiave: il problema non era la tecnica di
-       scroll, ma il fatto che "presto nel file" non garantisce affatto
-       "dopo che il layout vero e' pronto". Con la cache calda i file
-       arrivano quasi subito, mascherando il problema; a cache vuota
-       il ritardo del download reale espone uno script che agiva su
-       un layout ancora incompleto (font non caricati, misure non
-       definitive).
-       Soluzione: invece di indovinare UN punto nel file, si chiede
-       al browser stesso di avvisare quando ha finito un ciclo vero
-       di layout+disegno, tramite un DOPPIO requestAnimationFrame
-       (il primo garantisce "il prossimo frame che il browser
-       disegna", il secondo garantisce che quel frame sia gia' stato
-       renderizzato per davvero) - una tecnica indipendente dalla
-       velocita' di rete o dallo stato della cache, a differenza dei
-       tentativi precedenti. */
-    try {
-      if (window.matchMedia("(max-width:900px)").matches) {
-        requestAnimationFrame(function(){
-          requestAnimationFrame(function(){
-            var layoutEl = document.querySelector(".layout");
-            var stageEl = document.getElementById("stage");
-            if (layoutEl && stageEl) layoutEl.scrollLeft = stageEl.offsetLeft;
-          });
-        });
-      }
-    } catch (e) {}
-  </script>
-
   <script src="data.js?v=20260809"></script>
   <script src="data-shared-tracks.js?v=20260812"></script>
   <script src="data-storie-teorie.js?v=20260809"></script>
