@@ -671,13 +671,18 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
      posizione naturale, senza bisogno di spostarlo. */
   .entry-body{
     width:100%; align-self:flex-start; box-sizing:border-box;
-    padding-left:75px; padding-right:275px;
+    padding-left:75px; padding-right:75px; /* FIX: era 275px,
+      calibrato per il vecchio impianto senza limite di larghezza -
+      con max-width:75% qui sotto, quel valore mangiava gran parte del
+      75% richiesto, lasciando il testo vero molto piu' stretto del
+      previsto (e uno spazio vuoto enorme prima della filigrana).
+      Simmetrico con padding-left ora - il 75% da solo crea gia' lo
+      spazio necessario per la filigrana sulla destra, non serve
+      piu' un padding sproporzionato apposta. */
     max-width:75%; /* richiesto esplicitamente: il testo (a qualunque
       dimensione, X1/X1.5/X2) non deve mai superare il 75% della
-      larghezza disponibile dello stage. Prima "none" (nessun limite,
-      il padding asimmetrico da solo bastava a dare l'aspetto giusto
-      alla dimensione base). box-sizing:border-box qui sopra: il 75%
-      include anche i padding, non solo il testo vero. */
+      larghezza disponibile dello stage. box-sizing:border-box qui
+      sopra: il 75% include anche i padding, non solo il testo vero. */
   }
 }
 
@@ -1342,7 +1347,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .music-toggle,
   .panel-toggle,
   .landing-video-btn,
-  .entry-game-trigger{
+  .entry-game-trigger,
+  .track-info{
     border-width:2px;
   }
 
@@ -1568,7 +1574,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      2px finora esisteva solo su desktop, vedi piu' sotto in fondo al
      file, PROVA sui pulsanti). */
   .kofi-link, .discord-link, .index-link, .lang-switch,
-  .landing-video-btn{
+  .landing-video-btn, .music-toggle, .track-info{
     border-width:2px;
   }
 }
