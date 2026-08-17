@@ -22,7 +22,6 @@
 
   --cyan:#ffffff;
   --magenta:#e879f9;
-  --orange:#fb923c;
   --tl-1:#00f0ff;
   --tl-2:#ff2ec4;
   --tl-3:#a742ff;
@@ -33,7 +32,6 @@
   --radius: 10px;
   --radius-sm: 6px;
   --dur-fast: 150ms;
-  --dur: 300ms;
   --ease: cubic-bezier(.22,.68,.36,1);
 
   /* Larghezza della colonna timeline-rail (destra, visibile solo
