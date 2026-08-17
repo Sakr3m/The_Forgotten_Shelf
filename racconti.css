@@ -262,7 +262,11 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
    dell'opera. */
 body[data-state="entry"] .text-size-toggle{
   display:flex; align-items:center; justify-content:center;
-  height:40px; box-sizing:border-box; padding:0 14px;
+  height:40px; width:58px; box-sizing:border-box; /* larghezza fissa,
+    non piu' padding che si adatta al testo - senza, il pulsante
+    cambiava dimensione passando da "X1" a "X1.5" (piu' largo) a "X2"
+    (di nuovo piu' stretto). 58px calcolati per contenere comodamente
+    l'etichetta piu' larga, "X1.5", con margine. */
   border:1px solid var(--item-accent, var(--cyan));
   background:var(--panel);
   border-radius:999px;
@@ -1005,8 +1009,27 @@ body[data-state="entry"] .landing{ display:none; }
     height:35px; padding:0 12px; font-size:.76rem;
   }
   body[data-state="entry"] .text-size-toggle{
-    height:35px; padding:0 12px; font-size:.76rem;
+    height:35px; width:50px; padding:0; font-size:.76rem; /* larghezza
+      fissa qui invece del padding orizzontale, stesso motivo del
+      desktop - non cambia piu' dimensione tra X1/X1.5/X2. */
   }
+
+  /* FIX: ordine esplicito e inequivocabile dei pulsanti nella riga
+     mobile - il tentativo precedente si affidava al fatto che
+     entry-game-picker diventa position:absolute su mobile (quindi
+     "invisibile" al flusso flex), sperando che il pulsante dimensione
+     testo si ritrovasse cosi' naturalmente subito dopo il volume.
+     Non ha funzionato (finiva vicino a Ko-fi/Discord invece che al
+     volume) - probabilmente per un dettaglio del flusso che non ho
+     verificato bene dal vivo. Qui invece l'ordine e' dichiarato
+     esplicitamente, non lasciato a un effetto indiretto: social-links
+     (Discord/Ko-fi) per primi, poi il volume, poi questo pulsante,
+     poi lo switch lingua - qualunque cosa succeda ad altri elementi
+     della riga, questi quattro restano in quest'ordine preciso. */
+  .social-links{ order:0; }
+  #musicControl{ order:1; }
+  body[data-state="entry"] .text-size-toggle{ order:2; }
+  .lang-switch{ order:3; }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
      valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
