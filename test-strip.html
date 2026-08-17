@@ -12,6 +12,26 @@
      quello di riserva) come causa del bug. -->
 <link rel="stylesheet" href="styles.css?v=20260815e">
 <link rel="stylesheet" href="racconti.css?v=2026081652">
+<style>
+  /* TAGLIO 8: nasconde con display:none tutto il superfluo, tenendo
+     gli elementi nel DOM (lo script non si rompe, trova sempre quello
+     che cerca) ma invisibili/inerti alla vista - resta solo la
+     struttura nuda: header minimo, le due tabelle, il testo della
+     voce aperta. */
+  #musicControl,
+  #entryGamePicker,
+  #panelToggle,
+  #watermarkBrightness,
+  #entryWatermarkWrap,
+  #landingVideoBtn,
+  .column-lock,
+  .discord-link,
+  .kofi-link,
+  #langSwitch,
+  .index-link,
+  #pageHeader
+  { display: none !important; }
+</style>
 </head>
 <body data-state="landing" data-lang="it">
 <script>
