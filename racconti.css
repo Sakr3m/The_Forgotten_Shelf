@@ -458,7 +458,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
        di suo, che si sommavano ai 33px di .entry-panel qui sotto
        dando 73px reali invece dei 33 richiesti. */
   }
-  body[data-state="entry"] .entry-panel{ margin-top:20px; }
+  body[data-state="entry"] .entry-panel{ margin-top:10px; }
 
   /* Scroll isolato: solo il corpo del testo scorre, titolo/copyright/
      tag restano fermi in vista - stessa tecnica gia' usata stamattina
@@ -469,13 +469,13 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
      ancora scorrere, l'intero blocco - titolo compreso - si sposta
      comunque insieme al resto, come infatti succedeva. Va bloccato lo
      scroll della pagina stessa (qui sotto), cosi' l'unico scroll
-     possibile resta quello interno di .entry-body. 100px = 15px della
-     topbar + 65px della riga header + 20px di margine del titolo
-     (era 92 = 15+65+12, aggiornato insieme al margine qui sopra). */
+     possibile resta quello interno di .entry-body. 90px = 15px della
+     topbar + 65px della riga header + 10px di margine del pannello
+     (era 100 = 15+65+20, aggiornato insieme al margine qui sopra). */
   body[data-state="entry"]{ overflow:hidden; height:100vh; }
   html:has(body[data-state="entry"]){ overflow:hidden; height:100vh; }
   body[data-state="entry"] .entry-content-text{
-    height:calc(100vh - 100px);
+    height:calc(100vh - 90px);
     overflow-y:hidden; overflow-x:visible; /* FIX: overflow:hidden
       (entrambi gli assi) tagliava anche il pezzetto di .entry-body
       che sporge a sinistra per via del margine negativo (spostamento
@@ -571,16 +571,16 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   display:flex; flex-direction:column; align-items:center; text-align:center;
   width:100%;
 }
-.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
+.entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin:10px auto 0; } /* FIX:
+  margin-top mancava del tutto (0px) - da quando il copyright e' stato
+  spostato sopra il titolo, questo era il motivo per cui i due si
+  toccavano senza nessuno spazio tra loro. */
 .entry-copyright{
   margin:10px auto 0; width:fit-content;
   font-size:10px; line-height:15px; color:var(--text-faint);
   letter-spacing:.02em;
 }
 .entry-readtime{
-  /* Stile provvisorio, stessa famiglia visiva del copyright - le
-     distanze esatte (sopra/sotto) si sistemano in un secondo
-     momento, richiesto esplicitamente di non definirle ora. */
   margin:10px auto 0; width:fit-content;
   font-size:10px; line-height:15px; color:var(--text-faint);
   letter-spacing:.02em;
@@ -827,7 +827,7 @@ body[data-state="entry"] .landing{ display:none; }
   .track-info{ max-width:150px; }
   .track-info__game{ display:none; }
 
-  .entry-panel{ margin-top:16px; max-width:100%; }
+  .entry-panel{ margin-top:5px; max-width:100%; }
   .entry-title{ font-size:30px; line-height:30px; max-width:100%; } /* interlinea
     uguale al font-size (era 42px ereditati, con font 1.3rem/20.8px -
     box molto piu' alto del testo vero, stesso problema del titolino
@@ -937,12 +937,12 @@ body[data-state="entry"] .landing{ display:none; }
   }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
-     valori condivisi (10px/15px/33px, aggiornati rispetto ai
-     12px/12px/33px originari) mai toccati qui. */
+     valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
   .entry-copyright{ margin-top:5px; font-size:10px; }
-  .entry-readtime{ margin-top:5px; font-size:10px; } /* provvisorio,
-    stessa logica del copyright - da rivedere insieme alle altre
-    distanze in un secondo momento, come da richiesta esplicita. */
+  .entry-title{ margin-top:5px; } /* FIX: mancava del tutto (0px) -
+    stesso motivo del desktop, causava il contatto diretto tra
+    copyright e titolo. */
+  .entry-readtime{ margin-top:10px; font-size:10px; }
   .entry-tag{ margin-top:10px; }
   .entry-body{ margin-top:30px; }
   body[data-state="entry"] .music-control{

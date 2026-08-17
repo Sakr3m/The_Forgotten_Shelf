@@ -2,6 +2,19 @@
 // RACCONTI — logica di stato e rendering
 // ============================================================
 
+// Disattiva il ripristino automatico della posizione di scroll del
+// browser al refresh/tasto indietro. Senza questo, su mobile (dove
+// il carosello sidebar/stage/side-rail scorre orizzontalmente) il
+// browser puo' provare a "ricordare" da solo dove si era arrivati
+// con lo scroll orizzontale e ripristinarlo DOPO che il nostro
+// scrollIntoView verso la home (vedi fondo file, dopo setState
+// ("landing")) ha gia' fatto il suo lavoro - il ripristino nativo del
+// browser arriva piu' tardi e vince lui, mostrando l'ultimo pannello
+// visitato (es. Racconti Brevi) invece della home al refresh.
+if("scrollRestoration" in history){
+  history.scrollRestoration = "manual";
+}
+
 // Il titolo "Storie Senza Cornice" (.brand-text) e altri elementi
 // usano peso 800, che il resto della home non tocca mai (li' il
 // titolo e' nascosto) - risultato: il browser scopre di aver bisogno
