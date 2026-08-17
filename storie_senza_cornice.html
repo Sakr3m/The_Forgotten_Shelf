@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/eb-garamond.css">
 <link rel="stylesheet" href="styles.css?v=20260815e">
-<link rel="stylesheet" href="racconti.css?v=2026081701">
+<link rel="stylesheet" href="racconti.css?v=2026081702">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -195,6 +195,9 @@
       <span class="swipe-hint swipe-hint--right" aria-hidden="true">
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
+      <span class="swipe-hint swipe-hint--right swipe-hint--right-bottom" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
 
       <div class="game-header" id="pageHeader">
         <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
@@ -242,13 +245,11 @@
           <button type="button" class="mobile-table-toggle__option" data-table-option="storie" data-i18n="railLabel">Libri</button>
         </div>
 
-        <!-- Nascosto (hidden) apposta, anche su mobile: non e' codice
-             morto, e' in attesa del video da agganciare (player
-             YouTube incorporato, che porta gia' il proprio controllo
-             volume). Struttura e stile gia' pronti in racconti.css
-             (.landing-video-btn) - quando arriva il video basta
-             togliere l'attributo hidden e collegare il click. -->
-        <button type="button" class="landing-video-btn" id="landingVideoBtn" hidden>
+        <!-- Visibilita' gestita solo dal CSS ora (non piu' [hidden]):
+             nascosto su mobile, visibile su desktop - dove al click
+             mostra un messaggio scherzoso "non ancora pronto" invece
+             di riprodurre il video vero (ancora da agganciare). -->
+        <button type="button" class="landing-video-btn" id="landingVideoBtn">
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5.5v9l7.5-4.5L7 5.5z" fill="currentColor"/></svg>
           <span data-i18n="landingVideoBtn">Riproduci video</span>
         </button>
@@ -299,7 +300,7 @@
        nel codice. -->
   <script src="data-racconti.js?v=2026081601"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script-racconti.js?v=2026081701"></script>
+  <script src="script-racconti.js?v=2026081702"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="data.js?v=20260809"></script>
   <script src="data-shared-tracks.js?v=20260812"></script>

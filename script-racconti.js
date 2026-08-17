@@ -42,6 +42,7 @@ const STRINGS = {
     landingSub: "Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.",
     landingSubMobile: "Seleziona una voce dalla finestra Racconti brevi o da quella dei Libri per approfondire.",
     landingVideoBtn: "Riproduci video",
+    landingVideoNotReady: "Shh... il video sta ancora dormendo. Ripassa più avanti 👀",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     entryCopyright: "© 2026 Sakrem — Tutti i diritti riservati",
@@ -77,6 +78,7 @@ const STRINGS = {
     landingSub: "Select an entry from the Short Stories column or from the Books column to dive in.",
     landingSubMobile: "Select an entry from the Short Stories screen or from the Books screen to dive in.",
     landingVideoBtn: "Play video",
+    landingVideoNotReady: "Shh... the video is still asleep. Check back later 👀",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     entryCopyright: "© 2026 Sakrem — All rights reserved",
@@ -125,6 +127,7 @@ const el = {
   stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
   mobileTableToggle: document.getElementById("mobileTableToggle"),
+  landingVideoBtn: document.getElementById("landingVideoBtn"),
   panelToggle: document.getElementById("panelToggle"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
@@ -1130,6 +1133,17 @@ el.langSwitch.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
+// Pulsante "Riproduci video" (solo desktop, su mobile e' eliminato):
+// il video vero non e' ancora agganciato, per ora un messaggio
+// scherzoso al posto della riproduzione.
+// ---------------------------------------------------------
+if(el.landingVideoBtn){
+  el.landingVideoBtn.addEventListener("click", () => {
+    alert(t("landingVideoNotReady"));
+  });
+}
+
+// ---------------------------------------------------------
 // Toggle Racconti/Libri (SOLO MOBILE - su desktop questo elemento e'
 // nascosto via CSS e la funzione, anche se chiamata, non cambia
 // niente di visibile: l'attributo che imposta serve solo alle regole
@@ -1197,13 +1211,14 @@ mobileBreakpoint.addEventListener("change", () => {
 // Freccette di swipe: nascosta quella che punta verso un bordo già
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
-const swipeRightEl = document.querySelector(".swipe-hint--right");
+const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
 function updateSwipeHints(){
   if(!mobileBreakpoint.matches || !layoutEl) return;
   const w = window.innerWidth;
   const maxScroll = layoutEl.scrollWidth - w;
   if(swipeLeftEl) swipeLeftEl.style.visibility = layoutEl.scrollLeft <= w * 0.5 ? "hidden" : "visible";
-  if(swipeRightEl) swipeRightEl.style.visibility = layoutEl.scrollLeft >= maxScroll - w * 0.5 ? "hidden" : "visible";
+  const nascondiDestra = layoutEl.scrollLeft >= maxScroll - w * 0.5;
+  swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = nascondiDestra ? "hidden" : "visible"; });
   // Il pulsante "Segnala bug" e' position:fixed, quindi normalmente
   // resterebbe a galla anche scorrendo verso le tabelle laterali del
   // carosello mobile, invece di sparire con loro come il resto della

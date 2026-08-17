@@ -1333,7 +1333,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
    barra fissa in alto), centrato sotto il sub, 40px di altezza. */
 @media (min-width:901px){
   .landing-video-btn{
-    display:none; align-items:center; justify-content:center; gap:8px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
     height:40px; box-sizing:border-box; padding:0 22px;
     margin-top:50px;
     border:1px solid var(--cyan);
@@ -1342,9 +1342,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
     font-size:15px; font-weight:600; color:var(--text-dim);
     cursor:pointer;
     transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  } /* display:none: su desktop resta nascosto in attesa del video
-    vero (richiesto solo su mobile per ora). Non serve piu' [hidden]
-    per farlo, dato che l'attributo e' stato tolto dall'HTML. */
+  } /* Ora visibile su desktop (richiesto esplicitamente) - il video
+    vero non c'e' ancora, ma al click mostra un messaggio scherzoso
+    invece di restare nascosto in attesa. Su mobile invece eliminato
+    del tutto (vedi @media max-width:900px piu' sotto), sostituito
+    dal toggle Racconti/Libri nella stessa posizione. */
   .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
   .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; }
 }
@@ -1423,20 +1425,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
 }
 
 @media (max-width:900px){
-  .landing-video-btn{
-    display:flex; align-items:center; justify-content:center; gap:8px;
-    height:35px; box-sizing:border-box; padding:0 22px 0 17px;
-    margin-top:50px;
-    border:1px solid var(--cyan);
-    background:var(--panel);
-    border-radius:999px;
-    font-size:13px; font-weight:600; color:var(--text-dim);
-  } /* padding asimmetrico (17px sinistra, 22px destra) apposta:
-    l'icona play (triangolo) ha piu' spazio vuoto trasparente nel suo
-    stesso riquadro sul lato sinistro che su quello destro (il
-    disegno stesso, non un errore di padding) - compensato riducendo
-    il padding-left di 5px, cosi' il "peso visivo" combinato di
-    icona+testo torna centrato nella pillola. */
+  .landing-video-btn{ display:none; } /* ELIMINATO su mobile,
+    richiesto esplicitamente - il suo posto (stessa distanza dal sub
+    sopra) e' preso dal toggle Racconti/Libri, vedi piu' sotto nel
+    file. Su desktop invece e' visibile (vedi @media min-width:901px
+    piu' sopra). */
 
   /* Distanze del blocco hero riviste. */
   .landing-title{ font-size:25px; line-height:25px; margin-top:35px; }
@@ -1473,6 +1466,16 @@ body[data-entry-animate="true"] #watermarkBrightness{
      regola condivisa in styles.css, solo su questa pagina. */
   body[data-state="landing"] .swipe-hint{ top:90px; }
 
+  /* La freccetta in basso (nuova, stessa direzione di quella in alto)
+     usa "bottom" invece di "top" per posizionarsi simmetricamente dal
+     basso - senza, erediterebbe anche lei top:90px dalla regola
+     condivisa qui sopra (stessa classe .swipe-hint), finendo
+     sovrapposta a quella in alto invece che in fondo allo schermo.
+     "top:auto" annulla esplicitamente il top:90px ereditato. */
+  body[data-state="landing"] .swipe-hint--right-bottom{
+    top:auto; bottom:90px;
+  }
+
   /* Fix: il testo del pulsante Riproduci video andava a capo pur
      avendo spazio a sufficienza - nessuna larghezza fissa lo
      costringeva, ma senza nowrap il testo puo' comunque spezzarsi se
@@ -1480,18 +1483,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
      del layout. flex-shrink:0 evita anche che il pulsante stesso si
      restringa oltre il necessario. */
   .landing-video-btn{ white-space:nowrap; flex-shrink:0; }
-  .landing-video-btn[hidden]{ display:none; } /* senza questa riga il
-    display:flex qui sopra (stessa specificita' della regola nativa
-    del browser per [hidden]) vincerebbe comunque, mostrando il
-    pulsante anche da nascosto - stesso bug gia' preso due volte oggi
-    altrove su questa pagina. */
   .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; } /* FIX:
     mancava su mobile - esisteva solo nella media query desktop, dove
-    il pulsante era sempre stato visibile finora. Ora che compare
-    anche su mobile, senza questa riga l'SVG (senza width/height sul
-    tag stesso) prova a renderizzare con la dimensione di default del
-    browser, enorme rispetto al pulsante alto 35px - da qui la
-    sparizione/rottura visiva. */
+    il pulsante era sempre stato visibile finora. Tenuta anche se il
+    pulsante e' ora nascosto su mobile, per coerenza/eventuali riusi
+    futuri della stessa classe. */
 
   /* Bordo 2px su tutti i pulsanti dell'header + il pulsante video,
      richiesto esplicitamente (prima 1px, lo standard di base - il
@@ -1570,21 +1566,21 @@ body[data-entry-animate="true"] #watermarkBrightness{
      line-height:18px, padding 12px/14px). Striscia: spessore 3px
      invece di 2px (richiesto esplicitamente), sia nella versione
      permanente (45% di opacita') sia in quella piena su .is-active.
-     Direzione: SPECCHIATA sulla colonna destra (#storieRail piu'
-     sotto) - li' il testo e' allineato a destra, la striscia a
-     sinistra (rubata cosi' da Il Filo Nascosto, senza specchiamento)
-     finiva lontana dal testo che dovrebbe segnalare. Qui sulla
-     sidebar sinistra invece resta a sinistra, coerente col testo
-     anche lui allineato li'. */
-  .game-list button, .game-list a{
-    box-shadow:inset 3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
-  }
-  .game-list button.is-active, .game-list a.is-active{
-    box-shadow:inset 3px 0 0 var(--item-accent, var(--cyan));
-  }
+     Direzione e allineamento: ORA UGUALI per #sidebar e #storieRail -
+     da quando esiste il toggle Racconti/Libri, le due liste
+     condividono la STESSA posizione fisica (la tabella unica a
+     destra), quindi anche "Racconti brevi" deve comportarsi come
+     "Libri" ci si era gia' comportato: testo a destra, striscia
+     specchiata (a destra anche lei, vicina al testo). Su desktop
+     invece #sidebar resta a sinistra, testo e striscia a sinistra
+     come sempre (questa intera sezione e' dentro
+     @media(max-width:900px), non tocca desktop). */
+  #sidebar .game-list button, #sidebar .game-list a,
   #storieRail .game-list button, #storieRail .game-list a{
+    text-align:right;
     box-shadow:inset -3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
   }
+  #sidebar .game-list button.is-active, #sidebar .game-list a.is-active,
   #storieRail .game-list button.is-active, #storieRail .game-list a.is-active{
     box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan));
   }
@@ -1598,9 +1594,10 @@ body[data-entry-animate="true"] #watermarkBrightness{
      stessa larghezza piena di Il Filo Nascosto). */
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
   .side-rail{ padding-left:15px; padding-right:15px; padding-top:90px; }
-  #sidebar .game-list a{ width:100%; padding-left:15px; padding-right:15px; } /* Box/striscia
+  #sidebar .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* Box/striscia
     a 15px netti (dal padding del pannello sopra), testo a 15+15=30px
-    su ENTRAMBI i lati. */
+    su ENTRAMBI i lati. margin-left:0 aggiunto per coerenza con
+    storieRail, anche se qui non ha mai avuto un valore diverso. */
   #storieRail .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* stesso, specchiato */
 
   /* Lucchetto per voce: niente lucchetto su mobile, nascosto del
@@ -1641,8 +1638,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
      che non interferisca. */
   .mobile-table-toggle{
     display:flex; align-items:center; justify-content:center; gap:8px;
-    margin-top:20px;
-    padding:8px 14px;
+    height:35px; box-sizing:border-box;
+    margin-top:50px; /* stessa distanza dal sub che aveva il vecchio
+      pulsante video (ora eliminato su mobile) - il toggle ne prende
+      il posto esatto. */
+    padding:0 14px;
     border:1px solid var(--cyan);
     background:var(--panel);
     border-radius:999px;
