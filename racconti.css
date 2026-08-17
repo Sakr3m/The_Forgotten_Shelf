@@ -267,7 +267,12 @@ body[data-state="entry"] .text-size-toggle{
     cambiava dimensione passando da "X1" a "X1.5" (piu' largo) a "X2"
     (di nuovo piu' stretto). 58px calcolati per contenere comodamente
     l'etichetta piu' larga, "X1.5", con margine. */
-  border:1px solid var(--item-accent, var(--cyan));
+  border:2px solid var(--item-accent, var(--cyan)); /* FIX: scritto
+    2px direttamente qui, non piu' 1px - la lista esterna "bordo 2px
+    desktop" (piu' sotto nel file) non riusciva mai a vincere su
+    questa regola, che essendo piu' specifica (usa il prefisso
+    body[data-state=entry]) ha sempre la meglio a prescindere
+    dall'ordine nel file. */
   background:var(--panel);
   border-radius:999px;
   font-size:.82rem; font-weight:600;
@@ -1009,27 +1014,20 @@ body[data-state="entry"] .landing{ display:none; }
     height:35px; padding:0 12px; font-size:.76rem;
   }
   body[data-state="entry"] .text-size-toggle{
-    height:35px; width:50px; padding:0; font-size:.76rem; /* larghezza
-      fissa qui invece del padding orizzontale, stesso motivo del
-      desktop - non cambia piu' dimensione tra X1/X1.5/X2. */
+    height:35px; width:50px; padding:0; font-size:.76rem;
+    /* FIX vero: il pulsante volume su mobile NON vive nella riga
+       dell'header insieme a Ko-fi/Discord/switch lingua - e' invece
+       position:absolute, vicino al banner (vedi #musicControl subito
+       sotto). Il mio primo tentativo (order CSS dentro la riga
+       flex) non poteva funzionare: order non ha nessun effetto su
+       elementi posizionati assolutamente, che escono dal flusso.
+       Qui replico lo stesso posizionamento assoluto del volume (top
+       identico), messo pero' a destra del tutto (right:0) - il
+       volume qui sotto si sposta della larghezza di questo pulsante
+       (50px) + il gap standard tra pulsanti (10px) = 60px, per fargli
+       posto alla sua sinistra. */
+    position:absolute; top:-14px; right:0; z-index:2;
   }
-
-  /* FIX: ordine esplicito e inequivocabile dei pulsanti nella riga
-     mobile - il tentativo precedente si affidava al fatto che
-     entry-game-picker diventa position:absolute su mobile (quindi
-     "invisibile" al flusso flex), sperando che il pulsante dimensione
-     testo si ritrovasse cosi' naturalmente subito dopo il volume.
-     Non ha funzionato (finiva vicino a Ko-fi/Discord invece che al
-     volume) - probabilmente per un dettaglio del flusso che non ho
-     verificato bene dal vivo. Qui invece l'ordine e' dichiarato
-     esplicitamente, non lasciato a un effetto indiretto: social-links
-     (Discord/Ko-fi) per primi, poi il volume, poi questo pulsante,
-     poi lo switch lingua - qualunque cosa succeda ad altri elementi
-     della riga, questi quattro restano in quest'ordine preciso. */
-  .social-links{ order:0; }
-  #musicControl{ order:1; }
-  body[data-state="entry"] .text-size-toggle{ order:2; }
-  .lang-switch{ order:3; }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
      valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
@@ -1038,10 +1036,13 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-14px; right:0; z-index:2; /* 15px dalla
+    position:absolute; top:-14px; right:60px; z-index:2; /* 15px dalla
       parte alta del banner (era -12px, 17px - richiesto esplicito
       per allinearlo alla stessa distanza (15px) della tendina dalla
-      parte bassa. */
+      parte bassa. right:60px (era 0): spostato per lasciare posto al
+      pulsante dimensione testo alla sua destra (50px di larghezza sua
+      + 10px di gap standard tra pulsanti) - vedi .text-size-toggle
+      qui sopra, che ora occupa la posizione right:0 originale. */
     height:35px; /* fissa, come il pulsante volume - senza, il
       contenitore cresce quando compare la tabellina col nome del
       brano (piu' alta del solo pulsante), e il pulsante (centrato al
@@ -1339,8 +1340,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .music-toggle,
   .panel-toggle,
   .landing-video-btn,
-  .entry-game-trigger,
-  .text-size-toggle{
+  .entry-game-trigger{
     border-width:2px;
   }
 
@@ -1566,7 +1566,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      2px finora esisteva solo su desktop, vedi piu' sotto in fondo al
      file, PROVA sui pulsanti). */
   .kofi-link, .discord-link, .index-link, .lang-switch,
-  .landing-video-btn, .text-size-toggle{
+  .landing-video-btn{
     border-width:2px;
   }
 }
