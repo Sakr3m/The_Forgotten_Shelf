@@ -7,7 +7,7 @@
 // il carosello sidebar/stage/side-rail scorre orizzontalmente) il
 // browser puo' provare a "ricordare" da solo dove si era arrivati
 // con lo scroll orizzontale e ripristinarlo DOPO che il nostro
-// scrollIntoView verso la home (vedi fondo file, dopo setState
+// scrollCarouselToStage verso la home (vedi fondo file, dopo setState
 // ("landing")) ha gia' fatto il suo lavoro - il ripristino nativo del
 // browser arriva piu' tardi e vince lui, mostrando l'ultimo pannello
 // visitato (es. Racconti Brevi) invece della home al refresh.
@@ -1129,17 +1129,25 @@ el.langSwitch.addEventListener("click", () => {
 // ---------------------------------------------------------
 mobileBreakpoint.addEventListener("change", paintStaticText);
 const stageEl = document.getElementById("stage");
+const layoutEl = document.querySelector(".layout");
 
-function scrollCarouselToStage(){
-  if(!mobileBreakpoint.matches) return;
-  stageEl.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+// scrollIntoView() e' notoriamente inaffidabile insieme a
+// scroll-snap-type:mandatory (impostato su .layout) su diversi
+// browser mobili reali - sembra funzionare su desktop ma su alcuni
+// telefoni puo' non spostare affatto la posizione, lasciando visibile
+// il primo pannello (sidebar) invece dello stage. scrollTo/scrollLeft
+// diretti sulla posizione calcolata (stageEl.offsetLeft) non dipendono
+// da quel comportamento incerto.
+function scrollCarouselToStage(smooth){
+  if(!mobileBreakpoint.matches || !layoutEl || !stageEl) return;
+  if(smooth) layoutEl.scrollTo({ left: stageEl.offsetLeft, behavior: "smooth" });
+  else layoutEl.scrollLeft = stageEl.offsetLeft;
 }
-function closeMobileSidebar(){ scrollCarouselToStage(); }
+function closeMobileSidebar(){ scrollCarouselToStage(true); }
 function closeRailDrawer(){ /* stesso pannello stage, nessuna azione separata */ }
 
 // Freccette di swipe: nascosta quella che punta verso un bordo già
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
-const layoutEl = document.querySelector(".layout");
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
 const swipeRightEl = document.querySelector(".swipe-hint--right");
 function updateSwipeHints(){
@@ -1172,7 +1180,7 @@ el.brandBtn.addEventListener("click", () => {
   // voce, .layout resta un carosello anche li'), altrimenti il
   // pulsante cambiava lo stato ma lasciava lo scroll orizzontale
   // dov'era, "restituendo" la tabella invece della home.
-  scrollCarouselToStage();
+  scrollCarouselToStage(true);
 });
 
 // ---------------------------------------------------------
@@ -1270,21 +1278,19 @@ document.addEventListener("click", (e) => {
 paintStaticText();
 buildAllEntryPanels();
 setState("landing");
-if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+scrollCarouselToStage(false);
 // Rinforzo: history.scrollRestoration=manual (vedi inizio file) non
-// sembra bastare da solo in alcuni casi (es. la modalita' emulazione
-// mobile di alcuni browser/DevTools sembra avere una propria memoria
-// della posizione di scroll, separata da quella normale della pagina)
-// - impongo la posizione corretta anche con un piccolo ritardo e di
+// basta da solo in alcuni casi (alcuni browser mobili sembrano avere
+// una propria memoria della posizione di scroll, separata da quella
+// normale della pagina, che puo' intervenire dopo il nostro codice) -
+// impongo la posizione corretta anche con un piccolo ritardo e di
 // nuovo al "load" della finestra, cosi' vinco anche su un eventuale
-// ripristino che arrivasse dopo il nostro scrollIntoView iniziale.
+// ripristino che arrivasse piu' tardi. scrollCarouselToStage(false)
+// usa scrollLeft diretto (vedi sopra) - NON scrollIntoView, che e'
+// notoriamente inaffidabile insieme a scroll-snap:mandatory su
+// diversi browser mobili reali (causa sospetta originale del bug).
 function forzaScrollHome(){
-  if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
-  // ATTENZIONE: mai usare layoutEl.scrollLeft=0 qui - quello e' lo
-  // zero del PRIMO pannello (sidebar/Racconti Brevi, essendo lui il
-  // primo nell'ordine del DOM), non la home. stageEl.scrollIntoView
-  // calcola da solo l'offset giusto per centrare lo stage, qualunque
-  // sia la larghezza della sidebar.
+  scrollCarouselToStage(false);
 }
 setTimeout(forzaScrollHome, 50);
 setTimeout(forzaScrollHome, 300);
