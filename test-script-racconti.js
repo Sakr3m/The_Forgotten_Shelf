@@ -1178,8 +1178,22 @@ const layoutEl = document.querySelector(".layout");
 // il primo pannello (sidebar) invece dello stage. scrollTo/scrollLeft
 // diretti sulla posizione calcolata (stageEl.offsetLeft) non dipendono
 // da quel comportamento incerto.
+// FIX: mobileBreakpoint.matches puo' essere inaffidabile nell'istante
+// esatto di un refresh con l'emulazione mobile del browser attiva -
+// window.innerWidth (su cui si basa matchMedia) puo' risultare ancora
+// quello del monitor desktop per un attimo, anche se il CSS e' gia'
+// correttamente applicato in versione mobile (verificato con un log:
+// innerWidth=1918 ma sidebar larga ~333px, coerente solo con mobile).
+// Controllo diretto e piu' affidabile: se il contenuto del carosello
+// e' davvero piu' largo dello spazio visibile, il carosello mobile
+// c'e' per davvero, a prescindere da cosa dica matchMedia in
+// quel preciso istante.
+function serveIlCarosello(){
+  if(!layoutEl) return false;
+  return layoutEl.scrollWidth > layoutEl.clientWidth + 5;
+}
 function scrollCarouselToStage(smooth){
-  if(!mobileBreakpoint.matches || !layoutEl || !stageEl) return;
+  if(!serveIlCarosello() || !layoutEl || !stageEl) return;
   if(smooth) layoutEl.scrollTo({ left: stageEl.offsetLeft, behavior: "smooth" });
   else layoutEl.scrollLeft = stageEl.offsetLeft;
 }
