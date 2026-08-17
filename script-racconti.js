@@ -108,6 +108,9 @@ const state = {
   view: "landing",   // landing | entry
   column: null,      // teorie | storie
   entryId: null,
+  mobileTable: "teorie", // teorie | storie - quale lista popola la
+    // tabella unica mobile (vedi setMobileTable). Non riguarda
+    // desktop, dove le due tabelle restano entrambe visibili sempre.
   musicOn: false,    // parte sempre muto: va scelta una playlist dal popup
   playlist: null,    // { label:{it,en}, tracks:[...] } scelta dal popup del volume
   trackIndex: 0
@@ -121,6 +124,7 @@ const el = {
   socialLinks: document.querySelector(".social-links"),
   stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
+  mobileTableToggle: document.getElementById("mobileTableToggle"),
   panelToggle: document.getElementById("panelToggle"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
@@ -776,6 +780,11 @@ function selectEntry(column, id){
     // normale di questa
   state.column = column;
   state.entryId = id;
+  setMobileTable(column); // il toggle mobile resta coerente con la
+    // voce aperta, qualunque sia il modo in cui e' stata scelta -
+    // cosi' se si torna alla home e poi alla tabella, si ritrova la
+    // lista giusta. Inerte su desktop (l'attributo che imposta non
+    // tocca nessuna regola CSS li').
   setState("entry");
   closeMobileSidebar();
   closeRailDrawer();
@@ -1121,6 +1130,29 @@ el.langSwitch.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
+// Toggle Racconti/Libri (SOLO MOBILE - su desktop questo elemento e'
+// nascosto via CSS e la funzione, anche se chiamata, non cambia
+// niente di visibile: l'attributo che imposta serve solo alle regole
+// dentro @media(max-width:900px), inerte altrove).
+// ---------------------------------------------------------
+function setMobileTable(quale){
+  // quale: "teorie" (Racconti) o "storie" (Libri)
+  state.mobileTable = quale;
+  el.body.dataset.mobileTable = quale;
+  if(el.mobileTableToggle){
+    el.mobileTableToggle.querySelectorAll("[data-table-option]").forEach(opt => {
+      opt.classList.toggle("is-active", opt.dataset.tableOption === quale);
+    });
+  }
+}
+if(el.mobileTableToggle){
+  el.mobileTableToggle.querySelectorAll("[data-table-option]").forEach(opt => {
+    opt.addEventListener("click", () => setMobileTable(opt.dataset.tableOption));
+  });
+}
+setMobileTable(state.mobileTable); // stato iniziale coerente con l'attributo sul body
+
+// ---------------------------------------------------------
 // Mobile: niente più hamburger/cassetti. Teorie, stage e Storie
 // Nascoste sono tre pannelli affiancati (vedi CSS, scroll-snap
 // orizzontale); questa funzione riporta lo scroll sullo stage,
@@ -1174,16 +1206,18 @@ function updateSwipeHints(){
   if(swipeRightEl) swipeRightEl.style.visibility = layoutEl.scrollLeft >= maxScroll - w * 0.5 ? "hidden" : "visible";
   // Il pulsante "Segnala bug" e' position:fixed, quindi normalmente
   // resterebbe a galla anche scorrendo verso le tabelle laterali del
-  // carosello mobile (sidebar/rail), invece di sparire con loro come
-  // il resto della home. Lo nascondo a mano quando lo stage (quello
-  // centrale, la vera home) non e' la schermata in vista.
-  if(el.reportBugBtn){
-    // "in stage" = non al pannello piu a sinistra (sidebar) ne, se esiste,
-    // a quello piu a destra (rail): funziona sia con 2 pannelli (Timeline,
-    // niente rail in home) sia con 3 (Racconti/Teorie, sidebar+stage+rail).
-    const pastSidebar = layoutEl.scrollLeft > w * 0.5;
-    const beforeRail = maxScroll <= w || layoutEl.scrollLeft < maxScroll - w * 0.5;
-    el.reportBugBtn.style.display = (pastSidebar && beforeRail) ? "" : "none";
+  // carosello mobile, invece di sparire con loro come il resto della
+  // home. Lo nascondo a mano quando lo stage (la vera home) non e' la
+  // schermata in vista - controllo diretto sulla posizione di scroll
+  // di stageEl stesso, non piu' aritmetica basata sul presupposto che
+  // stage fosse il pannello CENTRALE (vero nel vecchio carosello a 3
+  // pannelli, sidebar-stage-rail - falso ora che stage e' il PRIMO
+  // pannello, order:-1, per il nuovo carosello a 2 tappe Home+Tabella).
+  // Funziona a prescindere da quanti pannelli ci sono o in che ordine
+  // stanno, dato che confronta la posizione vera invece di calcolarla.
+  if(el.reportBugBtn && stageEl){
+    const inStage = Math.abs(layoutEl.scrollLeft - stageEl.offsetLeft) < w * 0.5;
+    el.reportBugBtn.style.display = inStage ? "" : "none";
   }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });

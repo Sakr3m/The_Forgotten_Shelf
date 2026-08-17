@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/eb-garamond.css">
 <link rel="stylesheet" href="styles.css?v=20260815e">
-<link rel="stylesheet" href="racconti.css?v=2026081652">
+<link rel="stylesheet" href="racconti.css?v=2026081701">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -230,6 +230,18 @@
 
         <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.</p>
 
+        <!-- Toggle Racconti/Libri, SOLO MOBILE (nascosto via CSS su
+             desktop, dove le due tabelle restano entrambe visibili ai
+             lati come sempre - vedi @media(max-width:900px) in
+             racconti.css). Decide quale lista popola la tabella unica
+             mobile subito dopo la home nel carosello. Vive solo qui
+             (in home), non e' raggiungibile dalla vista voce. */ -->
+        <div class="mobile-table-toggle" id="mobileTableToggle">
+          <button type="button" class="mobile-table-toggle__option is-active" data-table-option="teorie" data-i18n="sidebarEyebrow">Racconti brevi</button>
+          <span class="mobile-table-toggle__sep">/</span>
+          <button type="button" class="mobile-table-toggle__option" data-table-option="storie" data-i18n="railLabel">Libri</button>
+        </div>
+
         <!-- Nascosto (hidden) apposta, anche su mobile: non e' codice
              morto, e' in attesa del video da agganciare (player
              YouTube incorporato, che porta gia' il proprio controllo
@@ -287,7 +299,7 @@
        nel codice. -->
   <script src="data-racconti.js?v=2026081601"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script-racconti.js?v=2026081652"></script>
+  <script src="script-racconti.js?v=2026081701"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="data.js?v=20260809"></script>
   <script src="data-shared-tracks.js?v=20260812"></script>

@@ -1612,6 +1612,55 @@ body[data-entry-animate="true"] #watermarkBrightness{
      sempre dirette (vedi applicaAnimazioneVoce in
      script-racconti.js). */
   .game-list__row .row-lock{ display:none; }
+
+  /* ============================================================
+     NUOVO CAROSELLO MOBILE A 2 TAPPE (Home + Tabella unica), non
+     piu' 3 (Racconti separati da Libri) - richiesto esplicitamente
+     per eliminare alla radice il bug del refresh/cambio-vista che
+     mostrava la sidebar invece della home: Home e' ora sempre la
+     PRIMA schermata visiva (order:-1), quindi scrollLeft=0 - la
+     posizione di riposo naturale del browser, senza bisogno di
+     nessuna correzione via JavaScript - coincide sempre con la home.
+     SOLO MOBILE: su desktop questo blocco non esiste, le due tabelle
+     restano entrambe visibili ai lati come sempre. ============ */
+  #stage{ order:-1; }
+
+  /* Solo una tabella visibile alla volta, decisa dal toggle in home
+     (setMobileTable in script-racconti.js, che imposta
+     body[data-mobile-table]="teorie"|"storie"). Le regole originali
+     di sidebar/side-rail (flex:0 0 100vw ecc, sopra e in styles.css)
+     restano invariate - qui si nasconde solo quella non attiva, cosi'
+     .layout ha sempre e solo 2 pannelli visibili in totale. */
+  body[data-mobile-table="storie"] #sidebar{ display:none; }
+  body[data-mobile-table="teorie"] #storieRail{ display:none; }
+
+  /* Toggle Racconti/Libri: stesso stile a pillola del cambio lingua,
+     vive solo dentro la home (vedi HTML), quindi non serve
+     nasconderlo esplicitamente su desktop - li' l'elemento esiste ma
+     la home stessa ha un layout diverso, verificare comunque a vista
+     che non interferisca. */
+  .mobile-table-toggle{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    margin-top:20px;
+    padding:8px 14px;
+    border:1px solid var(--cyan);
+    background:var(--panel);
+    border-radius:999px;
+    font-size:.78rem; font-weight:600;
+    width:fit-content;
+  }
+  .mobile-table-toggle__option{
+    color:var(--text-faint);
+    transition:color var(--dur-fast) var(--ease);
+  }
+  .mobile-table-toggle__option.is-active{ color:var(--cyan); }
+  .mobile-table-toggle__sep{ color:var(--line); }
+}
+@media (min-width:901px){
+  /* Il toggle non serve su desktop (le due tabelle sono sempre
+     entrambe visibili ai lati) - nascosto esplicitamente, non solo
+     per assenza di stile mobile. */
+  .mobile-table-toggle{ display:none; }
 }
 
 
