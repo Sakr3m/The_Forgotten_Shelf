@@ -13,24 +13,10 @@
 <link rel="stylesheet" href="styles.css?v=20260815e">
 <link rel="stylesheet" href="racconti.css?v=2026081652">
 <style>
-  /* TAGLIO 8: nasconde con display:none tutto il superfluo, tenendo
-     gli elementi nel DOM (lo script non si rompe, trova sempre quello
-     che cerca) ma invisibili/inerti alla vista - resta solo la
-     struttura nuda: header minimo, le due tabelle, il testo della
-     voce aperta. */
-  #musicControl,
-  #entryGamePicker,
-  #panelToggle,
-  #watermarkBrightness,
-  #entryWatermarkWrap,
-  #landingVideoBtn,
-  .column-lock,
-  .discord-link,
-  .kofi-link,
-  #langSwitch,
-  .index-link,
-  #pageHeader
-  { display: none !important; }
+  /* TAGLIO 8 (vecchio, ora superato): gli elementi che qui erano
+     nascosti con display:none sono stati eliminati per davvero
+     dall'HTML (vedi TAGLIO 11 piu' sotto nel file) - questo blocco
+     non serve piu'. */
 
   /* TAGLIO 9: nascondo anche il testo vero della home (eyebrow,
      titolo, intro, sub) - al loro posto una scritta enorme "HOME",
@@ -100,9 +86,7 @@
       <div class="panel-inner">
         <div class="eyebrow-wrap">
           <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Racconti brevi</p>
-          <button type="button" class="column-lock" id="columnLockTeorie" aria-pressed="false" aria-label="Blocca/sblocca l'animazione di apertura per tutte le voci di questa colonna">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
-          </button>
+          <!-- TAGLIO 11: lucchetto colonna eliminato -->
         </div>
         <ul class="game-list" id="teorieList"></ul>
       </div>
@@ -124,73 +108,9 @@
           <button class="brand-text" id="brandBtn" type="button" data-i18n="brand" aria-label="Torna alla home">Storie Senza Cornice</button>
         </div>
 
-        <a class="index-link" href="index.html">
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2L2 9h2v8h5v-5h2v5h5V9h2L10 2z" fill="currentColor"/></svg>
-          <span data-i18n="backToIndexLabel">Torna all'index</span>
-        </a>
-
-        <div class="stage-controls">
-          <div class="social-links">
-            <a class="discord-link" href="https://discord.gg/Vu7bxUPvgR" target="_blank" rel="noopener" aria-label="Unisciti al server Discord">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7362 19.7362 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.0991.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" fill="currentColor"/></svg>
-            </a>
-            <a class="kofi-link" href="https://ko-fi.com/the_forgotten_shelf" target="_blank" rel="noopener">
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17.5s-6.5-4-8.2-8.1C.5 6.5 2 3.5 5 3.2c1.8-.2 3.4.7 4.3 2 .9-.3 1.6-1.2 3-2C15.5 2 18.8 4 18 8c-1 4.2-8 9.5-8 9.5z" fill="currentColor"/></svg>
-              <span class="kofi-link__full" data-i18n="kofiLabel">Sostienimi su Ko-fi</span>
-              <span class="kofi-link__short">KoFi</span>
-            </a>
-          </div>
-
-          <div class="music-control" id="musicControl">
-            <div class="track-info" id="trackInfo" hidden>
-              <div class="track-info__row">
-                <button class="track-persist" id="trackPersistBtn" type="button" aria-label="Continua l'ascolto anche cambiando pagina o scheda" aria-pressed="false">
-                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2a3.5 3.5 0 0 0-3.5 3.5v1.8c0 .5-.2 1-.5 1.4L3 10h10l-1-1.3c-.3-.4-.5-.9-.5-1.4V5.5A3.5 3.5 0 0 0 8 2z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/><path d="M6.5 12a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>
-                </button>
-                <span class="track-info__text">
-                  <span class="track-info__title" id="trackTitle"></span>
-                  <span class="track-info__game" id="trackGame"></span>
-                </span>
-                <button class="track-skip" id="trackSkipBtn" type="button" aria-label="Prossimo brano">
-                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l7 5-7 5V3z" fill="currentColor"/><rect x="11" y="3" width="2" height="10" fill="currentColor"/></svg>
-                </button>
-              </div>
-              <div class="track-progress"><div class="track-progress__fill" id="trackProgressFill"></div></div>
-            </div>
-
-            <div class="volume-control">
-              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-haspopup="listbox" aria-expanded="false" aria-pressed="false" hidden>
-                <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-                <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-              </button>
-
-              <div class="volume-panel">
-                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7" orient="vertical" aria-label="Volume">
-              </div>
-            </div>
-          </div>
-
-          <div class="entry-game-picker" id="entryGamePicker">
-            <button class="entry-game-trigger" id="entryGameTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-              <span id="entryGameTriggerLabel">—</span>
-              <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-
-          <button class="panel-toggle" id="panelToggle" type="button" aria-label="Attiva/disattiva la visualizzazione a comparsa delle tabelle laterali" aria-pressed="false">
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <rect x="1" y="3" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
-              <rect class="panel-toggle__left" x="1" y="3" width="5" height="14" rx="2" fill="currentColor"/>
-              <rect class="panel-toggle__right" x="14" y="3" width="5" height="14" rx="2" fill="currentColor"/>
-            </svg>
-          </button>
-
-          <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
-            <span class="lang-option" data-lang-option="en">EN</span>
-            <span class="lang-sep">/</span>
-            <span class="lang-option is-active" data-lang-option="it">IT</span>
-          </button>
-        </div>
+        <!-- TAGLIO 11: index-link, discord/kofi, entry-game-picker,
+             panel-toggle, lang-switch ELIMINATI - resta solo
+             brand-text sopra, serve per tornare alla home. -->
       </div>
 
       <div class="stage-cover" aria-hidden="true"></div>
@@ -202,24 +122,8 @@
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
 
-      <div class="game-header" id="pageHeader">
-        <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
-        <div class="game-header__banner-overlay" aria-hidden="true"></div>
-      </div>
-
-      <div class="watermark-brightness-line" id="watermarkBrightness" hidden>
-        <div class="watermark-brightness-line__presets" id="watermarkPresets">
-          <button type="button" class="watermark-brightness-line__preset" data-preset="1" aria-label="Preset luminosità 1">1</button>
-          <button type="button" class="watermark-brightness-line__preset" data-preset="2" aria-label="Preset luminosità 2">2</button>
-          <button type="button" class="watermark-brightness-line__preset" data-preset="3" aria-label="Preset luminosità 3">3</button>
-        </div>
-        <div class="watermark-brightness-line__track">
-          <input type="range" id="watermarkBrightnessSlider" class="watermark-brightness-line__slider" min="0" max="1" step="0.01" value="0.5" aria-label="Luminosità filigrana">
-          <span class="watermark-brightness-line__tick" style="left:25%"></span>
-          <span class="watermark-brightness-line__tick" style="left:50%"></span>
-          <span class="watermark-brightness-line__tick" style="left:75%"></span>
-        </div>
-      </div>
+      <!-- TAGLIO 11: banner pageHeader e luminosita' filigrana
+           watermarkBrightness ELIMINATI -->
 
       <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>
 
@@ -235,22 +139,10 @@
         </p>
 
         <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.</p>
-
-        <!-- Nascosto (hidden) apposta, anche su mobile: non e' codice
-             morto, e' in attesa del video da agganciare (player
-             YouTube incorporato, che porta gia' il proprio controllo
-             volume). Struttura e stile gia' pronti in racconti.css
-             (.landing-video-btn) - quando arriva il video basta
-             togliere l'attributo hidden e collegare il click. -->
-        <button type="button" class="landing-video-btn" id="landingVideoBtn" hidden>
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5.5v9l7.5-4.5L7 5.5z" fill="currentColor"/></svg>
-          <span data-i18n="landingVideoBtn">Riproduci video</span>
-        </button>
+        <!-- TAGLIO 11: landing-video-btn ELIMINATO -->
       </section>
 
-      <div class="entry-watermark-wrap" id="entryWatermarkWrap">
-        <div class="entry-watermark" id="entryWatermark" aria-hidden="true"></div>
-      </div>
+      <!-- TAGLIO 11: entry-watermark-wrap ELIMINATO -->
 
       <section class="entry-panel" id="entryPanel" hidden>
         <div class="entry-content" id="entryContent"></div>
@@ -262,9 +154,7 @@
       <div class="panel-inner">
         <div class="eyebrow-wrap">
           <p class="rail-label" data-i18n="railLabel">Libri</p>
-          <button type="button" class="column-lock" id="columnLockStorie" aria-pressed="false" aria-label="Blocca/sblocca l'animazione di apertura per tutte le voci di questa colonna">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
-          </button>
+          <!-- TAGLIO 11: lucchetto colonna eliminato -->
         </div>
         <ul class="game-list" id="storieList"></ul>
       </div>
@@ -297,7 +187,7 @@
   <!-- TAGLIO 3: tolto likes.js - il codice ha gia' un controllo di
        sicurezza (window.ForgottenShelfLikes), quindi semplicemente il
        cuoricino non compare, nessun errore. -->
-  <script src="script-racconti.js?v=2026081652"></script>
+  <script src="test-script-racconti.js"></script>
   <!-- TAGLIO 1: tolti stats.js, data.js, data-shared-tracks.js,
        data-storie-teorie.js, data-diari-tracks.js - servono solo per
        la playlist musicale, mai toccata in questo test. -->
