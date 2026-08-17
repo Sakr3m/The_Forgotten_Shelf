@@ -1,13 +1,9 @@
-/* ============================================================
-   TIMELINE — token system (ChronoSLICE-aligned)
-   ============================================================ */
+/* Versione ridotta automaticamente: solo regole con selettori che contengono
+   .layout .sidebar #sidebar .side-rail #storieRail .stage #stage .panel-inner
+   body html :root .eyebrow-wrap .game-list scrollbar - tutto il resto tolto. */
+
 :root{
-  /* Il sito e' gia' scuro di suo: questo dice al browser di non
-     applicare la sua "dark mode forzata" (che altrimenti reinverte
-     colori pensati per essere gia' scuri, storpiandoli). Vale per
-     tutte le pagine che caricano questo file (timeline/storie/
-     racconti/officina); index.html ha il suo CSS a parte, stessa
-     dichiarazione aggiunta li'. */
+  
   color-scheme: dark;
 
   --bg:#000000;
@@ -28,7 +24,7 @@
   --tl-3:#a742ff;
   --gradient: linear-gradient(90deg, var(--tl-1), var(--tl-2) 55%, var(--tl-3));
 
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --radius: 10px;
   --radius-sm: 6px;
@@ -36,36 +32,17 @@
   --dur: 300ms;
   --ease: cubic-bezier(.22,.68,.36,1);
 
-  /* Larghezza della colonna timeline-rail (destra, visibile solo
-     nella vista "titolo"): unica fonte di verità, così qualunque
-     altro elemento che deve lasciarle spazio (es. la filigrana del
-     titolo) si aggiorna da solo invece di avere lo stesso numero
-     ricopiato a mano in due punti diversi. */
-  --rail-width: 250px; /* stessa larghezza della sidebar sinistra, entrambe 250px su richiesta esplicita (prima 230/230, prima ancora 280/310 su Racconti/Teorie) */
+  
+  --rail-width: 250px; 
 }
 
-*{ box-sizing:border-box; }
 html,body{ height:100%; }
-/* Bug strutturale corretto: quando il testo di una voce e' lungo
-   abbastanza da eccedere l'altezza della finestra, e' l'intera
-   pagina (html/body) a scorrere in verticale - non .stage, non
-   .layout. Su un browser con scrollbar "classica" (che riserva
-   spazio reale, circa 15-17px, es. Windows/Chrome), questo restringe
-   la larghezza disponibile SOLO quando la scrollbar compare, cioe'
-   solo per le voci abbastanza lunghe da averne bisogno: il risultato
-   e' che elementi posizionati rispetto al bordo destro (come la
-   colonna Libri, o lo switch lingua) finiscono in un punto leggermente
-   diverso tra una voce corta (niente scroll) e una lunga (scroll
-   presente), pur avendo lo stesso identico CSS. Nascondendo la
-   scrollbar (resta scorrevole lo stesso via rotellina/trackpad/
-   tastiera, cambia solo l'aspetto) la larghezza disponibile smette di
-   dipendere dalla lunghezza del testo. Stessa tecnica gia' in uso per
-   il mobile su .stage/.layout, qui estesa a html per il vero
-   contenitore che scorre su desktop. */
+
 @media (min-width:901px){
-  html{ scrollbar-width:none; }
-  html::-webkit-scrollbar{ display:none; }
+html{ scrollbar-width:none; }
+html::-webkit-scrollbar{ display:none; }
 }
+
 body{
   margin:0;
   background:
@@ -76,1129 +53,163 @@ body{
   font-family:var(--font);
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{ font-weight:800; margin:0; letter-spacing:-.01em; }
-p{ margin:0; }
-ul{ list-style:none; margin:0; padding:0; }
-button{ font-family:inherit; color:inherit; background:none; border:none; cursor:pointer; }
-::selection{ background:var(--cyan); color:#000000; }
 
-/* ============================================================
-   Brand mark — gradient hex logo
-   ============================================================ */
-.seal{ --size:30px; width:var(--size); height:var(--size); position:relative; flex-shrink:0; display:inline-flex; }
-.seal svg{ width:100%; height:100%; }
-.seal--mini{ --size:30px; }
-
-/* ============================================================
-   Brand (sidebar) + stage controls (universe picker, language)
-   ============================================================ */
 body[data-state="landing"] .brand{ display:none; }
-.brand{ position:fixed; top:15px; left:283px; width:140px; z-index:5; display:flex; align-items:center; justify-content:space-between; }
-.brand-icon{ display:flex; cursor:pointer; position:relative; left:-7.5px; transition:transform var(--dur-fast) var(--ease); }
-.brand-icon:hover{ transform:scale(1.08); }
-.brand-text{
-  font-size:1.32rem; font-weight:800; letter-spacing:-.01em; color:var(--text);
-  background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
-  white-space:nowrap;
-}
+
 @media (min-width:901px){
-  /* Vista voce: .brand usa align-items:flex-start (serve ai pulsanti
-     Ko-fi/Discord, alti 40px, per allinearsi bene tra loro), ma il
-     titolo non ha un'altezza propria di 40px come loro - senza
-     questo resterebbe "appiccicato" in cima invece di centrarsi
-     rispetto ai pulsanti accanto, nonostante il bordo superiore
-     combaci comunque a 20px per puro caso. */
-  body[data-state="entry"] .brand-text{
+body[data-state="entry"] .brand-text{
     height:40px; display:flex; align-items:center;
   }
 }
 
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:12px; }
 
-/* ============================================================
-   Stage topbar (la_traccia_del_tempo.html, il_filo_nascosto.html e storie_senza_cornice.html) — brand,
-   index-link e stage-controls uniti in un'unica barra a scorrimento
-   naturale (flex), sticky in cima allo stage. Prima brand era fisso
-   alla finestra (numeri come left:283 calcolati a mano sommando la
-   larghezza della sidebar) mentre stage-controls era assoluto
-   rispetto allo stage: due sistemi di riferimento diversi, quindi
-   la posizione reciproca dei pulsanti non era calcolabile senza
-   rifare i conti ogni volta. Ora sono tutti figli dello stesso
-   contenitore flex: la loro posizione la calcola il browser, non
-   più numeri fissi scollegati tra loro. Scoped a "non è un
-   dispositivo touch senza hover" (non più una soglia di larghezza)
-   e alla classe .stage-topbar: il mobile (carosello, pulsanti
-   fissi) resta invariato su entrambe le pagine. */
 @media (min-width:901px){
-  .stage-topbar{
+.stage-topbar{
     position:sticky; top:0; z-index:10;
-    height:15px; overflow:visible; /* prova: altezza reale minima
-      (15px) invece di altezza zero. I pulsanti (più alti di 15px)
-      sporgono comunque sotto grazie a overflow:visible — stessa resa
-      visiva di prima — ma il box ora ha una vera altezza su cui il
-      browser può calcolare l'aggancio sticky, invece di zero. */
+    height:15px; overflow:visible; 
     display:flex; align-items:flex-start; justify-content:space-between;
-    padding:0 75px; /* 75 + i 25 di padding dello stage = 100px da entrambi i lati */
+    padding:0 75px; 
   }
-  .stage:has(.stage-topbar){ padding-top:0; } /* i 15px li fornisce ora
-    la barra stessa (altezza reale), non più il padding dello stage */
-  .stage-topbar > *{ margin-top:15px; height:38px; } /* i pulsanti scendono di
-    15px dal bordo, coerente con l'altezza reale della barra. Altezza
-    esplicita (38px, quella di music-toggle, il piu alto in natura) su
-    OGNI figlio diretto: senza questo, brand/index-link/stage-controls
-    avrebbero ciascuno l'altezza dettata dal proprio contenuto (icona+
-    testo variano leggermente da uno all'altro), risultando allineati
-    per il bordo sopra ma leggermente diversi al centro — con
-    align-items:center sul contenuto interno di ciascuno, ora anche il
-    centro combacia sempre, identico in ogni schermata. */
-  .stage-topbar .brand{
+.stage:has(.stage-topbar){ padding-top:0; }
+.stage-topbar > *{ margin-top:15px; height:38px; }
+.stage-topbar .brand{
     position:static; width:auto; left:auto; top:auto; z-index:auto;
     justify-content:flex-start; gap:14px;
-    margin-left:-50px; /* dai 100px del bordo della barra a 50px, senza
-      toccare il padding condiviso (che sposterebbe anche index-link) */
+    margin-left:-50px; 
   }
-  .stage-topbar .brand-icon{ position:static; left:auto; }
-  .stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
-  .stage-topbar .stage-controls{
+.stage-topbar .brand-icon{ position:static; left:auto; }
+.stage-topbar .index-link{ position:static; top:auto; left:auto; z-index:auto; }
+.stage-topbar .stage-controls{
     position:static; top:auto; right:auto; z-index:auto;
-    height:38px; /* = altezza di music-toggle. Prima era min-height, che
-      da solo non bastava: qui serve altezza esatta (non minima) perche
-      quando c'e solo lo switch lingua (home) senza il volume, il
-      contenuto piu corto lascerebbe comunque uno spazio diverso da
-      quando c'e anche il volume — con height fissa invece il box e
-      sempre identico, e lo switch si centra sempre alla stessa altezza. */
+    height:38px; 
   }
-
-  /* Vista voce: stesso discorso della home qui sotto, stessa distanza
-     di 20px dal bordo per brand (che qui ospita anche Ko-fi/Discord,
-     spostati dentro) e stage-controls (switch lingua + volume). */
-  body[data-state="entry"] .stage-topbar .brand,
+body[data-state="entry"] .stage-topbar .brand,
   body[data-state="entry"] .stage-topbar .stage-controls{
     height:auto; align-items:flex-start; margin-top:20px;
   }
-
-  /* Solo in home: qui il pulsante e' unico (nessun music-toggle da
-     allineare, quello vive solo nello stato voce), quindi si puo'
-     ignorare l'altezza condivisa di sopra e posizionarlo in modo
-     esplicito a 20px dal bordo alto, in linea con gli altri pulsanti
-     della barra - senza toccare l'altezza di 38px qui sopra, che
-     serve ancora identica per lo stato voce. */
-  body[data-state="landing"] .stage-topbar .stage-controls{
+body[data-state="landing"] .stage-topbar .stage-controls{
     height:auto; align-items:flex-start; margin-top:20px;
   }
-
-  /* Stesso discorso per index-link: la regola universale qui sopra
-     (.stage-topbar > *) gli darebbe margin-top:15px come a tutti gli
-     altri figli - qui, solo in home, lo si sposta a 20px per restare
-     allineato agli altri pulsanti della barra. */
-  body[data-state="landing"] .stage-topbar .index-link{ margin-top:20px; }
-
-  /* Elemento indipendente (non dentro .stage-topbar apposta): copre
-     la zona vuota tra il vero bordo alto della pagina e dove iniziano
-     i pulsanti (53px = 15px di margine + 38px del pulsante più alto),
-     così il testo che scorre sparisce lì invece di intravedersi nei
-     vuoti tra i pulsanti. Messo fuori dalla barra e con un suo z-index
-     (3) apposta: se stesse dentro .stage-topbar (z-index:10) erediterebbe
-     lo stesso livello dei pulsanti, e l'intero blocco pulsanti+elemento
-     finirebbe sopra all'header (z-index:4) come un'unica unità — niente
-     "in mezzo" possibile in quel caso. Da solo, col suo z-index:3,
-     resta sotto all'header (4) e tutto il suo contenuto (banner,
-     avatar, titolo, tazza, pulsante a tendina), ma sopra al testo che
-     scorre (senza z-index proprio, quindi 0). Non tocca né si
-     sovrappone al box dell'header, che parte subito dopo (15px) con
-     il proprio sfondo separato. */
-  .stage-cover{
+body[data-state="landing"] .stage-topbar .index-link{ margin-top:20px; }
+.stage-cover{
     position:sticky; top:0; z-index:3;
     height:53px; margin-bottom:-53px;
     background:var(--bg);
     pointer-events:none;
   }
-
-  /* In home, il gruppo Discord+Ko-fi non segue il flusso insieme
-     allo switch: va centrato esattamente a metà tra "torna
-     all'index" e lo switch lingua (stessa logica di prima, ora sul
-     contenitore .social-links invece che sul solo kofi-link, cosi'
-     Discord si centra insieme a lui invece di dover calcolare a
-     mano la sua larghezza). Dato che entrambi stanno a 100px dal
-     proprio bordo, il centro esatto tra i due coincide sempre col
-     centro della barra stessa, qualunque sia la larghezza dello
-     schermo. */
-  .social-links{ display:contents; } /* fuori da home: nessuna
-    scatola/spaziatura propria, i figli (Discord/Ko-fi, gia' nascosti
-    di loro se non in home) si comportano come se fossero diretti
-    figli di .stage-controls */
-  body[data-state="landing"] .social-links{
+body[data-state="landing"] .social-links{
     display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:20px; height:40px;
     transform:translateX(-50%);
   }
 }
 
-.lang-switch{
-  display:flex; align-items:center; justify-content:center; gap:6px;
-  width:90px; height:40px; box-sizing:border-box;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:999px;
-  font-size:.78rem; font-weight:600;
-  transition:border-color .3s var(--ease);
-}
-.lang-option{ color:var(--text-faint); padding:2px 3px; transition:color var(--dur-fast) var(--ease); }
-.lang-option.is-active{ color:var(--cyan); }
-.lang-sep{ color:var(--line); }
-
-.music-control{ position:relative; display:flex; align-items:center; gap:10px; }
-.volume-control{ position:relative; }
-
-.track-info{
-  display:flex; flex-direction:column; gap:6px;
-  padding:8px 10px 8px 14px;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:14px;
-  max-width:280px;
-}
-/* Bug corretto: l'attributo hidden e la classe .track-info hanno la
-   stessa specificita' CSS (una per attributo, una per classe) - senza
-   questa regola piu' specifica, display:flex qui sopra vinceva
-   sull'hidden nativo del browser (arriva dopo nel foglio di stile),
-   lasciando l'elemento a occupare comunque il proprio spazio reale
-   anche da nascosto. Effetto a catena: .music-control (il
-   contenitore, altezza automatica) risultava piu' alto del dovuto,
-   e il music-toggle al suo interno si centrava piu' in basso del
-   previsto invece che al bordo giusto. */
-.track-info[hidden]{ display:none; }
-.track-info__row{ display:flex; align-items:center; gap:8px; }
-.track-info__text{ display:flex; flex-direction:column; line-height:1.25; overflow:hidden; }
-.track-info__title{ font-size:.74rem; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.track-info__game{ font-size:.66rem; font-style:italic; color:var(--text-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.track-skip{
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  width:26px; height:26px; border-radius:50%;
-  border:1px solid var(--cyan); background:var(--bg-soft);
-  color:var(--text-faint);
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.track-skip:hover{ border-color:var(--cyan); color:var(--cyan); }
-.track-skip svg{ width:11px; height:11px; }
-
-/* Stesso stile del salta-traccia, dal lato opposto: quando attivo
-   (l'ascolto continua cambiando pagina o mettendo la scheda in
-   background) resta acceso col colore dell'accento anche senza
-   passarci sopra col mouse, cosi' si vede a colpo d'occhio che e'
-   inserito anche tornando sulla pagina piu' tardi. */
-.track-persist{
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  width:26px; height:26px; border-radius:50%;
-  border:1px solid var(--cyan); background:var(--bg-soft);
-  color:var(--text-faint);
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.track-persist:hover{ border-color:var(--cyan); color:var(--cyan); }
-.track-persist svg{ width:11px; height:11px; }
-.track-persist[aria-pressed="true"]{ color:var(--cyan); }
-.track-progress{
-  width:100%; height:3px;
-  background:var(--line);
-  border-radius:2px;
-  overflow:hidden;
-}
-.track-progress__fill{
-  width:0%; height:100%;
-  background:var(--cyan);
-  border-radius:2px;
-  transition:width .2s linear;
-}
-
-.volume-panel{
-  position:absolute; top:100%; left:50%; transform:translateX(-50%);
-  margin-top:6px;
-  padding:12px 8px;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:12px;
-  opacity:0; visibility:hidden;
-  transition:opacity .18s var(--ease), visibility 0s linear 1s;
-  z-index:20;
-}
-.volume-control:hover .volume-panel{
-  opacity:1; visibility:visible;
-  transition:opacity .18s var(--ease) 1s, visibility 0s linear 1s;
-}
-.volume-slider{
-  writing-mode:vertical-lr; direction:rtl;
-  width:6px; height:90px;
-  accent-color:var(--cyan);
-  cursor:pointer;
-}
-
-/* ============================================================
-   Barra di luminosità delle filigrane — versione ridisegnata: via
-   il widget con icona/pannello, resta solo la funzione. Incassata
-   esattamente sulla riga che separa l'header dal contenuto sotto
-   (.game-header ha un border-bottom, condiviso da la_traccia_del_tempo.html e
-   storie_senza_cornice.html) — 5px di altezza visibile, compare solo in hover
-   su quella riga. position:sticky (come l'header stesso, top:245px
-   = 15px di sticky-offset + 230px di altezza header) cosi' segue
-   l'header durante lo scroll; i margini negativi (uguali e opposti
-   all'altezza della zona di hover) fanno si' che non aggiunga
-   spazio in più nel flusso normale, si limita a "sedersi" sulla
-   riga già esistente. Solo desktop, solo dove esiste davvero una
-   filigrana (mostrato/nascosto via JS). Valore di partenza (1,
-   cioè "usa l'opacità già impostata per la voce, invariata") messo
-   esattamente a metà della barra (range 0-2).
-   ============================================================ */
-.watermark-brightness-line{ display:none; }
-@media (min-width:901px){
-  .watermark-brightness-line{
-    display:flex; align-items:center; justify-content:center;
-    position:fixed; top:237px; left:250px; right:var(--rail-width); z-index:5;
-    height:20px;
-    cursor:pointer;
-  }
-  .watermark-brightness-line[hidden]{ display:none; } /* l'attributo
-    hidden da solo non bastava: display:flex qui sopra ha la stessa
-    specificita' della regola predefinita del browser per [hidden] e
-    vinceva sempre lei, tenendo la barra visibile anche da nascosta */
-  .watermark-brightness-line__track{
-    position:relative;
-    width:100%; max-width:900px;
-    display:flex; align-items:center;
-  }
-  .watermark-brightness-line__slider{
-    width:100%;
-    height:5px;
-    opacity:0;
-    transition:opacity .2s ease;
-    accent-color:var(--item-accent, var(--cyan));
-    cursor:pointer;
-  }
-  .watermark-brightness-line__tick{
-    position:absolute; top:50%; transform:translate(-50%, -50%);
-    width:1px; height:11px;
-    background:var(--item-accent, var(--cyan));
-    opacity:0; pointer-events:none;
-    transition:opacity .2s ease;
-  }
-  .watermark-brightness-line:hover .watermark-brightness-line__slider,
-  .watermark-brightness-line:hover .watermark-brightness-line__tick{ opacity:1; }
-}
-
-/* Su mobile la barra del volume (e la sua cornice, .volume-panel)
-   non serve: l'apertura è comunque legata a :hover, che sul touch
-   non esiste davvero e può restare "incollata" dopo un tocco. Resta
-   solo il pulsante on/off (.music-toggle). Vale per ogni pagina che
-   condivide queste classi (Timeline/Storie & Teorie/Racconti/
-   Officina). */
-@media (max-width:900px){
-  .volume-panel{ display:none; }
-}
-
-.music-toggle{
-  display:flex; align-items:center; justify-content:center;
-  width:40px; height:40px; flex-shrink:0;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:999px;
-  color:var(--text-faint);
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-@media (hover:hover) and (pointer:fine){
-  .music-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-faint)); }
-}
-.music-toggle svg{ width:18px; height:18px; }
-.music-toggle__icon-off{ display:none; }
-.music-toggle[aria-pressed="true"]{ color:var(--cyan); }
-.music-toggle[aria-pressed="false"]{ color:var(--text-faint); } /* esplicito
-  invece di lasciarlo al default implicito: un utente ha segnalato
-  l'icona rossastra invece che grigia da spento (tornava grigia solo
-  dopo un cambio lingua) — non ho trovato la causa esatta leggendo il
-  codice, questa regola forza comunque il colore giusto */
-.music-toggle[aria-pressed="true"] .music-toggle__icon-on{ display:block; }
-.music-toggle[aria-pressed="true"] .music-toggle__icon-off{ display:none; }
-.music-toggle[aria-pressed="false"] .music-toggle__icon-on{ display:none; }
-.music-toggle[aria-pressed="false"] .music-toggle__icon-off{ display:block; }
-
-.swipe-hint{ display:none; }
-
-/* ============================================================
-   Layout
-   ============================================================ */
 .layout{ display:flex; min-height:100vh; }
+
 .sidebar{
   width:250px; flex-shrink:0;
   padding:24px 16px;
   border-right:1px solid var(--line);
   background:var(--bg-soft);
 }
-/* Sidebar e colonna della linea temporale: scroll indipendente dal
-   testo centrale, su desktop — ognuna scorre per conto suo, non
-   insieme al resto della pagina. Stesso schema già usato per le
-   colonne di il_filo_nascosto.html. */
+
 @media (min-width:901px){
-  .sidebar, .timeline-rail{
+.sidebar, .timeline-rail{
     position:sticky; top:0; align-self:flex-start;
     height:100vh;
     overflow-y:auto;
   }
-
-  /* "Racconti Brevi"/"Libri"/etichette equivalenti allineate al
-     centro verticale dei pulsanti in alto (40px di altezza, 20px di
-     margine dal bordo = centro a 40px dal bordo pagina). Partendo
-     dai 24px di padding del pannello, con altezza fissa di 12px
-     (vedi qui sotto) il testo da solo avrebbe il centro a 30px -
-     10px di margin-top in piu' lo spostano giu' fino a combaciare.
-     Nel file condiviso: vale per ogni pagina che usa queste classi
-     (Storie Senza Cornice, Il Filo Nascosto, la Timeline). */
-  .sidebar-eyebrow, .rail-label{ margin-top:9px; }
+.sidebar-eyebrow, .rail-label{ margin-top:9px; }
 }
+
 .sidebar-eyebrow, .rail-label{
   font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
   color:var(--text-faint); margin-bottom:33px; padding:0 8px;
   text-align:center;
-  line-height:14px; /* = font-size, riga aderente al testo: a 33px dal
-    bordo (9px di margin-top + 24px di padding del pannello), 14px di
-    altezza porta il centro a 40px, come i pulsanti in alto. */
+  line-height:14px; 
 }
+
 .game-list{ display:flex; flex-direction:column; gap:3px; }
+
 .game-list button, .game-list a{
   display:block; text-decoration:none;
   width:100%; text-align:left; box-sizing:border-box;
-  padding:8px 12px; /* orizzontale sovrascritto per tabella, vedi
-    racconti.css: 30px dal bordo esterno / 45px da quello interno,
-    uniforme su entrambe le colonne nonostante il padding diverso
-    dei due contenitori (sidebar 16px, side-rail 20px) */
+  padding:8px 12px; 
   border-radius:var(--radius-sm);
   font-size:15px; font-weight:500; color:var(--text-dim);
   transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
+
 .game-list button.is-active:not(.row-lock), .game-list a.is-active{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
+
 .game-list button:hover:not(.row-lock), .game-list a:hover{
   color:var(--text); font-weight:600;
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
 
-
 .stage{ position:relative; flex:1; min-width:0; padding:15px 25px 80px; display:flex; flex-direction:column; }
 
-.timeline-rail{
-  width:var(--rail-width); flex-shrink:0;
-  padding:30px 20px;
-  border-left:1px solid var(--line);
-  background:var(--bg-soft);
-  overflow-y:auto;
-}
-
-/* ============================================================
-   Landing — case grid
-   ============================================================ */
 body[data-state="landing"] .music-control{ display:none; }
-.landing{
-  position:relative;
-  width:100%; max-width:760px; margin:auto auto;
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-}
-.kofi-link{
-  display:none; align-items:center; justify-content:center; gap:8px;
-  width:180px; height:40px; box-sizing:border-box;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:999px;
-  font-size:.8rem; font-weight:600; color:var(--text-dim);
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
+
 body[data-state="landing"] .kofi-link{ display:flex; }
-.kofi-link:hover{ color:var(--text); }
 
-/* ============================================================
-   Pulsante "Segnala un problema" + popup — stessa funzione del
-   pulsante gia' in uso su Mathemory (stesso Worker Cloudflare,
-   stesso schema di invio: descrizione + immagine opzionale verso
-   un webhook Discord), riadattato all'estetica di questa repo
-   (variabili colore condivise, niente nota a piè di pagina sul
-   nickname/classifica che qui non ha senso). Visibile solo in
-   stato landing, stessa condizione di .kofi-link qui sopra.
-   ============================================================ */
-.report-bug-btn{
-  display:none; align-items:center; justify-content:center; gap:8px;
-  position:fixed; left:350px; bottom:20px; z-index:50;
-  width:125px; height:40px; box-sizing:border-box;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:999px;
-  font-size:.8rem; font-weight:600; color:var(--text-faint);
-  white-space:nowrap;
-  cursor:pointer;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
 body[data-state="landing"] .report-bug-btn{ display:flex; }
-.report-bug-btn:hover{ color:var(--text); }
-.report-bug-btn svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
-
-.report-modal-overlay{
-  display:none;
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.6);
-  z-index:1000;
-  align-items:center; justify-content:center;
-  padding:20px;
-}
-.report-modal-overlay.visible{ display:flex; }
-.report-modal-card{
-  position:relative;
-  background:var(--panel);
-  border:1px solid var(--cyan);
-  border-radius:14px;
-  padding:28px;
-  max-width:520px; width:100%;
-  max-height:85vh; overflow-y:auto;
-  text-align:left;
-  box-sizing:border-box;
-}
-.report-modal-close{
-  position:absolute; top:14px; right:14px;
-  width:32px; height:32px;
-  display:flex; align-items:center; justify-content:center;
-  background:var(--bg); border:1px solid var(--line); border-radius:50%;
-  color:var(--text-dim); font-size:1rem; cursor:pointer;
-}
-.report-modal-close:hover{ color:var(--cyan); border-color:var(--cyan); }
-.report-modal-card h3{ margin:0 24px 12px 0; font-size:1.3rem; color:var(--text); }
-.report-modal-card p{ margin:0 0 16px; font-size:.88rem; line-height:1.5; color:var(--text-dim); }
-.report-field{ margin-bottom:16px; }
-.report-field-label{
-  display:block; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:6px;
-}
-.report-textarea{
-  display:block; width:100%; min-height:96px; resize:vertical;
-  background:var(--bg); border:1px solid var(--line); border-radius:var(--radius);
-  color:var(--text); font-family:inherit; font-size:.9rem; padding:10px;
-  box-sizing:border-box; margin:0;
-}
-.report-textarea:focus{ outline:2px solid var(--cyan); outline-offset:1px; }
-.report-file-row{ display:flex; align-items:center; gap:10px; }
-.report-file-input{
-  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
-}
-.report-file-trigger{
-  font-size:.8rem; font-weight:600; color:var(--text-dim);
-  background:var(--bg); border:1px solid var(--cyan); border-radius:6px;
-  padding:7px 14px; cursor:pointer; flex-shrink:0;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.report-file-trigger:hover{ color:var(--text); }
-.report-file-name{
-  font-size:.78rem; color:var(--text-faint);
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0;
-}
-.report-image-preview{
-  display:none; max-width:100%; max-height:200px; border-radius:var(--radius);
-  border:1px solid var(--line); margin:10px 0 0;
-}
-.report-image-preview.visible{ display:block; }
-.report-modal-buttons{ display:flex; gap:10px; margin-top:4px; }
-.report-modal-btn{
-  font-weight:700; font-size:.92rem; border:none; border-radius:6px;
-  padding:9px 20px; cursor:pointer;
-}
-.report-modal-btn.send{ background:var(--cyan); color:var(--bg); }
-.report-modal-btn.cancel{ background:transparent; color:var(--text-dim); border:1px solid var(--cyan); }
-.report-modal-btn:disabled{ opacity:.5; cursor:default; }
-.report-modal-note{ font-size:.76rem; color:var(--text-faint); margin-top:10px; text-align:left; }
 
 @media (max-width:900px){
-  .report-bug-btn, body[data-state="landing"] .report-bug-btn{ display:none; }
-  .report-modal-card{ padding:22px; }
+.report-bug-btn, body[data-state="landing"] .report-bug-btn{ display:none; }
 }
 
-
-/* Pulsante Discord — piccolo, solo icona (a differenza di Ko-fi che
-   ha anche il testo), stessa forma a pillola/cerchio e stessa
-   palette del resto del sito. Nascosto ovunque tranne che in home
-   (stesso criterio di .kofi-link), sempre a sinistra di lui grazie
-   all'ordine nel markup dentro .social-links. */
-.discord-link{
-  display:none; align-items:center; justify-content:center;
-  width:40px; height:40px;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:50%;
-  color:var(--text-dim);
-  transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
-}
 body[data-state="landing"] .discord-link{ display:flex; }
-.discord-link:hover{ color:var(--text); }
-.discord-link svg{ width:18px; height:18px; }
-.kofi-link svg{ width:16px; height:16px; color:var(--text-dim); flex-shrink:0; transition:color var(--dur-fast) var(--ease); }
-.kofi-link:hover svg{ color:var(--text); }
-body[data-state="landing"] .kofi-link svg{ color:#ef4444; }
-body[data-state="landing"] .kofi-link:hover svg{ color:#ef4444; }
-.kofi-link__short{ display:none; }
 
-/* Pulsante "torna all'index": stessa estetica del pill di Ko-fi
-   (bordo sempre del colore della schermata, testo grigio->bianco in
-   hover), ma sul lato opposto (sinistra) dello spazio in alto,
-   indipendente da stage-controls perché deve restare a sinistra
-   invece che unirsi al gruppo a destra. */
-.index-link{
-  display:none; align-items:center; justify-content:center; gap:8px;
-  width:140px; height:40px; box-sizing:border-box;
-  position:fixed; top:20px; left:270px; z-index:5;
-  border:1px solid var(--cyan);
-  background:var(--panel);
-  border-radius:999px;
-  font-size:.8rem; font-weight:600; color:var(--text-dim);
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
+body[data-state="landing"] .kofi-link svg{ color:#ef4444; }
+
+body[data-state="landing"] .kofi-link:hover svg{ color:#ef4444; }
+
 body[data-state="landing"] .index-link{ display:flex; }
-.index-link:hover{ color:var(--text); }
-.index-link svg{ width:16px; height:16px; color:currentColor; flex-shrink:0; }
 
 @media (max-width:900px){
-  /* Su mobile la nuova .stage-topbar (introdotta per il desktop di
-     la_traccia_del_tempo.html) sparisce come contenitore: i suoi figli restano
-     posizionati esattamente come prima (brand fisso, index-link e
-     stage-controls con le loro regole mobile dedicate), senza che
-     il wrapper interferisca. */
-  .stage-topbar{ display:contents; }
-
-  .index-link{
-    position:static; top:auto; left:auto;
-    width:37px; height:37px; padding:0;
-    justify-content:center; border-radius:50%;
-    color:#fff;
-  }
-  .index-link:hover{ color:#fff; }
-  .index-link span{ display:none; }
-
-  body[data-state="landing"] .kofi-link svg{ color:#ef4444; }
-  .kofi-link svg{ color:#ef4444; }
-  .kofi-link:hover svg{ color:#ef4444; }
-
-  .kofi-link__full{ display:none; }
-  .kofi-link__short{ display:inline; }
+.stage-topbar{ display:contents; }
+body[data-state="landing"] .kofi-link svg{ color:#ef4444; }
 }
 
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:44px; }
-.landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
-.landing-intro{ margin-top:52px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
-
-.spoiler-alert{
-  display:flex; align-items:center; gap:12px;
-  margin-top:56px; padding:16px 20px;
-  max-width:640px;
-  border:1px solid rgba(250,204,21,.35);
-  background:rgba(250,204,21,.08);
-  border-radius:var(--radius-sm);
-  text-align:center;
-}
-.spoiler-alert__icon{ font-size:1.1rem; color:#facc15; flex-shrink:0; line-height:1.4; }
-.spoiler-alert p{ font-size:.88rem; line-height:1.55; color:var(--text-dim); margin:0; }
-
-.landing-sub{ margin-top:60px; color:var(--text-faint); font-size:.88rem; }
-
-/* ============================================================
-   Game panel — header + proportional timelines
-   ============================================================ */
-.game-panel{ position:relative; width:100%; max-width:1860px; display:flex; flex-direction:column; flex:1; min-height:0; }
-@media (min-width:901px){
-  /* Tutto il contenuto della voce (tag, titolo, blurb, timeline,
-     pulsanti del carosello) deve partire, orizzontalmente, da dove
-     inizia la tazzina del logo Ko-fi in alto (.brand-icon): 25px è
-     la distanza misurata fra il bordo dello stage e la tazzina,
-     costante su desktop a prescindere dalla larghezza finestra
-     (stage-topbar usa padding/margin fissi, non proporzionali al
-     viewport). Solo PC: su mobile il layout è tutt'altra cosa. */
-  .game-panel{ padding-left:25px; }
-}
-
-@keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
-@keyframes nodeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:translateY(0);} }
-@keyframes swipeHintLeft{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(-6px); opacity:1; } }
-@keyframes swipeHintRight{ 0%,100%{ transform:translateX(0); opacity:.45; } 50%{ transform:translateX(6px); opacity:1; } }
-
-/* .game-header e' condivisa da PIU' pagine, non solo da Timeline:
-   #pageHeader su Racconti/Teorie la riusa tale e quale (banner in
-   cima allo stage, mai a scomparsa/hidden li'). Deve restare intatta
-   con tutte le sue proprieta' di base. .game-header-item (sotto) e'
-   solo un livello aggiuntivo per il caso specifico di Timeline (15
-   pannelli nascosti/mostrati dentro #gameHeader), non una sostituzione. */
-.game-header{
-  position:sticky; top:15px; z-index:4;
-  background:var(--bg);
-  display:flex; gap:24px; align-items:center;
-  padding:65px 28px 25px; /* +10px sopra, -10px sotto: il contenuto scende
-    di 10px ma lo spazio disponibile (140px, quanto serve alla cover) e
-    l'altezza totale dell'header restano invariati */
-  margin-bottom:40px;
-  border-bottom:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-  height:230px; max-height:230px;
-  opacity:0; animation:fadeUp .5s var(--ease) forwards;
-}
-/* Solo per Timeline: dentro #gameHeader (che ha anche lui class=
-   "game-header", quindi eredita tutto quanto sopra) vivono 15
-   pannelli .game-header-item, uno per gioco, mostrato/nascosto con
-   [hidden]. Qui serve solo il layout interno (banner/cover/info in
-   riga), il resto (sticky/altezza/sfondo) lo fornisce gia' il
-   contenitore .game-header esterno. display va guardato con
-   :not([hidden]): dichiararlo senza vince per specificita' sulla
-   regola predefinita del browser [hidden]{display:none} — stesso
-   identico bug gia' preso e corretto due volte su racconti.css. */
-.game-header-item:not([hidden]){
-  display:flex; gap:24px; align-items:center;
-  width:100%; height:100%;
-}
-.game-header__banner{
-  position:absolute; inset:0; z-index:0;
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:calc(68% - var(--banner-x-offset, 125px)) center;
-}
-.game-header__banner-overlay{
-  position:absolute; inset:0; z-index:0;
-  background:
-    linear-gradient(90deg,
-      var(--bg) 0%,
-      rgba(0,0,0,.88) 12%,
-      rgba(0,0,0,.68) 22%,
-      rgba(0,0,0,.44) 32%,
-      rgba(0,0,0,.2) 42%,
-      transparent 50%,
-      transparent 64%,
-      rgba(0,0,0,.3) 76%,
-      rgba(0,0,0,.65) 88%,
-      var(--bg) 100%);
-}
-.game-header__cover, .game-header__info{ position:relative; z-index:1; }
-.game-header__cover{
-  width:140px; height:140px; flex-shrink:0;
-  border-radius:var(--radius);
-  background:var(--panel);
-  border:1px solid var(--line);
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-}
-.game-header__cover img{ width:100%; height:100%; object-fit:cover; }
-.game-header__cover .monogram{ font-size:2.4rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
-.game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
-.game-header__blurb a{
-  color:var(--cyan); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--cyan) 35%, transparent);
-  text-underline-offset:2px;
-  transition:color var(--dur-fast) var(--ease);
-}
-.game-header__blurb a:hover{ color:var(--text); }
-
-/* Universes: a single centered track, same fixed length regardless of entry count */
-/* Stesso motivo di .canon-pages qui sopra: da quando universesRow
-   puo' essere nascosto con hidden (giochi senza timeline, vedi
-   #canonPages), questa regola doveva avere la stessa guardia. Senza,
-   universesRow restava visibile e vuoto ma occupava comunque spazio
-   (flex:1) sopra la canon-page di Doom, da qui il grande vuoto. */
-.universe-stage:not([hidden]){ display:flex; justify-content:center; flex:1; min-height:0; }
-.universe-stage.no-timeline{ justify-content:flex-start; align-items:flex-start; }
-
-/* Contenitore gemello di #universesRow per i giochi senza timeline
-   ufficiale (es. Doom): prima la canon-page viveva DENTRO universesRow
-   stesso (riusando le classi qui sopra), ma cosi' facendo ogni cambio
-   di gioco con `universesRow.innerHTML = ""` avrebbe cancellato anche
-   i pannelli canon-page costruiti una volta sola al boot (nascosti,
-   sempre nel DOM, per Google). Stesso layout di prima, contenitore
-   separato per evitare il conflitto. */
-/* Stesso bug di poco fa (.game-header-item), stesso identico errore:
-   display/flex vanno applicati solo quando NON e' hidden, altrimenti
-   vince sulla regola predefinita del browser [hidden]{display:none} e
-   il contenitore resta visibile anche quando dovrebbe sparire — ecco
-   perche' tornando da Doom a un altro gioco si vedeva un misto tra
-   canon-page e timeline vera (i due contenitori restavano entrambi
-   visibili insieme, spartendosi lo spazio flex:1 disponibile, da qui
-   anche la timeline "troppo in su/schiacciata"). */
-.canon-pages:not([hidden]){ display:flex; justify-content:flex-start; align-items:flex-start; flex:1; min-height:0; }
-
-.h-timeline.is-scrollable{ cursor:grab; }
-.h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
-.canon-page{ position:relative; width:100%; max-width:1860px; }
-.canon-watermark{
-  position:fixed; top:245px; bottom:40px; right:0; width:38vw;
-  background-size:contain; background-repeat:no-repeat; background-position:right center;
-  -webkit-mask-image:linear-gradient(90deg, transparent, black 22%);
-  mask-image:linear-gradient(90deg, transparent, black 22%);
-  opacity:.14;
-  pointer-events:none;
-  z-index:0;
-}
-.canon-note{
-  position:relative; z-index:1;
-  max-width:900px;
-  font-size:.98rem; line-height:1.75; color:var(--text-dim);
-  padding:36px 0;
-}
-.canon-note p{ margin-bottom:20px; }
-/* Calcata esattamente su .section-eyebrow di Diari di Gioco
-   (recensioni.css, "Recensione veloce..."): stessa dimensione, peso,
-   spaziatura lettere, maiuscolo, colore. Centrata nel box del testo
-   (il max-width:900px di .canon-note qui sopra), uguale su desktop e
-   mobile — il punto di partenza cambia da solo, essendo il primo
-   elemento dentro .canon-note, che gia' inizia in punti diversi tra
-   mobile e desktop (vedi la_traccia_del_tempo.css). */
-.canon-note__eyebrow{
-  font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); text-align:center; margin-bottom:14px;
-}
-.canon-note__titles-label{
-  font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--text-faint); margin-bottom:8px;
-}
-.canon-note__titles{
-  font-size:1rem; font-weight:600; color:var(--text);
-  line-height:1.6;
-  padding:16px 20px;
-  border-left:2px solid var(--cyan);
-  background:var(--panel);
-  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
-}
-.universe-stage .u-track{ width:100%; height:100%; display:flex; flex-direction:column; position:relative; }
-
-.timeline-viewport{ flex:1; min-height:0; display:flex; align-items:center; position:relative; width:90%; margin:0 auto; }
-
-.u-track__head{
-  display:flex; align-items:center; justify-content:center; gap:100px;
-}
-.u-track__name-block{ text-align:center; }
-.u-track__name{ font-size:1.4rem; font-weight:700; color:var(--text); }
-.u-track__span{
-  display:block; font-size:.76rem; color:var(--text-faint); margin-top:6px; font-weight:500;
-}
-
-/* Compact carousel arrows, sized to sit beside a text heading rather than
-   flanking the whole timeline. */
-.carousel-arrow{
-  display:flex; align-items:center; gap:8px;
-  flex-shrink:0;
-  padding:9px 16px;
-  border:1px solid var(--cyan);
-  border-radius:999px;
-  background:var(--panel);
-  color:var(--text-dim);
-  font-size:.8rem; font-weight:600;
-  white-space:nowrap;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.carousel-arrow:hover, .carousel-arrow:focus-visible{
-  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
-}
-.carousel-arrow__icon{ width:12px; height:14px; color:var(--cyan); flex-shrink:0; }
-.carousel-arrow__label{ line-height:1.2; }
-
-/* Timeline: nodes distributed edge-to-edge, however many there are.
-   Generous, symmetric vertical padding so it isn't cramped; horizontal
-   scroll still works for large counts but the scrollbar itself is hidden. */
-.h-timeline{
-  position:relative;
-  flex:1; min-width:0;
-  display:flex; gap:calc(26px * var(--dot-scale, 1));
-  justify-content:space-between;
-  overflow-x:visible; overflow-y:visible;
-  padding:44px 0;
-  transform:translateY(50px);
-}
 .h-timeline::-webkit-scrollbar{ display:none; }
-.h-timeline::before{
-  content:"";
-  position:absolute; left:var(--tl-line-left, calc(50px * var(--avatar-scale, 1))); top:calc(40.5px + 162px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1)); height:7px; border-radius:7px;
-  width: var(--tl-line-width, calc(var(--tl-content-width, 100%) - (100px * var(--avatar-scale, 1))));
-  background:var(--gradient);
-  opacity:.95;
-}
 
-/* Each node reserves the same fixed height above/below the line regardless of
-   which side its cover lands on, so the dot always sits on the line. */
-.h-node{
-  text-decoration:none;
-  position:relative;
-  display:grid;
-  grid-template-rows: calc(162px * var(--avatar-scale, 1)) calc(22px * var(--dot-scale, 1)) calc(162px * var(--avatar-scale, 1));
-  justify-items:center;
-  width:calc(100px * var(--avatar-scale, 1)); flex-shrink:0; cursor:pointer;
-  opacity:0; animation:nodeIn .45s var(--ease) forwards;
-}
-.h-node:nth-child(1){ animation-delay:.06s; } .h-node:nth-child(2){ animation-delay:.11s; }
-.h-node:nth-child(3){ animation-delay:.16s; } .h-node:nth-child(4){ animation-delay:.21s; }
-.h-node:nth-child(5){ animation-delay:.26s; } .h-node:nth-child(6){ animation-delay:.31s; }
-.h-node:nth-child(n+7){ animation-delay:.36s; }
-
-.h-node__top{
-  align-self:end;
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  padding-bottom:20px;
-}
-.h-node__bottom{
-  align-self:start;
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  padding-top:20px;
-}
-
-
-.h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
-.h-node--down .h-node__marker::after{
-  content:"";
-  position:absolute; top:100%; left:50%; transform:translateX(-50%);
-  margin-top:8px;
-  width:2px; height:9px;
-  background:var(--dot-color, var(--cyan));
-  border-radius:1px;
-}
-.h-node--up .h-node__marker::before{
-  content:"";
-  position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
-  margin-bottom:8px;
-  width:2px; height:9px;
-  background:var(--dot-color, var(--cyan));
-  border-radius:1px;
-}
-.h-node__dot{
-  width:max(8px, calc(24px * var(--dot-scale, 1))); height:max(8px, calc(24px * var(--dot-scale, 1))); border-radius:50%;
-  background:var(--bg);
-  border:max(3px, calc(7px * var(--dot-scale, 1))) solid var(--dot-color, var(--cyan));
-  box-shadow:
-    0 0 6px 1px var(--dot-color, var(--cyan)),
-    0 0 14px 3px var(--dot-color, var(--cyan));
-  transition:box-shadow var(--dur-fast) var(--ease);
-}
-.h-node:hover .h-node__dot, .h-node:focus-visible .h-node__dot{
-  box-shadow:
-    0 0 8px 2px var(--dot-color, var(--cyan)),
-    0 0 20px 5px var(--dot-color, var(--cyan)),
-    0 0 36px 10px var(--dot-color, var(--cyan));
-}
-
-.h-node__tile{
-  width:calc(100px * var(--avatar-scale, 1)); height:calc(125px * var(--avatar-scale, 1));
-  border-radius:var(--radius-sm);
-  border:1px solid var(--line);
-  background:var(--panel);
-  overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
-  transition:border-color var(--dur-fast) var(--ease);
-}
-.h-node__tile img{ width:100%; height:100%; object-fit:cover; }
-.h-node__tile .monogram{ font-size:calc(1.6rem * var(--avatar-scale, 1)); font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--cyan)); }
-.h-node__title{
-  font-size:calc(.78rem * var(--avatar-scale, 1)); font-weight:600; text-align:center; color:var(--text-dim);
-  line-height:1.3; height:calc(52px * var(--avatar-scale, 1)); width:calc(130px * var(--avatar-scale, 1));
-  display:flex; flex-direction:column;
-}
-.h-node__title--top{ justify-content:flex-start; }
-.h-node__title--bottom{ justify-content:flex-end; }
-.h-node:hover .h-node__title{ color:var(--text); }
-
-/* ============================================================
-   Vertical rail timeline (title state)
-   ============================================================ */
-.rail-track{ position:relative; padding-left:20px; }
-.rail-track::before{
-  content:""; position:absolute; left:5px; top:4px; bottom:4px; width:2px;
-  background:var(--gradient); opacity:.7; border-radius:2px;
-}
-.v-node{ position:relative; display:flex; align-items:center; gap:10px; padding:10px 0; cursor:pointer; text-decoration:none; }
-.v-node::before{
-  content:""; position:absolute; left:-20px; top:50%; transform:translateY(-50%);
-  width:10px; height:10px; border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 0 3px var(--bg-soft);
-}
-.v-node__tile{
-  width:38px; height:48px; flex-shrink:0;
-  border-radius:var(--radius-sm); overflow:hidden;
-  border:1px solid var(--line);
-  background:var(--panel);
-  display:flex; align-items:center; justify-content:center;
-}
-.v-node__tile img{ width:100%; height:100%; object-fit:cover; }
-.v-node__tile .monogram{ font-size:.9rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.v-node__meta{ min-width:0; }
-.v-node__year{ font-size:.66rem; font-weight:700; color:var(--text-faint); }
-.v-node__title{ font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25; }
-.v-node:hover .v-node__title{ color:var(--text); }
-.v-node.is-active .v-node__title{ color:var(--text); font-weight:700; }
-.v-node.is-active::before{ background:var(--magenta); box-shadow:0 0 0 3px var(--bg-soft), 0 0 12px rgba(232,121,249,.7); }
-
-/* ============================================================
-   Title panel — full detail
-   ============================================================ */
-.title-panel{ width:100%; max-width:1860px; position:relative; margin-top:100px; }
-@media (min-width:901px){
-  /* Stesso allineamento del game-panel qui sopra: le voci senza
-     linea temporale (solo racconto singolo, es. Doom) partono
-     anch'esse dalla tazzina. */
-  .title-panel{ padding-left:25px; }
-}
-.title-watermark{
-  position:fixed; top:70px; bottom:0; right:var(--rail-width); width:42vw;
-  background-size:contain; background-repeat:no-repeat; background-position:center;
-  -webkit-mask-image:linear-gradient(90deg, transparent, black 35%);
-  mask-image:linear-gradient(90deg, transparent, black 35%);
-  opacity:.16;
-  pointer-events:none;
-  z-index:0;
-}
-.title-content{ position:relative; }
-/* Ogni voce e' ora un pannello proprio, sempre presente nel DOM
-   (nascosto con [hidden] finche' non selezionato), stesso pattern
-   di racconti.css/storie-teorie.css. Qui non serve nessuna regola
-   :not([hidden]) per il display: .title-content-item non dichiara
-   nessun valore "display" proprio (resta il default block del div),
-   quindi non c'e' nessuna specificita' in competizione con la regola
-   predefinita del browser [hidden]{display:none} — a differenza del
-   caso con display:flex incontrato su racconti.css. */
-.title-content-item{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
-.title-tag{
-  display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
-}
-.title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
-.title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
-.title-date{
-  margin-top:26px; margin-bottom:26px;
-  font-size:.8rem; font-weight:600; color:var(--text-faint);
-}
-.title-date--release{ margin-bottom:4px; } /* le due date restano vicine
-  tra loro (uscita/ambientazione), lo spazio vero e' solo sopra la prima
-  e sotto la seconda */
-.title-date--release + .title-date--story{ margin-top:0; }
-.title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
-.title-date + .title-synopsis{ margin-top:0; } /* niente doppio spazio: lo spazio "sotto" lo da' gia' .title-date */
-@media (min-width:901px){
-  /* Evidenziatore morbido dietro al testo, riga per riga (non un
-     riquadro unico su tutto il paragrafo): cosi' la filigrana sotto
-     puo' restare luminosa senza compromettere la leggibilita', senza
-     pero' sembrare un quadro appeso li'. box-decoration-break:clone
-     fa si' che ogni riga a schermo abbia il proprio riquadro
-     indipendente (l'elemento e' uno solo nel DOM, il browser lo
-     spezza visivamente riga per riga quando il testo va a capo); il
-     box-shadow sfocato (non un semplice background netto) da' il
-     bordo morbido invece che un taglio secco. Su mobile non serve,
-     la filigrana e' sempre nascosta li'. */
-  .text-highlight{
-    background:color-mix(in srgb, var(--bg) 55%, transparent);
-    box-shadow:0 0 6px 6px color-mix(in srgb, var(--bg) 55%, transparent);
-    padding:0 .3em; /* circa una lettera oltre il bordo della parola */
-    -webkit-box-decoration-break:clone;
-    box-decoration-break:clone;
-  }
-}
-.title-note{
-  margin-top:20px; padding:14px 18px;
-  border-left:2px solid var(--magenta);
-  background:rgba(232,121,249,.06);
-  font-size:.88rem; font-style:italic; color:var(--text-dim); line-height:1.6; border-radius:0 var(--radius-sm) var(--radius-sm) 0;
-}
-.title-nav{
-  margin-top:36px;
-  display:flex; align-items:center; justify-content:space-between; gap:16px;
-}
-.title-back{
-  display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
-  font-size:.8rem; font-weight:600; line-height:1.35; text-align:center;
-  white-space:normal;
-  color:var(--text-dim);
-  border:1px solid var(--line); border-radius:999px; padding:9px 20px;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  flex-shrink:0;
-}
-.title-back:hover{ border-color:var(--cyan); color:var(--text); }
-
-.title-nav__spacer{ flex:1; }
-.title-nav__side{
-  display:flex; align-items:center; gap:8px;
-  flex:1; min-width:0;
-  font-size:.78rem; font-weight:600;
-  color:var(--text-faint);
-  border:1px solid var(--line); border-radius:999px; padding:9px 16px;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.title-nav__side span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.title-nav__side:hover{ border-color:var(--cyan); color:var(--text); }
-.title-nav__side--next{ justify-content:flex-end; }
-.title-nav__side svg{ width:10px; height:12px; color:var(--cyan); flex-shrink:0; }
-
-/* ============================================================
-   State visibility
-   ============================================================ */
 body[data-state="landing"] .game-panel, body[data-state="landing"] .title-panel, body[data-state="landing"] .timeline-rail{ display:none; }
+
 body[data-state="game"] .landing, body[data-state="game"] .title-panel, body[data-state="game"] .timeline-rail{ display:none; }
+
 body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display:none; }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
-/* ============================================================
-   Mobile — niente più hamburger/cassetto: sidebar e stage sono
-   due pannelli affiancati a schermo intero, si passa dall'uno
-   all'altro scorrendo orizzontalmente (scroll-snap nativo).
-   ============================================================ */
-
-/* ============================================================
-   Mobile (phone) redesign — scoped entirely to this breakpoint,
-   the desktop layout above is untouched.
-   ============================================================ */
 @media (max-width:900px){
-  /* Serve solo su desktop per coprire il testo che scorre dietro la
-     barra sticky; su mobile la barra è fixed e comporta un problema
-     diverso, quindi qui va tolto invece di riadattato. */
-  .stage-cover{ display:none; }
-
-  /* Sfondo monocromatico in home: niente sfumature colorate di sfondo,
-     solo il colore pieno — più pulito su schermo piccolo. */
-  body[data-state="landing"]{ background:var(--bg); }
-  body[data-state="entry"]{ background:var(--bg); }
-  /* Brand più piccolo e su più righe in vista voce: senza, un
-     titolo lungo (come i nuovi nomi delle pagine) sborda e finisce
-     addosso ai pulsanti a destra. Serve soprattutto a la_traccia_del_tempo.html
-     (che usa lo stato "game", non "entry" come le altre pagine, e
-     non ha un CSS proprio con questa regola) — qui il fallback
-     condiviso, che le altre pagine comunque sovrascrivono con la
-     propria versione più su misura. */
-  body[data-state="entry"] .brand-text,
+.stage-cover{ display:none; }
+body[data-state="landing"]{ background:var(--bg); }
+body[data-state="entry"]{ background:var(--bg); }
+body[data-state="entry"] .brand-text,
   body[data-state="game"] .brand-text{
     font-size:.62rem; line-height:1.15; white-space:pre-line;
   }
-
-  /* Freccette animate che suggeriscono lo swipe verso la colonna
-     laterale — solo nelle direzioni dove esiste davvero una colonna
-     da raggiungere (l'HTML le include solo dove serve: sinistra su
-     entrambe le pagine, destra anche su Storie & Teorie ma non su
-     la_traccia_del_tempo.html, che in home non ha una colonna a destra). Piccole,
-     poco sotto la barra dei 3 pulsanti. */
-  body[data-state="landing"] .swipe-hint{
+body[data-state="landing"] .swipe-hint{
     display:block;
     position:fixed; top:82px; z-index:20;
     color:var(--text-faint);
     pointer-events:none;
   }
-  body[data-state="landing"] .swipe-hint svg{ width:16px; height:16px; display:block; }
-  body[data-state="landing"] .swipe-hint--left{ left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite; }
-  body[data-state="landing"] .swipe-hint--right{ right:14px; animation:swipeHintRight 1.6s ease-in-out infinite; }
-
-  /* --- Carosello sidebar/stage --- */
-  .layout{
+body[data-state="landing"] .swipe-hint svg{ width:16px; height:16px; display:block; }
+body[data-state="landing"] .swipe-hint--left{ left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite; }
+body[data-state="landing"] .swipe-hint--right{ right:14px; animation:swipeHintRight 1.6s ease-in-out infinite; }
+.layout{
     display:flex; overflow-x:auto; overflow-y:hidden;
     scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
     scrollbar-width:none; height:100vh; height:100dvh;
   }
-  .layout::-webkit-scrollbar{ display:none; }
-
-  .sidebar{
+.layout::-webkit-scrollbar{ display:none; }
+.sidebar{
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; height:100dvh; overflow-y:auto;
     scroll-snap-align:start;
@@ -1206,73 +217,31 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     border-right:none; border-bottom:none;
     padding-top:76px;
   }
-
-  /* La vista "titolo" (capitoli di un gioco) non fa parte del
-     carosello: la sidebar lì non è raggiungibile via swipe (niente
-     più hamburger per aprirla) — si torna prima alla lista giochi.
-     Stage e rail dei capitoli mantengono il loro comportamento
-     originale a blocco impilato, invariato. */
-  body[data-state="title"] .sidebar{ display:none; }
-  body[data-state="title"] .layout{
+body[data-state="title"] .sidebar{ display:none; }
+body[data-state="title"] .layout{
     display:block; overflow-x:visible; height:auto; scroll-snap-type:none;
   }
-  body[data-state="title"] .stage{
+body[data-state="title"] .stage{
     flex:none; width:100%; max-width:none; height:auto; overflow-y:visible;
   }
-
-  /* Le voci in lista si evidenziano solo in hover su PC: sul mobile,
-     non essendoci hover, restano sempre con un contornino sottile del
-     proprio colore (opacità ridotta, non l'intensità piena dell'hover). */
-  .game-list button, .game-list a{
+.game-list button, .game-list a{
     box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
-    padding:12px 14px; /* +20% rispetto ai 10px/12px di base (font invariato,
-      solo l'area colorata/toccabile cresce) */
+    padding:12px 14px; 
   }
-  .sidebar-eyebrow, .rail-label{ text-align:center; }
-
-  /* --- Stage --- */
-  .stage{
+.sidebar-eyebrow, .rail-label{ text-align:center; }
+.stage{
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; height:100dvh; overflow-y:auto; scroll-snap-align:start;
     padding:72px 16px 48px;
-    scrollbar-width:none; /* come .layout qui sopra: la scrollbar di .stage
-      (su Windows/Chrome) prende ~15-17px di spazio vero, restringendo il
-      bordo destro di tutto cio' che sta dentro (game-header compreso)
-      rispetto alla stage-topbar, che sta fuori da .stage e non ne risente.
-      Nascondendola (resta scrollabile lo stesso via touch/rotellina), i
-      due bordi destri tornano a coincidere per davvero, senza dover piu'
-      calcolare o compensare nulla altrove. */
+    scrollbar-width:none; 
   }
-  .stage::-webkit-scrollbar{ display:none; }
-  /* La home non deve scorrere verticalmente: e una schermata fissa,
-     ci si muove solo in orizzontale (swipe) verso le colonne laterali.
-     overscroll-behavior-y (non touch-action: quello aveva rotto lo
-     swipe orizzontale su queste pagine) blocca solo il rimbalzo/la
-     barra del browser in verticale, senza toccare la gestione dei
-     gesti — lo swipe orizzontale resta intatto. */
-  body[data-state="landing"] .stage{ overflow-y:hidden; overscroll-behavior-y:none; }
-  body[data-state="landing"] .layout{ overscroll-behavior-y:none; }
-  html:has(body[data-state="landing"]){ overscroll-behavior-y:none; }
-  html:has(body[data-state="landing"]) body{ overscroll-behavior-y:none; }
-  .stage-controls{ top:14px; right:12px; gap:8px; }
-  .kofi-link{ padding:8px 13px; gap:6px; }
-  .kofi-link svg{ width:15px; height:15px; }
-  .discord-link{ width:37px; height:37px; }
-  .discord-link svg{ width:17px; height:17px; }
-  .lang-switch{ padding:8px 11px; font-size:.79rem; }
-  .music-toggle{ width:35px; height:35px; }
-
-  /* In home, i 3 pulsanti (home, Ko-fi al centro, switch) diventano
-     una barra unica a tutta larghezza con sfondo pieno e riga sotto
-     a fare da divisore: il testo che scorre scompare dietro questa
-     barra invece di intravedersi nei vuoti tra i pulsanti fluttuanti.
-     "Torna all'index" prima restava fuori da questa barra (era
-     position:static per conto suo), quindi Ko-fi non era mai stato
-     davvero centrato tra i due — ora .stage-topbar stesso diventa la
-     barra (invece di sparire con display:contents come nelle altre
-     schermate), con index-link e stage-controls come suoi estremi
-     sinistro/destro, e Ko-fi centrato in modo indipendente in mezzo. */
-  body[data-state="landing"] .stage-topbar{
+.stage::-webkit-scrollbar{ display:none; }
+body[data-state="landing"] .stage{ overflow-y:hidden; overscroll-behavior-y:none; }
+body[data-state="landing"] .layout{ overscroll-behavior-y:none; }
+html:has(body[data-state="landing"]){ overscroll-behavior-y:none; }
+html:has(body[data-state="landing"]) body{ overscroll-behavior-y:none; }
+.stage-controls{ top:14px; right:12px; gap:8px; }
+body[data-state="landing"] .stage-topbar{
     display:flex; position:fixed; top:0; left:0; right:0;
     align-items:center; justify-content:space-between;
     padding:14px 16px;
@@ -1280,212 +249,37 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     border-bottom:1px solid var(--line);
     z-index:50;
   }
-  body[data-state="landing"] .stage-topbar .index-link{ margin-top:0; }
-  body[data-state="landing"] .stage-topbar .stage-controls{
+body[data-state="landing"] .stage-topbar .index-link{ margin-top:0; }
+body[data-state="landing"] .stage-topbar .stage-controls{
     position:static; top:auto; right:auto; left:auto; width:auto;
     padding:0; border:none; background:none; z-index:auto;
     margin-top:0;
   }
-  body[data-state="landing"] .stage-topbar .social-links{
+body[data-state="landing"] .stage-topbar .social-links{
     display:flex; align-items:center; gap:8px;
     position:absolute; left:50%; top:50%;
     transform:translate(-50%, -50%);
   }
-
-  /* Testo della home centrato rispetto allo schermo intero (non più
-     in relazione alla barra in alto o alle freccette) — stessa
-     tecnica già usata su l_officina_grezza.html: posizionamento assoluto al
-     50%/50% di .stage (già position:relative di base), non più
-     centrato "nello spazio libero rimasto" via margin:auto in un
-     flex column, che lo spingeva verso l'alto per via del padding
-     asimmetrico sopra/sotto. Le freccette (.swipe-hint) non sono
-     toccate: restano dove sono sempre state. */
-  body[data-state="landing"] .landing{
+body[data-state="landing"] .landing{
     position:absolute; top:50%; left:50%;
     transform:translate(-50%, -50%);
     width:calc(100% - 32px);
     margin:0;
   }
-  .landing-title{ font-size:1.45rem; }
-  .landing-eyebrow{ margin-top:10px; font-size:.7rem; max-width:220px; white-space:pre-line; }
-  .landing-intro{ margin-top:24px; font-size:.92rem; }
-  .spoiler-alert{ margin-top:24px; }
-  .spoiler-alert p{ font-size:.82rem; }
-  .landing-sub{ margin-top:24px; font-size:.82rem; }
-
-  /* --- Game header --- */
-  .game-header{
-    position:relative;
-    flex-direction:column; align-items:center; text-align:center;
-    height:auto; max-height:none; overflow:visible;
-    padding:20px 16px; gap:12px;
-  }
-  /* Solo Timeline: il layout interno del pannello attivo dentro
-     #gameHeader deve impilarsi in colonna come il contenitore
-     esterno qui sopra, altrimenti banner/cover/info restano in riga
-     anche su mobile. */
-  .game-header-item{
-    flex-direction:column; align-items:center; text-align:center;
-    gap:12px; width:100%; height:100%;
-  }
-  .game-header__banner{ position:absolute; }
-  .game-header__banner-overlay{ background:rgba(0,0,0,.74); }
-  .game-header__cover{ width:88px; height:88px; }
-  .game-header__info{ text-align:center; }
-  .game-header__title{ font-size:1.3rem; }
-  .game-header__blurb{ max-width:100%; font-size:.92rem; }
-  .game-header__blurb br{ display:none; }
-
-  /* --- Universe carousel --- */
-  .u-track__head{ gap:10px; }
-  .u-track__name{ font-size:1rem; }
-  .carousel-arrow{ padding:9px; gap:0; }
-  .carousel-arrow__label{ display:none; }
-  .universe-stage .u-track{ margin-top:66px; }
-
-  /* --- Vertical timeline: the line runs top-to-bottom, nodes stack
-     vertically, avatar/title alternate left/right of it instead of
-     above/below it. The page's own vertical scroll handles any length,
-     no width-fitting or scroll-toggle machinery needed here. --- */
-  .h-timeline{
-    display:flex; flex-direction:column; align-items:center;
-    padding:20px 0; gap:36px;
-    transform:none;
-  }
-  .h-timeline::before{
-    left:50%; top:var(--tl-line-top, 0px); width:5px;
-    height:var(--tl-line-height, 100%);
-    transform:translateX(-50%);
-  }
-  .h-node{
-    width:100%; flex-shrink:1;
-    grid-template-columns:1fr 24px 1fr; grid-template-rows:auto;
-    justify-items:stretch;
-  }
-  .h-node__top{
-    grid-column:1; align-self:center; justify-self:end;
-    align-items:flex-end; text-align:right;
-    padding-bottom:0; padding-right:14px;
-  }
-  .h-node__bottom{
-    grid-column:3; align-self:center; justify-self:start;
-    align-items:flex-start; text-align:left;
-    padding-top:0; padding-left:14px;
-  }
-  .h-node__marker{ grid-column:2; grid-row:1; }
-  .h-node__tile{ width:63px; height:80px; }
-  .h-node__title{ font-size:.7rem; height:auto; width:80px; }
-  .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
-  .h-node--down .h-node__marker::after{
-    top:50%; left:100%; bottom:auto; transform:translateY(-50%);
-    margin-top:0; margin-left:8px;
-    width:7px; height:2px;
-  }
-  .h-node--up .h-node__marker::before{
-    top:50%; right:100%; bottom:auto; left:auto; transform:translateY(-50%);
-    margin-bottom:0; margin-right:8px;
-    width:7px; height:2px;
-  }
-
-  /* --- Title detail page --- */
-  .title-panel{ margin-top:44px; }
-  .title-content-item{ max-width:100%; }
-  .title-name{ font-size:1.3rem; }
-  .title-synopsis{ font-size:.92rem; }
-  .title-watermark{
-    position:absolute; top:0; left:0; right:0; bottom:0; width:auto;
-    -webkit-mask-image:linear-gradient(180deg, transparent, black 45%, black 70%, transparent);
-    mask-image:linear-gradient(180deg, transparent, black 45%, black 70%, transparent);
-    opacity:.1;
-  }
-  .title-nav{ flex-wrap:wrap; }
-  .title-back{ order:-1; width:100%; justify-content:center; }
-  .title-nav__side{ flex:1 1 0; }
-  .title-nav__side span{ max-width:80px; }
-
-  /* --- Vertical rail becomes a horizontal strip, same language as the main timeline --- */
-  .timeline-rail{
-    width:100%; border-left:none; border-top:1px solid var(--line);
-    padding:16px;
-  }
-  .rail-track{
-    display:flex; flex-direction:row; gap:14px;
-    padding:14px 4px 6px; margin-top:6px;
-    overflow-x:auto; scrollbar-width:none;
-  }
-  .rail-track::-webkit-scrollbar{ display:none; }
-  .rail-track::before{
-    left:0; right:0; top:38px; bottom:auto; width:auto; height:3px;
-  }
-  .v-node{
-    flex-direction:column; align-items:center; gap:6px;
-    padding:0; flex-shrink:0; width:64px;
-  }
-  .v-node::before{ left:50%; top:24px; transform:translateX(-50%); }
-  .v-node__tile{ width:56px; height:70px; margin-top:14px; }
-  .v-node__meta{ text-align:center; }
-  .v-node__title{ font-size:.68rem; }
+.rail-track::-webkit-scrollbar{ display:none; }
 }
 
-:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
-
-/* ============================================================
-   Blocco orientamento orizzontale su mobile — stesso escamotage
-   usato da Mathemory: un messaggio a schermo intero che chiede di
-   ruotare il dispositivo, invece di riadattare tutto il layout
-   mobile anche per l'orizzontale. Puro CSS (body::before), niente
-   HTML da aggiungere pagina per pagina: vale automaticamente su
-   ogni pagina presente e futura che carica questo file. Bilingue
-   via html[lang], il meccanismo che TUTTE le pagine impostano
-   davvero (document.documentElement.lang) — non body[data-lang],
-   che solo alcune pagine impostano anche loro, di riflesso.
-   ============================================================ */
 @media (hover:none) and (pointer:coarse) and (orientation:landscape){
-  body::before{
+body::before{
     content:"Ruota il dispositivo in verticale per continuare.";
     position:fixed; inset:0; z-index:9999;
     display:flex; align-items:center; justify-content:center;
     padding:40px; text-align:center;
     background:var(--bg); color:var(--text);
-    font-family:'Inter', -apple-system, sans-serif;
+    font-family:"Inter", -apple-system, sans-serif;
     font-size:1rem; line-height:1.6;
   }
-  html[lang="en"] body::before{
+html[lang="en"] body::before{
     content:"Please rotate your device back to portrait to continue.";
   }
-}
-
-/* ============================================================
-   Cuoricino "mi piace" — condiviso da tutte le pagine (Timeline,
-   Storie Senza Cornice, Il Filo Nascosto, Officina, Diari di Gioco).
-   Sempre visibile, sia desktop che mobile: cambia solo la distanza
-   dal contenuto sopra (50px desktop, 30px mobile) e la posizione
-   nella pagina (sempre in fondo al contenuto/voce, gestita pagina
-   per pagina in HTML — qui solo l'aspetto). Contorno sul colore
-   d'accento dell'opera (--item-accent con --cyan di riserva, stesso
-   schema gia' in uso altrove nel sito), rosso pieno una volta messo
-   il like.
-   ============================================================ */
-.title-like{
-  margin-top:50px;
-  display:inline-flex; align-items:center; gap:8px;
-}
-.title-like__btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:38px; height:38px;
-  border:1px solid var(--item-accent, var(--cyan)); border-radius:999px;
-  color:var(--item-accent, var(--cyan)); background:transparent;
-  cursor:pointer;
-  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-}
-.title-like__btn:disabled{ cursor:default; }
-.title-like__icon{ width:18px; height:16px; }
-.title-like.is-liked .title-like__btn{ border-color:#e11d48; color:#e11d48; }
-.title-like.is-liked .title-like__icon path{ fill:#e11d48; }
-.title-like__count{ font-size:.85rem; font-weight:600; color:var(--text-faint); min-width:1.5em; }
-.title-like__label{ font-size:.82rem; color:var(--text-faint); }
-
-@media (max-width:900px){
-  .title-like{ margin-top:30px; }
-  .title-like__btn{ width:35px; height:35px; } /* stessa dimensione di Discord/index-link su mobile, in tutte le pagine */
 }
