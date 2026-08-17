@@ -1180,20 +1180,17 @@ const layoutEl = document.querySelector(".layout");
 // da quel comportamento incerto.
 // FIX: mobileBreakpoint.matches puo' essere inaffidabile nell'istante
 // esatto di un refresh con l'emulazione mobile del browser attiva -
-// window.innerWidth (su cui si basa matchMedia) puo' risultare ancora
-// quello del monitor desktop per un attimo, anche se il CSS e' gia'
-// correttamente applicato in versione mobile (verificato con un log:
-// innerWidth=1918 ma sidebar larga ~333px, coerente solo con mobile).
-// Controllo diretto e piu' affidabile: se il contenuto del carosello
-// e' davvero piu' largo dello spazio visibile, il carosello mobile
-// c'e' per davvero, a prescindere da cosa dica matchMedia in
-// quel preciso istante.
-function serveIlCarosello(){
-  if(!layoutEl) return false;
-  return layoutEl.scrollWidth > layoutEl.clientWidth + 5;
-}
+// FIX DEFINITIVO: sia mobileBreakpoint.matches sia il controllo su
+// scrollWidth/clientWidth si sono rivelati inaffidabili nello stesso
+// istante critico del refresh in emulazione mobile (log: innerWidth
+// ancora quello desktop, 1918, anche con file freschi senza cache di
+// mezzo - non era un problema di cache, e' proprio quell'istante ad
+// essere ambiguo). Tolto il controllo del tutto: impostare scrollLeft
+// su un layout desktop (dove non serve, non scorre) e' innocuo, non
+// fa nulla e non genera errori. La correzione parte quindi sempre,
+// senza doversi fidare di nessun rilevamento incerto.
 function scrollCarouselToStage(smooth){
-  if(!serveIlCarosello() || !layoutEl || !stageEl) return;
+  if(!layoutEl || !stageEl) return;
   if(smooth) layoutEl.scrollTo({ left: stageEl.offsetLeft, behavior: "smooth" });
   else layoutEl.scrollLeft = stageEl.offsetLeft;
 }
