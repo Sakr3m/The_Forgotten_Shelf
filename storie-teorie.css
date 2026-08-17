@@ -5,34 +5,204 @@
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
-/* Titolo hero della sezione: Manrope, stesso peso del titolo di voce
-   (.entry-title qui sotto) — qui la gerarchia la fa solo la
-   dimensione, niente scarto di peso come su altre sezioni. */
-.landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:295px; margin-left:auto; margin-right:auto; }
+/* Blocco hero della home: font-size e line-height fissati in px e
+   arrotondati a multipli di 5 (erano tutti in rem, valori non tondi:
+   .75rem=12px, 1rem=16px, .88rem=14.08px), poi ingranditi del 25% su
+   richiesta esplicita. Stessi identici numeri per IT ed EN: il
+   font-size non dipende dalla lingua, solo il testo cambia.
+   Tutto dentro una media query desktop: senza, queste regole (nessun
+   selettore piu' specifico delle regole mobile in styles.css)
+   vincerebbero comunque anche li' per puro ordine di caricamento del
+   file, rompendo le misure mobile gia' esistenti. */
+@media (min-width:901px){
+  .landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:30px; }
+  .landing-eyebrow{ font-size:15px; line-height:15px; }
+  .landing-intro{ font-size:20px; line-height:30px; margin-top:15px; max-width:800px; }
+  .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
+  .landing{ max-width:950px; }
+}
 
 /* Sidebar (Teorie) e side-rail (Storie Nascoste) leggermente più larghe
    rispetto alle misure di base condivise con la_traccia_del_tempo.html — solo su
    desktop, sul mobile sono pannelli del carosello a scorrimento. */
 @media (min-width:901px){
-  #sidebar{ width:250px; } /* allineata a Timeline, entrambe 250px */
+  /* PROVA: 300px invece di 250 (var(--rail-width) resta 250 nel file
+     condiviso, qui la si sovrascrive in modo esplicito sul side-rail
+     invece di toccare la variabile - altrimenti sarebbe cambiata
+     anche su la_traccia_del_tempo.html, mai discussa in questo
+     contesto). */
+  #sidebar{ width:300px; }
+  .side-rail{ width:300px; }
+
+  /* report-bug-btn (in styles.css) e' ancorato a sidebar(250px)+100 =
+     350px dal bordo sinistro reale, per restare 100px dalla tabella
+     come da standard del sito. Con la sidebar a 300px quello stesso
+     calcolo va rifatto qui: 300+100 = 400px, solo su questa pagina. */
+  .report-bug-btn{ left:400px; }
+
+  /* Anche la barra di luminosita' della filigrana (.watermark-
+     brightness-line) e' ancorata nel file condiviso a 250px da
+     entrambi i lati (larghezza delle due tabelle prima di oggi) -
+     va spostata a 300px insieme a loro, solo su questa pagina.
+     top:83px = 3px sotto la riga dell'header (80px di bordo
+     inferiore), era 237px nella regola condivisa (pensata per il
+     vecchio banner intero). flex-direction:column + align-items:
+     flex-end: i pulsanti preset (sotto) si allineano cosi' al bordo
+     destro della barra (sopra) invece di stare in linea con lei -
+     height:auto perche' ora sono due righe, non piu' una sola da
+     20px fissi. */
+  .watermark-brightness-line{
+    left:400px; right:400px; top:81px;
+    flex-direction:column; align-items:stretch;
+    height:auto;
+  }
+  .watermark-brightness-line__track{ order:1; max-width:none; }
 }
 .side-rail{
-  width:var(--rail-width); flex-shrink:0; /* stessa variabile di Timeline (250px), non più 310px per conto suo */
+  flex-shrink:0;
   padding:24px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
   overflow-y:auto;
 }
+/* Voci allineate a destra qui (a sinistra nella sidebar sinistra,
+   gia' cosi' di default nella regola condivisa .game-list button,
+   .game-list a) - richiesto esplicitamente, cosi' ciascuna tabella
+   "guarda" verso il proprio bordo esterno invece che verso il centro
+   della pagina in entrambe. */
+.side-rail .game-list button,
+.side-rail .game-list a{ text-align:right; }
+
+/* Distanze uniformi su entrambe le tabelle nonostante il padding
+   diverso dei due contenitori (sidebar 16px, side-rail 20px): 30px
+   dal bordo esterno, 45px da quello interno (verso lo stage) - lo
+   spazio in piu' verso l'interno serve al pulsante lucchetto per
+   voce, che vive li' (vedi piu' sotto).
+   Sidebar: 16(contenitore) + 14(qui) = 30 esterno - questa parte
+   resta padding, la voce puo' ancora "respirare" un po' di sfondo
+   attorno al testo. Il lato interno pero' NON e' piu' padding: e'
+   una vera riduzione di larghezza (width, non padding-right), cosi'
+   lo sfondo/evidenziazione del link si ferma davvero prima della
+   zona del lucchetto, invece di estendersi sotto di lui lasciando
+   solo spazio vuoto - risolve la sovrapposizione visiva vista in
+   hover (segnalata come "mezzaluna"), che il solo spostamento della
+   striscia colorata non bastava a risolvere del tutto.
+   Side-rail: stesso discorso specchiato (riduzione a sinistra invece
+   che a destra, margin-left compensa lo spostamento). */
+#sidebar .game-list a{ width:calc(100% - 45px); padding-left:14px; padding-right:0; }
+.side-rail .game-list a{ width:calc(100% - 45px); margin-left:45px; padding-right:14px; padding-left:0; } /* 14px
+  esterno come la sidebar - il vuoto tra testo e striscia colorata
+  (5px) resta 9px su entrambi i lati, tarato stamattina. */
+
+/* La striscia colorata di evidenziazione (hover/attiva) e' sempre sul
+   bordo sinistro nella regola condivisa in styles.css - qui, sulla
+   colonna destra, si sovrapporrebbe col lucchetto (che vive sul
+   bordo sinistro/interno di questa tabella). Spostata sul bordo
+   destro (offset negativo invece che positivo), coerente anche con
+   l'allineamento a destra del testo qui: ciascuna tabella evidenzia
+   verso il proprio bordo esterno, non sempre verso sinistra a
+   prescindere. */
+.side-rail .game-list button.is-active:not(.row-lock),
+.side-rail .game-list a.is-active,
+.side-rail .game-list button:hover:not(.row-lock),
+.side-rail .game-list a:hover{
+  box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+  /* Il gradiente di sfondo (background, non lo box-shadow qui sopra)
+     e' ereditato dalla regola condivisa in styles.css: 90deg, colore
+     forte a sinistra che sfuma verso destra. Ha senso sulla sidebar
+     sinistra (il lucchetto vive a destra, quindi il colore forte
+     parte lontano da lui e sfuma proprio li'), ma qui sul side-rail
+     il lucchetto vive a SINISTRA - lo stesso gradiente 90deg mette
+     il colore piu' forte esattamente incollato al lucchetto invece
+     di sfumare li', causando la "mezzaluna" colorata sul suo bordo.
+     Specchiato a 270deg (destra->sinistra) SOLO qui: stessi colori
+     della regola condivisa, sfuma verso il lucchetto invece di
+     restare forte proprio li'. */
+  background:linear-gradient(270deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
+}
+/* :not(.row-lock) sui selettori button qui sopra: mancava (la
+   sidebar sinistra ce l'ha gia', vedi piu' sotto in fondo al file) -
+   senza, il lucchetto (un <button> dentro .game-list) veniva colpito
+   anche lui da questo sfondo rettangolare + bordo colorato quando ci
+   passavi sopra col mouse direttamente, tagliato dal suo stesso
+   cerchio (border-radius:50%): la vera causa della "mezzaluna",
+   non il gradiente da solo. .game-list a.is-active/:hover restano
+   senza :not() perche' il lucchetto e' un <button>, mai un <a> -
+   nessun rischio che li' venga colpito. */
+
+/* Pulsante lucchetto per voce: vive nello spazio interno (verso lo
+   stage) riservato allargando il padding a 45px piu' sopra. Invisibile
+   di default, compare solo passando sopra QUELLA riga precisa (non
+   tutte insieme) - :focus-within incluso per chi naviga da tastiera.
+   Contorno colorato con l'accento della voce (--item-accent, ereditato
+   dal li). Acceso (aria-pressed=true): stesso contorno ma pieno, cosi'
+   resta visibile anche senza hover per ricordare che e' attivo. */
+.game-list__row{ position:relative; }
+.game-list__row .row-lock{
+  position:absolute; top:0; bottom:0; margin:auto 0;
+  width:25px; height:25px; padding:0; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:50%;
+  background:var(--panel);
+  color:var(--item-accent, var(--cyan));
+  opacity:0; pointer-events:none;
+  -webkit-tap-highlight-color:transparent; /* alcuni browser aggiungono
+    un riflesso/bagliore nativo al tocco/hover sui <button> se non
+    esplicitamente disattivato qui */
+  outline:none;
+  transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.row-lock svg{ width:15px; height:15px; }
+.game-list__row:hover .row-lock,
+.game-list__row:focus-within .row-lock{
+  opacity:1; pointer-events:auto;
+}
+/* Il mouse esattamente sopra il pulsante stesso (non solo sulla riga)
+   non deve "illuminarlo" in nessun modo diverso dal solito - stessi
+   valori del riposo, per neutralizzare qualunque stile nativo di
+   hover che il browser potrebbe applicare di suo sui <button> e che
+   il CSS qui sopra non copre esplicitamente. */
+.row-lock:hover,
+.row-lock:focus,
+.row-lock:active{
+  background:var(--panel); border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan));
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--item-accent, var(--cyan)) 35%, transparent); /* alone
+    uniforme tutto intorno al cerchio, non direzionale come la
+    striscia (inset 2px 0 0) che causava il riflesso - qui lo spread
+    e' simmetrico su ogni lato, nessun lato piu' "illuminato" di un
+    altro */
+  filter:none;
+}
+.game-list__row .row-lock[aria-pressed="true"]{
+  background:var(--panel); color:var(--item-accent, var(--cyan));
+}
+.game-list__row .row-lock[aria-pressed="true"] rect{
+  fill:currentColor; /* solo il corpo (rettangolo) si riempie -
+    la staffa (l'arco sopra) resta un contorno anche da acceso,
+    come un vero lucchetto chiuso */
+}
+.row-lock[aria-pressed="true"]:hover,
+.row-lock[aria-pressed="true"]:focus,
+.row-lock[aria-pressed="true"]:active{
+  background:var(--panel); color:var(--item-accent, var(--cyan));
+}
+#sidebar .row-lock{ right:6px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
+.side-rail .row-lock{ left:6px; } /* stesso discorso, specchiato, sulla colonna destra */
 
 /* "Teorie" e "Storie Nascoste" trattate allo stesso modo: nessun
    override qui, .rail-label eredita da styles.css la stessa identica
-   regola di .sidebar-eyebrow - vedi nota in racconti.css. */
+   regola di .sidebar-eyebrow (stesso font, colore, margini) - prima
+   c'era una copia separata da tenere allineata a mano, causa di piu'
+   di un bug quando le due finivano fuori sincrono. */
 
 /* I titoli delle voci possono contenere un "a capo" manuale (\n)
    tra il nome del gioco e il sottotitolo: va rispettato sia nei
    bottoni della lista sia nel titolo grande della voce. */
 .game-list button, .game-list a{ white-space:pre-line; line-height:18px; }
-.entry-title{ white-space:pre-line; }
+.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin:10px auto 0; white-space:pre-line; } /* margin-top:10px:
+  senza, il copyright sopra (spostato li' da un ordine precedente) e
+  il titolo si toccherebbero senza nessuno spazio tra loro. */
 
 /* Header in cima allo stage: stesso game-header di la_traccia_del_tempo.html
    (riusa le classi condivise .game-header/.game-header__banner/
@@ -43,27 +213,85 @@ body[data-state="landing"] #pageHeader{ display:none; }
 
 /* Pulsante a tendina con le altre teorie/storie dello stesso gioco
    (per ora una sola per gioco, ma pronto per quando ce ne saranno
-   di più). Il pulsante sta dentro #pageHeader (si muove con lui,
-   che è sticky) — 15px sopra la riga di confine, la stessa distanza
-   che c'è tra i pulsanti sopra e il bordo alto della pagina.
-   Il MENU invece non è dentro #pageHeader: quel box ha
-   overflow:hidden (serve per ritagliare la banner), quindi un menu
-   a tendina lì dentro verrebbe tagliato via appena esce dal bordo
-   basso. È un elemento a parte, posizionato via JS (position:fixed,
-   coordinate prese dal trigger reale) così scavalca il ritaglio.
+   di più). Vive dentro .stage-controls, tra il pulsante del volume e
+   lo switch lingua (vedi la regola desktop qui sotto) - prima stava
+   dentro #pageHeader, spostato via.
+   Il MENU (l'elenco a comparsa quando lo si apre) resta invece un
+   elemento a parte, posizionato via JS (position:fixed, coordinate
+   prese dal trigger reale): se vivesse dentro un contenitore con
+   overflow:hidden verrebbe tagliato via appena esce dal bordo.
    Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
+.panel-toggle{ display:none; } /* FIX: bug preesistente, mai
+  notato finora - mancava un display:none esplicito qui, solo la
+  regola desktop lo rende display:flex. Senza questa riga il
+  pulsante rischiava di comparire (grezzo, senza stile) anche su
+  mobile, dove non ha senso (nessuna tabella da nascondere/mostrare
+  li' - il carosello mobile ha gia' il suo meccanismo). */
+.text-size-toggle{ display:none; } /* visibile solo in vista voce,
+  stesso pattern di entry-game-picker - vedi @media piu' sotto per
+  desktop e mobile. */
+/* Nascosto anche quando la voce non ha altri capitoli collegati
+   (impostato via JS in renderGamePicker), a prescindere da PC/mobile.
+   Stesso prefisso "body[data-state=entry]" delle regole che altrimenti
+   vincerebbero per ordine nel file (stessa specificita' della loro,
+   58 righe piu' sotto): qui basta essere piu' specifica, non serve
+   piu' scavalcarle con !important. */
+body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 @media (min-width:901px){
   body[data-state="entry"] .entry-game-picker{
-    display:block;
-    position:absolute; right:25px; bottom:15px; z-index:2;
-    /* +25px di padding destro dell'header = 50px dal bordo, come
-       switch/volume nella pagina di una voce */
+    display:flex;
+    /* Prima era position:absolute dentro #pageHeader (da cui l'ho
+       spostato: ora vive dentro .stage-controls, tra il pulsante del
+       volume e lo switch lingua). Qui non serve piu' nessun
+       posizionamento assoluto: e' un elemento normale della riga
+       flex, l'ordine nel DOM decide gia' da solo la sua posizione. */
+  }
+}
+
+/* Pulsante dimensione testo: X1 -> X1.5 -> X2 -> di nuovo X1 ad ogni
+   click/tocco, solo in vista voce (stesso pattern di
+   entry-game-picker). Stesso aspetto a pillola di entry-game-trigger,
+   eredita anche lui il colore dell'opera aperta (--item-accent).
+   FIX: stile base spostato FUORI dalla media query desktop (dov'era
+   per errore) - ora vale ovunque, mobile compreso, stesso schema di
+   entry-game-trigger qui sotto. Prima il bordo/colore/sfondo erano
+   visibili solo su desktop; su mobile arrivava solo l'override di
+   altezza/padding/font (piu' sotto nel file), senza nessuno stile di
+   base sotto - bordo grigio di default del browser invece del colore
+   dell'opera. */
+body[data-state="entry"] .text-size-toggle{
+  display:flex; align-items:center; justify-content:center;
+  height:40px; width:58px; box-sizing:border-box; /* larghezza fissa,
+    non piu' padding che si adatta al testo - senza, il pulsante
+    cambiava dimensione passando da "X1" a "X1.5" (piu' largo) a "X2"
+    (di nuovo piu' stretto). 58px calcolati per contenere comodamente
+    l'etichetta piu' larga, "X1.5", con margine. */
+  border:2px solid var(--item-accent, var(--cyan)); /* FIX: scritto
+    2px direttamente qui, non piu' 1px - la lista esterna "bordo 2px
+    desktop" (piu' sotto nel file) non riusciva mai a vincere su
+    questa regola, che essendo piu' specifica (usa il prefisso
+    body[data-state=entry]) ha sempre la meglio a prescindere
+    dall'ordine nel file. */
+  background:var(--panel);
+  border-radius:999px;
+  font-size:.82rem; font-weight:600;
+  color:var(--item-accent, var(--cyan)); /* era var(--text-dim) -
+    ora la scritta X1/X1.5/X2 prende il colore dell'opera aperta,
+    come il bordo. Regola condivisa (nessuna media query), vale gia'
+    su desktop e mobile insieme. */
+  cursor:pointer;
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+@media (hover:hover) and (pointer:fine){
+  body[data-state="entry"] .text-size-toggle:hover{
+    color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+    background:var(--panel-raised);
   }
 }
 .entry-game-trigger{
   display:flex; align-items:center; gap:8px;
-  height:36px; padding:0 16px;
+  height:40px; box-sizing:border-box; padding:0 16px;
   border:1px solid var(--item-accent, var(--cyan));
   background:var(--panel);
   border-radius:999px;
@@ -82,7 +310,7 @@ body[data-state="landing"] #pageHeader{ display:none; }
   background:var(--panel-raised);
 }
 .entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
-.entry-game-trigger .chevron{ width:10px; height:7px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
+.entry-game-trigger .chevron{ width:10px; height:10px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
 .entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
 
 .entry-game-menu{
@@ -110,6 +338,52 @@ body[data-state="landing"] #pageHeader{ display:none; }
   color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
 }
 .entry-game-menu li button.is-active{ color:var(--item-accent, var(--cyan)); }
+.entry-game-menu__coming-soon{
+  display:block; width:100%;
+  padding:12px 16px;
+  font-size:.84rem; font-weight:500; font-style:italic;
+  color:var(--text-faint);
+  cursor:default; user-select:none;
+}
+
+/* Popup di selezione playlist (attivato dal pulsante volume): stesso
+   trattamento del menu a tendina qui sopra, posizionato via JS
+   (position:fixed, coordinate prese dal pulsante reale) per non
+   essere ritagliato da eventuali overflow:hidden dei contenitori. */
+.playlist-menu{
+  position:fixed;
+  width:max-content; max-width:min(90vw, 320px);
+  max-height:min(70vh, 420px); overflow-y:auto;
+  overscroll-behavior:contain; /* scorrendo fino al bordo del menu
+    (con rotella o frecce) non deve "scavalcare" e scorrere anche la
+    pagina sotto - senza questa riga il browser incolla lo scroll
+    residuo al genitore scrollabile piu' vicino, che qui e' la
+    pagina intera. */
+  background:var(--panel-raised);
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:var(--radius-sm);
+  box-shadow:0 16px 32px rgba(0,0,0,.5);
+  z-index:30;
+  animation:menuIn var(--dur-fast) var(--ease);
+}
+.playlist-menu__group-label{
+  padding:10px 16px 6px;
+  font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-faint);
+}
+.playlist-menu li button{
+  display:block; width:100%; text-align:left;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  padding:10px 16px;
+  font-size:.84rem; font-weight:500;
+  color:var(--text-dim);
+  border-bottom:1px solid var(--line);
+}
+.playlist-menu li:last-child button{ border-bottom:none; }
+.playlist-menu li button:hover, .playlist-menu li button:focus-visible{
+  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 8%, transparent);
+  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+}
 
 /* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
    in styles.css (stesso di la_traccia_del_tempo.html) — niente più larghezza fissa
@@ -119,68 +393,300 @@ body[data-state="landing"] #pageHeader{ display:none; }
    centrale — solo su desktop, sul mobile sono pannelli del carosello
    a scorrimento orizzontale (vedi sezione mobile più sotto). */
 @media (min-width:901px){
+  /* Prima l'overflow-y:auto stava sull'intero pannello (#sidebar/
+     .side-rail): quando le voci superavano lo spazio disponibile,
+     scorreva tutto insieme, etichetta "Racconti brevi"/"Libri"
+     compresa, invece di restare ferma in cima. Ora il pannello non
+     scorre più lui stesso: e' .panel-inner a diventare un contenitore
+     flex verticale alto quanto il pannello (height:100%), con
+     l'etichetta a dimensione fissa e SOLO la lista (.game-list) che
+     si allarga a riempire lo spazio restante e scorre per conto suo
+     (min-height:0 e' necessario, altrimenti un figlio flex non si
+     restringe mai sotto l'altezza del proprio contenuto). Stesso
+     schema già in uso su la_traccia_del_tempo.html. */
   #sidebar, #storieRail{
     position:sticky; top:0; align-self:flex-start;
     height:100vh;
+    overflow-y:hidden;
+  }
+  #sidebar .panel-inner, #storieRail .panel-inner{
+    height:100%;
+    display:flex; flex-direction:column;
+    min-height:0;
+  }
+  #sidebar .game-list, #storieRail .game-list{
+    flex:1 1 auto; min-height:0;
     overflow-y:auto;
+    scrollbar-width:thin;
+    scrollbar-color:transparent transparent;
+  }
+
+  /* --- Scrollbar delle due liste: entrambe sul lato che guarda il
+     centro pagina (quello con la riga divisoria), non su quello
+     esterno. A sinistra (Racconti brevi) e' gia' cosi' di default,
+     dato che il browser disegna la scrollbar sul bordo destro
+     dell'elemento che scorre. A destra (Libri) invece il default
+     sarebbe il bordo destro ESTERNO della pagina: qui si forza il
+     lato sinistro con direction:rtl sul contenitore che scorre (la
+     scrollbar segue la direction, il contenuto no perche' tutto
+     l'allineamento della colonna e' gia' scritto con proprieta'
+     fisiche - text-align:right, padding-left/right - mai logiche,
+     quindi resta identico; direction:ltr sulle righe stesse e'
+     comunque una sicurezza in piu' contro un possibile riordino
+     bidirezionale del testo). Il margine di 1px (sul lato interno
+     per entrambe, ridotto da 3 - troppo distante dal bordo, sembrava
+     "persa" a meta' invece che incollata alla riga) stacca il bordo
+     della lista dalla riga divisoria di quel tanto, cosi' la
+     scrollbar - che il browser disegna sempre incollata al bordo
+     dell'elemento - si ritrova quasi a ridosso della riga invece che
+     incollata sopra. --- */
+  #sidebar .game-list{ margin-right:1px; }
+  #storieRail .game-list{
+    direction:rtl; margin-left:1px;
+  }
+  #storieRail .game-list > li{ direction:ltr; }
+
+  /* Aspetto sottile, in linea con la palette del sito (--line a
+     riposo, --cyan in hover, come qualunque altro bordo/accento) al
+     posto della scrollbar grigia di sistema. scrollbar-color/-width
+     per Firefox, gli pseudo-elementi ::-webkit-scrollbar-* per
+     Chrome/Safari/Edge - le due sintassi coprono tutti i browser
+     desktop rilevanti, nessuna esclusa (scrollbar-width/color di base
+     ora consolidati nella regola piu' sopra, insieme a flex/overflow).
+     Visibile SOLO in hover sul pannello, immediato (nessuna
+     transizione/ritardo aggiunto qui: a riposo il thumb e'
+     semplicemente trasparente, in hover diventa var(--line) di
+     scatto, nessun 0.5s di attesa). */
+  #sidebar:hover .game-list, #storieRail:hover .game-list{
+    scrollbar-color:var(--line) transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar,
+  #storieRail .game-list::-webkit-scrollbar{
+    width:6px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-track,
+  #storieRail .game-list::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb,
+  #storieRail .game-list::-webkit-scrollbar-thumb{
+    background:transparent;
+    border-radius:999px;
+  }
+  #sidebar:hover .game-list::-webkit-scrollbar-thumb,
+  #storieRail:hover .game-list::-webkit-scrollbar-thumb{
+    background:var(--line);
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover,
+  #storieRail .game-list::-webkit-scrollbar-thumb:hover{
+    background:var(--cyan);
   }
 }
 
-/* Pannello voce (teoria o storia nascosta) — stessa impaginazione
-   del title-panel/title-content, ma testo centrato invece che
-   allineato a sinistra. */
+/* Pannello voce (racconto breve o libro) — stessa impaginazione
+   del title-panel/title-content; titolo centrato come nelle altre
+   sezioni, ma corpo del testo allineato a sinistra invece che
+   centrato (differenza rispetto a storie-teorie.css). */
 .entry-panel{ width:100%; max-width:1350px; margin:20px auto 0; }
+@media (min-width:901px){
+  /* PROVA: banner tolto, riga dell'header TENUTA (bordo sotto
+     compreso, e' la stessa .game-header condivisa, qui solo ridotta
+     di altezza dato che non deve piu' contenere un'immagine). Il
+     selettore capitoli (.entry-game-picker) resta dentro questa
+     riga, ancorato al suo bordo inferiore (bottom:20px) - si sposta
+     su con lei senza bisogno di toccarlo. Titolo/copyright/tag non
+     si spostano nel DOM (restano dentro .entry-panel, subito sotto):
+     con la riga ridotta a 90px invece di 230px, si ritrovano di
+     fatto "al posto del banner", il testo del corpo li segue piu'
+     in alto di prima. */
+  body[data-state="entry"] .game-header__banner,
+  body[data-state="entry"] .game-header__banner-overlay{
+    display:none;
+  }
+  body[data-state="entry"] #pageHeader{
+    height:65px; max-height:65px; padding:0; margin-bottom:0;
+    /* margin-bottom:0 - la regola condivisa .game-header porta 40px
+       di suo, che si sommavano ai 33px di .entry-panel qui sotto
+       dando 73px reali invece dei 33 richiesti. */
+  }
+  body[data-state="entry"] .entry-panel{ margin-top:10px; }
+
+  /* Scroll isolato: solo il corpo del testo scorre, titolo/copyright/
+     tag restano fermi in vista - stessa tecnica gia' usata stamattina
+     per la lista voci in sidebar (contenitore ad altezza fissa,
+     flex:0 0 auto sugli elementi fissi, flex:1+overflow-y:auto su
+     quello che deve scorrere). Non basta pero' fissare l'altezza del
+     contenitore (.entry-content-text sotto): se la PAGINA stessa puo'
+     ancora scorrere, l'intero blocco - titolo compreso - si sposta
+     comunque insieme al resto, come infatti succedeva. Va bloccato lo
+     scroll della pagina stessa (qui sotto), cosi' l'unico scroll
+     possibile resta quello interno di .entry-body. 90px = 15px della
+     topbar + 65px della riga header + 10px di margine del pannello
+     (era 100 = 15+65+20, aggiornato insieme al margine qui sopra). */
+  body[data-state="entry"]{ overflow:hidden; height:100vh; }
+  html:has(body[data-state="entry"]){ overflow:hidden; height:100vh; }
+  body[data-state="entry"] .entry-content-text{
+    height:calc(100vh - 90px);
+    overflow-y:hidden; overflow-x:visible; /* FIX: overflow:hidden
+      (entrambi gli assi) tagliava anche il pezzetto di .entry-body
+      che sporge a sinistra per via del margine negativo (spostamento
+      della scrollbar) - bloccato solo il verticale, che è l'unico a
+      dover restare fermo qui. */
+  }
+  body[data-state="entry"] .entry-title,
+  body[data-state="entry"] .entry-copyright,
+  body[data-state="entry"] .entry-readtime,
+  body[data-state="entry"] .entry-tag{
+    flex:0 0 auto;
+  }
+  body[data-state="entry"] .entry-body{
+    flex:1 1 auto; min-height:0;
+    overflow-y:auto;
+    /* Scrollbar sul lato sinistro, a 25px dalla riga della tabella
+       (la posizione naturale del box, nessun margine negativo
+       necessario - provato prima a 3px e 20px, troppo vicina al
+       bordo veniva tagliata comunque nonostante l'overflow-x:visible
+       piu' sopra nel file, forse per un'interazione diversa con
+       questo specifico contesto RTL). Trucco RTL con
+       unicode-bidi:isolate sul testo interno (vedi .text-highlight
+       piu' sotto) - la proprieta' mancata nel primo tentativo, che
+       crea un vero confine di isolamento bidi (lo stesso meccanismo
+       del tag HTML <bdi>), impedendo alla punteggiatura di risentire
+       del contesto RTL del genitore. */
+    direction:rtl;
+    scrollbar-width:thin;
+    scrollbar-color:transparent transparent;
+  }
+  body[data-state="entry"] .entry-body:hover{
+    scrollbar-color:var(--line) transparent;
+  }
+  body[data-state="entry"] .entry-body .text-highlight{
+    direction:ltr;
+    unicode-bidi:isolate;
+  }
+  body[data-state="entry"] .entry-body .title-like{
+    direction:ltr;
+    unicode-bidi:isolate;
+  } /* FIX: il widget dei like vive dentro .entry-body come elemento
+    separato dal testo (appeso li' da appendLikeWidget in
+    script-racconti.js) - la protezione data al solo .text-highlight
+    non lo copriva, quindi si specchiava (icona/testo in ordine
+    invertito) per lo stesso motivo del testo prima del fix. */
+  body[data-state="entry"] .entry-body::-webkit-scrollbar{
+    width:6px;
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar-thumb{
+    background:transparent;
+    border-radius:999px;
+  }
+  body[data-state="entry"] .entry-body:hover::-webkit-scrollbar-thumb{
+    background:var(--line);
+  }
+  body[data-state="entry"] .entry-body::-webkit-scrollbar-thumb:hover{
+    background:var(--cyan);
+  }
+}
 .entry-content{
+  position:relative; z-index:1;
   display:flex; flex-direction:column; align-items:center; text-align:center;
 }
 /* Ogni voce e' ora un pannello proprio, sempre presente nel DOM
-   (nascosto con [hidden] finche' non selezionato), stesso pattern
-   di racconti.css: l'animazione va sul pannello mostrato, non piu'
-   sul contenitore .entry-content che ora resta statico. */
+   (nascosto con [hidden] finche' non selezionato — vedi
+   script-racconti.js, buildAllEntryPanels/renderEntry): l'animazione
+   di ingresso si applica al pannello mostrato, non piu' al
+   contenitore .entry-content (che ora resta statico, contiene piu'
+   pannelli invece di un solo blocco di testo riscritto ad ogni click). */
 .entry-content-item{
   opacity:0; animation:fadeUp .45s var(--ease) forwards;
   text-align:center;
   width:100%;
 }
-/* display:flex va applicato SOLO quando il pannello non è hidden,
-   stesso identico motivo/bug spiegato in racconti.css. */
+/* display:flex va applicato SOLO quando il pannello non è hidden:
+   messo direttamente su .entry-content-item (senza :not([hidden]))
+   vince per specificità sulla regola predefinita del browser
+   [hidden]{display:none}, quindi l'attributo hidden smetterebbe di
+   funzionare — stesso identico bug già preso in passato con la barra
+   della filigrana su la_traccia_del_tempo.html. */
 .entry-content-item:not([hidden]){
   display:flex; flex-direction:column; align-items:center;
 }
+/* Il wrapper interno del testo deve essere lui il vero flex-parent
+   (stesse proprieta' che prima stavano su .entry-content quando
+   conteneva il testo direttamente), altrimenti .entry-body non ha
+   un contesto flex da cui prendere align-self:flex-start piu' sotto
+   in questo file, e il testo si scentra rispetto alla tazzina Ko-fi. */
 .entry-content-text{
   display:flex; flex-direction:column; align-items:center; text-align:center;
   width:100%;
 }
-.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:2.2rem; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{
   margin:10px auto 0; width:fit-content;
-  font-size:.7rem; color:var(--text-faint);
+  font-size:10px; line-height:15px; color:var(--text-faint);
   letter-spacing:.02em;
 }
-.entry-body{
-  margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75;
-  white-space:pre-line; text-align:center;
+.entry-readtime{
+  margin:10px auto 0; width:fit-content;
+  font-size:10px; line-height:15px; color:var(--text-faint);
+  letter-spacing:.02em;
 }
+.entry-tag{
+  margin:15px auto 0; width:fit-content;
+  padding:5px 14px;
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:999px;
+  font-size:.7rem; line-height:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--item-accent, var(--cyan));
+}
+.entry-body{
+  margin-top:33px; color:var(--text-dim); font-size:1rem; line-height:1.75;
+  white-space:pre-line; text-align:left; max-width:1080px;
+}
+
+/* Dimensione testo: X1.5 e X2 scalano il font-size base (1rem qui
+   sopra desktop, .92rem su mobile piu' sotto). X1 non ha bisogno di
+   nessuna regola, usa gia' il valore base. Attributo su <body>
+   impostato da applyTextSize() in script-racconti.js. */
+body[data-text-size="1.5"] .entry-body{ font-size:1.5rem; }
+body[data-text-size="2"] .entry-body{ font-size:2rem; }
+
 @media (min-width:901px){
   /* .entry-panel di per sé è "width:100%; max-width:1350px;
      margin:auto" — su schermi larghi (container > 1350px) questo lo
-     CENTRA nello stage, staccando l'intero blocco dalla tazzina. Qui
-     lo rendiamo sempre pieno/flush a sinistra: il vincolo di
-     larghezza e la simmetria dei margini li dà da qui in poi
-     entry-body con i suoi padding di 25px per lato. */
+     CENTRA nello stage, staccando l'intero blocco (non solo il
+     testo) dalla tazzina. Qui lo rendiamo sempre pieno/flush a
+     sinistra: il vincolo di larghezza e la simmetria dei margini li
+     danno da qui in poi entry-body con i suoi padding di 25px. */
   .entry-panel{ max-width:none; margin-left:0; margin-right:0; }
 
-  /* Il testo qui è centrato (non a sinistra come in racconti.css):
-     il box che lo contiene deve avere come margine sinistro la
-     tazzina del logo Ko-fi in alto, ed estendersi fino al suo
-     corrispettivo simmetrico a destra — non più fermarsi a un
-     max-width fisso (1080px) indipendente dallo schermo.
-     width:100% + padding di 25px per lato (misura costante su
-     desktop, vedi nota in racconti.css) ottengono esattamente
-     questo: senza width:100% esplicito, su schermi larghi il box si
-     restringe al contenuto e .entry-content lo CENTRA, staccandolo
-     dalla tazzina invece di usarla come margine. */
-  .entry-body{ width:100%; padding-left:25px; padding-right:25px; }
+  /* Corpo del testo: 100px esatti dalla sidebar sinistra (lo stage ha
+     gia' 25px di padding suo, qui se ne aggiungono altri 75) e
+     massimo fino a 300px dalla tabella Libri a destra (25 dello stage
+     + 275 qui = 300 netti). box-sizing:border-box perche' il padding
+     si sottragga dalla larghezza invece di aggiungersi; max-width
+     rimosso (era 1080px nella regola di base) perche' altrimenti
+     avrebbe tagliato il testo prima di arrivare davvero a quei 300px
+     su schermi non larghissimi. Nessun margine negativo qui: 25px
+     (il padding proprio dello stage, immutato) e' risultata la
+     distanza giusta per la scrollbar - il box resta nella sua
+     posizione naturale, senza bisogno di spostarlo. */
+  .entry-body{
+    width:100%; align-self:flex-start; box-sizing:border-box;
+    padding-left:75px; padding-right:75px; /* FIX: era 275px,
+      calibrato per il vecchio impianto senza limite di larghezza -
+      con max-width:75% qui sotto, quel valore mangiava gran parte del
+      75% richiesto, lasciando il testo vero molto piu' stretto del
+      previsto (e uno spazio vuoto enorme prima della filigrana).
+      Simmetrico con padding-left ora - il 75% da solo crea gia' lo
+      spazio necessario per la filigrana sulla destra, non serve
+      piu' un padding sproporzionato apposta. */
+    max-width:75%; /* richiesto esplicitamente: il testo (a qualunque
+      dimensione, X1/X1.5/X2) non deve mai superare il 75% della
+      larghezza disponibile dello stage. box-sizing:border-box qui
+      sopra: il 75% include anche i padding, non solo il testo vero. */
+  }
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
@@ -206,59 +712,69 @@ body[data-state="landing"] #pageHeader{ display:none; }
 
 /* Switch lingua e controlli musica: fanno parte del sistema condiviso
    .stage-topbar in styles.css (stesso di la_traccia_del_tempo.html), che li rende
-   "senza peso" nel flusso e a 100px dal bordo destro di default.
-   Solo qui, dentro la pagina di una voce (non in home, dove restano
-   a 100px), li riporto a 50px: la colonna Storie Nascoste riduce
-   ulteriormente lo spazio disponibile, quindi 100px sarebbe troppo. */
+   "senza peso" nel flusso e a 100px dal bordo destro di default -
+   uniformato: prima qui, in vista voce, veniva riportato a 50px per
+   lasciare piu' spazio alla colonna Storie Nascoste, ora resta a
+   100px ovunque come richiesto esplicitamente. */
 @media (min-width:901px){
-  body[data-state="entry"] .stage-topbar .stage-controls{ margin-right:-50px; }
+
+  /* Il file condiviso styles.css riduce .brand da 100 a 50px dal
+     bordo (margin-left:-50px) per ogni pagina che lo usa - qui,
+     solo su questa pagina, si annulla per tornare a 100px come
+     richiesto esplicitamente, senza toccare il file condiviso (che
+     cambierebbe la stessa cosa anche su Il Filo Nascosto e la
+     Timeline, mai discusse in questo contesto). */
+  .stage-topbar .brand{ margin-left:0; }
 
   /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
      link col trattino sotto di default, mai tolto su desktop - solo
      su mobile in precedenza). */
-  .kofi-link, .index-link{ text-decoration:none; }
+  .kofi-link, .index-link{ text-decoration:none; color:var(--text-faint); }
 
   /* --- Colore "spento" (fuori hover) uniformato al grigio di
      index.html (--text-faint, non il --text-dim del foglio comune):
      vale sia in home che nelle voci, testo e icone. Il cuoricino di
      Ko-fi in home resta rosso come deciso in precedenza (non tocco
      quella riga), qui e' solo testo/altre icone. --- */
-  .kofi-link, .index-link{ color:var(--text-faint); }
-  .discord-link{ color:var(--text-faint); }
+  .discord-link{ color:var(--text-faint); width:40px; }
 
   /* --- Altezza uniforme di tutti i pulsanti (casetta, Ko-fi,
-     Discord, switch lingua), sia in home che nelle voci: prima le
-     voci li avevano piu' piccoli (padding ridotto), qui si allineano
-     tutti a 38px netti con box-sizing:border-box. La forma resta
-     quella di ciascuno (pillola per Ko-fi/casetta/switch, cerchio per
-     Discord) — solo la LARGHEZZA di Ko-fi cambia un po' (testo piu'
-     corto nelle voci, "KoFi" invece del testo lungo). --- */
+     Discord, switch lingua), sia in home che nelle voci: 40px netti
+     con box-sizing:border-box (aggiornato da 38 - nuovo standard di
+     misure concordato). La forma resta quella di ciascuno (pillola
+     per Ko-fi/casetta/switch, cerchio per Discord) — solo la
+     LARGHEZZA di Ko-fi cambia un po' (testo piu' corto nelle voci,
+     "KoFi" invece del testo lungo). --- */
   .kofi-link, .index-link, .discord-link, .lang-switch{
     height:40px; box-sizing:border-box;
   }
-  .discord-link{ width:40px; }
 
   /* --- Vista voce: la tazzina (icona Ko-fi dentro .brand) lascia il
      posto ai pulsanti veri di Ko-fi (solo cuoricino + "KoFi", non il
      testo lungo) e Discord, spostati fisicamente dentro .brand da
-     script-storie-teorie.js (vivono altrove nel markup,
-     .stage-controls, un riordino CSS da solo non li farebbe comparire
-     qui). Ordine: Ko-fi, poi Discord alla sua destra, poi la scritta.
-     Nel DOM sono discord-poi-kofi (per l'ordine in home), quindi qui
-     li giro con row-reverse invece di riscrivere il markup. Bordo del
-     colore della voce aperta (--item-accent); cuoricino/icona Discord
-     grigi "spenti" e colorati dell'accento solo in hover. --- */
+     script-racconti.js (vivono altrove nel markup, .stage-controls,
+     un riordino CSS da solo non li farebbe comparire qui). Ordine:
+     Ko-fi, poi Discord alla sua destra, poi la scritta. Nel DOM sono
+     discord-poi-kofi (per l'ordine in home), quindi qui li giro con
+     row-reverse invece di riscrivere il markup. Bordo del colore
+     della voce aperta (--item-accent); cuoricino/icona Discord grigi
+     "spenti" e colorati dell'accento solo in hover. --- */
   body[data-state="entry"] .brand-icon{ display:none; }
   body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
   body[data-state="entry"] .brand .social-links{
-    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:15px;
   }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
     display:flex;
     border-color:var(--item-accent, var(--cyan));
   }
-  body[data-state="entry"] .kofi-link{ font-size:.76rem; }
+  body[data-state="entry"] .kofi-link{
+    font-size:.76rem;
+    width:auto; padding:0 14px; /* qui il testo e' corto ("KoFi", non
+      "Sostienimi su Ko-fi"), i 180px fissi pensati per la home
+      lasciavano un vuoto enorme intorno alle quattro lettere */
+  }
   body[data-state="entry"] .kofi-link__full{ display:none; }
   body[data-state="entry"] .kofi-link__short{ display:inline; }
   body[data-state="entry"] .discord-link svg{ width:15px; height:15px; }
@@ -272,22 +788,75 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (max-width:900px){
 
+  /* FIX: disattiva lo "scroll anchoring" del browser (attivo di
+     default) su .layout - una funzione che prova ad aggiustare da
+     sola la posizione di scroll quando il contenuto cambia dimensione
+     dopo il caricamento (font che arrivano, immagini, gli script
+     caricati dopo che popolano le liste). Puo' silenziosamente
+     annullare la nostra correzione della posizione (vedi
+     scrollCarouselToStage in script-racconti.js) anche molto dopo che
+     sembrava tutto a posto - sospettato come causa del bug per cui il
+     refresh mostrava a volte "Racconti Brevi" invece della home,
+     nonostante tutti i controlli espliciti gia' in atto. */
+  .layout{ overflow-anchor:none; }
+
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
-     accorgimento gia' su index.html/Storie Senza Cornice). --- */
-  html, body{ overflow:hidden; height:100%; }
+     accorgimento gia' su index.html): html/body fissati, cosi' la
+     pagina non "respira" a ogni gesto verticale. FIX: prima questo
+     blocco valeva su TUTTO mobile, home e vista voce insieme - in
+     voce pero' non esiste (su mobile) nessun meccanismo di scroll
+     interno alternativo, quindi bloccare anche li' lo scroll della
+     pagina rendeva irraggiungibile qualunque cosa sotto la prima
+     schermata, like compreso. Ristretto alla sola home
+     (body[data-state="landing"], dove serve davvero per il
+     carosello), la vista voce torna scorrevole normalmente. --- */
+  html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
+  body[data-state="landing"]{ overflow:hidden; height:100%; }
 
-  /* --- "Teorie" (sidebar) e "Storie Nascoste" (side-rail): il
-     titolo resta fisso, SOLO la lista sotto scorre in verticale
-     quando le voci sono troppe. Limite di altezza sulla <ul> stessa
-     (non sul pannello, che gestisce lo scroll-snap del carosello e
-     non va toccato — causerebbe la stessa rottura gia' vista su
-     Storie Senza Cornice). 130px = 76px di padding sopra + 24px
-     sotto + l'etichetta col suo margine. --- */
+  /* --- Titolo fisso, solo le voci scorrono: stavolta SENZA toccare
+     .sidebar/.side-rail (il pannello che contiene tutto) — quello
+     resta esattamente com'era quando lo swipe funzionava. Il limite
+     e lo scroll vanno solo sulla <ul> al suo interno, un elemento
+     annidato che non ha alcun ruolo nello scroll-snap del carosello:
+     tenendo il contenuto del pannello (etichetta + lista, ora capped)
+     sempre dentro l'altezza dello schermo, il pannello stesso non ha
+     mai bisogno di scorrere (il suo overflow-y:auto resta li' pronto
+     ma inattivo), solo la lista scorre quando le voci sono troppe.
+     130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
+     margine (~27px), gia' cosi' su entrambi i pannelli. Aggiornato a
+     155px: padding-top del pannello ora 85px (era 76, il titolino
+     riprogettato per essere centrato usa questo valore invece del
+     proprio margin-top), il titolino stesso ha margini 0+20px. --- */
   .sidebar .game-list, .side-rail .game-list{
-    max-height:calc(100vh - 130px);
-    max-height:calc(100dvh - 130px);
+    max-height:calc(100vh - 165px);
+    max-height:calc(100dvh - 165px);
     overflow-y:auto;
+  }
+
+  /* Scrollbar sottile e colorata, stesso stile gia' in uso su
+     desktop (linea a riposo, ciano in hover) al posto di quella
+     nativa di sistema - mancava del tutto su mobile. */
+  #sidebar .game-list, #storieRail .game-list{
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar,
+  #storieRail .game-list::-webkit-scrollbar{
+    width:6px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-track,
+  #storieRail .game-list::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb,
+  #storieRail .game-list::-webkit-scrollbar-thumb{
+    background:var(--line);
+    border-radius:999px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover,
+  #storieRail .game-list::-webkit-scrollbar-thumb:hover{
+    background:var(--cyan);
   }
 
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
@@ -301,6 +870,11 @@ body[data-state="entry"] .landing{ display:none; }
   .discord-link{ width:35px; height:35px; color:var(--cyan); }
   .kofi-link{
     height:35px; box-sizing:border-box;
+    width:auto; /* FIX: la regola base (styles.css, pensata per il
+      pulsante lungo di desktop) fissa width:180px senza media query
+      - su mobile vinceva comunque, ignorando il testo breve "KoFi"
+      e restando largo quanto su desktop. Con width:auto torna a
+      dimensionarsi sul contenuto vero (icona + "KoFi" + padding). */
     text-decoration:none;
   }
   .kofi-link__short{ color:var(--cyan); }
@@ -312,9 +886,13 @@ body[data-state="entry"] .landing{ display:none; }
      aperto da un secondo hamburger (rimosso). --- */
   .side-rail{
     flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; height:100dvh; overflow-y:auto; scroll-snap-align:start;
+    height:100vh; overflow-y:auto; scroll-snap-align:start;
     border-left:none; border-top:none;
-    padding:76px 16px 24px;
+    padding:90px 15px 24px; /* valori finali gia' consolidati: il
+      padding-top era 76px qui in origine, poi portato a 90 da una
+      regola successiva nel file; padding-left/right erano 16px, poi
+      15. Scritti qui direttamente, non serve piu' la seconda regola
+      separata che li sovrascriveva. */
   }
 
   /* --- Tazza + "Storie & Teorie": allineata alla stessa posizione
@@ -328,24 +906,36 @@ body[data-state="entry"] .landing{ display:none; }
   .track-info{ max-width:150px; }
   .track-info__game{ display:none; }
 
-  .entry-panel{ margin-top:16px; max-width:100%; }
-  .entry-title{ font-size:1.3rem; max-width:100%; }
-  .entry-body{ max-width:100%; font-size:.92rem; }
+  .entry-panel{ margin-top:5px; max-width:100%; }
+  .entry-title{ font-size:30px; line-height:30px; max-width:100%; margin-top:5px; } /* interlinea
+    uguale al font-size (era 42px ereditati, con font 1.3rem/20.8px -
+    box molto piu' alto del testo vero, stesso problema del titolino
+    appena risolto). Ora coincidono, nessun vuoto extra sopra/sotto.
+    margin-top:5px: senza, il copyright sopra e il titolo si
+    toccherebbero senza nessuno spazio tra loro. */
+  .entry-body{ max-width:100%; font-size:.92rem; margin-top:30px; }
+  /* Dimensione testo mobile: stessa scala di desktop, calcolata dalla
+     base .92rem di qui sopra invece che da 1rem (.92*1.5=1.38,
+     .92*2=1.84). */
+  body[data-text-size="1.5"] .entry-body{ font-size:1.38rem; }
+  body[data-text-size="2"] .entry-body{ font-size:1.84rem; }
 
   /* Niente slider del volume su mobile, solo il pulsante toggle. */
   .volume-panel{ display:none; }
 
   /* ==========================================================
-     Pagina di una voce (teoria/storia) su mobile: scritta a
-     sinistra (pulsante alto 35px, niente bordo, su due righe),
-     tazzina nascosta, Ko-fi + Discord veri e centrati sullo
-     schermo, colorati con l'accento della voce aperta. Poi il
-     banner, poi il testo.
+     Pagina di una voce (teoria/storia) su mobile: un'unica riga
+     in alto (scritta a sinistra, tazza ESATTAMENTE a metà dello
+     spazio tra la fine della scritta e l'inizio dello switch —
+     flex + justify-content:space-between con 3 elementi fa
+     esattamente questo, non un centraggio sull'intera riga), poi
+     il banner, poi il testo. Ripulito totalmente: niente tendina,
+     niente controllo musica per ora, solo queste 3 cose.
      ========================================================== */
   body[data-state="entry"] .stage-topbar{
     display:flex; align-items:center; justify-content:space-between;
     position:fixed; top:0; left:0; right:0;
-    padding:14px 16px;
+    padding:15px;
     background:var(--bg);
     border-bottom:1px solid var(--line);
     z-index:50;
@@ -353,15 +943,26 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .brand{ display:contents; }
   body[data-state="entry"] .brand-text{
     order:1;
-    margin-right:auto;
+    margin-right:auto; /* ancora il pulsante a sinistra, qualunque cosa succeda al resto della riga */
     height:35px; box-sizing:border-box;
     display:flex; align-items:center; justify-content:center;
-    padding:0;
+    padding:0; /* niente padding extra: il gap dal bordo lo da' gia'
+      .stage-topbar (15px), stessa distanza dello switch lingua dal
+      bordo destro — un padding qui lo avrebbe solo raddoppiato */
     border:none; background:none;
     font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
     color:var(--text-dim);
-    text-align:center;
+    text-align:center; /* "Senza Cornice" (la riga piu' larga) tocca
+      cosi' il bordo del blocco, "Storie" si centra sopra di lei —
+      non deve allinearsi anche lei al margine, solo "Senza Cornice"
+      fa da riferimento per il bordo sinistro. */
   }
+  /* La tazzina (icona Ko-fi dentro il brand) sparisce in vista voce:
+     tornano invece i pulsanti veri Ko-fi + Discord, centrati come in
+     home, non piu' legati alla posizione del brand. Cerchio/icone
+     colorati con il colore proprio della voce aperta (--item-accent,
+     lo stesso gia' usato per bordo/testo attivi in questa vista),
+     ciano di riserva se una voce non ne ha uno suo. */
   body[data-state="entry"] .brand-icon{ display:none; }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
@@ -380,21 +981,16 @@ body[data-state="entry"] .landing{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* Niente banner in questa vista. */
+  /* Banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:70px; left:0; right:0; height:130px; /* lato
-      sopra sceso di 10px (60->70), lato sotto salito di 10px
-      (210->200): altezza risultante 200-70=130px */
+    position:absolute; top:66px; left:0; right:0; height:130px;
     margin:0; padding:0; border:none;
     border-radius:0; /* .game-header (condivisa) porta border-radius:var(--radius):
       qui invece il banner deve andare a piena tela, bordo a bordo, non con
       gli angoli arrotondati */
     overflow:hidden;
     z-index:1;
-    outline:none; /* era il contorno di debug (rosa acceso), verifica
-      completata: reso invisibile ma lasciato qui, torna comodo se
-      servirà di nuovo in futuro. */
   }
   body[data-state="entry"] #pageHeaderBanner{
     background-position:left center;
@@ -402,8 +998,8 @@ body[data-state="entry"] .landing{ display:none; }
        base all'altezza, e se l'immagine non era abbastanza larga in
        proporzione lasciava vuoto (nero) sulla destra — dove poi il
        controllo musica finiva per stare "sopra al nulla" invece che
-       sopra al banner vero. cover riempie sempre l'intero box
-       (larghezza compresa), ancorato a sinistra come sopra. */
+       sopra al banner vero. cover riempie sempre l'intero box (larghezza
+       compresa), ancorato a sinistra come sopra. */
     background-size:cover;
   }
   body[data-state="entry"] .game-header__banner-overlay{
@@ -416,40 +1012,747 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:132px;
+    padding-top:131px;
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:70px; right:0; z-index:2;
+    position:absolute; top:51px; right:0; z-index:2;
   }
   body[data-state="entry"] .entry-game-trigger{
-    height:32px; padding:0 12px; font-size:.76rem;
+    height:35px; padding:0 12px; font-size:.76rem;
   }
+  body[data-state="entry"] .text-size-toggle{
+    height:35px; width:50px; padding:0; font-size:.76rem;
+    /* FIX vero (dopo due tentativi falliti con position:absolute
+       indipendente - il pulsante finiva a galleggiare in un punto
+       sbagliato della pagina, il posizionamento assoluto qui non
+       era affidabile per motivi che non sono riuscito a isolare del
+       tutto leggendo solo il codice): niente piu' posizionamento
+       assoluto qui. Il pulsante viene spostato DAVVERO dentro
+       #musicControl via JavaScript (vedi posizionaTextSizeToggle in
+       script-racconti.js) - diventa cosi' un figlio vero della stessa
+       riga flex del volume, eredita automaticamente il suo
+       allineamento verticale e il gap (10px) verso l'elemento prima
+       di lui, senza bisogno di nessuna coordinata calcolata a mano.
+       #musicControl ha gia' gap:10px tra i suoi figli (styles.css,
+       regola base), non serve aggiungere altro spazio qui. */
+  }
+
+  /* Nuove distanze richieste, SOLO mobile - desktop resta con i
+     valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
+  .entry-copyright{ margin-top:5px; font-size:10px; }
+  .entry-readtime{ margin-top:10px; font-size:10px; }
+  .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-12px; right:0; z-index:2; /* alzato di 12px: la
-      distanza tra il bordo sopra del banner e questo riquadro combacia
-      cosi' esattamente (8px) con quella tra il bordo sotto del banner
-      e la tendina — stessa correzione di Storie Senza Cornice */
+    position:absolute; top:-14px; right:0; z-index:2; /* 15px dalla
+      parte alta del banner (era -12px, 17px - richiesto esplicito
+      per allinearlo alla stessa distanza (15px) della tendina dalla
+      parte bassa. right:0 invariato: il pulsante dimensione testo ora
+      e' un figlio VERO di questo contenitore (spostato via JS, vedi
+      posizionaTextSizeToggle in script-racconti.js) - il contenitore
+      si allarga naturalmente per contenerlo, restando ancorato al
+      bordo destro come sempre, nessun calcolo di spazio necessario. */
+    height:35px; /* fissa, come il pulsante volume - senza, il
+      contenitore cresce quando compare la tabellina col nome del
+      brano (piu' alta del solo pulsante), e il pulsante (centrato al
+      suo interno con align-items:center) si sposta per restare al
+      centro della riga cresciuta. Con l'altezza fissa il pulsante
+      resta sempre fermo, e la tabellina - centrata a lui nella
+      stessa riga - resta centrata di conseguenza. */
   }
   body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
 
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli
      per righe aggiuntive. */
-  body[data-state="entry"] .stage{ padding-top:60px; }
+  body[data-state="entry"] .stage{ padding-top:65px; }
 }
 
-/* La pagina (solo su mobile, solo in home) resta invisibile finche'
-   lo script principale non ha finito il proprio avvio - inclusa la
-   correzione della posizione dello scroll del carosello, che vive in
-   fondo a script-storie-teorie.js e aggiunge la classe tfs-ready
-   proprio subito dopo. Stessa tecnica adottata su Storie Senza
-   Cornice per lo stesso bug (sidebar vuota mostrata per un attimo
-   prima della home su connessioni lente). Rete di sicurezza (vedi lo
-   script minuscolo in testa alla pagina): un timer forza comunque la
-   visibilita' dopo 2.5s se lo script principale non dovesse mai
-   arrivarci. */
-@media (max-width:900px){
-  body[data-state="landing"]:not(.tfs-ready) .layout{ visibility:hidden; }
+/* ============================================================
+   Filigrana — SOLO PC, stessa tecnica usata per il canone di Doom
+   su la_traccia_del_tempo.html (.title-watermark): grande immagine di sfondo,
+   sfumata verso il testo, molto trasparente, dietro al contenuto
+   (z-index:0, .entry-content sopra a z-index:1) e non interagibile.
+   Ritagliata con clip-path all'altezza della colonna destra (Libri),
+   che a differenza di quando questa regola e' stata scritta la prima
+   volta ora esiste anche in vista voce su questa pagina - senza il
+   ritaglio, la filigrana le sconfinava sotto. Il box e la scala
+   dell'immagine (right:0, width:42vw) restano quelli originali:
+   cambiare quei valori per "spostare" la filigrana la rimpicciolisce
+   soltanto (background-size:contain ricalcola la scala su un box piu'
+   stretto) - il clip-path invece taglia via la parte in eccesso senza
+   toccare la scala di cio' che resta visibile, un vero ritaglio.
+   ============================================================ */
+.entry-watermark{ display:none; }
+@media (min-width:901px){
+  .entry-watermark{
+    display:block;
+    position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.45);
+    /* 230px = dove inizia davvero lo spazio del testo, non piu' la
+       riga dell'header (80px). Somma: 80 (bordo riga header) + 12
+       (margine di .entry-panel) + 42 (altezza del titolo, 35px di
+       font-size + line-height 42) + 12 (titolo->copyright) + 14
+       (altezza del copyright, 12px di font-size + line-height 14) +
+       12 (copyright->tag) + 25 (altezza del tag, fissata) + 33
+       (margine di .entry-body prima del testo vero) = 230px.
+       right:300px = larghezza della colonna Libri: il box si ferma
+       li', non piu' a right:0 (bordo vero della finestra, DIETRO
+       Libri - motivo per cui prima le filigrane sparivano del tutto,
+       il clip-path lasciava visibile solo la fascia gia' coperta
+       dalla colonna). width: 45% dell'area (100vw meno le due
+       tabelle da 300px ciascuna = larghezza dello stage). */
+    background-size:auto 100%; background-repeat:no-repeat; background-position:right center; /* auto 100%:
+      l'immagine riempie sempre tutta l'altezza del box (dalla riga
+      dell'header fino in fondo), la larghezza segue in proporzione.
+      Ancorata a destra (right center) dentro al box, che essendo
+      largo esattamente 1/3 dell'area la contiene gia' correttamente
+      senza bisogno di ritagliarla ulteriormente. */
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 5%);
+    mask-image:linear-gradient(90deg, transparent, black 5%);
+    box-sizing:border-box;
+    opacity:.35;
+    pointer-events:none;
+    z-index:0;
+  }
 }
+
+/* ============================================================
+   Preset di luminosità (1/2/3) — solo desktop, solo racconti.html.
+   Pulsantini a destra della barra di luminosità della filigrana:
+   ogni preset è un salvataggio indipendente per la voce corrente
+   (es. per schermi diversi con luminosità diverse), gestiti in
+   script-racconti.js. Dimensione: 6px in più dell'altezza della
+   barra (20px -> 26px), 3px sopra e 3px sotto.
+   ============================================================ */
+@media (min-width:901px){
+  .watermark-brightness-line__presets{
+    display:flex; align-items:center; gap:4px;
+    order:2; margin-right:0; margin-top:6px;
+    width:100%; justify-content:flex-end;
+  }
+  .watermark-brightness-line__preset{
+    width:20px; height:25px;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--item-accent, var(--cyan));
+    border-radius:5px;
+    background:transparent;
+    color:var(--text-faint);
+    font-size:.68rem; font-weight:700;
+    opacity:0;
+    transition:opacity .2s ease, color .2s ease, background .2s ease;
+    cursor:pointer;
+  }
+  .watermark-brightness-line:hover .watermark-brightness-line__preset{ opacity:1; }
+  .watermark-brightness-line__preset:hover{ color:var(--text); }
+  .watermark-brightness-line__preset.is-active{
+    background:var(--item-accent, var(--cyan));
+    color:#000;
+  }
+
+  /* Ritardo hover: la barra deve comparire solo dopo almeno 0.5s di
+     hover continuo nella sua area, non al primo passaggio distratto
+     del mouse - altrimenti "crea casini" (comparse/scomparse rapide
+     e involontarie). Il ritardo vale solo QUI, sull'apparizione (le
+     regole :hover, quelle che spingono opacity a 1): la scomparsa
+     (regola base, .watermark-brightness-line__slider/__tick/__preset
+     senza :hover, gia' definita in styles.css) resta rapida e senza
+     ritardo, cosi' basta allontanare il mouse per farla sparire
+     subito, senza dover aspettare. */
+  .watermark-brightness-line:hover .watermark-brightness-line__slider,
+  .watermark-brightness-line:hover .watermark-brightness-line__tick,
+  .watermark-brightness-line:hover .watermark-brightness-line__preset{
+    transition-delay:.5s;
+  }
+}
+
+/* ============================================================
+   Pulsante "tabelle a comparsa" — attiva/disattiva la visibilita'
+   permanente delle due colonne laterali (sidebar sinistra + side-rail
+   destra). Da spento (default): tabelle sempre aperte, come sempre
+   stato. Da acceso: le tabelle restano chiuse (contenuto interno
+   quasi invisibile) finche' non ci si passa sopra col mouse, poi si
+   rivelano. Solo desktop: il touch non ha un vero hover, e le due
+   colonne su mobile sono gia' pannelli separati del carosello, non
+   hanno questo problema.
+
+   SCELTA IMPORTANTE: la larghezza delle due colonne (250px, sempre)
+   non cambia MAI, ne' da spento ne' da acceso ne' in hover - solo
+   la visibilita' del contenuto al loro interno. Cosi' lo stage
+   centrale non si sposta mai di un pixel, in nessuno stato: niente
+   "salti" di layout da gestire, garantito dalla struttura stessa
+   invece che da un accorgimento CSS delicato.
+   ============================================================ */
+@media (min-width:901px){
+  .panel-toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:40px; height:40px; box-sizing:border-box;
+    border:1px solid var(--cyan);
+    background:var(--panel);
+    border-radius:50%;
+    color:var(--text-dim);
+    transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  /* Richiesto esplicitamente: visibile anche in vista voce, non piu'
+     solo in home (prima c'era un display:none qui, tolto). Qui
+     eredita anche il colore dell'opera aperta (--item-accent) per
+     contorno e icona, come gli altri pulsanti della pagina in questa
+     vista (musica, Ko-fi, Discord). In home resta ciano/grigio di
+     base, dato che --item-accent non ha senso senza una voce aperta. */
+  body[data-state="entry"] .panel-toggle{
+    border-color:var(--item-accent, var(--cyan));
+    color:var(--item-accent, var(--cyan));
+  }
+  .panel-toggle:hover{ color:var(--text); }
+  .panel-toggle svg{ width:20px; height:20px; }
+  /* Di default (spento, tabelle sempre aperte): le due strisce
+     laterali dell'icona restano piene, a segnalare "le colonne sono
+     sempre visibili". */
+  .panel-toggle__left, .panel-toggle__right{ opacity:1; transition:opacity var(--dur-fast) var(--ease); }
+  /* Acceso (tabelle a comparsa): le strisce si svuotano, resta solo
+     il contorno - il pulsante stesso comunica lo stato senza bisogno
+     di leggere nulla. */
+  .panel-toggle[aria-pressed="true"] .panel-toggle__left,
+  .panel-toggle[aria-pressed="true"] .panel-toggle__right{ opacity:0; }
+
+  /* Stato "acceso": applicato sul body da script-racconti.js, letto
+     da localStorage ad ogni caricamento pagina cosi' la scelta
+     resta ricordata. Sparisce tutto - contenuto, sfondo, bordo -
+     non solo le voci della lista: da riposo la colonna non deve
+     lasciare traccia visibile di se', a parte l'icona del pulsante
+     stesso che comunica la modalita' attiva.
+
+     Animazione da 1 secondo netto, curva ease-in-out (parte lenta,
+     accelera, rallenta di nuovo in chiusura) sia in apertura che in
+     chiusura - il ritardo di hover-intent (180ms in chiusura, 80ms in
+     apertura) resta separato dalla durata vera e propria: serve a
+     evitare sfarfallio su un passaggio distratto del mouse, non fa
+     parte del "secondo" di animazione richiesto. */
+  body[data-panels="hover"] #sidebar,
+  body[data-panels="hover"] .side-rail{
+    background:transparent; border-color:transparent;
+    transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] #sidebar .panel-inner,
+  body[data-panels="hover"] .side-rail .panel-inner{
+    opacity:0; pointer-events:none;
+    transition:opacity 1s ease-in-out .18s;
+  }
+
+  body[data-panels="hover"] #sidebar:hover,
+  body[data-panels="hover"] #sidebar:focus-within,
+  body[data-panels="hover"] .side-rail:hover,
+  body[data-panels="hover"] .side-rail:focus-within{
+    background:var(--bg-soft); border-color:var(--line);
+    transition:background 1s ease-in-out .08s, border-color 1s ease-in-out .08s;
+  }
+  body[data-panels="hover"] #sidebar:hover .panel-inner,
+  body[data-panels="hover"] #sidebar:focus-within .panel-inner,
+  body[data-panels="hover"] .side-rail:hover .panel-inner,
+  body[data-panels="hover"] .side-rail:focus-within .panel-inner{
+    opacity:1; pointer-events:auto;
+    transition:opacity 1s ease-in-out .08s;
+  }
+}
+
+/* ============================================================
+   Sequenza di comparsa per voce, attivabile con il lucchetto (vedi
+   script-racconti.js: applicaAnimazioneVoce() aggiunge/toglie
+   body[data-entry-animate="true"] ad ogni apertura di voce, in base
+   allo stato salvato per QUELL'OPERA - item.game, condiviso da tutti
+   i suoi capitoli, non il singolo id-capitolo). Da lucchetto acceso
+   nessuna di queste regole si applica: la pagina compare com'e' oggi,
+   istantanea, per qualunque capitolo. Da lucchetto spento (default),
+   invece, questa sequenza, che riparte da capo a ogni cambio voce
+   (anche dalla tendina).
+
+   I pulsanti (.stage-topbar, e anche il selettore capitoli
+   .entry-game-picker) NON fanno parte della sequenza: sono gia' li'
+   fin da subito, nessun fade-in.
+
+   Due fasi vere, scaglionate (invertite rispetto a prima: quando
+   c'era ancora il banner, lui e la filigrana comparivano insieme per
+   primi e il testo dopo - ora che il banner e' sparito ed e' il
+   testo a prendersi il suo posto, il testo compare per primo):
+   1) Testo (.entry-panel):        1s, parte a 0.5s dal click
+      (finisce a 1.5s)
+   2) Filigrana (#entryWatermarkWrap): 2s, parte a 1s dal click
+      (finisce a 3s), fade-in semplice di tutto il blocco insieme -
+      una versione precedente (rivelazione diagonale via maschera
+      animata) causava sfarfallio, tolta.
+   Totale sequenza: 3s - la barra di luminosita' della filigrana
+   resta non interattiva (pointer-events) fino a quel momento incluso,
+   cosi' non si puo' farla comparire in hover mentre il resto sta
+   ancora apparendo.
+   ============================================================ */
+@keyframes tfs-fade-in{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes tfs-enable-pointer{
+  0%, 99.9%{ pointer-events:none; }
+  100%{ pointer-events:auto; }
+}
+
+body[data-entry-animate="true"] .entry-panel{
+  opacity:0;
+  animation:tfs-fade-in 1s ease forwards;
+  animation-delay:.5s;
+}
+body[data-entry-animate="true"] #entryWatermarkWrap{
+  opacity:0;
+  animation:tfs-fade-in 2s ease forwards;
+  animation-delay:1s;
+}
+body[data-entry-animate="true"] #watermarkBrightness{
+  animation:tfs-enable-pointer 3s linear forwards;
+}
+
+/* --- PROVA: contorno colorato delle voci (attiva/hover) portato da
+   2px a 5px (prima un tentativo intermedio a 3px). Vale sia in home
+   che nelle voci, dato che la regola condivisa in styles.css non
+   distingue i due stati - qui la sovrascrivo solo per questa pagina,
+   styles.css resta invariato. Ristretta a #sidebar: .side-rail ha
+   gia' la propria versione specchiata (-5px) qui sopra, una regola
+   generica .game-list aggiunta in fondo al file vincerebbe anche li'
+   per ordine e romperebbe lo specchiamento.
+   FIX: questa regola non era MAI stata avvolta in una media query
+   (a differenza della sua gemella specchiata per .side-rail, che
+   invece e' correttamente dentro @media min-width:901px) - vinceva
+   quindi anche su mobile, grazie all'ID piu' specifico della classe
+   usata nelle regole mobile piu' recenti, facendo crescere la
+   striscia a 5px invece di restare i 3px voluti. Ora e' desktop-only
+   come doveva essere fin dall'inizio. --- */
+@media (min-width:901px){
+  #sidebar .game-list button.is-active:not(.row-lock),
+  #sidebar .game-list a.is-active{
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+  }
+  #sidebar .game-list button:hover:not(.row-lock),
+  #sidebar .game-list a:hover{
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+  }
+}
+
+/* --- PROVA: stesso trattamento anche sui pulsanti veri (2px invece
+   di 1px - prima un tentativo a 3px, si e' scelto di tenere le due
+   cose separate: 2px sui pulsanti, 5px sulla striscia delle voci
+   qui sopra), sia in home (report-bug-btn, kofi-link, discord-link,
+   index-link, lang-switch, landing-video-btn, music-toggle,
+   panel-toggle) sia dentro le voci (lang-switch, music-toggle,
+   entry-game-trigger - gli altri non compaiono li'). Solo su questa
+   pagina, styles.css resta a 1px per tutte le altre. Solo desktop:
+   su mobile i pulsanti sono gia' piu' piccoli (35-37px invece di
+   40), bordo 2px applicato separatamente li' (vedi piu' sotto). --- */
+@media (min-width:901px){
+  .report-bug-btn,
+  .kofi-link,
+  .discord-link,
+  .index-link,
+  .lang-switch,
+  .music-toggle,
+  .panel-toggle,
+  .landing-video-btn,
+  .entry-game-trigger,
+  .track-info{
+    border-width:2px;
+  }
+
+  /* Home: gap tra Discord e Ko-fi portato a 15px (era 10px nel file
+     condiviso styles.css, qui sovrascritto solo per questa pagina).
+     Nelle voci lo stesso valore vive gia' sopra, su .brand
+     .social-links. */
+  body[data-state="landing"] .social-links{ gap:15px; }
+
+  /* Fix: quando parte un brano compare trackInfo (titolo + barra di
+     avanzamento) accanto al pulsante volume dentro .music-control.
+     Quel contenitore non aveva un'altezza propria: quando trackInfo
+     compare la riga diventa piu' alta di lui, e con tutto centrato
+     (align-items:center) il pulsante scende per restare al centro
+     della riga cresciuta - da qui lo spostamento visibile. Altezza
+     fissa uguale al pulsante (40px, lo standard di questa pagina):
+     trackInfo puo' sporgere sopra/sotto senza far crescere la riga,
+     il pulsante resta sempre fermo. */
+  .music-control{ height:40px; }
+  .track-info{ align-self:center; }
+
+  /* Il widget del like ora vive dentro .entry-body (vedi
+     script-racconti.js: serviva per farlo scorrere insieme al testo
+     invece di restare tagliato fuori dall'area bloccata della
+     pagina). Prima stava in un contenitore centrato a se stante ed
+     era inline-flex; qui dentro il testo, allineato a sinistra,
+     serve display:flex normale (va sempre a riga propria, sotto
+     l'ultima riga del racconto, invece di restare in linea con
+     l'ultima parola). */
+  .entry-body .title-like{ display:flex; }
+}
+
+@media (min-width:901px){
+  /* Fix: la striscia colorata delle voci (box-shadow inset) lasciava
+     un artefatto visivo "scintillante" ai bordi arrotondati quando
+     l'hover si spostava via - dovuto al browser che anima il
+     box-shadow insieme al border-radius, ridisegnando la sagoma ogni
+     frame con antialiasing incoerente. Piu' visibile ora che la
+     striscia e' spessa 5px (prima 1-2px, meno percepibile). Tolto
+     box-shadow dalle proprieta' animate: compare/scompare di scatto
+     invece di sfumare, niente piu' frame intermedi da ridisegnare. */
+  .game-list button, .game-list a{
+    transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+}
+
+/* Fix: "Sostienimi su Ko-fi" e "Torna all'index" andavano visibilmente
+   a capo su due righe per un attimo al caricamento/refresh - il font
+   di riserva (prima che Inter finisse di caricare) occupa piu' spazio
+   di quello vero, e senza white-space:nowrap il testo si adattava
+   spezzandosi su due righe dentro il pillolo (larghezza fissa, ma il
+   contenuto dentro si riassestava). report-bug-btn aveva gia' questa
+   proprieta', questi due no - stesso trattamento, ora coerente.
+   Solo desktop: li' il pulsante ha una larghezza fissa (180px/140px)
+   quindi nowrap e' innocuo, il testo semplicemente non va piu' a capo
+   dentro quello spazio. Su mobile invece non ha una larghezza fissa -
+   forzare nowrap li' faceva allargare il pulsante quanto serviva per
+   stare su una riga sola, invece di lasciarlo andare a capo con
+   calma dentro lo spazio che ha. */
+@media (min-width:901px){
+  .kofi-link, .index-link{ white-space:nowrap; }
+}
+
+/* Pulsante "Riproduci video" - per ora senza funzione, nessun video
+   ancora agganciato (verra' aperto in un player YouTube incorporato,
+   che porta gia' il proprio controllo volume: non serve un nostro
+   pulsante volume separato). Stessa pillola degli altri pulsanti
+   della pagina (bordo 1px come standard, non i 2px di prova sui
+   pulsanti dell'header - questo vive nel corpo della home, non nella
+   barra fissa in alto), centrato sotto il sub, 40px di altezza. */
+@media (min-width:901px){
+  .landing-video-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    height:40px; box-sizing:border-box; padding:0 22px 0 17px; /* padding
+      asimmetrico apposta: l'icona play (triangolo) ha piu' spazio
+      vuoto trasparente nel suo stesso riquadro sul lato sinistro che
+      su quello destro (il disegno stesso, non un errore di padding) -
+      compensato riducendo il padding-left di 5px, cosi' il "peso
+      visivo" combinato di icona+testo torna centrato nella pillola.
+      Stesso fix gia' applicato alla vecchia versione mobile di questo
+      pulsante (prima di essere eliminata li'), mai riportato qui su
+      desktop finora. */
+    margin-top:50px;
+    border:2px solid var(--cyan); /* era 1px */
+    background:var(--panel);
+    border-radius:999px;
+    font-size:15px; font-weight:600; color:var(--text-dim);
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  } /* Ora visibile su desktop (richiesto esplicitamente) - il video
+    vero non c'e' ancora, ma al click mostra un messaggio scherzoso
+    invece di restare nascosto in attesa. Su mobile invece eliminato
+    del tutto (vedi @media max-width:900px piu' sotto), sostituito
+    dal toggle Racconti/Libri nella stessa posizione. */
+  .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
+  .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; }
+}
+
+.column-lock{ display:none; } /* nascosto di default (mobile incluso),
+  mostrato solo dentro la media query desktop qui sotto - la feature
+  non e' stata progettata per mobile in questa fase. DEVE stare fuori
+  e PRIMA della media query: dentro o dopo, a parita' di specificita'
+  avrebbe vinto sempre lui per ordine nel file, ignorando il
+  display:flex desktop nonostante la media query corrispondesse
+  (esattamente il bug appena preso e corretto). */
+.eyebrow-wrap{ margin-bottom:0; } /* su mobile il titolino tiene il
+  proprio margine originale (mai toccato li', vedi styles.css) - il
+  wrapper qui non deve aggiungerne un altro sopra, altrimenti si
+  raddoppia lo spazio (i margini di un figlio dentro un flex item non
+  collassano con quelli del contenitore, quindi si sommerebbero
+  davvero, non solo sulla carta). Il valore vero (33px) vive nella
+  media query desktop qui sotto, dove il titolino lo ha azzerato. */
+
+/* Lucchetto "master" per colonna: blocca/sblocca insieme tutti i
+   lucchetti delle singole opere di quella tabella (vedi script-
+   racconti.js). FIX: prima .column-lock era un FRATELLO del
+   titolino nell'HTML (non un figlio), quindi il position:relative
+   sul titolino non gli serviva a nulla - si posizionava rispetto
+   al prossimo antenato posizionato piu' in alto (#sidebar, l'intera
+   colonna), finendo a meta' altezza invece che accanto al titolino.
+   Ora vive dentro .eyebrow-wrap, un contenitore comune per titolino
+   + lucchetto (non dentro il titolino stesso: node.textContent nella
+   traduzione lo cancellerebbe ad ogni cambio lingua). Il wrapper
+   eredita i margini che prima stavano sul titolino (33px sotto,
+   +9px sopra su desktop - stessi valori, stesso effetto visivo),
+   il titolino li azzera. Il centro resta intatto: text-align:center
+   e' ancora sul titolino, invariato, il lucchetto e' assoluto e non
+   tocca il flusso. Stessa forma/dimensione del lucchetto per
+   singola voce (26px, stesso trattamento colore/hover), stesso
+   identico inset di 6px dal bordo interno usato li' (#sidebar
+   .row-lock/.side-rail .row-lock), per allinearsi in verticale. */
+@media (min-width:901px){
+  .eyebrow-wrap{ position:relative; margin-top:9px; margin-bottom:33px; }
+  .sidebar-eyebrow, .rail-label{ margin:0; }
+  .column-lock{
+    display:flex;
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:25px; height:25px; padding:0; box-sizing:border-box;
+    align-items:center; justify-content:center;
+    border:1px solid var(--cyan);
+    border-radius:50%;
+    background:var(--panel);
+    color:var(--cyan);
+    opacity:0; pointer-events:none;
+    -webkit-tap-highlight-color:transparent;
+    outline:none;
+    transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .column-lock svg{ width:15px; height:15px; }
+  #sidebar .column-lock{ right:6px; }
+  .side-rail .column-lock{ left:6px; }
+  #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
+  .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
+    opacity:1; pointer-events:auto;
+  }
+  .column-lock:hover, .column-lock:focus, .column-lock:active{
+    background:var(--panel); border-color:var(--cyan); color:var(--cyan);
+    box-shadow:0 0 0 2px color-mix(in srgb, var(--cyan) 35%, transparent);
+    filter:none;
+  }
+  .column-lock[aria-pressed="true"]{
+    background:var(--panel); color:var(--cyan);
+  }
+  .column-lock[aria-pressed="true"] rect{ fill:currentColor; }
+  .column-lock[aria-pressed="true"]:hover,
+  .column-lock[aria-pressed="true"]:focus,
+  .column-lock[aria-pressed="true"]:active{
+    background:var(--panel); color:var(--cyan);
+  }
+}
+
+@media (max-width:900px){
+  .landing-video-btn{ display:none; } /* ELIMINATO su mobile,
+    richiesto esplicitamente - il suo posto (stessa distanza dal sub
+    sopra) e' preso dal toggle Racconti/Libri, vedi piu' sotto nel
+    file. Su desktop invece e' visibile (vedi @media min-width:901px
+    piu' sopra). */
+
+  /* Distanze del blocco hero riviste. */
+  .landing-title{ font-size:25px; line-height:25px; margin-top:35px; }
+  .landing-intro{ margin-top:15px; }
+  .landing-sub{ margin-top:50px; }
+  body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
+    laterali del blocco a 15px per lato (era 16px, 32px totali nel
+    file condiviso styles.css) - override solo su questa pagina. */
+
+  /* Distanza pulsanti header dal bordo superiore (15px, era 14) e tra
+     loro (10px, era 8) - override della regola condivisa in
+     styles.css, che vale anche per altre pagine: qui la sovrascrivo
+     solo per Storie Senza Cornice, senza toccare il file comune. */
+  .stage-controls{ gap:10px; }
+
+  /* Vero fix per le distanze dal bordo: la barra in home
+     (.stage-topbar, regola in styles.css) usa justify-content:
+     space-between con DUE figli diretti - index-link (sinistra) e
+     stage-controls (destra) - divisi automaticamente dal proprio
+     padding, non da una posizione assoluta impostata su ciascuno
+     (in questo contesto entrambi hanno position:static/auto, vedi
+     styles.css). Il padding era 14px sopra/sotto e 16px ai lati:
+     portato a 15px uniforme, risolve in un colpo solo la distanza
+     dall'alto E da entrambi i bordi laterali, senza dover posizionare
+     i due elementi singolarmente (un tentativo precedente aveva
+     provato a farlo con position:fixed su index-link, rompendo lo
+     space-between: con un solo figlio rimasto nel flusso, viene
+     spinto tutto a sinistra invece di dividersi). */
+  body[data-state="landing"] .stage-topbar{ padding:15px; }
+
+  /* Freccette animate: 90px dal bordo superiore (era 82px) - 25px
+     dalla riga di confine dell'header, che sta a 65px (15px padding
+     sopra + 35px pulsanti + 15px padding sotto). Override della
+     regola condivisa in styles.css, solo su questa pagina. */
+  body[data-state="landing"] .swipe-hint{ top:90px; }
+
+  /* La freccetta in basso (nuova, stessa direzione di quella in alto)
+     usa "bottom" invece di "top" per posizionarsi simmetricamente dal
+     basso - senza, erediterebbe anche lei top:90px dalla regola
+     condivisa qui sopra (stessa classe .swipe-hint), finendo
+     sovrapposta a quella in alto invece che in fondo allo schermo.
+     "top:auto" annulla esplicitamente il top:90px ereditato. */
+  body[data-state="landing"] .swipe-hint--right-bottom{
+    top:auto; bottom:90px;
+  }
+
+  /* Nota: le vecchie regole per il testo/icona del pulsante video
+     mobile (white-space, flex-shrink, dimensioni svg) sono state
+     rimosse - il pulsante e' ora display:none su mobile (vedi sopra),
+     quelle proprieta' non avevano piu' nessun effetto visibile. */
+
+  /* Bordo 2px su tutti i pulsanti dell'header + il pulsante video,
+     richiesto esplicitamente (prima 1px, lo standard di base - il
+     2px finora esisteva solo su desktop, vedi piu' sotto in fondo al
+     file, PROVA sui pulsanti). */
+  .kofi-link, .discord-link, .index-link, .lang-switch,
+  .landing-video-btn, .music-toggle, .track-info{
+    border-width:2px;
+  }
+}
+
+/* ============================================================
+   MOBILE: le tabelle laterali (sidebar/side-rail) restano SEMPRE
+   invisibili di default - garantito da puro CSS, non dipende dal
+   tempismo di alcuno script (stessa idea gia' in uso su Il Muro dei
+   Desideri: il browser "non le vede" fin da subito, quindi lo scroll
+   che parte comunque a 0 di suo non mostra mai il loro contenuto).
+   Tornano visibili solo con tfs-ready, lo stesso segnale aggiunto in
+   fondo a script-racconti.js subito dopo la correzione dello scroll
+   gia' esistente - a quel punto la home (con le sue liste, dato che
+   sono le stesse .sidebar/.side-rail) e' gia' pronta, quindi non c'e'
+   bisogno di un secondo segnale separato solo per lei.
+   Rete di sicurezza (vedi lo script minuscolo in testa alla pagina):
+   un timer forza comunque tfs-ready dopo 2.5s se lo script principale
+   non dovesse mai arrivarci.
+   ============================================================ */
+@media (max-width:900px){
+  body[data-state="landing"]:not(.tfs-ready) #sidebar,
+  body[data-state="landing"]:not(.tfs-ready) .side-rail{
+    visibility:hidden;
+  }
+}
+
+/* ============================================================
+   DESKTOP: l'intera pagina resta invisibile finche' non sono pronti
+   SIA lo script principale SIA i font (probabile causa dei
+   riposizionamenti/ridimensionamenti che si "auto-correggono" in
+   vista - il testo cambia dimensione quando il font vero sostituisce
+   quello di riserva). tfs-desktop-ready e' un segnale a parte da
+   tfs-ready (quello mobile): usa document.fonts.ready, una vera API
+   del browser che si risolve solo a font effettivamente caricati -
+   se lo agganciassi allo stesso tfs-ready di sopra, rallenterebbe
+   anche la rivelazione della home su mobile, che invece deve restare
+   legata solo al proprio caricamento (dati/testo), non ai font.
+   Stessa rete di sicurezza (2.5s) nello script in testa alla pagina.
+   ============================================================ */
+@media (min-width:901px){
+  body:not(.tfs-desktop-ready){ visibility:hidden; }
+}
+
+/* ============================================================
+   MOBILE - titolini, voci, striscia colorata, lucchetto: richiesta
+   esplicita di oggi. Tutto scoped qui, non tocca desktop.
+   ============================================================ */
+@media (max-width:900px){
+  /* Titolini ("Racconti Brevi"/"Libri"): 25px, interlinea ANCH'ESSA
+     25px - box CSS e testo visivo coincidono esattamente.
+     Margini RIPROGETTATI: invece di calcolare la distanza
+     dall'header sommando due contesti diversi (padding del pannello
+     + margine del titolino - matematica a incrocio che ha continuato
+     a dare risultati sbagliati nonostante il conto sembrasse giusto
+     sulla carta), ora il padding-top del pannello stesso CREA DA
+     SOLO l'intero spazio sopra (vedi .sidebar/.side-rail piu' sotto,
+     85px = 65px di riga header + 20px di spazio voluto) - il
+     titolino ha margin-top:0, nessuna somma da fare. margin-bottom
+     resta 20px diretto, identico meccanismo di prima (nessun'altra
+     spaziatura si frappone tra titolino e prima voce). Un solo
+     numero per lato, ciascuno verificabile da solo. */
+  .sidebar-eyebrow, .rail-label{
+    font-size:25px; line-height:25px;
+    margin-top:0; margin-bottom:25px;
+  }
+
+  /* Voci: altezza e font-size interno rubati pari pari da Il Filo
+     Nascosto (nessuna regola mobile propria li', eredita styles.css:
+     line-height:18px, padding 12px/14px). Striscia: spessore 3px
+     invece di 2px (richiesto esplicitamente), sia nella versione
+     permanente (45% di opacita') sia in quella piena su .is-active.
+     Direzione e allineamento: ORA UGUALI per #sidebar e #storieRail -
+     da quando esiste il toggle Racconti/Libri, le due liste
+     condividono la STESSA posizione fisica (la tabella unica a
+     destra), quindi anche "Racconti brevi" deve comportarsi come
+     "Libri" ci si era gia' comportato: testo a destra, striscia
+     specchiata (a destra anche lei, vicina al testo). Su desktop
+     invece #sidebar resta a sinistra, testo e striscia a sinistra
+     come sempre (questa intera sezione e' dentro
+     @media(max-width:900px), non tocca desktop). */
+  #sidebar .game-list button, #sidebar .game-list a,
+  #storieRail .game-list button, #storieRail .game-list a{
+    text-align:right;
+    box-shadow:inset -3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+  }
+  #sidebar .game-list button.is-active, #sidebar .game-list a.is-active,
+  #storieRail .game-list button.is-active, #storieRail .game-list a.is-active{
+    box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan));
+  }
+
+  /* Margini laterali delle voci: il box/striscia resta a 15px dal
+     pannello (invariato). Il testo dentro arriva a un massimo di
+     20px su ENTRAMBI i lati (15+5px di padding proprio, simmetrico -
+     non piu' solo sul lato con la striscia). Larghezza tornata a
+     100% semplice (era ridotta per lasciare spazio al lucchetto, che
+     pero' su mobile e' nascosto: non serve piu' nessuna riduzione,
+     stessa larghezza piena di Il Filo Nascosto). */
+  .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; } /* .side-rail
+    non serve piu' qui: la sua base (piu' sopra in questo file, non
+    nel condiviso styles.css) ha gia' i valori finali direttamente. */
+  #sidebar .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* Box/striscia
+    a 15px netti (dal padding del pannello sopra), testo a 15+15=30px
+    su ENTRAMBI i lati. margin-left:0 aggiunto per coerenza con
+    storieRail, anche se qui non ha mai avuto un valore diverso. */
+  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* stesso, specchiato */
+
+  /* Lucchetto per voce: niente lucchetto su mobile, nascosto del
+     tutto (richiesto esplicitamente - cambio rispetto a un tentativo
+     precedente "sempre visibile", poi scartato). Stessa specificita'
+     della regola base che lo nasconde gia' di suo
+     (.game-list__row .row-lock), ridondante ma esplicito. Senza
+     lucchetto, niente controllo sull'animazione: le voci caricano
+     sempre dirette (vedi applicaAnimazioneVoce in
+     script-racconti.js). */
+  .game-list__row .row-lock{ display:none; }
+
+  /* ============================================================
+     NUOVO CAROSELLO MOBILE A 2 TAPPE (Home + Tabella unica), non
+     piu' 3 (Racconti separati da Libri) - richiesto esplicitamente
+     per eliminare alla radice il bug del refresh/cambio-vista che
+     mostrava la sidebar invece della home: Home e' ora sempre la
+     PRIMA schermata visiva (order:-1), quindi scrollLeft=0 - la
+     posizione di riposo naturale del browser, senza bisogno di
+     nessuna correzione via JavaScript - coincide sempre con la home.
+     SOLO MOBILE: su desktop questo blocco non esiste, le due tabelle
+     restano entrambe visibili ai lati come sempre. ============ */
+  #stage{ order:-1; }
+
+  /* Solo una tabella visibile alla volta, decisa dal toggle in home
+     (setMobileTable in script-racconti.js, che imposta
+     body[data-mobile-table]="teorie"|"storie"). Le regole originali
+     di sidebar/side-rail (flex:0 0 100vw ecc, sopra e in styles.css)
+     restano invariate - qui si nasconde solo quella non attiva, cosi'
+     .layout ha sempre e solo 2 pannelli visibili in totale. */
+  body[data-mobile-table="storie"] #sidebar{ display:none; }
+  body[data-mobile-table="teorie"] #storieRail{ display:none; }
+
+  /* Toggle Racconti/Libri: stesso stile a pillola del cambio lingua,
+     vive solo dentro la home (vedi HTML), quindi non serve
+     nasconderlo esplicitamente su desktop - li' l'elemento esiste ma
+     la home stessa ha un layout diverso, verificare comunque a vista
+     che non interferisca. */
+  .mobile-table-toggle{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    height:35px; box-sizing:border-box;
+    margin-top:50px; /* stessa distanza dal sub che aveva il vecchio
+      pulsante video (ora eliminato su mobile) - il toggle ne prende
+      il posto esatto. */
+    padding:0 14px;
+    border:1px solid var(--cyan);
+    background:var(--panel);
+    border-radius:999px;
+    font-size:.78rem; font-weight:600;
+    width:fit-content;
+  }
+  .mobile-table-toggle__option{
+    color:var(--text-faint);
+    transition:color var(--dur-fast) var(--ease);
+  }
+  .mobile-table-toggle__option.is-active{ color:var(--cyan); }
+  .mobile-table-toggle__sep{ color:var(--line); }
+}
+@media (min-width:901px){
+  /* Il toggle non serve su desktop (le due tabelle sono sempre
+     entrambe visibili ai lati) - nascosto esplicitamente, non solo
+     per assenza di stile mobile. */
+  .mobile-table-toggle{ display:none; }
+}
+
+

@@ -2,6 +2,15 @@
 // STORIE & TEORIE — logica di stato e rendering
 // ============================================================
 
+// Disattiva il ripristino automatico della posizione di scroll del
+// browser al refresh/tasto indietro - stesso fix di Storie Senza
+// Cornice, stessa causa (il carosello mobile che scorre in
+// orizzontale puo' essere ripristinato dal browser in un punto
+// diverso da quello che imposta il nostro codice).
+if("scrollRestoration" in history){
+  history.scrollRestoration = "manual";
+}
+
 const STRINGS = {
   it: {
     brand: "Il Filo Nascosto",
@@ -17,6 +26,10 @@ const STRINGS = {
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     entryCopyright: "© 2026 Sakrem — Analisi e testo originali",
+    entryReadTime: "Durata media di lettura: %s min",
+    entryReadTimeUnderMin: "Durata media di lettura: meno di 1 min",
+    landingVideoBtn: "Riproduci video",
+    landingVideoNotReady: "Shh... il video sta ancora dormendo. Ripassa più avanti 👀",
     leaveALike: "Lascia un like",
     reportBtnLabel: "Segnala bug",
     reportTitle: "Segnala un problema",
@@ -50,6 +63,10 @@ const STRINGS = {
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     entryCopyright: "© 2026 Sakrem — Original analysis and text",
+    entryReadTime: "Estimated reading time: %s min",
+    entryReadTimeUnderMin: "Estimated reading time: under 1 min",
+    landingVideoBtn: "Play video",
+    landingVideoNotReady: "Shh... the video is still asleep. Check back later 👀",
     leaveALike: "Leave a like",
     reportBtnLabel: "Report bug",
     reportTitle: "Report an issue",
@@ -76,6 +93,10 @@ const state = {
   view: "landing",   // landing | entry
   column: null,      // teorie | storie
   entryId: null,
+  mobileTable: "teorie", // teorie | storie - quale lista popola la
+    // tabella unica mobile (vedi setMobileTable).
+  textSizeIndex: 0, // 0=X1, 1=X1.5, 2=X2 - vedi TEXT_SIZES e
+    // cycleTextSize.
   musicOn: true,
   trackIndex: 0
 };
@@ -112,6 +133,11 @@ const el = {
   entryGameTriggerLabel: document.getElementById("entryGameTriggerLabel"),
   entryGameMenu: document.getElementById("entryGameMenu"),
   musicControl: document.getElementById("musicControl"),
+  mobileTableToggle: document.getElementById("mobileTableToggle"),
+  textSizeToggle: document.getElementById("textSizeToggle"),
+  textSizeLabel: document.getElementById("textSizeLabel"),
+  landingVideoBtn: document.getElementById("landingVideoBtn"),
+  panelToggle: document.getElementById("panelToggle"),
 };
 
 // Spostato qui in cima (prima serviva piu' in basso nel file, ma
@@ -130,12 +156,27 @@ const mobileBreakpoint = window.matchMedia("(max-width:900px)");
 const MUSIC_ON_KEY = "tfs-music-on";
 const VOLUME_KEY = "tfs-volume";
 const LANG_KEY = "tfs-lang";
+const PANELS_HOVER_KEY = "tfs-panels-hover";
+const TEXT_SIZE_KEY = "tfs-text-size";
+const MOBILE_TABLE_KEY = "tfs-mobile-table"; // teorie | storie -
+  // ultima tabella mostrata nel toggle mobile (Teorie/Storie
+  // Nascoste). Stessa chiave, stesso significato di Storie Senza
+  // Cornice - condivisa tra le pagine come lingua/musica/volume qui
+  // sopra.
 const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+const storedTextSize = parseInt(localStorage.getItem(TEXT_SIZE_KEY), 10);
+if(storedTextSize === 0 || storedTextSize === 1 || storedTextSize === 2) state.textSizeIndex = storedTextSize;
+const storedMobileTable = localStorage.getItem(MOBILE_TABLE_KEY);
+if(storedMobileTable === "teorie" || storedMobileTable === "storie") state.mobileTable = storedMobileTable;
+if(localStorage.getItem(PANELS_HOVER_KEY) === "true"){
+  document.body.dataset.panels = "hover";
+  if(el.panelToggle) el.panelToggle.setAttribute("aria-pressed", "true");
+}
 
 // On mobile, the entry view puts the game picker and the music control
 // in a row above the text (tendina left, volume right) instead of their
@@ -204,6 +245,19 @@ function appendLikeWidget(container, workId){
   });
 }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
+
+// Tempo di lettura stimato: 200 parole al minuto, calcolato dal testo
+// vero dell'opera nella lingua attuale - dinamico, si aggiorna da
+// solo se il testo cambia in futuro.
+const WORDS_PER_MINUTE = 200;
+function estimateReadingTime(entry){
+  const text = tf(entry.body);
+  if(!text) return "";
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.round(words / WORDS_PER_MINUTE);
+  if(minutes < 1) return t("entryReadTimeUnderMin");
+  return t("entryReadTime").replace("%s", minutes);
+}
 
 // ---------------------------------------------------------
 // Static text (i18n) painting
@@ -274,6 +328,7 @@ function updatePanelText(key){
   rec.textWrap.innerHTML = `
     <h1 class="entry-title">${tf(entry.title)}</h1>
     ${column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
+    <p class="entry-readtime">${estimateReadingTime(entry)}</p>
     <p class="entry-body">${tf(entry.body)}</p>
   `;
   appendLikeWidget(rec.panel, rec.id);
@@ -436,6 +491,8 @@ function selectEntry(column, id){
   if(state.column !== column || state.entryId !== id) state.trackIndex = 0;
   state.column = column;
   state.entryId = id;
+  setMobileTable(column); // il toggle mobile resta coerente con la
+    // voce aperta, qualunque sia il modo in cui e' stata scelta.
   setState("entry");
   closeMobileSidebar();
   closeRailDrawer();
@@ -608,43 +665,52 @@ el.langSwitch.addEventListener("click", () => {
 // es. dopo aver scelto una voce da uno dei due elenchi laterali.
 // Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-mobileBreakpoint.addEventListener("change", paintStaticText);
+mobileBreakpoint.addEventListener("change", () => {
+  paintStaticText();
+  scrollCarouselToStage(false);
+});
 const stageEl = document.getElementById("stage");
+const layoutEl = document.querySelector(".layout");
 
-function scrollCarouselToStage(){
-  if(!mobileBreakpoint.matches) return;
-  stageEl.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+// scrollIntoView() e' notoriamente inaffidabile insieme a
+// scroll-snap-type:mandatory su diversi browser mobili reali (causa
+// vera del bug della sidebar vuota mostrata al posto della home,
+// isolata su Storie Senza Cornice). scrollTo/scrollLeft diretti sulla
+// posizione calcolata (stageEl.offsetLeft) non dipendono da quel
+// comportamento incerto.
+function scrollCarouselToStage(smooth){
+  if(!layoutEl || !stageEl) return;
+  if(smooth) layoutEl.scrollTo({ left: stageEl.offsetLeft, behavior: "smooth" });
+  else layoutEl.scrollLeft = stageEl.offsetLeft;
 }
-function closeMobileSidebar(){ scrollCarouselToStage(); }
+function closeMobileSidebar(){ scrollCarouselToStage(true); }
 function closeRailDrawer(){ /* stesso pannello stage, nessuna azione separata */ }
 
 // Freccette di swipe: nascosta quella che punta verso un bordo già
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
-const layoutEl = document.querySelector(".layout");
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
-const swipeRightEl = document.querySelector(".swipe-hint--right");
+const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
 function updateSwipeHints(){
   if(!mobileBreakpoint.matches || !layoutEl) return;
   const w = window.innerWidth;
   const maxScroll = layoutEl.scrollWidth - w;
   if(swipeLeftEl) swipeLeftEl.style.visibility = layoutEl.scrollLeft <= w * 0.5 ? "hidden" : "visible";
-  if(swipeRightEl) swipeRightEl.style.visibility = layoutEl.scrollLeft >= maxScroll - w * 0.5 ? "hidden" : "visible";
-  if(el.reportBugBtn){
-    // "in stage" = non al pannello piu a sinistra (sidebar) ne, se esiste,
-    // a quello piu a destra (rail): funziona sia con 2 pannelli (Timeline,
-    // niente rail in home) sia con 3 (Racconti/Teorie, sidebar+stage+rail).
-    const pastSidebar = layoutEl.scrollLeft > w * 0.5;
-    const beforeRail = maxScroll <= w || layoutEl.scrollLeft < maxScroll - w * 0.5;
-    el.reportBugBtn.style.display = (pastSidebar && beforeRail) ? "" : "none";
+  const nascondiDestra = layoutEl.scrollLeft >= maxScroll - w * 0.5;
+  swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = nascondiDestra ? "hidden" : "visible"; });
+  // "in stage" = confronto diretto con la posizione vera di stageEl,
+  // non piu' aritmetica basata sul presupposto che stage fosse il
+  // pannello CENTRALE (falso ora che stage e' il PRIMO pannello,
+  // order:-1, nel nuovo carosello mobile a 2 tappe).
+  if(el.reportBugBtn && stageEl){
+    const inStage = Math.abs(layoutEl.scrollLeft - stageEl.offsetLeft) < w * 0.5;
+    el.reportBugBtn.style.display = inStage ? "" : "none";
   }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
 el.brandBtn.addEventListener("click", () => {
   setState("landing");
-  // Stesso fix gia' fatto per Storie Senza Cornice: riporta sempre
-  // allo stage indipendentemente da dove ci si trova nel carosello.
-  scrollCarouselToStage();
+  scrollCarouselToStage(true);
 });
 
 // ---------------------------------------------------------
@@ -737,12 +803,115 @@ document.addEventListener("click", (e) => {
 });
 
 // ---------------------------------------------------------
+// Toggle Teorie/Storie Nascoste (SOLO MOBILE - su desktop questo
+// elemento e' nascosto via CSS e la funzione, anche se chiamata, non
+// cambia niente di visibile).
+// ---------------------------------------------------------
+function setMobileTable(quale){
+  // quale: "teorie" (Teorie) o "storie" (Storie Nascoste)
+  state.mobileTable = quale;
+  localStorage.setItem(MOBILE_TABLE_KEY, quale);
+  el.body.dataset.mobileTable = quale;
+  if(el.mobileTableToggle){
+    el.mobileTableToggle.querySelectorAll("[data-table-option]").forEach(opt => {
+      opt.classList.toggle("is-active", opt.dataset.tableOption === quale);
+    });
+  }
+}
+if(el.mobileTableToggle){
+  el.mobileTableToggle.querySelectorAll("[data-table-option]").forEach(opt => {
+    opt.addEventListener("click", () => setMobileTable(opt.dataset.tableOption));
+  });
+}
+setMobileTable(state.mobileTable);
+
+// ---------------------------------------------------------
+// Dimensione testo (X1 -> X1.5 -> X2 -> di nuovo X1 ad ogni click).
+// ---------------------------------------------------------
+const TEXT_SIZES = ["1", "1.5", "2"];
+function applyTextSize(){
+  const livello = TEXT_SIZES[state.textSizeIndex];
+  document.body.dataset.textSize = livello;
+  if(el.textSizeLabel) el.textSizeLabel.textContent = "X" + livello;
+}
+function cycleTextSize(){
+  state.textSizeIndex = (state.textSizeIndex + 1) % TEXT_SIZES.length;
+  localStorage.setItem(TEXT_SIZE_KEY, String(state.textSizeIndex));
+  applyTextSize();
+}
+if(el.textSizeToggle){
+  el.textSizeToggle.addEventListener("click", cycleTextSize);
+}
+applyTextSize();
+
+// Il pulsante dimensione testo viene spostato DAVVERO nel DOM: dentro
+// #musicControl su mobile (diventa un figlio vero della sua riga
+// flex), torna al suo posto originale in .stage-controls su desktop.
+function posizionaTextSizeToggle(){
+  if(!el.textSizeToggle || !el.musicControl || !el.stageControls || !el.panelToggle) return;
+  if(mobileBreakpoint.matches){
+    if(el.textSizeToggle.parentElement !== el.musicControl){
+      el.musicControl.appendChild(el.textSizeToggle);
+    }
+  } else {
+    if(el.textSizeToggle.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.textSizeToggle, el.panelToggle);
+    }
+  }
+}
+posizionaTextSizeToggle();
+mobileBreakpoint.addEventListener("change", posizionaTextSizeToggle);
+
+// ---------------------------------------------------------
+// Tabelle a comparsa (sidebar + side-rail sempre aperte di default,
+// oppure nascoste finche' non ci si passa sopra col mouse) - SOLO
+// DESKTOP.
+// ---------------------------------------------------------
+if(el.panelToggle){
+  el.panelToggle.addEventListener("click", () => {
+    const acceso = document.body.dataset.panels === "hover";
+    if(acceso){
+      delete document.body.dataset.panels;
+      el.panelToggle.setAttribute("aria-pressed", "false");
+      localStorage.setItem(PANELS_HOVER_KEY, "false");
+    } else {
+      document.body.dataset.panels = "hover";
+      el.panelToggle.setAttribute("aria-pressed", "true");
+      localStorage.setItem(PANELS_HOVER_KEY, "true");
+    }
+  });
+}
+
+// ---------------------------------------------------------
+// Pulsante "Riproduci video" (solo desktop, su mobile e' eliminato):
+// il video vero non e' ancora agganciato, per ora un messaggio
+// scherzoso al posto della riproduzione.
+// ---------------------------------------------------------
+if(el.landingVideoBtn){
+  el.landingVideoBtn.addEventListener("click", () => {
+    alert(t("landingVideoNotReady"));
+  });
+}
+
+// ---------------------------------------------------------
 // Boot
 // ---------------------------------------------------------
 paintStaticText();
 buildAllEntryPanels();
 setState("landing");
-if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+scrollCarouselToStage(false);
+// Rinforzo (stesso fix di Storie Senza Cornice): un solo tentativo
+// puo' arrivare troppo presto, prima che il browser abbia finito di
+// assestare il layout mobile. overflow-anchor:none (vedi CSS) sul
+// carosello impedisce anche allo "scroll anchoring" nativo del
+// browser di annullare questi tentativi piu' tardi.
+function forzaScrollHome(){
+  scrollCarouselToStage(false);
+}
+setTimeout(forzaScrollHome, 50);
+setTimeout(forzaScrollHome, 300);
+setTimeout(forzaScrollHome, 3000);
+window.addEventListener("load", forzaScrollHome);
 updateSwipeHints();
 // La pagina (su mobile, in home) resta invisibile finche' questo
 // punto non viene raggiunto - vedi storie-teorie.css e il piccolo

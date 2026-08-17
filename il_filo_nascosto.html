@@ -14,16 +14,22 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/manrope.css">
 <link rel="stylesheet" href="styles.css?v=20260815e">
-<link rel="stylesheet" href="storie-teorie.css?v=20260815a">
+<link rel="stylesheet" href="storie-teorie.css?v=202608172133">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
-  /* Rete di sicurezza per il fix della pagina nascosta finche' non e'
-     pronta (vedi storie-teorie.css e script-storie-teorie.js, stessa
-     tecnica adottata su Storie Senza Cornice). Se lo script principale
-     non dovesse mai arrivare al punto che rivela la pagina, questo
-     timer indipendente forza comunque la visibilita' dopo 2.5s. */
   setTimeout(function(){ document.body.classList.add("tfs-ready"); }, 2500);
+  setTimeout(function(){ document.body.classList.add("tfs-desktop-ready"); }, 2500);
+  if(window.matchMedia("(max-width:900px)").matches){
+    var tfsLayoutEl = document.querySelector(".layout");
+    var tfsBlockSwipe = function(ev){ ev.preventDefault(); };
+    var tfsUnblockSwipe = function(){
+      if(tfsLayoutEl) tfsLayoutEl.removeEventListener("touchmove", tfsBlockSwipe);
+    };
+    if(tfsLayoutEl) tfsLayoutEl.addEventListener("touchmove", tfsBlockSwipe, { passive:false });
+    window.addEventListener("load", tfsUnblockSwipe);
+    setTimeout(tfsUnblockSwipe, 6000);
+  }
 </script>
 
     <button type="button" class="report-bug-btn" id="reportBugBtn">
@@ -60,8 +66,12 @@
 
   <div class="layout">
     <aside class="sidebar" id="sidebar">
-      <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Teorie</p>
-      <ul class="game-list" id="teorieList"></ul>
+      <div class="panel-inner">
+        <div class="eyebrow-wrap">
+          <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Teorie</p>
+        </div>
+        <ul class="game-list" id="teorieList"></ul>
+      </div>
     </aside>
 
     <main class="stage" id="stage">
@@ -115,7 +125,7 @@
             </div>
 
             <div class="volume-control">
-              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-pressed="false" hidden>
+              <button class="music-toggle" id="musicToggle" type="button" aria-label="Attiva/disattiva musica" aria-haspopup="listbox" aria-expanded="false" aria-pressed="false" hidden>
                 <svg class="music-toggle__icon-on" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M14 7c1 .8 1 5.2 0 6M16.2 5c2 1.6 2 8.4 0 10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
                 <svg class="music-toggle__icon-off" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8v4h3l4 4V4L7 8H4z" fill="currentColor"/><path d="M13 7l5 6M18 7l-5 6" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
               </button>
@@ -125,6 +135,25 @@
               </div>
             </div>
           </div>
+
+          <div class="entry-game-picker" id="entryGamePicker">
+            <button class="entry-game-trigger" id="entryGameTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="entryGameTriggerLabel">—</span>
+              <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <button class="text-size-toggle" id="textSizeToggle" type="button" aria-label="Cambia dimensione del testo">
+            <span id="textSizeLabel">X1</span>
+          </button>
+
+          <button class="panel-toggle" id="panelToggle" type="button" aria-label="Attiva/disattiva la visualizzazione a comparsa delle tabelle laterali" aria-pressed="false">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <rect x="1" y="3" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <rect class="panel-toggle__left" x="1" y="3" width="5" height="14" rx="2" fill="currentColor"/>
+              <rect class="panel-toggle__right" x="14" y="3" width="5" height="14" rx="2" fill="currentColor"/>
+            </svg>
+          </button>
 
           <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
             <span class="lang-option is-active" data-lang-option="en">EN</span>
@@ -142,28 +171,26 @@
       <span class="swipe-hint swipe-hint--right" aria-hidden="true">
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
+      <span class="swipe-hint swipe-hint--right swipe-hint--right-bottom" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
 
       <div class="game-header" id="pageHeader">
         <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
         <div class="game-header__banner-overlay" aria-hidden="true"></div>
-
-        <div class="entry-game-picker" id="entryGamePicker">
-          <button class="entry-game-trigger" id="entryGameTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
-            <span id="entryGameTriggerLabel">—</span>
-            <svg viewBox="0 0 12 8" class="chevron" aria-hidden="true"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
       </div>
 
       <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>
+
+      <ul class="playlist-menu" id="playlistMenu" role="listbox" hidden></ul>
 
       <audio id="bgMusic" preload="none"></audio>
 
       <section class="landing" id="landingPanel">
         <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nell'archivio di storie nascoste e teorie</p>
-        <h1 class="landing-title" data-i18n="landingTitle">The Forgotten Shelf</h1>
+        <h1 class="landing-title" data-i18n="landingTitle">Il Filo Nascosto</h1>
         <p class="landing-intro" data-i18n="landingIntro">
-          The Forgotten Shelf raccoglie riflessioni, teorie dei fan e retroscena nascosti dentro alcune delle saghe videoludiche più amate: dettagli che sfuggono a una prima lettura, indizi lasciati dagli sviluppatori, ipotesi che il tempo non ha ancora del tutto confermato né smentito. Un angolo pensato per chi ama guardare oltre la superficie della trama.
+          Riflessioni, teorie dei fan e retroscena nascosti dentro alcune delle saghe videoludiche più amate: dettagli che sfuggono a una prima lettura, indizi lasciati dagli sviluppatori, ipotesi che il tempo non ha ancora del tutto confermato né smentito. Un angolo pensato per chi ama guardare oltre la superficie della trama.
         </p>
 
         <div class="spoiler-alert">
@@ -172,6 +199,17 @@
         </div>
 
         <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.</p>
+
+        <div class="mobile-table-toggle" id="mobileTableToggle">
+          <button type="button" class="mobile-table-toggle__option is-active" data-table-option="teorie" data-i18n="sidebarEyebrow">Teorie</button>
+          <span class="mobile-table-toggle__sep">/</span>
+          <button type="button" class="mobile-table-toggle__option" data-table-option="storie" data-i18n="railLabel">Storie Nascoste</button>
+        </div>
+
+        <button type="button" class="landing-video-btn" id="landingVideoBtn">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5.5v9l7.5-4.5L7 5.5z" fill="currentColor"/></svg>
+          <span data-i18n="landingVideoBtn">Riproduci video</span>
+        </button>
       </section>
 
       <section class="entry-panel" id="entryPanel" hidden>
@@ -181,15 +219,19 @@
     </main>
 
     <aside class="side-rail" id="storieRail">
-      <p class="rail-label" data-i18n="railLabel">Storie Nascoste</p>
-      <ul class="game-list" id="storieList"></ul>
+      <div class="panel-inner">
+        <div class="eyebrow-wrap">
+          <p class="rail-label" data-i18n="railLabel">Storie Nascoste</p>
+        </div>
+        <ul class="game-list" id="storieList"></ul>
+      </div>
     </aside>
   </div>
 
-  <script src="data-shared-tracks.js?v=20260812"></script>
   <script src="data-storie-teorie.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script-storie-teorie.js?v=20260815a"></script>
+  <script src="script-storie-teorie.js?v=202608172133"></script>
   <script src="stats.js?v=20260809"></script>
+  <script src="data-shared-tracks.js?v=20260812"></script>
 </body>
 </html>
