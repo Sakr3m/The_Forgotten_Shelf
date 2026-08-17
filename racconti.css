@@ -1425,9 +1425,17 @@ body[data-entry-animate="true"] #watermarkBrightness{
 @media (min-width:901px){
   .landing-video-btn{
     display:flex; align-items:center; justify-content:center; gap:8px;
-    height:40px; box-sizing:border-box; padding:0 22px;
+    height:40px; box-sizing:border-box; padding:0 22px 0 17px; /* padding
+      asimmetrico apposta: l'icona play (triangolo) ha piu' spazio
+      vuoto trasparente nel suo stesso riquadro sul lato sinistro che
+      su quello destro (il disegno stesso, non un errore di padding) -
+      compensato riducendo il padding-left di 5px, cosi' il "peso
+      visivo" combinato di icona+testo torna centrato nella pillola.
+      Stesso fix gia' applicato alla vecchia versione mobile di questo
+      pulsante (prima di essere eliminata li'), mai riportato qui su
+      desktop finora. */
     margin-top:50px;
-    border:1px solid var(--cyan);
+    border:2px solid var(--cyan); /* era 1px */
     background:var(--panel);
     border-radius:999px;
     font-size:15px; font-weight:600; color:var(--text-dim);
