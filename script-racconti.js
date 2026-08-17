@@ -1463,25 +1463,12 @@ if(document.fonts && document.fonts.ready){
   document.body.classList.add("tfs-desktop-ready");
 }
 
-// Ripresa dell'ascolto persistente: solo se l'interruttore era attivo
-// e c'e' uno stato salvato da un'altra pagina. Scavalca la selezione
-// normale della voce (che qui non esiste ancora, la pagina si e'
-// appena caricata) mostrando titolo/gioco salvati cosi' come sono;
-// niente pulsante salta, non c'e' una scaletta nota in questo contesto.
-(function resumePersistedMusic(){
-  if(!isMusicPersistOn()) return;
-  let saved;
-  try { saved = JSON.parse(localStorage.getItem(MUSIC_STATE_KEY)); } catch(e) { return; }
-  if(!saved || !saved.src) return;
-  resumedPersistedTrack = true;
-  el.bgMusic.src = saved.src;
-  el.bgMusic.currentTime = saved.time || 0;
-  el.trackInfo.hidden = false;
-  el.trackTitle.textContent = saved.title || "";
-  el.trackGame.textContent = saved.game || "";
-  el.trackSkipBtn.hidden = true;
-  el.bgMusic.play().catch(() => {});
-})();
+// FIX: rimossa resumePersistedMusic - faceva ripartire la musica
+// automaticamente su OGNI pagina nuova caricata (se l'interruttore
+// era attivo), un comportamento mai voluto: il pulsante serve solo a
+// non mettere in pausa la musica quando la scheda va in background o
+// si passa a un'ALTRA scheda di un ALTRO sito, non a farla risuonare
+// su una pagina diversa dello stesso sito.
 
 // ---------------------------------------------------------
 // "Torna all'index" naviga verso index.html: il ritardo prima di
