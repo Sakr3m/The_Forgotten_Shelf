@@ -252,7 +252,14 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 /* Pulsante dimensione testo: X1 -> X1.5 -> X2 -> di nuovo X1 ad ogni
    click/tocco, solo in vista voce (stesso pattern di
    entry-game-picker). Stesso aspetto a pillola di entry-game-trigger,
-   eredita anche lui il colore dell'opera aperta (--item-accent). */
+   eredita anche lui il colore dell'opera aperta (--item-accent).
+   FIX: stile base spostato FUORI dalla media query desktop (dov'era
+   per errore) - ora vale ovunque, mobile compreso, stesso schema di
+   entry-game-trigger qui sotto. Prima il bordo/colore/sfondo erano
+   visibili solo su desktop; su mobile arrivava solo l'override di
+   altezza/padding/font (piu' sotto nel file), senza nessuno stile di
+   base sotto - bordo grigio di default del browser invece del colore
+   dell'opera. */
 body[data-state="entry"] .text-size-toggle{
   display:flex; align-items:center; justify-content:center;
   height:40px; box-sizing:border-box; padding:0 14px;
@@ -1536,7 +1543,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      2px finora esisteva solo su desktop, vedi piu' sotto in fondo al
      file, PROVA sui pulsanti). */
   .kofi-link, .discord-link, .index-link, .lang-switch,
-  .landing-video-btn{
+  .landing-video-btn, .text-size-toggle{
     border-width:2px;
   }
 }

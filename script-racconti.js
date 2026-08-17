@@ -180,6 +180,10 @@ const VOLUME_KEY = "tfs-volume";
 const LANG_KEY = "tfs-lang";
 const PANELS_HOVER_KEY = "tfs-panels-hover";
 const TEXT_SIZE_KEY = "tfs-text-size";
+const LAST_CHAPTER_KEY_PREFIX = "tfs-last-chapter-"; // + item.game -> id
+  // del capitolo. Non un vero segnalibro (nessuna posizione di
+  // scroll salvata, solo QUALE capitolo) - richiesto esplicitamente,
+  // il tempo di lettura massimo (~7 min) non giustifica di piu'.
 const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
@@ -419,10 +423,15 @@ function renderLists(){
     li.className = "game-list__row";
     li.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     const btn = document.createElement("a");
-    btn.href = `voci/storie-senza-cornice/${id}.html`;
+    // Se esiste un capitolo salvato per quest'opera (l'ultimo aperto,
+    // vedi selectEntry), si riparte da li' invece che sempre dal
+    // primo - non un vero segnalibro (nessuna posizione di scroll),
+    // solo quale capitolo.
+    const idDaAprire = localStorage.getItem(LAST_CHAPTER_KEY_PREFIX + item.game) || id;
+    btn.href = `voci/storie-senza-cornice/${idDaAprire}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
-    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
+    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", idDaAprire); });
     li.appendChild(btn);
     li.appendChild(creaLucchetto(item.game));
     el.teorieList.appendChild(li);
@@ -435,10 +444,11 @@ function renderLists(){
     li.className = "game-list__row";
     li.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     const btn = document.createElement("a");
-    btn.href = `voci/storie-senza-cornice/${id}.html`;
+    const idDaAprire = localStorage.getItem(LAST_CHAPTER_KEY_PREFIX + item.game) || id;
+    btn.href = `voci/storie-senza-cornice/${idDaAprire}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
-    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
+    btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", idDaAprire); });
     li.appendChild(btn);
     li.appendChild(creaLucchetto(item.game));
     el.storieList.appendChild(li);
@@ -790,6 +800,13 @@ function selectEntry(column, id){
     // normale di questa
   state.column = column;
   state.entryId = id;
+  const entryData = (column === "teorie" ? RACCONTI : LIBRI)[id];
+  if(entryData && entryData.game){
+    // Non un vero segnalibro (nessuna posizione di scroll), solo
+    // QUALE capitolo - la prossima volta che si apre quest'opera
+    // dalla lista, si riparte da qui invece che dal primo capitolo.
+    localStorage.setItem(LAST_CHAPTER_KEY_PREFIX + entryData.game, id);
+  }
   setMobileTable(column); // il toggle mobile resta coerente con la
     // voce aperta, qualunque sia il modo in cui e' stata scelta -
     // cosi' se si torna alla home e poi alla tabella, si ritrova la
