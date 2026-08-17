@@ -1271,6 +1271,24 @@ paintStaticText();
 buildAllEntryPanels();
 setState("landing");
 if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+// Rinforzo: history.scrollRestoration=manual (vedi inizio file) non
+// sembra bastare da solo in alcuni casi (es. la modalita' emulazione
+// mobile di alcuni browser/DevTools sembra avere una propria memoria
+// della posizione di scroll, separata da quella normale della pagina)
+// - impongo la posizione corretta anche con un piccolo ritardo e di
+// nuovo al "load" della finestra, cosi' vinco anche su un eventuale
+// ripristino che arrivasse dopo il nostro scrollIntoView iniziale.
+function forzaScrollHome(){
+  if(mobileBreakpoint.matches) stageEl.scrollIntoView({ behavior: "instant", inline: "start", block: "nearest" });
+  // ATTENZIONE: mai usare layoutEl.scrollLeft=0 qui - quello e' lo
+  // zero del PRIMO pannello (sidebar/Racconti Brevi, essendo lui il
+  // primo nell'ordine del DOM), non la home. stageEl.scrollIntoView
+  // calcola da solo l'offset giusto per centrare lo stage, qualunque
+  // sia la larghezza della sidebar.
+}
+setTimeout(forzaScrollHome, 50);
+setTimeout(forzaScrollHome, 300);
+window.addEventListener("load", forzaScrollHome);
 updateSwipeHints();
 // Su mobile, le tabelle laterali (sidebar/side-rail) restano
 // invisibili finche' questo punto non viene raggiunto - vedi
