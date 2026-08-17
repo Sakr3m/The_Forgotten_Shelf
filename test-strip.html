@@ -191,5 +191,52 @@
   <!-- TAGLIO 1: tolti stats.js, data.js, data-shared-tracks.js,
        data-storie-teorie.js, data-diari-tracks.js - servono solo per
        la playlist musicale, mai toccata in questo test. -->
+
+  <script>
+    // DIAGNOSTICA (di nuovo, ora in un ambiente molto piu' pulito):
+    // log visibile in pagina di ogni cambio di scrollLeft su .layout,
+    // con l'ora esatta.
+    (function(){
+      var box = document.createElement("div");
+      box.id = "scrollDiagLog";
+      box.style.cssText = "position:fixed;top:0;left:0;right:0;max-height:60vh;overflow-y:auto;background:rgba(0,0,0,.92);color:#0f0;font-family:monospace;font-size:12px;padding:8px;z-index:99999;white-space:pre-wrap;";
+      document.body.appendChild(box);
+      var t0 = performance.now();
+      function riga(msg){
+        var el = document.createElement("div");
+        el.textContent = "[" + Math.round(performance.now() - t0) + "ms] " + msg;
+        box.appendChild(el);
+        box.scrollTop = box.scrollHeight;
+      }
+      var layoutEl = document.querySelector(".layout");
+      var stageEl = document.getElementById("stage");
+      var sidebarEl = document.getElementById("sidebar");
+      if(!layoutEl || !stageEl){ riga("ERRORE: layout o stage non trovati"); return; }
+      riga("Avvio. innerWidth=" + window.innerWidth + " sidebar.offsetWidth=" + (sidebarEl ? sidebarEl.offsetWidth : "?") + " stage.offsetLeft=" + stageEl.offsetLeft);
+      riga("scrollLeft iniziale = " + layoutEl.scrollLeft);
+      var ultimo = layoutEl.scrollLeft;
+      var controlli = 0;
+      var interval = setInterval(function(){
+        controlli++;
+        if(layoutEl.scrollLeft !== ultimo){
+          riga("CAMBIATO: " + ultimo + " -> " + layoutEl.scrollLeft);
+          ultimo = layoutEl.scrollLeft;
+        }
+        if(controlli >= 160){ // 8 secondi
+          clearInterval(interval);
+          riga("--- FINE monitoraggio a 8s. Valore finale: " + layoutEl.scrollLeft + " (stage e' a " + stageEl.offsetLeft + ") ---");
+        }
+      }, 50);
+      layoutEl.addEventListener("scroll", function(){
+        riga("evento 'scroll' nativo -> " + layoutEl.scrollLeft);
+      });
+      window.addEventListener("pageshow", function(ev){
+        riga("evento 'pageshow' - persisted=" + ev.persisted + ", scrollLeft=" + layoutEl.scrollLeft);
+      });
+      document.addEventListener("readystatechange", function(){
+        riga("readyState -> " + document.readyState + ", scrollLeft=" + layoutEl.scrollLeft);
+      });
+    })();
+  </script>
 </body>
 </html>
