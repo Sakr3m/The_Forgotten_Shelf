@@ -31,6 +31,23 @@
   .index-link,
   #pageHeader
   { display: none !important; }
+
+  /* TAGLIO 9: nascondo anche il testo vero della home (eyebrow,
+     titolo, intro, sub) - al loro posto una scritta enorme "HOME",
+     cosi' e' impossibile scambiarla per qualcos'altro in uno
+     screenshot. */
+  .landing-eyebrow, .landing-title, .landing-intro, .landing-sub {
+    display: none !important;
+  }
+  #landingPanel::before {
+    content: "HOME";
+    display: block;
+    font-size: 20vw;
+    font-weight: 900;
+    text-align: center;
+    color: #27ae60;
+    padding-top: 20vh;
+  }
 </style>
 </head>
 <body data-state="landing" data-lang="it">
