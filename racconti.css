@@ -1015,18 +1015,19 @@ body[data-state="entry"] .landing{ display:none; }
   }
   body[data-state="entry"] .text-size-toggle{
     height:35px; width:50px; padding:0; font-size:.76rem;
-    /* FIX vero: il pulsante volume su mobile NON vive nella riga
-       dell'header insieme a Ko-fi/Discord/switch lingua - e' invece
-       position:absolute, vicino al banner (vedi #musicControl subito
-       sotto). Il mio primo tentativo (order CSS dentro la riga
-       flex) non poteva funzionare: order non ha nessun effetto su
-       elementi posizionati assolutamente, che escono dal flusso.
-       Qui replico lo stesso posizionamento assoluto del volume (top
-       identico), messo pero' a destra del tutto (right:0) - il
-       volume qui sotto si sposta della larghezza di questo pulsante
-       (50px) + il gap standard tra pulsanti (10px) = 60px, per fargli
-       posto alla sua sinistra. */
-    position:absolute; top:-14px; right:0; z-index:2;
+    /* FIX vero (dopo due tentativi falliti con position:absolute
+       indipendente - il pulsante finiva a galleggiare in un punto
+       sbagliato della pagina, il posizionamento assoluto qui non
+       era affidabile per motivi che non sono riuscito a isolare del
+       tutto leggendo solo il codice): niente piu' posizionamento
+       assoluto qui. Il pulsante viene spostato DAVVERO dentro
+       #musicControl via JavaScript (vedi posizionaTextSizeToggle in
+       script-racconti.js) - diventa cosi' un figlio vero della stessa
+       riga flex del volume, eredita automaticamente il suo
+       allineamento verticale e il gap (10px) verso l'elemento prima
+       di lui, senza bisogno di nessuna coordinata calcolata a mano.
+       #musicControl ha gia' gap:10px tra i suoi figli (styles.css,
+       regola base), non serve aggiungere altro spazio qui. */
   }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
@@ -1036,13 +1037,14 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-14px; right:60px; z-index:2; /* 15px dalla
+    position:absolute; top:-14px; right:0; z-index:2; /* 15px dalla
       parte alta del banner (era -12px, 17px - richiesto esplicito
       per allinearlo alla stessa distanza (15px) della tendina dalla
-      parte bassa. right:60px (era 0): spostato per lasciare posto al
-      pulsante dimensione testo alla sua destra (50px di larghezza sua
-      + 10px di gap standard tra pulsanti) - vedi .text-size-toggle
-      qui sopra, che ora occupa la posizione right:0 originale. */
+      parte bassa. right:0 invariato: il pulsante dimensione testo ora
+      e' un figlio VERO di questo contenitore (spostato via JS, vedi
+      posizionaTextSizeToggle in script-racconti.js) - il contenitore
+      si allarga naturalmente per contenerlo, restando ancorato al
+      bordo destro come sempre, nessun calcolo di spazio necessario. */
     height:35px; /* fissa, come il pulsante volume - senza, il
       contenitore cresce quando compare la tabellina col nome del
       brano (piu' alta del solo pulsante), e il pulsante (centrato al

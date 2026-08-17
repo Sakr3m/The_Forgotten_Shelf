@@ -1191,6 +1191,32 @@ if(el.textSizeToggle){
 }
 applyTextSize(); // stato iniziale coerente con quanto gia' ripristinato da localStorage
 
+// FIX vero (dopo due tentativi falliti basati su CSS position:absolute
+// indipendente, rivelatosi inaffidabile - il pulsante finiva a
+// galleggiare in un punto sbagliato della pagina): il pulsante viene
+// spostato DAVVERO nel DOM, non solo posizionato via CSS. Su mobile
+// entra dentro #musicControl stesso (dopo .volume-control), diventando
+// un elemento normale della stessa riga flex del volume - eredita
+// automaticamente il suo allineamento/spaziatura (gap gia' presente),
+// nessun calcolo di coordinate necessario. Su desktop torna al suo
+// posto originale in .stage-controls, tra tendina capitoli e
+// panel-toggle. Stesso identico schema gia' in uso su questa pagina
+// per Ko-fi/Discord (vedi setState piu' sopra).
+function posizionaTextSizeToggle(){
+  if(!el.textSizeToggle || !el.musicControl || !el.stageControls || !el.panelToggle) return;
+  if(mobileBreakpoint.matches){
+    if(el.textSizeToggle.parentElement !== el.musicControl){
+      el.musicControl.appendChild(el.textSizeToggle);
+    }
+  } else {
+    if(el.textSizeToggle.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.textSizeToggle, el.panelToggle);
+    }
+  }
+}
+posizionaTextSizeToggle();
+mobileBreakpoint.addEventListener("change", posizionaTextSizeToggle);
+
 // ---------------------------------------------------------
 // Toggle Racconti/Libri (SOLO MOBILE - su desktop questo elemento e'
 // nascosto via CSS e la funzione, anche se chiamata, non cambia
