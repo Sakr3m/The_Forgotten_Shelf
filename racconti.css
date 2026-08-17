@@ -725,6 +725,18 @@ body[data-state="entry"] .landing{ display:none; }
 
 @media (max-width:900px){
 
+  /* FIX: disattiva lo "scroll anchoring" del browser (attivo di
+     default) su .layout - una funzione che prova ad aggiustare da
+     sola la posizione di scroll quando il contenuto cambia dimensione
+     dopo il caricamento (font che arrivano, immagini, gli script
+     caricati dopo che popolano le liste). Puo' silenziosamente
+     annullare la nostra correzione della posizione (vedi
+     scrollCarouselToStage in script-racconti.js) anche molto dopo che
+     sembrava tutto a posto - sospettato come causa del bug per cui il
+     refresh mostrava a volte "Racconti Brevi" invece della home,
+     nonostante tutti i controlli espliciti gia' in atto. */
+  .layout{ overflow-anchor:none; }
+
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
      accorgimento gia' su index.html): html/body fissati, cosi' la

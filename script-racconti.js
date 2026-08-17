@@ -1310,6 +1310,8 @@ function forzaScrollHome(){
 }
 setTimeout(forzaScrollHome, 50);
 setTimeout(forzaScrollHome, 300);
+setTimeout(forzaScrollHome, 3000); // oltre il caso peggiore di 2.5s
+  // di tfs-ready, per coprire margine ancora piu' ampio su reti lente
 window.addEventListener("load", forzaScrollHome);
 updateSwipeHints();
 // Su mobile, le tabelle laterali (sidebar/side-rail) restano
