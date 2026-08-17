@@ -113,6 +113,8 @@ const state = {
   mobileTable: "teorie", // teorie | storie - quale lista popola la
     // tabella unica mobile (vedi setMobileTable). Non riguarda
     // desktop, dove le due tabelle restano entrambe visibili sempre.
+  textSizeIndex: 0, // 0=X1, 1=X1.5, 2=X2 - vedi TEXT_SIZES e
+    // cycleTextSize. Persistito in localStorage (TEXT_SIZE_KEY).
   musicOn: false,    // parte sempre muto: va scelta una playlist dal popup
   playlist: null,    // { label:{it,en}, tracks:[...] } scelta dal popup del volume
   trackIndex: 0
@@ -128,6 +130,8 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   mobileTableToggle: document.getElementById("mobileTableToggle"),
   landingVideoBtn: document.getElementById("landingVideoBtn"),
+  textSizeToggle: document.getElementById("textSizeToggle"),
+  textSizeLabel: document.getElementById("textSizeLabel"),
   panelToggle: document.getElementById("panelToggle"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
@@ -175,12 +179,15 @@ const MUSIC_ON_KEY = "tfs-music-on";
 const VOLUME_KEY = "tfs-volume";
 const LANG_KEY = "tfs-lang";
 const PANELS_HOVER_KEY = "tfs-panels-hover";
+const TEXT_SIZE_KEY = "tfs-text-size";
 const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+const storedTextSize = parseInt(localStorage.getItem(TEXT_SIZE_KEY), 10);
+if(storedTextSize === 0 || storedTextSize === 1 || storedTextSize === 2) state.textSizeIndex = storedTextSize;
 // Applicato subito, non dopo, cosi' la pagina non mostra per un
 // istante lo stato sbagliato (tabelle aperte) prima di passare a
 // quello salvato (a comparsa) un attimo dopo.
@@ -1142,6 +1149,30 @@ if(el.landingVideoBtn){
     alert(t("landingVideoNotReady"));
   });
 }
+
+// ---------------------------------------------------------
+// Dimensione testo (X1 -> X1.5 -> X2 -> di nuovo X1 ad ogni click):
+// imposta un attributo su <body>, letto dal CSS per scalare il
+// font-size di .entry-body (vedi racconti.css). Persistito in
+// localStorage, stessa convenzione delle altre preferenze (lingua,
+// volume, ecc.).
+// ---------------------------------------------------------
+const TEXT_SIZES = ["1", "1.5", "2"]; // indice 0,1,2 - anche
+  // l'etichetta del pulsante (con "X" davanti, vedi applyTextSize).
+function applyTextSize(){
+  const livello = TEXT_SIZES[state.textSizeIndex];
+  document.body.dataset.textSize = livello;
+  if(el.textSizeLabel) el.textSizeLabel.textContent = "X" + livello;
+}
+function cycleTextSize(){
+  state.textSizeIndex = (state.textSizeIndex + 1) % TEXT_SIZES.length;
+  localStorage.setItem(TEXT_SIZE_KEY, String(state.textSizeIndex));
+  applyTextSize();
+}
+if(el.textSizeToggle){
+  el.textSizeToggle.addEventListener("click", cycleTextSize);
+}
+applyTextSize(); // stato iniziale coerente con quanto gia' ripristinato da localStorage
 
 // ---------------------------------------------------------
 // Toggle Racconti/Libri (SOLO MOBILE - su desktop questo elemento e'

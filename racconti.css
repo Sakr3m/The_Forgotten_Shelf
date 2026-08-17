@@ -222,6 +222,15 @@ body[data-state="landing"] #pageHeader{ display:none; }
    overflow:hidden verrebbe tagliato via appena esce dal bordo.
    Si apre sempre verso il basso. */
 .entry-game-picker{ display:none; }
+.panel-toggle{ display:none; } /* FIX: bug preesistente, mai
+  notato finora - mancava un display:none esplicito qui, solo la
+  regola desktop lo rende display:flex. Senza questa riga il
+  pulsante rischiava di comparire (grezzo, senza stile) anche su
+  mobile, dove non ha senso (nessuna tabella da nascondere/mostrare
+  li' - il carosello mobile ha gia' il suo meccanismo). */
+.text-size-toggle{ display:none; } /* visibile solo in vista voce,
+  stesso pattern di entry-game-picker - vedi @media piu' sotto per
+  desktop e mobile. */
 /* Nascosto anche quando la voce non ha altri capitoli collegati
    (impostato via JS in renderGamePicker), a prescindere da PC/mobile.
    Stesso prefisso "body[data-state=entry]" delle regole che altrimenti
@@ -237,6 +246,28 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
        volume e lo switch lingua). Qui non serve piu' nessun
        posizionamento assoluto: e' un elemento normale della riga
        flex, l'ordine nel DOM decide gia' da solo la sua posizione. */
+  }
+}
+
+/* Pulsante dimensione testo: X1 -> X1.5 -> X2 -> di nuovo X1 ad ogni
+   click/tocco, solo in vista voce (stesso pattern di
+   entry-game-picker). Stesso aspetto a pillola di entry-game-trigger,
+   eredita anche lui il colore dell'opera aperta (--item-accent). */
+body[data-state="entry"] .text-size-toggle{
+  display:flex; align-items:center; justify-content:center;
+  height:40px; box-sizing:border-box; padding:0 14px;
+  border:1px solid var(--item-accent, var(--cyan));
+  background:var(--panel);
+  border-radius:999px;
+  font-size:.82rem; font-weight:600;
+  color:var(--text-dim);
+  cursor:pointer;
+  transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+@media (hover:hover) and (pointer:fine){
+  body[data-state="entry"] .text-size-toggle:hover{
+    color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+    background:var(--panel-raised);
   }
 }
 .entry-game-trigger{
@@ -594,6 +625,14 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   margin-top:33px; color:var(--text-dim); font-size:1rem; line-height:1.75;
   white-space:pre-line; text-align:left; max-width:1080px;
 }
+
+/* Dimensione testo: X1.5 e X2 scalano il font-size base (1rem qui
+   sopra desktop, .92rem su mobile piu' sotto). X1 non ha bisogno di
+   nessuna regola, usa gia' il valore base. Attributo su <body>
+   impostato da applyTextSize() in script-racconti.js. */
+body[data-text-size="1.5"] .entry-body{ font-size:1.5rem; }
+body[data-text-size="2"] .entry-body{ font-size:2rem; }
+
 @media (min-width:901px){
   /* .entry-panel di per sé è "width:100%; max-width:1350px;
      margin:auto" — su schermi larghi (container > 1350px) questo lo
@@ -617,7 +656,12 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   .entry-body{
     width:100%; align-self:flex-start; box-sizing:border-box;
     padding-left:75px; padding-right:275px;
-    max-width:none;
+    max-width:75%; /* richiesto esplicitamente: il testo (a qualunque
+      dimensione, X1/X1.5/X2) non deve mai superare il 75% della
+      larghezza disponibile dello stage. Prima "none" (nessun limite,
+      il padding asimmetrico da solo bastava a dare l'aspetto giusto
+      alla dimensione base). box-sizing:border-box qui sopra: il 75%
+      include anche i padding, non solo il testo vero. */
   }
 }
 
@@ -846,6 +890,11 @@ body[data-state="entry"] .landing{ display:none; }
     margin-top:5px: senza, il copyright sopra e il titolo si
     toccherebbero senza nessuno spazio tra loro. */
   .entry-body{ max-width:100%; font-size:.92rem; margin-top:30px; }
+  /* Dimensione testo mobile: stessa scala di desktop, calcolata dalla
+     base .92rem di qui sopra invece che da 1rem (.92*1.5=1.38,
+     .92*2=1.84). */
+  body[data-text-size="1.5"] .entry-body{ font-size:1.38rem; }
+  body[data-text-size="2"] .entry-body{ font-size:1.84rem; }
 
   /* Niente slider del volume su mobile, solo il pulsante toggle. */
   .volume-panel{ display:none; }
@@ -946,6 +995,9 @@ body[data-state="entry"] .landing{ display:none; }
     position:absolute; top:51px; right:0; z-index:2;
   }
   body[data-state="entry"] .entry-game-trigger{
+    height:35px; padding:0 12px; font-size:.76rem;
+  }
+  body[data-state="entry"] .text-size-toggle{
     height:35px; padding:0 12px; font-size:.76rem;
   }
 
@@ -1257,7 +1309,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .music-toggle,
   .panel-toggle,
   .landing-video-btn,
-  .entry-game-trigger{
+  .entry-game-trigger,
+  .text-size-toggle{
     border-width:2px;
   }
 
