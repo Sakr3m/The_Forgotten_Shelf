@@ -291,5 +291,60 @@
   <!-- TAGLIO 1: tolti stats.js, data.js, data-shared-tracks.js,
        data-storie-teorie.js, data-diari-tracks.js - servono solo per
        la playlist musicale, mai toccata in questo test. -->
+
+  <script>
+    // DIAGNOSTICA: log visibile in pagina di ogni cambio di
+    // scrollLeft su .layout, con l'ora esatta - invece di continuare
+    // a togliere pezzi a caso, vediamo direttamente CHI la sposta e
+    // QUANDO.
+    (function(){
+      var box = document.createElement("div");
+      box.id = "scrollDiagLog";
+      box.style.cssText = "position:fixed;top:0;left:0;right:0;max-height:45vh;overflow-y:auto;background:rgba(0,0,0,.92);color:#0f0;font-family:monospace;font-size:11px;padding:8px;z-index:99999;white-space:pre-wrap;";
+      document.body.appendChild(box);
+      var t0 = performance.now();
+      function riga(msg){
+        var el = document.createElement("div");
+        el.textContent = "[" + Math.round(performance.now() - t0) + "ms] " + msg;
+        box.appendChild(el);
+        box.scrollTop = box.scrollHeight;
+      }
+      var layoutEl = document.querySelector(".layout");
+      var stageEl = document.getElementById("stage");
+      if(!layoutEl || !stageEl){ riga("ERRORE: layout o stage non trovati"); return; }
+      riga("Avvio log. offsetLeft stage = " + stageEl.offsetLeft);
+      var ultimo = layoutEl.scrollLeft;
+      riga("scrollLeft iniziale = " + ultimo);
+      // Controlla ogni 50ms per 5 secondi se la posizione e' cambiata
+      // rispetto all'ultima rilevazione - non e' un evento nativo del
+      // browser (che non esiste per singole modifiche a scrollLeft
+      // via JS), ma un controllo a intervalli abbastanza fitto da
+      // catturare praticamente qualunque cambiamento.
+      var controlli = 0;
+      var interval = setInterval(function(){
+        controlli++;
+        if(layoutEl.scrollLeft !== ultimo){
+          riga("CAMBIATO: " + ultimo + " -> " + layoutEl.scrollLeft + " (stage e' a " + stageEl.offsetLeft + ")");
+          ultimo = layoutEl.scrollLeft;
+        }
+        if(controlli >= 100){ // 100 * 50ms = 5 secondi
+          clearInterval(interval);
+          riga("--- FINE monitoraggio a 5s. Valore finale: " + layoutEl.scrollLeft + " ---");
+        }
+      }, 50);
+      // Log anche sui normali eventi di scroll (quelli veri, generati
+      // da utente o da chiamate scrollTo/scrollLeft che il browser
+      // riconosce come tali).
+      layoutEl.addEventListener("scroll", function(){
+        riga("evento 'scroll' nativo - scrollLeft ora = " + layoutEl.scrollLeft);
+      });
+      document.addEventListener("visibilitychange", function(){
+        riga("visibilitychange -> " + document.visibilityState);
+      });
+      window.addEventListener("pageshow", function(ev){
+        riga("evento 'pageshow' - persisted=" + ev.persisted + ", scrollLeft=" + layoutEl.scrollLeft);
+      });
+    })();
+  </script>
 </body>
 </html>
