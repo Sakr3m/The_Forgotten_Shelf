@@ -1127,7 +1127,6 @@ el.langSwitch.addEventListener("click", () => {
 // es. dopo aver scelto una voce da uno dei due elenchi laterali.
 // Inerte su desktop (il layout lì non scrolla).
 // ---------------------------------------------------------
-mobileBreakpoint.addEventListener("change", paintStaticText);
 const stageEl = document.getElementById("stage");
 const layoutEl = document.querySelector(".layout");
 
@@ -1145,6 +1144,23 @@ function scrollCarouselToStage(smooth){
 }
 function closeMobileSidebar(){ scrollCarouselToStage(true); }
 function closeRailDrawer(){ /* stesso pannello stage, nessuna azione separata */ }
+
+// FIX: la causa vera del bug "vedo sempre Racconti Brevi" non era il
+// refresh in se', ma il passaggio DA desktop A mobile SENZA ricaricare
+// la pagina (es. lo strumento "vista mobile" del browser, attivato su
+// una pagina desktop gia' aperta). Il codice che riporta lo scroll
+// sullo stage girava una sola volta, all'apertura iniziale dello
+// script - se in quel momento si era ancora in versione desktop (dove
+// il carosello non esiste nemmeno, tutto affiancato normalmente),
+// non c'era nulla da correggere. Quando poi si passava a mobile in
+// corsa, il carosello nasceva li' per la prima volta, partendo dal
+// primo pannello (sidebar) di default - e nessun codice interveniva
+// mai a correggerlo, perche' quello scritto scattava solo
+// all'apertura, non al cambio di vista. Ora riascolta anche quello.
+mobileBreakpoint.addEventListener("change", () => {
+  paintStaticText();
+  scrollCarouselToStage(false);
+});
 
 // Freccette di swipe: nascosta quella che punta verso un bordo già
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
