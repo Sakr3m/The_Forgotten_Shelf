@@ -184,6 +184,8 @@ const LAST_CHAPTER_KEY_PREFIX = "tfs-last-chapter-"; // + item.game -> id
   // del capitolo. Non un vero segnalibro (nessuna posizione di
   // scroll salvata, solo QUALE capitolo) - richiesto esplicitamente,
   // il tempo di lettura massimo (~7 min) non giustifica di piu'.
+const MOBILE_TABLE_KEY = "tfs-mobile-table"; // teorie | storie -
+  // ultima tabella mostrata nel toggle mobile (Racconti/Libri).
 const storedMusicOn = localStorage.getItem(MUSIC_ON_KEY);
 if(storedMusicOn !== null) state.musicOn = storedMusicOn === "true";
 const storedVolume = localStorage.getItem(VOLUME_KEY);
@@ -192,6 +194,8 @@ const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
 const storedTextSize = parseInt(localStorage.getItem(TEXT_SIZE_KEY), 10);
 if(storedTextSize === 0 || storedTextSize === 1 || storedTextSize === 2) state.textSizeIndex = storedTextSize;
+const storedMobileTable = localStorage.getItem(MOBILE_TABLE_KEY);
+if(storedMobileTable === "teorie" || storedMobileTable === "storie") state.mobileTable = storedMobileTable;
 // Applicato subito, non dopo, cosi' la pagina non mostra per un
 // istante lo stato sbagliato (tabelle aperte) prima di passare a
 // quello salvato (a comparsa) un attimo dopo.
@@ -1226,6 +1230,7 @@ mobileBreakpoint.addEventListener("change", posizionaTextSizeToggle);
 function setMobileTable(quale){
   // quale: "teorie" (Racconti) o "storie" (Libri)
   state.mobileTable = quale;
+  localStorage.setItem(MOBILE_TABLE_KEY, quale);
   el.body.dataset.mobileTable = quale;
   if(el.mobileTableToggle){
     el.mobileTableToggle.querySelectorAll("[data-table-option]").forEach(opt => {

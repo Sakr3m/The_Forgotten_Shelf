@@ -276,7 +276,10 @@ body[data-state="entry"] .text-size-toggle{
   background:var(--panel);
   border-radius:999px;
   font-size:.82rem; font-weight:600;
-  color:var(--text-dim);
+  color:var(--item-accent, var(--cyan)); /* era var(--text-dim) -
+    ora la scritta X1/X1.5/X2 prende il colore dell'opera aperta,
+    come il bordo. Regola condivisa (nessuna media query), vale gia'
+    su desktop e mobile insieme. */
   cursor:pointer;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
