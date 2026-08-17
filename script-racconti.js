@@ -32,6 +32,8 @@ const STRINGS = {
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     entryCopyright: "© 2026 Sakrem — Tutti i diritti riservati",
+    entryReadTime: "Durata media di lettura: %s min",
+    entryReadTimeUnderMin: "Durata media di lettura: meno di 1 min",
     leaveALike: "Lascia un like",
     reportBtnLabel: "Segnala bug",
     reportTitle: "Segnala un problema",
@@ -65,6 +67,8 @@ const STRINGS = {
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     entryCopyright: "© 2026 Sakrem — All rights reserved",
+    entryReadTime: "Estimated reading time: %s min",
+    entryReadTimeUnderMin: "Estimated reading time: under 1 min",
     leaveALike: "Leave a like",
     reportBtnLabel: "Report bug",
     reportTitle: "Report an issue",
@@ -304,6 +308,20 @@ function appendLikeWidget(container, workId){
 }
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 
+// Tempo di lettura stimato: 200 parole al minuto (standard editoriale
+// comune), calcolato dal testo vero dell'opera nella lingua attuale -
+// dinamico, si aggiorna da solo se il testo cambia in futuro, non
+// serve ricalcolare a mano ogni volta.
+const WORDS_PER_MINUTE = 200;
+function estimateReadingTime(entry){
+  const text = tf(entry.body);
+  if(!text) return "";
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.round(words / WORDS_PER_MINUTE);
+  if(minutes < 1) return t("entryReadTimeUnderMin");
+  return t("entryReadTime").replace("%s", minutes);
+}
+
 // ---------------------------------------------------------
 // Static text (i18n) painting
 // ---------------------------------------------------------
@@ -458,8 +476,9 @@ function updatePanelText(key){
   if(!rec) return;
   const entry = rec.entry;
   rec.textWrap.innerHTML = `
-    <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-copyright">${t("entryCopyright")}</p>
+    <h1 class="entry-title">${tf(entry.title)}</h1>
+    <p class="entry-readtime">${estimateReadingTime(entry)}</p>
     ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
     <div class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></div>
   `;

@@ -484,6 +484,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
   }
   body[data-state="entry"] .entry-title,
   body[data-state="entry"] .entry-copyright,
+  body[data-state="entry"] .entry-readtime,
   body[data-state="entry"] .entry-tag{
     flex:0 0 auto;
   }
@@ -572,6 +573,14 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
 }
 .entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin-left:auto; margin-right:auto; }
 .entry-copyright{
+  margin:10px auto 0; width:fit-content;
+  font-size:10px; line-height:15px; color:var(--text-faint);
+  letter-spacing:.02em;
+}
+.entry-readtime{
+  /* Stile provvisorio, stessa famiglia visiva del copyright - le
+     distanze esatte (sopra/sotto) si sistemano in un secondo
+     momento, richiesto esplicitamente di non definirle ora. */
   margin:10px auto 0; width:fit-content;
   font-size:10px; line-height:15px; color:var(--text-faint);
   letter-spacing:.02em;
@@ -928,8 +937,12 @@ body[data-state="entry"] .landing{ display:none; }
   }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
-     valori condivisi (12px/12px/33px) mai toccati qui. */
+     valori condivisi (10px/15px/33px, aggiornati rispetto ai
+     12px/12px/33px originari) mai toccati qui. */
   .entry-copyright{ margin-top:5px; font-size:10px; }
+  .entry-readtime{ margin-top:5px; font-size:10px; } /* provvisorio,
+    stessa logica del copyright - da rivedere insieme alle altre
+    distanze in un secondo momento, come da richiesta esplicita. */
   .entry-tag{ margin-top:10px; }
   .entry-body{ margin-top:30px; }
   body[data-state="entry"] .music-control{
