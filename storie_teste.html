@@ -66,9 +66,19 @@
     // All'apertura, porta subito la vista sulla schermata "home"
     // (quella centrale) invece di partire da "racconti" (la prima
     // nell'ordine, dove il carosello si troverebbe di default).
+    // Ripetuta piu' volte (subito, poi dopo 50ms, poi dopo 300ms):
+    // a volte il browser non e' ancora pronto nell'istante esatto in
+    // cui la pagina si apre, un solo tentativo puo' arrivare troppo
+    // presto e non avere effetto.
     var caroselloEl = document.getElementById("carosello");
     var homeEl = document.getElementById("home");
-    caroselloEl.scrollLeft = homeEl.offsetLeft;
+    function vaiAllaHome(){
+      caroselloEl.scrollLeft = homeEl.offsetLeft;
+    }
+    vaiAllaHome();
+    setTimeout(vaiAllaHome, 50);
+    setTimeout(vaiAllaHome, 300);
+    window.addEventListener("load", vaiAllaHome);
   </script>
 
 </body>
