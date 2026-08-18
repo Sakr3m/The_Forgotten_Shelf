@@ -360,7 +360,7 @@ body[data-state="entry"] .text-size-toggle{
     residuo al genitore scrollabile piu' vicino, che qui e' la
     pagina intera. */
   background:var(--panel-raised);
-  border:1px solid var(--item-accent, var(--cyan));
+  border:2px solid var(--item-accent, var(--cyan));
   border-radius:var(--radius-sm);
   box-shadow:0 16px 32px rgba(0,0,0,.5);
   z-index:30;
