@@ -629,11 +629,10 @@ body[data-state="entry"] .text-size-toggle{
 }
 .entry-readtime{
   margin:10px auto 0; width:fit-content;
-  font-size:20px; line-height:30px; color:var(--text-faint); /* font-size
-    raddoppiato (era 10px), richiesto esplicitamente - line-height
-    raddoppiata anche lei (era 15px) per restare nella stessa
-    proporzione, altrimenti il testo piu' grande si sarebbe schiacciato
-    dentro una riga pensata per un font la meta' piu' piccolo. */
+  font-size:15px; line-height:22.5px; color:var(--text-faint); /* font-size
+    a 1.5x (era 20px/2x, poi corretto qui a 1.5x - richiesto
+    esplicitamente, il doppio risultava troppo). line-height alla
+    stessa proporzione (era 30px). */
   letter-spacing:.02em;
 }
 .entry-tag{
@@ -1046,9 +1045,8 @@ body[data-state="entry"] .landing{ display:none; }
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
      valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
   .entry-copyright{ margin-top:5px; font-size:10px; }
-  .entry-readtime{ margin-top:10px; font-size:20px; } /* raddoppiato
-    (era 10px), stessa richiesta generale valida anche qui - eredita
-    gia' la line-height raddoppiata dalla regola base. */
+  .entry-readtime{ margin-top:10px; font-size:15px; } /* a 1.5x (era
+    20px/2x) - eredita la line-height a 1.5x dalla regola base. */
   .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
