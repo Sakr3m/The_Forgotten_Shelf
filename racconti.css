@@ -1015,7 +1015,9 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:131px;
+    padding-top:116px; /* era 131px - ridotto di 15px per portare la
+      distanza banner->copyright da 35px (misurata con un browser
+      vero) ai 20px richiesti esplicitamente. */
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
