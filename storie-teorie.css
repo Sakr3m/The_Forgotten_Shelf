@@ -706,8 +706,10 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
   .music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
 }
 .music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
-.track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
-.track-persist:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
+@media (hover:hover) and (pointer:fine){
+  .track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
+  .track-persist:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
+}
 .track-info{ border-color:var(--item-accent, var(--cyan)); }
 .track-info__title{ color:var(--item-accent, var(--text)); }
 .track-skip{ border-color:var(--item-accent, var(--cyan)); }

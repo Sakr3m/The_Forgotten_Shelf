@@ -280,7 +280,9 @@ body[data-state="landing"] .brand{ display:none; }
     prolungata passa il controllo allo scrubbing della barra sotto
     (vedi attachProgressLongPressHandoff in script-racconti.js) */
 }
-.track-skip:hover{ border-color:var(--cyan); color:var(--cyan); }
+@media (hover:hover) and (pointer:fine){
+  .track-skip:hover{ border-color:var(--cyan); color:var(--cyan); }
+}
 .track-skip svg{ width:11px; height:11px; }
 
 /* Stesso stile del salta-traccia, dal lato opposto: quando attivo
@@ -296,7 +298,9 @@ body[data-state="landing"] .brand{ display:none; }
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   touch-action:none; /* stesso motivo di .track-skip qui sopra */
 }
-.track-persist:hover{ border-color:var(--cyan); color:var(--cyan); }
+@media (hover:hover) and (pointer:fine){
+  .track-persist:hover{ border-color:var(--cyan); color:var(--cyan); }
+}
 .track-persist svg{ width:11px; height:11px; }
 .track-persist[aria-pressed="true"]{ color:var(--cyan); }
 .track-progress{
