@@ -1124,6 +1124,7 @@ body[data-state="entry"] .landing{ display:none; }
     opacity:.35;
     pointer-events:none;
     z-index:0;
+    outline:2px dashed cyan; outline-offset:-2px; /* DEBUG: contorno del box, da togliere a verifica finita */
   }
 }
 
