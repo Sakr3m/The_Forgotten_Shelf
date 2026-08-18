@@ -880,7 +880,7 @@ She walked on.`
     accentColor: "#e0748a",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Mobile.jpg",
-    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Filigrana.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Parole%20Senza%20Fiato%20Filigrana%201.2.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
     filigranaBottomLevel: 45,
