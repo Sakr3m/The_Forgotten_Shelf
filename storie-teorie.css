@@ -629,7 +629,11 @@ body[data-state="entry"] .text-size-toggle{
 }
 .entry-readtime{
   margin:10px auto 0; width:fit-content;
-  font-size:10px; line-height:15px; color:var(--text-faint);
+  font-size:20px; line-height:30px; color:var(--text-faint); /* font-size
+    raddoppiato (era 10px), richiesto esplicitamente - line-height
+    raddoppiata anche lei (era 15px) per restare nella stessa
+    proporzione, altrimenti il testo piu' grande si sarebbe schiacciato
+    dentro una riga pensata per un font la meta' piu' piccolo. */
   letter-spacing:.02em;
 }
 .entry-tag{
@@ -674,19 +678,20 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
      posizione naturale, senza bisogno di spostarlo. */
   .entry-body{
     width:100%; align-self:flex-start; box-sizing:border-box;
-    padding-left:75px; padding-right:75px; /* FIX: era 275px,
-      calibrato per il vecchio impianto senza limite di larghezza -
-      con max-width:75% qui sotto, quel valore mangiava gran parte del
-      75% richiesto, lasciando il testo vero molto piu' stretto del
-      previsto (e uno spazio vuoto enorme prima della filigrana).
-      Simmetrico con padding-left ora - il 75% da solo crea gia' lo
-      spazio necessario per la filigrana sulla destra, non serve
-      piu' un padding sproporzionato apposta. */
-    max-width:75%; /* richiesto esplicitamente: il testo (a qualunque
-      dimensione, X1/X1.5/X2) non deve mai superare il 75% della
-      larghezza disponibile dello stage. box-sizing:border-box qui
-      sopra: il 75% include anche i padding, non solo il testo vero. */
-  }
+    text-align:center; /* richiesto esplicitamente - questa pagina non
+      ha una filigrana a destra da evitare (a differenza di Storie
+      Senza Cornice), quindi il testo puo' stare centrato invece che
+      allineato a sinistra. Solo qui in questo blocco desktop: su
+      mobile resta come da regola base (sinistra), il centrato e' un
+      concetto pensato per quando le due tabelle sono visibili
+      insieme ai lati. */
+    padding-left:75px; padding-right:75px; /* 75px + i 25px che lo
+      stage ha gia' di suo = 100px netti dalle tabelle su entrambi i
+      lati, come richiesto esplicitamente. */
+  } /* max-width:75% rimosso (era qui prima) - quel limite serviva
+    solo a Storie Senza Cornice per lasciare spazio alla filigrana a
+    destra; qui non serve, il testo puo' riempire tutto lo spazio tra
+    i due padding di 75px. */
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
@@ -1041,7 +1046,9 @@ body[data-state="entry"] .landing{ display:none; }
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
      valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
   .entry-copyright{ margin-top:5px; font-size:10px; }
-  .entry-readtime{ margin-top:10px; font-size:10px; }
+  .entry-readtime{ margin-top:10px; font-size:20px; } /* raddoppiato
+    (era 10px), stessa richiesta generale valida anche qui - eredita
+    gia' la line-height raddoppiata dalla regola base. */
   .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
