@@ -21,7 +21,7 @@ const RACCONTI = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Banner.jpg",
     bannerOffset: 70,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Mobile.jpg",
-    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Prova.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Cinere%20Prova%202.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
     filigranaBottomLevel: 65,
