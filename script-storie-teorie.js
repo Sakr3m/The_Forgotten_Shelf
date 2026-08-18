@@ -920,6 +920,25 @@ updateSwipeHints();
 // per un attimo prima della home su connessioni lente).
 document.body.classList.add("tfs-ready");
 
+// FIX CRITICO: questo pezzo mancava del tutto - senza, la pagina
+// restava SEMPRE bloccata invisibile per 2.5 secondi pieni (il timer
+// di sicurezza nell'HTML), ad ogni singolo caricamento, perche' nulla
+// aggiungeva mai tfs-desktop-ready per la via veloce. document.fonts.
+// ready e' una vera API del browser, si risolve solo quando i font
+// sono davvero caricati e applicati (di norma una questione di
+// decine di millisecondi, non secondi). Controllo di sicurezza per
+// browser che non la supportano (rara, ma meglio non rischiare una
+// pagina bloccata invisibile per sempre su quei casi). Stesso pezzo
+// gia' presente in script-racconti.js, qui dimenticato durante
+// l'integrazione.
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(() => {
+    document.body.classList.add("tfs-desktop-ready");
+  });
+} else {
+  document.body.classList.add("tfs-desktop-ready");
+}
+
 // FIX: rimossa resumePersistedMusic - faceva ripartire la musica
 // automaticamente su OGNI pagina nuova caricata (se l'interruttore
 // era attivo), un comportamento mai voluto: il pulsante serve solo a
