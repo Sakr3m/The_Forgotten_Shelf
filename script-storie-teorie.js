@@ -329,9 +329,16 @@ function updatePanelText(key){
     ${column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
     <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-readtime">${estimateReadingTime(entry)}</p>
-    <p class="entry-body">${tf(entry.body)}</p>
+    <div class="entry-body">${tf(entry.body)}</div>
   `;
-  appendLikeWidget(rec.panel, rec.id);
+  // FIX: il cuoricino va DENTRO .entry-body (il box che scorre
+  // davvero), non nel pannello intero (rec.panel) - senza, restava
+  // oltre il bordo bloccato della pagina, mai raggiungibile
+  // nemmeno scorrendo fino in fondo. Stesso bug gia' trovato e
+  // corretto oggi su Storie Senza Cornice (script-racconti.js), non
+  // ancora portato qui quando ho integrato ieri.
+  const bodyEl = rec.textWrap.querySelector(".entry-body");
+  appendLikeWidget(bodyEl || rec.panel, rec.id);
 }
 
 function updateAllPanelsText(){
