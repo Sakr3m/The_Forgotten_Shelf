@@ -517,8 +517,8 @@ function updatePanelText(key){
   if(!rec) return;
   const entry = rec.entry;
   rec.textWrap.innerHTML = `
-    <p class="entry-copyright">${t("entryCopyright")}</p>
     <h1 class="entry-title">${tf(entry.title)}</h1>
+    <p class="entry-copyright">${t("entryCopyright")}</p>
     <p class="entry-readtime">${estimateReadingTime(entry)}</p>
     ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
     <div class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></div>
