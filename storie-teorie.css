@@ -200,7 +200,7 @@
    tra il nome del gioco e il sottotitolo: va rispettato sia nei
    bottoni della lista sia nel titolo grande della voce. */
 .game-list button, .game-list a{ white-space:pre-line; line-height:18px; }
-.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin:10px auto 0; white-space:pre-line; } /* margin-top:10px:
+.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin:15px auto 0; white-space:pre-line; } /* margin-top:15px (era 10, +5 richiesto esplicito per il distacco dal copyright):
   senza, il copyright sopra (spostato li' da un ordine precedente) e
   il titolo si toccherebbero senza nessuno spazio tra loro. */
 
@@ -917,7 +917,7 @@ body[data-state="entry"] .landing{ display:none; }
   .track-info__game{ display:none; }
 
   .entry-panel{ margin-top:5px; max-width:100%; }
-  .entry-title{ font-size:30px; line-height:30px; max-width:100%; margin-top:5px; } /* interlinea
+  .entry-title{ font-size:30px; line-height:30px; max-width:100%; margin-top:10px; } /* margin-top:10px (era 5, +5 richiesto esplicito per il distacco dal copyright). interlinea
     uguale al font-size (era 42px ereditati, con font 1.3rem/20.8px -
     box molto piu' alto del testo vero, stesso problema del titolino
     appena risolto). Ora coincidono, nessun vuoto extra sopra/sotto.
