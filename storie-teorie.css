@@ -677,6 +677,15 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
      posizione naturale, senza bisogno di spostarlo. */
   .entry-body{
     width:100%; align-self:flex-start; box-sizing:border-box;
+    max-width:none; /* FIX: mancava - la regola base (senza media
+      query, piu' in alto in questo file) imposta max-width:1080px,
+      pensato per Storie Senza Cornice. Senza annullarlo qui
+      esplicitamente, il box restava bloccato a 1080px totali invece
+      di riempire tutta la larghezza tra i due padding di 75px -
+      risultato: spazio vuoto in eccesso sulla destra, il box non
+      arrivava affatto simmetrico ai 100px dei due lati come
+      richiesto (a sinistra sembrava giusto solo perche' li' non
+      c'era nulla a fermarlo). */
     text-align:center; /* richiesto esplicitamente - questa pagina non
       ha una filigrana a destra da evitare (a differenza di Storie
       Senza Cornice), quindi il testo puo' stare centrato invece che
@@ -687,10 +696,7 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
     padding-left:75px; padding-right:75px; /* 75px + i 25px che lo
       stage ha gia' di suo = 100px netti dalle tabelle su entrambi i
       lati, come richiesto esplicitamente. */
-  } /* max-width:75% rimosso (era qui prima) - quel limite serviva
-    solo a Storie Senza Cornice per lasciare spazio alla filigrana a
-    destra; qui non serve, il testo puo' riempire tutto lo spazio tra
-    i due padding di 75px. */
+  }
 }
 
 /* Colore accento della voce selezionata (impostato sul body via JS)
