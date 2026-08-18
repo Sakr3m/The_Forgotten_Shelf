@@ -657,6 +657,26 @@ function renderEntry(){
     activeRec.panel.style.animation = "";
   }
 
+  // Filigrana: la parte alta parte esattamente a meta' strada tra la
+  // fine del tag e l'inizio del testo vero (richiesto esplicitamente).
+  // Misurata DAVVERO via getBoundingClientRect invece di un valore
+  // fisso calcolato a mano nel CSS (un tentativo precedente in quel
+  // senso si e' rivelato sbagliato/vecchio, non aggiornato dopo aver
+  // aggiunto il tempo di lettura e spostato il copyright sopra il
+  // titolo) - cosi' resta sempre corretto anche se le distanze
+  // cambiano in futuro, senza dover ricalcolare a mano. Solo desktop:
+  // su mobile la filigrana e' comunque display:none (racconti.css).
+  if(activeRec && el.entryWatermark && !mobileBreakpoint.matches){
+    const tagEl = activeRec.textWrap.querySelector(".entry-tag");
+    const bodyEl = activeRec.textWrap.querySelector(".entry-body");
+    if(tagEl && bodyEl){
+      const tagRect = tagEl.getBoundingClientRect();
+      const bodyRect = bodyEl.getBoundingClientRect();
+      const centro = (tagRect.bottom + bodyRect.top) / 2;
+      el.entryWatermark.style.top = centro + "px";
+    }
+  }
+
   renderGamePicker(entry);
 }
 

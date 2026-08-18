@@ -1093,13 +1093,17 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-watermark{
     display:block;
     position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.45);
-    /* 230px = dove inizia davvero lo spazio del testo, non piu' la
-       riga dell'header (80px). Somma: 80 (bordo riga header) + 12
-       (margine di .entry-panel) + 42 (altezza del titolo, 35px di
-       font-size + line-height 42) + 12 (titolo->copyright) + 14
-       (altezza del copyright, 12px di font-size + line-height 14) +
-       12 (copyright->tag) + 25 (altezza del tag, fissata) + 33
-       (margine di .entry-body prima del testo vero) = 230px.
+    /* top:230px e' solo un valore di riserva iniziale, usato appena
+       prima che il JS lo corregga (renderEntry in script-racconti.js
+       misura per davvero, via getBoundingClientRect, il punto a meta'
+       strada tra la fine del tag e l'inizio del testo - richiesto
+       esplicitamente). Il vecchio calcolo a mano che stava qui prima
+       era superato: non teneva conto del tempo di lettura (aggiunto
+       dopo) ne' del copyright spostato sopra il titolo (anche questo
+       dopo) - da qui la filigrana finita nel punto sbagliato. Niente
+       piu' aritmetica a mano da tenere aggiornata ad ogni cambiamento
+       di layout: il valore vero si ricalcola da solo ogni volta che
+       si apre una voce.
        right:300px = larghezza della colonna Libri: il box si ferma
        li', non piu' a right:0 (bordo vero della finestra, DIETRO
        Libri - motivo per cui prima le filigrane sparivano del tutto,
