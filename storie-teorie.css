@@ -102,10 +102,9 @@
    l'allineamento a destra del testo qui: ciascuna tabella evidenzia
    verso il proprio bordo esterno, non sempre verso sinistra a
    prescindere. */
-.side-rail .game-list button.is-active:not(.row-lock),
-.side-rail .game-list a.is-active,
-.side-rail .game-list button:hover:not(.row-lock),
-.side-rail .game-list a:hover{
+.side-rail .game-list > li:hover,
+.side-rail .game-list > li:has(> a.is-active),
+.side-rail .game-list > li:has(> button.is-active:not(.row-lock)){
   box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   /* Il gradiente di sfondo (background, non lo box-shadow qui sopra)
      e' ereditato dalla regola condivisa in styles.css: 90deg, colore

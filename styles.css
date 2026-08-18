@@ -486,17 +486,37 @@ body[data-state="landing"] .brand{ display:none; }
     dei due contenitori (sidebar 16px, side-rail 20px) */
   border-radius:var(--radius-sm);
   font-size:15px; font-weight:500; color:var(--text-dim);
-  transition:background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  transition:color var(--dur-fast) var(--ease);
 }
-.game-list button.is-active:not(.row-lock), .game-list a.is-active{
-  color:var(--text); font-weight:600;
+/* Evidenziazione (sfondo/bordo colorato) spostata dal link/bottone
+   al <li> intero (18/08): prima si fermava al bordo del link, che ha
+   larghezza ridotta apposta per lasciare spazio al lucchetto (vedi
+   racconti.css) - risultato, l'evidenziazione appariva "corta" e non
+   arrivava a comprendere il lucchetto quando presente. Il <li> invece
+   e' sempre a larghezza piena, quindi l'evidenziazione ora si estende
+   su tutta la riga, lucchetto incluso (dove esiste - su Storie Senza
+   Cornice; su Il Filo Nascosto i <li> sono semplici, senza lucchetto,
+   ma prendono comunque la stessa evidenziazione piu' lunga). Il
+   selettore e' generico (.game-list > li) apposta, non
+   .game-list__row: quella classe esiste solo sui <li> di Storie Senza
+   Cornice (script-racconti.js), Il Filo Nascosto usa <li> semplici
+   (script-storie-teorie.js) - .game-list > li copre entrambi i casi
+   con la stessa regola. :has() per lo stato attivo (la voce aperta al
+   momento): supportato da tutti i browser evergreen attuali. */
+.game-list > li{
+  border-radius:var(--radius-sm);
+  transition:background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.game-list > li:hover,
+.game-list > li:has(> a.is-active),
+.game-list > li:has(> button.is-active:not(.row-lock)){
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
   box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
-.game-list button:hover:not(.row-lock), .game-list a:hover{
+.game-list > li:hover > a, .game-list > li:hover > button:not(.row-lock),
+.game-list > li:has(> a.is-active) > a,
+.game-list > li:has(> button.is-active:not(.row-lock)) > button:not(.row-lock){
   color:var(--text); font-weight:600;
-  background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
-  box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
 
 
