@@ -142,7 +142,6 @@ const el = {
   entryContent: document.getElementById("entryContent"),
   pageHeaderBanner: document.getElementById("pageHeaderBanner"),
   entryWatermark: document.getElementById("entryWatermark"),
-  entryWatermarkWrap: document.getElementById("entryWatermarkWrap"), // DEBUG: serve solo per il tratteggio ciano, da togliere insieme al resto del debug
   bgMusic: document.getElementById("bgMusic"),
   trackInfo: document.getElementById("trackInfo"),
   trackTitle: document.getElementById("trackTitle"),
@@ -763,7 +762,6 @@ function renderEntry(){
       const bodyRect = bodyEl.getBoundingClientRect();
       const centro = (tagRect.bottom + bodyRect.top) / 2;
       el.entryWatermark.style.top = centro + "px";
-      if(el.entryWatermarkWrap) el.entryWatermarkWrap.style.top = centro + "px"; // DEBUG: il tratteggio ciano vive sul wrapper (niente opacity propria), deve seguire la stessa posizione reale - da togliere insieme al resto del debug
     }
   }
 
