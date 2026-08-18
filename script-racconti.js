@@ -1163,6 +1163,87 @@ window.addEventListener("mouseup", () => {
   trackProgressEl.classList.remove("is-scrubbing");
 });
 
+// Touch diretto sulla barra: stessa logica del mouse. touch-action:none
+// (styles.css) impedisce alla pagina di scrollare mentre si trascina -
+// il gesto orizzontale sulla barra e' altrimenti ambiguo per il
+// browser (potrebbe essere uno scroll verticale che parte storto)
+// finche' non glielo neghiamo esplicitamente.
+function seekFromTouch(touch){
+  seekFromPointerEvent({ clientX: touch.clientX });
+}
+trackProgressEl.addEventListener("touchstart", (e) => {
+  if(!el.bgMusic.duration) return;
+  isScrubbingProgress = true;
+  trackProgressEl.classList.add("is-scrubbing");
+  seekFromTouch(e.touches[0]);
+}, { passive:true });
+trackProgressEl.addEventListener("touchmove", (e) => {
+  if(!isScrubbingProgress) return;
+  seekFromTouch(e.touches[0]);
+}, { passive:true });
+trackProgressEl.addEventListener("touchend", () => {
+  if(!isScrubbingProgress) return;
+  isScrubbingProgress = false;
+  trackProgressEl.classList.remove("is-scrubbing");
+});
+
+// Handoff da pressione prolungata sui due pulsanti vicini alla barra
+// (salta-traccia e ascolto persistente, appena sopra): su schermo
+// piccolo il tocco puo' facilmente sbagliare bersaglio tra loro e la
+// barra sotto. Un tap breve resta un tap normale sul pulsante; se il
+// dito resta fermo li' un secondo o piu', l'utente sta quasi
+// certamente cercando di spostare la barra, non di premere il
+// pulsante - passiamo il controllo allo scrubbing usando la stessa
+// posizione orizzontale del dito, proiettata sulla barra (si aggancia
+// al bordo piu' vicino se il dito e' fuori dai suoi confini, grazie
+// al clamp gia' in seekFromPointerEvent).
+const LONG_PRESS_MS = 1000;
+function attachProgressLongPressHandoff(btn){
+  if(!btn) return;
+  let timer = null;
+  let handedOff = false;
+  let startTouch = null;
+
+  btn.addEventListener("touchstart", (e) => {
+    handedOff = false;
+    startTouch = e.touches[0];
+    timer = setTimeout(() => {
+      if(!el.bgMusic.duration) return;
+      handedOff = true;
+      isScrubbingProgress = true;
+      trackProgressEl.classList.add("is-scrubbing");
+      seekFromTouch(startTouch);
+    }, LONG_PRESS_MS);
+  }, { passive:true });
+
+  btn.addEventListener("touchmove", (e) => {
+    if(!handedOff) return;
+    seekFromTouch(e.touches[0]);
+  }, { passive:true });
+
+  btn.addEventListener("touchend", (e) => {
+    clearTimeout(timer);
+    if(handedOff){
+      isScrubbingProgress = false;
+      trackProgressEl.classList.remove("is-scrubbing");
+      e.preventDefault(); // impedisce il click sintetico che altrimenti
+        // scatterebbe comunque dopo il touchend, facendo partire skip
+        // o ascolto persistente nonostante l'utente stesse solo
+        // trascinando la barra
+    }
+  });
+
+  btn.addEventListener("touchcancel", () => {
+    clearTimeout(timer);
+    if(handedOff){
+      isScrubbingProgress = false;
+      trackProgressEl.classList.remove("is-scrubbing");
+    }
+  });
+}
+attachProgressLongPressHandoff(el.trackSkipBtn);
+attachProgressLongPressHandoff(el.trackPersistBtn);
+
 // ---------------------------------------------------------
 // Ascolto persistente (pulsante a puntina in track-info, dal lato
 // opposto del salta-traccia): quando attivo, la traccia in corso

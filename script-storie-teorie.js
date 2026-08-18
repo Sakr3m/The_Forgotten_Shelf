@@ -680,6 +680,71 @@ window.addEventListener("mouseup", () => {
   trackProgressEl.classList.remove("is-scrubbing");
 });
 
+// Touch e handoff da pressione prolungata - stessa tecnica e stesso
+// motivo di script-racconti.js (vedi il commento esteso li').
+function seekFromTouch(touch){
+  seekFromPointerEvent({ clientX: touch.clientX });
+}
+trackProgressEl.addEventListener("touchstart", (e) => {
+  if(!el.bgMusic.duration) return;
+  isScrubbingProgress = true;
+  trackProgressEl.classList.add("is-scrubbing");
+  seekFromTouch(e.touches[0]);
+}, { passive:true });
+trackProgressEl.addEventListener("touchmove", (e) => {
+  if(!isScrubbingProgress) return;
+  seekFromTouch(e.touches[0]);
+}, { passive:true });
+trackProgressEl.addEventListener("touchend", () => {
+  if(!isScrubbingProgress) return;
+  isScrubbingProgress = false;
+  trackProgressEl.classList.remove("is-scrubbing");
+});
+
+const LONG_PRESS_MS = 1000;
+function attachProgressLongPressHandoff(btn){
+  if(!btn) return;
+  let timer = null;
+  let handedOff = false;
+  let startTouch = null;
+
+  btn.addEventListener("touchstart", (e) => {
+    handedOff = false;
+    startTouch = e.touches[0];
+    timer = setTimeout(() => {
+      if(!el.bgMusic.duration) return;
+      handedOff = true;
+      isScrubbingProgress = true;
+      trackProgressEl.classList.add("is-scrubbing");
+      seekFromTouch(startTouch);
+    }, LONG_PRESS_MS);
+  }, { passive:true });
+
+  btn.addEventListener("touchmove", (e) => {
+    if(!handedOff) return;
+    seekFromTouch(e.touches[0]);
+  }, { passive:true });
+
+  btn.addEventListener("touchend", (e) => {
+    clearTimeout(timer);
+    if(handedOff){
+      isScrubbingProgress = false;
+      trackProgressEl.classList.remove("is-scrubbing");
+      e.preventDefault();
+    }
+  });
+
+  btn.addEventListener("touchcancel", () => {
+    clearTimeout(timer);
+    if(handedOff){
+      isScrubbingProgress = false;
+      trackProgressEl.classList.remove("is-scrubbing");
+    }
+  });
+}
+attachProgressLongPressHandoff(el.trackSkipBtn);
+attachProgressLongPressHandoff(el.trackPersistBtn);
+
 // ---------------------------------------------------------
 // Ascolto persistente (pulsante a puntina in track-info, dal lato
 // opposto del salta-traccia): quando attivo, la traccia in corso
