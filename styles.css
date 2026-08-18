@@ -301,11 +301,18 @@ body[data-state="landing"] .brand{ display:none; }
   border-radius:2px;
   overflow:hidden;
 }
+@media (hover:hover) and (pointer:fine){
+  .track-progress{ cursor:pointer; }
+}
 .track-progress__fill{
   width:0%; height:100%;
   background:var(--cyan);
   border-radius:2px;
   transition:width .2s linear;
+}
+.track-progress.is-scrubbing .track-progress__fill{
+  transition:none; /* la barra deve seguire il mouse in tempo reale
+    durante il trascinamento, non inseguirlo con 0.2s di ritardo */
 }
 
 .volume-panel{

@@ -1114,7 +1114,7 @@ function advanceTrack(){
 }
 el.bgMusic.addEventListener("ended", advanceTrack);
 el.bgMusic.addEventListener("timeupdate", () => {
-  if(el.bgMusic.duration){
+  if(el.bgMusic.duration && !isScrubbingProgress){
     el.trackProgressFill.style.width = (el.bgMusic.currentTime / el.bgMusic.duration * 100) + "%";
   }
 });
@@ -1122,6 +1122,46 @@ el.bgMusic.addEventListener("loadedmetadata", () => {
   el.trackProgressFill.style.width = "0%";
 });
 el.trackSkipBtn.addEventListener("click", advanceTrack);
+
+// Scrubbing della barra di riproduzione (18/08, solo desktop per ora
+// - il cursor:pointer che segnala l'interazione e' scoped a
+// @media(hover:hover) and (pointer:fine) in styles.css, ma
+// l'interazione stessa qui non ha bisogno di essere bloccata su
+// mobile: senza hover li' l'utente puo' comunque toccare e trascinare,
+// e non c'e' ragione tecnica per impedirlo - se in futuro va escluso
+// anche li' basta un controllo su mobileBreakpoint.matches qui sotto).
+// Il flag isScrubbingProgress blocca il normale aggiornamento da
+// timeupdate qui sopra mentre l'utente sta trascinando: altrimenti i
+// due si contenderebbero la larghezza della barra in tempo reale,
+// producendo uno sfarfallio (l'evento timeupdate del browser arriva
+// piu' volte al secondo, indipendente dal nostro drag).
+const trackProgressEl = el.trackProgressFill.parentElement;
+let isScrubbingProgress = false;
+
+function seekFromPointerEvent(e){
+  if(!el.bgMusic.duration) return;
+  const rect = trackProgressEl.getBoundingClientRect();
+  const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+  el.bgMusic.currentTime = ratio * el.bgMusic.duration;
+  el.trackProgressFill.style.width = (ratio * 100) + "%";
+}
+
+trackProgressEl.addEventListener("mousedown", (e) => {
+  if(!el.bgMusic.duration) return;
+  isScrubbingProgress = true;
+  trackProgressEl.classList.add("is-scrubbing");
+  seekFromPointerEvent(e);
+  e.preventDefault();
+});
+window.addEventListener("mousemove", (e) => {
+  if(!isScrubbingProgress) return;
+  seekFromPointerEvent(e);
+});
+window.addEventListener("mouseup", () => {
+  if(!isScrubbingProgress) return;
+  isScrubbingProgress = false;
+  trackProgressEl.classList.remove("is-scrubbing");
+});
 
 // ---------------------------------------------------------
 // Ascolto persistente (pulsante a puntina in track-info, dal lato
