@@ -326,8 +326,8 @@ function updatePanelText(key){
   const entry = rec.entry;
   const column = key.split(":")[0];
   rec.textWrap.innerHTML = `
-    <h1 class="entry-title">${tf(entry.title)}</h1>
     ${column === "teorie" ? `<p class="entry-copyright">${t("entryCopyright")}</p>` : ""}
+    <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-readtime">${estimateReadingTime(entry)}</p>
     <p class="entry-body">${tf(entry.body)}</p>
   `;
