@@ -573,7 +573,7 @@ body[data-state="entry"] .text-size-toggle{
      base al bounding rect reale di .entry-body e al suo scroll -
      vedi setupCustomScrollbar. */
   .entry-body-scrollbar{
-    position:absolute; width:6px;
+    position:absolute; width:7px;
     pointer-events:none;
     display:none; /* mostrata via JS solo se il contenuto scrolla
       davvero (scrollHeight>clientHeight) */

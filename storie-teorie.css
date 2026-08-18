@@ -567,7 +567,7 @@ body[data-state="entry"] .text-size-toggle{
     display:none;
   }
   .entry-body-scrollbar{
-    position:absolute; width:6px;
+    position:absolute; width:7px;
     pointer-events:none;
     display:none;
   }
