@@ -532,6 +532,8 @@ body[data-state="entry"] .text-size-toggle{
       che sporge a sinistra per via del margine negativo (spostamento
       della scrollbar) - bloccato solo il verticale, che è l'unico a
       dover restare fermo qui. */
+    position:relative; /* ancora qui la scrollbar finta (.entry-body-scrollbar
+      piu' sotto), che si posiziona via JS sopra al box del testo */
   }
   body[data-state="entry"] .entry-title,
   body[data-state="entry"] .entry-copyright,
@@ -542,50 +544,52 @@ body[data-state="entry"] .text-size-toggle{
   body[data-state="entry"] .entry-body{
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
-    /* Scrollbar sul lato sinistro, a 25px dalla riga della tabella
-       (la posizione naturale del box, nessun margine negativo
-       necessario - provato prima a 3px e 20px, troppo vicina al
-       bordo veniva tagliata comunque nonostante l'overflow-x:visible
-       piu' sopra nel file, forse per un'interazione diversa con
-       questo specifico contesto RTL). Trucco RTL con
-       unicode-bidi:isolate sul testo interno (vedi .text-highlight
-       piu' sotto) - la proprieta' mancata nel primo tentativo, che
-       crea un vero confine di isolamento bidi (lo stesso meccanismo
-       del tag HTML <bdi>), impedendo alla punteggiatura di risentire
-       del contesto RTL del genitore. */
-    direction:rtl;
-    scrollbar-width:thin;
-    scrollbar-color:transparent transparent;
+    /* Scrollbar nativa nascosta (18/08): sia il trucco direction:rtl
+       sia (tentativo successivo) transform:scaleX(-1) rompevano la
+       selezione del testo col mouse quando si clicca nel margine a
+       sinistra prima del testo, sulla primissima riga - stesso
+       sintomo con due cause diverse (confine di isolamento bidi nel
+       primo caso, calcolo del punto cliccato attraverso la matrice di
+       trasformazione nel secondo), verificato con un vero browser
+       (Playwright) in entrambi i casi. La causa di fondo: qualunque
+       manipolazione di direzione/orientamento del box del testo rompe
+       la risoluzione "clicca nel margine -> parti dal primo
+       carattere della riga". Un box di testo del tutto normale, mai
+       toccato, non ha questo problema per definizione - quindi ora la
+       scrollbar nativa e' nascosta e sostituita da un elemento finto
+       (.entry-body-scrollbar qui sotto), sincronizzato via JS con lo
+       scroll reale (setupCustomScrollbar in script-racconti.js).
+       Stessa estetica di prima: sottile, invisibile a riposo, visibile
+       in hover. */
+    scrollbar-width:none;
   }
-  body[data-state="entry"] .entry-body:hover{
-    scrollbar-color:var(--line) transparent;
-  }
-  body[data-state="entry"] .entry-body .text-highlight{
-    direction:ltr;
-    unicode-bidi:isolate;
-  }
-  body[data-state="entry"] .entry-body .title-like{
-    direction:ltr;
-    unicode-bidi:isolate;
-  } /* FIX: il widget dei like vive dentro .entry-body come elemento
-    separato dal testo (appeso li' da appendLikeWidget in
-    script-racconti.js) - la protezione data al solo .text-highlight
-    non lo copriva, quindi si specchiava (icona/testo in ordine
-    invertito) per lo stesso motivo del testo prima del fix. */
   body[data-state="entry"] .entry-body::-webkit-scrollbar{
-    width:6px;
+    display:none;
   }
-  body[data-state="entry"] .entry-body::-webkit-scrollbar-track{
-    background:transparent;
+  /* Scrollbar finta: track invisibile e senza interazione propria
+     (pointer-events:none, non deve mai rubare il click al testo
+     sottostante), solo il thumb e' interattivo. Posizione (top/left/
+     height) e dimensione/posizione del thumb calcolate via JS in
+     base al bounding rect reale di .entry-body e al suo scroll -
+     vedi setupCustomScrollbar. */
+  .entry-body-scrollbar{
+    position:absolute; width:6px;
+    pointer-events:none;
+    display:none; /* mostrata via JS solo se il contenuto scrolla
+      davvero (scrollHeight>clientHeight) */
   }
-  body[data-state="entry"] .entry-body::-webkit-scrollbar-thumb{
-    background:transparent;
+  .entry-body-scrollbar__thumb{
+    position:absolute; left:0; width:100%;
     border-radius:999px;
+    background:transparent;
+    pointer-events:auto;
+    cursor:pointer;
   }
-  body[data-state="entry"] .entry-body:hover::-webkit-scrollbar-thumb{
+  .entry-body-scrollbar.is-hover .entry-body-scrollbar__thumb,
+  .entry-body-scrollbar.is-dragging .entry-body-scrollbar__thumb{
     background:var(--line);
   }
-  body[data-state="entry"] .entry-body::-webkit-scrollbar-thumb:hover{
+  .entry-body-scrollbar__thumb:hover{
     background:var(--cyan);
   }
 }

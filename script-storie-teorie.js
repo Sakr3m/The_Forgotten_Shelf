@@ -330,6 +330,7 @@ function updatePanelText(key){
     <h1 class="entry-title">${tf(entry.title)}</h1>
     <p class="entry-readtime">${estimateReadingTime(entry)}</p>
     <div class="entry-body">${tf(entry.body)}</div>
+    <div class="entry-body-scrollbar" aria-hidden="true"><div class="entry-body-scrollbar__thumb"></div></div>
   `;
   // FIX: il cuoricino va DENTRO .entry-body (il box che scorre
   // davvero), non nel pannello intero (rec.panel) - senza, restava
@@ -339,11 +340,90 @@ function updatePanelText(key){
   // ancora portato qui quando ho integrato ieri.
   const bodyEl = rec.textWrap.querySelector(".entry-body");
   appendLikeWidget(bodyEl || rec.panel, rec.id);
+  if(bodyEl) setupCustomScrollbar(bodyEl);
 }
 
 function updateAllPanelsText(){
   Object.keys(entryPanels).forEach(updatePanelText);
 }
+
+// Scrollbar finta per .entry-body - stessa tecnica, stesso motivo e
+// stesso codice di script-racconti.js (vedi il commento esteso li'):
+// sostituisce il vecchio trucco direction:rtl che rompeva la
+// selezione del testo col mouse nel margine a sinistra della
+// primissima riga.
+let scrollDragState = null;
+
+function setupCustomScrollbar(bodyEl){
+  const bar = bodyEl.nextElementSibling;
+  if(!bar || !bar.classList.contains("entry-body-scrollbar")) return;
+  const thumb = bar.querySelector(".entry-body-scrollbar__thumb");
+  const wrap = bodyEl.closest(".entry-content-text");
+  if(!thumb || !wrap) return;
+
+  function layout(){
+    const wrapRect = wrap.getBoundingClientRect();
+    const bodyRect = bodyEl.getBoundingClientRect();
+    bar.style.left = (bodyRect.left - wrapRect.left) + "px";
+    bar.style.top = (bodyRect.top - wrapRect.top) + "px";
+    bar.style.height = bodyRect.height + "px";
+    updateThumb();
+  }
+  function updateThumb(){
+    const sh = bodyEl.scrollHeight, ch = bodyEl.clientHeight, st = bodyEl.scrollTop;
+    if(sh <= ch + 1){ bar.style.display = "none"; return; }
+    bar.style.display = "block";
+    const thumbH = Math.max(30, ch * (ch / sh));
+    const maxTop = ch - thumbH;
+    const top = maxTop * (st / (sh - ch));
+    thumb.style.height = thumbH + "px";
+    thumb.style.transform = `translateY(${top}px)`;
+  }
+
+  bodyEl.addEventListener("scroll", updateThumb);
+  bodyEl.addEventListener("mouseenter", () => bar.classList.add("is-hover"));
+  bodyEl.addEventListener("mouseleave", () => {
+    if(!scrollDragState || scrollDragState.bar !== bar) bar.classList.remove("is-hover");
+  });
+
+  thumb.addEventListener("mousedown", (e) => {
+    scrollDragState = {
+      bodyEl, bar,
+      startY: e.clientY,
+      startScrollTop: bodyEl.scrollTop,
+      trackHeight: bodyEl.clientHeight,
+      thumbHeight: thumb.offsetHeight
+    };
+    bar.classList.add("is-hover", "is-dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  new ResizeObserver(layout).observe(bodyEl);
+  new ResizeObserver(layout).observe(wrap);
+  bodyEl._scrollbarLayout = layout;
+  layout();
+}
+
+window.addEventListener("mousemove", (e) => {
+  if(!scrollDragState) return;
+  const { bodyEl, startY, startScrollTop, trackHeight, thumbHeight } = scrollDragState;
+  const maxTop = trackHeight - thumbHeight;
+  if(maxTop <= 0) return;
+  const deltaScroll = ((e.clientY - startY) / maxTop) * (bodyEl.scrollHeight - bodyEl.clientHeight);
+  bodyEl.scrollTop = startScrollTop + deltaScroll;
+});
+window.addEventListener("mouseup", () => {
+  if(!scrollDragState) return;
+  const { bar, bodyEl } = scrollDragState;
+  bar.classList.remove("is-dragging");
+  if(!bodyEl.matches(":hover")) bar.classList.remove("is-hover");
+  document.body.style.userSelect = "";
+  scrollDragState = null;
+});
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".entry-body").forEach(b => { if(b._scrollbarLayout) b._scrollbarLayout(); });
+});
 
 function buildEntryPanelContent(column, id, entry){
   const panel = document.createElement("div");

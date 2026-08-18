@@ -523,6 +523,7 @@ function updatePanelText(key){
     <p class="entry-readtime">${estimateReadingTime(entry)}</p>
     ${entry.tag ? `<p class="entry-tag">${tf(entry.tag)}</p>` : ""}
     <div class="entry-body"><span class="text-highlight">${tf(entry.body)}</span></div>
+    <div class="entry-body-scrollbar" aria-hidden="true"><div class="entry-body-scrollbar__thumb"></div></div>
   `;
   // l'etichetta del cuoricino ("Lascia un like"/"Leave a like") va
   // ricostruita anche lei al cambio lingua, appendLikeWidget rimuove
@@ -535,11 +536,98 @@ function updatePanelText(key){
   // Dentro .entry-body invece scorre insieme al testo, come dovrebbe.
   const bodyEl = rec.textWrap.querySelector(".entry-body");
   appendLikeWidget(bodyEl || rec.panel, rec.id);
+  if(bodyEl) setupCustomScrollbar(bodyEl);
 }
 
 function updateAllPanelsText(){
   Object.keys(entryPanels).forEach(updatePanelText);
 }
+
+// Scrollbar finta per .entry-body (18/08, sostituisce il vecchio
+// trucco direction:rtl/transform:scaleX(-1) - vedi il commento esteso
+// in racconti.css sopra .entry-body per il motivo). Un elemento
+// separato (.entry-body-scrollbar), sincronizzato via JS con lo
+// scroll reale del box di testo, che resta completamente normale
+// (nessuna manipolazione di direzione/trasformazione) cosi' la
+// selezione del mouse non ha piu' edge case da rompere. Il drag del
+// thumb usa mousemove/mouseup su window condivisi tra tutte le voci
+// (scrollDragState), non uno per pannello: updatePanelText viene
+// richiamata per OGNI voce ad ogni cambio lingua, quindi listener
+// legati al singolo thumb si accumulerebbero ad ogni switch se
+// fossero registrati uno per uno su window invece che una volta sola
+// qui fuori.
+let scrollDragState = null;
+
+function setupCustomScrollbar(bodyEl){
+  const bar = bodyEl.nextElementSibling;
+  if(!bar || !bar.classList.contains("entry-body-scrollbar")) return;
+  const thumb = bar.querySelector(".entry-body-scrollbar__thumb");
+  const wrap = bodyEl.closest(".entry-content-text");
+  if(!thumb || !wrap) return;
+
+  function layout(){
+    const wrapRect = wrap.getBoundingClientRect();
+    const bodyRect = bodyEl.getBoundingClientRect();
+    bar.style.left = (bodyRect.left - wrapRect.left) + "px";
+    bar.style.top = (bodyRect.top - wrapRect.top) + "px";
+    bar.style.height = bodyRect.height + "px";
+    updateThumb();
+  }
+  function updateThumb(){
+    const sh = bodyEl.scrollHeight, ch = bodyEl.clientHeight, st = bodyEl.scrollTop;
+    if(sh <= ch + 1){ bar.style.display = "none"; return; }
+    bar.style.display = "block";
+    const thumbH = Math.max(30, ch * (ch / sh));
+    const maxTop = ch - thumbH;
+    const top = maxTop * (st / (sh - ch));
+    thumb.style.height = thumbH + "px";
+    thumb.style.transform = `translateY(${top}px)`;
+  }
+
+  bodyEl.addEventListener("scroll", updateThumb);
+  bodyEl.addEventListener("mouseenter", () => bar.classList.add("is-hover"));
+  bodyEl.addEventListener("mouseleave", () => {
+    if(!scrollDragState || scrollDragState.bar !== bar) bar.classList.remove("is-hover");
+  });
+
+  thumb.addEventListener("mousedown", (e) => {
+    scrollDragState = {
+      bodyEl, bar,
+      startY: e.clientY,
+      startScrollTop: bodyEl.scrollTop,
+      trackHeight: bodyEl.clientHeight,
+      thumbHeight: thumb.offsetHeight
+    };
+    bar.classList.add("is-hover", "is-dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  new ResizeObserver(layout).observe(bodyEl);
+  new ResizeObserver(layout).observe(wrap);
+  bodyEl._scrollbarLayout = layout;
+  layout();
+}
+
+window.addEventListener("mousemove", (e) => {
+  if(!scrollDragState) return;
+  const { bodyEl, startY, startScrollTop, trackHeight, thumbHeight } = scrollDragState;
+  const maxTop = trackHeight - thumbHeight;
+  if(maxTop <= 0) return;
+  const deltaScroll = ((e.clientY - startY) / maxTop) * (bodyEl.scrollHeight - bodyEl.clientHeight);
+  bodyEl.scrollTop = startScrollTop + deltaScroll;
+});
+window.addEventListener("mouseup", () => {
+  if(!scrollDragState) return;
+  const { bar, bodyEl } = scrollDragState;
+  bar.classList.remove("is-dragging");
+  if(!bodyEl.matches(":hover")) bar.classList.remove("is-hover");
+  document.body.style.userSelect = "";
+  scrollDragState = null;
+});
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".entry-body").forEach(b => { if(b._scrollbarLayout) b._scrollbarLayout(); });
+});
 
 function buildEntryPanelContent(column, id, entry){
   const panel = document.createElement("div");
