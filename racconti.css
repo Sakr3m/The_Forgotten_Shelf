@@ -1136,7 +1136,7 @@ body[data-state="entry"] .landing{ display:none; }
    Stessa posizione/dimensioni di .entry-watermark, duplicate qui
    apposta (nessuna opacity applicata). Da rimuovere a verifica finita. */
 @media (min-width:901px){
-  #entryWatermarkWrap{
+  body[data-state="entry"] #entryWatermarkWrap{
     position:fixed; top:230px; bottom:0; right:300px; width:calc((100vw - 600px) * 0.45);
     outline:2px dashed cyan; outline-offset:-2px;
     pointer-events:none;
