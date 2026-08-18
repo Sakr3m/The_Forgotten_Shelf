@@ -4246,7 +4246,7 @@ And added the ninth.`
     accentColor: "#7a7248",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Banner.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Mobile.jpg",
-    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Filigrana.jpg",
+    filigrana: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/L%27Ultimo%20Piano%20Filigrana%201.2.jpg",
     filigranaLeftFade: true,
     filigranaBottomFade: true,
     filigranaBottomLevel: 45,
