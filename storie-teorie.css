@@ -1050,7 +1050,7 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* Nuove distanze richieste, SOLO mobile - desktop resta con i
      valori condivisi (10px/10px/10px/15px/33px) mai toccati qui. */
-  .entry-copyright{ margin-top:10px; font-size:10px; }
+  .entry-copyright{ margin-top:15px; font-size:10px; }
   .entry-readtime{ margin-top:10px; font-size:15px; } /* a 1.5x (era
     20px/2x) - eredita la line-height a 1.5x dalla regola base. */
   .entry-tag{ margin-top:10px; }
