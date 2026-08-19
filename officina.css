@@ -541,7 +541,7 @@
 .wish-search{
   position:relative;
   width:100%; max-width:420px;
-  margin:28px auto 0;
+  margin:30px auto 0;
 }
 .wish-search__row{
   display:flex; align-items:center; gap:10px;
