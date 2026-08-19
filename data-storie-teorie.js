@@ -66,7 +66,7 @@ Bloodborne, in the end, was never really a game about waking up. It's a game abo
   chrono_trigger_ombra_di_lavos_in_jenova: {
     game: "chrono_trigger",
     gameLabel: { it: "Chrono Trigger", en: "Chrono Trigger" },
-    accentColor: "#2f8fa3",
+    accentColor: "#6c5026",
     bannerOffset: 75,
     title: {
       it: "L'Ombra di Lavos in Jenova",
@@ -206,7 +206,7 @@ If the theory holds, it changes quite a bit about how to read the ending. The co
   ff7_ombra_di_lavos_in_jenova: {
     game: "ff7",
     gameLabel: { it: "Final Fantasy VII", en: "Final Fantasy VII" },
-    accentColor: "#3fae6a",
+    accentColor: "#2dd4bf",
     bannerOffset: 75,
     title: {
       it: "L'Ombra di Lavos in Jenova",
