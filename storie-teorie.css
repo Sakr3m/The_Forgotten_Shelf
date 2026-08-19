@@ -1790,7 +1790,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   body[data-state="entry"]::before,
   body[data-state="entry"]::after{
     content:""; position:fixed; top:80px; height:112.5px; width:415px;
-    pointer-events:none; z-index:5; border-radius:var(--radius-sm);
+    pointer-events:none; z-index:-1; border-radius:var(--radius-sm);
     background-size:cover; background-position:center;
   }
   body[data-state="entry"]::before{
