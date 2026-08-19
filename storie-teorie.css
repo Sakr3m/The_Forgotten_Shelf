@@ -1783,7 +1783,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
    tentativo precedente con mobileBanner - solo per vedere come rende
    un banner unico e ampio prima di decidere se tenerlo. */
 @media (min-width:901px){
-  body[data-state="entry"]::before{
+  body[data-state="entry"].has-unified-banner::before{
     content:""; position:fixed; top:80px; height:112.5px; left:325px; right:325px;
     pointer-events:none; z-index:-1;
     background-size:cover; background-position:center;

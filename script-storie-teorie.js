@@ -465,6 +465,11 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
 
+  // PROVA: banner unico (vedi il commento esteso in storie-teorie.css
+  // sopra body[data-state="entry"]::before) - solo su questa voce per
+  // ora, non su tutte come nel primo tentativo.
+  el.body.classList.toggle("has-unified-banner", state.entryId === "clair_obscur_chi_e_quel_bambino");
+
   const activeKey = panelKey(state.column, state.entryId);
   Object.entries(entryPanels).forEach(([key, rec]) => {
     rec.panel.hidden = key !== activeKey;
