@@ -1599,6 +1599,14 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-video-btn, .music-toggle, .track-info, .entry-game-trigger{
     border-width:2px;
   }
+
+  /* Skip musica e testo del pulsante a tendina capitolo: su mobile
+     niente hover (il dito non "aleggia"), quindi restavano sempre sul
+     colore spento di riposo (--text-faint/--text-dim) - richiesto
+     esplicitamente che siano sempre accesi col colore della voce
+     aperta, non solo su interazione. */
+  .track-skip{ color:var(--item-accent, var(--cyan)); }
+  .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
 }
 
 /* ============================================================

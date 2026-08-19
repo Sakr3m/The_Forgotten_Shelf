@@ -959,7 +959,7 @@ body[data-state="entry"] .landing{ display:none; }
       bordo destro — un padding qui lo avrebbe solo raddoppiato */
     border:none; background:none;
     font-size:.68rem; font-weight:600; line-height:1.15; white-space:pre-line;
-    color:var(--text-dim);
+    color:var(--text);
     text-align:center; /* "Senza Cornice" (la riga piu' larga) tocca
       cosi' il bordo del blocco, "Storie" si centra sopra di lei —
       non deve allinearsi anche lei al margine, solo "Senza Cornice"
@@ -1603,6 +1603,14 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-video-btn, .music-toggle, .track-info, .entry-game-trigger{
     border-width:2px;
   }
+
+  /* Skip musica e testo del pulsante a tendina capitolo: su mobile
+     niente hover (il dito non "aleggia"), quindi restavano sempre sul
+     colore spento di riposo (--text-faint/--text-dim) - richiesto
+     esplicitamente che siano sempre accesi col colore della voce
+     aperta, non solo su interazione. */
+  .track-skip{ color:var(--item-accent, var(--cyan)); }
+  .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
 }
 
 /* ============================================================
