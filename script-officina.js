@@ -949,7 +949,7 @@ function renderSteamFallbackSale(){
   const pool = document.getElementById("steamSaleFallbackPool");
   const list = document.getElementById("steamSaleList");
   if(!pool || !list) return;
-  const items = pickRandom(Array.from(pool.querySelectorAll(".steam-item")), 10);
+  const items = pickRandom(Array.from(pool.querySelectorAll(".steam-item")), 8);
   list.innerHTML = "";
   items.forEach(el => list.appendChild(el.cloneNode(true)));
 }
@@ -965,7 +965,7 @@ async function refreshSteamSale(){
     const res = await fetch(STEAM_SPECIALS_WORKER_URL);
     if(!res.ok) throw new Error("worker non disponibile");
     const data = await res.json();
-    const items = pickRandom(data.items || [], 10);
+    const items = pickRandom(data.items || [], 8);
     if(items.length === 0) throw new Error("nessun risultato dal worker");
     list.innerHTML = "";
     items.forEach(g => {
@@ -984,15 +984,19 @@ async function refreshSteamSale(){
       const topLine = (g.originalPriceCents && g.originalPriceCents !== g.finalPriceCents)
         ? `<span class="steam-item__price-top"><span class="steam-item__original">${(g.originalPriceCents / 100).toFixed(2).replace(".", ",")} €</span>${g.discountPercent ? ` <span class="steam-item__discount">-${g.discountPercent}%</span>` : ""}</span>`
         : "";
-      // Generi non inclusi qui: l'endpoint pubblico di Steam usato dal
-      // Worker (featuredcategories) non restituisce i tag di genere,
-      // solo prezzo/sconto/copertina - servirebbe una chiamata in piu'
-      // per titolo (appdetails) che il Worker non fa ancora. Lascio
-      // il genere vuoto per ora invece di inventarlo.
+      // Genere (18/08): il Worker ora lo recupera da Steam
+      // (appdetails, fino a 3 generi) insieme al resto - vedi
+      // worker-combined.js. Se per qualche titolo dovesse mancare
+      // (fetch fallito per quell'appid, o gioco senza generi elencati)
+      // resta vuoto invece di inventarlo.
+      const genresStr = (g.genres && g.genres.length)
+        ? `<span class="steam-item__genres">${g.genres.slice(0, 3).join(", ")}</span>`
+        : "";
       a.innerHTML = `
         <img class="steam-item__cover" src="${g.cover}" alt="" loading="lazy">
         <span class="steam-item__info">
           <span class="steam-item__title">${g.title}</span>
+          ${genresStr}
         </span>
         <span class="steam-item__price">
           ${topLine}
