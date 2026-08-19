@@ -900,7 +900,7 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
 // worker-steam-sales.js in cima alla repo per il codice e le
 // istruzioni). Finche' resta questo valore, o se il fetch fallisce
 // per qualunque motivo, si usa automaticamente il pool di riserva.
-const STEAM_SPECIALS_WORKER_URL = "https://REPLACE-WITH-YOUR-WORKER-URL.workers.dev/";
+const STEAM_SPECIALS_WORKER_URL = "https://the-forgotten-shelf.sl-eternal-lux.workers.dev/steam-specials";
 
 function pickRandom(arr, n){
   const copy = arr.slice();
