@@ -42,7 +42,7 @@
     border-width:2px;
   }
   .discord-link{ width:40px; }
-  .social-links{ gap:15px; }
+  body[data-state="landing"] .social-links{ gap:15px; }
 }
 
 /* ============================================================
