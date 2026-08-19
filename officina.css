@@ -43,6 +43,12 @@
   }
   .discord-link{ width:40px; }
   body[data-state="landing"] .social-links{ gap:15px; }
+
+  /* Pulsante "Segnala bug": stessa correzione di .stage sopra (250px
+     assunti invece dei 300px reali) - restava 50px piu' a sinistra
+     del dovuto rispetto a Storie Senza Cornice. Bordo 2px, come gli
+     altri pulsanti qui sopra. */
+  .report-bug-btn{ left:400px; border-width:2px; }
 }
 
 /* ============================================================
