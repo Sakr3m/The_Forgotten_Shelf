@@ -19,23 +19,30 @@
 .landing-title{ font-family:'Caveat', cursive; font-weight:700; }
 
 @media (min-width:901px){
+  /* Margine/larghezza corretti da 250px a 300px (14/08->18/08): la
+     sidebar/side-rail delle altre pagine e' larga davvero 300px, non
+     250 come assumeva questo file - risultato, i pulsanti finivano
+     50px piu' a sinistra del previsto rispetto a Storie Senza
+     Cornice (verificato con Playwright: index-link a x=350 qui contro
+     x=400 li'). */
   .stage{
     flex:none;
-    margin-left:250px;
-    width:calc(100% - 500px);
+    margin-left:300px;
+    width:calc(100% - 600px);
   }
 
-  /* --- Pulsanti in alto (casetta, Ko-fi, Discord, switch lingua):
-     qui sono sempre gli stessi, niente scambio "tazzina" - Officina
-     non ha stati diversi da landing sul desktop. Solo 3 cose da
-     sistemare: sottolineatura, altezza uniforme, colore grigio
-     "spento" coerente con index.html. --- */
+  /* --- Pulsanti in alto (casetta, Ko-fi, Discord, switch lingua,
+     volume): uniformati a Storie Senza Cornice (18/08) - altezza
+     40px (era 38), bordo 2px (era 1, ereditato senza modifiche dal
+     file condiviso styles.css), stesso gap 15px tra Discord e Ko-fi. */
   .kofi-link, .index-link{ text-decoration:none; }
   .kofi-link, .index-link, .discord-link{ color:var(--text-faint); }
-  .kofi-link, .index-link, .discord-link, .lang-switch{
-    height:38px; box-sizing:border-box;
+  .kofi-link, .index-link, .discord-link, .lang-switch, .music-toggle{
+    height:40px; box-sizing:border-box;
+    border-width:2px;
   }
-  .discord-link{ width:38px; }
+  .discord-link{ width:40px; }
+  .social-links{ gap:15px; }
 }
 
 /* ============================================================
@@ -439,7 +446,7 @@
 }
 .wish-note__ask{
   font-family:'Caveat', cursive; font-weight:700;
-  font-size:1.3rem; line-height:1.25;
+  font-size:1.56rem; line-height:1.25;
   color:#2a2210;
   margin:0;
 }
