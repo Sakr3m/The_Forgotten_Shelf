@@ -746,7 +746,7 @@ It was her.`
       en: "psychological"
     },
     body: {
-      it: `Al numero 22 di Viale dei Sogni c'è un antiquariato.
+      it: `Al numero 41 di Viale dei Sogni c'è un antiquariato.
 
 Un posto tranquillo, di quelli che esistono da sempre e nessuno sa bene perché. Mobili vecchi, quadri dimenticati, oggetti che hanno perso il loro proprietario originale e aspettano pazientemente il prossimo. Niente di straordinario, in apparenza.
 
@@ -809,7 +809,7 @@ La madre rimase ferma un momento. Poi guardò sua figlia, che camminava avanti s
 Non disse niente.
 
 Riprese a camminare.`,
-      en: `At number 22 of Dream Avenue there is an antique shop.
+      en: `At number 41 of Dream Avenue there is an antique shop.
 
 A quiet place, the kind that has always been there and no one quite knows why. Old furniture, forgotten paintings, objects that have outlived their original owners and wait patiently for the next. Nothing extraordinary, on the surface.
 
