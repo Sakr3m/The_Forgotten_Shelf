@@ -915,7 +915,16 @@ function refreshSteamIndie(){
   const pool = document.getElementById("steamIndiePool");
   const list = document.getElementById("steamIndieList");
   if(!pool || !list) return;
-  const items = pickRandom(Array.from(pool.querySelectorAll(".steam-item")), 10);
+  // Titoli sempre presenti (Hollow Knight, Silksong, Stardew Valley,
+  // In Sound Mind - marcati con data-pinned="true" nell'HTML,
+  // richiesto esplicitamente il 18/08): mostrati sempre, il resto
+  // della fila si riempie con estrazioni casuali dagli altri. Totale
+  // sceso da 10 a 8 (4 fissi + 4 casuali), richiesto esplicitamente
+  // insieme a questa modifica.
+  const all = Array.from(pool.querySelectorAll(".steam-item"));
+  const pinned = all.filter(el => el.dataset.pinned === "true");
+  const rest = all.filter(el => el.dataset.pinned !== "true");
+  const items = pinned.concat(pickRandom(rest, 8 - pinned.length));
   list.innerHTML = "";
   items.forEach(el => list.appendChild(el.cloneNode(true)));
 }
