@@ -466,9 +466,21 @@ function renderEntry(){
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
 
   // PROVA: banner unico (vedi il commento esteso in storie-teorie.css
-  // sopra body[data-state="entry"]::before) - solo su questa voce per
-  // ora, non su tutte come nel primo tentativo.
-  el.body.classList.toggle("has-unified-banner", state.entryId === "clair_obscur_chi_e_quel_bambino");
+  // sopra body[data-state="entry"].has-unified-banner::before) - solo
+  // sulle due voci Expedition 33 per ora, non su tutte come nel primo
+  // tentativo. Ciascuna delle due ha la propria immagine (Bambino/
+  // Clea), scelta qui in base all'id della voce aperta.
+  const UNIFIED_BANNERS = {
+    clair_obscur_chi_e_quel_bambino: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%20Bambino.png",
+    clair_obscur_il_ruolo_di_clea: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%20Clea.png"
+  };
+  const unifiedBannerUrl = UNIFIED_BANNERS[state.entryId];
+  el.body.classList.toggle("has-unified-banner", !!unifiedBannerUrl);
+  if(unifiedBannerUrl){
+    el.body.style.setProperty("--unified-banner-preview", `url('${unifiedBannerUrl}')`);
+  } else {
+    el.body.style.removeProperty("--unified-banner-preview");
+  }
 
   const activeKey = panelKey(state.column, state.entryId);
   Object.entries(entryPanels).forEach(([key, rec]) => {
