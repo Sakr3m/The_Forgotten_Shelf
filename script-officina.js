@@ -932,8 +932,13 @@ function refreshSteamIndie(){
 
   const chosenPair = STEAM_INDIE_PIN_PAIRS[Math.floor(Math.random() * STEAM_INDIE_PIN_PAIRS.length)];
   const pinnedEls = chosenPair.map(findByTitle).filter(Boolean);
-  const pinnedTitles = new Set(chosenPair);
-  const rest = all.filter(el => !pinnedTitles.has(el.querySelector(".steam-item__title")?.textContent));
+  // Tutti e 4 i titoli delle due coppie (non solo quella scelta in
+  // questo giro) restano fuori dai 6 posti casuali - compaiono SOLO
+  // nei primi due posti, solo quando e' il turno della loro coppia.
+  // Corretto il 19/08: prima la coppia non scelta tornava eleggibile
+  // per i posti normali, non era quello che volevi.
+  const allPinnedTitles = new Set(STEAM_INDIE_PIN_PAIRS.flat());
+  const rest = all.filter(el => !allPinnedTitles.has(el.querySelector(".steam-item__title")?.textContent));
 
   const items = pinnedEls.concat(pickRandom(rest, 8 - pinnedEls.length));
   list.innerHTML = "";
