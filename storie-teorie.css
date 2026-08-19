@@ -1596,7 +1596,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      2px finora esisteva solo su desktop, vedi piu' sotto in fondo al
      file, PROVA sui pulsanti). */
   .kofi-link, .discord-link, .index-link, .lang-switch,
-  .landing-video-btn, .music-toggle, .track-info{
+  .landing-video-btn, .music-toggle, .track-info, .entry-game-trigger{
     border-width:2px;
   }
 }
