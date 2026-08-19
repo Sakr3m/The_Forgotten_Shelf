@@ -4,8 +4,10 @@
 
 const TEORIE_ORDER = [
   "bloodborne_sogno_infinito",
+  "chrono_trigger_ombra_di_lavos_in_jenova",
   "clair_obscur_chi_e_quel_bambino",
   "clair_obscur_il_ruolo_di_clea",
+  "ff7_ombra_di_lavos_in_jenova",
   "ff8_squall_is_dead",
   "ff8_vera_identita_artemisia",
   "hollow_knight_ricettacolo_perfetto"
@@ -59,6 +61,36 @@ There's also the prayer the Doll, who lives within the Hunter's Dream, offers to
 Even the note that accompanies the player from the very beginning, the one about seeking Paleblood to transcend the hunt, never explicitly promises a return to reality. It promises transcendence, a going beyond, which in Bloodborne's deliberately ambiguous language could mean either a real awakening or just another step deeper into something else entirely.
 
 Bloodborne, in the end, was never really a game about waking up. It's a game about continuing to dream, deeper and deeper, convincing yourself each time that you're one step closer to the exit.`
+    }
+  },
+  chrono_trigger_ombra_di_lavos_in_jenova: {
+    game: "chrono_trigger",
+    gameLabel: { it: "Chrono Trigger", en: "Chrono Trigger" },
+    accentColor: "#2f8fa3",
+    bannerOffset: 75,
+    title: {
+      it: "L'Ombra di Lavos in Jenova",
+      en: "Lavos's Shadow in Jenova"
+    },
+    body: {
+      it: `Due parassiti cosmici. Due giochi Square degli anni '90. Un sospetto che circola tra i fan da quasi trent'anni: Jenova, la calamità caduta dal cielo in Final Fantasy VII, e Lavos, il mostro sepolto sotto la crosta terrestre di Chrono Trigger, potrebbero appartenere alla stessa specie aliena, se non essere addirittura frammenti della stessa entità originaria.
+
+Le coincidenze sono troppe per essere ignorate. Entrambi arrivano dallo spazio schiantandosi sul pianeta in epoche remote e dimenticate. Entrambi restano dormienti per millenni, accumulando energia mentre osservano le civiltà crescere sopra di loro, quasi fossero bestiame lasciato maturare. Entrambi vengono scambiati per divinità dalle popolazioni che li scoprono: Lavos come un dio da placare, Jenova come un'antica Cetra caduta dal cielo.
+
+C'è poi la questione genetica. Jenova può assimilare, mutare e riscrivere il materiale organico di chi entra in contatto con le sue cellule, dando origine ai cloni e alle mostruosità sparse per tutto il gioco. Lavos fa qualcosa di molto simile su scala ancora più ampia, incorporando il DNA delle specie che incontra per generare forme ibride che ripetono il ciclo. Sono due varianti dello stesso comportamento: un parassita che non si limita a consumare un mondo, ma lo riscrive dall'interno per renderlo più adatto a se stesso.
+
+La parte più intrigante della teoria riguarda però lo sviluppo reale dei due giochi. Chrono Trigger uscì su Super Nintendo, una piattaforma con limiti tecnici severi e con le linee guida sui contenuti allora imposte da Nintendo, molto più rigide di quelle che Square avrebbe poi trovato su PlayStation con Final Fantasy VII. L'ipotesi è che il team, chiuso dentro quei vincoli, non sia riuscito a dare a Lavos tutta la portata cosmica e orrorifica che avrebbe voluto, e che quell'ambizione irrisolta sia riemersa due anni dopo, libera da ogni restrizione, nella forma di Jenova. Non un sequel nascosto, ma la stessa idea, la stessa paura ancestrale di un'intelligenza aliena che usa i pianeti come incubatrici, realizzata due volte con mezzi diversi. Il fatto che diversi sviluppatori chiave abbiano lavorato su entrambi i titoli rende l'ipotesi ancora più plausibile.
+
+Nessun collegamento è mai stato reso ufficiale, e probabilmente non lo sarà mai: Jenova funziona narrativamente proprio perché resta una minaccia incomprensibile, e legarla esplicitamente a un altro universo rischierebbe solo di sminuirla. Ma come lettura non ufficiale, come eco silenziosa che un team di sviluppo si porta dietro da un progetto all'altro, la teoria regge benissimo. Più che un frammento letterale, Jenova sembra essere l'ombra che Lavos ha lasciato cadere nel progetto successivo.`,
+      en: `Two cosmic parasites. Two Square games from the '90s. A suspicion that has circulated among fans for almost thirty years: Jenova, the calamity that fell from the sky in Final Fantasy VII, and Lavos, the monster buried beneath the Earth's crust in Chrono Trigger, might belong to the same alien species, or even be fragments of the same original entity.
+
+The coincidences are too many to ignore. Both arrive from space, crashing into the planet in remote, forgotten eras. Both remain dormant for millennia, gathering energy while watching civilizations grow above them, as if they were livestock left to mature. Both are mistaken for gods by the populations who discover them: Lavos as a deity to be appeased, Jenova as an ancient Cetra fallen from the sky.
+
+Then there's the genetic angle. Jenova can assimilate, mutate, and rewrite the organic matter of anyone who comes into contact with its cells, giving rise to the clones and monstrosities scattered throughout the game. Lavos does something very similar on an even larger scale, incorporating the DNA of the species it encounters to generate hybrid forms that repeat the cycle. They're two variants of the same behavior: a parasite that doesn't just consume a world, but rewrites it from the inside to better suit itself.
+
+The most intriguing part of the theory, though, concerns the actual development of the two games. Chrono Trigger came out on the Super Nintendo, a platform with severe technical limits and the strict content guidelines Nintendo imposed at the time, far stricter than what Square would later find on PlayStation with Final Fantasy VII. The hypothesis is that the team, boxed in by those constraints, couldn't give Lavos the full cosmic, horrific scope they wanted, and that unresolved ambition resurfaced two years later, free of every restriction, in the form of Jenova. Not a hidden sequel, but the same idea, the same ancestral fear of an alien intelligence using planets as incubators, realized twice through different means. The fact that several key developers worked on both titles makes the hypothesis even more plausible.
+
+No connection has ever been made official, and probably never will be: Jenova works narratively precisely because it remains an incomprehensible threat, and tying it explicitly to another universe would only risk diminishing it. But as an unofficial reading, as a silent echo a development team carries from one project to the next, the theory holds up remarkably well. More than a literal fragment, Jenova seems to be the shadow Lavos left behind in the following project.`
     }
   },
   clair_obscur_chi_e_quel_bambino: {
@@ -169,6 +201,36 @@ Then there's the matter of the Nevrons. The game presents them as an almost natu
 What makes the theory compelling isn't so much the idea of a classically manipulative Clea, but that of a Clea who doesn't share the other Dessendres' grief, and who can therefore move through the space their mourning leaves uncovered. She isn't like Renoir, held hostage by his own regret. She isn't like Aline, suspended in waiting. Clea seems to watch from somewhere colder, and from there steer, or at least let run, events toward their most destructive outcome.
 
 If the theory holds, it changes quite a bit about how to read the ending. The collapse of Lumière wouldn't just be the price of a family's inability to let go, but also the result of someone who let that pain rot on purpose, or at the very least never lifted a finger to stop it.`
+    }
+  },
+  ff7_ombra_di_lavos_in_jenova: {
+    game: "ff7",
+    gameLabel: { it: "Final Fantasy VII", en: "Final Fantasy VII" },
+    accentColor: "#3fae6a",
+    bannerOffset: 75,
+    title: {
+      it: "L'Ombra di Lavos in Jenova",
+      en: "Lavos's Shadow in Jenova"
+    },
+    body: {
+      it: `Due parassiti cosmici. Due giochi Square degli anni '90. Un sospetto che circola tra i fan da quasi trent'anni: Jenova, la calamità caduta dal cielo in Final Fantasy VII, e Lavos, il mostro sepolto sotto la crosta terrestre di Chrono Trigger, potrebbero appartenere alla stessa specie aliena, se non essere addirittura frammenti della stessa entità originaria.
+
+Le coincidenze sono troppe per essere ignorate. Entrambi arrivano dallo spazio schiantandosi sul pianeta in epoche remote e dimenticate. Entrambi restano dormienti per millenni, accumulando energia mentre osservano le civiltà crescere sopra di loro, quasi fossero bestiame lasciato maturare. Entrambi vengono scambiati per divinità dalle popolazioni che li scoprono: Lavos come un dio da placare, Jenova come un'antica Cetra caduta dal cielo.
+
+C'è poi la questione genetica. Jenova può assimilare, mutare e riscrivere il materiale organico di chi entra in contatto con le sue cellule, dando origine ai cloni e alle mostruosità sparse per tutto il gioco. Lavos fa qualcosa di molto simile su scala ancora più ampia, incorporando il DNA delle specie che incontra per generare forme ibride che ripetono il ciclo. Sono due varianti dello stesso comportamento: un parassita che non si limita a consumare un mondo, ma lo riscrive dall'interno per renderlo più adatto a se stesso.
+
+La parte più intrigante della teoria riguarda però lo sviluppo reale dei due giochi. Chrono Trigger uscì su Super Nintendo, una piattaforma con limiti tecnici severi e con le linee guida sui contenuti allora imposte da Nintendo, molto più rigide di quelle che Square avrebbe poi trovato su PlayStation con Final Fantasy VII. L'ipotesi è che il team, chiuso dentro quei vincoli, non sia riuscito a dare a Lavos tutta la portata cosmica e orrorifica che avrebbe voluto, e che quell'ambizione irrisolta sia riemersa due anni dopo, libera da ogni restrizione, nella forma di Jenova. Non un sequel nascosto, ma la stessa idea, la stessa paura ancestrale di un'intelligenza aliena che usa i pianeti come incubatrici, realizzata due volte con mezzi diversi. Il fatto che diversi sviluppatori chiave abbiano lavorato su entrambi i titoli rende l'ipotesi ancora più plausibile.
+
+Nessun collegamento è mai stato reso ufficiale, e probabilmente non lo sarà mai: Jenova funziona narrativamente proprio perché resta una minaccia incomprensibile, e legarla esplicitamente a un altro universo rischierebbe solo di sminuirla. Ma come lettura non ufficiale, come eco silenziosa che un team di sviluppo si porta dietro da un progetto all'altro, la teoria regge benissimo. Più che un frammento letterale, Jenova sembra essere l'ombra che Lavos ha lasciato cadere nel progetto successivo.`,
+      en: `Two cosmic parasites. Two Square games from the '90s. A suspicion that has circulated among fans for almost thirty years: Jenova, the calamity that fell from the sky in Final Fantasy VII, and Lavos, the monster buried beneath the Earth's crust in Chrono Trigger, might belong to the same alien species, or even be fragments of the same original entity.
+
+The coincidences are too many to ignore. Both arrive from space, crashing into the planet in remote, forgotten eras. Both remain dormant for millennia, gathering energy while watching civilizations grow above them, as if they were livestock left to mature. Both are mistaken for gods by the populations who discover them: Lavos as a deity to be appeased, Jenova as an ancient Cetra fallen from the sky.
+
+Then there's the genetic angle. Jenova can assimilate, mutate, and rewrite the organic matter of anyone who comes into contact with its cells, giving rise to the clones and monstrosities scattered throughout the game. Lavos does something very similar on an even larger scale, incorporating the DNA of the species it encounters to generate hybrid forms that repeat the cycle. They're two variants of the same behavior: a parasite that doesn't just consume a world, but rewrites it from the inside to better suit itself.
+
+The most intriguing part of the theory, though, concerns the actual development of the two games. Chrono Trigger came out on the Super Nintendo, a platform with severe technical limits and the strict content guidelines Nintendo imposed at the time, far stricter than what Square would later find on PlayStation with Final Fantasy VII. The hypothesis is that the team, boxed in by those constraints, couldn't give Lavos the full cosmic, horrific scope they wanted, and that unresolved ambition resurfaced two years later, free of every restriction, in the form of Jenova. Not a hidden sequel, but the same idea, the same ancestral fear of an alien intelligence using planets as incubators, realized twice through different means. The fact that several key developers worked on both titles makes the hypothesis even more plausible.
+
+No connection has ever been made official, and probably never will be: Jenova works narratively precisely because it remains an incomprehensible threat, and tying it explicitly to another universe would only risk diminishing it. But as an unofficial reading, as a silent echo a development team carries from one project to the next, the theory holds up remarkably well. More than a literal fragment, Jenova seems to be the shadow Lavos left behind in the following project.`
     }
   },
   ff8_squall_is_dead: {
