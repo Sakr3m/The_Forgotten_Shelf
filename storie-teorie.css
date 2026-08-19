@@ -199,7 +199,7 @@
    tra il nome del gioco e il sottotitolo: va rispettato sia nei
    bottoni della lista sia nel titolo grande della voce. */
 .game-list button, .game-list a{ white-space:pre-line; line-height:18px; }
-.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin:15px auto 0; white-space:pre-line; } /* margin-top:15px (era 20, corretto: troppo) per il distacco dal copyright:
+.entry-title{ font-family:'Manrope', sans-serif; font-weight:700; font-size:35px; line-height:35px; color:var(--text); max-width:1080px; width:fit-content; margin:15px auto 0; white-space:pre-line; } /* margin-top:15px (era 20, corretto: troppo) per il distacco dal copyright:
   senza, il copyright sopra (spostato li' da un ordine precedente) e
   il titolo si toccherebbero senza nessuno spazio tra loro. */
 
@@ -1789,7 +1789,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
 @media (min-width:901px){
   body[data-state="entry"]::before,
   body[data-state="entry"]::after{
-    content:""; position:fixed; top:80px; height:122.5px; width:415px;
+    content:""; position:fixed; top:80px; height:117.5px; width:415px;
     pointer-events:none; z-index:5; border-radius:var(--radius-sm);
     background-size:cover; background-position:center;
   }
