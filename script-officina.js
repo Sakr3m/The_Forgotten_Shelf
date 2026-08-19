@@ -817,11 +817,18 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
       const ask = note.querySelector(".wish-note__ask")?.textContent || "";
       const offer = note.querySelector(".wish-note__offer")?.textContent || "";
       const link = note.querySelector(".wish-note__link");
-      // Solo tag/categoria, non piu' il testo di domanda/risposta:
-      // altrimenti cercare "storia" o "gioco" (parole comuni dentro
-      // le domande stesse) restituirebbe risultati casuali invece di
-      // una vera ricerca per argomento/genere.
-      const haystack = ((note.dataset.tags || "") + " " + (note.dataset.category || "")).toLowerCase();
+      // Titolo dell'opera (dentro l'offer, es. "Offresi: <strong>Cinere</strong>")
+      // aggiunto alla ricerca (18/08): prima si cercava solo per tag/
+      // categoria/argomento, non per nome dell'opera - richiesto
+      // esplicitamente di poter trovare le opere stesse digitandone
+      // il titolo, non solo il tema.
+      const title = note.querySelector(".wish-note__offer strong")?.textContent || "";
+      // Tag/categoria + titolo dell'opera, non il resto del testo di
+      // domanda/risposta: altrimenti cercare "storia" o "gioco"
+      // (parole comuni dentro le domande stesse) restituirebbe
+      // risultati casuali invece di una vera ricerca per argomento/
+      // genere/titolo.
+      const haystack = ((note.dataset.tags || "") + " " + (note.dataset.category || "") + " " + title).toLowerCase();
       return { ask, offer, href: link ? link.href : "#", haystack };
     });
   }
