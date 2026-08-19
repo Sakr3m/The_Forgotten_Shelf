@@ -812,9 +812,18 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
   const dropdown = document.getElementById("wishSearchDropdown");
   if(!input || !dropdown) return;
 
+  // Etichette leggibili per le categorie (data-category), mostrate
+  // tra parentesi accanto al titolo nel risultato di ricerca -
+  // richiesto esplicitamente: titolo dell'opera in grande, "info"
+  // piccola sotto, niente piu' la domanda del post-it (confondeva:
+  // non si capiva a colpo d'occhio QUALE opera fosse il risultato).
+  const CATEGORY_LABELS = {
+    it: { "racconti-brevi": "racconto breve", teorie: "teoria", libri: "libro", diari: "diario di gioco", timeline: "timeline", mathemory: "mathemory" },
+    en: { "racconti-brevi": "short story", teorie: "theory", libri: "book", diari: "game diary", timeline: "timeline", mathemory: "mathemory" }
+  };
+
   function allNotesSearchable(){
     return Array.from(document.querySelectorAll(".wish-note")).map(note => {
-      const ask = note.querySelector(".wish-note__ask")?.textContent || "";
       const offer = note.querySelector(".wish-note__offer")?.textContent || "";
       const link = note.querySelector(".wish-note__link");
       // Titolo dell'opera (dentro l'offer, es. "Offresi: <strong>Cinere</strong>")
@@ -823,13 +832,15 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
       // esplicitamente di poter trovare le opere stesse digitandone
       // il titolo, non solo il tema.
       const title = note.querySelector(".wish-note__offer strong")?.textContent || "";
+      const category = note.dataset.category || "";
+      const categoryLabel = (CATEGORY_LABELS[state.lang] && CATEGORY_LABELS[state.lang][category]) || category;
       // Tag/categoria + titolo dell'opera, non il resto del testo di
       // domanda/risposta: altrimenti cercare "storia" o "gioco"
       // (parole comuni dentro le domande stesse) restituirebbe
       // risultati casuali invece di una vera ricerca per argomento/
       // genere/titolo.
-      const haystack = ((note.dataset.tags || "") + " " + (note.dataset.category || "") + " " + title).toLowerCase();
-      return { ask, offer, href: link ? link.href : "#", haystack };
+      const haystack = ((note.dataset.tags || "") + " " + category + " " + title).toLowerCase();
+      return { title, categoryLabel, href: link ? link.href : "#", haystack };
     });
   }
 
@@ -848,7 +859,7 @@ if(wishOverlay) wishOverlay.addEventListener("click", closeAllWishNotes);
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "wish-search__result";
-        btn.innerHTML = `<p class="wish-search__result-ask">${m.ask}</p><p class="wish-search__result-offer">${m.offer}</p>`;
+        btn.innerHTML = `<p class="wish-search__result-title">${m.title}</p><p class="wish-search__result-category">(${m.categoryLabel})</p>`;
         btn.addEventListener("click", () => { window.location.href = m.href; });
         dropdown.appendChild(btn);
       });

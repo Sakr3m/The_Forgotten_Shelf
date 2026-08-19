@@ -598,8 +598,8 @@
 }
 .wish-search__result:last-child{ border-bottom:none; }
 .wish-search__result:hover, .wish-search__result:focus-visible{ background:rgba(201,178,122,.12); }
-.wish-search__result-ask{ font-family:'Caveat', cursive; font-weight:700; font-size:1.05rem; color:#e9d9a0; margin:0 0 2px; }
-.wish-search__result-offer{ font-size:.72rem; color:var(--text-faint); margin:0; }
+.wish-search__result-title{ font-family:'Caveat', cursive; font-weight:700; font-size:1.3rem; color:#e9d9a0; margin:0 0 2px; }
+.wish-search__result-category{ font-size:.72rem; color:var(--text-faint); margin:0; }
 .wish-search__empty{ padding:14px 16px; font-size:.8rem; color:var(--text-faint); text-align:center; }
 
 /* ============================================================
