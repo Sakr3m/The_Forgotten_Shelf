@@ -574,8 +574,8 @@
   font-size:.8rem; font-weight:600; color:var(--text-dim);
   cursor:pointer;
 }
-.wish-steam-toggle svg{ width:16px; height:16px; color:#66c0f4; flex-shrink:0; }
-.wish-steam-toggle[aria-pressed="true"]{ border-color:#66c0f4; color:var(--text); }
+.wish-steam-toggle svg{ width:16px; height:16px; color:#e8b64b; flex-shrink:0; }
+.wish-steam-toggle[aria-pressed="true"]{ border-color:#e8b64b; color:var(--text); }
 
 .steam-column{
   display:none;
@@ -629,12 +629,13 @@ body.is-steam-mode .steam-column{ display:flex; }
      altrimenti vincevano loro per ordine nel file a parita' di
      specificita' - stesso identico problema gia' visto altrove).
      Pulsante Steam spostato in basso, stesso livello del pulsante
-     Segnala bug (bottom:20px) - mirror esatto sul lato destro
-     (right:400px, stessa distanza dal bordo di left:400px che ha
-     lui), invece che appena sotto la ricerca come prima. */
+     Segnala bug (bottom:20px), centrato orizzontalmente sullo stage
+     (non piu' speculare a destra: finiva sotto lo switch lingua,
+     richiesto esplicitamente di centrarlo invece). */
   .wish-search__row{ border-width:2px; }
   .wish-steam-toggle{
-    position:fixed; right:400px; bottom:20px; z-index:50;
+    position:fixed; left:50%; bottom:20px; z-index:50;
+    transform:translateX(-50%);
     margin:0;
     border-width:2px;
   }
