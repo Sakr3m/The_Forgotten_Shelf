@@ -770,7 +770,7 @@ Il proprietario, dal fondo del negozio, osserva. Non dice niente. A volte sorrid
 
 Poi, un pomeriggio qualunque, passa una famiglia.
 
-Padre, madre, un bambino addormentato nel passeggino e un figlio più grande che li segue a piedi. Sette anni, forse, le scarpe slacciate, lo sguardo di chi sta pensando a qualcosa di completamente diverso da dove sta andando.
+Padre, madre, un bambino addormentato nel passeggino e un figlio più grande che li segue a piedi. Otto anni, le scarpe slacciate, lo sguardo di chi sta pensando a qualcosa di completamente diverso da dove sta andando.
 
 Si ferma davanti allo specchio.
 
@@ -782,7 +782,7 @@ Passarono diversi giorni.
 
 Poi arrivò la bambina.
 
-Sei anni, occhi svegli, il passo deciso di chi sa già dove vuole arrivare nella vita, anche se non lo sa ancora. Si fermò davanti allo specchio quasi per caso, trascinata dall'istinto di fermarsi davanti a qualcosa di lucido.
+Sei anni, forse sette, occhi svegli, il passo deciso di chi sa già dove vuole arrivare nella vita, anche se non lo sa ancora. Si fermò davanti allo specchio quasi per caso, trascinata dall'istinto di fermarsi davanti a qualcosa di lucido.
 
 E sgranò gli occhi.
 
@@ -833,7 +833,7 @@ The owner, from the back of the shop, watches. He says nothing. Sometimes he smi
 
 Then, one unremarkable afternoon, a family walks by.
 
-Father, mother, a sleeping child in the pushchair, and an older boy following on foot. Seven years old, perhaps, shoes untied, the look of someone thinking about something entirely unrelated to where he is going.
+Father, mother, a sleeping child in the pushchair, and an older boy following on foot. Eight years old, shoes untied, the look of someone thinking about something entirely unrelated to where he is going.
 
 He stops in front of the mirror.
 
@@ -845,7 +845,7 @@ Several days passed.
 
 Then the little girl arrived.
 
-Six years old, bright eyes, the purposeful stride of someone who already knows where she wants to end up in life, even if she doesn't know it yet. She stopped in front of the mirror almost by accident, drawn by the instinct to pause in front of anything shiny.
+Six years old, perhaps seven, bright eyes, the purposeful stride of someone who already knows where she wants to end up in life, even if she doesn't know it yet. She stopped in front of the mirror almost by accident, drawn by the instinct to pause in front of anything shiny.
 
 And her eyes went wide.
 
