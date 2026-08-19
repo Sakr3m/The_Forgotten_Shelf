@@ -1768,39 +1768,26 @@ body[data-entry-animate="true"] #watermarkBrightness{
 
 
 
-/* Banner laterali (18/08): striscia alta dal fondo dell'header al
-   fondo della durata di lettura - qui non esiste mai un tag (nessuna
-   voce di Il Filo Nascosto ne ha uno, campo non previsto nel
-   template), quindi la durata di lettura e' l'ultimo elemento reale
-   del blocco titolo, preso come equivalente. Immagine reale presa da
-   entry.mobileBanner (stessa convenzione di nome gia' nei dati, es.
-   "Bloodborne Mobile.jpg" - nessuna costruzione manuale del nome
-   qui, solo lookup dal campo esistente, vedi renderEntry in
-   script-storie-teorie.js). Colore pieno (magenta/ciano) resta solo
-   come riserva per le voci senza mobileBanner o per il lato Storie
-   Nascoste finche' non esistono voci li' (--storie-banner-preview
-   mai valorizzata, quindi resta sul colore).
-   Larghezza (415px): misurata sulle 4 voci Teorie attuali a 1920px -
-   il titolo piu' largo (Hollow Knight, "The Only Truly Hollow
-   Vessel") arriva a 235.6px dal centro pagina; il bordo interno del
-   box qui e' a 220px dal centro, quindi lo sfiora di circa 15px (si
-   taglia un po' prima, accettato) mentre resta ben staccato dagli
-   altri 3 titoli piu' corti (44-94px di margine). */
+/* PROVA: banner unico da bordo a bordo (18/08, sostituisce i due box
+   separati di prima) - stessa altezza di prima (112.5px, legata al
+   blocco titolo: fondo header -> fondo durata lettura), ma ora
+   left:325px e right:325px insieme invece di due box da 415px con
+   un vuoto in mezzo dove sta il titolo: un solo elemento che copre
+   tutta la fascia, il titolo/copyright/durata lettura restano sopra
+   grazie a z-index:-1 (invariato). Larghezza non fissa in px: si
+   allarga/restringe con la finestra, dato che i due bordi sono
+   ancorati simmetricamente al pannello (325px da ciascun lato) e non
+   c'e' piu' un width esplicito che li spezzava in due pezzi separati.
+   Immagine di prova hardcoded per ora (Clair Obscur Expedition 33
+   Banner 1.2.jpg), non ancora legata a un campo dati per-voce come il
+   tentativo precedente con mobileBanner - solo per vedere come rende
+   un banner unico e ampio prima di decidere se tenerlo. */
 @media (min-width:901px){
-  body[data-state="entry"]::before,
-  body[data-state="entry"]::after{
-    content:""; position:fixed; top:80px; height:112.5px; width:415px;
+  body[data-state="entry"]::before{
+    content:""; position:fixed; top:80px; height:112.5px; left:325px; right:325px;
     pointer-events:none; z-index:-1; border-radius:var(--radius-sm);
     background-size:cover; background-position:center;
-  }
-  body[data-state="entry"]::before{
-    left:325px;
-    background-color:#e879f9; /* riserva - lato Teorie */
-    background-image:var(--teorie-banner-preview, none);
-  }
-  body[data-state="entry"]::after{
-    right:325px;
-    background-color:#22d3ee; /* riserva - lato Storie Nascoste */
-    background-image:var(--storie-banner-preview, none);
+    background-image:url('https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%201.2.jpg');
+    background-color:#e879f9; /* riserva, visibile solo se l'immagine non carica */
   }
 }

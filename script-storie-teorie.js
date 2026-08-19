@@ -465,23 +465,6 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
 
-  // PROVA VISIVA TEMPORANEA (18/08): banner mobile reale come sfondo
-  // del box colorato a sinistra del titolo (vedi il commento esteso
-  // in storie-teorie.css sopra body[data-state="entry"]::before) -
-  // solo lato Teorie per ora, solo per farsi un'idea con immagini
-  // vere invece del solo colore piatto. Da togliere o rendere
-  // definitivo dopo la decisione.
-  if(state.column === "teorie" && entry.mobileBanner){
-    el.body.style.setProperty("--teorie-banner-preview", `url('${entry.mobileBanner}')`);
-  } else {
-    el.body.style.removeProperty("--teorie-banner-preview");
-  }
-  if(state.column === "storie" && entry.mobileBanner){
-    el.body.style.setProperty("--storie-banner-preview", `url('${entry.mobileBanner}')`);
-  } else {
-    el.body.style.removeProperty("--storie-banner-preview");
-  }
-
   const activeKey = panelKey(state.column, state.entryId);
   Object.entries(entryPanels).forEach(([key, rec]) => {
     rec.panel.hidden = key !== activeKey;
