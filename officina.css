@@ -481,7 +481,7 @@
 }
 .wish-note__ask{
   font-family:'Caveat', cursive; font-weight:700;
-  font-size:1.56rem; line-height:1.25;
+  font-size:1.43rem; line-height:1.25;
   color:#2a2210;
   margin:0;
 }
@@ -524,6 +524,20 @@
 }
 .wish-note.is-open .wish-note__offer{ font-size:1.35rem; }
 .wish-note.is-open .wish-note__link{ font-size:.88rem; }
+
+/* Ingrandito del 25% (18/08), solo desktop - il mobile va rifatto
+   in un secondo momento, per ora resta con le dimensioni di sopra.
+   480*1.25=600, padding e font-size tutti scalati della stessa
+   proporzione. */
+@media (min-width:901px){
+  .wish-note.is-open{
+    width:600px;
+    padding:47.5px 42.5px 40px;
+  }
+  .wish-note.is-open .wish-note__ask{ font-size:2rem; }
+  .wish-note.is-open .wish-note__offer{ font-size:1.69rem; }
+  .wish-note.is-open .wish-note__link{ font-size:1.1rem; }
+}
 
 @media (max-width:900px){
   .wish-note.is-open{ width:min(88vw, 480px); }
