@@ -975,19 +975,29 @@ async function refreshSteamSale(){
       a.target = "_blank";
       a.rel = "noopener";
       const priceStr = ((g.finalPriceCents || 0) / 100).toFixed(2).replace(".", ",") + " €";
-      // Prezzo originale (non scontato) barrato, sopra il prezzo
-      // finale - aggiunto 18/08, richiesto esplicitamente. Solo se il
-      // Worker lo fornisce davvero (originalPriceCents) e diverso dal
-      // finale (altrimenti barrare lo stesso numero due volte non ha
-      // senso, es. per titoli con discountPercent 0 che dovessero
-      // sfuggire al filtro lato Worker).
-      const originalStr = (g.originalPriceCents && g.originalPriceCents !== g.finalPriceCents)
-        ? `<span class="steam-item__original">${(g.originalPriceCents / 100).toFixed(2).replace(".", ",")} €</span>`
+      // Prezzo originale + sconto sopra, prezzo attuale sotto (18/08,
+      // stesso formato a due righe deciso per le liste statiche) -
+      // solo se il Worker fornisce davvero originalPriceCents e
+      // diverso dal finale (altrimenti barrare lo stesso numero due
+      // volte non ha senso, es. per titoli con discountPercent 0 che
+      // dovessero sfuggire al filtro lato Worker).
+      const topLine = (g.originalPriceCents && g.originalPriceCents !== g.finalPriceCents)
+        ? `<span class="steam-item__price-top"><span class="steam-item__original">${(g.originalPriceCents / 100).toFixed(2).replace(".", ",")} €</span>${g.discountPercent ? ` <span class="steam-item__discount">-${g.discountPercent}%</span>` : ""}</span>`
         : "";
+      // Generi non inclusi qui: l'endpoint pubblico di Steam usato dal
+      // Worker (featuredcategories) non restituisce i tag di genere,
+      // solo prezzo/sconto/copertina - servirebbe una chiamata in piu'
+      // per titolo (appdetails) che il Worker non fa ancora. Lascio
+      // il genere vuoto per ora invece di inventarlo.
       a.innerHTML = `
         <img class="steam-item__cover" src="${g.cover}" alt="" loading="lazy">
-        <span class="steam-item__title">${g.title}</span>
-        <span class="steam-item__price">${originalStr}${priceStr}${g.discountPercent ? ` <span class="steam-item__discount">-${g.discountPercent}%</span>` : ""}</span>
+        <span class="steam-item__info">
+          <span class="steam-item__title">${g.title}</span>
+        </span>
+        <span class="steam-item__price">
+          ${topLine}
+          <span class="steam-item__price-current">${priceStr}</span>
+        </span>
       `;
       list.appendChild(a);
     });
