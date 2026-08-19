@@ -336,8 +336,37 @@
      script-officina.js). */
   .desktop-audio-control{
     display:flex;
-    margin:32px auto 0;
   }
+  /* Riga volume + "Riproduci video": distanza dalla ricerca uguale a
+     quella che il pulsante video ha dal sub su Storie Senza Cornice
+     (50px, misurato con Playwright), qui pero' dalla ricerca invece
+     che da un sub che qui non c'e' - stessa idea, riferimento diverso
+     perche' la pagina e' strutturata diversamente. Volume a sinistra,
+     richiesto esplicitamente. */
+  .landing-video-row{
+    display:flex; align-items:center; gap:15px;
+    margin:50px auto 0;
+    width:fit-content;
+  }
+
+  /* Pulsante "Riproduci video": stesso trattamento di Storie Senza
+     Cornice (racconti.css, mai condiviso perche' questa pagina non
+     carica quel file) - stessa pillola, bordo 2px, stesso messaggio
+     scherzoso al click (vedi script-officina.js). Margine gestito
+     dalla riga qui sopra, non dal pulsante stesso (diverso da
+     racconti.css, dove il pulsante e' da solo e si centra lui). */
+  .landing-video-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    height:40px; box-sizing:border-box; padding:0 22px 0 17px;
+    border:2px solid var(--cyan);
+    background:var(--panel);
+    border-radius:999px;
+    font-size:15px; font-weight:600; color:var(--text-dim);
+    cursor:pointer;
+    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
+  .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; }
 }
 
 /* ============================================================
