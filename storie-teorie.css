@@ -1784,7 +1784,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
    un banner unico e ampio prima di decidere se tenerlo. */
 @media (min-width:901px){
   body[data-state="entry"].has-unified-banner::before{
-    content:""; position:fixed; top:80px; height:122.5px; left:325px; right:325px;
+    content:""; position:fixed; top:80px; height:130px; left:325px; right:325px;
     pointer-events:none; z-index:-1;
     background-size:cover; background-position:center;
     background-image:var(--unified-banner-preview, none);
