@@ -623,6 +623,23 @@ body.is-steam-mode .steam-column{ display:flex; }
 .steam-item__price{ font-size:.8rem; font-weight:700; color:#66c0f4; white-space:nowrap; text-align:right; }
 .steam-item__discount{ display:block; color:#a4d007; font-size:.72rem; }
 
+@media (min-width:901px){
+  /* Ricerca e pulsante Steam: bordo 2px come il resto della pagina
+     (regole spostate qui, dopo le definizioni base qui sopra, che
+     altrimenti vincevano loro per ordine nel file a parita' di
+     specificita' - stesso identico problema gia' visto altrove).
+     Pulsante Steam spostato in basso, stesso livello del pulsante
+     Segnala bug (bottom:20px) - mirror esatto sul lato destro
+     (right:400px, stessa distanza dal bordo di left:400px che ha
+     lui), invece che appena sotto la ricerca come prima. */
+  .wish-search__row{ border-width:2px; }
+  .wish-steam-toggle{
+    position:fixed; right:400px; bottom:20px; z-index:50;
+    margin:0;
+    border-width:2px;
+  }
+}
+
 @media (max-width:900px){
   .wish-steam-toggle{ display:none; } /* fase mobile ancora da fare, coerente col resto della bacheca */
 }
