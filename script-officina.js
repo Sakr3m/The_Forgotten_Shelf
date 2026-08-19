@@ -911,20 +911,31 @@ function pickRandom(arr, n){
   return copy.slice(0, n);
 }
 
+// Coppie per i 2 slot fissi in cima alla lista indie (18/08,
+// sostituisce il vecchio schema a 4 titoli singoli sempre presenti):
+// ad ogni estrazione viene scelta A CASO una delle due coppie qui
+// sotto, mostrata nei primi due posti nell'ordine scritto (il primo
+// elemento sempre sopra il secondo). L'altra coppia NON scelta in
+// quel giro torna a essere un titolo normale, eleggibile per gli
+// altri 6 posti casuali come chiunque altro nel pool.
+const STEAM_INDIE_PIN_PAIRS = [
+  ["Hollow Knight", "Hollow Knight: Silksong"],
+  ["Stardew Valley", "In Sound Mind"]
+];
+
 function refreshSteamIndie(){
   const pool = document.getElementById("steamIndiePool");
   const list = document.getElementById("steamIndieList");
   if(!pool || !list) return;
-  // Titoli sempre presenti (Hollow Knight, Silksong, Stardew Valley,
-  // In Sound Mind - marcati con data-pinned="true" nell'HTML,
-  // richiesto esplicitamente il 18/08): mostrati sempre, il resto
-  // della fila si riempie con estrazioni casuali dagli altri. Totale
-  // sceso da 10 a 8 (4 fissi + 4 casuali), richiesto esplicitamente
-  // insieme a questa modifica.
   const all = Array.from(pool.querySelectorAll(".steam-item"));
-  const pinned = all.filter(el => el.dataset.pinned === "true");
-  const rest = all.filter(el => el.dataset.pinned !== "true");
-  const items = pinned.concat(pickRandom(rest, 8 - pinned.length));
+  const findByTitle = title => all.find(el => el.querySelector(".steam-item__title")?.textContent === title);
+
+  const chosenPair = STEAM_INDIE_PIN_PAIRS[Math.floor(Math.random() * STEAM_INDIE_PIN_PAIRS.length)];
+  const pinnedEls = chosenPair.map(findByTitle).filter(Boolean);
+  const pinnedTitles = new Set(chosenPair);
+  const rest = all.filter(el => !pinnedTitles.has(el.querySelector(".steam-item__title")?.textContent));
+
+  const items = pinnedEls.concat(pickRandom(rest, 8 - pinnedEls.length));
   list.innerHTML = "";
   items.forEach(el => list.appendChild(el.cloneNode(true)));
 }
