@@ -950,10 +950,19 @@ async function refreshSteamSale(){
       a.target = "_blank";
       a.rel = "noopener";
       const priceStr = ((g.finalPriceCents || 0) / 100).toFixed(2).replace(".", ",") + " €";
+      // Prezzo originale (non scontato) barrato, sopra il prezzo
+      // finale - aggiunto 18/08, richiesto esplicitamente. Solo se il
+      // Worker lo fornisce davvero (originalPriceCents) e diverso dal
+      // finale (altrimenti barrare lo stesso numero due volte non ha
+      // senso, es. per titoli con discountPercent 0 che dovessero
+      // sfuggire al filtro lato Worker).
+      const originalStr = (g.originalPriceCents && g.originalPriceCents !== g.finalPriceCents)
+        ? `<span class="steam-item__original">${(g.originalPriceCents / 100).toFixed(2).replace(".", ",")} €</span>`
+        : "";
       a.innerHTML = `
         <img class="steam-item__cover" src="${g.cover}" alt="" loading="lazy">
         <span class="steam-item__title">${g.title}</span>
-        <span class="steam-item__price">${priceStr}${g.discountPercent ? ` <span class="steam-item__discount">-${g.discountPercent}%</span>` : ""}</span>
+        <span class="steam-item__price">${originalStr}${priceStr}${g.discountPercent ? ` <span class="steam-item__discount">-${g.discountPercent}%</span>` : ""}</span>
       `;
       list.appendChild(a);
     });

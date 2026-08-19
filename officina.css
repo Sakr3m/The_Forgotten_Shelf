@@ -664,6 +664,7 @@ body.is-steam-mode .steam-column{ display:flex; }
 }
 .steam-item__title{ font-size:.85rem; font-weight:600; color:var(--text); }
 .steam-item__price{ font-size:.8rem; font-weight:700; color:#66c0f4; white-space:nowrap; text-align:right; }
+.steam-item__original{ display:block; color:var(--text-faint); font-size:.7rem; text-decoration:line-through; }
 .steam-item__discount{ display:block; color:#a4d007; font-size:.72rem; }
 
 @media (min-width:901px){
