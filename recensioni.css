@@ -38,7 +38,7 @@
     border-width:2px;
   }
   .discord-link{ width:40px; }
-  .social-links{ gap:15px; }
+  body[data-state="landing"] .social-links{ gap:15px; }
 
   /* Pulsante "Segnala bug": stessa correzione di .stage sopra (250px
      assunti invece dei 300px reali). Bordo 2px, come gli altri
