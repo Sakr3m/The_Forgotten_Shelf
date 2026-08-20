@@ -52,7 +52,7 @@
      height:auto perche' ora sono due righe, non piu' una sola da
      20px fissi. */
   .watermark-brightness-line{
-    left:400px; right:400px; top:81px;
+    left:400px; right:400px; top:80px;
     flex-direction:column; align-items:stretch;
     height:auto;
   }
@@ -439,9 +439,9 @@ body[data-state="entry"] .text-size-toggle{
      scrollbar - che il browser disegna sempre incollata al bordo
      dell'elemento - si ritrova quasi a ridosso della riga invece che
      incollata sopra. --- */
-  #sidebar .game-list{ margin-right:1px; }
+  #sidebar .game-list{ margin-right:0; }
   #storieRail .game-list{
-    direction:rtl; margin-left:1px;
+    direction:rtl; margin-left:0;
   }
   #storieRail .game-list > li{ direction:ltr; }
 
@@ -461,7 +461,7 @@ body[data-state="entry"] .text-size-toggle{
   }
   #sidebar .game-list::-webkit-scrollbar,
   #storieRail .game-list::-webkit-scrollbar{
-    width:6px;
+    width:5px;
   }
   #sidebar .game-list::-webkit-scrollbar-track,
   #storieRail .game-list::-webkit-scrollbar-track{
@@ -572,7 +572,7 @@ body[data-state="entry"] .text-size-toggle{
      base al bounding rect reale di .entry-body e al suo scroll -
      vedi setupCustomScrollbar. */
   .entry-body-scrollbar{
-    position:absolute; width:7px;
+    position:absolute; width:5px;
     pointer-events:none;
     display:none; /* mostrata via JS solo se il contenuto scrolla
       davvero (scrollHeight>clientHeight) */
@@ -779,7 +779,7 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
   }
   body[data-state="entry"] .kofi-link{
     font-size:.76rem;
-    width:auto; padding:0 14px; /* qui il testo e' corto ("KoFi", non
+    width:auto; padding:0 15px; /* qui il testo e' corto ("KoFi", non
       "Sostienimi su Ko-fi"), i 180px fissi pensati per la home
       lasciavano un vuoto enorme intorno alle quattro lettere */
   }
@@ -1142,8 +1142,8 @@ body[data-state="entry"] .landing{ display:none; }
    ============================================================ */
 @media (min-width:901px){
   .watermark-brightness-line__presets{
-    display:flex; align-items:center; gap:4px;
-    order:2; margin-right:0; margin-top:6px;
+    display:flex; align-items:center; gap:5px;
+    order:2; margin-right:0; margin-top:5px;
     width:100%; justify-content:flex-end;
   }
   .watermark-brightness-line__preset{
@@ -1463,14 +1463,14 @@ body[data-entry-animate="true"] #watermarkBrightness{
    identico inset di 6px dal bordo interno usato li' (#sidebar
    .row-lock/.side-rail .row-lock), per allinearsi in verticale. */
 @media (min-width:901px){
-  .eyebrow-wrap{ position:relative; margin-top:9px; margin-bottom:33px; }
+  .eyebrow-wrap{ position:relative; margin-top:10px; margin-bottom:33px; }
   .sidebar-eyebrow, .rail-label{ margin:0; }
   .column-lock{
     display:flex;
     position:absolute; top:50%; transform:translateY(-50%);
     width:25px; height:25px; padding:0; box-sizing:border-box;
     align-items:center; justify-content:center;
-    border:1px solid var(--cyan);
+    border:2px solid var(--cyan);
     border-radius:50%;
     background:var(--panel);
     color:var(--cyan);
@@ -1480,8 +1480,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
     transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
   .column-lock svg{ width:15px; height:15px; }
-  #sidebar .column-lock{ right:6px; }
-  .side-rail .column-lock{ left:6px; }
+  #sidebar .column-lock{ right:5px; }
+  .side-rail .column-lock{ left:5px; }
   #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
   .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
     opacity:1; pointer-events:auto;
