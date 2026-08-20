@@ -506,18 +506,6 @@ body[data-state="landing"] .brand{ display:none; }
 .game-list > li{
   border-radius:var(--radius-sm);
   transition:background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-  will-change:background, box-shadow; /* Prova (19/08) contro i
-    "glitterini" segnalati su Il Filo Nascosto - residui grafici dopo
-    la selezione rapida/convulsa di piu' voci in fila. Con molte righe
-    che condividono la stessa transition su box-shadow, attivate/
-    disattivate in rapida sequenza, il browser a volte non ripulisce
-    bene il fotogramma precedente. will-change dice al browser di
-    preparare in anticipo un livello di rendering dedicato (GPU)
-    invece di ridisegnare male al volo - a differenza del tentativo
-    precedente (sostituire box-shadow con un pseudo-elemento), qui la
-    tecnica di evidenziazione resta la stessa, si aggiunge solo questa
-    proprieta'. Da verificare sul dispositivo reale dove il problema
-    si vedeva. */
 }
 .game-list > li:hover,
 .game-list > li:has(> a.is-active),
