@@ -52,7 +52,7 @@
      height:auto perche' ora sono due righe, non piu' una sola da
      20px fissi. */
   .watermark-brightness-line{
-    left:400px; right:400px; top:81px;
+    left:400px; right:400px; top:80px;
     flex-direction:column; align-items:stretch;
     height:auto;
   }
@@ -439,9 +439,9 @@ body[data-state="entry"] .text-size-toggle{
      scrollbar - che il browser disegna sempre incollata al bordo
      dell'elemento - si ritrova quasi a ridosso della riga invece che
      incollata sopra. --- */
-  #sidebar .game-list{ margin-right:1px; }
+  #sidebar .game-list{ margin-right:0; }
   #storieRail .game-list{
-    direction:rtl; margin-left:1px;
+    direction:rtl; margin-left:0;
   }
   #storieRail .game-list > li{ direction:ltr; }
 
@@ -461,7 +461,7 @@ body[data-state="entry"] .text-size-toggle{
   }
   #sidebar .game-list::-webkit-scrollbar,
   #storieRail .game-list::-webkit-scrollbar{
-    width:6px;
+    width:5px;
   }
   #sidebar .game-list::-webkit-scrollbar-track,
   #storieRail .game-list::-webkit-scrollbar-track{
@@ -566,7 +566,7 @@ body[data-state="entry"] .text-size-toggle{
     display:none;
   }
   .entry-body-scrollbar{
-    position:absolute; width:7px;
+    position:absolute; width:5px;
     pointer-events:none;
     display:none;
   }
@@ -779,7 +779,7 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
   }
   body[data-state="entry"] .kofi-link{
     font-size:.76rem;
-    width:auto; padding:0 14px; /* qui il testo e' corto ("KoFi", non
+    width:auto; padding:0 15px; /* qui il testo e' corto ("KoFi", non
       "Sostienimi su Ko-fi"), i 180px fissi pensati per la home
       lasciavano un vuoto enorme intorno alle quattro lettere */
   }
@@ -851,7 +851,7 @@ body[data-state="entry"] .landing{ display:none; }
   }
   #sidebar .game-list::-webkit-scrollbar,
   #storieRail .game-list::-webkit-scrollbar{
-    width:6px;
+    width:5px;
   }
   #sidebar .game-list::-webkit-scrollbar-track,
   #storieRail .game-list::-webkit-scrollbar-track{
@@ -896,7 +896,7 @@ body[data-state="entry"] .landing{ display:none; }
     flex:0 0 100vw; width:100vw; max-width:none;
     height:100vh; overflow-y:auto; scroll-snap-align:start;
     border-left:none; border-top:none;
-    padding:90px 15px 24px; /* valori finali gia' consolidati: il
+    padding:90px 15px 25px; /* valori finali gia' consolidati: il
       padding-top era 76px qui in origine, poi portato a 90 da una
       regola successiva nel file; padding-left/right erano 16px, poi
       15. Scritti qui direttamente, non serve piu' la seconda regola
@@ -905,7 +905,7 @@ body[data-state="entry"] .landing{ display:none; }
 
   /* --- Tazza + "Storie & Teorie": allineata alla stessa posizione
      del pulsante home in home (niente più hamburger da scansare). --- */
-  .brand{ left:12px; top:17px; width:auto; justify-content:flex-start; gap:8px; }
+  .brand{ left:15px; top:15px; width:auto; justify-content:flex-start; gap:10px; }
   .brand .seal--mini{ --size:20px; }
   .brand-text{ font-size:1rem; }
 
@@ -980,7 +980,7 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
   body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
   body[data-state="entry"] .social-links{
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:50%;
     transform:translate(-50%, -50%);
   }
@@ -992,7 +992,7 @@ body[data-state="entry"] .landing{ display:none; }
   /* Banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:66px; left:0; right:0; height:130px;
+    position:absolute; top:65px; left:0; right:0; height:130px;
     margin:0; padding:0; border:none;
     border-radius:0; /* .game-header (condivisa) porta border-radius:var(--radius):
       qui invece il banner deve andare a piena tela, bordo a bordo, non con
@@ -1020,16 +1020,16 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:116px; /* era 131px - ridotto di 15px per portare la
+    padding-top:115px; /* era 131px - ridotto di 15px per portare la
       distanza banner->copyright da 35px (misurata con un browser
       vero) ai 20px richiesti esplicitamente. */
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:51px; right:0; z-index:2;
+    position:absolute; top:50px; right:0; z-index:2;
   }
   body[data-state="entry"] .entry-game-trigger{
-    height:35px; padding:0 12px; font-size:.76rem;
+    height:35px; padding:0 10px; font-size:.76rem;
   }
   body[data-state="entry"] .text-size-toggle{
     height:35px; width:50px; padding:0; font-size:.76rem;
@@ -1056,7 +1056,7 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-14px; right:0; z-index:2; /* 15px dalla
+    position:absolute; top:-15px; right:0; z-index:2; /* 15px dalla
       parte alta del banner (era -12px, 17px - richiesto esplicito
       per allinearlo alla stessa distanza (15px) della tendina dalla
       parte bassa. right:0 invariato: il pulsante dimensione testo ora
@@ -1072,7 +1072,7 @@ body[data-state="entry"] .landing{ display:none; }
       resta sempre fermo, e la tabellina - centrata a lui nella
       stessa riga - resta centrata di conseguenza. */
   }
-  body[data-state="entry"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
+  body[data-state="entry"] .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
 
   /* Lo stage deve solo scostare la barra fissa in alto (60px): banner
      e testo sono di nuovo in flusso normale, non servono più calcoli
@@ -1138,8 +1138,8 @@ body[data-state="entry"] .landing{ display:none; }
    ============================================================ */
 @media (min-width:901px){
   .watermark-brightness-line__presets{
-    display:flex; align-items:center; gap:4px;
-    order:2; margin-right:0; margin-top:6px;
+    display:flex; align-items:center; gap:5px;
+    order:2; margin-right:0; margin-top:5px;
     width:100%; justify-content:flex-end;
   }
   .watermark-brightness-line__preset{
@@ -1459,14 +1459,14 @@ body[data-entry-animate="true"] #watermarkBrightness{
    identico inset di 6px dal bordo interno usato li' (#sidebar
    .row-lock/.side-rail .row-lock), per allinearsi in verticale. */
 @media (min-width:901px){
-  .eyebrow-wrap{ position:relative; margin-top:9px; margin-bottom:33px; }
+  .eyebrow-wrap{ position:relative; margin-top:10px; margin-bottom:33px; }
   .sidebar-eyebrow, .rail-label{ margin:0; }
   .column-lock{
     display:flex;
     position:absolute; top:50%; transform:translateY(-50%);
     width:25px; height:25px; padding:0; box-sizing:border-box;
     align-items:center; justify-content:center;
-    border:1px solid var(--cyan);
+    border:2px solid var(--cyan);
     border-radius:50%;
     background:var(--panel);
     color:var(--cyan);
@@ -1476,8 +1476,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
     transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
   .column-lock svg{ width:15px; height:15px; }
-  #sidebar .column-lock{ right:6px; }
-  .side-rail .column-lock{ left:6px; }
+  #sidebar .column-lock{ right:5px; }
+  .side-rail .column-lock{ left:5px; }
   #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
   .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
     opacity:1; pointer-events:auto;
@@ -1647,11 +1647,11 @@ body[data-entry-animate="true"] #watermarkBrightness{
   #sidebar .game-list button, #sidebar .game-list a,
   #storieRail .game-list button, #storieRail .game-list a{
     text-align:right;
-    box-shadow:inset -3px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
   }
   #sidebar .game-list button.is-active, #sidebar .game-list a.is-active,
   #storieRail .game-list button.is-active, #storieRail .game-list a.is-active{
-    box-shadow:inset -3px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   }
 
   /* Margini laterali delle voci: il box/striscia resta a 15px dal
@@ -1707,12 +1707,12 @@ body[data-entry-animate="true"] #watermarkBrightness{
      la home stessa ha un layout diverso, verificare comunque a vista
      che non interferisca. */
   .mobile-table-toggle{
-    display:flex; align-items:center; justify-content:center; gap:8px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
     height:35px; box-sizing:border-box;
     margin-top:50px; /* stessa distanza dal sub che aveva il vecchio
       pulsante video (ora eliminato su mobile) - il toggle ne prende
       il posto esatto. */
-    padding:0 14px;
+    padding:0 15px;
     border:1px solid var(--cyan);
     background:var(--panel);
     border-radius:999px;
