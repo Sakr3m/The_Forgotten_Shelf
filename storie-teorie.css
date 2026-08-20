@@ -20,6 +20,25 @@
      stato arrotondato a 25px per sbaglio durante l'audit, poi
      riportato a 24px su richiesta esplicita. */
 
+/* Citazione firmata sotto l'intro breve della home (20/08): stile di
+   base (vale anche mobile), il blocco desktop qui sotto lo ingrandisce
+   e allinea alla stessa larghezza di .landing-intro. Reset dei margini
+   di default del browser per <blockquote>/<cite> - altrimenti
+   arriverebbero rientri strani non voluti. */
+.landing-quote{
+  margin:15px 0 0; padding:0;
+  max-width:640px;
+  font-style:italic; color:var(--text-dim);
+  font-size:1rem; line-height:1.7;
+}
+.landing-quote p{ margin:0; display:inline; }
+.landing-quote p::before{ content:"\201C"; }
+.landing-quote p::after{ content:"\201D"; }
+.landing-quote cite{
+  display:block; margin-top:8px; font-style:normal;
+  font-weight:600; text-align:right; color:var(--text-faint);
+}
+
 /* Blocco hero della home: font-size e line-height fissati in px e
    arrotondati a multipli di 5 (erano tutti in rem, valori non tondi:
    .75rem=12px, 1rem=16px, .88rem=14.08px), poi ingranditi del 25% su
@@ -33,6 +52,17 @@
   .landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:30px; }
   .landing-eyebrow{ font-size:15px; line-height:15px; }
   .landing-intro{ font-size:20px; line-height:30px; margin-top:15px; max-width:800px; }
+  /* Citazione firmata sotto l'intro breve: stesso font/dimensione di
+     .landing-intro qui sopra, solo in corsivo - "una specie di
+     dicitura", tra virgolette vere (aggiunte via CSS, non nel testo,
+     cosi' restano fuori dalla traduzione) e firmata come le vecchie
+     epigrafi in testa a un libro. p/p::before/p::after/cite ereditano
+     gia' tutto il necessario dal blocco base qui sopra, solo le
+     dimensioni cambiano qui. */
+  .landing-quote{
+    font-size:20px; line-height:30px; margin-top:20px; max-width:800px;
+  }
+  .landing-quote cite{ margin-top:10px; }
   .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
   .landing{ max-width:950px; }
 }
