@@ -588,8 +588,15 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     border-bottom:1px solid var(--line);
   }
   .review-entry .entry-header__row{
-    display:flex; align-items:center; justify-content:space-between; gap:20px;
+    display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
     margin-bottom:12px;
+    /* align-items:flex-start (era center, 20/08): con center, quando
+       la nuvoletta del brano compare e allarga .music-control (40px
+       -> 57px), il titolo si ricentrava nella riga ora piu' alta e si
+       spostava di 5px verso il basso - segnalato come bug (la pagina
+       "si sposta" abilitando la musica). Con flex-start il titolo
+       resta ancorato in cima alla riga, la sua posizione non dipende
+       piu' dall'altezza di quello che gli sta a fianco. */
   }
   .review-entry .entry-header__title{
     font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:.01em;
