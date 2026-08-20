@@ -105,8 +105,7 @@
 .side-rail .game-list > li:hover,
 .side-rail .game-list > li:has(> a.is-active),
 .side-rail .game-list > li:has(> button.is-active:not(.row-lock)){
-  box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
-  /* Il gradiente di sfondo (background, non lo box-shadow qui sopra)
+  /* Il gradiente di sfondo (background, non il bordo qui sotto)
      e' ereditato dalla regola condivisa in styles.css: 90deg, colore
      forte a sinistra che sfuma verso destra. Ha senso sulla sidebar
      sinistra (il lucchetto vive a destra, quindi il colore forte
@@ -118,6 +117,15 @@
      della regola condivisa, sfuma verso il lucchetto invece di
      restare forte proprio li'. */
   background:linear-gradient(270deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
+}
+.side-rail .game-list > li::before{
+  left:auto; right:0;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+}
+.side-rail .game-list > li:hover::before,
+.side-rail .game-list > li:has(> a.is-active)::before,
+.side-rail .game-list > li:has(> button.is-active:not(.row-lock))::before{
+  background:var(--item-accent, var(--cyan));
 }
 /* :not(.row-lock) sui selettori button qui sopra: mancava (la
    sidebar sinistra ce l'ha gia', vedi piu' sotto in fondo al file) -

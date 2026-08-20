@@ -504,14 +504,32 @@ body[data-state="landing"] .brand{ display:none; }
    con la stessa regola. :has() per lo stato attivo (la voce aperta al
    momento): supportato da tutti i browser evergreen attuali. */
 .game-list > li{
+  position:relative;
   border-radius:var(--radius-sm);
-  transition:background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  transition:background var(--dur-fast) var(--ease);
+}
+/* Bordo colorato a sinistra: un pseudo-elemento con background solido
+   invece di box-shadow:inset (18/08) - quella tecnica puo' generare
+   micro-artefatti di rendering ("sparkle"/glitter) su schermi con
+   scala frazionaria (125%/150% su Windows, certi monitor esterni),
+   segnalato dall'utente su Il Filo Nascosto. Un bordo vero, con
+   dimensioni in pixel fisse, non soffre dello stesso problema di
+   antialiasing. */
+.game-list > li::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:2px;
+  border-radius:var(--radius-sm) 0 0 var(--radius-sm);
+  background:transparent;
+  transition:background var(--dur-fast) var(--ease);
 }
 .game-list > li:hover,
 .game-list > li:has(> a.is-active),
 .game-list > li:has(> button.is-active:not(.row-lock)){
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
-  box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
+}
+.game-list > li:hover::before,
+.game-list > li:has(> a.is-active)::before,
+.game-list > li:has(> button.is-active:not(.row-lock))::before{
+  background:var(--item-accent, var(--cyan));
 }
 .game-list > li:hover > a, .game-list > li:hover > button:not(.row-lock),
 .game-list > li:has(> a.is-active) > a,
