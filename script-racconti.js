@@ -41,8 +41,6 @@ const STRINGS = {
     landingIntro: "Un archivio di storie che non chiedono permesso: racconti brevi pensati per colpire in poche righe, libri a capitoli per chi non vuole più uscirne. Horror psicologico, dark fantasy, elegia e altro ancora, tutto scritto per restarti addosso.",
     landingSub: "Seleziona una voce dalla colonna Racconti brevi o da quella dei Libri per approfondire.",
     landingSubMobile: "Seleziona una voce dalla finestra Racconti brevi o da quella dei Libri per approfondire.",
-    landingVideoBtn: "Riproduci video",
-    landingVideoNotReady: "Shh... il video sta ancora dormendo. Ripassa più avanti 👀",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     entryCopyright: "© 2026 Sakrem — Tutti i diritti riservati",
@@ -77,8 +75,6 @@ const STRINGS = {
     landingIntro: "An archive of stories that don't ask permission — short stories built to land in a handful of lines, chaptered books for those who don't want to leave. Psychological horror, dark fantasy, elegy, and more, all written to stick with you.",
     landingSub: "Select an entry from the Short Stories column or from the Books column to dive in.",
     landingSubMobile: "Select an entry from the Short Stories screen or from the Books screen to dive in.",
-    landingVideoBtn: "Play video",
-    landingVideoNotReady: "Shh... the video is still asleep. Check back later 👀",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     entryCopyright: "© 2026 Sakrem — All rights reserved",
@@ -129,7 +125,6 @@ const el = {
   stageControls: document.querySelector(".stage-controls"),
   langSwitch: document.getElementById("langSwitch"),
   mobileTableToggle: document.getElementById("mobileTableToggle"),
-  landingVideoBtn: document.getElementById("landingVideoBtn"),
   textSizeToggle: document.getElementById("textSizeToggle"),
   textSizeLabel: document.getElementById("textSizeLabel"),
   panelToggle: document.getElementById("panelToggle"),
@@ -1388,17 +1383,6 @@ el.langSwitch.addEventListener("click", () => {
   const reportFileName = document.getElementById("reportFileName");
   if(reportFileName && !reportFileName.textContent.includes(".")) reportFileName.textContent = t("reportNoFile");
 });
-
-// ---------------------------------------------------------
-// Pulsante "Riproduci video" (solo desktop, su mobile e' eliminato):
-// il video vero non e' ancora agganciato, per ora un messaggio
-// scherzoso al posto della riproduzione.
-// ---------------------------------------------------------
-if(el.landingVideoBtn){
-  el.landingVideoBtn.addEventListener("click", () => {
-    alert(t("landingVideoNotReady"));
-  });
-}
 
 // ---------------------------------------------------------
 // Dimensione testo (X1 -> X1.5 -> X2 -> di nuovo X1 ad ogni click):

@@ -28,8 +28,6 @@ const STRINGS = {
     entryCopyright: "© 2026 Sakrem — Analisi e testo originali",
     entryReadTime: "Durata media di lettura: %s min",
     entryReadTimeUnderMin: "Durata media di lettura: meno di 1 min",
-    landingVideoBtn: "Riproduci video",
-    landingVideoNotReady: "Shh... il video sta ancora dormendo. Ripassa più avanti 👀",
     leaveALike: "Lascia un like",
     reportBtnLabel: "Segnala bug",
     reportTitle: "Segnala un problema",
@@ -65,8 +63,6 @@ const STRINGS = {
     entryCopyright: "© 2026 Sakrem — Original analysis and text",
     entryReadTime: "Estimated reading time: %s min",
     entryReadTimeUnderMin: "Estimated reading time: under 1 min",
-    landingVideoBtn: "Play video",
-    landingVideoNotReady: "Shh... the video is still asleep. Check back later 👀",
     leaveALike: "Leave a like",
     reportBtnLabel: "Report bug",
     reportTitle: "Report an issue",
@@ -136,7 +132,6 @@ const el = {
   mobileTableToggle: document.getElementById("mobileTableToggle"),
   textSizeToggle: document.getElementById("textSizeToggle"),
   textSizeLabel: document.getElementById("textSizeLabel"),
-  landingVideoBtn: document.getElementById("landingVideoBtn"),
   panelToggle: document.getElementById("panelToggle"),
 };
 
@@ -1078,17 +1073,6 @@ if(el.panelToggle){
       el.panelToggle.setAttribute("aria-pressed", "true");
       localStorage.setItem(PANELS_HOVER_KEY, "true");
     }
-  });
-}
-
-// ---------------------------------------------------------
-// Pulsante "Riproduci video" (solo desktop, su mobile e' eliminato):
-// il video vero non e' ancora agganciato, per ora un messaggio
-// scherzoso al posto della riproduzione.
-// ---------------------------------------------------------
-if(el.landingVideoBtn){
-  el.landingVideoBtn.addEventListener("click", () => {
-    alert(t("landingVideoNotReady"));
   });
 }
 

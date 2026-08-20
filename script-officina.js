@@ -18,8 +18,6 @@ const STRINGS = {
     wishSearchPlaceholder: "Cerca il titolo, per tema o per genere...",
     wishSearchEmpty: "Nessun tema corrisponde a quello che hai scritto.",
     steamToggleLabel: "Sfoglia offerte Steam",
-    landingVideoBtn: "Riproduci video",
-    landingVideoNotReady: "Shh... il video sta ancora dormendo. Ripassa più avanti 👀",
     steamIndieEyebrow: "Piccole perle a prezzo bassissimo",
     steamSaleEyebrow: "In sconto proprio adesso",
     kofiLabel: "Sostienimi su Ko-fi",
@@ -54,8 +52,6 @@ const STRINGS = {
     wishSearchPlaceholder: "Search by title, theme or genre...",
     wishSearchEmpty: "No theme matches what you typed.",
     steamToggleLabel: "Browse Steam deals",
-    landingVideoBtn: "Play video",
-    landingVideoNotReady: "Shh... the video is still asleep. Check back later 👀",
     steamIndieEyebrow: "Tiny gems at a very low price",
     steamSaleEyebrow: "On sale right now",
     kofiLabel: "Support me on Ko-fi",
@@ -100,7 +96,6 @@ const el = {
   mathemoryCardBodyLeft: document.getElementById("mathemoryCardBodyLeft"),
   mathemoryCardBodyRight: document.getElementById("mathemoryCardBodyRight"),
   desktopAudioToggle: document.getElementById("desktopAudioToggle"),
-  landingVideoBtn: document.getElementById("landingVideoBtn"),
   desktopVolumeSlider: document.getElementById("desktopVolumeSlider"),
   layout: document.querySelector(".layout"),
   screenPrevBtn: document.getElementById("screenPrevBtn"),
@@ -242,14 +237,6 @@ document.addEventListener("visibilitychange", () => {
 // pagine tramite localStorage, pronto per quando Il Muro dei Desideri
 // avra' un proprio audio da controllare.
 // ---------------------------------------------------------
-// Pulsante "Riproduci video" - stesso messaggio scherzoso delle
-// altre pagine (racconti.css/script-racconti.js), video vero non
-// ancora agganciato.
-if(el.landingVideoBtn){
-  el.landingVideoBtn.addEventListener("click", () => {
-    alert(t("landingVideoNotReady"));
-  });
-}
 
 if(window.matchMedia("(hover:hover)").matches){
   let desktopAudioOn = sharedMusicOn;

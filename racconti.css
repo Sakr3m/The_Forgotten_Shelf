@@ -1350,7 +1350,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
    di 1px - prima un tentativo a 3px, si e' scelto di tenere le due
    cose separate: 2px sui pulsanti, 5px sulla striscia delle voci
    qui sopra), sia in home (report-bug-btn, kofi-link, discord-link,
-   index-link, lang-switch, landing-video-btn, music-toggle,
+   index-link, lang-switch, music-toggle,
    panel-toggle) sia dentro le voci (lang-switch, music-toggle,
    entry-game-trigger - gli altri non compaiono li'). Solo su questa
    pagina, styles.css resta a 1px per tutte le altre. Solo desktop:
@@ -1364,7 +1364,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .lang-switch,
   .music-toggle,
   .panel-toggle,
-  .landing-video-btn,
   .entry-game-trigger,
   .track-info{
     border-width:2px;
@@ -1428,41 +1427,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
    calma dentro lo spazio che ha. */
 @media (min-width:901px){
   .kofi-link, .index-link{ white-space:nowrap; }
-}
-
-/* Pulsante "Riproduci video" - per ora senza funzione, nessun video
-   ancora agganciato (verra' aperto in un player YouTube incorporato,
-   che porta gia' il proprio controllo volume: non serve un nostro
-   pulsante volume separato). Stessa pillola degli altri pulsanti
-   della pagina (bordo 1px come standard, non i 2px di prova sui
-   pulsanti dell'header - questo vive nel corpo della home, non nella
-   barra fissa in alto), centrato sotto il sub, 40px di altezza. */
-@media (min-width:901px){
-  .landing-video-btn{
-    display:flex; align-items:center; justify-content:center; gap:8px;
-    height:40px; box-sizing:border-box; padding:0 22px 0 17px; /* padding
-      asimmetrico apposta: l'icona play (triangolo) ha piu' spazio
-      vuoto trasparente nel suo stesso riquadro sul lato sinistro che
-      su quello destro (il disegno stesso, non un errore di padding) -
-      compensato riducendo il padding-left di 5px, cosi' il "peso
-      visivo" combinato di icona+testo torna centrato nella pillola.
-      Stesso fix gia' applicato alla vecchia versione mobile di questo
-      pulsante (prima di essere eliminata li'), mai riportato qui su
-      desktop finora. */
-    margin-top:50px;
-    border:2px solid var(--cyan); /* era 1px */
-    background:var(--panel);
-    border-radius:999px;
-    font-size:15px; font-weight:600; color:var(--text-dim);
-    cursor:pointer;
-    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-  } /* Ora visibile su desktop (richiesto esplicitamente) - il video
-    vero non c'e' ancora, ma al click mostra un messaggio scherzoso
-    invece di restare nascosto in attesa. Su mobile invece eliminato
-    del tutto (vedi @media max-width:900px piu' sotto), sostituito
-    dal toggle Racconti/Libri nella stessa posizione. */
-  .landing-video-btn:hover{ color:var(--text); border-color:var(--text); }
-  .landing-video-btn svg{ width:15px; height:15px; color:currentColor; flex-shrink:0; }
 }
 
 .column-lock{ display:none; } /* nascosto di default (mobile incluso),
@@ -1539,11 +1503,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
 }
 
 @media (max-width:900px){
-  .landing-video-btn{ display:none; } /* ELIMINATO su mobile,
-    richiesto esplicitamente - il suo posto (stessa distanza dal sub
-    sopra) e' preso dal toggle Racconti/Libri, vedi piu' sotto nel
-    file. Su desktop invece e' visibile (vedi @media min-width:901px
-    piu' sopra). */
 
   /* Distanze del blocco hero riviste. */
   .landing-title{ font-size:25px; line-height:25px; margin-top:35px; }
@@ -1600,7 +1559,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      2px finora esisteva solo su desktop, vedi piu' sotto in fondo al
      file, PROVA sui pulsanti). */
   .kofi-link, .discord-link, .index-link, .lang-switch,
-  .landing-video-btn, .music-toggle, .track-info, .entry-game-trigger{
+  .music-toggle, .track-info, .entry-game-trigger{
     border-width:2px;
   }
 
