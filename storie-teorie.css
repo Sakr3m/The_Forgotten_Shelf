@@ -64,6 +64,10 @@
   }
   .landing-quote cite{ margin-top:10px; }
   .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
+  /* Ordine invertito (20/08): landing-sub ora viene prima, l'alert
+     spoiler dopo - va sotto a tutto il resto del blocco intro,
+     staccato di 50px dalla scritta "Seleziona una voce..." sopra. */
+  .spoiler-alert{ margin-top:50px; }
   .landing{ max-width:950px; }
 }
 
