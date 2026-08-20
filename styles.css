@@ -443,7 +443,11 @@ body[data-state="landing"] .brand{ display:none; }
 .layout{ display:flex; min-height:100vh; }
 .sidebar{
   width:250px; flex-shrink:0;
-  padding:24px 16px;
+  padding:24px 16px; /* CONVENZIONE FISSA: il padding verticale (24px)
+    resta sempre 24, mai arrotondato a 25 - governa sia lo spazio tra
+    il titolino della colonna (es. "Teorie") e il margine alto, sia
+    quello tra il titolino e la prima voce della lista. Vale su tutte
+    le pagine che condividono questa regola. */
   border-right:1px solid var(--line);
   background:var(--bg-soft);
 }

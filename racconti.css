@@ -11,7 +11,14 @@
      arrotondati a multipli di 5.
    - Lo spazio sopra il testo di una voce (.entry-body, margin-top)
      resta SEMPRE 33px - stesso discorso, eccezione voluta e permanente
-     anche se non e' un multiplo di 5. */
+     anche se non e' un multiplo di 5.
+   - Lo spazio tra il titolino della colonna (es. "Teorie") e il
+     margine alto, insieme allo spazio tra il titolino e la prima
+     voce della lista, resta SEMPRE 24px (padding verticale di
+     .sidebar/.side-rail) - stessa eccezione, vale su tutte le pagine
+     (desktop e mobile), non solo qui. Corretto un mio errore: era
+     stato arrotondato a 25px per sbaglio durante l'audit, poi
+     riportato a 24px su richiesta esplicita. */
 
 /* Blocco hero della home: font-size e line-height fissati in px e
    arrotondati a multipli di 5 (erano tutti in rem, valori non tondi:
@@ -68,7 +75,7 @@
 }
 .side-rail{
   flex-shrink:0;
-  padding:25px 20px;
+  padding:24px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
   overflow-y:auto;
