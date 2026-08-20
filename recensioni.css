@@ -102,7 +102,7 @@
     display:flex; align-items:center; justify-content:center;
     position:absolute; top:50%; transform:translateY(-50%);
     width:34px; height:64px;
-    background:var(--panel); border:1px solid var(--line);
+    background:var(--panel); border:2px solid var(--line);
     color:var(--text-dim);
     cursor:pointer;
     transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
@@ -432,6 +432,21 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   border-radius:999px;
   font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
   color:var(--cyan);
+}
+
+/* Bordo a 2px (20/08, solo desktop per ora - le regole sopra restano
+   1px per mobile, mai toccate qui): pulsanti "A caldo"/"Completa"
+   (.threshold button), tag (JRPG/piattaforme/ore) e badge di
+   valutazione (Consigliato/Non per tutti/Sconsigliato, che usa
+   box-shadow invece di border - stesso spessore visivo, aumentato
+   allo stesso modo), uniformati al resto della pagina. */
+@media (min-width:901px){
+  .review-entry .threshold{ border-width:2px; }
+  .review-entry .threshold button{ border-width:2px; }
+  .review-entry .title-tag{ border-width:2px; }
+  .review-entry .facts dd.fact-recommendation{
+    box-shadow:0 0 0 2px currentColor inset, 0 6px 16px -8px currentColor;
+  }
 }
 
 /* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
