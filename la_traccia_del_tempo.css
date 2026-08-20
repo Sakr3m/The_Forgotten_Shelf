@@ -116,7 +116,7 @@
   body[data-state="title"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
   body[data-state="game"] .social-links,
   body[data-state="title"] .social-links{
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:50%;
     transform:translate(-50%, -50%);
   }
@@ -217,7 +217,7 @@
     z-index:2;
   }
   body[data-state="game"] .track-info,
-  body[data-state="title"] .track-info{ max-width:150px; padding:6px 8px 6px 10px; }
+  body[data-state="title"] .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
 
   /* --- Riga "Universo IGA (...)" + frecce: spostata più su (66px
      di margine sul figlio .u-track diventano 44px di padding su
@@ -454,7 +454,7 @@
   body[data-state="title"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
   body[data-state="game"] .brand .social-links,
   body[data-state="title"] .brand .social-links{
-    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+    display:flex; flex-direction:row-reverse; align-items:center; gap:10px;
   }
   body[data-state="game"] .kofi-link,
   body[data-state="game"] .discord-link,
@@ -493,7 +493,7 @@
    ============================================================ */
 @media (min-width:901px){
   .watermark-brightness-line__presets{
-    display:flex; align-items:center; gap:4px;
+    display:flex; align-items:center; gap:5px;
     margin-right:10px;
   }
   .watermark-brightness-line__preset{
