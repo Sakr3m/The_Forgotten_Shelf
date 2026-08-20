@@ -505,18 +505,7 @@ body[data-state="landing"] .brand{ display:none; }
    momento): supportato da tutti i browser evergreen attuali. */
 .game-list > li{
   border-radius:var(--radius-sm);
-  /* box-shadow volutamente NON animato (18/08) - solo background lo
-     e'. Segnalati "glitterini" (residui grafici) con click rapidi/
-     convulsi tra le voci: la causa piu' probabile e' proprio
-     l'animazione del box-shadow stesso - con molte righe che
-     cambiano bordo in rapida sequenza, il browser a volte non riesce
-     a "pulire" bene i fotogrammi intermedi dell'animazione (il bordo
-     sottile che cresce/si restringe), lasciando residui. Un bordo che
-     scatta di colpo invece di animarsi non ha fotogrammi intermedi da
-     lasciare indietro. Gia' provato prima will-change (non ha
-     risolto) e un pseudo-elemento al posto del box-shadow (ha rotto
-     altro, due righe evidenziate insieme) - entrambi revertiti. */
-  transition:background var(--dur-fast) var(--ease);
+  transition:background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 .game-list > li:hover,
 .game-list > li:has(> a.is-active),
