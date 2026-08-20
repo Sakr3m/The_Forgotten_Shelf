@@ -13,24 +13,37 @@
 .landing-title{ font-family:'Oswald', sans-serif; font-weight:700; letter-spacing:.01em; }
 
 @media (min-width:901px){
+  /* Margine/larghezza corretti da 250px a 300px (20/08, stesso bug
+     gia' visto e corretto su officina.css/il_muro_dei_desideri.html):
+     la sidebar/side-rail delle altre pagine e' larga davvero 300px,
+     non 250 come assumeva questo file - i pulsanti finivano 50px
+     piu' a sinistra/stretti del previsto rispetto a Storie Senza
+     Cornice. */
   .stage{
     flex:none;
-    margin-left:250px;
-    width:calc(100% - 500px);
+    margin-left:300px;
+    width:calc(100% - 600px);
   }
 
   /* --- Pulsanti in alto (casetta, Ko-fi, Discord, switch lingua):
      qui sono sempre gli stessi, niente scambio "tazzina" come sulle
      altre pagine (il desktop resta sempre in stato landing, deciso
      in precedenza per tenere questi pulsanti visibili anche a
-     recensione aperta). Solo 3 cose da sistemare: sottolineatura,
-     altezza uniforme, colore grigio "spento" coerente con index.html. --- */
+     recensione aperta). Uniformati a Storie Senza Cornice (20/08):
+     altezza 40px (era 38), bordo 2px (era 1, mai sovrascritto). --- */
   .kofi-link, .index-link{ text-decoration:none; }
   .kofi-link, .index-link, .discord-link{ color:var(--text-faint); }
   .kofi-link, .index-link, .discord-link, .lang-switch{
-    height:38px; box-sizing:border-box;
+    height:40px; box-sizing:border-box;
+    border-width:2px;
   }
-  .discord-link{ width:38px; }
+  .discord-link{ width:40px; }
+  .social-links{ gap:15px; }
+
+  /* Pulsante "Segnala bug": stessa correzione di .stage sopra (250px
+     assunti invece dei 300px reali). Bordo 2px, come gli altri
+     pulsanti qui sopra. */
+  .report-bug-btn{ left:400px; border-width:2px; }
 }
 
 /* ============================================================
