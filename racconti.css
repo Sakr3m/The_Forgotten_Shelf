@@ -5,6 +5,14 @@
    invece di libreria + rail dei capitoli.
    ============================================================ */
 
+/* CONVENZIONI FISSE (20/08, dopo l'audit "multipli di 5"):
+   - Il contorno (border) dei pulsanti e' SEMPRE 2px, su questa pagina
+     come sulle altre - unica eccezione tra i valori altrimenti tutti
+     arrotondati a multipli di 5.
+   - Lo spazio sopra il testo di una voce (.entry-body, margin-top)
+     resta SEMPRE 33px - stesso discorso, eccezione voluta e permanente
+     anche se non e' un multiplo di 5. */
+
 /* Blocco hero della home: font-size e line-height fissati in px e
    arrotondati a multipli di 5 (erano tutti in rem, valori non tondi:
    .75rem=12px, 1rem=16px, .88rem=14.08px), poi ingranditi del 25% su
@@ -60,7 +68,7 @@
 }
 .side-rail{
   flex-shrink:0;
-  padding:24px 20px;
+  padding:25px 20px;
   border-left:1px solid var(--line);
   background:var(--bg-soft);
   overflow-y:auto;
@@ -89,8 +97,8 @@
    striscia colorata non bastava a risolvere del tutto.
    Side-rail: stesso discorso specchiato (riduzione a sinistra invece
    che a destra, margin-left compensa lo spostamento). */
-#sidebar .game-list a{ width:calc(100% - 45px); padding-left:14px; padding-right:0; }
-.side-rail .game-list a{ width:calc(100% - 45px); margin-left:45px; padding-right:14px; padding-left:0; } /* 14px
+#sidebar .game-list a{ width:calc(100% - 45px); padding-left:15px; padding-right:0; }
+.side-rail .game-list a{ width:calc(100% - 45px); margin-left:45px; padding-right:15px; padding-left:0; } /* 14px
   esterno come la sidebar - il vuoto tra testo e striscia colorata
   (5px) resta 9px su entrambi i lati, tarato stamattina. */
 
@@ -186,8 +194,8 @@
 .row-lock[aria-pressed="true"]:active{
   background:var(--panel); color:var(--item-accent, var(--cyan));
 }
-#sidebar .row-lock{ right:6px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
-.side-rail .row-lock{ left:6px; } /* stesso discorso, specchiato, sulla colonna destra */
+#sidebar .row-lock{ right:5px; } /* dentro i 45px interni riservati sulla sidebar sinistra */
+.side-rail .row-lock{ left:5px; } /* stesso discorso, specchiato, sulla colonna destra */
 
 /* "Teorie" e "Storie Nascoste" trattate allo stesso modo: nessun
    override qui, .rail-label eredita da styles.css la stessa identica
@@ -198,7 +206,7 @@
 /* I titoli delle voci possono contenere un "a capo" manuale (\n)
    tra il nome del gioco e il sottotitolo: va rispettato sia nei
    bottoni della lista sia nel titolo grande della voce. */
-.game-list button, .game-list a{ white-space:pre-line; line-height:18px; }
+.game-list button, .game-list a{ white-space:pre-line; line-height:20px; }
 .entry-title{ font-family:'EB Garamond', serif; font-style:italic; font-weight:500; font-size:35px; line-height:40px; color:var(--text); max-width:1080px; width:fit-content; margin:15px auto 0; white-space:pre-line; } /* margin-top:15px (era 20, corretto: troppo) per il distacco dal copyright:
   senza, il copyright sopra (spostato li' da un ordine precedente) e
   il titolo si toccherebbero senza nessuno spazio tra loro. */
@@ -261,7 +269,7 @@ body[data-state="entry"] .entry-game-picker.is-single-entry{ display:none; }
    dell'opera. */
 body[data-state="entry"] .text-size-toggle{
   display:flex; align-items:center; justify-content:center;
-  height:40px; width:58px; box-sizing:border-box; /* larghezza fissa,
+  height:40px; width:60px; box-sizing:border-box; /* larghezza fissa,
     non piu' padding che si adatta al testo - senza, il pulsante
     cambiava dimensione passando da "X1" a "X1.5" (piu' largo) a "X2"
     (di nuovo piu' stretto). 58px calcolati per contenere comodamente
@@ -289,8 +297,8 @@ body[data-state="entry"] .text-size-toggle{
   }
 }
 .entry-game-trigger{
-  display:flex; align-items:center; gap:8px;
-  height:40px; box-sizing:border-box; padding:0 16px;
+  display:flex; align-items:center; gap:10px;
+  height:40px; box-sizing:border-box; padding:0 15px;
   border:1px solid var(--item-accent, var(--cyan));
   background:var(--panel);
   border-radius:999px;
@@ -318,7 +326,7 @@ body[data-state="entry"] .text-size-toggle{
   background:var(--panel-raised);
   border:2px solid var(--item-accent, var(--cyan));
   border-radius:var(--radius-sm);
-  box-shadow:0 16px 32px rgba(0,0,0,.5);
+  box-shadow:0 15px 30px rgba(0,0,0,.5);
   overflow:hidden;
   z-index:30;
   animation:menuIn var(--dur-fast) var(--ease);
@@ -326,7 +334,7 @@ body[data-state="entry"] .text-size-toggle{
 .entry-game-menu li button{
   display:block; width:100%; text-align:left;
   white-space:nowrap;
-  padding:12px 16px;
+  padding:10px 15px;
   font-size:.84rem; font-weight:500;
   color:var(--text-dim);
   border-bottom:1px solid var(--line);
@@ -339,7 +347,7 @@ body[data-state="entry"] .text-size-toggle{
 .entry-game-menu li button.is-active{ color:var(--item-accent, var(--cyan)); }
 .entry-game-menu__coming-soon{
   display:block; width:100%;
-  padding:12px 16px;
+  padding:10px 15px;
   font-size:.84rem; font-weight:500; font-style:italic;
   color:var(--text-faint);
   cursor:default; user-select:none;
@@ -361,19 +369,19 @@ body[data-state="entry"] .text-size-toggle{
   background:var(--panel-raised);
   border:2px solid var(--item-accent, var(--cyan));
   border-radius:var(--radius-sm);
-  box-shadow:0 16px 32px rgba(0,0,0,.5);
+  box-shadow:0 15px 30px rgba(0,0,0,.5);
   z-index:30;
   animation:menuIn var(--dur-fast) var(--ease);
 }
 .playlist-menu__group-label{
-  padding:10px 16px 6px;
+  padding:10px 15px 5px;
   font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--text-faint);
 }
 .playlist-menu li button{
   display:block; width:100%; text-align:left;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  padding:10px 16px;
+  padding:10px 15px;
   font-size:.84rem; font-weight:500;
   color:var(--text-dim);
   border-bottom:1px solid var(--line);
@@ -632,7 +640,7 @@ body[data-state="entry"] .text-size-toggle{
 }
 .entry-readtime{
   margin:10px auto 0; width:fit-content;
-  font-size:15px; line-height:22.5px; color:var(--text-faint); /* font-size
+  font-size:15px; line-height:25px; color:var(--text-faint); /* font-size
     a 1.5x (era 20px/2x, poi corretto qui a 1.5x - richiesto
     esplicitamente, il doppio risultava troppo). line-height alla
     stessa proporzione (era 30px). */
@@ -640,7 +648,7 @@ body[data-state="entry"] .text-size-toggle{
 }
 .entry-tag{
   margin:15px auto 0; width:fit-content;
-  padding:5px 14px;
+  padding:5px 15px;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:999px;
   font-size:.7rem; line-height:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
