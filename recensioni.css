@@ -447,6 +447,13 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   .review-entry .facts dd.fact-recommendation{
     box-shadow:0 0 0 2px currentColor inset, 0 6px 16px -8px currentColor;
   }
+
+  /* Pulsante volume e nuvoletta col nome della canzone (20/08):
+     erano ancora sul valore base condiviso (1px) - a differenza di
+     .track-skip/.track-persist/.volume-panel, gia' a 2px di base in
+     styles.css (nessun fix necessario per quei tre). */
+  .music-toggle{ border-width:2px; }
+  .track-info{ border-width:2px; }
 }
 
 /* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
@@ -550,7 +557,12 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   .review-entry{
     display:flex; flex-direction:column;
-    width:100%; max-width:1220px; margin:70px auto 0;
+    width:100%; max-width:1120px; margin:70px auto 0; /* max-width
+      1220px->1120px (20/08): il contenuto sporgeva 50px oltre i
+      pulsanti esterni (Ko-fi/switch lingua) su ciascun lato,
+      centrato nello stage ma non a filo con loro come richiesto -
+      1120px e' esattamente la larghezza tra i pulsanti (misurata con
+      Playwright: da x=400 a x=1520 su una finestra 1920px). */
     /* Altezza vincolata alla viewport (meno lo spazio sopra e un
        margine sotto): cosi' solo la colonna di lettura scorre al suo
        interno, titolo/tag/volume/scheda restano fermi. */
