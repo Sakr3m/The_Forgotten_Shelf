@@ -20,7 +20,7 @@ const STRINGS = {
     landingEyebrow: "Benvenuto nell'archivio\ndi storie nascoste e teorie",
     landingTitle: "Il Filo Nascosto",
     landingIntro: "Teorie, retroscena e dettagli che sfuggono a una prima lettura, nascosti dentro le saghe videoludiche più amate.",
-    landingQuote: "Con le teorie parto da un sospetto, cerco, verifico, e solo alla fine scrivo quello che ha senso. Con le storie nascoste parto dalla certezza che qualcosa è lì, e cerco solo il modo di rimetterlo insieme.",
+    landingQuote: "Con le teorie parto da un sospetto, cerco, verifico, e, solo alla fine, scrivo quello che ha senso. Con le storie nascoste parto dalla certezza che qualcosa è lì, e cerco solo il modo di rimetterlo insieme.",
     landingSignature: "— Sakrem",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.",
