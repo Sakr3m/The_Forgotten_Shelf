@@ -1509,7 +1509,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 .title-like__btn{
   display:inline-flex; align-items:center; justify-content:center;
   width:38px; height:38px;
-  border:1px solid var(--item-accent, var(--cyan)); border-radius:999px;
+  border:2px solid var(--item-accent, var(--cyan)); border-radius:999px;
   color:var(--item-accent, var(--cyan)); background:transparent;
   cursor:pointer;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
