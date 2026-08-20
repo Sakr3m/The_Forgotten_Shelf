@@ -1163,7 +1163,7 @@ function advanceTrack(){
 if(el.bgMusic){
   el.bgMusic.addEventListener("ended", advanceTrack);
   el.bgMusic.addEventListener("timeupdate", () => {
-    if(el.bgMusic.duration){
+    if(el.bgMusic.duration && !isScrubbingProgress){
       el.trackProgressFill.style.width = (el.bgMusic.currentTime / el.bgMusic.duration * 100) + "%";
     }
   });
@@ -1171,6 +1171,103 @@ if(el.bgMusic){
     el.trackProgressFill.style.width = "0%";
   });
   el.trackSkipBtn.addEventListener("click", advanceTrack);
+
+  // Scrubbing della barra di riproduzione (20/08) - stessa tecnica e
+  // stesso codice di script-racconti.js/script-storie-teorie.js
+  // (mancava qui, segnalato come discrepanza di funzionalita' tra
+  // pagine: tutti i lettori con pulsante+nuvoletta+barra dovrebbero
+  // condividere le stesse funzioni, non solo il colore/le tracce).
+  const trackProgressEl = el.trackProgressFill.parentElement;
+  let isScrubbingProgress = false;
+
+  function seekFromPointerEvent(e){
+    if(!el.bgMusic.duration) return;
+    const rect = trackProgressEl.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    el.bgMusic.currentTime = ratio * el.bgMusic.duration;
+    el.trackProgressFill.style.width = (ratio * 100) + "%";
+  }
+
+  trackProgressEl.addEventListener("mousedown", (e) => {
+    if(!el.bgMusic.duration) return;
+    isScrubbingProgress = true;
+    trackProgressEl.classList.add("is-scrubbing");
+    seekFromPointerEvent(e);
+    e.preventDefault();
+  });
+  window.addEventListener("mousemove", (e) => {
+    if(!isScrubbingProgress) return;
+    seekFromPointerEvent(e);
+  });
+  window.addEventListener("mouseup", () => {
+    if(!isScrubbingProgress) return;
+    isScrubbingProgress = false;
+    trackProgressEl.classList.remove("is-scrubbing");
+  });
+
+  function seekFromTouch(touch){
+    seekFromPointerEvent({ clientX: touch.clientX });
+  }
+  trackProgressEl.addEventListener("touchstart", (e) => {
+    if(!el.bgMusic.duration) return;
+    isScrubbingProgress = true;
+    trackProgressEl.classList.add("is-scrubbing");
+    seekFromTouch(e.touches[0]);
+  }, { passive:true });
+  trackProgressEl.addEventListener("touchmove", (e) => {
+    if(!isScrubbingProgress) return;
+    seekFromTouch(e.touches[0]);
+  }, { passive:true });
+  trackProgressEl.addEventListener("touchend", () => {
+    if(!isScrubbingProgress) return;
+    isScrubbingProgress = false;
+    trackProgressEl.classList.remove("is-scrubbing");
+  });
+
+  const LONG_PRESS_MS = 1000;
+  function attachProgressLongPressHandoff(btn){
+    if(!btn) return;
+    let timer = null;
+    let handedOff = false;
+    let startTouch = null;
+
+    btn.addEventListener("touchstart", (e) => {
+      handedOff = false;
+      startTouch = e.touches[0];
+      timer = setTimeout(() => {
+        if(!el.bgMusic.duration) return;
+        handedOff = true;
+        isScrubbingProgress = true;
+        trackProgressEl.classList.add("is-scrubbing");
+        seekFromTouch(startTouch);
+      }, LONG_PRESS_MS);
+    }, { passive:true });
+
+    btn.addEventListener("touchmove", (e) => {
+      if(!handedOff) return;
+      seekFromTouch(e.touches[0]);
+    }, { passive:true });
+
+    btn.addEventListener("touchend", (e) => {
+      clearTimeout(timer);
+      if(handedOff){
+        isScrubbingProgress = false;
+        trackProgressEl.classList.remove("is-scrubbing");
+        e.preventDefault();
+      }
+    });
+
+    btn.addEventListener("touchcancel", () => {
+      clearTimeout(timer);
+      if(handedOff){
+        isScrubbingProgress = false;
+        trackProgressEl.classList.remove("is-scrubbing");
+      }
+    });
+  }
+  attachProgressLongPressHandoff(el.trackSkipBtn);
+  attachProgressLongPressHandoff(el.trackPersistBtn);
+
   el.bgMusic.volume = isMobileNav() ? 1 : parseFloat(el.volumeSlider.value);
   el.volumeSlider.addEventListener("input", () => {
     el.bgMusic.volume = parseFloat(el.volumeSlider.value);
