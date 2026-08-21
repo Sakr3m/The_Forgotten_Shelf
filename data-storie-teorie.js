@@ -68,6 +68,8 @@ Bloodborne, in the end, was never really a game about waking up. It's a game abo
     game: "chrono_trigger",
     gameLabel: { it: "Chrono Trigger", en: "Chrono Trigger" },
     accentColor: "#6c5026",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Mobile.jpg",
+    mirrorBanner: true,
     bannerOffset: 75,
     title: {
       it: "L'Ombra di Lavos in Jenova",
