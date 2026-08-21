@@ -231,7 +231,8 @@ Then there's the genetic angle. Jenova can assimilate, mutate, and rewrite the o
 The most intriguing part of the theory, though, concerns the actual development of the two games. Chrono Trigger came out on the Super Nintendo, a platform with severe technical limits and the strict content guidelines Nintendo imposed at the time, far stricter than what Square would later find on PlayStation with Final Fantasy VII. The hypothesis is that the team, boxed in by those constraints, couldn't give Lavos the full cosmic, horrific scope they wanted, and that unresolved ambition resurfaced two years later, free of every restriction, in the form of Jenova. Not a hidden sequel, but the same idea, the same ancestral fear of an alien intelligence using planets as incubators, realized twice through different means. The fact that several key developers worked on both titles makes the hypothesis even more plausible.
 
 No connection has ever been made official, and probably never will be: Jenova works narratively precisely because it remains an incomprehensible threat, and tying it explicitly to another universe would only risk diminishing it. But as an unofficial reading, as a silent echo a development team carries from one project to the next, the theory holds up remarkably well. More than a literal fragment, Jenova seems to be the shadow Lavos left behind in the following project.`
-    }
+    },
+    tracks: SHARED_FFVII_TRACKS
   },
   ff8_squall_is_dead: {
     game: "ff8",
