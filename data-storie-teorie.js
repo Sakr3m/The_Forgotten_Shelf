@@ -247,7 +247,7 @@ No connection has ever been made official, and probably never will be: Jenova wo
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
     mirrorBanner: true,
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile%201.2.jpg",
     bannerOffset: 85,
     tracks: SHARED_FFVIII_TRACKS,
     title: {
@@ -304,7 +304,7 @@ Kitase's official answer settles the matter on a narrative level: Squall doesn't
     gameLabel: { it: "Final Fantasy VIII", en: "Final Fantasy VIII" },
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile%201.2.jpg",
     bannerOffset: 85,
     tracks: SHARED_FFVIII_TRACKS,
     title: {
