@@ -98,7 +98,7 @@ No connection has ever been made official, and probably never will be: Jenova wo
     gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile%201.2.jpg",
     bannerOffset: 75,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
@@ -163,7 +163,7 @@ That's why he stays there, still, while everyone else embraces: he isn't watchin
     gameLabel: { it: "Clair Obscur: Expedition 33", en: "Clair Obscur: Expedition 33" },
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner.jpg",
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile%201.2.jpg",
     bannerOffset: 75,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
