@@ -18,7 +18,7 @@ const TEORIE = {
     game: "bloodborne",
     gameLabel: { it: "Bloodborne", en: "Bloodborne" },
     accentColor: "#8a1f2b",
-    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner%20Sogno.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile%201.2.jpg",
     mirrorBanner: true,
     tracks: [
