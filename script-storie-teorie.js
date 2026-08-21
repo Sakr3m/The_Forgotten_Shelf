@@ -464,6 +464,13 @@ function renderEntry(){
   el.pageHeaderBanner.style.backgroundImage = bannerUrl ? `url('${bannerUrl}')` : "";
   el.body.style.setProperty("--banner-x-offset", (entry.bannerOffset != null ? entry.bannerOffset : 125) + "px");
 
+  // Banner specchiato (20/08): per le voci dove lo spazio vuoto del
+  // banner sta a sinistra invece che a destra, i due pulsanti
+  // (ingrandimento+volume, tendina capitoli) passano dal bordo destro
+  // a quello sinistro - vedi il CSS su .has-mirrored-banner in
+  // storie-teorie.css per i dettagli. Flag per voce, non globale.
+  el.body.classList.toggle("has-mirrored-banner", !!entry.mirrorBanner);
+
   // PROVA: banner unico (vedi il commento esteso in storie-teorie.css
   // sopra body[data-state="entry"].has-unified-banner::before) - solo
   // sulle due voci Expedition 33 per ora, non su tutte come nel primo
