@@ -213,6 +213,7 @@ If the theory holds, it changes quite a bit about how to read the ending. The co
     game: "ff7",
     gameLabel: { it: "Final Fantasy VII", en: "Final Fantasy VII" },
     accentColor: "#2dd4bf",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Banner%20Lavos.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Mobile.jpg",
     mirrorBanner: true,
     bannerOffset: 75,
