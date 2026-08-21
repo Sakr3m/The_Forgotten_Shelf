@@ -19,7 +19,7 @@ const TEORIE = {
     gameLabel: { it: "Bloodborne", en: "Bloodborne" },
     accentColor: "#8a1f2b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner.jpg",
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile%201.2.jpg",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Cleric%20Beast.mp3", title: "Cleric Beast", game: "Bloodborne" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Father%20Gascoigne.mp3", title: "Father Gascoigne", game: "Bloodborne" },
