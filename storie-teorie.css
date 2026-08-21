@@ -1041,7 +1041,7 @@ body[data-state="entry"] .landing{ display:none; }
   /* Banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:65px; left:0; right:0; height:130px;
+    position:absolute; top:65px; left:0; right:0; height:150px;
     margin:0; padding:0; border:none;
     border-radius:0; /* .game-header (condivisa) porta border-radius:var(--radius):
       qui invece il banner deve andare a piena tela, bordo a bordo, non con
@@ -1069,13 +1069,18 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:115px; /* era 131px - ridotto di 15px per portare la
-      distanza banner->copyright da 35px (misurata con un browser
-      vero) ai 20px richiesti esplicitamente. */
+    padding-top:135px; /* era 115px, +20px per via del banner alzato
+      da 130px a 150px (stessi 20px) - stesso margine di prima tra la
+      fine del banner e l'inizio del testo, tutto il resto sotto
+      scorre di conseguenza. */
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:50px; right:0; z-index:2;
+    position:absolute; top:70px; right:0; z-index:2; /* era 50px,
+      +20px per restare alla stessa distanza dal bordo basso del
+      banner (ora piu' in basso di 20px) - il pulsante volume/
+      ingrandimento invece resta fermo, e' ancorato alla parte ALTA
+      del banner (non cambiata) tramite music-control qui sotto. */
   }
   /* Banner specchiato (20/08): per le voci dove il banner sta meglio
      con lo spazio vuoto a sinistra invece che a destra (es. FFVIII),
