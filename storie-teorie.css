@@ -1808,20 +1808,18 @@ body[data-entry-animate="true"] #watermarkBrightness{
 
 
 
-/* PROVA: banner unico da bordo a bordo (18/08, sostituisce i due box
-   separati di prima) - stessa altezza di prima (112.5px, legata al
-   blocco titolo: fondo header -> fondo durata lettura), ma ora
-   left:325px e right:325px insieme invece di due box da 415px con
-   un vuoto in mezzo dove sta il titolo: un solo elemento che copre
-   tutta la fascia, il titolo/copyright/durata lettura restano sopra
-   grazie a z-index:-1 (invariato). Larghezza non fissa in px: si
-   allarga/restringe con la finestra, dato che i due bordi sono
-   ancorati simmetricamente al pannello (325px da ciascun lato) e non
-   c'e' piu' un width esplicito che li spezzava in due pezzi separati.
-   Immagine di prova hardcoded per ora (Clair Obscur Expedition 33
-   Banner 1.2.jpg), non ancora legata a un campo dati per-voce come il
-   tentativo precedente con mobileBanner - solo per vedere come rende
-   un banner unico e ampio prima di decidere se tenerlo. */
+/* Banner unico da bordo a bordo (18/08, poi reso ufficiale il 21/08 -
+   prima era una prova solo su Expedition 33, ora vale per QUALUNQUE
+   voce che abbia un campo banner definito, vedi entry.banner in
+   renderEntry() su script-storie-teorie.js) - stessa altezza di
+   sempre (112.5px, legata al blocco titolo: fondo header -> fondo
+   durata lettura), left:325px e right:325px insieme (un solo
+   elemento che copre tutta la fascia, il titolo/copyright/durata
+   lettura restano sopra grazie a z-index:-1). Larghezza non fissa in
+   px: si allarga/restringe con la finestra, dato che i due bordi
+   sono ancorati simmetricamente al pannello (325px da ciascun lato).
+   Se una voce non ha banner, has-unified-banner resta spento e non
+   si mostra nulla - nessun caso speciale da gestire. */
 @media (min-width:901px){
   body[data-state="entry"].has-unified-banner::before{
     content:""; position:fixed; top:80px; height:130px; left:325px; right:325px;

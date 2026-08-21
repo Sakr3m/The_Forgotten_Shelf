@@ -471,19 +471,17 @@ function renderEntry(){
   // storie-teorie.css per i dettagli. Flag per voce, non globale.
   el.body.classList.toggle("has-mirrored-banner", !!entry.mirrorBanner);
 
-  // PROVA: banner unico (vedi il commento esteso in storie-teorie.css
-  // sopra body[data-state="entry"].has-unified-banner::before) - solo
-  // sulle due voci Expedition 33 per ora, non su tutte come nel primo
-  // tentativo. Ciascuna delle due ha la propria immagine (Bambino/
-  // Clea), scelta qui in base all'id della voce aperta.
-  const UNIFIED_BANNERS = {
-    clair_obscur_chi_e_quel_bambino: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%20Bambino.png",
-    clair_obscur_il_ruolo_di_clea: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%20Clea.png"
-  };
-  const unifiedBannerUrl = UNIFIED_BANNERS[state.entryId];
-  el.body.classList.toggle("has-unified-banner", !!unifiedBannerUrl);
-  if(unifiedBannerUrl){
-    el.body.style.setProperty("--unified-banner-preview", `url('${unifiedBannerUrl}')`);
+  // Banner unico da bordo a bordo (20/08: non piu' una prova, ora
+  // ufficiale per QUALUNQUE voce, esistente o futura - prima era
+  // limitato a due voci scritte a mano in UNIFIED_BANNERS). Usa
+  // direttamente entry.banner: se la voce non ha un banner definito,
+  // has-unified-banner resta spento e non si mostra nulla, senza
+  // bisogno di gestire il caso a parte. Vedi il CSS su
+  // body[data-state="entry"].has-unified-banner::before in
+  // storie-teorie.css per come viene disegnato.
+  el.body.classList.toggle("has-unified-banner", !!entry.banner);
+  if(entry.banner){
+    el.body.style.setProperty("--unified-banner-preview", `url('${entry.banner}')`);
   } else {
     el.body.style.removeProperty("--unified-banner-preview");
   }
