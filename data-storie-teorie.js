@@ -379,7 +379,8 @@ The coincidences in the game's text are still there, visible to anyone who wants
     gameLabel: { it: "Hollow Knight", en: "Hollow Knight" },
     accentColor: "#8f9bb3",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Banner.jpg",
-    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mobile.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mobile%201.2.jpg",
+    mirrorBanner: true,
     bannerOffset: 100,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Dirtmouth.mp3", title: "Dirtmouth", game: "Hollow Knight" },
