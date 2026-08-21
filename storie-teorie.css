@@ -1041,7 +1041,7 @@ body[data-state="entry"] .landing{ display:none; }
   /* Banner in questa vista. */
   body[data-state="entry"] #pageHeader{
     display:block;
-    position:absolute; top:65px; left:0; right:0; height:200px;
+    position:absolute; top:65px; left:0; right:0; height:170px;
     margin:0; padding:0; border:none;
     border-radius:0; /* .game-header (condivisa) porta border-radius:var(--radius):
       qui invece il banner deve andare a piena tela, bordo a bordo, non con
@@ -1069,15 +1069,15 @@ body[data-state="entry"] .landing{ display:none; }
   body[data-state="entry"] .entry-panel{
     position:relative;
     margin-top:30px;
-    padding-top:185px; /* era 135px (banner 150px), +50px per via del
-      banner alzato ancora, ora a 200px - stesso margine di prima tra
-      la fine del banner e l'inizio del testo. */
+    padding-top:155px; /* era 185px (banner 200px), -30px per via del
+      banner abbassato a 170px - stesso margine di prima tra la fine
+      del banner e l'inizio del testo. */
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:120px; right:0; z-index:2; /* era 70px
-      (banner 150px), +50px - stessa distanza dal bordo basso del
-      banner di prima, che si e' abbassato della stessa quantita'.
+    position:absolute; top:90px; right:0; z-index:2; /* era 120px
+      (banner 200px), -30px - stessa distanza dal bordo basso del
+      banner di prima, che si e' alzato della stessa quantita'.
       music-control invece resta fermo, ancorato alla parte ALTA del
       banner (non cambiata). */
   }
