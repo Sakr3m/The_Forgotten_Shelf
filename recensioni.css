@@ -66,14 +66,18 @@
      pulsanti qui sopra. */
   .report-bug-btn{ left:400px; border-width:2px; }
 
-  /* Alert spoiler: rimesso nel flusso normale dentro .landing (era
-     fisso in basso come Il Filo Nascosto, ma cosi' spariva "a tempo
-     suo" legato allo scroll invece che insieme al resto della home -
-     su richiesta esplicita, torna un blocco come gli altri, stessa
-     larghezza di intro/citazione qui sopra). */
+  /* Alert spoiler: torna fisso in basso (bottom:125px, come Il Filo
+     Nascosto) - il problema di prima non era la posizione ma il
+     nascondimento legato al timing dello scroll, gia' risolto in
+     altro modo (vedi sotto): restando figlio di .landing, sparisce
+     automaticamente insieme a lei quando si apre una recensione
+     (hidden nativo su #landingPanel), senza bisogno di regole CSS
+     o JS dedicate per quel caso. */
   .spoiler-alert{
-    margin-top:30px;
-    max-width:800px;
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
+    justify-content:center;
+    max-width:none;
+    margin-top:0;
   }
 
   /* Blocco hero della home: stesse identiche distanze/grandezze di
@@ -889,12 +893,16 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      il trucco "diventa il primo figlio, la si vede subito"). */
   .layout{ overflow-anchor:none; }
 
-  /* Alert spoiler: rimesso nel flusso normale dentro .landing, stessa
-     ragione del blocco desktop qui sopra - niente piu' position:fixed
-     legato allo scroll, sparisce naturalmente insieme al resto della
-     home. */
+  /* Alert spoiler: torna fisso a 10px dal bordo basso vero dello
+     schermo, come Il Filo Nascosto - il problema di prima era il
+     nascondimento legato al timing dello scroll (risolto sotto con
+     il controllo su inStage), non la posizione. Restando figlio di
+     .landing, sparisce comunque da solo a recensione aperta. */
   .spoiler-alert{
-    margin-top:15px;
+    position:fixed; left:15px; right:15px; bottom:10px; z-index:5;
+    justify-content:center;
+    max-width:none;
+    margin-top:0;
   }
   .spoiler-alert p{ font-size:.82rem; }
 

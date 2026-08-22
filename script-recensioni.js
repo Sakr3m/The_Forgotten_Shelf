@@ -1602,15 +1602,20 @@ function initReportModal(){
 initReportModal();
 
 // ---------------------------------------------------------
-// Il pulsante "Segnala bug" e' position:fixed: su mobile, dove la
-// tabella dei generi vive nello stesso carosello orizzontale di
-// .layout (stage <-> genere, stage ora e' il PRIMO pannello, era il
-// secondo prima di invertire l'ordine), resterebbe a galla anche
-// scorrendo verso la tabella invece di sparire con lei. Stessa
-// logica gia' usata su Racconti/Teorie/Timeline. L'alert spoiler non
-// ha piu' bisogno di questo trattamento: e' tornato figlio di
-// .landing, nel flusso normale, quindi sparisce da solo scorrendo
-// via con lo stage - nessun controllo JS legato allo scroll.
+// Il pulsante "Segnala bug" e l'alert spoiler sono entrambi
+// position:fixed: su mobile, dove la tabella dei generi vive nello
+// stesso carosello orizzontale di .layout (stage <-> genere, stage
+// ora e' il PRIMO pannello, era il secondo prima di invertire
+// l'ordine), resterebbero a galla anche scorrendo verso la tabella
+// invece di sparire con lei. Stessa logica gia' usata su Racconti/
+// Teorie/Timeline per il pulsante bug, estesa qui anche allo
+// spoiler: nascosti quando lo stage non e' la schermata in vista.
+// Nota: lo spoiler resta comunque figlio di .landing nell'HTML (non
+// piu' fratello) - questo gli basta da solo per sparire quando si
+// apre una recensione (hidden nativo su #landingPanel), ma non per
+// il caso della tabella genere su mobile, dove #landingPanel resta
+// "non nascosto" anche se fuori dallo schermo per lo scroll
+// orizzontale: per quello serve ancora questo controllo esplicito.
 // Le due frecce a destra (invito a scorrere verso la tabella) sono
 // anch'esse position:fixed, quindi hanno lo stesso problema al
 // contrario: senza questa logica resterebbero visibili anche
@@ -1619,10 +1624,12 @@ initReportModal();
 // verso un bordo gia' raggiunto" gia' in uso su Il Filo Nascosto.
 // ---------------------------------------------------------
 if(el.layout && el.reportBugBtn){
+  const spoilerAlertEl = document.querySelector(".spoiler-alert");
   const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
   const updateReportBtnMobile = () => {
     if(!isMobileNav()) {
       el.reportBugBtn.style.display = "";
+      if(spoilerAlertEl) spoilerAlertEl.style.display = "";
       swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = ""; });
       return;
     }
@@ -1632,6 +1639,11 @@ if(el.layout && el.reportBugBtn){
     // dell'inversione tabella<->stage.
     const inStage = el.layout.scrollLeft < w * 0.5;
     el.reportBugBtn.style.display = inStage ? "" : "none";
+    // display:"" (non "none") lascia che l'hidden nativo ereditato da
+    // #landingPanel (quando una recensione e' aperta) continui a
+    // valere: qui si forza solo il nascondimento aggiuntivo dovuto
+    // alla tabella genere in vista, mai il contrario.
+    if(spoilerAlertEl) spoilerAlertEl.style.display = inStage ? "" : "none";
     swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = inStage ? "visible" : "hidden"; });
   };
   el.layout.addEventListener("scroll", updateReportBtnMobile, { passive: true });
