@@ -903,14 +903,14 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   /* Alert spoiler: ancorato in basso DENTRO .stage (position:absolute,
      non piu' fixed) - .stage e' gia' alto quanto tutto lo schermo su
-     mobile (height:100dvh, regola condivisa), quindi bottom:10px
-     finisce comunque a 10px dal vero bordo basso. Da absolute invece
+     mobile (height:100dvh, regola condivisa), quindi bottom:20px
+     finisce comunque a 20px dal vero bordo basso. Da absolute invece
      che fixed, il box si muove insieme a .stage durante lo swipe
      verso la tabella generi (lo stesso pannello che trasla), sparisce
      scorrendo in perfetto sincrono col resto della home - niente
      piu' controllo JS a tempo per nasconderlo. */
   .spoiler-alert{
-    position:absolute; left:15px; right:15px; bottom:10px; z-index:5;
+    position:absolute; left:15px; right:15px; bottom:20px; z-index:5;
     justify-content:center;
     max-width:none;
     margin-top:0;
