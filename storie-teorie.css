@@ -1640,7 +1640,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      dalla riga di confine dell'header, che sta a 65px (15px padding
      sopra + 35px pulsanti + 15px padding sotto). Override della
      regola condivisa in styles.css, solo su questa pagina. */
-  body[data-state="landing"] .swipe-hint{ top:140px; }
+  body[data-state="landing"] .swipe-hint{ top:145px; }
 
   /* La freccetta in basso (nuova, stessa direzione di quella in alto)
      usa "bottom" invece di "top" per posizionarsi simmetricamente dal
