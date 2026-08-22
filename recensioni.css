@@ -12,6 +12,27 @@
    per dare piu' impatto all'ingresso in sezione. */
 .landing-title{ font-family:'Oswald', sans-serif; font-weight:700; letter-spacing:.01em; }
 
+/* Citazione firmata sotto l'intro breve della home, stesso stile
+   base di Storie Senza Cornice/Il Filo Nascosto (qui senza il loro
+   scaling extra desktop/mobile in px: questa pagina usa gia' le
+   dimensioni condivise in rem di styles.css per tutto il blocco
+   hero, senza personalizzazioni, quindi bastano queste regole a
+   funzionare identiche su entrambi i breakpoint). Reset dei margini
+   di default del browser per <blockquote>/<cite>. */
+.landing-quote{
+  margin:10px 0 0; padding:0;
+  max-width:640px;
+  font-style:italic; color:var(--text-dim);
+  font-size:1rem; line-height:1.7;
+}
+.landing-quote p{ margin:0; display:inline; }
+.landing-quote p::before{ content:"\201C"; }
+.landing-quote p::after{ content:"\201D"; }
+.landing-quote cite{
+  display:block; margin-top:8px; font-style:normal;
+  font-weight:600; text-align:right; color:var(--text-faint);
+}
+
 @media (min-width:901px){
   /* Margine/larghezza corretti da 250px a 300px (20/08, stesso bug
      gia' visto e corretto su officina.css/il_muro_dei_desideri.html):
