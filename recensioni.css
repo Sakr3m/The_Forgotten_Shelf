@@ -825,6 +825,24 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .kofi-link__short{ color:var(--cyan); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
+  /* Bordo 2px su tutti i pulsanti dell'header, come su Storie Senza
+     Cornice e Il Filo Nascosto (prima 1px, lo standard di base - il
+     2px qui esisteva finora solo su desktop, vedi in cima al file). */
+  .kofi-link, .discord-link, .index-link, .lang-switch{
+    border-width:2px;
+  }
+
+  /* Header home: stessa struttura delle altre pagine interne -
+     padding uniforme 15px (era 14px sopra/sotto, 16px ai lati, dal
+     file condiviso styles.css) e gap 10px sia tra i due gruppi di
+     .stage-controls (social-links <-> switch lingua) sia tra
+     Discord e Ko-fi dentro .social-links (era 8px, mai sovrascritto
+     qui). Stessi identici valori usati su Storie Senza Cornice/Il
+     Filo Nascosto. */
+  body[data-state="landing"] .stage-topbar{ padding:15px; }
+  .stage-controls{ gap:10px; }
+  body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
+
   /* Pulsanti della barra generi: stile condiviso, usato dentro alla
      tabella (vedi .mobile-genre-table .mobile-genre-bar piu' sotto
      per il posizionamento/contenitore). */
@@ -1047,7 +1065,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
   body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
   body[data-state="entry"] .social-links{
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:50%;
     transform:translate(-50%, -50%);
   }
