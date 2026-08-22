@@ -68,7 +68,7 @@
        sempre il vero bordo della FINESTRA, a qualunque risoluzione,
        invece che del solo .stage (che e' spostato dal trucco di
        allineamento condiviso con le altre pagine). */
-    position:fixed; top:68px; bottom:0;
+    position:fixed; top:70px; bottom:0;
     width:90vw;
     background:var(--bg);
     z-index:5; /* sotto la stage-topbar (z-index:10 in styles.css):
@@ -101,7 +101,7 @@
   .gate-handle{
     display:flex; align-items:center; justify-content:center;
     position:absolute; top:50%; transform:translateY(-50%);
-    width:34px; height:64px;
+    width:35px; height:65px;
     background:var(--panel); border:2px solid var(--line);
     color:var(--text-dim);
     cursor:pointer;
@@ -147,7 +147,7 @@
      pannello sinistro, vedi sotto) e la parentesi con l'etichetta
      verticale del genere di fianco, alta quanto la sezione stessa. */
   .reviews-genre{
-    display:flex; align-items:stretch; gap:18px;
+    display:flex; align-items:stretch; gap:20px;
   }
   .reviews-genre__tiles{
     flex:1; min-width:0;
@@ -155,7 +155,7 @@
     grid-template-columns:repeat(7, 1fr); /* sempre 7 per riga, si
       ridimensionano con lo spazio disponibile invece di andare a
       capo prima */
-    column-gap:24px;
+    column-gap:25px;
     row-gap:50px;
     grid-auto-rows:max-content; /* senza, le righe venivano
       dimensionate piu' basse del reale (difetto noto di interazione
@@ -184,7 +184,7 @@
     font-size:.96rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
     color:var(--text-dim);
     background:var(--bg);
-    padding:8px 4px;
+    padding:10px 5px;
     white-space:nowrap;
   }
   /* Pannello destro: stessa etichetta, ma ruotata di altri 180°
@@ -233,7 +233,7 @@
 
   .review-tile__title{
     position:absolute; left:0; right:0; bottom:0;
-    padding:10px 10px 8px;
+    padding:10px 10px 10px;
     background:linear-gradient(to top, rgba(0,0,0,.92), transparent);
     color:var(--text); font-family:'Oswald', sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.01em;
     opacity:0; transform:translateY(6px);
@@ -255,7 +255,7 @@
     display:inline-block;
     margin-top:80px; /* 32px originali + una volta e mezzo quella
       distanza (32*1.5=48) in piu', su richiesta */
-    padding:12px 28px;
+    padding:10px 30px;
     background:var(--panel);
     border:1px solid var(--text-faint);
     border-radius:999px;
@@ -329,7 +329,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
   background-size:cover; background-position:center; background-repeat:no-repeat;
   border:1px solid var(--line);
-  margin-bottom:16px;
+  margin-bottom:15px;
   /* Il gradiente qui sopra e' solo il fallback quando manca
      un'immagine: lo style inline in HTML (background-image) lo
      sovrascrive con la copertina vera, stessa proprieta'. */
@@ -391,14 +391,14 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    e il pulsante non aveva alcuno stile (sembrava testo normale). */
 .review-entry .threshold{
   display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
-  margin:0 0 28px;
-  padding:28px 24px;
+  margin:0 0 30px;
+  padding:30px 25px;
   border:1px solid rgba(250,204,21,.35);
   background:rgba(250,204,21,.06);
   border-radius:var(--radius);
 }
 .review-entry .threshold button{
-  padding:8px 22px;
+  padding:10px 20px;
   background:var(--panel);
   border:1px solid var(--text-faint);
   border-radius:999px;
@@ -427,7 +427,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    aperta, non piu' ciano fisso. Era solo nel blocco desktop, resa
    universale (vale anche mobile). */
 .review-entry .title-tag{
-  padding:5px 12px;
+  padding:5px 10px;
   border:1px solid var(--item-accent, var(--cyan));
   border-radius:999px;
   font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
@@ -535,8 +535,8 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    contesto: piu' affidabile. --- */
 .review-entry .section-eyebrow{
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:14px;
-  display:flex; flex-wrap:wrap; justify-content:center; gap:6px;
+  color:var(--cyan); margin-bottom:15px;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:5px;
 }
 .review-entry .section-eyebrow .eyebrow-dot{ opacity:.6; }
 
@@ -589,7 +589,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   }
   .review-entry .entry-header__row{
     display:flex; align-items:center; justify-content:space-between; gap:20px;
-    margin-bottom:12px;
+    margin-bottom:10px;
     /* min-height:57px (20/08): riserva sempre lo spazio massimo che
        .music-control puo' occupare (misurato con Playwright: 57px a
        nuvoletta aperta, coi due pulsanti + il titolo del brano + la
@@ -645,7 +645,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
       l'altezza disponibile, altrimenti si dimensiona sul contenuto
       e height:100% sui figli sotto non avrebbe nulla da riempire */
     gap:40px;
-    margin-top:32px; align-items:stretch;
+    margin-top:30px; align-items:stretch;
     flex:1; min-height:0;
   }
   .review-entry .facts{
@@ -660,7 +660,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .review-entry .reading{
     color:var(--text-dim); font-size:1rem; line-height:1.75;
     height:100%; overflow-y:auto;
-    padding-right:12px; /* spazio per non far toccare il testo alla
+    padding-right:10px; /* spazio per non far toccare il testo alla
       scrollbar quando compare */
   }
   /* La colonna che scorre (.reading) arriva fino al vero bordo del
@@ -676,11 +676,11 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      (soglia spoiler) parte semplicemente dopo di lui, qualunque sia
      la sua lunghezza reale. */
   .review-entry .quick-take{
-    margin-bottom:16px;
+    margin-bottom:15px;
   }
-  .review-entry .reading p{ margin:0 0 16px; }
+  .review-entry .reading p{ margin:0 0 15px; }
   .review-entry .reading h2{
-    font-size:1.25rem; color:var(--text); margin:25px 0 6px;
+    font-size:1.25rem; color:var(--text); margin:25px 0 5px;
   }
 
   /* --- Soglia spoiler: non piu' legata a un'altezza precisa, segue
@@ -692,7 +692,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   .review-entry .note{
     margin:20px 0;
-    padding:14px 18px;
+    padding:15px 20px;
     border-left:2px solid var(--cyan);
     background:var(--panel);
     color:var(--text-dim);
@@ -710,7 +710,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
 .review-entry .deep-image-slot{
   width:100%; aspect-ratio:16/9;
-  margin:24px 0;
+  margin:25px 0;
   clear:both;
   border-radius:var(--radius); overflow:hidden;
   background-color:#161d2f;
@@ -727,7 +727,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    il float in una colonna stretta non avrebbe senso. */
 .review-entry .deep-image-slot--float{
   width:42%; aspect-ratio:3/4;
-  margin:6px 0 16px;
+  margin:5px 0 15px;
   border-radius:var(--radius); overflow:hidden;
   background-color:#161d2f;
   background-image:repeating-linear-gradient(135deg, #1a2135, #1a2135 10px, #1d2540 10px, #1d2540 20px);
@@ -773,7 +773,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 .review-entry .reading p:has(+ .deep-theory-link){ margin-bottom:0; }
 .review-entry .deep-theory-link{
   display:inline-flex; align-items:center; gap:8px;
-  margin:24px 0;
+  margin:25px 0;
   clear:both;
   padding:10px 20px;
   border:1px solid var(--item-accent, var(--cyan));
@@ -820,6 +820,13 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .discord-link{ width:35px; height:35px; color:var(--cyan); }
   .kofi-link{
     height:35px; box-sizing:border-box;
+    width:auto; /* FIX: la regola base (styles.css, pensata per il
+      pulsante lungo di desktop) fissa width:180px senza media query
+      - su mobile vinceva comunque, ignorando il testo breve "KoFi"
+      e mandando in overflow lo switch lingua. Stesso fix gia'
+      presente su Storie Senza Cornice/Il Filo Nascosto, mai portato
+      qui. Con width:auto torna a dimensionarsi sul contenuto vero
+      (icona + "KoFi" + padding). */
     text-decoration:none;
   }
   .kofi-link__short{ color:var(--cyan); }
@@ -879,13 +886,13 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .mobile-genre-table__list-wrap{
     flex:1; min-height:0;
     display:flex; flex-direction:column;
-    padding:78px 20px 0;
+    padding:80px 20px 0;
   }
   .mobile-genre-table__title{
     flex:0 0 auto;
     font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
     color:var(--text-faint);
-    margin:0 0 14px; padding:0 8px;
+    margin:0 0 15px; padding:0 10px;
     text-align:center;
     transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
@@ -895,10 +902,10 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     display:flex; flex-direction:column; gap:2px;
     transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
-  .mobile-genre-table__items li:first-child{ margin-top:21px; }
+  .mobile-genre-table__items li:first-child{ margin-top:20px; }
   .mobile-genre-table__items button{
     width:100%; text-align:left;
-    padding:12px 14px;
+    padding:10px 15px;
     border-radius:var(--radius-sm);
     background:none; border:none;
     box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
@@ -917,8 +924,8 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      bassa" di quando stava sulla home. */
   .mobile-genre-table .mobile-genre-bar{
     flex:0 0 auto;
-    display:flex; gap:28px; justify-content:center;
-    padding:14px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+    display:flex; gap:30px; justify-content:center;
+    padding:15px 20px calc(15px + env(safe-area-inset-bottom, 0px));
     border-top:1px solid var(--line);
     overflow-x:auto; scrollbar-width:none;
   }
@@ -929,7 +936,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      home o alla recensione aperta — stessa animazione/stile gia'
      usata su Storie Senza Cornice e Il Filo Nascosto. */
   body[data-state="landing"] .swipe-hint--table-right{
-    display:block; position:absolute; top:82px; right:14px; z-index:20;
+    display:block; position:absolute; top:80px; right:15px; z-index:20;
     color:var(--text-faint);
     animation:swipeHintRight 1.6s ease-in-out infinite;
     pointer-events:none;
@@ -945,7 +952,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      diventano "display:contents" cosi' i loro figli si comportano
      come fratelli diretti agli effetti dell'ordine. --- */
   body[data-state="entry"] .stage{
-    overflow-y:auto; padding:78px 20px 40px;
+    overflow-y:auto; padding:80px 20px 40px;
   }
   .review-entry{ display:none; }
   body.is-review-open .review-entry:not([hidden]){
@@ -959,7 +966,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   }
   .review-entry .entry-header{ padding-top:0; border-bottom:none; }
   .review-entry .entry-header__title{
-    order:1; font-size:1.4rem; margin:0 0 16px; text-align:center;
+    order:1; font-size:1.4rem; margin:0 0 15px; text-align:center;
   }
   .review-entry .facts{
     order:2;
@@ -968,7 +975,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     grid-template-areas:
       "dl    cover"
       "badge badge";
-    column-gap:14px; row-gap:6px;
+    column-gap:15px; row-gap:5px;
     margin-bottom:20px;
   }
   .review-entry .cover-slot{
@@ -977,18 +984,18 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   }
   .review-entry .facts dl{ grid-area:dl; min-width:0; }
   .review-entry .facts dd.fact-recommendation{
-    grid-area:badge; justify-self:start; width:fit-content; margin-top:6px;
+    grid-area:badge; justify-self:start; width:fit-content; margin-top:5px;
   }
   /* Larghezza standard (non calcolata caso per caso, uguale su ogni
      pagina/voce): 75% della colonna invece che a tutta larghezza. */
   .review-entry .facts-eyebrow{ width:75%; }
-  .review-entry .entry-header__meta{ order:3; margin-bottom:18px; justify-content:center; }
+  .review-entry .entry-header__meta{ order:3; margin-bottom:20px; justify-content:center; }
 
   /* Sempre due righe centrate, punto tolto: su schermo stretto la
      riga sola non ci sta comodamente in nessuno dei due casi. */
   .review-entry .section-eyebrow{ flex-direction:column; align-items:center; gap:2px; }
   .review-entry .section-eyebrow .eyebrow-dot{ display:none; }
-  .review-entry .music-control-slot{ order:4; margin-bottom:22px; }
+  .review-entry .music-control-slot{ order:4; margin-bottom:20px; }
   /* .track-info ha un max-width:280px pensato per il player della
      home: qui, insieme al pulsante skip e all'icona volume sulla
      stessa riga, su schermi stretti (~360px) rischia di andare in
@@ -1002,11 +1009,11 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   /* Titoli della recensione veloce leggermente piu' piccoli qui:
      "Comparto Tecnico e Artistico" (il piu' lungo dei tre) su una
      riga sola quando possibile. */
-  .review-entry .reading h2{ font-size:1.08rem; margin-top:25px; margin-bottom:6px; }
+  .review-entry .reading h2{ font-size:1.08rem; margin-top:25px; margin-bottom:5px; }
   .review-entry .quick-take{ min-height:0; margin-bottom:20px; }
   .review-entry .threshold{
-    margin:0 0 24px;
-    padding:20px 18px;
+    margin:0 0 25px;
+    padding:20px 20px;
   }
 
   /* --- Rifiniture mobile della recensione completa (aggiunte oggi
@@ -1016,9 +1023,9 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      tutta larghezza invece che stretto attorno al testo (tocco piu'
      comodo, meno rischio di andare a capo in modo scomodo con testi
      lunghi come quello inglese). --- */
-  .review-entry .deep-image-slot{ margin:18px 0; }
+  .review-entry .deep-image-slot{ margin:20px 0; }
   .review-entry .deep-image-slot--float{
-    float:none; width:100%; aspect-ratio:16/9; margin:18px 0;
+    float:none; width:100%; aspect-ratio:16/9; margin:20px 0;
   }
   .review-entry .deep-theory-link{
     width:100%; justify-content:center;
