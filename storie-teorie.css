@@ -68,11 +68,18 @@
      spoiler dopo - va sotto a tutto il resto del blocco intro,
      staccato di 50px dalla scritta "Seleziona una voce..." sopra. */
   .spoiler-alert{
-    position:fixed; left:50%; bottom:100px; z-index:5;
-    transform:translateX(-50%);
+    position:fixed; left:400px; right:400px; bottom:150px; z-index:5;
+    justify-content:center; /* .spoiler-alert e' display:flex (icona+
+      testo in riga) - senza, i due figli si accalcano a sinistra
+      della fascia ora molto piu' larga (era max-width:640px, quasi
+      sempre piu' stretta del contenuto reale) invece di restare al
+      centro come richiesto. */
+    max-width:none; /* la fascia ora va da tabella a tabella (stesso
+      margine di 400px per lato usato in tutto il resto del sito),
+      non piu' limitata a 640px */
     margin-top:0; /* non piu' calcolato dalla distanza dal sub sopra
       (era margin-top:30px) - ora ancorato a distanza fissa dal fondo
-      dello schermo (100px), indipendente da quanto e' alto tutto il
+      dello schermo (150px), indipendente da quanto e' alto tutto il
       resto del blocco intro sopra di lui. */
   }
   .landing{ max-width:950px; }
