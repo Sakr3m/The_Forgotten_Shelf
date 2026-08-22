@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/manrope.css">
 <link rel="stylesheet" href="styles.css?v=20260821a">
-<link rel="stylesheet" href="storie-teorie.css?v=20260821n">
+<link rel="stylesheet" href="storie-teorie.css?v=20260821o">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -199,11 +199,6 @@
 
         <p class="landing-sub" data-i18n="landingSub">Seleziona una voce dalla colonna Teorie o da quella delle Storie Nascoste per approfondire.</p>
 
-        <div class="spoiler-alert">
-          <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
-          <p data-i18n="spoilerAlert">Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.</p>
-        </div>
-
         <div class="mobile-table-toggle" id="mobileTableToggle">
           <button type="button" class="mobile-table-toggle__option is-active" data-table-option="teorie" data-i18n="sidebarEyebrow">Teorie</button>
           <span class="mobile-table-toggle__sep">/</span>
@@ -211,6 +206,21 @@
         </div>
 
       </section>
+
+      <!-- Alert spoiler spostato FUORI da .landing (20/08): su mobile
+           .landing usa position:absolute + transform per centrarsi
+           (vedi styles.css), e un transform su un antenato rompe
+           position:fixed su qualunque discendente (lo ancora al
+           contenitore trasformato invece che al vero bordo dello
+           schermo) - qui invece serve fisso al bordo basso vero.
+           Ora fratello di .landing, non piu' figlio: mostrato/
+           nascosto esplicitamente in base allo stato (vedi il CSS
+           body[data-state="entry"] .spoiler-alert), non piu' per
+           eredità automatica da .landing. -->
+      <div class="spoiler-alert">
+        <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
+        <p data-i18n="spoilerAlert">Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.</p>
+      </div>
 
       <section class="entry-panel" id="entryPanel" hidden>
         <div class="entry-content" id="entryContent"></div>

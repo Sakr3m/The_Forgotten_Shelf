@@ -856,6 +856,11 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
 
 body[data-state="landing"] .entry-panel{ display:none; }
 body[data-state="entry"] .landing{ display:none; }
+body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
+  ereditava questo comportamento da .landing (era suo figlio) - ora
+  che e' suo fratello (per il fix del position:fixed rotto dal
+  transform mobile di .landing, vedi il commento in HTML), serve
+  esplicito. */
 
 @media (max-width:900px){
 
@@ -1593,9 +1598,19 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-intro{ margin-top:15px; font-size:15px; line-height:22.5px; }
   .landing-quote{ font-size:12.5px; line-height:22.5px; }
   .landing-sub{ margin-top:30px; font-size:10px; }
-  .spoiler-alert{ margin-top:30px; } /* era 24px (valore condiviso in
-    styles.css) - sovrascritto solo qui perche' questa pagina e'
-    l'unica delle due (SSC non ha l'alert spoiler) a usarlo davvero. */
+  .spoiler-alert{
+    position:fixed; left:15px; right:15px; bottom:50px; z-index:5;
+    justify-content:center; /* stesso motivo del desktop: senza,
+      icona+testo si accalcano a sinistra della fascia allargata */
+    max-width:none; /* fascia a piena larghezza (meno i 15px per lato
+      dello stesso .landing sotto), non piu' limitata da max-width */
+    margin-top:0; /* non piu' calcolato dalla distanza dal sub sopra
+      (era margin-top:30px) - ora ancorato a 50px dal fondo dello
+      schermo, come sul desktop (li' 125px) - stessa logica,
+      indipendente da quanto e' alto il resto del blocco intro. */
+  } /* era 24px (valore condiviso in styles.css) prima di questo
+    cambio - sovrascritto solo qui perche' questa pagina e' l'unica
+    delle due (SSC non ha l'alert spoiler) a usarlo davvero. */
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
     laterali del blocco a 15px per lato (era 16px, 32px totali nel
     file condiviso styles.css) - override solo su questa pagina. */
