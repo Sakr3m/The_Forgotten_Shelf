@@ -1554,7 +1554,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-eyebrow{ font-size:10px; }
   .landing-intro{ margin-top:15px; font-size:15px; line-height:22.5px; }
   .landing-quote{ font-size:12.5px; line-height:22.5px; }
-  .landing-sub{ margin-top:30px; font-size:10px; }
+  .landing-sub{ margin-top:25px; font-size:10px; }
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
     laterali del blocco a 15px per lato (era 16px, 32px totali nel
     file condiviso styles.css) - override solo su questa pagina. */
@@ -1760,7 +1760,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .mobile-table-toggle{
     display:flex; align-items:center; justify-content:center; gap:10px;
     height:35px; box-sizing:border-box;
-    margin-top:25px; /* era 30px, poi 50px (stessa distanza dal sub che aveva
+    margin-top:20px; /* era 25px, poi 30px, poi 50px (stessa distanza dal sub che aveva
       il vecchio pulsante video, ora eliminato su mobile) */
     padding:0 15px;
     border:1px solid var(--cyan);
