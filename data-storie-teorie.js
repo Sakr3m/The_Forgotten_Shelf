@@ -247,7 +247,7 @@ No connection has ever been made official, and probably never will be. Jenova wo
     game: "ff8",
     gameLabel: { it: "Final Fantasy VIII", en: "Final Fantasy VIII" },
     accentColor: "#ff3b30",
-    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner.jpg",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Death.jpg",
     mirrorBanner: true,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile%201.3.jpg",
     bannerOffset: 85,
