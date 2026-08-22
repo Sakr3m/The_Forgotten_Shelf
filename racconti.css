@@ -1552,8 +1552,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
   /* Distanze del blocco hero riviste. */
   .landing-title{ font-size:25px; line-height:25px; margin-top:30px; }
   .landing-eyebrow{ font-size:10px; }
-  .landing-intro{ margin-top:15px; font-size:20px; line-height:30px; }
-  .landing-quote{ font-size:15px; line-height:30px; }
+  .landing-intro{ margin-top:15px; font-size:15px; line-height:22.5px; }
+  .landing-quote{ font-size:12.5px; line-height:22.5px; }
   .landing-sub{ margin-top:50px; font-size:10px; }
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
     laterali del blocco a 15px per lato (era 16px, 32px totali nel
