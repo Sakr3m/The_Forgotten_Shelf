@@ -1760,9 +1760,8 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .mobile-table-toggle{
     display:flex; align-items:center; justify-content:center; gap:10px;
     height:35px; box-sizing:border-box;
-    margin-top:50px; /* stessa distanza dal sub che aveva il vecchio
-      pulsante video (ora eliminato su mobile) - il toggle ne prende
-      il posto esatto. */
+    margin-top:30px; /* era 50px (stessa distanza dal sub che aveva
+      il vecchio pulsante video, ora eliminato su mobile) */
     padding:0 15px;
     border:1px solid var(--cyan);
     background:var(--panel);
