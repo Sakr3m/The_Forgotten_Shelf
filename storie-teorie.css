@@ -60,7 +60,7 @@
      gia' tutto il necessario dal blocco base qui sopra, solo le
      dimensioni cambiano qui. */
   .landing-quote{
-    font-size:15px; line-height:20px; margin-top:15px; max-width:800px;
+    font-size:15px; line-height:30px; margin-top:15px; max-width:800px;
   }
   .landing-quote cite{ margin-top:10px; }
   .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
@@ -1576,9 +1576,9 @@ body[data-entry-animate="true"] #watermarkBrightness{
   /* Distanze del blocco hero riviste. */
   .landing-title{ font-size:25px; line-height:25px; margin-top:30px; }
   .landing-eyebrow{ font-size:10px; }
-  .landing-intro{ margin-top:15px; font-size:15px; }
-  .landing-quote{ font-size:10px; line-height:15px; }
-  .landing-sub{ margin-top:50px; font-size:5px; }
+  .landing-intro{ margin-top:15px; font-size:20px; line-height:30px; }
+  .landing-quote{ font-size:15px; line-height:30px; }
+  .landing-sub{ margin-top:50px; font-size:10px; }
   .spoiler-alert{ margin-top:20px; } /* era 24px (valore condiviso in
     styles.css) - sovrascritto solo qui perche' questa pagina e'
     l'unica delle due (SSC non ha l'alert spoiler) a usarlo davvero. */
