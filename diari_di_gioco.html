@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/oswald.css">
 <link rel="stylesheet" href="styles.css?v=20260820b">
-<link rel="stylesheet" href="recensioni.css?v=20260822i">
+<link rel="stylesheet" href="recensioni.css?v=20260822j">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -230,24 +230,21 @@
           <cite data-i18n="landingSignature">— Sakrem</cite>
         </blockquote>
 
+        <!-- Alert spoiler dentro .landing, nel flusso normale (non
+             piu' position:fixed come Il Filo Nascosto): cosi' sparisce
+             da solo insieme al resto della home, sia quando si apre
+             una recensione (hidden nativo su #landingPanel, vedi
+             crossfadeTo in script-recensioni.js) sia scorrendo verso
+             la tabella genere su mobile (lo stage esce semplicemente
+             dalla vista con tutto il resto, nessun controllo JS
+             legato allo scroll necessario). -->
+        <div class="spoiler-alert">
+          <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
+          <p data-i18n="spoilerAlert">Ogni recensione contiene dettagli approfonditi sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.</p>
+        </div>
+
         <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello laterale per sfogliare le recensioni disponibili.</p>
       </section>
-
-      <!-- Alert spoiler spostato FUORI da .landing, stesso fix gia'
-           applicato su Il Filo Nascosto (20/08): su mobile .landing
-           usa position:absolute + transform per centrarsi (vedi
-           styles.css), e un transform su un antenato rompe
-           position:fixed su qualunque discendente (lo ancora al
-           contenitore trasformato invece che al vero bordo dello
-           schermo) - qui invece serve fisso al bordo basso vero.
-           Fratello di .landing, non piu' figlio: mostrato/nascosto
-           esplicitamente in base allo stato (vedi il CSS
-           body.is-review-open .spoiler-alert), non piu' per eredita'
-           automatica da .landing. -->
-      <div class="spoiler-alert">
-        <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
-        <p data-i18n="spoilerAlert">Ogni recensione contiene dettagli approfonditi sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.</p>
-      </div>
 
       <!-- Voce di recensione (Final Fantasy VII, originale 1997): nascosta
            finche' non selezionata dal carrello. Testo/immagini ancora
@@ -957,7 +954,7 @@
   </div>
 
   <script src="data-shared-tracks.js?v=20260812"></script>
-  <script src="script-recensioni.js?v=20260822i"></script>
+  <script src="script-recensioni.js?v=20260822j"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
 </body>

@@ -66,17 +66,14 @@
      pulsanti qui sopra. */
   .report-bug-btn{ left:400px; border-width:2px; }
 
-  /* Alert spoiler: stessa posizione/grandezza di Il Filo Nascosto -
-     fisso in basso, fascia larga quanto lo spazio centrale tra i
-     400px di margine per lato (lo stesso standard di .stage/
-     report-bug-btn qui sopra), indipendente da quanto e' alto il
-     resto del blocco intro sopra di lui (niente piu' margin-top
-     calcolato dal flusso). */
+  /* Alert spoiler: rimesso nel flusso normale dentro .landing (era
+     fisso in basso come Il Filo Nascosto, ma cosi' spariva "a tempo
+     suo" legato allo scroll invece che insieme al resto della home -
+     su richiesta esplicita, torna un blocco come gli altri, stessa
+     larghezza di intro/citazione qui sopra). */
   .spoiler-alert{
-    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
-    justify-content:center;
-    max-width:none;
-    margin-top:0;
+    margin-top:30px;
+    max-width:800px;
   }
 
   /* Blocco hero della home: stesse identiche distanze/grandezze di
@@ -519,14 +516,11 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   .track-info{ border-width:2px; }
 }
 
-/* Alert spoiler della home: nascosto quando una recensione e' aperta
-   (sia desktop che mobile, is-review-open e' impostata comunque su
-   entrambi i contesti - vedi commento piu' sotto) - prima ereditava
-   questo comportamento da .landing (era suo figlio), ora che e' suo
-   fratello (per il fix del position:fixed rotto dal transform mobile
-   di .landing, vedi il commento in HTML) serve una regola esplicita,
-   stesso identico fix di Il Filo Nascosto. */
-body.is-review-open .spoiler-alert{ display:none; }
+/* Nota: l'alert spoiler NON ha piu' bisogno di una regola esplicita
+   per nascondersi a recensione aperta - e' tornato figlio di
+   .landing (non piu' fratello), quindi eredita automaticamente
+   l'attributo hidden nativo che crossfadeTo() mette su #landingPanel
+   (vedi script-recensioni.js) quando si apre una voce. */
 
 /* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
    switch lingua) colorati con l'accento della voce quando una
@@ -895,17 +889,14 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      il trucco "diventa il primo figlio, la si vede subito"). */
   .layout{ overflow-anchor:none; }
 
-  /* Alert spoiler: stessa posizione/grandezza di Il Filo Nascosto -
-     fisso al bordo basso vero dello schermo, fascia a piena larghezza
-     (meno 15px per lato, stesso margine usato altrove su questa
-     pagina), indipendente da quanto e' alto il resto del blocco
-     intro sopra di lui. */
+  /* Alert spoiler: rimesso nel flusso normale dentro .landing, stessa
+     ragione del blocco desktop qui sopra - niente piu' position:fixed
+     legato allo scroll, sparisce naturalmente insieme al resto della
+     home. */
   .spoiler-alert{
-    position:fixed; left:15px; right:15px; bottom:10px; z-index:5;
-    justify-content:center;
-    max-width:none;
-    margin-top:0;
+    margin-top:15px;
   }
+  .spoiler-alert p{ font-size:.82rem; }
 
   /* Blocco hero della home: stesse identiche distanze/grandezze di
      Storie Senza Cornice/Il Filo Nascosto, mai portate qui (restava
