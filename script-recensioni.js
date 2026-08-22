@@ -1026,8 +1026,10 @@ function backToLanding(){
   }
   // Solo mobile: se si stava guardando la tabella o una recensione,
   // torna a mostrare lo stage (home) nel carosello — la tabella resta
-  // presente (sempre raggiungibile ora), con l'ultimo genere sfogliato.
-  if(el.layout) el.layout.scrollLeft = window.innerWidth;
+  // presente (sempre raggiungibile ora, a destra), con l'ultimo
+  // genere sfogliato. Stage e' il primo pannello (era il secondo,
+  // invertito su richiesta), quindi si torna a scrollLeft:0.
+  if(el.layout) el.layout.scrollLeft = 0;
   if(isMobileNav()) el.body.dataset.state = "landing";
   updateIndexLink();
   updateMusicPlayback();
@@ -1359,12 +1361,13 @@ paintStaticText();
 // si passa a un'ALTRA scheda di un ALTRO sito, non a farla risuonare
 // su una pagina diversa dello stesso sito.
 
-// Mobile: la tabella genere e' sempre presente come primo pannello
-// del carosello (vedi sopra) — ma all'apertura della pagina deve
-// mostrarsi lo stage (home), non la tabella. Nessuna animazione,
-// e' il punto di partenza vero e proprio, non una transizione.
+// Mobile: lo stage (home) e' ora il primo pannello del carosello
+// (la tabella genere e' stata spostata a destra, era a sinistra) -
+// scrollLeft resta 0 di suo, esplicito qui solo per sicurezza (stesso
+// punto di partenza vero e proprio, non una transizione, nessuna
+// animazione).
 if(isMobileNav() && el.layout){
-  el.layout.scrollLeft = window.innerWidth;
+  el.layout.scrollLeft = 0;
 }
 // Su mobile, la tabella genere (.mobile-genre-table) resta invisibile
 // finche' questo punto non viene raggiunto - vedi recensioni.css e il
@@ -1599,19 +1602,35 @@ function initReportModal(){
 initReportModal();
 
 // ---------------------------------------------------------
-// Il pulsante "Segnala bug" e' position:fixed: su mobile, dove la
-// tabella dei generi vive nello stesso carosello orizzontale di
-// .layout (genere <-> stage, come sidebar/stage sulle altre pagine),
-// resterebbe a galla anche scorrendo verso la tabella invece di
-// sparire con lei. Stessa logica gia' usata su Racconti/Teorie/
-// Timeline: nascosto quando lo stage non e' la schermata in vista.
+// Il pulsante "Segnala bug" e l'alert spoiler sono entrambi
+// position:fixed: su mobile, dove la tabella dei generi vive nello
+// stesso carosello orizzontale di .layout (stage <-> genere, stage
+// ora e' il PRIMO pannello, era il secondo prima di invertire
+// l'ordine), resterebbero a galla anche scorrendo verso la tabella
+// invece di sparire con lei. Stessa logica gia' usata su Racconti/
+// Teorie/Timeline per il pulsante bug, estesa qui anche allo
+// spoiler: nascosti quando lo stage non e' la schermata in vista.
 // ---------------------------------------------------------
 if(el.layout && el.reportBugBtn){
+  const spoilerAlertEl = document.querySelector(".spoiler-alert");
   const updateReportBtnMobile = () => {
-    if(!isMobileNav()) { el.reportBugBtn.style.display = ""; return; }
+    if(!isMobileNav()) {
+      el.reportBugBtn.style.display = "";
+      if(spoilerAlertEl) spoilerAlertEl.style.display = "";
+      return;
+    }
     const w = window.innerWidth;
-    const inStage = el.layout.scrollLeft > w * 0.5;
+    // Stage e' il primo pannello (scrollLeft vicino a 0): "in stage"
+    // ora vuol dire scrollLeft basso, non piu' alto come prima
+    // dell'inversione tabella<->stage.
+    const inStage = el.layout.scrollLeft < w * 0.5;
     el.reportBugBtn.style.display = inStage ? "" : "none";
+    // display:"" (non "none") lascia che sia la regola CSS condivisa
+    // (body[data-state="entry"] .spoiler-alert{ display:none }) a
+    // decidere se nasconderlo per via di una recensione aperta -
+    // qui si forza solo il nascondimento aggiuntivo dovuto alla
+    // tabella genere in vista, mai il contrario.
+    if(spoilerAlertEl) spoilerAlertEl.style.display = inStage ? "" : "none";
   };
   el.layout.addEventListener("scroll", updateReportBtnMobile, { passive: true });
   updateReportBtnMobile();

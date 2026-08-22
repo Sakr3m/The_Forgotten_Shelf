@@ -1041,16 +1041,29 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .mobile-genre-table .mobile-genre-bar::-webkit-scrollbar{ display:none; }
 
   /* Freccetta animata (non un pulsante: e' solo un suggerimento
-     visivo) che indica di scorrere verso destra per tornare alla
-     home o alla recensione aperta — stessa animazione/stile gia'
-     usata su Storie Senza Cornice e Il Filo Nascosto. */
-  body[data-state="landing"] .swipe-hint--table-right{
-    display:block; position:absolute; top:80px; right:15px; z-index:20;
+     visivo) che indica di scorrere verso sinistra per tornare alla
+     home o alla recensione aperta — direzione invertita rispetto a
+     prima (la tabella ora sta a destra dello stage, non piu' a
+     sinistra), stessa animazione/stile gia' usata su Storie Senza
+     Cornice e Il Filo Nascosto. */
+  body[data-state="landing"] .swipe-hint--table-left{
+    display:block; position:absolute; top:80px; left:15px; z-index:20;
     color:var(--text-faint);
-    animation:swipeHintRight 1.6s ease-in-out infinite;
+    animation:swipeHintLeft 1.6s ease-in-out infinite;
     pointer-events:none;
   }
-  .swipe-hint--table-right svg{ width:16px; height:16px; display:block; }
+  .swipe-hint--table-left svg{ width:16px; height:16px; display:block; }
+
+  /* Frecce animate della home, verso la tabella genere (ora a destra
+     invece che a sinistra): stessa posizione (per ora) di Il Filo
+     Nascosto - 145px dal bordo superiore per quella in alto, 140px
+     dal bordo inferiore per quella in basso. La direzione orizzontale
+     (right:14px) e l'animazione arrivano gia' dalla regola condivisa
+     in styles.css, valida per ogni pagina. */
+  body[data-state="landing"] .swipe-hint{ top:145px; }
+  body[data-state="landing"] .swipe-hint--right-bottom{
+    top:auto; bottom:140px;
+  }
 
   /* --- Voce di recensione: normale figlio di .stage (come .landing),
      NON un overlay a se stante — cosi' si passa alla tabella con lo

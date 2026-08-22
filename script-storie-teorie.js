@@ -895,6 +895,7 @@ function closeRailDrawer(){ /* stesso pannello stage, nessuna azione separata */
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
 const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
+const spoilerAlertEl = document.querySelector(".spoiler-alert");
 function updateSwipeHints(){
   if(!mobileBreakpoint.matches || !layoutEl) return;
   const w = window.innerWidth;
@@ -906,9 +907,16 @@ function updateSwipeHints(){
   // non piu' aritmetica basata sul presupposto che stage fosse il
   // pannello CENTRALE (falso ora che stage e' il PRIMO pannello,
   // order:-1, nel nuovo carosello mobile a 2 tappe).
-  if(el.reportBugBtn && stageEl){
+  if(stageEl){
     const inStage = Math.abs(layoutEl.scrollLeft - stageEl.offsetLeft) < w * 0.5;
-    el.reportBugBtn.style.display = inStage ? "" : "none";
+    if(el.reportBugBtn) el.reportBugBtn.style.display = inStage ? "" : "none";
+    // L'alert spoiler (position:fixed, vedi HTML/CSS) deve vedersi
+    // solo sulla home vera, non scorrendo verso le tabelle laterali
+    // (Teorie/Storie Nascoste) - display:"" lascia comunque decidere
+    // alla regola CSS condivisa (body[data-state="entry"] .spoiler-
+    // alert{ display:none }) se nasconderlo per una voce aperta, qui
+    // si aggiunge solo il nascondimento dovuto alle tabelle in vista.
+    if(spoilerAlertEl) spoilerAlertEl.style.display = inStage ? "" : "none";
   }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
