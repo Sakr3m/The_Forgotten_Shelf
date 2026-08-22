@@ -49,9 +49,9 @@
    vincerebbero comunque anche li' per puro ordine di caricamento del
    file, rompendo le misure mobile gia' esistenti. */
 @media (min-width:901px){
-  .landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:30px; }
+  .landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:50px; }
   .landing-eyebrow{ font-size:15px; line-height:15px; }
-  .landing-intro{ font-size:20px; line-height:30px; margin-top:20px; max-width:800px; }
+  .landing-intro{ font-size:20px; line-height:30px; margin-top:30px; max-width:800px; }
   /* Citazione firmata sotto l'intro breve: stesso font/dimensione di
      .landing-intro qui sopra, solo in corsivo - "una specie di
      dicitura", tra virgolette vere (aggiunte via CSS, non nel testo,
@@ -60,7 +60,7 @@
      gia' tutto il necessario dal blocco base qui sopra, solo le
      dimensioni cambiano qui. */
   .landing-quote{
-    font-size:15px; line-height:30px; margin-top:15px; max-width:800px;
+    font-size:15px; line-height:30px; margin-top:20px; max-width:800px;
   }
   .landing-quote cite{ margin-top:10px; }
   .landing-sub{ font-size:15px; line-height:20px; margin-top:50px; }
@@ -68,7 +68,7 @@
      spoiler dopo - va sotto a tutto il resto del blocco intro,
      staccato di 50px dalla scritta "Seleziona una voce..." sopra. */
   .spoiler-alert{
-    position:fixed; left:400px; right:400px; bottom:150px; z-index:5;
+    position:fixed; left:400px; right:400px; bottom:100px; z-index:5;
     justify-content:center; /* .spoiler-alert e' display:flex (icona+
       testo in riga) - senza, i due figli si accalcano a sinistra
       della fascia ora molto piu' larga (era max-width:640px, quasi
