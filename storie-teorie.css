@@ -1640,7 +1640,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      dalla riga di confine dell'header, che sta a 65px (15px padding
      sopra + 35px pulsanti + 15px padding sotto). Override della
      regola condivisa in styles.css, solo su questa pagina. */
-  body[data-state="landing"] .swipe-hint{ top:90px; }
+  body[data-state="landing"] .swipe-hint{ top:100px; }
 
   /* La freccetta in basso (nuova, stessa direzione di quella in alto)
      usa "bottom" invece di "top" per posizionarsi simmetricamente dal
@@ -1649,7 +1649,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
      sovrapposta a quella in alto invece che in fondo allo schermo.
      "top:auto" annulla esplicitamente il top:90px ereditato. */
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:90px;
+    top:auto; bottom:100px;
   }
 
   /* Nota: le vecchie regole per il testo/icona del pulsante video
