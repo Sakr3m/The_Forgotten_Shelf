@@ -60,7 +60,7 @@
      gia' tutto il necessario dal blocco base qui sopra, solo le
      dimensioni cambiano qui. */
   .landing-quote{
-    font-size:20px; line-height:30px; margin-top:20px; max-width:800px;
+    font-size:15px; line-height:20px; margin-top:15px; max-width:800px;
   }
   .landing-quote cite{ margin-top:10px; }
   .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
