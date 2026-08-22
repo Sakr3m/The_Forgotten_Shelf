@@ -68,7 +68,7 @@
      spoiler dopo - va sotto a tutto il resto del blocco intro,
      staccato di 50px dalla scritta "Seleziona una voce..." sopra. */
   .spoiler-alert{
-    position:fixed; left:400px; right:400px; bottom:100px; z-index:5;
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
     justify-content:center; /* .spoiler-alert e' display:flex (icona+
       testo in riga) - senza, i due figli si accalcano a sinistra
       della fascia ora molto piu' larga (era max-width:640px, quasi
