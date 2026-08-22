@@ -1636,6 +1636,14 @@ body[data-entry-animate="true"] #watermarkBrightness{
      spinto tutto a sinistra invece di dividersi). */
   body[data-state="landing"] .stage-topbar{ padding:15px; }
 
+  /* Gap Discord->Ko-fi in home: portato a 10px (era 8px, mai
+     sovrascritto qui - il valore veniva dalla regola condivisa in
+     styles.css). Allineato al gap gia' usato in vista voce (10px,
+     vedi sopra .social-links in stato entry) e a quello di
+     .stage-controls qui sopra, cosi' la distanza tra pulsanti resta
+     uguale in ogni stato su mobile. */
+  body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
+
   /* Freccette animate: 90px dal bordo superiore (era 82px) - 25px
      dalla riga di confine dell'header, che sta a 65px (15px padding
      sopra + 35px pulsanti + 15px padding sotto). Override della
