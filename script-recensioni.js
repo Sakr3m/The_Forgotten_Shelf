@@ -8,7 +8,7 @@ const STRINGS = {
   it: {
     brand: "Diari di Gioco",
     brandMobile: "Diari\ndi Gioco",
-    landingEyebrow: "Benvenuto nelle recensioni",
+    landingEyebrow: "Benvenuto nell'archivio\ndelle recensioni",
     landingTitle: "Diari di Gioco",
     landingIntro: "Impressioni oneste sui giochi che ho giocato, completati, platinati o amati senza motivo, senza pretese di essere una guida.",
     kofiLabel: "Sostienimi su Ko-fi",
@@ -19,7 +19,7 @@ const STRINGS = {
     placeholderTile: "Titolo in arrivo",
     spoilerAlert: "Ogni recensione contiene dettagli approfonditi sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.",
     spoilerAlertMobile: "Contiene spoiler: procedi solo se hai già finito i giochi o non te ne importa.",
-    landingSubDesktop: "Apri il carrello qui sotto per sfogliare le recensioni disponibili.",
+    landingSubDesktop: "Apri il carrello per sfogliare le recensioni disponibili.",
     gateSideToggleOff: "Mostra il carrello da sinistra",
     gateSideToggleOn: "Mostra il carrello da destra",
     ffviiiHours: "~40 ore (storia) / 80-100+ ORE (completo)",
@@ -231,7 +231,7 @@ const STRINGS = {
   en: {
     brand: "Game Diaries",
     brandMobile: "Game\nDiaries",
-    landingEyebrow: "Welcome to the reviews",
+    landingEyebrow: "Welcome to the archive\nof reviews",
     landingTitle: "Game Diaries",
     landingIntro: "Honest impressions on the games I've played — completed, platinumed, or loved for no good reason — with no pretense of being a guide.",
     kofiLabel: "Support me on Ko-fi",
@@ -242,7 +242,7 @@ const STRINGS = {
     placeholderTile: "Title coming soon",
     spoilerAlert: "Every review contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     spoilerAlertMobile: "Contains spoilers: proceed only if you've finished the games or don't mind.",
-    landingSubDesktop: "Open the cart below to browse the available reviews.",
+    landingSubDesktop: "Open the cart to browse the available reviews.",
     gateSideToggleOff: "Show the cart from the left",
     gateSideToggleOn: "Show the cart from the right",
     ffviiiHours: "~40 hours (story) / 80-100+ HOURS (100%)",
@@ -780,7 +780,7 @@ function paintStaticText(){
 
   const isLeft = state.activeSide === "left";
   el.gateSideToggle.setAttribute("aria-pressed", String(isLeft));
-  el.gateSideToggle.textContent = isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
+  el.gateSideToggle.setAttribute("aria-label", isLeft ? t("gateSideToggleOn") : t("gateSideToggleOff"));
 
   updateIndexLink();
 }
@@ -1107,7 +1107,7 @@ if(el.gateSideToggle){
     state.activeSide = goingLeft ? "left" : "right";
     localStorage.setItem(GATE_SIDE_KEY, state.activeSide);
     el.gateSideToggle.setAttribute("aria-pressed", String(goingLeft));
-    el.gateSideToggle.textContent = goingLeft ? t("gateSideToggleOn") : t("gateSideToggleOff");
+    el.gateSideToggle.setAttribute("aria-label", goingLeft ? t("gateSideToggleOn") : t("gateSideToggleOff"));
   });
 }
 

@@ -258,34 +258,45 @@
 }
 
 /* ============================================================
-   Pulsante toggle lato del cancello — SOLO PC, sotto la scritta
-   centrale. Stile ripreso da "Mostra progetti" di Officina, ma qui
-   è un vero on/off (si può tornare indietro), non un solo "on".
+   Pulsante toggle lato del cancello — SOLO PC (su mobile non esiste
+   alcun cancello/carrello). Stesso linguaggio visivo del panel-
+   toggle di Storie Senza Cornice/Il Filo Nascosto (cerchio 40px,
+   icona a due colonne), ma qui il significato e' diverso: non
+   mostra/nasconde nulla, indica e cambia da quale lato si apre il
+   carrello - il rettangolo pieno segnala il lato attivo.
    ============================================================ */
 .gate-side-toggle{ display:none; }
 .landing-sub--desktop-only{ display:none; }
 @media (min-width:901px){
   .landing-sub--desktop-only{ display:block; }
   .gate-side-toggle{
-    display:inline-block;
-    margin-top:80px; /* 32px originali + una volta e mezzo quella
-      distanza (32*1.5=48) in piu', su richiesta */
-    padding:10px 30px;
+    display:flex; align-items:center; justify-content:center;
+    width:40px; height:40px; box-sizing:border-box;
+    border:2px solid var(--cyan);
     background:var(--panel);
-    border:1px solid var(--text-faint);
-    border-radius:999px;
-    color:var(--text);
-    font-size:.88rem; font-weight:600;
-    cursor:pointer;
-    transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+    border-radius:50%;
+    color:var(--text-dim);
+    transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
-  .gate-side-toggle:hover{
-    border-color:var(--cyan);
-    color:var(--cyan);
+  /* Colorato con l'accento della recensione aperta, come gli altri
+     pulsanti della topbar in questo stato (musica, Ko-fi, Discord,
+     switch lingua). */
+  body.is-review-open .gate-side-toggle{
+    border-color:var(--item-accent, var(--cyan));
+    color:var(--item-accent, var(--cyan));
   }
-  .gate-side-toggle[aria-pressed="true"]{
-    border-color:var(--cyan); color:var(--cyan);
+  .gate-side-toggle:hover{ color:var(--text); }
+  .gate-side-toggle svg{ width:20px; height:20px; }
+  /* Di default entrambe le colonne sono appena accennate (opacita'
+     bassa, solo il contorno esterno e' sempre pieno) - quella del
+     lato attivo torna piena per segnalare "il carrello si apre qui".
+     aria-pressed=false vuol dire destra (il lato di default), true
+     vuol dire sinistra - stessa logica gia' in uso in JS. */
+  .gate-side-toggle__left, .gate-side-toggle__right{
+    opacity:.3; transition:opacity var(--dur-fast) var(--ease);
   }
+  .gate-side-toggle[aria-pressed="false"] .gate-side-toggle__right{ opacity:1; }
+  .gate-side-toggle[aria-pressed="true"] .gate-side-toggle__left{ opacity:1; }
 }
 
 /* ============================================================

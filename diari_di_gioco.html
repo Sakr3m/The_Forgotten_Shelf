@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/oswald.css">
 <link rel="stylesheet" href="styles.css?v=20260820b">
-<link rel="stylesheet" href="recensioni.css?v=20260822b">
+<link rel="stylesheet" href="recensioni.css?v=20260822c">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -125,6 +125,14 @@
               <span class="kofi-link__short">KoFi</span>
             </a>
           </div>
+
+          <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" aria-label="Mostra il carrello da sinistra">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <rect x="1" y="3" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <rect class="gate-side-toggle__left" x="1" y="3" width="5" height="14" rx="2" fill="currentColor"/>
+              <rect class="gate-side-toggle__right" x="14" y="3" width="5" height="14" rx="2" fill="currentColor"/>
+            </svg>
+          </button>
 
           <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
             <span class="lang-option is-active" data-lang-option="en">EN</span>
@@ -237,9 +245,7 @@
           The Forgotten Shelf raccoglie anche impressioni oneste sui giochi che ho giocato — completati, platinati o amati senza motivo — senza pretese di essere una guida.
         </p>
 
-        <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello qui sotto per sfogliare le recensioni disponibili.</p>
-
-        <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" data-i18n="gateSideToggleOff">Apri il cancello da sinistra</button>
+        <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello per sfogliare le recensioni disponibili.</p>
       </section>
 
       <!-- Alert spoiler spostato FUORI da .landing, stesso fix gia'
@@ -940,7 +946,7 @@
   </div>
 
   <script src="data-shared-tracks.js?v=20260812"></script>
-  <script src="script-recensioni.js?v=20260822b"></script>
+  <script src="script-recensioni.js?v=20260822c"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
 </body>
