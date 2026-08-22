@@ -15,9 +15,13 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/oswald.css">
 <link rel="stylesheet" href="styles.css?v=20260820b">
-<link rel="stylesheet" href="recensioni.css?v=20260820b">
+<link rel="stylesheet" href="recensioni.css?v=20260822b">
 </head>
 <body data-state="landing" data-lang="it">
+<script>
+  setTimeout(function(){ document.body.classList.add("tfs-ready"); }, 2500);
+  setTimeout(function(){ document.body.classList.add("tfs-desktop-ready"); }, 2500);
+</script>
 
     <button type="button" class="report-bug-btn" id="reportBugBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"/><path d="M4 4h11l-2 4 2 4H4"/></svg>
@@ -233,15 +237,26 @@
           The Forgotten Shelf raccoglie anche impressioni oneste sui giochi che ho giocato — completati, platinati o amati senza motivo — senza pretese di essere una guida.
         </p>
 
-        <div class="spoiler-alert">
-          <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
-          <p data-i18n="spoilerAlert">Le recensioni possono contenere dettagli sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.</p>
-        </div>
-
         <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello qui sotto per sfogliare le recensioni disponibili.</p>
 
         <button class="gate-side-toggle" id="gateSideToggle" type="button" aria-pressed="false" data-i18n="gateSideToggleOff">Apri il cancello da sinistra</button>
       </section>
+
+      <!-- Alert spoiler spostato FUORI da .landing, stesso fix gia'
+           applicato su Il Filo Nascosto (20/08): su mobile .landing
+           usa position:absolute + transform per centrarsi (vedi
+           styles.css), e un transform su un antenato rompe
+           position:fixed su qualunque discendente (lo ancora al
+           contenitore trasformato invece che al vero bordo dello
+           schermo) - qui invece serve fisso al bordo basso vero.
+           Fratello di .landing, non piu' figlio: mostrato/nascosto
+           esplicitamente in base allo stato (vedi il CSS
+           body.is-review-open .spoiler-alert), non piu' per eredita'
+           automatica da .landing. -->
+      <div class="spoiler-alert">
+        <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
+        <p data-i18n="spoilerAlert">Ogni recensione contiene dettagli approfonditi sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.</p>
+      </div>
 
       <!-- Voce di recensione (Final Fantasy VII, originale 1997): nascosta
            finche' non selezionata dal carrello. Testo/immagini ancora
@@ -925,7 +940,7 @@
   </div>
 
   <script src="data-shared-tracks.js?v=20260812"></script>
-  <script src="script-recensioni.js?v=202608172154"></script>
+  <script src="script-recensioni.js?v=20260822b"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
 </body>

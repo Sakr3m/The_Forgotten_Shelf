@@ -17,7 +17,8 @@ const STRINGS = {
     gateToggleLabel: "Apri l'elenco delle recensioni",
     gateToggleLabelClose: "Chiudi l'elenco delle recensioni",
     placeholderTile: "Titolo in arrivo",
-    spoilerAlert: "Le recensioni possono contenere dettagli sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.",
+    spoilerAlert: "Ogni recensione contiene dettagli approfonditi sulla trama, inclusi finali e colpi di scena. Procedi solo se hai già completato i giochi o non temi gli spoiler.",
+    spoilerAlertMobile: "Contiene spoiler: procedi solo se hai già finito i giochi o non te ne importa.",
     landingSubDesktop: "Apri il carrello qui sotto per sfogliare le recensioni disponibili.",
     gateSideToggleOff: "Mostra il carrello da sinistra",
     gateSideToggleOn: "Mostra il carrello da destra",
@@ -239,7 +240,8 @@ const STRINGS = {
     gateToggleLabel: "Open the reviews list",
     gateToggleLabelClose: "Close the reviews list",
     placeholderTile: "Title coming soon",
-    spoilerAlert: "Reviews may contain plot details, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
+    spoilerAlert: "Every review contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
+    spoilerAlertMobile: "Contains spoilers: proceed only if you've finished the games or don't mind.",
     landingSubDesktop: "Open the cart below to browse the available reviews.",
     gateSideToggleOff: "Show the cart from the left",
     gateSideToggleOn: "Show the cart from the right",
@@ -1359,6 +1361,27 @@ paintStaticText();
 // e' il punto di partenza vero e proprio, non una transizione.
 if(isMobileNav() && el.layout){
   el.layout.scrollLeft = window.innerWidth;
+}
+// Su mobile, la tabella genere (.mobile-genre-table) resta invisibile
+// finche' questo punto non viene raggiunto - vedi recensioni.css e il
+// piccolo script di sicurezza in testa alla pagina. Qui la correzione
+// dello scroll qui sopra e' gia' avvenuta, quindi e' sicuro rivelarla
+// (stesso identico meccanismo di Storie Senza Cornice/Il Filo
+// Nascosto, applicato li' a sidebar/side-rail).
+document.body.classList.add("tfs-ready");
+// Su desktop, l'intera pagina resta invisibile finche' non sono
+// pronti SIA questo avvio SIA i font veri (probabile causa dei
+// riposizionamenti che si "auto-correggono" in vista) - document.
+// fonts.ready e' una vera API del browser, si risolve solo quando i
+// font sono davvero caricati e applicati. Controllo di sicurezza per
+// browser che non la supportano (rara, ma meglio non rischiare una
+// pagina bloccata invisibile per sempre su quei casi).
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(() => {
+    document.body.classList.add("tfs-desktop-ready");
+  });
+} else {
+  document.body.classList.add("tfs-desktop-ready");
 }
 
 // ---------------------------------------------------------

@@ -44,6 +44,19 @@
      assunti invece dei 300px reali). Bordo 2px, come gli altri
      pulsanti qui sopra. */
   .report-bug-btn{ left:400px; border-width:2px; }
+
+  /* Alert spoiler: stessa posizione/grandezza di Il Filo Nascosto -
+     fisso in basso, fascia larga quanto lo spazio centrale tra i
+     400px di margine per lato (lo stesso standard di .stage/
+     report-bug-btn qui sopra), indipendente da quanto e' alto il
+     resto del blocco intro sopra di lui (niente piu' margin-top
+     calcolato dal flusso). */
+  .spoiler-alert{
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
+    justify-content:center;
+    max-width:none;
+    margin-top:0;
+  }
 }
 
 /* ============================================================
@@ -458,6 +471,15 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   .track-info{ border-width:2px; }
 }
 
+/* Alert spoiler della home: nascosto quando una recensione e' aperta
+   (sia desktop che mobile, is-review-open e' impostata comunque su
+   entrambi i contesti - vedi commento piu' sotto) - prima ereditava
+   questo comportamento da .landing (era suo figlio), ora che e' suo
+   fratello (per il fix del position:fixed rotto dal transform mobile
+   di .landing, vedi il commento in HTML) serve una regola esplicita,
+   stesso identico fix di Il Filo Nascosto. */
+body.is-review-open .spoiler-alert{ display:none; }
+
 /* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
    switch lingua) colorati con l'accento della voce quando una
    recensione e' aperta. Qui data-state resta sempre "landing" di
@@ -825,6 +847,18 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      il trucco "diventa il primo figlio, la si vede subito"). */
   .layout{ overflow-anchor:none; }
 
+  /* Alert spoiler: stessa posizione/grandezza di Il Filo Nascosto -
+     fisso al bordo basso vero dello schermo, fascia a piena larghezza
+     (meno 15px per lato, stesso margine usato altrove su questa
+     pagina), indipendente da quanto e' alto il resto del blocco
+     intro sopra di lui. */
+  .spoiler-alert{
+    position:fixed; left:15px; right:15px; bottom:10px; z-index:5;
+    justify-content:center;
+    max-width:none;
+    margin-top:0;
+  }
+
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px),
      stesso criterio delle altre pagine. Sottolineatura tolta da
      KoFi, testo/icona colorati di bianco come le cornici (il
@@ -1096,4 +1130,41 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   /* Scritta attiva dello switch lingua (IT o EN) colorata con
      l'accento della voce aperta, non solo il bordo. */
   body[data-state="entry"] .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
+}
+
+/* ============================================================
+   MOBILE: la tabella genere (.mobile-genre-table) resta SEMPRE
+   invisibile di default - garantito da puro CSS, non dipende dal
+   tempismo di alcuno script (stessa idea gia' in uso su Storie Senza
+   Cornice/Il Filo Nascosto per sidebar/side-rail: il browser "non la
+   vede" fin da subito, quindi lo scroll che parte comunque a 0 di suo
+   non ne mostra mai il contenuto prima del tempo).
+   Torna visibile solo con tfs-ready, lo stesso segnale aggiunto in
+   fondo a script-recensioni.js subito dopo la correzione dello scroll
+   gia' esistente - a quel punto la home e' gia' pronta.
+   Rete di sicurezza (vedi lo script minuscolo in testa alla pagina):
+   un timer forza comunque tfs-ready dopo 2.5s se lo script principale
+   non dovesse mai arrivarci.
+   ============================================================ */
+@media (max-width:900px){
+  body[data-state="landing"]:not(.tfs-ready) .mobile-genre-table{
+    visibility:hidden;
+  }
+}
+
+/* ============================================================
+   DESKTOP: l'intera pagina resta invisibile finche' non sono pronti
+   SIA lo script principale SIA i font (probabile causa dei
+   riposizionamenti/ridimensionamenti che si "auto-correggono" in
+   vista - il testo cambia dimensione quando il font vero sostituisce
+   quello di riserva). tfs-desktop-ready e' un segnale a parte da
+   tfs-ready (quello mobile): usa document.fonts.ready, una vera API
+   del browser che si risolve solo a font effettivamente caricati -
+   se lo agganciassi allo stesso tfs-ready di sopra, rallenterebbe
+   anche la rivelazione della home su mobile, che invece deve restare
+   legata solo al proprio caricamento (dati/testo), non ai font.
+   Stessa rete di sicurezza (2.5s) nello script in testa alla pagina.
+   ============================================================ */
+@media (min-width:901px){
+  body:not(.tfs-desktop-ready){ visibility:hidden; }
 }
