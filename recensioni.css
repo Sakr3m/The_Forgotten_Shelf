@@ -490,11 +490,19 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
     margin-left:0;
   }
   body.is-review-open .brand .social-links{
-    display:flex; flex-direction:row-reverse; align-items:center; gap:8px;
+    display:flex; flex-direction:row-reverse; align-items:center; gap:15px;
     position:static; left:auto; top:auto; height:auto; transform:none;
   }
   body.is-review-open .kofi-link,
   body.is-review-open .discord-link{ display:flex; }
+  body.is-review-open .kofi-link{
+    font-size:.76rem;
+    width:auto; padding:0 15px; /* qui il testo e' corto ("KoFi", non
+      "Sostienimi su Ko-fi"), i 180px fissi pensati per la home
+      lasciavano un vuoto enorme intorno alle quattro lettere - stesso
+      fix gia' presente su Storie Senza Cornice/Il Filo Nascosto, mai
+      portato qui. */
+  }
   body.is-review-open .kofi-link__full{ display:none; }
   body.is-review-open .kofi-link__short{ display:inline; }
   body.is-review-open .brand-icon{ display:none; }
