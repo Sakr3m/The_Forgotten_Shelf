@@ -66,15 +66,20 @@
      pulsanti qui sopra. */
   .report-bug-btn{ left:400px; border-width:2px; }
 
-  /* Alert spoiler: torna fisso in basso (bottom:125px, come Il Filo
-     Nascosto) - il problema di prima non era la posizione ma il
-     nascondimento legato al timing dello scroll, gia' risolto in
-     altro modo (vedi sotto): restando figlio di .landing, sparisce
-     automaticamente insieme a lei quando si apre una recensione
-     (hidden nativo su #landingPanel), senza bisogno di regole CSS
-     o JS dedicate per quel caso. */
+  /* Alert spoiler: ancorato in basso DENTRO .stage (position:absolute,
+     non piu' fixed) - .stage e' position:relative senza transform,
+     quindi fa da containing block pulito, niente bug di ancoraggio.
+     Visivamente identico a un elemento fisso (resta sempre in fondo
+     allo schermo, non spinge titolo/intro/sub), ma essendo un vero
+     discendente di .stage si muove CON lui invece di restare fermo
+     mentre il resto scorre - importante su mobile, dove .stage e'
+     il pannello che trasla durante lo swipe verso la tabella generi
+     (vedi sotto): con position:fixed restava a galla, disallineato
+     dal movimento reale della pagina, e serviva un controllo JS a
+     tempo per farlo sparire; da absolute sparisce scorrendo insieme
+     a tutto il resto, in perfetto sincrono, senza bisogno di JS. */
   .spoiler-alert{
-    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
+    position:absolute; left:400px; right:400px; bottom:125px; z-index:5;
     justify-content:center;
     max-width:none;
     margin-top:0;
@@ -520,11 +525,14 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   .track-info{ border-width:2px; }
 }
 
-/* Nota: l'alert spoiler NON ha piu' bisogno di una regola esplicita
-   per nascondersi a recensione aperta - e' tornato figlio di
-   .landing (non piu' fratello), quindi eredita automaticamente
-   l'attributo hidden nativo che crossfadeTo() mette su #landingPanel
-   (vedi script-recensioni.js) quando si apre una voce. */
+/* Alert spoiler della home: nascosto quando una recensione e' aperta
+   (sia desktop che mobile, is-review-open e' impostata comunque su
+   entrambi i contesti). E' fratello di .landing, non figlio (vedi
+   commento in HTML - un transform su un antenato romperebbe il suo
+   position:fixed su mobile), quindi non eredita l'hidden nativo di
+   #landingPanel: serve questa regola esplicita, stesso identico fix
+   di Il Filo Nascosto. */
+body.is-review-open .spoiler-alert{ display:none; }
 
 /* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
    switch lingua) colorati con l'accento della voce quando una
@@ -893,13 +901,16 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      il trucco "diventa il primo figlio, la si vede subito"). */
   .layout{ overflow-anchor:none; }
 
-  /* Alert spoiler: torna fisso a 10px dal bordo basso vero dello
-     schermo, come Il Filo Nascosto - il problema di prima era il
-     nascondimento legato al timing dello scroll (risolto sotto con
-     il controllo su inStage), non la posizione. Restando figlio di
-     .landing, sparisce comunque da solo a recensione aperta. */
+  /* Alert spoiler: ancorato in basso DENTRO .stage (position:absolute,
+     non piu' fixed) - .stage e' gia' alto quanto tutto lo schermo su
+     mobile (height:100dvh, regola condivisa), quindi bottom:10px
+     finisce comunque a 10px dal vero bordo basso. Da absolute invece
+     che fixed, il box si muove insieme a .stage durante lo swipe
+     verso la tabella generi (lo stesso pannello che trasla), sparisce
+     scorrendo in perfetto sincrono col resto della home - niente
+     piu' controllo JS a tempo per nasconderlo. */
   .spoiler-alert{
-    position:fixed; left:15px; right:15px; bottom:10px; z-index:5;
+    position:absolute; left:15px; right:15px; bottom:10px; z-index:5;
     justify-content:center;
     max-width:none;
     margin-top:0;
