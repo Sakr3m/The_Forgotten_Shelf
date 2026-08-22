@@ -78,6 +78,22 @@
     max-width:none;
     margin-top:0;
   }
+
+  /* Blocco hero della home: stesse identiche distanze/grandezze di
+     Storie Senza Cornice/Il Filo Nascosto (font-size/line-height in
+     px, arrotondati a multipli di 5 dove possibile) - qui restava
+     ancora sui valori in rem del file condiviso styles.css, mai
+     allineato come le altre due pagine. Il font-family resta Oswald
+     (vedi sopra), solo le distanze cambiano. */
+  .landing-eyebrow{ font-size:15px; line-height:15px; }
+  .landing-title{ font-size:50px; line-height:65px; margin-top:50px; }
+  .landing-intro{ font-size:20px; line-height:30px; margin-top:30px; max-width:800px; }
+  .landing-quote{
+    font-size:15px; line-height:30px; margin-top:20px; max-width:800px;
+  }
+  .landing-quote cite{ margin-top:10px; }
+  .landing-sub{ font-size:15px; line-height:20px; margin-top:50px; }
+  .landing{ max-width:950px; }
 }
 
 /* ============================================================
@@ -890,6 +906,20 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
     max-width:none;
     margin-top:0;
   }
+
+  /* Blocco hero della home: stesse identiche distanze/grandezze di
+     Storie Senza Cornice/Il Filo Nascosto, mai portate qui (restava
+     sui valori in rem del file condiviso, con margini laterali del
+     blocco a 16px per lato invece dei 15px usati ovunque altrove su
+     questa pagina). */
+  .landing-title{ font-size:25px; line-height:25px; margin-top:20px; }
+  .landing-eyebrow{ font-size:10px; }
+  .landing-intro{ margin-top:15px; font-size:15px; line-height:22.5px; }
+  .landing-quote{ font-size:12.5px; line-height:22.5px; }
+  .landing-sub{ margin-top:25px; font-size:10px; }
+  body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
+    laterali del blocco a 15px per lato (era 16px, 32px totali nel
+    file condiviso styles.css) - override solo su questa pagina. */
 
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px),
      stesso criterio delle altre pagine. Sottolineatura tolta da
