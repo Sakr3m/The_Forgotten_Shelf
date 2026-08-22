@@ -26,7 +26,7 @@
    di default del browser per <blockquote>/<cite> - altrimenti
    arriverebbero rientri strani non voluti. */
 .landing-quote{
-  margin:15px 0 0; padding:0;
+  margin:10px 0 0; padding:0;
   max-width:640px;
   font-style:italic; color:var(--text-dim);
   font-size:1rem; line-height:1.7;
@@ -49,7 +49,7 @@
    vincerebbero comunque anche li' per puro ordine di caricamento del
    file, rompendo le misure mobile gia' esistenti. */
 @media (min-width:901px){
-  .landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:30px; }
+  .landing-title{ font-family:'Manrope', sans-serif; font-weight:700; width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:20px; }
   .landing-eyebrow{ font-size:15px; line-height:15px; }
   .landing-intro{ font-size:20px; line-height:30px; margin-top:15px; max-width:800px; }
   /* Citazione firmata sotto l'intro breve: stesso font/dimensione di
@@ -60,14 +60,14 @@
      gia' tutto il necessario dal blocco base qui sopra, solo le
      dimensioni cambiano qui. */
   .landing-quote{
-    font-size:15px; line-height:30px; margin-top:15px; max-width:800px;
+    font-size:15px; line-height:30px; margin-top:10px; max-width:800px;
   }
   .landing-quote cite{ margin-top:10px; }
-  .landing-sub{ font-size:15px; line-height:20px; margin-top:45px; }
+  .landing-sub{ font-size:15px; line-height:20px; margin-top:30px; }
   /* Ordine invertito (20/08): landing-sub ora viene prima, l'alert
      spoiler dopo - va sotto a tutto il resto del blocco intro,
      staccato di 50px dalla scritta "Seleziona una voce..." sopra. */
-  .spoiler-alert{ margin-top:50px; }
+  .spoiler-alert{ margin-top:30px; }
   .landing{ max-width:950px; }
 }
 
@@ -1574,12 +1574,12 @@ body[data-entry-animate="true"] #watermarkBrightness{
 @media (max-width:900px){
 
   /* Distanze del blocco hero riviste. */
-  .landing-title{ font-size:25px; line-height:25px; margin-top:30px; }
+  .landing-title{ font-size:25px; line-height:25px; margin-top:20px; }
   .landing-eyebrow{ font-size:10px; }
   .landing-intro{ margin-top:15px; font-size:15px; line-height:22.5px; }
   .landing-quote{ font-size:12.5px; line-height:22.5px; }
-  .landing-sub{ margin-top:50px; font-size:10px; }
-  .spoiler-alert{ margin-top:20px; } /* era 24px (valore condiviso in
+  .landing-sub{ margin-top:30px; font-size:10px; }
+  .spoiler-alert{ margin-top:30px; } /* era 24px (valore condiviso in
     styles.css) - sovrascritto solo qui perche' questa pagina e'
     l'unica delle due (SSC non ha l'alert spoiler) a usarlo davvero. */
   body[data-state="landing"] .landing{ width:calc(100% - 30px); } /* margini
