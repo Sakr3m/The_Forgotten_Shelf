@@ -1610,13 +1610,21 @@ initReportModal();
 // invece di sparire con lei. Stessa logica gia' usata su Racconti/
 // Teorie/Timeline per il pulsante bug, estesa qui anche allo
 // spoiler: nascosti quando lo stage non e' la schermata in vista.
+// Le due frecce a destra (invito a scorrere verso la tabella) sono
+// anch'esse position:fixed, quindi hanno lo stesso problema al
+// contrario: senza questa logica resterebbero visibili anche
+// arrivati sulla tabella, dove non c'e' piu' nulla verso cui
+// invitare a scorrere - stessa idea di "nascosta quella che punta
+// verso un bordo gia' raggiunto" gia' in uso su Il Filo Nascosto.
 // ---------------------------------------------------------
 if(el.layout && el.reportBugBtn){
   const spoilerAlertEl = document.querySelector(".spoiler-alert");
+  const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
   const updateReportBtnMobile = () => {
     if(!isMobileNav()) {
       el.reportBugBtn.style.display = "";
       if(spoilerAlertEl) spoilerAlertEl.style.display = "";
+      swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = ""; });
       return;
     }
     const w = window.innerWidth;
@@ -1631,6 +1639,7 @@ if(el.layout && el.reportBugBtn){
     // qui si forza solo il nascondimento aggiuntivo dovuto alla
     // tabella genere in vista, mai il contrario.
     if(spoilerAlertEl) spoilerAlertEl.style.display = inStage ? "" : "none";
+    swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = inStage ? "visible" : "hidden"; });
   };
   el.layout.addEventListener("scroll", updateReportBtnMobile, { passive: true });
   updateReportBtnMobile();
