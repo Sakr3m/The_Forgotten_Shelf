@@ -741,6 +741,17 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .spoiler-alert__icon{ font-size:1.1rem; color:#facc15; flex-shrink:0; line-height:1.4; }
 .spoiler-alert p{ font-size:.88rem; line-height:1.55; color:var(--text-dim); margin:0; }
+/* Triangolo anche a destra, SOLO desktop: qui la fascia e' larga
+   quasi quanto la pagina intera (da margine a margine tra le due
+   tabelle), un solo triangolo a sinistra si perde troppo lontano dal
+   bordo destro. Nascosto di default (mobile compreso: la fascia li'
+   e' stretta, un secondo triangolo non serve), mostrato solo dentro
+   il @media desktop qui sotto - condiviso da qualunque pagina che
+   usi questa classe. */
+.spoiler-alert__icon--right{ display:none; }
+@media (min-width:901px){
+  .spoiler-alert__icon--right{ display:block; }
+}
 
 .landing-sub{ margin-top:60px; color:var(--text-faint); font-size:.88rem; }
 

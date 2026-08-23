@@ -13,8 +13,8 @@
 <link rel="preload" href="fonts/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/manrope.css">
-<link rel="stylesheet" href="styles.css?v=20260823a">
-<link rel="stylesheet" href="storie-teorie.css?v=20260823a">
+<link rel="stylesheet" href="styles.css?v=20260824a">
+<link rel="stylesheet" href="storie-teorie.css?v=20260824a">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -220,6 +220,13 @@
       <div class="spoiler-alert">
         <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
         <p data-i18n="spoilerAlert">Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.</p>
+        <!-- Triangolo anche a destra, SOLO desktop (vedi CSS): la
+             fascia qui e' larga quasi quanto tutta la pagina (da
+             margine a margine tra le due tabelle), un solo triangolo
+             a sinistra si perde troppo lontano dal bordo destro. Su
+             mobile la fascia e' stretta, un secondo triangolo non
+             serve e resta nascosto. -->
+        <span class="spoiler-alert__icon spoiler-alert__icon--right" aria-hidden="true">⚠</span>
       </div>
 
       <section class="entry-panel" id="entryPanel" hidden>

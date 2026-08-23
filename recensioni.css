@@ -91,7 +91,10 @@
         stabilmente dietro. */
   .spoiler-alert{
     position:fixed; left:400px; right:400px; bottom:125px; z-index:4;
-    justify-content:center;
+    justify-content:space-between; /* non piu' center: con due
+      triangoli (sinistra+destra, vedi HTML) center li raggruppava al
+      centro insieme al testo invece di spingerli ai due estremi
+      della fascia, che qui e' larga quasi quanto la pagina intera. */
     max-width:none;
     margin-top:0;
   }

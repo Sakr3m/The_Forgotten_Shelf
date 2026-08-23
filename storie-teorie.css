@@ -69,11 +69,10 @@
      staccato di 50px dalla scritta "Seleziona una voce..." sopra. */
   .spoiler-alert{
     position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
-    justify-content:center; /* .spoiler-alert e' display:flex (icona+
-      testo in riga) - senza, i due figli si accalcano a sinistra
-      della fascia ora molto piu' larga (era max-width:640px, quasi
-      sempre piu' stretta del contenuto reale) invece di restare al
-      centro come richiesto. */
+    justify-content:space-between; /* non piu' center: con due
+      triangoli (sinistra+destra, vedi HTML) center li raggruppava al
+      centro insieme al testo invece di spingerli ai due estremi
+      della fascia, che ora va da tabella a tabella. */
     max-width:none; /* la fascia ora va da tabella a tabella (stesso
       margine di 400px per lato usato in tutto il resto del sito),
       non piu' limitata a 640px */
