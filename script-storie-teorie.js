@@ -49,7 +49,7 @@ const STRINGS = {
     reportProcessingImage: "Elaborazione immagine...",
     reportInvalidImage: "Non è stato possibile leggere quell'immagine, provane un'altra.",
     reportSelectImage: "Seleziona un file immagine.",
-    sharedTheoryLabel: "Teoria condivisa con"
+    sharedTheoryLabel: "Teoria condivisa\ncon"
   },
   en: {
     brand: "The Hidden Thread",
@@ -88,7 +88,7 @@ const STRINGS = {
     reportProcessingImage: "Processing image...",
     reportInvalidImage: "Could not read that image, try another one.",
     reportSelectImage: "Please select an image file.",
-    sharedTheoryLabel: "Theory shared with"
+    sharedTheoryLabel: "Theory shared\nwith"
   }
 };
 

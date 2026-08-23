@@ -1032,22 +1032,33 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
 
   /* Fascetta "teoria condivisa" su mobile: #pageHeader e' gia' il box
      esatto del banner qui (position:absolute, top:65px, height:130px,
-     vedi sopra) - la fascetta si ancora a lui direttamente, stesso
-     angolo basso-destra richiesto per desktop, senza bisogno di
-     ricalcolare le coordinate a mano come su desktop (dove il banner
-     e' un ::before sul body, non un contenitore vero). */
+     vedi sopra) - la fascetta si ancora a lui direttamente, senza
+     bisogno di ricalcolare le coordinate a mano come su desktop (dove
+     il banner e' un ::before sul body, non un contenitore vero).
+     Allineata in verticale al CENTRO del pulsante a tendina
+     (#entryGamePicker, misurato: centro reale a 97.5px da qui dentro,
+     162.5px nel viewport - top:65px del box) - richiesto esplicito,
+     non piu' ancorata al bordo basso. Testo su due righe (troppo
+     piccolo per restringersi ancora, richiesto esplicito): l'a capo
+     e' un vero \n dentro sharedTheoryLabel (script-storie-teorie.js),
+     rispettato qui da white-space:pre-line - su desktop la stessa
+     stringa usa nowrap, che collassa il \n in uno spazio normale,
+     restando su una riga sola senza bisogno di due varianti di testo
+     separate. */
   body[data-state="entry"] .shared-theory-ribbon{
-    position:absolute; right:10px; bottom:5px; z-index:2;
+    position:absolute; right:10px; top:97.5px; transform:translateY(-50%); z-index:2;
     pointer-events:none;
   }
   body[data-state="entry"] .shared-theory-ribbon span{
     background:rgba(10,10,15,.82);
     border:1px solid var(--item-accent, var(--cyan));
     border-radius:7px;
-    padding:3.5px 12.5px;
-    font-size:.6rem; font-weight:600;
+    padding:5px 12.5px;
+    font-size:.6rem; font-weight:600; line-height:1.35;
     color:var(--text);
-    white-space:nowrap;
+    white-space:pre-line;
+    text-align:center;
+    display:block;
   }
 
   /* Tendina e controllo musica: spostati via JS dentro #entryPanel
