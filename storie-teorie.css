@@ -1735,23 +1735,24 @@ body[data-entry-animate="true"] .entry-panel{
 
 /* Fascetta "teoria condivisa": striscia sottile ancorata al bordo
    INFERIORE del banner, dentro di lui (non oltre) - stessa geometria
-   orizzontale (left/right:325px), il banner e' un ::before con
-   z-index:-1, questa e' un elemento vero, quindi si vede sopra di
-   lui senza bisogno di z-index esplicito). Mostrata solo se la voce
-   ha il campo sharedWith (vedi renderEntry() in
-   script-storie-teorie.js). Lo span interno e' posizionato al 90%
-   della larghezza del box (non centrato, su richiesta esplicita) -
-   PROVA, solo desktop per ora, il mobile non e' ancora deciso. */
+   del banner (left/right:325px, top:80px, height:130px: il box della
+   fascetta copre l'intera area, cosi' bottom:5px sullo span e' un
+   valore ESATTO (5px veri dal bordo inferiore, indipendente
+   dall'altezza reale del testo) invece di una stima calcolata a
+   mano sul top. Il banner e' un ::before con z-index:-1, questa e'
+   un elemento vero, quindi si vede sopra di lui senza bisogno di
+   z-index esplicito. Mostrata solo se la voce ha il campo sharedWith
+   (vedi renderEntry() in script-storie-teorie.js). Lo span interno e'
+   posizionato al 85% della larghezza del box (non centrato, su
+   richiesta esplicita) - PROVA, solo desktop per ora, il mobile non
+   e' ancora deciso. */
 @media (min-width:901px){
   .shared-theory-ribbon{
-    position:fixed; top:178px; left:325px; right:325px; /* banner:
-      top:80px, height:130px, bordo inferiore a 210px - 178px lascia
-      la fascetta (~26px di altezza reale) dentro di 6px dal bordo,
-      "ai piedi" ma senza uscirne. */
+    position:fixed; top:80px; height:130px; left:325px; right:325px;
     pointer-events:none;
   }
   .shared-theory-ribbon span{
-    position:absolute; left:90%; transform:translateX(-50%);
+    position:absolute; bottom:5px; left:85%; transform:translateX(-50%);
     background:rgba(10,10,15,.82);
     border:1px solid var(--item-accent, var(--cyan));
     border-radius:8px;
