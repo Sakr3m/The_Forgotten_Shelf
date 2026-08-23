@@ -1147,7 +1147,16 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
        spoiler, lettura) non si sposta quando la musica viene
        attivata. Mai capitato prima perche' su mobile .music-control-
        slot e' un blocco a se', non condivide riga con altro come
-       succede invece su desktop nella .entry-header__row. */
+       succede invece su desktop nella .entry-header__row.
+       display:flex; align-items:center: senza, il pulsante volume
+       scendeva di 10px quando la nuvoletta si apriva - .music-control
+       (dentro) centra gia' il pulsante nella PROPRIA altezza (35px
+       chiuso, 55px aperto quando cresce insieme alla nuvoletta), ma
+       lo slot lo lasciava semplicemente in cima a se stesso (blocco
+       normale, nessun centraggio) invece di seguirlo. I due
+       centraggi ora si compensano: il pulsante resta sempre alla
+       stessa altezza, chiuso o aperto che sia. */
+    display:flex; align-items:center;
     min-height:55px;
   }
   /* .track-info ha un max-width:280px pensato per il player della
