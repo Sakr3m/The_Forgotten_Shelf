@@ -521,7 +521,6 @@ const el = {
   layout: document.querySelector(".layout"),
   reportBugBtn: document.getElementById("reportBugBtn"),
   mobileGenreBar: document.getElementById("mobileGenreBar"),
-  mobileGenreTable: document.getElementById("mobileGenreTable"),
   mobileGenreListTitle: document.getElementById("mobileGenreListTitle"),
   mobileGenreListItems: document.getElementById("mobileGenreListItems"),
   gateToggleRight: document.getElementById("gateToggleRight"),
