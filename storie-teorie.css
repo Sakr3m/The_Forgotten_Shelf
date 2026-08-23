@@ -1046,7 +1046,8 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
      restando su una riga sola senza bisogno di due varianti di testo
      separate. */
   body[data-state="entry"] .shared-theory-ribbon{
-    position:absolute; right:10px; top:97.5px; transform:translateY(-50%); z-index:2;
+    position:absolute; right:16px; top:97.5px; transform:translateY(-50%); z-index:2; /* 16px,
+      stessa distanza reale di #entryGamePicker dal bordo sinistro (misurata) */
     pointer-events:none;
   }
   body[data-state="entry"] .shared-theory-ribbon span{
