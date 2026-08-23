@@ -647,11 +647,24 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
      Nascosto per le loro voci senza immagine di copertina propria -
      qui pero' e' l'UNICA versione (la home di Diari di Gioco non ha
      mai avuto un banner, quindi non serve una versione "piena" da
-     ridurre, si parte gia' ridotta). margin-bottom:20px come primo
-     valore ragionevole: quasi certamente da ritoccare insieme alla
-     distanza tra questa riga e il titolo della recensione (il primo
-     elemento sotto di lei), vedi .entry-header piu' sotto. */
-  body.is-review-open .game-header{
+     ridurre, si parte gia' ridotta). margin-bottom:15px, ritoccato
+     insieme alla distanza tra questa riga e il titolo della
+     recensione, vedi .entry-header piu' sotto.
+     FIX: agganciata a body:has(.review-entry:not([hidden])) invece
+     che a body.is-review-open - quella classe viene tolta ISTANTANEA
+     da backToLanding(), ma il contenuto della recensione (dentro
+     .review-entry) impiega 500ms a sparire davvero (crossfadeTo,
+     dissolvenza) - con is-review-open, per mezzo secondo la riga
+     header spariva di colpo (- 80px di spazio reale, margin-bottom
+     compreso) mentre il titolo sotto, ancora visibile, "saltava su"
+     a occupare quello spazio appena liberato, risultato un salto/
+     flash vistoso (segnalato con screenshot). Con :has(), la riga
+     resta visibile finche' la recensione e' DAVVERO nascosta
+     ([hidden] messo da crossfadeTo solo a fine dissolvenza) - i due
+     cambiamenti restano sempre sincronizzati per costruzione, senza
+     dover ritardare a mano nessun altro pulsante della topbar (che
+     infatti torna a cambiare subito, come voluto). */
+  body:has(.review-entry:not([hidden])) .game-header{
     display:flex;
     height:65px; max-height:65px; padding:0; margin-bottom:15px;
   }
@@ -871,11 +884,19 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      due selettori specifici invece che su .reading nell'insieme
      (che erediterebbe anche lui, essendo .threshold un suo figlio
      diretto come gli altri). Stessi rapporti (x1.5/x2) gia' in uso
-     su Storie Senza Cornice/Il Filo Nascosto. */
+     su Storie Senza Cornice/Il Filo Nascosto. I titolini h2 (es.
+     "Comparto Tecnico e Artistico") vanno scalati a parte: usano
+     rem, non em, quindi NON seguono automaticamente il font-size del
+     genitore quando cambia - serve una regola esplicita anche per
+     loro, stesso rapporto (1.25rem base -> 1.875/2.5rem). */
   body[data-text-size="1.5"] .review-entry .quick-take,
   body[data-text-size="1.5"] .review-entry .deep{ font-size:1.5rem; }
   body[data-text-size="2"] .review-entry .quick-take,
   body[data-text-size="2"] .review-entry .deep{ font-size:2rem; }
+  body[data-text-size="1.5"] .review-entry .quick-take h2,
+  body[data-text-size="1.5"] .review-entry .deep h2{ font-size:1.875rem; }
+  body[data-text-size="2"] .review-entry .quick-take h2,
+  body[data-text-size="2"] .review-entry .deep h2{ font-size:2.5rem; }
 
   /* --- Soglia spoiler: non piu' legata a un'altezza precisa, segue
      semplicemente il blocco "recensione veloce" sopra di lei. --- */
@@ -1334,7 +1355,13 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      destra - su richiesta esplicita. */
   .review-entry .music-control .text-size-toggle{ order:1; }
   .review-entry .music-control .track-info{ order:2; }
-  .review-entry .music-control .volume-control{ order:3; }
+  .review-entry .music-control .volume-control{
+    order:3; margin-left:auto; /* al vero bordo destro della riga, non
+      solo "dopo la nuvoletta" - senza margin-left:auto, con la riga
+      piena larghezza (100%) ma senza justify-content:space-between,
+      i tre elementi restavano impacchettati a sinistra con lo spazio
+      vuoto tutto a destra invece che il volume all'estremo bordo. */
+  }
   /* Dimensione mobile del pulsante taglia-testo: stessi identici
      valori (35x50) gia' in uso su Storie Senza Cornice/Il Filo
      Nascosto nello stesso contesto (dentro la riga volume). */
@@ -1351,11 +1378,18 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .review-entry .reading h2{ font-size:1.08rem; margin-top:25px; margin-bottom:5px; }
   /* Stessa scalatura del blocco desktop qui sopra, calcolata dalla
      base mobile .95rem invece che da 1rem (.95*1.5=1.425,
-     .95*2=1.9) - stessi rapporti, stessa esclusione di .threshold. */
+     .95*2=1.9) - stessi rapporti, stessa esclusione di .threshold.
+     h2 (1.08rem base) scalato allo stesso modo: 1.08*1.5=1.62,
+     1.08*2=2.16 - stesso motivo del blocco desktop (rem, non em,
+     non segue da solo il genitore). */
   body[data-text-size="1.5"] .review-entry .quick-take,
   body[data-text-size="1.5"] .review-entry .deep{ font-size:1.425rem; }
   body[data-text-size="2"] .review-entry .quick-take,
   body[data-text-size="2"] .review-entry .deep{ font-size:1.9rem; }
+  body[data-text-size="1.5"] .review-entry .quick-take h2,
+  body[data-text-size="1.5"] .review-entry .deep h2{ font-size:1.62rem; }
+  body[data-text-size="2"] .review-entry .quick-take h2,
+  body[data-text-size="2"] .review-entry .deep h2{ font-size:2.16rem; }
   .review-entry .quick-take{ min-height:0; margin-bottom:20px; }
   .review-entry .threshold{
     margin:0 0 25px;
