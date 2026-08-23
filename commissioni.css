@@ -146,19 +146,6 @@
    lo stesso segnale leggero e veloce di sopra (tfs-desktop-ready,
    document.fonts.ready - aspetta solo i file dei font, non tutto il
    resto). Topbar/pulsanti restano visibili subito come sempre. */
-/* Il pulsante "Segnala bug" e' nascosto su mobile di default (regola
-   condivisa in styles.css, pensata per le pagine con un carosello
-   stage<->tabella dove il pulsante va nascosto scorrendo via dallo
-   stage). Questa pagina non ha piu' alcun carosello (ridotta alla
-   sola landing): resta sempre visibile. La regola condivisa imposta
-   solo left:350px (mai stato pensato per mobile, dato che li' era
-   sempre stato display:none su ogni altra pagina) - qui va corretto
-   con un margine mobile vero, stesso standard di 15px dal bordo
-   usato dagli altri pulsanti della pagina. */
-@media (max-width:900px){
-  body[data-state="landing"] .report-bug-btn{ display:flex; left:auto; right:15px; }
-}
-
 @media (max-width:900px){
   body[data-state="landing"]:not(.tfs-desktop-ready) .landing{
     visibility:hidden;
@@ -223,9 +210,7 @@
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
 
   .commissions-nav{
-    position:absolute; left:15px; right:15px; bottom:75px; z-index:5; /* sopra
-      "Segnala bug" (bottom:20px, alto 40px = arriva fino a 60px) - 15px
-      di margine, stesso standard di spaziatura della pagina. */
+    position:absolute; left:15px; right:15px; bottom:20px; z-index:5;
     gap:10px;
   }
   .commissions-nav__btn{
