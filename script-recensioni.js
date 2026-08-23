@@ -914,6 +914,18 @@ function crossfadeTo(showEl, instant){
   const hideEl = currentCenterPanel();
   if(hideEl === showEl) return;
 
+  // L'alert spoiler (fratello di .landing dentro .stage, non figlio -
+  // vedi il commento in HTML) segue ora lo stesso fade di .landing/
+  // .review-entry: visibile solo quando showEl e' la home, sparisce/
+  // appare in sincrono con lei invece che a scatto. Prima era un
+  // display:none legato alla classe is-review-open, che scattava
+  // all'istante mentre il resto sfumava in 500ms - risultato,
+  // l'alert appariva subito e il resto (titolo, sub, ecc.) arrivava
+  // dopo in dissolvenza, due velocita' diverse per lo stesso cambio
+  // di schermata.
+  const spoilerEl = document.querySelector(".spoiler-alert");
+  const showSpoiler = showEl === el.landingPanel;
+
   // "instant" salta del tutto la dissolvenza: usato quando la
   // transizione visiva la fa gia' qualcos'altro (es. lo scorrimento
   // della tabella genere verso lo stage su mobile) - altrimenti, per
@@ -925,19 +937,27 @@ function crossfadeTo(showEl, instant){
     hideEl.classList.remove("is-fading");
     showEl.hidden = false;
     showEl.classList.remove("is-fading");
+    if(spoilerEl){
+      spoilerEl.style.display = showSpoiler ? "" : "none";
+      spoilerEl.classList.remove("is-fading");
+    }
     return;
   }
 
   hideEl.classList.add("is-fading");
+  if(spoilerEl && !showSpoiler) spoilerEl.classList.add("is-fading");
   setTimeout(() => {
     hideEl.hidden = true;
     hideEl.classList.remove("is-fading");
     showEl.hidden = false;
+    if(spoilerEl) spoilerEl.style.display = showSpoiler ? "" : "none";
     // Forza un reflow cosi' la transizione parte da opacity:0
     // invece di saltare direttamente a 1.
     showEl.classList.add("is-fading");
+    if(spoilerEl && showSpoiler) spoilerEl.classList.add("is-fading");
     void showEl.offsetWidth;
     showEl.classList.remove("is-fading");
+    if(spoilerEl && showSpoiler) spoilerEl.classList.remove("is-fading");
   }, 500);
 }
 

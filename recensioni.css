@@ -361,7 +361,8 @@
    script-recensioni.js per i tempi esatti.
    ============================================================ */
 .stage > .landing,
-.stage > .review-entry{
+.stage > .review-entry,
+.stage > .spoiler-alert{
   transition:opacity .5s ease;
 }
 .stage > .is-fading{ opacity:0; }
@@ -536,14 +537,13 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   .track-info{ border-width:2px; }
 }
 
-/* Alert spoiler della home: nascosto quando una recensione e' aperta
-   (sia desktop che mobile, is-review-open e' impostata comunque su
-   entrambi i contesti). E' fratello di .landing, non figlio (vedi
-   commento in HTML - un transform su un antenato romperebbe il suo
-   position:fixed su mobile), quindi non eredita l'hidden nativo di
-   #landingPanel: serve questa regola esplicita, stesso identico fix
-   di Il Filo Nascosto. */
-body.is-review-open .spoiler-alert{ display:none; }
+/* Alert spoiler della home: mostrato/nascosto in dissolvenza,
+   sincronizzato con .landing/.review-entry - vedi crossfadeTo() in
+   script-recensioni.js, che ora gestisce anche lui (stesso identico
+   fade da 500ms, non piu' uno scatto istantaneo mentre il resto
+   sfuma). Nessuna regola CSS per lo stato "recensione aperta": e'
+   tutto governato dalla classe is-fading qui sotto, aggiunta/rimossa
+   dallo stesso posto e nello stesso momento di .landing. */
 
 /* --- Desktop: pulsanti della topbar (casetta, Discord, Ko-fi,
    switch lingua) colorati con l'accento della voce quando una
