@@ -7,7 +7,7 @@
 
 const STRINGS = {
   it: {
-    brand: "Diari di Gioco",
+    brand: "Il Banco delle Commissioni",
     backToIndexLabel: "Torna all'index",
     kofiLabel: "Sostienimi su Ko-fi",
     landingEyebrow: "Benvenuto nell'archivio\ndelle recensioni",
@@ -15,7 +15,7 @@ const STRINGS = {
     landingQuote: "Mentre gioco, non penso alla recensione che dovrò scrivere. Solo dopo, quando mi fermo a scriverla, capisco davvero quante cose ho vissuto, e quante parole servono per raccontarne anche solo la metà.",
     landingSignature: "— Sakrem",
     landingSubDesktop: "Apri il carrello laterale per sfogliare le recensioni disponibili.",
-    landingTitle: "Diari di Gioco",
+    landingTitle: "Il Banco delle Commissioni",
     reportBtnLabel: "Segnala bug",
     reportCancel: "Annulla",
     reportChooseFile: "Scegli file",
@@ -35,7 +35,7 @@ const STRINGS = {
     reportThanks: "Grazie, segnalazione ricevuta.",
   },
   en: {
-    brand: "Game Diaries",
+    brand: "The Commission Counter",
     backToIndexLabel: "Back to index",
     kofiLabel: "Support me on Ko-fi",
     landingEyebrow: "Welcome to the archive\nof reviews",
@@ -43,7 +43,7 @@ const STRINGS = {
     landingQuote: "While I'm playing, I don't think about the review I'll have to write. Only afterward, when I stop to write it, do I realize how much I've actually lived through, and how many words it takes to capture even half of it.",
     landingSignature: "— Sakrem",
     landingSubDesktop: "Open the side cart to browse the available reviews.",
-    landingTitle: "Game Diaries",
+    landingTitle: "The Commission Counter",
     reportBtnLabel: "Report bug",
     reportCancel: "Cancel",
     reportChooseFile: "Choose file",
