@@ -16,14 +16,22 @@ const STRINGS = {
     landingSignature: "— Sakrem",
     landingSubDesktop: "Scegli una categoria qui sotto per scoprire gli esempi disponibili.",
     landingTitle: "Il Banco delle Commissioni",
-    commissionsNavVideo: "Video editing",
-    commissionsNavMusic: "Musica AI",
-    commissionsVideoEyebrow: "Video editing",
-    commissionsVideoTitle: "Diamo forma al tuo video",
-    commissionsVideoIntro: "Montaggio, color grading e ritmo su misura con DaVinci Resolve, dal materiale grezzo alla versione pronta da pubblicare.",
-    commissionsMusicEyebrow: "Musica generata con AI",
-    commissionsMusicTitle: "Una colonna sonora su misura",
-    commissionsMusicIntro: "Brani originali creati con Suno AI, pensati per adattarsi esattamente al tono del tuo progetto.",
+    commissionsNavVideo: "Sala di Montaggio",
+    commissionsNavDesign: "Il Tavolo da Lavoro",
+    commissionsNavWriting: "La Cattedra Storta",
+    commissionsNavAdvice: "Il Consiglio Scomodo",
+    commissionsNavMusic: "Note Dimenticate",
+    commissionsVideoTitle: "Sala di Montaggio",
+    commissionsVideoIntro: "Video, montaggio, motion graphics: dimmi cosa ti serve e lo costruiamo insieme.",
+    commissionsDesignTitle: "Il Tavolo da Lavoro",
+    commissionsDesignIntro: "Dove si smontano meccaniche e sistemi di gioco, un pezzo alla volta, insieme a chi vuole capirli.",
+    commissionsWritingTitle: "La Cattedra Storta",
+    commissionsWritingIntro: "Quello che so davvero sulla scrittura, passato senza fronzoli a chi vuole impararlo.",
+    commissionsAdviceTitle: "Il Consiglio Scomodo",
+    commissionsAdviceIntro: "Pareri diretti su un progetto, un canale, un'idea: quello che spesso nessuno ti dice in faccia.",
+    commissionsMusicTitle: "Note Dimenticate",
+    commissionsMusicIntro: "Canzoni fatte con Suno, su richiesta o su misura per te.",
+    commissionsShowcasePlaceholder: "Gli esempi arriveranno presto qui.",
     reportBtnLabel: "Segnala bug",
     reportCancel: "Annulla",
     reportChooseFile: "Scegli file",
@@ -52,14 +60,22 @@ const STRINGS = {
     landingSignature: "— Sakrem",
     landingSubDesktop: "Pick a category below to see the available examples.",
     landingTitle: "The Commission Counter",
-    commissionsNavVideo: "Video editing",
-    commissionsNavMusic: "AI music",
-    commissionsVideoEyebrow: "Video editing",
-    commissionsVideoTitle: "Let's shape your video",
-    commissionsVideoIntro: "Editing, color grading and pacing tailored with DaVinci Resolve, from raw footage to a ready-to-publish cut.",
-    commissionsMusicEyebrow: "AI-generated music",
-    commissionsMusicTitle: "A soundtrack made for you",
-    commissionsMusicIntro: "Original tracks created with Suno AI, shaped to fit your project's exact tone.",
+    commissionsNavVideo: "The Cutting Room",
+    commissionsNavDesign: "The Drafting Table",
+    commissionsNavWriting: "The Crooked Chair",
+    commissionsNavAdvice: "The Uncomfortable Advice",
+    commissionsNavMusic: "Forgotten Notes",
+    commissionsVideoTitle: "The Cutting Room",
+    commissionsVideoIntro: "Video, editing, motion graphics: tell me what you need and we'll build it together.",
+    commissionsDesignTitle: "The Drafting Table",
+    commissionsDesignIntro: "Where game mechanics and systems get taken apart, piece by piece, with whoever wants to understand them.",
+    commissionsWritingTitle: "The Crooked Chair",
+    commissionsWritingIntro: "What I actually know about writing, passed on with no fuss to whoever wants to learn.",
+    commissionsAdviceTitle: "The Uncomfortable Advice",
+    commissionsAdviceIntro: "Direct opinions on a project, a channel, an idea: the kind of thing most people won't tell you to your face.",
+    commissionsMusicTitle: "Forgotten Notes",
+    commissionsMusicIntro: "Songs made with Suno, on request or tailor-made for you.",
+    commissionsShowcasePlaceholder: "Examples are coming soon.",
     reportBtnLabel: "Report bug",
     reportCancel: "Cancel",
     reportChooseFile: "Choose file",
@@ -102,8 +118,8 @@ const el = {
   landingEyebrow: document.querySelector(".landing-eyebrow"),
   landingTitle: document.querySelector(".landing-title"),
   landingIntro: document.querySelector(".landing-intro"),
-  commissionsNavVideo: document.getElementById("commissionsNavVideo"),
-  commissionsNavMusic: document.getElementById("commissionsNavMusic")
+  commissionsNavBtns: document.querySelectorAll(".commissions-nav__btn"),
+  commissionsShowcase: document.getElementById("commissionsShowcase")
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -143,34 +159,39 @@ el.langSwitch.addEventListener("click", () => {
 });
 
 // ---------------------------------------------------------
-// Pulsanti categoria (Video editing / Musica AI, per ora): al click
-// cambiano SOLO il contenuto sopra (eyebrow/titolo/intro dentro
-// .landing), mai una navigazione vera - citazione e sottotesto
-// restano fissi. Ricliccando la categoria gia' attiva si torna al
-// benvenuto generico. Il cambio avviene riassegnando l'attributo
-// data-i18n vero e proprio sui tre elementi (non solo il testo):
-// cosi' il normale paintStaticText(), gia' chiamato ad ogni cambio
-// lingua, ridipinge da solo il contenuto giusto senza bisogno di
-// nessuna logica dedicata qui per la lingua.
+// Le 5 "stanze" (Sala di Montaggio, Tavolo da Lavoro, Cattedra
+// Storta, Consiglio Scomodo, Note Dimenticate): al click cambiano
+// SOLO titolo+intro sopra (eyebrow/citazione/sottotesto restano
+// fissi) e aprono la vetrina qui sotto (per ora solo un
+// placeholder), mai una navigazione vera. Ricliccando la stanza
+// gia' attiva si torna al benvenuto generico e la vetrina si
+// richiude. Il cambio avviene riassegnando l'attributo data-i18n
+// vero e proprio su titolo/intro (non solo il testo): cosi' il
+// normale paintStaticText(), gia' chiamato ad ogni cambio lingua,
+// ridipinge da solo il contenuto giusto senza bisogno di nessuna
+// logica dedicata qui per la lingua.
 // ---------------------------------------------------------
 let activeCategory = null;
 const CATEGORY_KEYS = {
-  video: { eyebrow: "commissionsVideoEyebrow", title: "commissionsVideoTitle", intro: "commissionsVideoIntro" },
-  music: { eyebrow: "commissionsMusicEyebrow", title: "commissionsMusicTitle", intro: "commissionsMusicIntro" }
+  video: { title: "commissionsVideoTitle", intro: "commissionsVideoIntro" },
+  design: { title: "commissionsDesignTitle", intro: "commissionsDesignIntro" },
+  writing: { title: "commissionsWritingTitle", intro: "commissionsWritingIntro" },
+  advice: { title: "commissionsAdviceTitle", intro: "commissionsAdviceIntro" },
+  music: { title: "commissionsMusicTitle", intro: "commissionsMusicIntro" }
 };
 function applyCategory(category){
   activeCategory = category;
-  const keys = category ? CATEGORY_KEYS[category] : { eyebrow: "landingEyebrow", title: "landingTitle", intro: "landingIntro" };
-  el.landingEyebrow.setAttribute("data-i18n", keys.eyebrow);
+  const keys = category ? CATEGORY_KEYS[category] : { title: "landingTitle", intro: "landingIntro" };
   el.landingTitle.setAttribute("data-i18n", keys.title);
   el.landingIntro.setAttribute("data-i18n", keys.intro);
-  [el.commissionsNavVideo, el.commissionsNavMusic].forEach(btn => {
+  el.commissionsNavBtns.forEach(btn => {
     btn.classList.toggle("is-active", btn.dataset.category === category);
     btn.setAttribute("aria-pressed", String(btn.dataset.category === category));
   });
+  el.commissionsShowcase.hidden = !category;
   paintStaticText();
 }
-[el.commissionsNavVideo, el.commissionsNavMusic].forEach(btn => {
+el.commissionsNavBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     applyCategory(activeCategory === btn.dataset.category ? null : btn.dataset.category);
   });

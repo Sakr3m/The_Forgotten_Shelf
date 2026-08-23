@@ -35,33 +35,52 @@
 }
 
 /* ============================================================
-   Pulsanti categoria (Video editing / Musica AI, per ora): stessa
-   posizione che aveva l'alert spoiler prima di essere tolto (fratello
-   di .landing, non figlio - stesso motivo: su mobile .landing usa
-   position:absolute + transform per centrarsi, un transform su un
-   antenato romperebbe il posizionamento fixed dei discendenti).
-   Aspetto a pillola, stesso linguaggio degli altri pulsanti del sito.
-   Attivo: sfondo pieno invece del solo contorno.
+   Le 5 "stanze" del banco: schede con icona+nome (non pulsanti
+   anonimi, richiesto esplicitamente), dentro .landing stessa, in
+   flusso normale - non piu' position:fixed come il vecchio alert
+   spoiler che occupava questo posto: con una vetrina che si apre
+   sotto, serve spazio vero che cresce col contenuto, non una barra
+   fissa. Colori ancora tutti uguali (var(--cyan)): quali colori dare
+   a ciascuna stanza si decide in un giro successivo. Attiva: sfondo
+   pieno invece del solo contorno, stesso linguaggio del resto del
+   sito (badge, switch lingua, ecc.).
    ============================================================ */
 .commissions-nav{
-  display:flex; justify-content:center; gap:15px;
-  position:fixed; left:400px; right:400px; bottom:125px; z-index:4;
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:15px;
+  margin-top:50px;
+  width:100%; max-width:800px;
 }
 .commissions-nav__btn{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
   border:2px solid var(--cyan);
   background:var(--panel);
-  border-radius:999px;
-  padding:10px 20px;
+  border-radius:15px;
+  padding:20px 10px;
   color:var(--text-dim);
-  font-size:.9rem; font-weight:600;
+  font-size:.8rem; font-weight:600; text-align:center;
   cursor:pointer;
   transition:color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
+.commissions-nav__icon{ font-size:1.6rem; font-style:normal; }
 @media (hover:hover) and (pointer:fine){
   .commissions-nav__btn:hover{ color:var(--text); border-color:var(--text); }
 }
 .commissions-nav__btn.is-active{
   background:var(--cyan); color:var(--bg); border-color:var(--cyan);
+}
+
+/* Vetrina della stanza attiva: per ora solo un placeholder centrato,
+   pronta a ricevere contenuti veri (video/audio/estratti) diversi
+   per ciascuna stanza in un giro successivo. */
+.commissions-showcase{
+  width:100%; max-width:800px;
+  margin-top:30px; padding:40px 20px;
+  border:1px dashed var(--text-faint);
+  border-radius:15px;
+  text-align:center;
+}
+.commissions-showcase__placeholder{
+  color:var(--text-faint); font-size:.9rem; margin:0;
 }
 
 @media (min-width:901px){
@@ -209,12 +228,8 @@
   .stage-controls{ gap:10px; }
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
 
-  .commissions-nav{
-    position:absolute; left:15px; right:15px; bottom:20px; z-index:5;
-    gap:10px;
-  }
-  .commissions-nav__btn{
-    flex:1; padding:8px 10px; font-size:.76rem; border-width:2px;
-    text-align:center;
-  }
+  /* Provvisorio: griglia a 2 colonne, solo per non lasciare rotta la
+     vecchia posizione fissa. Non ancora rifinito - focus di questo
+     giro e' il desktop, il mobile si sistema in un giro successivo. */
+  .commissions-nav{ grid-template-columns:repeat(2, 1fr); margin-top:25px; }
 }
