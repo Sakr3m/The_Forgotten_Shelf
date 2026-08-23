@@ -1170,24 +1170,23 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     flex:0 0 auto;
     font-size:25px; line-height:25px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
     color:var(--text-faint);
-    margin:0 0 25px; padding:0 8px;
+    margin:0 0 25px; padding:0 10px;
     text-align:center;
     transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
   .mobile-genre-table__items{
     flex:1; min-height:0; overflow-y:auto;
     list-style:none; margin:0; padding:0 0 20px;
-    display:flex; flex-direction:column; gap:3px; /* CONVENZIONE
-      FISSA, non arrotondare: stesso valore di .game-list{ gap:3px }
-      condiviso da Storie Senza Cornice/Il Filo Nascosto (styles.css)
-      - tolto per errore durante il giro "multipli di 5" (scambiato
-      per un valore storto invece che riconosciuto come convenzione). */
+    display:flex; flex-direction:column; gap:5px; /* arrotondato a
+      5px su richiesta esplicita (era 3px, valore preso pari pari
+      dalla convenzione condivisa .game-list{ gap:3px } - qui non
+      seguita fino in fondo, per restare sui multipli di 5). */
     transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
   .mobile-genre-table__items li:first-child{ margin-top:20px; }
   .mobile-genre-table__items button{
     width:100%; text-align:right;
-    padding:12px 14px;
+    padding:10px 14px;
     border-radius:var(--radius-sm);
     background:none; border:none;
     box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
@@ -1329,7 +1328,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
 
   /* Sempre due righe centrate, punto tolto: su schermo stretto la
      riga sola non ci sta comodamente in nessuno dei due casi. */
-  .review-entry .section-eyebrow{ flex-direction:column; align-items:center; gap:2px; }
+  .review-entry .section-eyebrow{ flex-direction:column; align-items:center; gap:5px; }
   .review-entry .section-eyebrow .eyebrow-dot{ display:none; }
   .review-entry .music-control-slot{
     order:4; margin-bottom:20px;
