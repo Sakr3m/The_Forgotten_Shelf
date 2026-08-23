@@ -574,6 +574,16 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
   body.is-review-open .brand{
     display:flex; width:auto; justify-content:flex-start; gap:10px;
     margin-left:0;
+    /* Stessa regola condivisa di Storie Senza Cornice/Il Filo
+       Nascosto (styles.css, body[data-state="entry"] .stage-topbar
+       .brand) - qui pero' data-state resta sempre "landing" (scelta
+       di design di questa pagina), quindi quella regola non scatta
+       mai da sola: replicata a mano su is-review-open. Senza,
+       .brand ereditava margin-top:15px/height:38px dalla regola
+       piu' generica (.stage-topbar > *), centrando Discord/Ko-fi/
+       titolo 6px piu' in alto del resto della topbar (35px invece
+       di 40px dal bordo pagina, lo standard del sito). */
+    height:auto; align-items:flex-start; margin-top:20px;
   }
   body.is-review-open .brand .social-links{
     display:flex; align-items:center; gap:15px;
