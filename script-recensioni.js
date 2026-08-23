@@ -1053,7 +1053,16 @@ function openReview(id, instant){
 }
 
 function backToLanding(){
-  crossfadeTo(el.landingPanel);
+  // instant:true - su richiesta esplicita, la dissolvenza vale solo
+  // ANDANDO verso una voce (home->voce, voce->voce), non tornando
+  // alla home. Nessun rischio di riportare il vecchio bug del salto
+  // (il titolo che "sporgeva" mentre .game-header spariva prima di
+  // lui): qui tutto cambia nello stesso istante sincrono - contenuto,
+  // is-review-open e .game-header (agganciato a :has(.review-entry:
+  // not([hidden])), vedi CSS) si aggiornano tutti insieme, senza
+  // finestre temporali in cui uno dei tre e' rimasto indietro
+  // rispetto agli altri due.
+  crossfadeTo(el.landingPanel, true);
   state.view = "landing";
   el.body.classList.remove("is-review-open");
   el.body.style.removeProperty("--item-accent");
