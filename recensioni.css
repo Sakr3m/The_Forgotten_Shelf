@@ -1387,6 +1387,19 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
       nuvoletta. */
   }
   .review-entry .music-control .volume-control{ order:3; }
+  /* FIX: quando la nuvoletta e' nascosta (musica spenta, l'attributo
+     [hidden] la toglie del tutto dal flusso), il SUO margin-left:auto
+     qui sopra smette di contare - senza altro, il volume perdeva la
+     spinta a destra e tornava ad accodarsi subito dopo il
+     taglia-testo (segnalato). Attivato SOLO in quel caso specifico
+     (:has), non sempre: due margin-left:auto attivi insieme (nuvoletta
+     + volume) non vanno "il primo vince", si dividono lo spazio
+     libero A META' ciascuno - avevo provato ad aggiungerlo sempre,
+     ricreava esattamente il vuoto ampio (57.5+57.5px) gia' corretto
+     in precedenza. */
+  .review-entry .music-control:has(.track-info[hidden]) .volume-control{
+    margin-left:auto;
+  }
   /* Dimensione mobile del pulsante taglia-testo: stessi identici
      valori (35x50) gia' in uso su Storie Senza Cornice/Il Filo
      Nascosto nello stesso contesto (dentro la riga volume). */
