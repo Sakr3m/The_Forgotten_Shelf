@@ -82,9 +82,15 @@
         bottom:125px ancorato a lui si sposta ogni volta che la sua
         altezza cambia - da qui il "salto" visibile tornando alla
         home da una recensione. position:fixed lo ancora invece al
-        vero bordo del viewport, sempre stabile. */
+        vero bordo del viewport, sempre stabile.
+     3) z-index:4, non 5: il pannello .reviews-gate (il carrello)
+        usa z-index:5 e, a carrello aperto, copre quasi tutto lo
+        schermo - con lo stesso z-index di prima, l'alert (dichiarato
+        DOPO nell'HTML) vinceva il conflitto e si disegnava sopra il
+        carrello invece che sotto. Un punto in meno lo mette
+        stabilmente dietro. */
   .spoiler-alert{
-    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:4;
     justify-content:center;
     max-width:none;
     margin-top:0;
