@@ -1721,6 +1721,27 @@ body[data-entry-animate="true"] #watermarkBrightness{
   body:not(.tfs-desktop-ready){ visibility:hidden; }
 }
 
+/* MOBILE, estensione della stessa protezione (su richiesta esplicita,
+   prima mancava del tutto qui): anche qui il testo vero (font-
+   display:swap, vedi fonts/*.css) mostra subito il font di riserva di
+   sistema e lo sostituisce con Inter appena pronto, causando lo
+   stesso piccolo salto di ridimensionamento che su desktop viene
+   evitato nascondendo tutta la pagina. Su mobile pero' NON si nasconde
+   tutta la pagina (rallenterebbe la home dietro anche alle tabelle,
+   che hanno un loro segnale separato e piu' lento, tfs-ready - vedi
+   sopra): si nasconde SOLO .landing (il blocco testo della home:
+   titolo, sottotitolo, citazione), riusando lo stesso segnale
+   leggero e veloce di sopra (tfs-desktop-ready, document.fonts.ready
+   - aspetta solo i file dei font, non tutto il resto). Topbar/
+   pulsanti restano visibili subito come sempre, le tabelle seguono il
+   proprio tempo indipendente (tfs-ready) - tre segnali indipendenti,
+   ciascuno rivela solo cio' che gli compete, mai tutto insieme. */
+@media (max-width:900px){
+  body[data-state="landing"]:not(.tfs-desktop-ready) .landing{
+    visibility:hidden;
+  }
+}
+
 /* ============================================================
    MOBILE - titolini, voci, striscia colorata, lucchetto: richiesta
    esplicita di oggi. Tutto scoped qui, non tocca desktop.
