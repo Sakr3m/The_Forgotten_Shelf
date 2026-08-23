@@ -982,14 +982,15 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   /* Pulsanti della barra generi: stile condiviso, usato dentro alla
      tabella (vedi .mobile-genre-table .mobile-genre-bar piu' sotto
-     per il posizionamento/contenitore). font-size 15px (era .85rem,
-     ~13.6px): aumentato a multiplo di 5, coerente con la barra
-     portata da 57 a 70px di altezza. */
+     per il posizionamento/contenitore). font-size 20px (era .85rem,
+     poi 15px): il pulsante si centra da solo nella barra grazie a
+     min-height+align-items:center qui sotto, nessun ricalcolo
+     necessario per un font ancora piu' grande. */
   .mobile-genre-btn{
     flex:0 0 auto;
     background:none; border:none; padding:5px 0;
     color:var(--text);
-    font-weight:700; font-size:15px; letter-spacing:.05em; text-transform:uppercase;
+    font-weight:700; font-size:20px; letter-spacing:.05em; text-transform:uppercase;
     transition:color .15s ease;
   }
   .mobile-genre-btn:active{ color:var(--cyan); }
