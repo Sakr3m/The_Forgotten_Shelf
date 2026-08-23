@@ -1599,7 +1599,7 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .landing-quote{ font-size:12.5px; line-height:22.5px; }
   .landing-sub{ margin-top:25px; font-size:10px; }
   .spoiler-alert{
-    position:fixed; left:15px; right:15px; bottom:10px; z-index:5;
+    position:fixed; left:15px; right:15px; bottom:20px; z-index:5;
     justify-content:center; /* stesso motivo del desktop: senza,
       icona+testo si accalcano a sinistra della fascia allargata */
     max-width:none; /* fascia a piena larghezza (meno i 15px per lato
