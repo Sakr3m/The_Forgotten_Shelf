@@ -621,7 +621,7 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
      elemento sotto di lei), vedi .entry-header piu' sotto. */
   body.is-review-open .game-header{
     display:flex;
-    height:65px; max-height:65px; padding:0; margin-bottom:20px;
+    height:65px; max-height:65px; padding:0; margin-bottom:15px;
   }
 }
 
@@ -719,9 +719,9 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .review-entry .entry-header{
     flex-shrink:0; /* mai schiacciato dal flex, resta alla sua
       altezza naturale — e non scorre, essendo fuori da .reading */
-    padding-top:20px; /* stesso spazio (arrotondato da 22 a 20) che
-      occupava la riga eyebrow rimossa, cosi' titolo e tag restano
-      quasi esattamente dove erano prima (differenza di 2px) */
+    padding-top:15px; /* era 20px (arrotondato da 22 in origine, per
+      compensare la riga eyebrow rimossa) - portato a 15px insieme al
+      margin-bottom della riga header qui sopra */
     padding-bottom:20px;
     border-bottom:1px solid var(--line);
   }
@@ -748,6 +748,16 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .review-entry .entry-header__title{
     font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:.01em;
     font-size:2rem; color:var(--text); margin:0;
+    /* align-self:flex-start + margin-top:5px invece di lasciarlo
+       centrato dentro .entry-header__row (align-items:center,
+       min-height:60px, dimensionata per la nuvoletta della musica -
+       vedi sopra): centrato, il titolo "galleggiava" a un'altezza
+       che dipendeva dalla riga, non da un margine suo proprio -
+       6.5px misurati con Playwright, non un valore scelto. Con
+       flex-start + margin-top diretto, il distacco dalla riga
+       dell'header sopra e' ora esatto e controllabile: 5px, non
+       piu' un sottoprodotto del centraggio. */
+    align-self:flex-start; margin-top:5px;
   }
   /* Il controllo musica condiviso (styles.css) e' visibile solo su
      data-state="landing" per le altre pagine, che hanno un ricambio
