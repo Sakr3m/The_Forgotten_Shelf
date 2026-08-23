@@ -1055,21 +1055,33 @@ function openReview(id, instant){
 function backToLanding(){
   crossfadeTo(el.landingPanel);
   state.view = "landing";
-  el.body.classList.remove("is-review-open");
-  el.body.style.removeProperty("--item-accent");
-  // Discord/KoFi tornano al loro posto originale dentro
-  // .stage-controls, solo desktop (stesso motivo di sopra).
-  if(!isMobileNav() && el.stageControls && el.socialLinks && el.socialLinks.parentElement !== el.stageControls){
-    el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
-  }
+  // Il cambio di aspetto della topbar (is-review-open, colore
+  // accento, Discord/Ko-fi che tornano al loro posto) aspetta gli
+  // stessi 500ms della dissolvenza qui sopra (crossfadeTo), invece
+  // di scattare all'istante: senza questo ritardo, per una frazione
+  // di secondo si vedeva ancora il titolo/i tag della recensione
+  // (che sta ancora sfumando) con sotto gia' la topbar passata alla
+  // versione home ("Torna all'index" al posto di Discord/Ko-fi/
+  // titolo) - un flash di sovrapposizione segnalato con screenshot.
+  setTimeout(() => {
+    el.body.classList.remove("is-review-open");
+    el.body.style.removeProperty("--item-accent");
+    // Discord/KoFi tornano al loro posto originale dentro
+    // .stage-controls, solo desktop (stesso motivo di sopra).
+    if(!isMobileNav() && el.stageControls && el.socialLinks && el.socialLinks.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
+    }
+    if(isMobileNav()) el.body.dataset.state = "landing";
+    updateIndexLink();
+  }, 500);
   // Solo mobile: se si stava guardando la tabella o una recensione,
   // torna a mostrare lo stage (home) nel carosello — la tabella resta
   // presente (sempre raggiungibile ora, a destra), con l'ultimo
   // genere sfogliato. Stage e' il primo pannello (era il secondo,
-  // invertito su richiesta), quindi si torna a scrollLeft:0.
+  // invertito su richiesta), quindi si torna a scrollLeft:0. Non
+  // legato al ritardo qui sopra: e' solo scroll orizzontale del
+  // carosello, non tocca l'aspetto della topbar.
   if(el.layout) el.layout.scrollLeft = 0;
-  if(isMobileNav()) el.body.dataset.state = "landing";
-  updateIndexLink();
   updateMusicPlayback();
 }
 
