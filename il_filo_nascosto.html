@@ -181,20 +181,26 @@
       <!-- Fascetta "teoria condivisa": compare SOLO se la voce aperta
            ha il campo sharedWith (vedi data-storie-teorie.js), mai un
            caso speciale nascosto per default - vedi renderEntry() in
-           script-storie-teorie.js. Dentro #pageHeader (non piu'
-           fratello): su mobile il banner vero e' #pageHeaderBanner
-           (position:absolute dentro questo stesso contenitore,
-           position:sticky), diverso dal ::before di desktop - stare
-           qui dentro permette alla fascetta di ancorarsi allo stesso
-           sistema di coordinate su entrambi i breakpoint (su desktop
-           position:fixed funziona comunque, esce dal flusso normale
-           indipendentemente da dove sta nel DOM). Vedi CSS/JS. -->
+           script-storie-teorie.js. Posizione canonica: fratello di
+           #pageHeader (qui, per desktop - position:fixed, coordinate
+           vere del banner). Su mobile lo script la sposta DAVVERO
+           dentro #pageHeader (vedi posizionaSharedTheoryRibbon in
+           script-storie-teorie.js, stesso schema di
+           posizionaTextSizeToggle): li' #pageHeader diventa lui
+           stesso il box esatto del banner mobile, ma ha anche
+           overflow:hidden + transform (identita', ma sempre un
+           transform) che crea un nuovo blocco di contenimento per i
+           discendenti position:fixed - un fratello a posizione fissa
+           dentro quel contenitore verrebbe tagliato via su desktop,
+           dove #pageHeader e' invece un contenitore piccolo e diverso
+           (la striscia topbar ridotta, non il banner). -->
       <div class="game-header" id="pageHeader">
         <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
         <div class="game-header__banner-overlay" aria-hidden="true"></div>
-        <div class="shared-theory-ribbon" id="sharedTheoryRibbon" hidden>
-          <span id="sharedTheoryRibbonText"></span>
-        </div>
+      </div>
+
+      <div class="shared-theory-ribbon" id="sharedTheoryRibbon" hidden>
+        <span id="sharedTheoryRibbonText"></span>
       </div>
 
       <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>
@@ -268,7 +274,7 @@
   <script src="data-shared-tracks.js?v=20260812"></script>
   <script src="data-storie-teorie.js?v=20260821u"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script-storie-teorie.js?v=20260824d"></script>
+  <script src="script-storie-teorie.js?v=20260824e"></script>
   <script src="stats.js?v=20260809"></script>
 </body>
 </html>

@@ -126,6 +126,7 @@ const el = {
   entryContent: document.getElementById("entryContent"),
   pageHeaderBanner: document.getElementById("pageHeaderBanner"),
   sharedTheoryRibbon: document.getElementById("sharedTheoryRibbon"),
+  pageHeader: document.getElementById("pageHeader"),
   sharedTheoryRibbonText: document.getElementById("sharedTheoryRibbonText"),
   bgMusic: document.getElementById("bgMusic"),
   trackInfo: document.getElementById("trackInfo"),
@@ -210,8 +211,37 @@ function positionMobileEntryRow(){
 }
 window.addEventListener("resize", () => {
   positionMobileEntryRow();
+  posizionaSharedTheoryRibbon();
   if(state.view === "entry") renderEntry();
 });
+
+// La fascetta "teoria condivisa" ha bisogno di due sistemi di
+// coordinate diversi a seconda del breakpoint (vedi il commento in
+// HTML): su desktop resta fratella di #pageHeader (position:fixed,
+// coordinate vere del banner esterno). Su mobile va spostata DAVVERO
+// dentro #pageHeader: li' quel contenitore ha overflow:hidden +
+// transform (identita', ma sempre un transform valido) - un
+// discendente position:fixed li' dentro verrebbe ancorato al box di
+// #pageHeader stesso, non al viewport, e tagliato via se ne esce.
+// Su desktop invece #pageHeader e' un contenitore piccolo e diverso
+// (la striscia topbar ridotta): un fratello a posizione fissa fuori
+// da lui non subisce ne' il taglio ne' il nuovo blocco di
+// contenimento. Stesso identico schema di posizionaTextSizeToggle.
+const sharedTheoryRibbonHome = { parent: el.sharedTheoryRibbon ? el.sharedTheoryRibbon.parentNode : null, next: el.sharedTheoryRibbon ? el.sharedTheoryRibbon.nextSibling : null };
+function posizionaSharedTheoryRibbon(){
+  if(!el.sharedTheoryRibbon || !el.pageHeader) return;
+  if(mobileBreakpoint.matches){
+    if(el.sharedTheoryRibbon.parentElement !== el.pageHeader){
+      el.pageHeader.appendChild(el.sharedTheoryRibbon);
+    }
+  } else {
+    const home = sharedTheoryRibbonHome;
+    if(home.parent && el.sharedTheoryRibbon.parentNode !== home.parent){
+      home.parent.insertBefore(el.sharedTheoryRibbon, home.next);
+    }
+  }
+}
+posizionaSharedTheoryRibbon();
 
 function t(key){ return STRINGS[state.lang][key]; }
 
@@ -709,6 +739,7 @@ function setState(view){
   if(view === "entry") renderEntry();
   updateMusicPlayback();
   positionMobileEntryRow();
+  posizionaSharedTheoryRibbon();
 }
 
 function selectEntry(column, id){
