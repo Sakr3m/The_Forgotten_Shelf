@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/fraunces.css">
 <link rel="stylesheet" href="styles.css?v=20260824b">
-<link rel="stylesheet" href="commissioni.css?v=20260825e">
+<link rel="stylesheet" href="commissioni.css?v=20260825g">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -119,10 +119,23 @@
         <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello laterale per sfogliare le recensioni disponibili.</p>
       </section>
 
+      <!-- Pulsanti categoria, fratelli di .landing (non figli): stessa
+           ragione dello spoiler-alert che stava qui prima (rimosso -
+           vedi commit precedenti): su mobile .landing usa
+           position:absolute + transform per centrarsi, un transform
+           su un antenato crea un nuovo containing block per i
+           discendenti position:fixed. Al click cambiano il contenuto
+           SOPRA (eyebrow/titolo/intro dentro .landing), mai una
+           navigazione vera - vedi script-commissioni.js. -->
+      <div class="commissions-nav" id="commissionsNav">
+        <button type="button" class="commissions-nav__btn" id="commissionsNavVideo" data-category="video" data-i18n="commissionsNavVideo">Video editing</button>
+        <button type="button" class="commissions-nav__btn" id="commissionsNavMusic" data-category="music" data-i18n="commissionsNavMusic">Musica AI</button>
+      </div>
+
     </main>
   </div>
 
-  <script src="script-commissioni.js?v=20260825c"></script>
+  <script src="script-commissioni.js?v=20260825d"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
 </body>

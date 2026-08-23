@@ -10,12 +10,20 @@ const STRINGS = {
     brand: "Il Banco delle Commissioni",
     backToIndexLabel: "Torna all'index",
     kofiLabel: "Sostienimi su Ko-fi",
-    landingEyebrow: "Benvenuto nell'archivio\ndelle recensioni",
+    landingEyebrow: "Benvenuto nello spazio\ndedicato alle commissioni",
     landingIntro: "Impressioni oneste sui giochi che ho giocato, completati, platinati o amati senza motivo, senza pretese di essere una guida.",
     landingQuote: "Mentre gioco, non penso alla recensione che dovrò scrivere. Solo dopo, quando mi fermo a scriverla, capisco davvero quante cose ho vissuto, e quante parole servono per raccontarne anche solo la metà.",
     landingSignature: "— Sakrem",
-    landingSubDesktop: "Apri il carrello laterale per sfogliare le recensioni disponibili.",
+    landingSubDesktop: "Scegli una categoria qui sotto per scoprire gli esempi disponibili.",
     landingTitle: "Il Banco delle Commissioni",
+    commissionsNavVideo: "Video editing",
+    commissionsNavMusic: "Musica AI",
+    commissionsVideoEyebrow: "Video editing",
+    commissionsVideoTitle: "Diamo forma al tuo video",
+    commissionsVideoIntro: "Montaggio, color grading e ritmo su misura con DaVinci Resolve, dal materiale grezzo alla versione pronta da pubblicare.",
+    commissionsMusicEyebrow: "Musica generata con AI",
+    commissionsMusicTitle: "Una colonna sonora su misura",
+    commissionsMusicIntro: "Brani originali creati con Suno AI, pensati per adattarsi esattamente al tono del tuo progetto.",
     reportBtnLabel: "Segnala bug",
     reportCancel: "Annulla",
     reportChooseFile: "Scegli file",
@@ -38,12 +46,20 @@ const STRINGS = {
     brand: "The Commission Counter",
     backToIndexLabel: "Back to index",
     kofiLabel: "Support me on Ko-fi",
-    landingEyebrow: "Welcome to the archive\nof reviews",
+    landingEyebrow: "Welcome to my\ncommissions space",
     landingIntro: "Honest impressions on the games I've played — completed, platinumed, or loved for no good reason — with no pretense of being a guide.",
     landingQuote: "While I'm playing, I don't think about the review I'll have to write. Only afterward, when I stop to write it, do I realize how much I've actually lived through, and how many words it takes to capture even half of it.",
     landingSignature: "— Sakrem",
-    landingSubDesktop: "Open the side cart to browse the available reviews.",
+    landingSubDesktop: "Pick a category below to see the available examples.",
     landingTitle: "The Commission Counter",
+    commissionsNavVideo: "Video editing",
+    commissionsNavMusic: "AI music",
+    commissionsVideoEyebrow: "Video editing",
+    commissionsVideoTitle: "Let's shape your video",
+    commissionsVideoIntro: "Editing, color grading and pacing tailored with DaVinci Resolve, from raw footage to a ready-to-publish cut.",
+    commissionsMusicEyebrow: "AI-generated music",
+    commissionsMusicTitle: "A soundtrack made for you",
+    commissionsMusicIntro: "Original tracks created with Suno AI, shaped to fit your project's exact tone.",
     reportBtnLabel: "Report bug",
     reportCancel: "Cancel",
     reportChooseFile: "Choose file",
@@ -82,7 +98,12 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   indexLink: document.getElementById("indexLink"),
   layout: document.querySelector(".layout"),
-  reportBugBtn: document.getElementById("reportBugBtn")
+  reportBugBtn: document.getElementById("reportBugBtn"),
+  landingEyebrow: document.querySelector(".landing-eyebrow"),
+  landingTitle: document.querySelector(".landing-title"),
+  landingIntro: document.querySelector(".landing-intro"),
+  commissionsNavVideo: document.getElementById("commissionsNavVideo"),
+  commissionsNavMusic: document.getElementById("commissionsNavMusic")
 };
 
 function t(key){ return STRINGS[state.lang][key]; }
@@ -119,6 +140,40 @@ el.langSwitch.addEventListener("click", () => {
   if(reportDesc) reportDesc.placeholder = t("reportDescPlaceholder");
   const reportFileName = document.getElementById("reportFileName");
   if(reportFileName && !reportFileName.textContent.includes(".")) reportFileName.textContent = t("reportNoFile");
+});
+
+// ---------------------------------------------------------
+// Pulsanti categoria (Video editing / Musica AI, per ora): al click
+// cambiano SOLO il contenuto sopra (eyebrow/titolo/intro dentro
+// .landing), mai una navigazione vera - citazione e sottotesto
+// restano fissi. Ricliccando la categoria gia' attiva si torna al
+// benvenuto generico. Il cambio avviene riassegnando l'attributo
+// data-i18n vero e proprio sui tre elementi (non solo il testo):
+// cosi' il normale paintStaticText(), gia' chiamato ad ogni cambio
+// lingua, ridipinge da solo il contenuto giusto senza bisogno di
+// nessuna logica dedicata qui per la lingua.
+// ---------------------------------------------------------
+let activeCategory = null;
+const CATEGORY_KEYS = {
+  video: { eyebrow: "commissionsVideoEyebrow", title: "commissionsVideoTitle", intro: "commissionsVideoIntro" },
+  music: { eyebrow: "commissionsMusicEyebrow", title: "commissionsMusicTitle", intro: "commissionsMusicIntro" }
+};
+function applyCategory(category){
+  activeCategory = category;
+  const keys = category ? CATEGORY_KEYS[category] : { eyebrow: "landingEyebrow", title: "landingTitle", intro: "landingIntro" };
+  el.landingEyebrow.setAttribute("data-i18n", keys.eyebrow);
+  el.landingTitle.setAttribute("data-i18n", keys.title);
+  el.landingIntro.setAttribute("data-i18n", keys.intro);
+  [el.commissionsNavVideo, el.commissionsNavMusic].forEach(btn => {
+    btn.classList.toggle("is-active", btn.dataset.category === category);
+    btn.setAttribute("aria-pressed", String(btn.dataset.category === category));
+  });
+  paintStaticText();
+}
+[el.commissionsNavVideo, el.commissionsNavMusic].forEach(btn => {
+  btn.addEventListener("click", () => {
+    applyCategory(activeCategory === btn.dataset.category ? null : btn.dataset.category);
+  });
 });
 
 // Il link "Torna all'index" in alto naviga sempre verso index.html:

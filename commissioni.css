@@ -34,6 +34,36 @@
   font-weight:600; text-align:right; color:var(--text-faint);
 }
 
+/* ============================================================
+   Pulsanti categoria (Video editing / Musica AI, per ora): stessa
+   posizione che aveva l'alert spoiler prima di essere tolto (fratello
+   di .landing, non figlio - stesso motivo: su mobile .landing usa
+   position:absolute + transform per centrarsi, un transform su un
+   antenato romperebbe il posizionamento fixed dei discendenti).
+   Aspetto a pillola, stesso linguaggio degli altri pulsanti del sito.
+   Attivo: sfondo pieno invece del solo contorno.
+   ============================================================ */
+.commissions-nav{
+  display:flex; justify-content:center; gap:15px;
+  position:fixed; left:400px; right:400px; bottom:125px; z-index:4;
+}
+.commissions-nav__btn{
+  border:2px solid var(--cyan);
+  background:var(--panel);
+  border-radius:999px;
+  padding:10px 20px;
+  color:var(--text-dim);
+  font-size:.9rem; font-weight:600;
+  cursor:pointer;
+  transition:color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+@media (hover:hover) and (pointer:fine){
+  .commissions-nav__btn:hover{ color:var(--text); border-color:var(--text); }
+}
+.commissions-nav__btn.is-active{
+  background:var(--cyan); color:var(--bg); border-color:var(--cyan);
+}
+
 @media (min-width:901px){
   /* Margine/larghezza corretti da 250px a 300px (20/08, stesso bug
      gia' visto e corretto su officina.css/il_muro_dei_desideri.html):
@@ -191,4 +221,15 @@
   body[data-state="landing"] .stage-topbar{ padding:15px; }
   .stage-controls{ gap:10px; }
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
+
+  .commissions-nav{
+    position:absolute; left:15px; right:15px; bottom:75px; z-index:5; /* sopra
+      "Segnala bug" (bottom:20px, alto 40px = arriva fino a 60px) - 15px
+      di margine, stesso standard di spaziatura della pagina. */
+    gap:10px;
+  }
+  .commissions-nav__btn{
+    flex:1; padding:8px 10px; font-size:.76rem; border-width:2px;
+    text-align:center;
+  }
 }
