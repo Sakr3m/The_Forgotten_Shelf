@@ -198,9 +198,18 @@
   transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .row-lock svg{ width:15px; height:15px; }
-.game-list__row:hover .row-lock,
-.game-list__row:focus-within .row-lock{
-  opacity:1; pointer-events:auto;
+/* Condizione doppia (larghezza gia' garantita dal media query che
+   racchiude questo blocco, QUI in piu' hover:hover+pointer:fine): un
+   tablet largo ma touch (es. iPad in orizzontale, oltre 900px)
+   supererebbe il solo controllo di larghezza e mostrerebbe comunque
+   il lucchetto al tocco tramite :focus-within - stesso identico bug
+   gia' risolto altrove nel sito passando dal criterio larghezza al
+   criterio hover/pointer, mai applicato qui finora. */
+@media (hover:hover) and (pointer:fine){
+  .game-list__row:hover .row-lock,
+  .game-list__row:focus-within .row-lock{
+    opacity:1; pointer-events:auto;
+  }
 }
 /* Il mouse esattamente sopra il pulsante stesso (non solo sulla riga)
    non deve "illuminarlo" in nessun modo diverso dal solito - stessi
@@ -1071,7 +1080,12 @@ body[data-state="entry"] .landing{ display:none; }
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:50px; right:0; z-index:2;
+    position:absolute; top:50px; right:-1px; z-index:2; /* right:-1px
+      (non 0) per compensare il padding:16px di .stage - il pannello
+      e' gia' rientrato di 16px, right:0 darebbe 16px veri dal bordo
+      invece dei 15px richiesti (stessa distanza dello switch lingua),
+      verificato con Playwright. Stesso fix gia' fatto su Il Filo
+      Nascosto, mai propagato qui prima d'ora. */
   }
   body[data-state="entry"] .entry-game-trigger{
     height:35px; padding:0 10px; font-size:.76rem;
@@ -1101,10 +1115,12 @@ body[data-state="entry"] .landing{ display:none; }
   .entry-tag{ margin-top:10px; }
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-15px; right:0; z-index:2; /* 15px dalla
+    position:absolute; top:-15px; right:-1px; z-index:2; /* right:-1px
+      (non 0), stessa ragione della tendina qui sopra: compensa il
+      padding:16px di .stage per ottenere 15px veri dal bordo. 15px dalla
       parte alta del banner (era -12px, 17px - richiesto esplicito
       per allinearlo alla stessa distanza (15px) della tendina dalla
-      parte bassa. right:0 invariato: il pulsante dimensione testo ora
+      parte bassa. il pulsante dimensione testo ora
       e' un figlio VERO di questo contenitore (spostato via JS, vedi
       posizionaTextSizeToggle in script-racconti.js) - il contenitore
       si allarga naturalmente per contenerlo, restando ancorato al
@@ -1527,9 +1543,13 @@ body[data-entry-animate="true"] #watermarkBrightness{
   .column-lock svg{ width:15px; height:15px; }
   #sidebar .column-lock{ right:5px; }
   .side-rail .column-lock{ left:5px; }
-  #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
-  .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
+  /* Stessa doppia condizione di .row-lock qui sopra: un tablet largo
+     ma touch non deve rivelare il lucchetto master al tocco. */
+  @media (hover:hover) and (pointer:fine){
+    #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
+    .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
     opacity:1; pointer-events:auto;
+  }
   }
   .column-lock:hover, .column-lock:focus, .column-lock:active{
     background:var(--panel); border-color:var(--cyan); color:var(--cyan);

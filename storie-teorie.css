@@ -196,9 +196,18 @@
   transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .row-lock svg{ width:15px; height:15px; }
-.game-list__row:hover .row-lock,
-.game-list__row:focus-within .row-lock{
-  opacity:1; pointer-events:auto;
+/* Condizione doppia (larghezza ferma a min-width:901px sopra, QUI
+   in piu' hover:hover+pointer:fine): un tablet largo ma touch (es.
+   iPad in orizzontale, oltre 900px) supererebbe il solo controllo di
+   larghezza e mostrerebbe comunque il lucchetto al tocco tramite
+   :focus-within - stesso identico bug gia' risolto altrove nel sito
+   passando dal criterio larghezza al criterio hover/pointer, mai
+   applicato qui finora. */
+@media (hover:hover) and (pointer:fine){
+  .game-list__row:hover .row-lock,
+  .game-list__row:focus-within .row-lock{
+    opacity:1; pointer-events:auto;
+  }
 }
 .row-lock:hover,
 .row-lock:focus,
@@ -1055,7 +1064,7 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
   }
   body[data-state="entry"] .shared-theory-ribbon span{
     background:rgba(10,10,15,.82);
-    border:1px solid var(--item-accent, var(--cyan));
+    border:2px solid var(--item-accent, var(--cyan));
     border-radius:7px;
     padding:5px 12.5px;
     font-size:.6rem; font-weight:600; line-height:1.35;
@@ -1455,9 +1464,13 @@ body[data-entry-animate="true"] .entry-panel{
   .column-lock svg{ width:15px; height:15px; }
   #sidebar .column-lock{ right:5px; }
   .side-rail .column-lock{ left:5px; }
-  #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
-  .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
-    opacity:1; pointer-events:auto;
+  /* Stessa doppia condizione di .row-lock qui sopra: un tablet largo
+     ma touch non deve rivelare il lucchetto master al tocco. */
+  @media (hover:hover) and (pointer:fine){
+    #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
+    .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
+      opacity:1; pointer-events:auto;
+    }
   }
   .column-lock:hover, .column-lock:focus, .column-lock:active{
     background:var(--panel); border-color:var(--cyan); color:var(--cyan);
@@ -1795,7 +1808,7 @@ body[data-entry-animate="true"] .entry-panel{
   .shared-theory-ribbon span{
     position:absolute; bottom:5px; left:86.5%; transform:translateX(-50%);
     background:rgba(10,10,15,.82);
-    border:1px solid var(--item-accent, var(--cyan));
+    border:2px solid var(--item-accent, var(--cyan));
     border-radius:7px;
     padding:3.5px 12.5px;
     font-size:.6rem; font-weight:600;

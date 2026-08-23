@@ -659,7 +659,7 @@ function renderGamePicker(entry){
 function openGameMenu(){
   const rect = el.entryGameTrigger.getBoundingClientRect();
   el.entryGameMenu.style.top = (rect.bottom + 8).toFixed(2) + "px";
-  el.entryGameMenu.style.right = (document.documentElement.clientWidth - rect.right).toFixed(2) + "px";
+  el.entryGameMenu.style.left = rect.left.toFixed(2) + "px";
   el.entryGameMenu.hidden = false;
   el.entryGamePicker.classList.add("is-open");
   el.entryGameTrigger.setAttribute("aria-expanded", "true");
