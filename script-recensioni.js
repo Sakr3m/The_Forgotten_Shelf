@@ -1019,8 +1019,18 @@ function openReview(id, instant){
   // proposito: la' Discord/Ko-fi/index-link devono restare visibili
   // anche a recensione aperta (gia' deciso in precedenza).
   if(isMobileNav()) el.body.dataset.state = "entry";
-  const slot = MUSIC_SLOTS[id];
-  if(slot && el.musicControl) slot.appendChild(el.musicControl);
+  // Su desktop il controllo musica si sposta nella topbar, a sinistra
+  // del taglia-testo (richiesto esplicitamente) - non piu' dentro la
+  // riga del titolo della recensione. Stesso schema di Discord/KoFi
+  // qui sopra: un solo elemento nel DOM, spostarlo lo toglie
+  // automaticamente da dov'era prima. Su mobile resta invariato,
+  // dentro lo slot della voce aperta.
+  if(!isMobileNav() && el.musicControl && el.textSizeToggle && el.stageControls){
+    el.stageControls.insertBefore(el.musicControl, el.textSizeToggle);
+  } else {
+    const slot = MUSIC_SLOTS[id];
+    if(slot && el.musicControl) slot.appendChild(el.musicControl);
+  }
   updateIndexLink();
   updateMusicPlayback();
   // Due cuori voluti, non un doppione per errore: uno subito dopo la
