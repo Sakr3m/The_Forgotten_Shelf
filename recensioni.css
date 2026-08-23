@@ -499,7 +499,13 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
 }
 /* Stesso principio: dimensione dell'icona di allerta (⚠) universale,
    non solo desktop - stesso rischio gia' visto col trofeo. */
-.review-entry .threshold__icon{ font-size:1.4rem; }
+.review-entry .threshold__icon{
+  font-size:1.1rem; color:#facc15; flex-shrink:0; line-height:1.4;
+  /* Uguale a .spoiler-alert__icon (styles.css, l'alert nella home) -
+     su richiesta esplicita. Prima: 1.4rem, colore ereditato (grigio,
+     non il giallo di allerta) e line-height troppo alto (ereditato
+     dal genitore, non impostato qui). */
+}
 
 /* Riquadro spoiler (box giallo, icona/testo/pulsante centrati): era
    SOLO nel blocco desktop, stesso bug trovato piu' volte oggi - su
