@@ -982,12 +982,14 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   /* Pulsanti della barra generi: stile condiviso, usato dentro alla
      tabella (vedi .mobile-genre-table .mobile-genre-bar piu' sotto
-     per il posizionamento/contenitore). */
+     per il posizionamento/contenitore). font-size 15px (era .85rem,
+     ~13.6px): aumentato a multiplo di 5, coerente con la barra
+     portata da 57 a 70px di altezza. */
   .mobile-genre-btn{
     flex:0 0 auto;
     background:none; border:none; padding:5px 0;
     color:var(--text);
-    font-weight:700; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase;
+    font-weight:700; font-size:15px; letter-spacing:.05em; text-transform:uppercase;
     transition:color .15s ease;
   }
   .mobile-genre-btn:active{ color:var(--cyan); }
@@ -1055,11 +1057,20 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      ancorato in fondo al pannello, altezza fissa (flex-shrink:0),
      scorre in orizzontale SOLO tra i generi — indipendente dallo
      scroll verticale della lista qui sopra. Stesso stile "header
-     bassa" di quando stava sulla home. */
+     bassa" di quando stava sulla home.
+     min-height:70px (era 57px, risultato di 15+15 di padding + il
+     pulsante) + align-items:center invece di ricalcolare padding e
+     line-height a mano per arrivare a un totale esatto: qui il
+     pulsante (ora piu' grande, 15px invece di .85rem) si centra da
+     solo nello spazio garantito, qualunque sia la sua altezza reale.
+     .mobile-genre-table__list-wrap (sopra, flex:1) si restringe da
+     solo per lasciarle spazio - stessa colonna flessibile, nessuna
+     sovrapposizione possibile per costruzione. */
   .mobile-genre-table .mobile-genre-bar{
     flex:0 0 auto;
-    display:flex; gap:30px; justify-content:center;
-    padding:15px 20px calc(15px + env(safe-area-inset-bottom, 0px));
+    display:flex; align-items:center; gap:30px; justify-content:center;
+    min-height:70px; box-sizing:border-box;
+    padding:0 20px calc(0px + env(safe-area-inset-bottom, 0px));
     border-top:1px solid var(--line);
     overflow-x:auto; scrollbar-width:none;
   }
