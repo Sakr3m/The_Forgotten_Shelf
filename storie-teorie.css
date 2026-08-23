@@ -148,7 +148,7 @@
    prescindere. */
 .side-rail .game-list > li:hover,
 .side-rail .game-list > li:has(> a.is-active),
-.side-rail .game-list > li:has(> button.is-active){
+.side-rail .game-list > li:has(> button.is-active:not(.row-lock)){
   box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   /* Il gradiente di sfondo (background, non lo box-shadow qui sopra)
      e' ereditato dalla regola condivisa in styles.css: 90deg, colore
@@ -163,6 +163,63 @@
      restare forte proprio li'. */
   background:linear-gradient(270deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
 }
+/* :not(.row-lock) sui selettori button qui sopra: senza, il lucchetto
+   (un <button> dentro .game-list) verrebbe colpito anche lui da
+   questo sfondo rettangolare + bordo colorato quando ci passi sopra
+   col mouse direttamente, tagliato dal suo stesso cerchio
+   (border-radius:50%) - stesso identico fix di Storie Senza Cornice. */
+
+/* Pulsante lucchetto per voce (RIMESSO, era stato tolto per errore
+   durante una caccia al codice morto - in realta' era codice in
+   attesa, mai completato mentre si aspettava di finire i banner):
+   vive nello spazio interno (verso lo stage) riservato allargando il
+   padding a 45px piu' sopra. Invisibile di default, compare solo
+   passando sopra QUELLA riga precisa (non tutte insieme) -
+   :focus-within incluso per chi naviga da tastiera. Contorno colorato
+   con l'accento della voce (--item-accent, ereditato dal li). Acceso
+   (aria-pressed=true): stesso contorno ma pieno, cosi' resta visibile
+   anche senza hover per ricordare che e' attivo. Identico a Storie
+   Senza Cornice (racconti.css), stessa funzione: blocca/sblocca la
+   sequenza di comparsa (testo+banner) per quella singola opera. */
+.game-list__row{ position:relative; }
+.game-list__row .row-lock{
+  position:absolute; top:0; bottom:0; margin:auto 0;
+  width:25px; height:25px; padding:0; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--item-accent, var(--cyan));
+  border-radius:50%;
+  background:var(--panel);
+  color:var(--item-accent, var(--cyan));
+  opacity:0; pointer-events:none;
+  -webkit-tap-highlight-color:transparent;
+  outline:none;
+  transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.row-lock svg{ width:15px; height:15px; }
+.game-list__row:hover .row-lock,
+.game-list__row:focus-within .row-lock{
+  opacity:1; pointer-events:auto;
+}
+.row-lock:hover,
+.row-lock:focus,
+.row-lock:active{
+  background:var(--panel); border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan));
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--item-accent, var(--cyan)) 35%, transparent);
+  filter:none;
+}
+.game-list__row .row-lock[aria-pressed="true"]{
+  background:var(--panel); color:var(--item-accent, var(--cyan));
+}
+.game-list__row .row-lock[aria-pressed="true"] rect{
+  fill:currentColor;
+}
+.row-lock[aria-pressed="true"]:hover,
+.row-lock[aria-pressed="true"]:focus,
+.row-lock[aria-pressed="true"]:active{
+  background:var(--panel); color:var(--item-accent, var(--cyan));
+}
+#sidebar .row-lock{ right:5px; }
+.side-rail .row-lock{ left:5px; }
 
 /* "Teorie" e "Storie Nascoste" trattate allo stesso modo: nessun
    override qui, .rail-label eredita da styles.css la stessa identica
@@ -1153,38 +1210,42 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
 
 /* ============================================================
    Sequenza di comparsa per voce, attivabile con il lucchetto (vedi
-   script-racconti.js: applicaAnimazioneVoce() aggiunge/toglie
+   script-storie-teorie.js: applicaAnimazioneVoce() aggiunge/toglie
    body[data-entry-animate="true"] ad ogni apertura di voce, in base
-   allo stato salvato per QUELL'OPERA - item.game, condiviso da tutti
-   i suoi capitoli, non il singolo id-capitolo). Da lucchetto acceso
-   nessuna di queste regole si applica: la pagina compare com'e' oggi,
-   istantanea, per qualunque capitolo. Da lucchetto spento (default),
-   invece, questa sequenza, che riparte da capo a ogni cambio voce
-   (anche dalla tendina).
+   allo stato salvato per QUELL'OPERA - entry.game, condiviso da tutti
+   i suoi capitoli). Da lucchetto acceso nessuna di queste regole si
+   applica: la pagina compare com'e' oggi, istantanea. Da lucchetto
+   spento (default), invece, questa sequenza, che riparte da capo a
+   ogni cambio voce.
 
-   I pulsanti (.stage-topbar, e anche il selettore capitoli
-   .entry-game-picker) NON fanno parte della sequenza: sono gia' li'
-   fin da subito, nessun fade-in.
+   FIX (corretto due volte): prima puntava a #entryWatermarkWrap
+   (copiato per errore da Storie Senza Cornice, mai esistito qui).
+   Poi corretto a #pageHeaderBanner - ma quell'elemento e' nascosto
+   apposta dentro le voci (body[data-state="entry"] .game-header__banner{
+   display:none }, vedi piu' sotto: serve solo per il banner rotante
+   della home, un contesto diverso). Il VERO banner visibile dentro le
+   voci - quello "che va da sinistra a destra" - e' un altro sistema
+   del tutto: has-unified-banner, uno pseudo-elemento ::before sul
+   body (introdotto il 18/08, reso ufficiale il 21/08), con lo sfondo
+   preso da --unified-banner-preview (impostata in renderEntry() su
+   script-storie-teorie.js). E' quello il vero bersaglio giusto.
 
-   Due fasi vere, scaglionate (invertite rispetto a prima: quando
-   c'era ancora il banner, lui e la filigrana comparivano insieme per
-   primi e il testo dopo - ora che il banner e' sparito ed e' il
-   testo a prendersi il suo posto, il testo compare per primo):
-   1) Testo (.entry-panel):        1s, parte a 0.5s dal click
-      (finisce a 1.5s)
-   2) Filigrana (#entryWatermarkWrap): 2s, parte a 1s dal click
-      (finisce a 3s), fade-in semplice di tutto il blocco insieme -
-      una versione precedente (rivelazione diagonale via maschera
-      animata) causava sfarfallio, tolta.
-   Totale sequenza: 3s - la barra di luminosita' della filigrana
-   resta non interattiva (pointer-events) fino a quel momento incluso,
-   cosi' non si puo' farla comparire in hover mentre il resto sta
-   ancora apparendo.
+   Due fasi scaglionate, stessi tempi di Storie Senza Cornice:
+   1) Testo (.entry-panel): 1s, parte a 0.5s dal click (finisce a 1.5s)
+   2) Banner (has-unified-banner::before): 2s, parte a 1s dal click
+      (finisce a 3s) - rivelazione speciale (richiesta esplicita):
+      parte da una fessura verticale al centro e si allarga verso i
+      due lati, invece di un fade-in uniforme. Ottenuto con clip-path
+      (inset dal 50% su ambo i lati fino a 0), non transform/scale:
+      scalare l'immagine la deformerebbe durante l'animazione, il
+      clip-path invece la lascia sempre alla dimensione vera, si
+      limita a "svelarla" progressivamente.
+   Totale sequenza: 3s.
    ============================================================ */
 @keyframes tfs-fade-in{ from{ opacity:0; } to{ opacity:1; } }
-@keyframes tfs-enable-pointer{
-  0%, 99.9%{ pointer-events:none; }
-  100%{ pointer-events:auto; }
+@keyframes tfs-reveal-center-out{
+  from{ clip-path:inset(0 50% 0 50%); }
+  to{ clip-path:inset(0 0 0 0); }
 }
 
 body[data-entry-animate="true"] .entry-panel{
@@ -1192,13 +1253,12 @@ body[data-entry-animate="true"] .entry-panel{
   animation:tfs-fade-in 1s ease forwards;
   animation-delay:.5s;
 }
-body[data-entry-animate="true"] #entryWatermarkWrap{
-  opacity:0;
-  animation:tfs-fade-in 2s ease forwards;
-  animation-delay:1s;
-}
-body[data-entry-animate="true"] #watermarkBrightness{
-  animation:tfs-enable-pointer 3s linear forwards;
+@media (min-width:901px){
+  body[data-entry-animate="true"][data-state="entry"].has-unified-banner::before{
+    clip-path:inset(0 50% 0 50%);
+    animation:tfs-reveal-center-out 2s ease forwards;
+    animation-delay:1s;
+  }
 }
 
 /* --- PROVA: contorno colorato delle voci (attiva/hover) portato da
@@ -1317,10 +1377,61 @@ body[data-entry-animate="true"] #watermarkBrightness{
   collassano con quelli del contenitore, quindi si sommerebbero
   davvero, non solo sulla carta). Il valore vero (33px) vive nella
   media query desktop qui sotto, dove il titolino lo ha azzerato. */
+.column-lock{ display:none; } /* nascosto di default (mobile incluso),
+  mostrato solo dentro la media query desktop qui sotto - la feature
+  non e' stata progettata per mobile in questa fase. DEVE stare fuori
+  e PRIMA della media query: dentro o dopo, a parita' di specificita'
+  avrebbe vinto sempre lui per ordine nel file, ignorando il
+  display:flex desktop nonostante la media query corrispondesse. */
 
 @media (min-width:901px){
   .eyebrow-wrap{ position:relative; margin-top:10px; margin-bottom:33px; }
   .sidebar-eyebrow, .rail-label{ margin:0; }
+  /* Lucchetto "master" per colonna (RIMESSO, stesso motivo del
+     lucchetto per voce qui sopra): blocca/sblocca insieme tutti i
+     lucchetti delle singole opere di quella colonna. Vive dentro
+     .eyebrow-wrap, un contenitore comune per titolino + lucchetto
+     (non dentro il titolino stesso: node.textContent nella
+     traduzione lo cancellerebbe ad ogni cambio lingua). Stessa forma/
+     dimensione del lucchetto per singola voce (25px, stesso
+     trattamento colore/hover), stesso inset di 5px dal bordo interno
+     usato li', per allinearsi in verticale. Identico a Storie Senza
+     Cornice (racconti.css). */
+  .column-lock{
+    display:flex;
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:25px; height:25px; padding:0; box-sizing:border-box;
+    align-items:center; justify-content:center;
+    border:2px solid var(--cyan);
+    border-radius:50%;
+    background:var(--panel);
+    color:var(--cyan);
+    opacity:0; pointer-events:none;
+    -webkit-tap-highlight-color:transparent;
+    outline:none;
+    transition:opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .column-lock svg{ width:15px; height:15px; }
+  #sidebar .column-lock{ right:5px; }
+  .side-rail .column-lock{ left:5px; }
+  #sidebar:hover .column-lock, #sidebar:focus-within .column-lock,
+  .side-rail:hover .column-lock, .side-rail:focus-within .column-lock{
+    opacity:1; pointer-events:auto;
+  }
+  .column-lock:hover, .column-lock:focus, .column-lock:active{
+    background:var(--panel); border-color:var(--cyan); color:var(--cyan);
+    box-shadow:0 0 0 2px color-mix(in srgb, var(--cyan) 35%, transparent);
+    filter:none;
+  }
+  .column-lock[aria-pressed="true"]{
+    background:var(--panel); color:var(--cyan);
+  }
+  .column-lock[aria-pressed="true"] rect{ fill:currentColor; }
+  .column-lock[aria-pressed="true"]:hover,
+  .column-lock[aria-pressed="true"]:focus,
+  .column-lock[aria-pressed="true"]:active{
+    background:var(--panel); color:var(--cyan);
+  }
 }
 
 @media (max-width:900px){

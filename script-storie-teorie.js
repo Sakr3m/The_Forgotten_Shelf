@@ -117,6 +117,8 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   teorieList: document.getElementById("teorieList"),
   storieList: document.getElementById("storieList"),
+  columnLockTeorie: document.getElementById("columnLockTeorie"),
+  columnLockStorie: document.getElementById("columnLockStorie"),
   landingPanel: document.getElementById("landingPanel"),
   entryPanel: document.getElementById("entryPanel"),
   entryContent: document.getElementById("entryContent"),
@@ -277,6 +279,70 @@ function paintStaticText(){
 }
 
 // ---------------------------------------------------------
+// Lucchetto per voce: blocca/sblocca la sequenza di comparsa
+// (testo+banner, vedi CSS) per QUELL'OPERA specifica (item.game,
+// condiviso da tutti i suoi capitoli). Spento di default = animazione
+// attiva. Identico a Storie Senza Cornice (script-racconti.js).
+// Elemento fratello dell'anchor, non annidato al suo interno, per
+// evitare due elementi interattivi uno dentro l'altro (non valido).
+// ---------------------------------------------------------
+const LOCK_KEY_PREFIX = "tfs-lock-"; // + item.game, es. "tfs-lock-bloodborne"
+function creaLucchetto(id){
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "row-lock";
+  const acceso = localStorage.getItem(LOCK_KEY_PREFIX + id) === "true";
+  btn.setAttribute("aria-pressed", acceso ? "true" : "false");
+  btn.setAttribute("aria-label", "Blocca/sblocca l'animazione di apertura per questa voce");
+  btn.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>`;
+  btn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const accesoOra = btn.getAttribute("aria-pressed") === "true";
+    const nuovoStato = !accesoOra;
+    btn.setAttribute("aria-pressed", nuovoStato ? "true" : "false");
+    localStorage.setItem(LOCK_KEY_PREFIX + id, nuovoStato ? "true" : "false");
+    // Un click col mouse lascia il fuoco sul pulsante, che :focus-within
+    // terrebbe visibile anche dopo aver allontanato il mouse - tolto
+    // solo per i click veri (event.detail 0 = attivazione da tastiera,
+    // dove il fuoco deve restare per l'accessibilita').
+    if(ev.detail !== 0) btn.blur();
+    aggiornaLucchettoColonna(el.columnLockTeorie, TEORIE_ORDER, TEORIE);
+    aggiornaLucchettoColonna(el.columnLockStorie, STORIE_ORDER, STORIE);
+  });
+  return btn;
+}
+
+// Lucchetto "master" per colonna: acceso (tutte bloccate) solo se
+// OGNI opera della colonna ha il proprio lucchetto acceso - basta una
+// sola voce sbloccata perche' il master risulti spento.
+function aggiornaLucchettoColonna(btn, order, data){
+  if(!btn) return;
+  const giochi = new Set(order.map(id => data[id].game));
+  const tutteBloccate = [...giochi].every(game => localStorage.getItem(LOCK_KEY_PREFIX + game) === "true");
+  btn.setAttribute("aria-pressed", tutteBloccate ? "true" : "false");
+}
+
+// Click sul lucchetto master: impone lo STESSO stato a tutte le opere
+// della colonna, poi richiama renderLists() per aggiornare subito
+// anche i lucchetti delle singole voci in lista.
+function collegaLucchettoColonna(btn, order, data){
+  if(!btn) return;
+  btn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    const nuovoStato = btn.getAttribute("aria-pressed") !== "true";
+    const giochi = new Set(order.map(id => data[id].game));
+    giochi.forEach(game => {
+      localStorage.setItem(LOCK_KEY_PREFIX + game, nuovoStato ? "true" : "false");
+    });
+    renderLists();
+    if(ev.detail !== 0) btn.blur();
+  });
+}
+collegaLucchettoColonna(el.columnLockTeorie, TEORIE_ORDER, TEORIE);
+collegaLucchettoColonna(el.columnLockStorie, STORIE_ORDER, STORIE);
+
+// ---------------------------------------------------------
 // Colonne Teorie / Storie Nascoste
 // ---------------------------------------------------------
 function renderLists(){
@@ -289,13 +355,15 @@ function renderLists(){
     if(seenTeorieGames.has(item.game)) return; // una sola riga per gioco: le voci extra si raggiungono dal menu a tendina
     seenTeorieGames.add(item.game);
     const li = document.createElement("li");
+    li.className = "game-list__row";
+    li.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     const btn = document.createElement("a");
     btn.href = `voci/il-filo-nascosto/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "teorie" && currentGame != null && item.game === currentGame);
-    btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("teorie", id); });
     li.appendChild(btn);
+    li.appendChild(creaLucchetto(item.game));
     el.teorieList.appendChild(li);
   });
 
@@ -306,15 +374,20 @@ function renderLists(){
     if(seenStorieGames.has(item.game)) return; // stessa logica della colonna Teorie
     seenStorieGames.add(item.game);
     const li = document.createElement("li");
+    li.className = "game-list__row";
+    li.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     const btn = document.createElement("a");
     btn.href = `voci/il-filo-nascosto/${id}.html`;
     btn.textContent = tf(item.gameLabel);
     btn.classList.toggle("is-active", state.column === "storie" && currentGame != null && item.game === currentGame);
-    btn.style.setProperty("--item-accent", item.accentColor || "#6b7280");
     btn.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry("storie", id); });
     li.appendChild(btn);
+    li.appendChild(creaLucchetto(item.game));
     el.storieList.appendChild(li);
   });
+
+  aggiornaLucchettoColonna(el.columnLockTeorie, TEORIE_ORDER, TEORIE);
+  aggiornaLucchettoColonna(el.columnLockStorie, STORIE_ORDER, STORIE);
 }
 
 const entryPanels = {}; // "teorie:cinere" -> { panel, textWrap, entry, id }
@@ -453,12 +526,36 @@ function currentEntry(){
   return table[state.entryId] || null;
 }
 
+// Sequenza di comparsa per voce (testo poi banner), stessi tempismi
+// di Storie Senza Cornice - vedi CSS in storie-teorie.css per i
+// valori esatti. Lucchetto RIMESSO (vedi creaLucchetto/LOCK_KEY_PREFIX
+// piu' sopra): SPENTO (default) = l'animazione si vede; ACCESO =
+// niente animazione, la voce carica diretta. Su mobile niente
+// animazione a prescindere, come su Storie Senza Cornice. Stesso
+// trucco "rimuovi+reflow+riaggiungi" del gemello in script-racconti.js,
+// necessario perche' un'animazione CSS non riparte da sola se
+// l'attributo che la attiva resta gia' presente da una voce precedente
+// (cambio voce senza mai tornare alla home).
+function applicaAnimazioneVoce(entry){
+  if(mobileBreakpoint.matches){
+    document.body.removeAttribute("data-entry-animate");
+    return;
+  }
+  const acceso = localStorage.getItem(LOCK_KEY_PREFIX + entry.game) === "true";
+  document.body.removeAttribute("data-entry-animate");
+  if(!acceso){
+    void document.body.offsetWidth;
+    document.body.setAttribute("data-entry-animate", "true");
+  }
+}
 function renderEntry(){
   const entry = currentEntry();
   if(!entry){
     Object.values(entryPanels).forEach(rec => { rec.panel.hidden = true; });
     return;
   }
+
+  applicaAnimazioneVoce(entry);
 
   el.body.style.setProperty("--item-accent", entry.accentColor || "#6b7280");
   const isMobile = window.matchMedia("(max-width:900px)").matches;
