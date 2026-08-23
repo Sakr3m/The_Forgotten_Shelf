@@ -78,7 +78,7 @@ Bloodborne, in the end, was never really a game about waking up. It's a game abo
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Wind%20Scene.mp3", title: "Wind Scene", game: "Chrono Trigger" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Frog's%20Theme.mp3", title: "Frog's Theme", game: "Chrono Trigger" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Battle%20With%20Magus.mp3", title: "Battle with Magus", game: "Chrono Trigger" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Main%20Theme.mp3", title: "Chrono Trigger (Main Theme)", game: "Chrono Trigger" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Main%20Theme.mp3", title: "Main Theme", game: "Chrono Trigger" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20To%20Far%20Away%20Times.mp3", title: "To Far Away Times", game: "Chrono Trigger" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20World%20Revolution.mp3", title: "World Revolution", game: "Chrono Trigger" }
     ],
