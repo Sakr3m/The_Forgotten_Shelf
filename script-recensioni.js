@@ -457,7 +457,7 @@ const STRINGS = {
   }
 };
 
-const state = { lang: "en", activeSide: "right", view: "landing", musicOn: false, trackIndex: 0 };
+const state = { lang: "en", activeSide: "right", view: "landing", musicOn: false, trackIndex: 0, textSizeIndex: 0 };
 
 let resumedPersistedTrack = false; // vedi blocco ascolto persistente
   // piu' sotto - dichiarata qui perche' letta gia' da updateMusicPlayback,
@@ -499,6 +499,14 @@ const GATE_SIDE_KEY = "tfs-recensioni-gate-side";
 const storedGateSide = localStorage.getItem(GATE_SIDE_KEY);
 if(storedGateSide === "left" || storedGateSide === "right") state.activeSide = storedGateSide;
 
+// Dimensione testo condivisa con le altre pagine (stessa chiave usata
+// da Racconti/Teorie/Timeline): stesso livello (X1/X1.5/X2) passando
+// da una pagina all'altra.
+const TEXT_SIZE_KEY = "tfs-text-size";
+const TEXT_SIZES = ["1", "1.5", "2"];
+const storedTextSize = parseInt(localStorage.getItem(TEXT_SIZE_KEY), 10);
+if(storedTextSize === 0 || storedTextSize === 1 || storedTextSize === 2) state.textSizeIndex = storedTextSize;
+
 const el = {
   body: document.body,
   brandBtn: document.getElementById("brandBtn"),
@@ -508,6 +516,8 @@ const el = {
   langSwitch: document.getElementById("langSwitch"),
   indexLink: document.getElementById("indexLink"),
   gateSideToggle: document.getElementById("gateSideToggle"),
+  textSizeToggle: document.getElementById("textSizeToggle"),
+  textSizeLabel: document.getElementById("textSizeLabel"),
   layout: document.querySelector(".layout"),
   reportBugBtn: document.getElementById("reportBugBtn"),
   mobileGenreBar: document.getElementById("mobileGenreBar"),
@@ -1668,3 +1678,53 @@ if(el.layout && el.reportBugBtn){
   el.layout.addEventListener("scroll", updateReportBtnMobile, { passive: true });
   updateReportBtnMobile();
 }
+
+// ---------------------------------------------------------
+// Dimensione testo (X1 -> X1.5 -> X2 -> di nuovo X1 a ogni click):
+// imposta un attributo su <body>, letto dal CSS per scalare il
+// font-size delle tre sezioni di lettura (recensione veloce, a
+// caldo, completa) - MAI la tabella soglia spoiler, che resta alla
+// sua dimensione fissa (vedi selettori in recensioni.css). Chiave
+// localStorage condivisa con le altre pagine del sito (stesso nome
+// di Racconti/Teorie/Timeline): il livello scelto resta coerente
+// passando da una pagina all'altra.
+// ---------------------------------------------------------
+function applyTextSize(){
+  const livello = TEXT_SIZES[state.textSizeIndex];
+  document.body.dataset.textSize = livello;
+  if(el.textSizeLabel) el.textSizeLabel.textContent = "X" + livello;
+}
+function cycleTextSize(){
+  state.textSizeIndex = (state.textSizeIndex + 1) % TEXT_SIZES.length;
+  localStorage.setItem(TEXT_SIZE_KEY, String(state.textSizeIndex));
+  applyTextSize();
+}
+if(el.textSizeToggle){
+  el.textSizeToggle.addEventListener("click", cycleTextSize);
+}
+applyTextSize(); // stato iniziale coerente con quanto gia' ripristinato da localStorage
+
+// Il pulsante vive in un posto diverso a seconda del breakpoint:
+// su mobile entra DAVVERO dentro .music-control (dopo il volume,
+// che pero' qui passa a destra - vedi l'order in CSS), diventando un
+// elemento normale della stessa riga flex; su desktop torna al suo
+// posto originale in .stage-controls, tra il carrello e lo switch
+// lingua. Stesso identico schema di Storie Senza Cornice/Il Filo
+// Nascosto (posizionaTextSizeToggle in script-racconti.js), qui
+// riadattato: il "panel-toggle" di riferimento e' il nostro
+// lang-switch (non abbiamo un pulsante equivalente a cui agganciarci
+// prima di lui, quindi si inserisce davanti a lang-switch stesso).
+function posizionaTextSizeToggle(){
+  if(!el.textSizeToggle || !el.musicControl || !el.stageControls || !el.langSwitch) return;
+  if(isMobileNav()){
+    if(el.textSizeToggle.parentElement !== el.musicControl){
+      el.musicControl.appendChild(el.textSizeToggle);
+    }
+  } else {
+    if(el.textSizeToggle.parentElement !== el.stageControls){
+      el.stageControls.insertBefore(el.textSizeToggle, el.langSwitch);
+    }
+  }
+}
+posizionaTextSizeToggle();
+window.addEventListener("resize", posizionaTextSizeToggle);

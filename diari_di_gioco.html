@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/oswald.css">
 <link rel="stylesheet" href="styles.css?v=20260823a">
-<link rel="stylesheet" href="recensioni.css?v=20260823z">
+<link rel="stylesheet" href="recensioni.css?v=20260824c">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -112,6 +112,18 @@
               <rect class="gate-side-toggle__left" x="1" y="3" width="5" height="14" rx="2" fill="currentColor"/>
               <rect class="gate-side-toggle__right" x="14" y="3" width="5" height="14" rx="2" fill="currentColor"/>
             </svg>
+          </button>
+
+          <!-- Dimensione testo: X1 -> X1.5 -> X2 -> di nuovo X1 a ogni
+               click/tocco. Qui la posizione di partenza (desktop, tra
+               il carrello e lo switch lingua) - su mobile lo stesso
+               elemento viene spostato DAVVERO nel DOM, dentro
+               .music-control (vedi posizionaTextSizeToggle in
+               script-recensioni.js), stesso schema gia' in uso su
+               Storie Senza Cornice/Il Filo Nascosto. Solo in vista
+               voce, nascosto in home (vedi CSS). -->
+          <button class="text-size-toggle" id="textSizeToggle" type="button" aria-label="Cambia dimensione del testo">
+            <span id="textSizeLabel">X1</span>
           </button>
 
           <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
@@ -983,7 +995,7 @@
   </div>
 
   <script src="data-shared-tracks.js?v=20260812"></script>
-  <script src="script-recensioni.js?v=20260823c"></script>
+  <script src="script-recensioni.js?v=20260824a"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
 </body>
