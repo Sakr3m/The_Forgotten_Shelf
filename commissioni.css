@@ -64,34 +64,52 @@
 }
 
 /* ============================================================
-   Le 5 "stanze" del banco: schede con icona+nome (non pulsanti
-   anonimi, richiesto esplicitamente). position:fixed, non piu'
-   dentro .landing/.commissions-showcase: devono restare ferme
-   sempre, qualunque cosa cambi sopra (benvenuto <-> vetrina) -
-   richiesto esplicitamente. Stessa fascia orizzontale (left/right
-   400px) gia' usata per il vecchio alert spoiler, allineata ai
-   limiti reali di .stage su un riferimento 1440px. Colori ancora
-   tutti uguali (var(--cyan)): quali colori dare a ciascuna stanza si
-   decide in un giro successivo. Attiva: sfondo pieno invece del solo
-   contorno, stesso linguaggio del resto del sito.
+   Le 5 "stanze" del banco: schede con nome, immagine (per ora
+   l'emoji ingrandita, in attesa di foto/miniature vere) e una riga
+   di descrizione funzionale sotto - non pulsanti anonimi, richiesto
+   esplicitamente. position:fixed, non piu' dentro .landing/
+   .commissions-showcase: devono restare ferme sempre, qualunque cosa
+   cambi sopra (benvenuto <-> vetrina) - richiesto esplicitamente.
+   Stessa fascia orizzontale (left/right 400px) gia' usata per il
+   vecchio alert spoiler, allineata ai limiti reali di .stage su un
+   riferimento 1440px. Colori ancora tutti uguali (var(--cyan)):
+   quali colori dare a ciascuna stanza si decide in un giro
+   successivo. Attiva: sfondo pieno invece del solo contorno, stesso
+   linguaggio del resto del sito.
    ============================================================ */
 .commissions-nav{
   display:flex; justify-content:center; gap:15px;
-  position:fixed; left:400px; right:400px; bottom:100px; z-index:4;
+  position:fixed; left:400px; right:400px; bottom:85px; z-index:4;
 }
 .commissions-nav__btn{
-  display:flex; flex-direction:column; align-items:center; gap:10px;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
   flex:1; min-width:0; max-width:150px;
   border:2px solid var(--cyan);
   background:var(--panel);
   border-radius:15px;
-  padding:15px 8px;
+  padding:12px 8px;
   color:var(--text-dim);
-  font-size:.78rem; font-weight:600; text-align:center;
+  text-align:center;
   cursor:pointer;
   transition:color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
-.commissions-nav__icon{ font-size:1.4rem; font-style:normal; }
+.commissions-nav__name{
+  font-size:.78rem; font-weight:700; line-height:1.25;
+}
+.commissions-nav__image{
+  display:flex; align-items:center; justify-content:center;
+  width:100%; height:42px;
+  font-size:1.5rem; font-style:normal;
+  border:1px solid var(--text-faint);
+  border-radius:8px;
+  box-sizing:border-box;
+}
+.commissions-nav__btn.is-active .commissions-nav__image{ border-color:var(--bg); }
+.commissions-nav__desc{
+  font-size:.66rem; font-weight:500; line-height:1.3;
+  color:var(--text-faint);
+}
+.commissions-nav__btn.is-active .commissions-nav__desc{ color:var(--bg); }
 @media (hover:hover) and (pointer:fine){
   .commissions-nav__btn:hover{ color:var(--text); border-color:var(--text); }
 }
