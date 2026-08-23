@@ -48,7 +48,8 @@ const STRINGS = {
     reportNeedDescription: "Descrivi prima il problema.",
     reportProcessingImage: "Elaborazione immagine...",
     reportInvalidImage: "Non è stato possibile leggere quell'immagine, provane un'altra.",
-    reportSelectImage: "Seleziona un file immagine."
+    reportSelectImage: "Seleziona un file immagine.",
+    sharedTheoryLabel: "Teoria condivisa con"
   },
   en: {
     brand: "The Hidden Thread",
@@ -86,7 +87,8 @@ const STRINGS = {
     reportNeedDescription: "Please describe the issue first.",
     reportProcessingImage: "Processing image...",
     reportInvalidImage: "Could not read that image, try another one.",
-    reportSelectImage: "Please select an image file."
+    reportSelectImage: "Please select an image file.",
+    sharedTheoryLabel: "Theory shared with"
   }
 };
 
@@ -123,6 +125,8 @@ const el = {
   entryPanel: document.getElementById("entryPanel"),
   entryContent: document.getElementById("entryContent"),
   pageHeaderBanner: document.getElementById("pageHeaderBanner"),
+  sharedTheoryRibbon: document.getElementById("sharedTheoryRibbon"),
+  sharedTheoryRibbonText: document.getElementById("sharedTheoryRibbonText"),
   bgMusic: document.getElementById("bgMusic"),
   trackInfo: document.getElementById("trackInfo"),
   trackTitle: document.getElementById("trackTitle"),
@@ -583,6 +587,16 @@ function renderEntry(){
     el.body.style.setProperty("--unified-banner-preview", `url('${entry.banner}')`);
   } else {
     el.body.style.removeProperty("--unified-banner-preview");
+  }
+
+  // Fascetta "teoria condivisa": mostrata solo se la voce ha il campo
+  // sharedWith (vedi data-storie-teorie.js) - primo caso vero:
+  // "L'Ombra di Lavos in Jenova" su Chrono Trigger/FFVII.
+  if(entry.sharedWith){
+    el.sharedTheoryRibbon.hidden = false;
+    el.sharedTheoryRibbonText.textContent = `${t("sharedTheoryLabel")} ${entry.sharedWith[state.lang]}`;
+  } else {
+    el.sharedTheoryRibbon.hidden = true;
   }
 
   const activeKey = panelKey(state.column, state.entryId);

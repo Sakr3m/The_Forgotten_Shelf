@@ -72,6 +72,7 @@ Bloodborne, in the end, was never really a game about waking up. It's a game abo
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Mobile.jpg",
     mirrorBanner: true,
     bannerOffset: 75,
+    sharedWith: { it: "FFVII", en: "FFVII" },
     title: {
       it: "L'Ombra di Lavos in Jenova",
       en: "Lavos's Shadow in Jenova"
@@ -217,6 +218,7 @@ If the theory holds, it changes quite a bit about how to read the ending. The co
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Mobile.jpg",
     mirrorBanner: true,
     bannerOffset: 75,
+    sharedWith: { it: "Chrono Trigger", en: "Chrono Trigger" },
     title: {
       it: "L'Ombra di Lavos in Jenova",
       en: "Lavos's Shadow in Jenova"
