@@ -35,52 +35,68 @@
 }
 
 /* ============================================================
-   Le 5 "stanze" del banco: schede con icona+nome (non pulsanti
-   anonimi, richiesto esplicitamente), dentro .landing stessa, in
-   flusso normale - non piu' position:fixed come il vecchio alert
-   spoiler che occupava questo posto: con una vetrina che si apre
-   sotto, serve spazio vero che cresce col contenuto, non una barra
-   fissa. Colori ancora tutti uguali (var(--cyan)): quali colori dare
-   a ciascuna stanza si decide in un giro successivo. Attiva: sfondo
-   pieno invece del solo contorno, stesso linguaggio del resto del
-   sito (badge, switch lingua, ecc.).
+   Vetrina della stanza attiva: fratella di .landing dentro .stage,
+   alternata con lei via [hidden] - stessa tecnica di centratura
+   (margin:auto, styles.css .landing) cosi' compare esattamente nello
+   stesso punto dove stava il benvenuto, senza alcuno spostamento.
+   Per ora solo un placeholder centrato, pronta a ricevere contenuti
+   veri (video/audio/estratti) diversi per ciascuna stanza in un giro
+   successivo. Niente titolo che ripete il nome gia' scritto sul
+   pulsante: ridondante, tolto su richiesta esplicita.
    ============================================================ */
-.commissions-nav{
-  display:grid; grid-template-columns:repeat(5, 1fr); gap:15px;
-  margin-top:50px;
-  width:100%; max-width:800px;
-}
-.commissions-nav__btn{
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  border:2px solid var(--cyan);
-  background:var(--panel);
-  border-radius:15px;
-  padding:20px 10px;
-  color:var(--text-dim);
-  font-size:.8rem; font-weight:600; text-align:center;
-  cursor:pointer;
-  transition:color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
-}
-.commissions-nav__icon{ font-size:1.6rem; font-style:normal; }
-@media (hover:hover) and (pointer:fine){
-  .commissions-nav__btn:hover{ color:var(--text); border-color:var(--text); }
-}
-.commissions-nav__btn.is-active{
-  background:var(--cyan); color:var(--bg); border-color:var(--cyan);
-}
+/* .landing arriva gia' con un display:flex da styles.css, che a
+   parita' di specificita' vincerebbe su [hidden] quando la
+   nascondiamo per mostrare la vetrina al suo posto - stesso bug gia'
+   trovato e risolto quando esistevano le voci di recensione, la
+   regola era sparita durante la pulizia che le ha rimosse. Forzato
+   qui il caso nascosto. */
+.stage > .landing[hidden]{ display:none; }
 
-/* Vetrina della stanza attiva: per ora solo un placeholder centrato,
-   pronta a ricevere contenuti veri (video/audio/estratti) diversi
-   per ciascuna stanza in un giro successivo. */
-.commissions-showcase{
-  width:100%; max-width:800px;
-  margin-top:30px; padding:40px 20px;
+.stage > .commissions-showcase{
+  width:100%; max-width:760px; margin:auto auto;
+  padding:40px 20px;
   border:1px dashed var(--text-faint);
   border-radius:15px;
   text-align:center;
 }
 .commissions-showcase__placeholder{
   color:var(--text-faint); font-size:.9rem; margin:0;
+}
+
+/* ============================================================
+   Le 5 "stanze" del banco: schede con icona+nome (non pulsanti
+   anonimi, richiesto esplicitamente). position:fixed, non piu'
+   dentro .landing/.commissions-showcase: devono restare ferme
+   sempre, qualunque cosa cambi sopra (benvenuto <-> vetrina) -
+   richiesto esplicitamente. Stessa fascia orizzontale (left/right
+   400px) gia' usata per il vecchio alert spoiler, allineata ai
+   limiti reali di .stage su un riferimento 1440px. Colori ancora
+   tutti uguali (var(--cyan)): quali colori dare a ciascuna stanza si
+   decide in un giro successivo. Attiva: sfondo pieno invece del solo
+   contorno, stesso linguaggio del resto del sito.
+   ============================================================ */
+.commissions-nav{
+  display:flex; justify-content:center; gap:15px;
+  position:fixed; left:400px; right:400px; bottom:100px; z-index:4;
+}
+.commissions-nav__btn{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  flex:1; min-width:0; max-width:150px;
+  border:2px solid var(--cyan);
+  background:var(--panel);
+  border-radius:15px;
+  padding:15px 8px;
+  color:var(--text-dim);
+  font-size:.78rem; font-weight:600; text-align:center;
+  cursor:pointer;
+  transition:color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.commissions-nav__icon{ font-size:1.4rem; font-style:normal; }
+@media (hover:hover) and (pointer:fine){
+  .commissions-nav__btn:hover{ color:var(--text); border-color:var(--text); }
+}
+.commissions-nav__btn.is-active{
+  background:var(--cyan); color:var(--bg); border-color:var(--cyan);
 }
 
 @media (min-width:901px){
@@ -169,6 +185,12 @@
   body[data-state="landing"]:not(.tfs-desktop-ready) .landing{
     visibility:hidden;
   }
+  /* Provvisorio: il meccanismo stanze/vetrina non e' ancora pensato
+     per mobile (richiesto esplicitamente "pensiamo al desktop per
+     ora") - la posizione fissa left/right:400px andrebbe in
+     negativo qui. Nascosti entrambi, resta solo il benvenuto
+     classico finche' non ci si dedica anche a questo breakpoint. */
+  .commissions-nav, .commissions-showcase{ display:none; }
 }
 
 /* ============================================================
@@ -227,9 +249,4 @@
   body[data-state="landing"] .stage-topbar{ padding:15px; }
   .stage-controls{ gap:10px; }
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
-
-  /* Provvisorio: griglia a 2 colonne, solo per non lasciare rotta la
-     vecchia posizione fissa. Non ancora rifinito - focus di questo
-     giro e' il desktop, il mobile si sistema in un giro successivo. */
-  .commissions-nav{ grid-template-columns:repeat(2, 1fr); margin-top:25px; }
 }

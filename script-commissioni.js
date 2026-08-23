@@ -21,16 +21,6 @@ const STRINGS = {
     commissionsNavWriting: "La Cattedra Storta",
     commissionsNavAdvice: "Il Consiglio Scomodo",
     commissionsNavMusic: "Note Dimenticate",
-    commissionsVideoTitle: "Sala di Montaggio",
-    commissionsVideoIntro: "Video, montaggio, motion graphics: dimmi cosa ti serve e lo costruiamo insieme.",
-    commissionsDesignTitle: "Il Tavolo da Lavoro",
-    commissionsDesignIntro: "Dove si smontano meccaniche e sistemi di gioco, un pezzo alla volta, insieme a chi vuole capirli.",
-    commissionsWritingTitle: "La Cattedra Storta",
-    commissionsWritingIntro: "Quello che so davvero sulla scrittura, passato senza fronzoli a chi vuole impararlo.",
-    commissionsAdviceTitle: "Il Consiglio Scomodo",
-    commissionsAdviceIntro: "Pareri diretti su un progetto, un canale, un'idea: quello che spesso nessuno ti dice in faccia.",
-    commissionsMusicTitle: "Note Dimenticate",
-    commissionsMusicIntro: "Canzoni fatte con Suno, su richiesta o su misura per te.",
     commissionsShowcasePlaceholder: "Gli esempi arriveranno presto qui.",
     reportBtnLabel: "Segnala bug",
     reportCancel: "Annulla",
@@ -65,16 +55,6 @@ const STRINGS = {
     commissionsNavWriting: "The Crooked Chair",
     commissionsNavAdvice: "The Uncomfortable Advice",
     commissionsNavMusic: "Forgotten Notes",
-    commissionsVideoTitle: "The Cutting Room",
-    commissionsVideoIntro: "Video, editing, motion graphics: tell me what you need and we'll build it together.",
-    commissionsDesignTitle: "The Drafting Table",
-    commissionsDesignIntro: "Where game mechanics and systems get taken apart, piece by piece, with whoever wants to understand them.",
-    commissionsWritingTitle: "The Crooked Chair",
-    commissionsWritingIntro: "What I actually know about writing, passed on with no fuss to whoever wants to learn.",
-    commissionsAdviceTitle: "The Uncomfortable Advice",
-    commissionsAdviceIntro: "Direct opinions on a project, a channel, an idea: the kind of thing most people won't tell you to your face.",
-    commissionsMusicTitle: "Forgotten Notes",
-    commissionsMusicIntro: "Songs made with Suno, on request or tailor-made for you.",
     commissionsShowcasePlaceholder: "Examples are coming soon.",
     reportBtnLabel: "Report bug",
     reportCancel: "Cancel",
@@ -115,9 +95,7 @@ const el = {
   indexLink: document.getElementById("indexLink"),
   layout: document.querySelector(".layout"),
   reportBugBtn: document.getElementById("reportBugBtn"),
-  landingEyebrow: document.querySelector(".landing-eyebrow"),
-  landingTitle: document.querySelector(".landing-title"),
-  landingIntro: document.querySelector(".landing-intro"),
+  landingPanel: document.getElementById("landingPanel"),
   commissionsNavBtns: document.querySelectorAll(".commissions-nav__btn"),
   commissionsShowcase: document.getElementById("commissionsShowcase")
 };
@@ -160,36 +138,26 @@ el.langSwitch.addEventListener("click", () => {
 
 // ---------------------------------------------------------
 // Le 5 "stanze" (Sala di Montaggio, Tavolo da Lavoro, Cattedra
-// Storta, Consiglio Scomodo, Note Dimenticate): al click cambiano
-// SOLO titolo+intro sopra (eyebrow/citazione/sottotesto restano
-// fissi) e aprono la vetrina qui sotto (per ora solo un
-// placeholder), mai una navigazione vera. Ricliccando la stanza
-// gia' attiva si torna al benvenuto generico e la vetrina si
-// richiude. Il cambio avviene riassegnando l'attributo data-i18n
-// vero e proprio su titolo/intro (non solo il testo): cosi' il
-// normale paintStaticText(), gia' chiamato ad ogni cambio lingua,
-// ridipinge da solo il contenuto giusto senza bisogno di nessuna
-// logica dedicata qui per la lingua.
+// Storta, Consiglio Scomodo, Note Dimenticate): al click il blocco
+// di benvenuto (.landing) si nasconde e al suo posto compare la
+// vetrina (.commissions-showcase, per ora solo un placeholder) -
+// stessa tecnica gia' in uso su .landing/.review-entry prima che
+// venissero rimosse le recensioni, e stessa centratura (margin:auto,
+// vedi CSS): il cambio non sposta nulla. Niente testo che ripete il
+// nome gia' scritto sul pulsante (tolto su richiesta esplicita) - i
+// pulsanti stessi restano fermi in posizione fissa, mai influenzati
+// da cosa e' mostrato sopra. Ricliccando la stanza gia' attiva si
+// torna al benvenuto.
 // ---------------------------------------------------------
 let activeCategory = null;
-const CATEGORY_KEYS = {
-  video: { title: "commissionsVideoTitle", intro: "commissionsVideoIntro" },
-  design: { title: "commissionsDesignTitle", intro: "commissionsDesignIntro" },
-  writing: { title: "commissionsWritingTitle", intro: "commissionsWritingIntro" },
-  advice: { title: "commissionsAdviceTitle", intro: "commissionsAdviceIntro" },
-  music: { title: "commissionsMusicTitle", intro: "commissionsMusicIntro" }
-};
 function applyCategory(category){
   activeCategory = category;
-  const keys = category ? CATEGORY_KEYS[category] : { title: "landingTitle", intro: "landingIntro" };
-  el.landingTitle.setAttribute("data-i18n", keys.title);
-  el.landingIntro.setAttribute("data-i18n", keys.intro);
+  el.landingPanel.hidden = !!category;
+  el.commissionsShowcase.hidden = !category;
   el.commissionsNavBtns.forEach(btn => {
     btn.classList.toggle("is-active", btn.dataset.category === category);
     btn.setAttribute("aria-pressed", String(btn.dataset.category === category));
   });
-  el.commissionsShowcase.hidden = !category;
-  paintStaticText();
 }
 el.commissionsNavBtns.forEach(btn => {
   btn.addEventListener("click", () => {

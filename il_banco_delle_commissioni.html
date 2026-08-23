@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/fraunces.css">
 <link rel="stylesheet" href="styles.css?v=20260824b">
-<link rel="stylesheet" href="commissioni.css?v=20260825i">
+<link rel="stylesheet" href="commissioni.css?v=20260825k">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -97,12 +97,16 @@
         </div>
       </div>
 
-      <!-- .landing e' l'unico contenuto di .stage (che e' flex),
-           mantiene la sua centratura verticale via margin:auto
-           (styles.css). Nessuna voce/recensione da mostrare in
-           alternativa qui: pagina ridotta alla sola landing su
-           richiesta esplicita, tolto il meccanismo di crossfade tra
-           due pannelli (non serve piu' con un solo contenuto). -->
+      <!-- .landing e .commissions-showcase sono fratelli diretti di
+           .stage (che e' flex), alternati via [hidden] - stessa
+           tecnica gia' in uso su .landing/.review-entry prima che
+           venissero rimosse le recensioni: entrambi usano lo stesso
+           margin:auto (styles.css/commissioni.css) per centrarsi
+           nello stesso identico punto, quindi il passaggio dall'uno
+           all'altro non sposta nulla. I pulsanti (.commissions-nav)
+           sono un TERZO fratello, position:fixed: restano fermi
+           sempre, qualunque cosa cambi sopra - richiesto
+           esplicitamente. -->
 
       <section class="landing" id="landingPanel">
         <p class="landing-eyebrow" data-i18n="landingEyebrow">Benvenuto nelle recensioni</p>
@@ -117,50 +121,51 @@
         </blockquote>
 
         <p class="landing-sub landing-sub--desktop-only" data-i18n="landingSubDesktop">Apri il carrello laterale per sfogliare le recensioni disponibili.</p>
-
-        <!-- Le 5 "stanze" del banco: schede con icona+nome, non
-             pulsanti anonimi (richiesto esplicitamente). Al click
-             cambiano SOLO titolo+intro qui sopra (eyebrow/citazione/
-             sottotesto restano fissi) e aprono la vetrina qui sotto -
-             mai una navigazione vera, vedi script-commissioni.js.
-             Colori ancora da assegnare (tutte uguali per ora, vedi
-             CSS): decisi in un giro successivo. -->
-        <div class="commissions-nav" id="commissionsNav">
-          <button type="button" class="commissions-nav__btn" data-category="video">
-            <i class="commissions-nav__icon" aria-hidden="true">🎬</i>
-            <span data-i18n="commissionsNavVideo">Sala di Montaggio</span>
-          </button>
-          <button type="button" class="commissions-nav__btn" data-category="design">
-            <i class="commissions-nav__icon" aria-hidden="true">📐</i>
-            <span data-i18n="commissionsNavDesign">Il Tavolo da Lavoro</span>
-          </button>
-          <button type="button" class="commissions-nav__btn" data-category="writing">
-            <i class="commissions-nav__icon" aria-hidden="true">🪑</i>
-            <span data-i18n="commissionsNavWriting">La Cattedra Storta</span>
-          </button>
-          <button type="button" class="commissions-nav__btn" data-category="advice">
-            <i class="commissions-nav__icon" aria-hidden="true">🫴</i>
-            <span data-i18n="commissionsNavAdvice">Il Consiglio Scomodo</span>
-          </button>
-          <button type="button" class="commissions-nav__btn" data-category="music">
-            <i class="commissions-nav__icon" aria-hidden="true">🎵</i>
-            <span data-i18n="commissionsNavMusic">Note Dimenticate</span>
-          </button>
-        </div>
-
-        <!-- Vetrina della stanza attiva: nascosta finche' nessuna
-             categoria e' selezionata. Per ora solo un placeholder -
-             qui arriveranno video/audio/estratti veri, diversi per
-             ogni stanza, quando pronti. -->
-        <div class="commissions-showcase" id="commissionsShowcase" hidden>
-          <p class="commissions-showcase__placeholder" data-i18n="commissionsShowcasePlaceholder">Gli esempi arriveranno presto qui.</p>
-        </div>
       </section>
+
+      <!-- Vetrina della stanza attiva: nascosta finche' nessuna
+           categoria e' selezionata, compare al posto di .landing
+           (non sotto - stesso punto centrale). Per ora solo un
+           placeholder - qui arriveranno video/audio/estratti veri,
+           diversi per ogni stanza, quando pronti. Niente titolo che
+           ripete il nome gia' scritto sul pulsante: ridondante. -->
+      <div class="commissions-showcase" id="commissionsShowcase" hidden>
+        <p class="commissions-showcase__placeholder" data-i18n="commissionsShowcasePlaceholder">Gli esempi arriveranno presto qui.</p>
+      </div>
+
+      <!-- Le 5 "stanze" del banco: schede con icona+nome, non
+           pulsanti anonimi (richiesto esplicitamente). Sempre nella
+           stessa posizione, mai influenzate da cosa e' mostrato sopra
+           (vedi commento piu' sopra). Colori ancora da assegnare
+           (tutte uguali per ora, vedi CSS): decisi in un giro
+           successivo. -->
+      <div class="commissions-nav" id="commissionsNav">
+        <button type="button" class="commissions-nav__btn" data-category="video">
+          <i class="commissions-nav__icon" aria-hidden="true">🎬</i>
+          <span data-i18n="commissionsNavVideo">Sala di Montaggio</span>
+        </button>
+        <button type="button" class="commissions-nav__btn" data-category="design">
+          <i class="commissions-nav__icon" aria-hidden="true">📐</i>
+          <span data-i18n="commissionsNavDesign">Il Tavolo da Lavoro</span>
+        </button>
+        <button type="button" class="commissions-nav__btn" data-category="writing">
+          <i class="commissions-nav__icon" aria-hidden="true">🪑</i>
+          <span data-i18n="commissionsNavWriting">La Cattedra Storta</span>
+        </button>
+        <button type="button" class="commissions-nav__btn" data-category="advice">
+          <i class="commissions-nav__icon" aria-hidden="true">🫴</i>
+          <span data-i18n="commissionsNavAdvice">Il Consiglio Scomodo</span>
+        </button>
+        <button type="button" class="commissions-nav__btn" data-category="music">
+          <i class="commissions-nav__icon" aria-hidden="true">🎵</i>
+          <span data-i18n="commissionsNavMusic">Note Dimenticate</span>
+        </button>
+      </div>
 
     </main>
   </div>
 
-  <script src="script-commissioni.js?v=20260825e"></script>
+  <script src="script-commissioni.js?v=20260825f"></script>
   <script src="stats.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
 </body>
