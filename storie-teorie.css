@@ -1743,7 +1743,7 @@ body[data-entry-animate="true"] .entry-panel{
    un elemento vero, quindi si vede sopra di lui senza bisogno di
    z-index esplicito. Mostrata solo se la voce ha il campo sharedWith
    (vedi renderEntry() in script-storie-teorie.js). Lo span interno e'
-   posizionato al 88% della larghezza del box (non centrato, su
+   posizionato al 86% della larghezza del box (non centrato, su
    richiesta esplicita) - PROVA, solo desktop per ora, il mobile non
    e' ancora deciso. */
 @media (min-width:901px){
@@ -1752,7 +1752,7 @@ body[data-entry-animate="true"] .entry-panel{
     pointer-events:none;
   }
   .shared-theory-ribbon span{
-    position:absolute; bottom:5px; left:88%; transform:translateX(-50%);
+    position:absolute; bottom:5px; left:86%; transform:translateX(-50%);
     background:rgba(10,10,15,.82);
     border:1px solid var(--item-accent, var(--cyan));
     border-radius:8px;
