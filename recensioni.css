@@ -1128,6 +1128,11 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   }
   body[data-state="landing"] .swipe-hint--genre-left{ left:14px; right:auto; animation:swipeHintLeft 1.6s ease-in-out infinite; }
   body[data-state="landing"] .swipe-hint--genre-right{ right:14px; left:auto; animation:swipeHintRight 1.6s ease-in-out infinite; }
+  /* Nascoste quando i generi sono pochi (meno di 4, vedi
+     renderMobileGenreBar() in script-recensioni.js): con la barra
+     gia' tutta a vista, invitare a scorrere sarebbe fuorviante. */
+  body.has-few-genres .swipe-hint--genre-left,
+  body.has-few-genres .swipe-hint--genre-right{ display:none; }
 
   /* --- Voce di recensione: normale figlio di .stage (come .landing),
      NON un overlay a se stante — cosi' si passa alla tabella con lo

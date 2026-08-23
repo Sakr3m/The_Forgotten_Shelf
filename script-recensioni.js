@@ -626,6 +626,13 @@ function renderMobileGenreBar(){
     btn.addEventListener("click", () => selectGenre(genreName));
     el.mobileGenreBar.appendChild(btn);
   });
+  // Le frecce ai due estremi hanno senso solo se i generi sono
+  // abbastanza da richiedere davvero uno scroll orizzontale - con 2
+  // o 3 generi ci stanno gia' tutti a vista, invitare a scorrere
+  // sarebbe fuorviante. Soglia a 4, valore scelto a occhio (il
+  // numero minimo che comincia a non stare comodo su uno schermo
+  // stretto con questi pulsanti).
+  document.body.classList.toggle("has-few-genres", Object.keys(GENRES).length < 4);
 }
 
 // Cerca a quale genere appartiene una recensione — serve per
