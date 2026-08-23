@@ -112,6 +112,19 @@ body[data-state="landing"] .brand{ display:none; }
 }
 
 .stage-controls{ position:absolute; top:15px; right:40px; z-index:5; display:flex; align-items:center; gap:15px; }
+/* .music-control vive qui dentro solo su Diari di Gioco desktop
+   (spostato via JS quando si apre una recensione, vedi
+   script-recensioni.js) - senza un'altezza fissa il contenitore
+   cresce quando la tabellina del brano compare (piu' alta del solo
+   pulsante), e sia il pulsante al suo interno sia l'intera riga di
+   .stage-controls (align-items:center, cresce quanto il figlio piu'
+   alto) si spostano piu' in basso - stesso identico bug gia'
+   documentato e risolto altrove nel codice per lo stesso motivo (vedi
+   .review-entry .entry-header__row in questo stesso file), mai
+   applicato pero' a questo nuovo contesto. 40px = altezza reale di
+   .music-toggle, cosi' la riga non cambia mai le sue dimensioni tra
+   i due stati (musica spenta/accesa). */
+.stage-controls .music-control{ height:40px; }
 
 /* ============================================================
    Stage topbar (la_traccia_del_tempo.html, il_filo_nascosto.html e storie_senza_cornice.html) — brand,
