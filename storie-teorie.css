@@ -1756,8 +1756,8 @@ body[data-entry-animate="true"] .entry-panel{
     background:rgba(10,10,15,.82);
     border:1px solid var(--item-accent, var(--cyan));
     border-radius:7px;
-    padding:4px 14px;
-    font-size:.65rem; font-weight:600;
+    padding:3.5px 12.5px;
+    font-size:.6rem; font-weight:600;
     color:var(--text);
     white-space:nowrap;
   }
