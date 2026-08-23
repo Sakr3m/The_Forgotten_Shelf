@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/oswald.css">
 <link rel="stylesheet" href="styles.css?v=20260823a">
-<link rel="stylesheet" href="recensioni.css?v=20260823t">
+<link rel="stylesheet" href="recensioni.css?v=20260823w">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -121,6 +121,18 @@
           </button>
         </div>
       </div>
+
+      <!-- Riga dell'header, come su Storie Senza Cornice/Il Filo
+           Nascosto: riusa la classe condivisa .game-header
+           (styles.css - sfondo, border-radius, border-bottom,
+           sticky), ma VUOTA, senza banner/immagine dentro (stessa
+           scelta gia' presa in passato per questa pagina: "difficile
+           reperire/scalare bene banner cosi' grandi", vedi il
+           commento su .entry-header piu' sotto in recensioni.css).
+           Un'unica istanza condivisa (non dentro ogni singola
+           .review-entry), mostrata solo a recensione aperta - vedi
+           regola sotto. -->
+      <div class="game-header" id="gameHeaderStrip" aria-hidden="true"></div>
 
       <!-- Il "carrello" (ex "cancello"): due pannelli indipendenti,
            uno ancorato a destra e uno a sinistra, ognuno con la propria

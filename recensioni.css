@@ -606,6 +606,23 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
   body.is-review-open .report-bug-btn{ display:none; } /* stesso trattamento
     di .index-link qui sopra: il pulsante fa parte della home, sparisce
     insieme al resto a recensione aperta */
+
+  /* Riga dell'header (.game-header, componente condiviso - vedi il
+     commento in HTML): di default nascosta ovunque (vedi sopra,
+     fuori da questo blocco), appare solo qui, a recensione aperta su
+     desktop. Ridotta a striscia vuota (65px, niente padding/banner),
+     stesso trattamento gia' in uso su Storie Senza Cornice/Il Filo
+     Nascosto per le loro voci senza immagine di copertina propria -
+     qui pero' e' l'UNICA versione (la home di Diari di Gioco non ha
+     mai avuto un banner, quindi non serve una versione "piena" da
+     ridurre, si parte gia' ridotta). margin-bottom:20px come primo
+     valore ragionevole: quasi certamente da ritoccare insieme alla
+     distanza tra questa riga e il titolo della recensione (il primo
+     elemento sotto di lei), vedi .entry-header piu' sotto. */
+  body.is-review-open .game-header{
+    display:flex;
+    height:65px; max-height:65px; padding:0; margin-bottom:20px;
+  }
 }
 
 /* Pulsante volume/mute, skip brano, riquadro nome canzone: stesso
@@ -653,6 +670,10 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    palette a se stante.
    ============================================================ */
 .review-entry{ display:none; }
+.game-header{ display:none; } /* di default nascosto su OGNI
+  breakpoint (mobile compreso, dove questa pagina ha una topbar
+  completamente diversa e non deve comparire) - reso visibile SOLO
+  dentro il blocco desktop qui sotto, unico posto dove serve. */
 @media (min-width:901px){
   /* Niente scroll esterno della pagina quando e' aperta una
      recensione: .review-entry e' gia' alta quanto la viewport e
@@ -663,16 +684,26 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
 
   .review-entry{
     display:flex; flex-direction:column;
-    width:100%; max-width:1120px; margin:70px auto 0; /* max-width
+    width:100%; max-width:1120px; margin:0 auto 0; /* max-width
       1220px->1120px (20/08): il contenuto sporgeva 50px oltre i
       pulsanti esterni (Ko-fi/switch lingua) su ciascun lato,
       centrato nello stage ma non a filo con loro come richiesto -
       1120px e' esattamente la larghezza tra i pulsanti (misurata con
-      Playwright: da x=400 a x=1520 su una finestra 1920px). */
+      Playwright: da x=400 a x=1520 su una finestra 1920px).
+      margin-top: era 70px, tolto (23/08): copriva a mano lo spazio
+      sopra quando non esisteva ancora .game-header nel flusso reale
+      (i pulsanti della topbar, alti 40px, sporgono dal suo box di
+      soli 15px via overflow:visible - 70px serviva a superarli).
+      Ora .game-header occupa gia' spazio vero dopo la topbar (65px
+      + 20px di margin-bottom suo), quindi un margin-top qui sarebbe
+      ridondante, sommato al suo. */
     /* Altezza vincolata alla viewport (meno lo spazio sopra e un
        margine sotto): cosi' solo la colonna di lettura scorre al suo
-       interno, titolo/tag/volume/scheda restano fermi. */
-    height:calc(100vh - 70px - 30px);
+       interno, titolo/tag/volume/scheda restano fermi. 100px = 15px
+       del box della topbar + 65px+20px di .game-header (era 70px,
+       il vecchio margin-top qui sopra prima che esistesse
+       .game-header nel flusso). */
+    height:calc(100vh - 100px - 30px);
   }
   /* Stesso accorgimento gia' usato altrove nel sito: [hidden] da
      solo ha la stessa specificita' di .review-entry{display:flex}
