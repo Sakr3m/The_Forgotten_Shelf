@@ -1734,37 +1734,40 @@ body[data-entry-animate="true"] .entry-panel{
 }
 
 /* Fascetta "teoria condivisa": striscia sottile ancorata al bordo
-   superiore del banner (stessa geometria: left/right:325px, top:80px
-   - il banner e' un ::before con z-index:-1, questa e' un elemento
-   vero, quindi si vede sopra di lui senza bisogno di z-index
-   esplicito). Mostrata solo se la voce ha il campo sharedWith (vedi
-   renderEntry() in script-storie-teorie.js). Lo span interno e'
-   posizionato al 75% della larghezza del box (non centrato al 50%,
-   su richiesta esplicita) - PROVA, solo desktop per ora, il mobile
-   non e' ancora deciso. */
+   INFERIORE del banner, dentro di lui (non oltre) - stessa geometria
+   orizzontale (left/right:325px), il banner e' un ::before con
+   z-index:-1, questa e' un elemento vero, quindi si vede sopra di
+   lui senza bisogno di z-index esplicito). Mostrata solo se la voce
+   ha il campo sharedWith (vedi renderEntry() in
+   script-storie-teorie.js). Lo span interno e' posizionato al 90%
+   della larghezza del box (non centrato, su richiesta esplicita) -
+   PROVA, solo desktop per ora, il mobile non e' ancora deciso. */
 @media (min-width:901px){
   .shared-theory-ribbon{
-    position:fixed; top:80px; left:325px; right:325px;
+    position:fixed; top:178px; left:325px; right:325px; /* banner:
+      top:80px, height:130px, bordo inferiore a 210px - 178px lascia
+      la fascetta (~26px di altezza reale) dentro di 6px dal bordo,
+      "ai piedi" ma senza uscirne. */
     pointer-events:none;
   }
   .shared-theory-ribbon span{
-    position:absolute; left:75%; transform:translateX(-50%);
+    position:absolute; left:90%; transform:translateX(-50%);
     background:rgba(10,10,15,.82);
     border:1px solid var(--item-accent, var(--cyan));
-    border-radius:0 0 8px 8px;
+    border-radius:8px;
     padding:5px 16px;
     font-size:.76rem; font-weight:600;
     color:var(--text);
     white-space:nowrap;
   }
-  /* Compare in dissolvenza sincronizzata con la rivelazione del
-     banner (stessi tempi esatti: parte a 1s dal click, dura fino a
-     3s) - richiesto esplicitamente "insieme al banner". A lucchetto
-     acceso (niente animazione, vedi piu' sotto) resta semplicemente
-     sempre visibile, nessuna dissolvenza. */
+  /* Compare in dissolvenza DOPO che il banner ha finito di aprirsi
+     (rivelazione: 1s->3s, vedi tfs-reveal-center-out piu' sopra) -
+     parte a 3s dal click, dura mezzo secondo, su richiesta esplicita.
+     A lucchetto acceso (niente animazione, vedi piu' sotto) resta
+     semplicemente sempre visibile, nessuna dissolvenza. */
   body[data-entry-animate="true"] .shared-theory-ribbon{
     opacity:0;
-    animation:tfs-fade-in 1s ease forwards;
-    animation-delay:1s;
+    animation:tfs-fade-in .5s ease forwards;
+    animation-delay:3s;
   }
 }
