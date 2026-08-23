@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/oswald.css">
 <link rel="stylesheet" href="styles.css?v=20260823a">
-<link rel="stylesheet" href="recensioni.css?v=20260823l">
+<link rel="stylesheet" href="recensioni.css?v=20260823o">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -952,6 +952,21 @@
            cosi' si puo' cambiare genere senza dover tornare alla
            home. -->
       <div class="mobile-genre-bar" id="mobileGenreBar"></div>
+
+      <!-- Frecce animate del carosello generi: fratelle di
+           .mobile-genre-bar (mai figlie - quel div viene svuotato
+           via innerHTML="" ogni volta che cambia genere, vedi
+           renderMobileGenreBar() in script-recensioni.js, e sparirebbero
+           con lui). Ancorate a .mobile-genre-table (position:relative),
+           non alla barra stessa. Per ora sempre visibili - da
+           nascondere quando i generi saranno meno di 4 (non
+           servirebbero, il carosello ci starebbe tutto senza scroll). -->
+      <span class="swipe-hint swipe-hint--genre-left" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M12 3L5 10l7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="swipe-hint swipe-hint--genre-right" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
     </aside>
   </div>
 

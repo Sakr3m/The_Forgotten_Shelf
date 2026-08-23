@@ -1077,6 +1077,13 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   }
   .mobile-genre-table .mobile-genre-bar::-webkit-scrollbar{ display:none; }
 
+  /* Frecce del carosello generi: dimensione e distanza dal bordo
+     definite piu' sotto in questo file (dopo il blocco che imposta
+     top:145px per le frecce della home - stessa classe base
+     .swipe-hint, serve venire dopo nel file per vincere a parita' di
+     specificita'). */
+  .swipe-hint--genre-left svg, .swipe-hint--genre-right svg{ width:15px; height:15px; display:block; }
+
   /* Freccetta animata (non un pulsante: e' solo un suggerimento
      visivo) che indica di scorrere verso sinistra per tornare alla
      home o alla recensione aperta — direzione invertita rispetto a
@@ -1101,6 +1108,26 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   body[data-state="landing"] .swipe-hint--right-bottom{
     top:auto; bottom:140px;
   }
+
+  /* Frecce del carosello generi: stessa distanza dal bordo (14px)
+     delle colleghe della home (vedi styles.css), ma qui non fixed -
+     altezza uguale a quella della barra (70px) e display:flex;
+     align-items:center per centrarsi verticalmente sulle voci senza
+     calcolare a mano meta' della differenza, stessa idea gia' usata
+     per il pulsante genere dentro la barra qui sopra. Dichiarate
+     DOPO la regola top:145px qui sopra apposta: stessa classe base
+     .swipe-hint, a parita' di specificita' vince chi viene dopo nel
+     file - senza questo accorgimento il top:145px vinceva anche qui,
+     mandando le frecce vicino alla cima dello schermo invece che in
+     fondo, sulla barra. */
+  body[data-state="landing"] .swipe-hint--genre-left,
+  body[data-state="landing"] .swipe-hint--genre-right{
+    position:absolute; bottom:0; top:auto; height:70px;
+    display:flex; align-items:center;
+    z-index:20; color:var(--text-faint); pointer-events:none;
+  }
+  body[data-state="landing"] .swipe-hint--genre-left{ left:14px; right:auto; animation:swipeHintLeft 1.6s ease-in-out infinite; }
+  body[data-state="landing"] .swipe-hint--genre-right{ right:14px; left:auto; animation:swipeHintRight 1.6s ease-in-out infinite; }
 
   /* --- Voce di recensione: normale figlio di .stage (come .landing),
      NON un overlay a se stante — cosi' si passa alla tabella con lo
