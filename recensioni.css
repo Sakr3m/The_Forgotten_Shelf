@@ -1029,7 +1029,11 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .mobile-genre-table__items{
     flex:1; min-height:0; overflow-y:auto;
     list-style:none; margin:0; padding:0 0 20px;
-    display:flex; flex-direction:column; gap:0;
+    display:flex; flex-direction:column; gap:3px; /* CONVENZIONE
+      FISSA, non arrotondare: stesso valore di .game-list{ gap:3px }
+      condiviso da Storie Senza Cornice/Il Filo Nascosto (styles.css)
+      - tolto per errore durante il giro "multipli di 5" (scambiato
+      per un valore storto invece che riconosciuto come convenzione). */
     transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
   .mobile-genre-table__items li:first-child{ margin-top:20px; }
