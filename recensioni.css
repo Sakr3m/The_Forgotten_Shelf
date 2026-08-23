@@ -707,6 +707,15 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   display:flex; flex-wrap:wrap; justify-content:center; gap:5px;
 }
 .review-entry .section-eyebrow .eyebrow-dot{ opacity:.6; }
+/* Dimensione testo (X1/X1.5/X2): scala anche l'etichetta di sezione
+   ("Recensione veloce, quadro generale · spoiler minimi o assenti" e
+   le sue due colleghe) - stesso motivo di h2/quick-take/deep piu'
+   sotto: rem, non em, non segue da solo il genitore. Vale sia
+   desktop che mobile: questa regola base e' condivisa tra i due
+   breakpoint (nessuna @media qui), quindi basta una sola coppia di
+   selettori invece di doverla ripetere. */
+body[data-text-size="1.5"] .review-entry .section-eyebrow{ font-size:1.08rem; }
+body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
 
 /* ============================================================
    Voce di recensione (es. Final Fantasy VIII Remastered). Solo
@@ -1329,7 +1338,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      la riga disponibile - troppo larga, segnalato esplicitamente):
      stesso valore usato su Storie Senza Cornice/Il Filo Nascosto
      nello stesso contesto (barra volume in vista voce mobile). */
-  .review-entry .music-control{ width:100%; }
+  .review-entry .music-control{ width:100%; justify-content:space-between; }
   .review-entry .music-control .track-info{ max-width:150px; min-width:0; }
   /* Senza min-width:0, .track-info__text (figlio flex di .track-info__row)
      non si restringe mai sotto la larghezza naturale del proprio
@@ -1355,13 +1364,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      destra - su richiesta esplicita. */
   .review-entry .music-control .text-size-toggle{ order:1; }
   .review-entry .music-control .track-info{ order:2; }
-  .review-entry .music-control .volume-control{
-    order:3; margin-left:auto; /* al vero bordo destro della riga, non
-      solo "dopo la nuvoletta" - senza margin-left:auto, con la riga
-      piena larghezza (100%) ma senza justify-content:space-between,
-      i tre elementi restavano impacchettati a sinistra con lo spazio
-      vuoto tutto a destra invece che il volume all'estremo bordo. */
-  }
+  .review-entry .music-control .volume-control{ order:3; }
   /* Dimensione mobile del pulsante taglia-testo: stessi identici
      valori (35x50) gia' in uso su Storie Senza Cornice/Il Filo
      Nascosto nello stesso contesto (dentro la riga volume). */
