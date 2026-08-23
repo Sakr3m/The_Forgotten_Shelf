@@ -29,7 +29,7 @@
 .landing-quote p::before{ content:"\201C"; }
 .landing-quote p::after{ content:"\201D"; }
 .landing-quote cite{
-  display:block; margin-top:8px; font-style:normal;
+  display:block; margin-top:10px; font-style:normal;
   font-weight:600; text-align:right; color:var(--text-faint);
 }
 
@@ -66,20 +66,25 @@
      pulsanti qui sopra. */
   .report-bug-btn{ left:400px; border-width:2px; }
 
-  /* Alert spoiler: ancorato in basso DENTRO .stage (position:absolute,
-     non piu' fixed) - .stage e' position:relative senza transform,
-     quindi fa da containing block pulito, niente bug di ancoraggio.
-     Visivamente identico a un elemento fisso (resta sempre in fondo
-     allo schermo, non spinge titolo/intro/sub), ma essendo un vero
-     discendente di .stage si muove CON lui invece di restare fermo
-     mentre il resto scorre - importante su mobile, dove .stage e'
-     il pannello che trasla durante lo swipe verso la tabella generi
-     (vedi sotto): con position:fixed restava a galla, disallineato
-     dal movimento reale della pagina, e serviva un controllo JS a
-     tempo per farlo sparire; da absolute sparisce scorrendo insieme
-     a tutto il resto, in perfetto sincrono, senza bisogno di JS. */
+  /* Alert spoiler: torna position:fixed su DESKTOP (non piu'
+     absolute dentro .stage). Il motivo per cui era stato reso
+     absolute (sincronizzarlo con lo swipe mobile) qui non esiste: il
+     desktop non ha alcun carosello orizzontale da scorrere. E ancorarlo
+     a .stage era comunque sbagliato per due motivi, entrambi scoperti
+     dopo il primo giro di verifica (mai controllati per bene la prima
+     volta, mea culpa):
+     1) .stage su desktop e' largo 840px (300px di sidebar per lato
+        tolti dai 1440px), non l'intero viewport - i vecchi offset
+        (400px/400px, pensati per il viewport intero) lasciavano solo
+        40px di larghezza libera, un francobollo verticale.
+     2) .stage su desktop NON ha un'altezza fissa: cresce con il
+        contenuto (durante una recensione supera il viewport). Un
+        bottom:125px ancorato a lui si sposta ogni volta che la sua
+        altezza cambia - da qui il "salto" visibile tornando alla
+        home da una recensione. position:fixed lo ancora invece al
+        vero bordo del viewport, sempre stabile. */
   .spoiler-alert{
-    position:absolute; left:400px; right:400px; bottom:125px; z-index:5;
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
     justify-content:center;
     max-width:none;
     margin-top:0;
@@ -228,7 +233,7 @@
     display:flex; align-items:center; justify-content:center;
   }
   .reviews-genre__bracket-mark{
-    position:absolute; top:6px; bottom:6px; left:10px; right:0;
+    position:absolute; top:5px; bottom:5px; left:10px; right:0;
     border-top:2px solid var(--text-faint);
     border-right:2px solid var(--text-faint);
     border-bottom:2px solid var(--text-faint);
@@ -263,7 +268,7 @@
 
   .review-tile{
     position:relative; display:block;
-    border-radius:6px; overflow:hidden;
+    border-radius:5px; overflow:hidden;
     background:var(--panel-raised);
     border:1px solid var(--line);
     text-decoration:none;
@@ -274,7 +279,7 @@
      al sollevamento gia' presente. Si applica solo mentre :hover e'
      vero (il browser gestisce da solo il "ritorno" a mouse fuori). */
   .review-tile:hover{
-    transform:translateY(-4px) scale(1.035);
+    transform:translateY(-5px) scale(1.035);
     border-color:var(--cyan);
     filter:brightness(1.18);
   }
@@ -294,7 +299,7 @@
     padding:10px 10px 10px;
     background:linear-gradient(to top, rgba(0,0,0,.92), transparent);
     color:var(--text); font-family:'Oswald', sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.01em;
-    opacity:0; transform:translateY(6px);
+    opacity:0; transform:translateY(5px);
     transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
   }
   .review-tile:hover .review-tile__title{ opacity:1; transform:translateY(0); }
@@ -371,7 +376,7 @@
    volte oggi) - su mobile il contenitore non era nemmeno un flex,
    quindi il justify-content:center aggiunto li' non aveva alcun
    effetto (non fa nulla su un contenitore non-flex). Universale. */
-.review-entry .entry-header__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.review-entry .entry-header__meta{ display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
 
 /* Switch lingua colorato con l'accento della voce aperta (era gia'
    cosi' su Storie Senza Cornice/Il Filo Nascosto, mancava qui):
@@ -407,16 +412,16 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
 .review-entry .facts-eyebrow{
   font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   color:var(--text-faint); margin-bottom:10px;
-  padding-bottom:8px; border-bottom:1px solid var(--line);
+  padding-bottom:10px; border-bottom:1px solid var(--line);
 }
 .review-entry .facts dt{
   font-size:.7rem; color:var(--text-faint); margin-top:10px;
 }
 .review-entry .facts dd{
-  margin:2px 0 0; color:var(--text); font-size:.86rem; font-weight:600;
+  margin:0; color:var(--text); font-size:.86rem; font-weight:600;
 }
 .review-entry .fact-completed{
-  display:flex; align-items:center; gap:6px;
+  display:flex; align-items:center; gap:5px;
 }
 .review-entry .platinum-icon{
   width:17px; height:17px; flex-shrink:0;
@@ -430,7 +435,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
 .review-entry .facts dd.fact-recommendation{
   display:inline-flex; align-items:center; gap:5px;
   margin-top:20px;
-  padding:3px 8px 3px 5px;
+  padding:5px 10px 5px 5px;
   border-radius:999px;
   font-size:.66rem; font-weight:700; letter-spacing:0;
   box-shadow:0 0 0 1px currentColor inset, 0 6px 16px -8px currentColor;
@@ -459,7 +464,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    mobile non c'era ne' il bordo/sfondo giallo ne' la centratura,
    e il pulsante non aveva alcuno stile (sembrava testo normale). */
 .review-entry .threshold{
-  display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px;
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;
   margin:0 0 30px;
   padding:30px 25px;
   border:1px solid rgba(250,204,21,.35);
@@ -861,7 +866,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    esattamente il paragrafo giusto, senza toccare gli altri. */
 .review-entry .reading p:has(+ .deep-theory-link){ margin-bottom:0; }
 .review-entry .deep-theory-link{
-  display:inline-flex; align-items:center; gap:8px;
+  display:inline-flex; align-items:center; gap:10px;
   margin:25px 0;
   clear:both;
   padding:10px 20px;
@@ -974,7 +979,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      per il posizionamento/contenitore). */
   .mobile-genre-btn{
     flex:0 0 auto;
-    background:none; border:none; padding:4px 2px;
+    background:none; border:none; padding:5px 0;
     color:var(--text);
     font-weight:700; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase;
     transition:color .15s ease;
@@ -1018,7 +1023,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
   .mobile-genre-table__items{
     flex:1; min-height:0; overflow-y:auto;
     list-style:none; margin:0; padding:0 0 20px;
-    display:flex; flex-direction:column; gap:2px;
+    display:flex; flex-direction:column; gap:0;
     transition:opacity .5s ease; /* fade nel cambio genere, vedi JS */
   }
   .mobile-genre-table__items li:first-child{ margin-top:20px; }
