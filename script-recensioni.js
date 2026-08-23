@@ -658,9 +658,10 @@ function fillGenreList(genreName){
       // sopra (che durando di piu' dello scroll, causava un flash
       // della home visibile per una frazione di secondo).
       openReview(item.id, true);
-      // Scivola dalla tabella verso lo stage, dove la recensione e'
-      // appena apparsa.
-      if(el.layout) el.layout.scrollTo({ left: window.innerWidth, behavior: "smooth" });
+      // Scivola dalla tabella verso lo stage (primo pannello, era il
+      // secondo prima di invertire l'ordine su richiesta), dove la
+      // recensione e' appena apparsa.
+      if(el.layout) el.layout.scrollTo({ left: 0, behavior: "smooth" });
     });
     li.appendChild(btn);
     el.mobileGenreListItems.appendChild(li);

@@ -1138,13 +1138,31 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
      riga sola non ci sta comodamente in nessuno dei due casi. */
   .review-entry .section-eyebrow{ flex-direction:column; align-items:center; gap:2px; }
   .review-entry .section-eyebrow .eyebrow-dot{ display:none; }
-  .review-entry .music-control-slot{ order:4; margin-bottom:20px; }
+  .review-entry .music-control-slot{
+    order:4; margin-bottom:20px;
+    /* min-height:55px (misurato con Playwright: e' l'altezza reale a
+       nuvoletta aperta, 35px il solo pulsante volume) - stessa idea
+       del min-height:60px sulla riga del titolo desktop: riserva
+       sempre lo spazio massimo, cosi' il testo sotto (soglia
+       spoiler, lettura) non si sposta quando la musica viene
+       attivata. Mai capitato prima perche' su mobile .music-control-
+       slot e' un blocco a se', non condivide riga con altro come
+       succede invece su desktop nella .entry-header__row. */
+    min-height:55px;
+  }
   /* .track-info ha un max-width:280px pensato per il player della
      home: qui, insieme al pulsante skip e all'icona volume sulla
      stessa riga, su schermi stretti (~360px) rischia di andare in
      overflow. Lo rendo elastico invece che con un tetto fisso. */
   .review-entry .music-control{ width:100%; }
-  .review-entry .music-control .track-info{ max-width:none; flex:1; min-width:0; }
+  /* Ordine visivo invertito rispetto al markup (che ha track-info
+     PRIMA di volume-control): senza, il pulsante volume - fisso in
+     dimensione - veniva spinto a destra ogni volta che la nuvoletta
+     (elastica, flex:1) appariva alla sua sinistra. Con order, il
+     pulsante resta fermo a sinistra e la nuvoletta si apre alla sua
+     destra, riempiendo lo spazio libero. */
+  .review-entry .music-control .volume-control{ order:1; }
+  .review-entry .music-control .track-info{ order:2; max-width:none; flex:1; min-width:0; }
   .review-entry .reading{
     order:5; height:auto; overflow:visible; padding-right:0;
     font-size:.95rem; line-height:1.7;
