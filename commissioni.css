@@ -7,10 +7,10 @@
    identica da officina.css su richiesta esplicita.
    ============================================================ */
 
-/* Titolo hero della sezione: Oswald, piu' pesante del titolo di
-   singola recensione (.entry-header__title, stesso font ma peso 500)
-   per dare piu' impatto all'ingresso in sezione. */
-.landing-title{ font-family:'Oswald', sans-serif; font-weight:700; letter-spacing:.01em; }
+/* Titolo hero della sezione: Fraunces corsivo, piu' pesante del
+   titolo di singola recensione (.entry-header__title, stesso font ma
+   peso 500) per dare piu' impatto all'ingresso in sezione. */
+.landing-title{ font-family:'Fraunces', serif; font-style:italic; font-weight:700; letter-spacing:.01em; }
 
 /* Citazione firmata sotto l'intro breve della home, stesso stile
    base di Storie Senza Cornice/Il Filo Nascosto (qui senza il loro
@@ -70,7 +70,7 @@
      Storie Senza Cornice/Il Filo Nascosto (font-size/line-height in
      px, arrotondati a multipli di 5 dove possibile) - qui restava
      ancora sui valori in rem del file condiviso styles.css, mai
-     allineato come le altre due pagine. Il font-family resta Oswald
+     allineato come le altre due pagine. Il font-family resta Fraunces
      (vedi sopra), solo le distanze cambiano. */
   .landing-eyebrow{ font-size:15px; line-height:15px; }
   .landing-title{ font-size:50px; line-height:65px; margin-top:50px; }
@@ -238,7 +238,7 @@
     position:absolute; left:0; right:0; bottom:0;
     padding:10px 10px 10px;
     background:linear-gradient(to top, rgba(0,0,0,.92), transparent);
-    color:var(--text); font-family:'Oswald', sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.01em;
+    color:var(--text); font-family:'Fraunces', serif; font-style:italic; font-size:.8rem; font-weight:500; letter-spacing:.01em;
     opacity:0; transform:translateY(5px);
     transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
   }
@@ -714,7 +714,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     min-height:60px;
   }
   .review-entry .entry-header__title{
-    font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:.01em;
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500; letter-spacing:.01em;
     font-size:2rem; color:var(--text); margin:0;
     /* align-self:flex-start + margin-top:5px invece di lasciarlo
        centrato dentro .entry-header__row (align-items:center,
@@ -1431,7 +1431,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
 /* MOBILE, estensione della stessa protezione (su richiesta esplicita,
    prima mancava del tutto qui): anche qui il testo vero (font-
    display:swap, vedi fonts/*.css) mostra subito il font di riserva di
-   sistema e lo sostituisce con Oswald/Inter appena pronti, causando
+   sistema e lo sostituisce con Fraunces/Inter appena pronti, causando
    lo stesso piccolo salto di ridimensionamento che su desktop viene
    evitato nascondendo tutta la pagina. Su mobile pero' NON si nasconde
    tutta la pagina (rallenterebbe la home dietro anche alle tabelle,
