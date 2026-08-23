@@ -576,7 +576,7 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
     margin-left:0;
   }
   body.is-review-open .brand .social-links{
-    display:flex; flex-direction:row-reverse; align-items:center; gap:15px;
+    display:flex; align-items:center; gap:15px;
     position:static; left:auto; top:auto; height:auto; transform:none;
   }
   body.is-review-open .kofi-link,
