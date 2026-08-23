@@ -1226,7 +1226,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     color:var(--text-faint);
     pointer-events:none;
   }
-  body[data-state="landing"] .swipe-hint svg{ width:16px; height:16px; display:block; }
+  body[data-state="landing"] .swipe-hint svg{ width:15px; height:15px; display:block; }
   body[data-state="landing"] .swipe-hint--left{ left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite; }
   body[data-state="landing"] .swipe-hint--right{ right:14px; animation:swipeHintRight 1.6s ease-in-out infinite; }
 
