@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/manrope.css">
 <link rel="stylesheet" href="styles.css?v=20260824b">
-<link rel="stylesheet" href="storie-teorie.css?v=20260824o">
+<link rel="stylesheet" href="storie-teorie.css?v=20260824p">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -178,21 +178,23 @@
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
 
-      <div class="game-header" id="pageHeader">
-        <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
-        <div class="game-header__banner-overlay" aria-hidden="true"></div>
-      </div>
-
       <!-- Fascetta "teoria condivisa": compare SOLO se la voce aperta
            ha il campo sharedWith (vedi data-storie-teorie.js), mai un
            caso speciale nascosto per default - vedi renderEntry() in
-           script-storie-teorie.js. Solo desktop per ora (richiesto
-           esplicitamente, il mobile non e' ancora deciso). Posizione
-           al 75% della larghezza del banner (non centrata), compare
-           in dissolvenza sincronizzata con la rivelazione del banner
-           - vedi CSS/JS. -->
-      <div class="shared-theory-ribbon" id="sharedTheoryRibbon" hidden>
-        <span id="sharedTheoryRibbonText"></span>
+           script-storie-teorie.js. Dentro #pageHeader (non piu'
+           fratello): su mobile il banner vero e' #pageHeaderBanner
+           (position:absolute dentro questo stesso contenitore,
+           position:sticky), diverso dal ::before di desktop - stare
+           qui dentro permette alla fascetta di ancorarsi allo stesso
+           sistema di coordinate su entrambi i breakpoint (su desktop
+           position:fixed funziona comunque, esce dal flusso normale
+           indipendentemente da dove sta nel DOM). Vedi CSS/JS. -->
+      <div class="game-header" id="pageHeader">
+        <div class="game-header__banner" id="pageHeaderBanner" aria-hidden="true"></div>
+        <div class="game-header__banner-overlay" aria-hidden="true"></div>
+        <div class="shared-theory-ribbon" id="sharedTheoryRibbon" hidden>
+          <span id="sharedTheoryRibbonText"></span>
+        </div>
       </div>
 
       <ul class="entry-game-menu" id="entryGameMenu" role="listbox" hidden></ul>

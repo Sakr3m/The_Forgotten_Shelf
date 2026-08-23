@@ -1030,6 +1030,26 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
     background:rgba(0,0,0,.45);
   }
 
+  /* Fascetta "teoria condivisa" su mobile: #pageHeader e' gia' il box
+     esatto del banner qui (position:absolute, top:65px, height:130px,
+     vedi sopra) - la fascetta si ancora a lui direttamente, stesso
+     angolo basso-destra richiesto per desktop, senza bisogno di
+     ricalcolare le coordinate a mano come su desktop (dove il banner
+     e' un ::before sul body, non un contenitore vero). */
+  body[data-state="entry"] .shared-theory-ribbon{
+    position:absolute; right:10px; bottom:5px; z-index:2;
+    pointer-events:none;
+  }
+  body[data-state="entry"] .shared-theory-ribbon span{
+    background:rgba(10,10,15,.82);
+    border:1px solid var(--item-accent, var(--cyan));
+    border-radius:7px;
+    padding:3.5px 12.5px;
+    font-size:.6rem; font-weight:600;
+    color:var(--text);
+    white-space:nowrap;
+  }
+
   /* Tendina e controllo musica: spostati via JS dentro #entryPanel
      (vedi positionMobileEntryRow in script-storie-teorie.js), in una
      riga propria sopra il testo — tendina a sinistra, volume a destra. */
