@@ -591,10 +591,16 @@ function renderEntry(){
 
   // Fascetta "teoria condivisa": mostrata solo se la voce ha il campo
   // sharedWith (vedi data-storie-teorie.js) - primo caso vero:
-  // "L'Ombra di Lavos in Jenova" su Chrono Trigger/FFVII.
+  // "L'Ombra di Lavos in Jenova" su Chrono Trigger/FFVII. Reset
+  // esplicito dell'animazione (stesso trucco di .entry-panel qui
+  // sopra): senza di lui, passando da una voce condivisa a un'altra
+  // (mai hidden nel mezzo) la dissolvenza non ripartirebbe mai.
   if(entry.sharedWith){
     el.sharedTheoryRibbon.hidden = false;
     el.sharedTheoryRibbonText.textContent = `${t("sharedTheoryLabel")} ${entry.sharedWith[state.lang]}`;
+    el.sharedTheoryRibbon.style.animation = "none";
+    void el.sharedTheoryRibbon.offsetWidth;
+    el.sharedTheoryRibbon.style.animation = "";
   } else {
     el.sharedTheoryRibbon.hidden = true;
   }
