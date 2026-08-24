@@ -815,10 +815,10 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
      posto ai pulsanti veri di Ko-fi (solo cuoricino + "KoFi", non il
      testo lungo) e Discord, spostati fisicamente dentro .brand da
      script-racconti.js (vivono altrove nel markup, .stage-controls,
-     un riordino CSS da solo non li farebbe comparire qui). Ordine:
-     Ko-fi, poi Discord alla sua destra, poi la scritta. Nel DOM sono
-     discord-poi-kofi (per l'ordine in home), quindi qui li giro con
-     row-reverse invece di riscrivere il markup. Bordo del colore
+     un riordino CSS da solo non li farebbe comparire qui). Ordine
+     REALE sullo schermo: Discord, poi Ko-fi alla sua destra, poi la
+     scritta - lo stesso ordine del DOM (discord-poi-kofi, quello di
+     home), nessun row-reverse applicato qui sotto. Bordo del colore
      della voce aperta (--item-accent); cuoricino/icona Discord grigi
      "spenti" e colorati dell'accento solo in hover. --- */
   body[data-state="entry"] .brand-icon{ display:none; }
