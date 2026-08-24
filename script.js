@@ -141,6 +141,7 @@ const el = {
   landingPanel: document.getElementById("landingPanel"),
   gamePanel: document.getElementById("gamePanel"),
   gameHeader: document.getElementById("gameHeader"),
+  gameHeaderBar: document.getElementById("gameHeaderBar"),
   universesRow: document.getElementById("universesRow"),
   dragHintLeft: document.getElementById("dragHintLeft"),
   dragHintRight: document.getElementById("dragHintRight"),
@@ -636,6 +637,30 @@ function renderGamePanel(){
       el.musicControl.style.top = "65px";
       el.musicControl.style.transform = "translateY(-50%)";
     }
+  } else if(el.discordLink){
+    // Allineamento reale (desktop): #gameHeaderBar e #gameHeader
+    // (quindi l'avatar) devono iniziare esattamente dove sta Discord
+    // in topbar - misurato col browser (getBoundingClientRect), non
+    // calcolato a mano dal CSS. Il calcolo a mano fatto in precedenza
+    // (.stage 25px + .game-panel 25px = 50px dalla sidebar) si e'
+    // rivelato sbagliato, come dimostrato dalla stessa tecnica gia'
+    // corretta sulla timeline: la vera posizione di Discord e'
+    // un'altra, e ora la si usa direttamente invece di ricalcolarla.
+    // margin-left (non transform): il bordo destro di questi due
+    // elementi e' gia' corretto per conto suo (CSS, margin-right:375px,
+    // calcolato dal bordo destro di .stage - non dipende dal lato
+    // sinistro sbagliato) - un transform sposterebbe l'intero box,
+    // rompendo anche quel bordo destro gia' giusto. Con width:auto e
+    // margin-right gia' impostato, aggiungere margin-left sposta solo
+    // il bordo sinistro, lasciando intatto quello destro.
+    const discordRect = el.discordLink.getBoundingClientRect();
+    [el.gameHeaderBar, el.gameHeader].forEach(elRef => {
+      if(!elRef) return;
+      elRef.style.marginLeft = "0px";
+      const rect = elRef.getBoundingClientRect();
+      const delta = discordRect.left - rect.left;
+      elRef.style.marginLeft = delta.toFixed(2) + "px";
+    });
   }
 
   if(g.noTimeline){
