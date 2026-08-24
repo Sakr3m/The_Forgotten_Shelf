@@ -124,6 +124,32 @@
   .timeline-rail{ width:300px; }
   body[data-state="title"] .title-watermark{ right:300px; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
+
+  /* --- Scrollbar della tabella a destra: stesso identico problema
+     gia' preso e risolto sulla sidebar sinistra (#sidebar .game-list
+     qui sopra), mai applicato a questa tabella. Restava lo scrollbar
+     grezzo del browser (fino a 15-17px), che "mangia" spazio visibile
+     dal lato destro della tabella - risultato, appariva piu' stretta
+     della sidebar anche a larghezza CSS identica (300px entrambe).
+     Stesso trattamento sottile: trasparente a riposo, visibile solo
+     in hover. Applicata direttamente a .timeline-rail (a differenza
+     della sidebar non serve un contenitore interno separato: qui non
+     c'e' nessun panel-toggle da far dissolvere insieme al resto). --- */
+  .timeline-rail{
+    scrollbar-width:thin;
+    scrollbar-color:transparent transparent;
+  }
+  .timeline-rail:hover{
+    scrollbar-color:var(--line) transparent;
+  }
+  .timeline-rail::-webkit-scrollbar{ width:5px; }
+  .timeline-rail::-webkit-scrollbar-track{ background:transparent; }
+  .timeline-rail::-webkit-scrollbar-thumb{
+    background:transparent;
+    border-radius:999px;
+  }
+  .timeline-rail:hover::-webkit-scrollbar-thumb{ background:var(--line); }
+  .timeline-rail::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
 }
 
 /* --- Bordo 2px sui pulsanti dell'header, stessa convenzione fissa
