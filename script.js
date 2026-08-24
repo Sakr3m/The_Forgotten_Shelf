@@ -1195,7 +1195,7 @@ function renderTitlePanel(){
   // calcolato da Discord/switch lingua, riportando la barra al
   // fallback CSS (300px, fino quasi al bordo della tabella destra) -
   // esattamente il "piu' lunga di quanto chiesto" segnalato.
-  el.watermarkBrightness.style.top = watermarkSrc ? "80px" : "";
+  el.watermarkBrightness.style.top = watermarkSrc ? "81px" : "";
 
   // restart entrance animation
   activeRec.panel.style.animation = "none";
