@@ -156,6 +156,13 @@
      cambiare le altre due pagine mai discusse in questo contesto. */
   body[data-state="title"] .title-watermark{ background-size:cover; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
+  /* La barra vera (sottile, .track) e' verticalmente CENTRATA dentro
+     un box di 20px (align-items:center, regola condivisa) - quindi
+     anche con top preciso, la riga visibile appare qualche px piu'
+     in basso del bordo alto del box invisibile. flex-start la
+     appoggia al bordo superiore del box, cosi' "top" corrisponde
+     davvero a dove la barra appare. */
+  body[data-state="title"] .watermark-brightness-line{ align-items:flex-start; }
 
   /* --- La struttura vera (Discord -> switch lingua e' la barra
      stessa, i 3 quadratini stanno OLTRE, alla sua destra - non
