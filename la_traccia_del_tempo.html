@@ -14,17 +14,27 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/jetbrains-mono.css">
 <link rel="stylesheet" href="styles.css?v=20260823a">
-<link rel="stylesheet" href="la_traccia_del_tempo.css?v=20260824n">
+<link rel="stylesheet" href="la_traccia_del_tempo.css?v=20260824o">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
-  /* Rete di sicurezza per il fix della pagina nascosta finche' non e'
-     pronta (vedi la_traccia_del_tempo.css e script.js, stessa
-     tecnica adottata su Storie Senza Cornice). Se lo script
-     principale non dovesse mai arrivare al punto che rivela la
-     pagina, questo timer indipendente forza comunque la visibilita'
-     dopo 2.5s. */
+  /* Reti di sicurezza per il fix della pagina nascosta finche' non e'
+     pronta - due segnali separati (vedi la_traccia_del_tempo.css e
+     script.js, stessa tecnica adottata su Storie Senza Cornice/Il
+     Filo Nascosto):
+     - tfs-ready (mobile): rivela la home (solo mobile, solo stato
+       "landing"), che resta invisibile di default via puro CSS
+       finche' non arriva.
+     - tfs-desktop-ready (desktop): rivela l'intera pagina, che resta
+       invisibile finche' script E font non sono entrambi pronti. Su
+       mobile rivela invece solo il blocco di testo della home
+       (.landing), non tutta la pagina.
+     Se per qualunque motivo imprevisto lo script principale non
+     dovesse mai arrivare al punto giusto, questi timer indipendenti
+     forzano comunque la visibilita' dopo 2.5s - mai una pagina
+     bloccata invisibile per sempre nello scenario peggiore. */
   setTimeout(function(){ document.body.classList.add("tfs-ready"); }, 2500);
+  setTimeout(function(){ document.body.classList.add("tfs-desktop-ready"); }, 2500);
 </script>
 
     <button type="button" class="report-bug-btn" id="reportBugBtn">
@@ -232,7 +242,7 @@
 
   <script src="data.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script.js?v=202608241200"></script>
+  <script src="script.js?v=202608241400"></script>
   <script src="stats.js?v=20260809"></script>
 </body>
 </html>

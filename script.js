@@ -2,6 +2,21 @@
 // L'ARCHIVIO — logica di stato e rendering
 // ============================================================
 
+// Il titolo "La Traccia del Tempo" (.landing-title) usa JetBrains
+// Mono peso 700 fin dal primissimo istante (e' il titolo della
+// home, visibile subito, non nascosto come su Storie Senza
+// Cornice/Il Filo Nascosto) - qui il salto di layout font di
+// riserva -> font vero sarebbe ancora piu' visibile che altrove.
+// .brand-text usa Inter peso 800, ma solo dentro una saga/voce (in
+// home e' nascosto) - stesso identico caso delle pagine gemelle,
+// stesso preload. document.fonts.load() forza l'intera pipeline di
+// caricamento (fetch + decodifica + registrazione) subito via JS,
+// piu' aggressivo del solo <link rel="preload"> nell'head.
+if(document.fonts && document.fonts.load){
+  document.fonts.load("700 36px 'JetBrains Mono'").catch(() => {});
+  document.fonts.load("800 1.32rem Inter").catch(() => {});
+}
+
 const STRINGS = {
   it: {
     brand: "La Traccia del Tempo",
@@ -1627,6 +1642,21 @@ updateSwipeHints();
 // adottata su Storie Senza Cornice, per lo stesso bug (sidebar vuota
 // mostrata per un attimo prima della home su connessioni lente).
 document.body.classList.add("tfs-ready");
+// Su desktop, l'intera pagina resta invisibile finche' non sono
+// pronti SIA questo avvio SIA i font veri (probabile causa dei
+// riposizionamenti che si "auto-correggono" in vista) - document.
+// fonts.ready e' una vera API del browser, si risolve solo quando i
+// font sono davvero caricati e applicati. Stessa tecnica di Storie
+// Senza Cornice/Il Filo Nascosto. Controllo di sicurezza per browser
+// che non la supportano (rara, ma meglio non rischiare una pagina
+// bloccata invisibile per sempre su quei casi).
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(() => {
+    document.body.classList.add("tfs-desktop-ready");
+  });
+} else {
+  document.body.classList.add("tfs-desktop-ready");
+}
 
 // FIX: rimossa resumePersistedMusic - faceva ripartire la musica
 // automaticamente su OGNI pagina nuova caricata (se l'interruttore

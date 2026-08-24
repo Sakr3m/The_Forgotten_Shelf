@@ -916,3 +916,45 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 @media (max-width:900px){
   body[data-state="landing"]:not(.tfs-ready) .layout{ visibility:hidden; }
 }
+
+/* ============================================================
+   DESKTOP: l'intera pagina resta invisibile finche' non sono pronti
+   SIA lo script principale SIA i font (probabile causa dei
+   riposizionamenti/ridimensionamenti che si "auto-correggono" in
+   vista - il testo cambia dimensione quando il font vero sostituisce
+   quello di riserva, particolarmente visibile qui dato che il
+   titolo JetBrains Mono e' grande e mostrato subito, non nascosto
+   come su Storie Senza Cornice/Il Filo Nascosto). tfs-desktop-ready
+   e' un segnale a parte da tfs-ready (quello mobile, sopra): usa
+   document.fonts.ready, una vera API del browser che si risolve solo
+   a font effettivamente caricati - se lo agganciassi allo stesso
+   tfs-ready, rallenterebbe anche la rivelazione della home su
+   mobile, che invece deve restare legata solo al proprio
+   caricamento (dati/testo), non ai font. Stessa rete di sicurezza
+   (2.5s) nello script in testa alla pagina.
+   ============================================================ */
+@media (min-width:901px){
+  body:not(.tfs-desktop-ready){ visibility:hidden; }
+}
+
+/* MOBILE, estensione della stessa protezione (stessa tecnica di
+   Storie Senza Cornice/Il Filo Nascosto): anche qui il testo vero
+   (font-display:swap, vedi fonts/*.css) mostra subito il font di
+   riserva di sistema e lo sostituisce con quello vero appena pronto,
+   causando lo stesso piccolo salto di ridimensionamento che su
+   desktop viene evitato nascondendo tutta la pagina. Su mobile pero'
+   NON si nasconde tutta la pagina (rallenterebbe la home dietro
+   anche al resto del layout, che ha un suo segnale separato e piu'
+   lento, tfs-ready - vedi sopra): si nasconde SOLO .landing (il
+   blocco testo della home: titolo, sottotitolo, alert spoiler),
+   riusando lo stesso segnale leggero e veloce di sopra
+   (tfs-desktop-ready, document.fonts.ready - aspetta solo i file dei
+   font, non tutto il resto). Topbar/pulsanti restano visibili subito
+   come sempre, il resto del layout segue il proprio tempo
+   indipendente (tfs-ready) - tre segnali indipendenti, ciascuno
+   rivela solo cio' che gli compete, mai tutto insieme. */
+@media (max-width:900px){
+  body[data-state="landing"]:not(.tfs-desktop-ready) .landing{
+    visibility:hidden;
+  }
+}
