@@ -614,8 +614,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      quando doveva lasciare spazio sopra rispetto al centro - qui
      serve il contrario, zero distanza dalla cima. Dimensione del
      titolo non toccata (resta quella di sempre). --- */
-  .game-header-item:not([hidden]){ align-items:flex-start; }
+  .game-header-item:not([hidden]){ align-items:flex-start; gap:30px; }
   body[data-state="game"] .game-header__title{ margin-top:0; }
+
+  /* --- Barra sotto l'avatar <-> nome dell'universo: 30px (era 40px,
+     il margine di base condiviso - CORREZIONE di un mio errore
+     precedente: avevo riportato 49px, 40+9, ma quei 9px di padding
+     sono SOLO mobile, su desktop non sono mai esistiti. Il vero
+     valore desktop era 40px, portato ora a 30px). #gamePanel non ha
+     nessun altro elemento fra #gameHeader e #universesRow, quindi
+     basta questo unico margine. --- */
+  #gameHeader{ margin-bottom:30px; }
 
   /* ============================================================
      "Come se ci fosse la tabella a destra, come nella home" (25/08),

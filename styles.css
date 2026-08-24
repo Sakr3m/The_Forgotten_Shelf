@@ -1003,12 +1003,14 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node__top{
   align-self:end;
   display:flex; flex-direction:column; align-items:center; gap:10px;
-  padding-bottom:20px;
+  padding-bottom:35px; /* 5px trattino<->pallino + 10px trattino +
+    20px veri trattino<->voce (il trattino, posizionato in modo
+    assoluto, vive dentro questo padding - non si somma ad esso) */
 }
 .h-node__bottom{
   align-self:start;
   display:flex; flex-direction:column; align-items:center; gap:10px;
-  padding-top:20px;
+  padding-top:35px; /* vedi commento gemello su .h-node__top */
 }
 
 
@@ -1016,16 +1018,16 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node--down .h-node__marker::after{
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
-  margin-top:8px;
-  width:2px; height:9px;
+  margin-top:5px;
+  width:2px; height:10px;
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
 }
 .h-node--up .h-node__marker::before{
   content:"";
   position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
-  margin-bottom:8px;
-  width:2px; height:9px;
+  margin-bottom:5px;
+  width:2px; height:10px;
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
 }
