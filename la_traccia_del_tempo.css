@@ -600,10 +600,37 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       originariamente 640px dal file condiviso */
   }
 
-  /* Blocco titolo (tag + nome voce) piu' distante dal bordo alto:
-     100px->150px. .title-panel e' usata solo su questa pagina,
-     quindi la sovrascrivo qui invece che nel foglio condiviso. */
-  .title-panel{ margin-top:150px; }
+  /* --- Barra header vuota, riutilizzata identica in due punti:
+     sopra a #gameHeader nella vista "game" (saga: Doom, Assassin's
+     Creed, ecc. - anche quelle senza vera linea temporale) e da sola
+     nella vista "title" (voce singola, #titleHeaderBar). Stesso
+     #gameHeader condiviso, qui vuoto (niente banner/avatar/blurb),
+     serve solo a dare continuita' visiva sotto la topbar - stesso
+     trattamento del #pageHeader ridotto di Il Filo Nascosto nelle
+     sue voci (striscia sottile con bordo sotto, niente banner). 65px
+     invece dei 230px di base, nessuna animazione di ingresso (non
+     c'e' nulla da svelare, deve essere visibile da subito).
+     margin-bottom:15px la separa dal contenuto sotto - nella vista
+     "title" e' direttamente tag/titolo/sinossi, in "game" e' la vera
+     zona avatar+descrizione (#gameHeader), ora una barra separata
+     invece di fondersi con la topbar come prima. Rifiniture
+     ulteriori di spaziatura in un secondo momento. --- */
+  #titleHeaderBar, #gameHeaderBar{
+    height:65px; max-height:65px; padding:0; margin-bottom:15px;
+    opacity:1; animation:none;
+  }
+  .title-panel{ margin-top:0; }
+
+  /* #gameHeader (la vera zona avatar+descrizione) segue subito dopo
+     #gameHeaderBar in flusso normale, quindi la sua posizione di
+     riposo e' gia' corretta da sola - ma resta "sticky" (ereditato
+     dal .game-header condiviso, top:15px, pensato per quando era lei
+     stessa la prima cosa sotto la topbar): va aggiornato anche il suo
+     top, altrimenti in scroll si incollerebbe 15px sotto la cima,
+     sovrapponendosi alla barra sottile che ora sta li' sopra. Nuovo
+     valore: 15 (topbar) + 65 (barra sottile) + 15 (suo margin-bottom)
+     = 95px. */
+  body[data-state="game"] #gameHeader{ top:95px; }
 
   /* "Torna a [Gioco]": unico pulsante di navigazione che non aveva
      nessuno sfondo dietro il testo (le frecce sinistra/destra invece
