@@ -325,14 +325,26 @@ function appendLikeWidget(container, workId){
   const widget = container.querySelector(".title-like");
   const likeBtn = widget.querySelector(".title-like__btn");
   const countEl = widget.querySelector(".title-like__count");
-  if(ForgottenShelfLikes.hasLiked(workId)){
+  const alreadyLikedBefore = ForgottenShelfLikes.hasLiked(workId);
+  if(alreadyLikedBefore){
     widget.classList.add("is-liked");
     likeBtn.disabled = true;
   }
-  ForgottenShelfLikes.getTotal(workId).then(total => { countEl.textContent = total; });
+  let justLikedNow = false;
+  // Bug reale trovato (25/08, su Timeline, stesso identico pattern
+  // qui): getTotal e' asincrona - un click prima che risponda veniva
+  // sovrascritto dal totale vecchio del server quando la risposta
+  // arrivava dopo. Corretto aggiungendo 1 al totale ricevuto SOLO se
+  // il click e' avvenuto durante QUESTA visita (justLikedNow), non
+  // se il "mi piace" risale a una visita precedente
+  // (alreadyLikedBefore, gia' incluso nel totale del server).
+  ForgottenShelfLikes.getTotal(workId).then(total => {
+    countEl.textContent = justLikedNow ? total + 1 : total;
+  });
   likeBtn.addEventListener("click", () => {
     const result = ForgottenShelfLikes.like(workId);
     if(result.ok){
+      justLikedNow = true;
       widget.classList.add("is-liked");
       likeBtn.disabled = true;
       const current = parseInt(countEl.textContent, 10) || 0;

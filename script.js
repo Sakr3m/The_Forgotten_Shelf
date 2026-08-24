@@ -321,14 +321,34 @@ function appendLikeWidget(container, workId){
   const widget = container.querySelector(".title-like");
   const likeBtn = widget.querySelector(".title-like__btn");
   const countEl = widget.querySelector(".title-like__count");
-  if(ForgottenShelfLikes.hasLiked(workId)){
+  const alreadyLikedBefore = ForgottenShelfLikes.hasLiked(workId);
+  if(alreadyLikedBefore){
     widget.classList.add("is-liked");
     likeBtn.disabled = true;
   }
-  ForgottenShelfLikes.getTotal(workId).then(total => { countEl.textContent = total; });
+  let justLikedNow = false;
+  // Bug reale trovato (25/08): la richiesta di rete per il totale
+  // vero (getTotal) e' asincrona - se il click sul cuoricino arriva
+  // PRIMA che risponda (tipico sulla primissima voce aperta in una
+  // visita, quando la richiesta e' ancora in corso), il click
+  // aggiorna subito il numero a +1, ma quando la risposta di rete
+  // arriva DOPO sovrascrive countEl col totale vecchio del server
+  // (che non sa ancora nulla del click appena fatto) - il numero
+  // torna a 0 davanti agli occhi dell'utente. Sulle voci aperte dopo
+  // funzionava perche' quella richiesta era gia' in cache, risolta
+  // all'istante, prima di qualunque click possibile. Corretto
+  // aggiungendo 1 al totale ricevuto SOLO se il click e' avvenuto
+  // durante QUESTA visita alla pagina (justLikedNow) - non se il
+  // "mi piace" risale a una visita precedente (alreadyLikedBefore),
+  // il cui +1 e' gia' incluso nel totale del server, altrimenti
+  // conterebbe due volte.
+  ForgottenShelfLikes.getTotal(workId).then(total => {
+    countEl.textContent = justLikedNow ? total + 1 : total;
+  });
   likeBtn.addEventListener("click", () => {
     const result = ForgottenShelfLikes.like(workId);
     if(result.ok){
+      justLikedNow = true;
       widget.classList.add("is-liked");
       likeBtn.disabled = true;
       const current = parseInt(countEl.textContent, 10) || 0;
