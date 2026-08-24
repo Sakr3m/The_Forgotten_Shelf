@@ -812,19 +812,22 @@ function renderGamePanel(){
     // Larghezza e posizione del contenitore (.timeline-viewport)
     // calcolate dalla posizione REALE di Discord (sinistra) e dello
     // switch lingua (destra), misurata a runtime - non piu' un
-    // margine/larghezza CSS indovinati a mano. Il contenitore ora
-    // combacia ESATTAMENTE con questi due bordi (niente piu' i 50px
-    // extra aggiunti in precedenza per far toccare il pallino invece
-    // del bordo del nodo): quei 50px allargavano il contenitore
-    // stesso, che negli universi con scroll libero (tanti titoli,
-    // come Castlevania) e' anche l'area scorrevole vera - risultato,
-    // trascinando si vedeva contenuto oltre il limite vero, e la
-    // freccetta destra (calcolata sull'ultimo nodo di un contenitore
-    // "gonfiato" 50px oltre lo schermo) spariva del tutto. Le
-    // immagini/titoli dei nodi possono ancora sporgere leggermente
-    // oltre questo bordo per conto proprio (overflow:visible, gia'
-    // il comportamento di base quando non c'e' scroll) - qui pero'
-    // non si allarga piu' il contenitore per farglielo fare apposta.
+    // margine/larghezza CSS indovinati a mano. 50px extra per lato
+    // (tornati, 25/08 - idea del cliente): il contenitore stesso e'
+    // ora la zona "larga" per le voci (titoli/immagini), che possono
+    // toccare/sporgere fino a questo bordo. La riga vera invece
+    // sparisce prima (bordo "stretto", esattamente Discord/switch
+    // lingua) grazie a una maschera sagomata (clip-path) piu' sotto,
+    // non piu' al bordo del contenitore stesso - un contenitore solo,
+    // con due punti di sparizione diversi per voci/riga, cosa
+    // impossibile con un overflow rettangolare unico (da qui il bug
+    // precedente: sparivano sempre insieme, un rientro sul singolo
+    // nodo iniziale/finale spariva anche lui alla stessa distanza,
+    // niente affatto "due tempi diversi"). I nodi si distribuiscono
+    // ora in modo semplice (flush ai due bordi larghi, senza margini
+    // fittizi extra): il pallino cade gia' da solo 50px dentro,
+    // esattamente sul bordo stretto, perche' e' li' che la maschera
+    // taglia la riga.
     const viewportEl = liveTimeline.closest(".timeline-viewport");
     if(viewportEl && el.discordLink && el.langSwitch){
       viewportEl.style.transform = "none";
@@ -832,8 +835,8 @@ function renderGamePanel(){
       const viewportRect = viewportEl.getBoundingClientRect();
       const discordRect = el.discordLink.getBoundingClientRect();
       const langRect = el.langSwitch.getBoundingClientRect();
-      const targetLeft = discordRect.left;
-      const targetRight = langRect.right;
+      const targetLeft = discordRect.left - 50;
+      const targetRight = langRect.right + 50;
       const newWidth = Math.max(0, targetRight - targetLeft);
       viewportEl.style.width = newWidth.toFixed(2) + "px";
       viewportEl.style.transform = `translateX(${(targetLeft - viewportRect.left).toFixed(2)}px)`;
@@ -870,34 +873,23 @@ function renderGamePanel(){
       const minGap = 26 * dotScale;
       const gapFor8 = (availableWidth - 8 * 100) / 7;
       liveTimeline.style.gap = Math.max(minGap, gapFor8).toFixed(2) + "px";
-      nodes.forEach((node, i) => { node.style.marginLeft = i === 0 ? "-50px" : ""; });
+      nodes.forEach(node => { node.style.marginLeft = ""; });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
       // boxes overlap horizontally. So: every entry is spaced out evenly
       // across the exact same line length as always — first node flush at
-      // la posizione (non piu' il bordo), each next one placed via an
-      // explicit margin (negative when the count is high enough that
-      // nodes must overlap to all fit), rather than leaving anything to
-      // an automatic gap or to scrolling.
-      //
-      // -50px sul primo nodo (invece di 0px), e la formula di spacing
-      // ricalcolata di conseguenza (25/08): il CONTENITORE ora combacia
-      // esattamente con Discord/switch lingua (niente piu' margine
-      // extra sul contenitore stesso, quello rompeva lo scroll libero
-      // su Castlevania e simili) - ma il PALLINO deve comunque toccare
-      // quel bordo esatto, non fermarsi 50px prima (meta' della
-      // larghezza del nodo, che ha il pallino al centro). Spostando
-      // solo il primo/ultimo NODO di 50px oltre il bordo (non il
-      // contenitore), il pallino torna a toccare il bordo vero, e le
-      // immagini/titoli sporgono leggermente oltre per conto proprio
-      // (overflow:visible qui, dato che questa modalita' non scorre) -
-      // esattamente il comportamento richiesto.
+      // the start (il bordo LARGO del contenitore, non un margine fittizio:
+      // con la maschera qui sotto il pallino cade gia' da solo sul bordo
+      // stretto, 50px piu' dentro), each next one placed via an explicit
+      // margin (negative when the count is high enough that nodes must
+      // overlap to all fit), rather than leaving anything to an automatic
+      // gap or to scrolling.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      const spacing = nodes.length > 1 ? availableWidth / (nodes.length - 1) : 0;
+      const spacing = nodes.length > 1 ? (availableWidth - 100) / (nodes.length - 1) : 0;
       nodes.forEach((node, i) => {
-        node.style.marginLeft = i === 0 ? "-50px" : (spacing - 100).toFixed(2) + "px";
+        node.style.marginLeft = i === 0 ? "0px" : (spacing - 100).toFixed(2) + "px";
       });
     }
 
@@ -951,15 +943,45 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
+      // --- Maschera sagomata (idea del cliente, 25/08): un solo
+      // contenitore, ma due punti di sparizione diversi per voci e
+      // riga - impossibile con un semplice overflow rettangolare
+      // (taglia sempre tutto alla stessa distanza). clip-path invece
+      // puo' avere una forma qualunque: qui una fascia centrale
+      // "stretta" (INSET px in meno per lato, esattamente dove sta
+      // la riga con i pallini) dentro a un contenitore "largo" (dove
+      // vivono invece titoli/immagini). Applicata al contenitore
+      // stesso (liveTimeline): la sua "scatola" resta ferma mentre
+      // il contenuto scorre dentro, quindi la maschera taglia sempre
+      // negli stessi due punti a schermo, qualunque sia lo scroll.
+      // bandHalf = meta' altezza della fascia stretta: copre il
+      // pallino (22px) piu' il trattino e il suo distacco (10+5px)
+      // per lato, con un margine di sicurezza. --- */
+      const INSET = 50;
+      const bandHalf = 40;
+      const lineY = (firstDot.top + firstDot.bottom) / 2 - timelineRect.top;
+      const lineTop = Math.max(0, lineY - bandHalf);
+      const lineBottom = lineY + bandHalf;
+      const W = timelineRect.width;
+      const H = timelineRect.height;
+      liveTimeline.style.clipPath = `polygon(
+        0px 0px, ${W}px 0px,
+        ${W}px ${lineTop.toFixed(2)}px, ${(W - INSET).toFixed(2)}px ${lineTop.toFixed(2)}px,
+        ${(W - INSET).toFixed(2)}px ${lineBottom.toFixed(2)}px, ${W}px ${lineBottom.toFixed(2)}px,
+        ${W}px ${H}px, 0px ${H}px,
+        0px ${lineBottom.toFixed(2)}px, ${INSET}px ${lineBottom.toFixed(2)}px,
+        ${INSET}px ${lineTop.toFixed(2)}px, 0px ${lineTop.toFixed(2)}px
+      )`;
+
       // Le freccette animate (solo sopra soglia, isLargeUniverse):
-      // 50px a sinistra/destra del bordo del contenitore (le stesse
-      // posizioni di Discord/switch lingua usate poco piu' in alto -
-      // coincidono sempre con l'inizio/fine vera della riga, visto
-      // che il contenitore ora combacia esattamente con quei due
-      // bordi). Non piu' calcolate sul primo/ultimo pallino renderizzato
-      // (lineLeft/lineRight): in un universo con scroll libero (tanti
-      // titoli) l'ultimo pallino puo' trovarsi molto oltre il bordo
-      // destro dello schermo, spingendo la freccetta fuori vista - qui
+      // 50px a sinistra/destra di Discord/switch lingua (il bordo
+      // "stretto" dove sparisce la riga, per via della maschera qui
+      // sopra - non piu' il bordo del contenitore stesso, che ora e'
+      // di nuovo "largo" per fare spazio alle voci). Non piu'
+      // calcolate sul primo/ultimo pallino renderizzato (lineLeft/
+      // lineRight): in un universo con scroll libero (tanti titoli)
+      // l'ultimo pallino puo' trovarsi molto oltre il bordo destro
+      // dello schermo, spingendo la freccetta fuori vista - qui
       // Discord e lo switch lingua sono invece sempre veri elementi
       // fissi in schermo, mai fuori vista. Stessa altezza della riga
       // (il centro verticale del primo/ultimo pallino). Il meccanismo
