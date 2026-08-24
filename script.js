@@ -870,20 +870,34 @@ function renderGamePanel(){
       const minGap = 26 * dotScale;
       const gapFor8 = (availableWidth - 8 * 100) / 7;
       liveTimeline.style.gap = Math.max(minGap, gapFor8).toFixed(2) + "px";
-      nodes.forEach(node => { node.style.marginLeft = ""; });
+      nodes.forEach((node, i) => { node.style.marginLeft = i === 0 ? "-50px" : ""; });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
       // boxes overlap horizontally. So: every entry is spaced out evenly
       // across the exact same line length as always — first node flush at
-      // the start, each next one placed via an explicit margin (negative
-      // when the count is high enough that nodes must overlap to all fit),
-      // rather than leaving anything to an automatic gap or to scrolling.
+      // la posizione (non piu' il bordo), each next one placed via an
+      // explicit margin (negative when the count is high enough that
+      // nodes must overlap to all fit), rather than leaving anything to
+      // an automatic gap or to scrolling.
+      //
+      // -50px sul primo nodo (invece di 0px), e la formula di spacing
+      // ricalcolata di conseguenza (25/08): il CONTENITORE ora combacia
+      // esattamente con Discord/switch lingua (niente piu' margine
+      // extra sul contenitore stesso, quello rompeva lo scroll libero
+      // su Castlevania e simili) - ma il PALLINO deve comunque toccare
+      // quel bordo esatto, non fermarsi 50px prima (meta' della
+      // larghezza del nodo, che ha il pallino al centro). Spostando
+      // solo il primo/ultimo NODO di 50px oltre il bordo (non il
+      // contenitore), il pallino torna a toccare il bordo vero, e le
+      // immagini/titoli sporgono leggermente oltre per conto proprio
+      // (overflow:visible qui, dato che questa modalita' non scorre) -
+      // esattamente il comportamento richiesto.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      const spacing = nodes.length > 1 ? (availableWidth - 100) / (nodes.length - 1) : 0;
+      const spacing = nodes.length > 1 ? availableWidth / (nodes.length - 1) : 0;
       nodes.forEach((node, i) => {
-        node.style.marginLeft = i === 0 ? "0px" : (spacing - 100).toFixed(2) + "px";
+        node.style.marginLeft = i === 0 ? "-50px" : (spacing - 100).toFixed(2) + "px";
       });
     }
 
