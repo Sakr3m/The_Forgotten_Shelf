@@ -128,15 +128,22 @@
   }
 }
 
-/* --- Testo centrale della home: misure identiche a Storie Senza
-   Cornice/Il Filo Nascosto (font-size/line-height/margin in px,
-   arrotondati a multipli di 5). Il font resta JetBrains Mono
-   (identita' propria di questa pagina, vedi regola in testa al
-   file) - qui si allineano solo dimensioni e posizioni, non il
-   carattere. Solo desktop: il mobile ha gia' le sue misure proprie,
-   non toccate da questa richiesta. --- */
+/* --- Testo centrale della home: misure di partenza identiche a
+   Storie Senza Cornice/Il Filo Nascosto (50px/65px per il titolo),
+   poi corretto SOLO il titolo (36px/46px): JetBrains Mono e'
+   monospace, ogni carattere occupa piu' spazio di quelli
+   proporzionali (Manrope/EB Garamond) usati dalle pagine gemelle -
+   alla stessa dimensione in px, "La Traccia del Tempo" (20
+   caratteri) non ci stava in una riga nel box da 450px e andava a
+   capo, con un ingombro verticale doppio rispetto al collega ("Il
+   Filo Nascosto", 16 caratteri, un'unica riga). A 36px rientra in
+   una riga anche lui, stessa resa visiva di scala del collega.
+   Eyebrow/intro/sub restano a 50px di titolo escluso: usano il font
+   di default (Inter), identico su tutte e tre le pagine, quindi i
+   valori in px restano quelli originali - nessuna correzione
+   necessaria li'. --- */
 @media (min-width:901px){
-  .landing-title{ width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:50px; }
+  .landing-title{ width:450px; margin-left:auto; margin-right:auto; font-size:36px; line-height:46px; margin-top:50px; }
   .landing-eyebrow{ font-size:15px; line-height:15px; }
   .landing-intro{ font-size:20px; line-height:30px; margin-top:30px; max-width:800px; }
   .landing-sub{ font-size:15px; line-height:20px; margin-top:50px; }
