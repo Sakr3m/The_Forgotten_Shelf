@@ -150,6 +150,31 @@
   }
   .timeline-rail:hover::-webkit-scrollbar-thumb{ background:var(--line); }
   .timeline-rail::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+
+  /* --- Specchiata rispetto alla sidebar sinistra: la barra deve
+     stare sul lato INTERNO (verso lo stage), non su quello esterno
+     (verso il bordo della finestra) come farebbe di default un
+     qualunque elemento scorrevole. Trucco classico: direction:rtl
+     sposta lo scrollbar nativo dalla destra alla sinistra
+     dell'elemento; direction:ltr sui figli veri (etichetta e lista)
+     annulla l'effetto sul TESTO, che altrimenti si leggerebbe
+     al contrario. --- */
+  .timeline-rail{ direction:rtl; }
+  .timeline-rail .rail-label, .timeline-rail .rail-track{ direction:ltr; }
+
+  /* --- Linea verticale (e pallini) della lista voci, spostata un
+     po' piu' a destra su richiesta esplicita (+10px): padding-left
+     di .rail-track 20px->30px, la riga stessa (.rail-track::before)
+     5px->15px. Il pallino di ogni voce (.v-node::before, left:-20px
+     rispetto al proprio nodo) non va toccato: e' relativo al nodo,
+     che si sposta gia' da solo con lui per via del nuovo padding -
+     resta centrato sulla riga automaticamente. Distanze reali dopo
+     la modifica: 15px dal bordo interno della tabella alla riga
+     (era 5px), 30px dal bordo alla voce vera e propria/testo (era
+     20px) - 10px di margine tra riga e voce in entrambi i casi,
+     invariato. --- */
+  .rail-track{ padding-left:30px; }
+  .rail-track::before{ left:15px; }
 }
 
 /* --- Bordo 2px sui pulsanti dell'header, stessa convenzione fissa
@@ -163,6 +188,22 @@
   .lang-switch,
   .music-toggle,
   .track-info{
+    border-width:2px;
+  }
+}
+
+/* --- Stesso bordo 2px esteso ad altri elementi "a pillola" della
+   pagina, prima rimasti all'1px di base: il tag sopra al titolo di
+   una voce (.title-tag, es. "VIDEOGIOCO"), i tre pulsanti di
+   navigazione sotto il testo (prev/"Torna a"/next - .title-back,
+   .title-nav__side) e i pulsanti per cambiare universo nella pagina
+   di una saga (.carousel-arrow, es. "Universo MercurySteam"). Solo
+   desktop, come tutto il resto di questo turno. --- */
+@media (min-width:901px){
+  .title-tag,
+  .title-back,
+  .title-nav__side,
+  .carousel-arrow{
     border-width:2px;
   }
 }
@@ -749,7 +790,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (.title-watermark). Fermata al 55% del proprio spazio
      disponibile (non del contenitore, che sarebbe piu' largo per via
      del padding-left del pannello). --- */
-  .title-synopsis{ max-width:55%; }
+  .title-synopsis{ max-width:75%; }
 
   /* #gameHeaderBar (vista "game") non ha bisogno del margin-bottom:
      15px ereditato dalla riga sopra - li' serviva per staccare la
