@@ -613,7 +613,7 @@ body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)
      lo mostra invece sempre. Eccezione solo qui: si scambiano di
      nuovo quando is-review-open e' attiva. */
   body.is-review-open .brand{
-    display:flex; width:auto; justify-content:flex-start; gap:10px;
+    display:flex; width:auto; justify-content:flex-start; gap:15px;
     margin-left:0;
     /* Stessa regola condivisa di Storie Senza Cornice/Il Filo
        Nascosto (styles.css, body[data-state="entry"] .stage-topbar

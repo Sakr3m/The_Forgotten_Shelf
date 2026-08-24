@@ -788,7 +788,7 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
      della voce aperta (--item-accent); cuoricino/icona Discord grigi
      "spenti" e colorati dell'accento solo in hover. --- */
   body[data-state="entry"] .brand-icon{ display:none; }
-  body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
+  body[data-state="entry"] .brand{ width:auto; justify-content:flex-start; gap:15px; }
   body[data-state="entry"] .brand .social-links{
     display:flex; align-items:center; gap:15px;
   }

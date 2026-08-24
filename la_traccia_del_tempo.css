@@ -618,28 +618,32 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="game"] .game-header__title{ margin-top:0; }
 
   /* ============================================================
-     "Come se ci fosse la tabella a destra, come nella home" (25/08):
-     stesso principio gia' applicato su .stage-topbar in landing/game
-     (padding-right:375px = 75 di base + 300 fantasma) esteso qui a
-     tutto cio' che vive dentro #gamePanel. Riferimento: .stage parte
-     gia' subito dopo la sidebar VERA (300px) e ha 25px di padding
-     proprio, quindi il suo bordo di contenuto e' a 325px dal vero
-     bordo sinistro; per arrivare a 400px (100px oltre la sidebar,
-     lo stesso punto dov'e' Discord in topbar) serve un margine
-     aggiuntivo di 75px. Sul lato destro .stage arriva fino al vero
-     bordo della finestra (nessuna tabella reale li'), quindi per
-     fermarsi a 400px dal bordo destro (100px prima di dove
-     comincerebbe la tabella fantasma da 300px) serve un margine di
-     375px (400 - 25px di padding proprio di .stage). Stessi 75px/
-     375px su ogni riga: barra sottile, barra avatar, blocco
-     universo+linea - cosi' tutto si allinea alla stessa colonna
-     verticale, esattamente come Discord/switch lingua in alto.
-     ============================================================ */
+     "Come se ci fosse la tabella a destra, come nella home" (25/08),
+     CORRETTO: il giro precedente aggiungeva anche un margin-left:75px
+     a sinistra, ma e' sbagliato - #gamePanel ha gia' un suo
+     padding-left:25px proprio (file condiviso, apposta per allineare
+     tutto il contenuto della voce, "da dove inizia la tazzina del
+     logo Ko-fi in alto" recita il commento li'), che sommato ai 25px
+     di .stage porta gia' TUTTO cio' che vive dentro #gamePanel a
+     50px dal vero bordo sinistro - esattamente dove sta gia' Discord
+     una volta spostato dentro .brand (topbar padding 75px - i 50px
+     di margin-left negativo di .brand = 25px dal bordo di .stage,
+     +25px di .stage = 50px dal vero bordo). Il mio margin-left:75px
+     si sommava a questo, spostando tutto 75px PIU' in la' del
+     dovuto invece di lasciarlo dov'era gia' giusto. Rimosso: a
+     sinistra non serve nessun margine aggiuntivo.
+     Sul lato destro invece serve davvero (nessun equivalente del
+     padding-left:25 di #gamePanel esiste per la destra): .stage
+     arriva fino al vero bordo della finestra (nessuna tabella reale
+     li'), quindi per fermarsi a 400px dal bordo destro (100px prima
+     di dove comincerebbe la tabella fantasma da 300px, lo stesso
+     punto dov'e' lo switch lingua in topbar) serve un margine di
+     375px (400 - 25px di padding proprio di .stage). ============================================================ */
   #gameHeaderBar, #gameHeader, #universesRow{
-    margin-left:75px; margin-right:375px;
+    margin-right:375px;
   }
-  /* L'avatar (e il titolo) devono toccare il nuovo bordo sinistro
-     della barra (= 100px dalla sidebar, stesso punto di Discord):
+  /* L'avatar (e il titolo) devono toccare il bordo sinistro reale di
+     #gameHeader (gia' correttamente a 50px dalla sidebar, vedi sopra):
      tolto il padding-left:28px ereditato dal file condiviso, che li
      avrebbe spinti altri 28px piu' in la'. padding-right lasciato
      com'era (28px): a destra non c'e' piu' nulla da allineare (blurb
@@ -647,13 +651,13 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="game"] #gameHeader{ padding-left:0; }
 
   /* .timeline-viewport ha di suo width:90%; margin:0 auto (file
-     condiviso) - dentro il nuovo #universesRow gia' allineato a
-     400px/400px, questo lo restringerebbe ulteriormente al 90% di
-     quella zona, centrato ma piu' corto del richiesto. Portato a
-     100% pieno: la riga temporale (.h-timeline, flex:1 al suo
-     interno) arriva cosi' esattamente da 100px oltre la sidebar a
-     100px prima della tabella fantasma, bordo a bordo con la barra
-     sopra di lei. */
+     condiviso) - dentro il nuovo #universesRow, gia' correttamente
+     allineato a sinistra e ora fermato a destra, questo lo
+     restringerebbe ulteriormente al 90% di quella zona, centrato ma
+     piu' corto del richiesto. Portato a 100% pieno: la riga
+     temporale (.h-timeline, flex:1 al suo interno) arriva cosi'
+     esattamente da dove sta Discord a 100px prima della tabella
+     fantasma, bordo a bordo con la barra sopra di lei. */
   body[data-state="game"] .timeline-viewport{ width:100%; margin:0; }
 
   /* --- Barra header vuota, riutilizzata identica in due punti:
@@ -816,10 +820,10 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="game"] .brand-icon,
   body[data-state="title"] .brand-icon{ display:none; }
   body[data-state="game"] .brand,
-  body[data-state="title"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
+  body[data-state="title"] .brand{ width:auto; justify-content:flex-start; gap:15px; }
   body[data-state="game"] .brand .social-links,
   body[data-state="title"] .brand .social-links{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:15px;
   }
   body[data-state="game"] .kofi-link,
   body[data-state="game"] .discord-link,
