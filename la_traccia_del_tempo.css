@@ -125,9 +125,11 @@
   body[data-state="title"] .title-watermark{ right:300px; }
   /* Top costante (non piu' misurato via JS - vedi commento in
      script.js/renderTitlePanel): 15px di topbar + 65px di barra
-     header = 80px, +12.5px di meta' strada tra la riga dell'header e
-     il titolo (.title-name{margin-top:25px}, meta' di 25) = 92.5px. */
-  body[data-state="title"] .title-watermark{ top:92.5px; }
+     header = 80px, +30px di margin-top di .title-name = 110px -
+     la filigrana parte ora esattamente da dove inizia il titolo
+     (non piu' a meta' strada), stesse proporzioni di prima
+     (background-size:cover, invariato). */
+  body[data-state="title"] .title-watermark{ top:110px; }
   /* DEBUG TEMPORANEO - da togliere dopo il controllo. Il tentativo
      precedente rendeva visibile il box ma nascondeva la filigrana
      vera sotto un riempimento pieno - inutile per giudicare
@@ -140,7 +142,7 @@
      visibile attraverso il contorno che la circonda senza coprirla. */
   body[data-state="title"] .title-panel::after{
     content:"";
-    position:fixed; top:92.5px; right:300px; bottom:0; width:42vw;
+    position:fixed; top:110px; right:300px; bottom:0; width:42vw;
     border:3px dashed var(--cyan);
     pointer-events:none;
     z-index:5;
@@ -912,7 +914,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      era tra quelli da correggere e resta invariato).
      ============================================================ */
   body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
-  .title-name{ margin-top:25px; }
+  .title-name{ margin-top:30px; }
   /* Tentativo empirico (a differenza della sinossi, qui non c'e' un
      padding nascosto vero e proprio da smascherare/cancellare -
      JetBrains Mono, usata solo per il titolo, e' un font monospace
