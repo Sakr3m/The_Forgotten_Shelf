@@ -774,12 +774,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     display:none;
   }
 
-  /* --- ESPERIMENTO 2 (blurb nascosta, non eliminata, "per ora"):
-     resta nel DOM (indicizzabile da Google come tutto il resto del
-     sito) ma non si vede. Per tornare indietro basta commentare/
-     rimuovere questa riga. --- */
+  /* --- Blurb della saga: rimessa in vista (era nascosta con
+     "ESPERIMENTO 2" mentre restava da scrivere) ora che ogni saga ha
+     il proprio testo in data.js. Parte dalla stessa altezza del
+     titolo (nessuno spazio verticale in piu' tra i due, margin-top
+     azzerato invece dei 16px di base - il titolo stesso e' gia' a
+     margin-top:0 dalla riga qui sotto), arriva fino al 70% dello
+     spazio disponibile a destra (non piu' 640px fissi del file
+     condiviso). --- */
   body[data-state="game"] .game-header__blurb{
-    display:none;
+    margin-top:0;
+    max-width:70%;
   }
 
   /* --- Titolo della saga a raso con la cima dell'avatar (prima era
