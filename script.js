@@ -783,17 +783,41 @@ function renderGamePanel(){
       return;
     }
 
+    // Larghezza e posizione del contenitore (.timeline-viewport)
+    // calcolate dalla posizione REALE di Ko-fi (sinistra) e dello
+    // switch lingua (destra), misurata a runtime - non piu' un
+    // margine/larghezza CSS indovinati a mano (il giro precedente li
+    // aveva sbagliati due volte, e comunque venivano poi ignorati dal
+    // ricentraggio via translateX qui sotto, applicato DOPO senza mai
+    // cambiare la larghezza: ecco perche' non si vedeva alcun
+    // effetto). Il PRIMO pallino deve toccare esattamente il bordo
+    // sinistro di Ko-fi; il bordo del contenitore (non il pallino,
+    // che per scelta esplicita resta 50px piu' dentro) non deve mai
+    // superare il bordo destro dello switch lingua - la stessa
+    // freccetta destra e' ancorata li' (vedi piu' sotto). Impostata
+    // PRIMA di leggere clientWidth qui sotto, non dopo: i nodi si
+    // distribuiscono sulla larghezza vera, non su quella di un
+    // istante prima.
+    const viewportEl = liveTimeline.closest(".timeline-viewport");
+    if(viewportEl && el.kofiLink && el.langSwitch){
+      viewportEl.style.transform = "none";
+      viewportEl.style.width = "";
+      const viewportRect = viewportEl.getBoundingClientRect();
+      const kofiRect = el.kofiLink.getBoundingClientRect();
+      const langRect = el.langSwitch.getBoundingClientRect();
+      const targetLeft = kofiRect.left - 50;
+      const targetRight = langRect.right;
+      const newWidth = Math.max(0, targetRight - targetLeft);
+      viewportEl.style.width = newWidth.toFixed(2) + "px";
+      viewportEl.style.transform = `translateX(${(targetLeft - viewportRect.left).toFixed(2)}px)`;
+    }
+
     // Vecchia regola dei 42px superata (25/08): la posizione del
-    // contenitore stesso e' ora governata dal CSS (100px dalla
-    // sidebar vera a sinistra, 100px dalla tabella fantasma a
-    // destra, vedi la_traccia_del_tempo.css) - RIGHT_INSET qui
-    // aggiungeva un ulteriore rientro asimmetrico (solo a destra),
-    // pensato per il vecchio layout, che ora romperebbe la simmetria
-    // messa apposta nel CSS. Il contenitore stesso e' gia' largo
-    // esattamente quanto serve (100px in piu' per lato rispetto al
-    // vero limite, per compensare i 50px di rientro naturale del
-    // primo/ultimo pallino - centrato nel proprio nodo da 100px):
-    // nessun inset aggiuntivo da fare qui.
+    // contenitore stesso e' ora governata qui sopra (100px dalla
+    // sidebar vera a sinistra tramite il pallino, mai oltre lo switch
+    // lingua a destra) - RIGHT_INSET qui aggiungeva un ulteriore
+    // rientro asimmetrico (solo a destra), pensato per il vecchio
+    // layout, ridondante ora. Nessun inset aggiuntivo da fare qui.
     const RIGHT_INSET = 0;
     const naturalWidth = liveTimeline.clientWidth;
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
@@ -886,58 +910,33 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
-      // Orizzontale: non un valore indovinato, ma la posizione vera di
-      // Ko-fi (sinistra) e del selettore lingua (destra) misurata a
-      // runtime — "quanto lo switch della lingua" e "quella riga che
-      // divide l'area delle linee temporali dalla tabella delle voci"
-      // sono gia' incluse in queste due misure, essendo posizioni
-      // assolute sullo schermo (position:fixed anche per le freccette).
-      // Il ricentraggio della riga tra questi due punti vale SEMPRE, su
-      // ogni universo — le freccette invece compaiono solo sopra soglia
-      // (isLargeUniverse), sono due cose separate.
-      if(el.kofiLink && el.langSwitch){
+      // Le freccette animate (solo sopra soglia, isLargeUniverse) si
+      // ancorano alle stesse posizioni reali di Ko-fi/switch lingua
+      // gia' usate piu' in alto per il contenitore - qui serve solo
+      // il centraggio verticale sulla riga vera, che cambia da
+      // universo a universo (uno a due righe di titoli sopra/sotto
+      // ha un centro diverso da uno a una riga sola).
+      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight && el.kofiLink && el.langSwitch){
         const kofiRect = el.kofiLink.getBoundingClientRect();
         const langRect = el.langSwitch.getBoundingClientRect();
+        const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
+        el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
+        el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
+        el.dragHintLeft.style.left = kofiRect.left.toFixed(2) + "px";
+        el.dragHintRight.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
 
-        // La linea temporale va centrata esattamente tra questi due punti,
-        // non nel mezzo dello stage: calcolo il punto medio reale (il
-        // centro di ciascuna freccetta, 10px = meta' dei suoi 20px, anche
-        // quando le freccette in se' non compaiono su questo universo) e
-        // sposto .timeline-viewport li' con un translateX, senza toccare
-        // la sua larghezza al 90%.
-        const targetCenter = (kofiRect.left + 10 + langRect.right - 10) / 2;
-        const viewportEl = liveTimeline.closest(".timeline-viewport");
-        if(viewportEl){
-          viewportEl.style.transform = "none"; // azzero prima di misurare, altrimenti la misura include lo spostamento del giro precedente
-          const viewportRect = viewportEl.getBoundingClientRect();
-          const currentCenter = (viewportRect.left + viewportRect.right) / 2;
-          viewportEl.style.transform = `translateX(${(targetCenter - currentCenter).toFixed(2)}px)`;
-        }
-
-        // Le freccette invece restano solo sopra soglia: vanno centrate
-        // verticalmente sulla riga vera, non su un valore fisso - un
-        // universo a due righe di titoli sopra/sotto ha un centro diverso
-        // da uno a una riga sola.
-        if(isLargeUniverse && el.dragHintLeft && el.dragHintRight){
-          const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
-          el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
-          el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
-          el.dragHintLeft.style.left = kofiRect.left.toFixed(2) + "px";
-          el.dragHintRight.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
-
-          // Si spengono da sole quando non c'e' piu' nulla da vedere in
-          // quella direzione (riga gia' tutta a sinistra/destra), invece
-          // di restare sempre accese a prescindere. Controllo subito e
-          // ad ogni scroll/trascinamento della riga.
-          const updateDragHintsState = () => {
-            const atStart = liveTimeline.scrollLeft <= 1;
-            const atEnd = liveTimeline.scrollLeft + liveTimeline.clientWidth >= liveTimeline.scrollWidth - 1;
-            el.dragHintLeft.classList.toggle("is-disabled", atStart);
-            el.dragHintRight.classList.toggle("is-disabled", atEnd);
-          };
-          updateDragHintsState();
-          liveTimeline.addEventListener("scroll", updateDragHintsState);
-        }
+        // Si spengono da sole quando non c'e' piu' nulla da vedere in
+        // quella direzione (riga gia' tutta a sinistra/destra), invece
+        // di restare sempre accese a prescindere. Controllo subito e
+        // ad ogni scroll/trascinamento della riga.
+        const updateDragHintsState = () => {
+          const atStart = liveTimeline.scrollLeft <= 1;
+          const atEnd = liveTimeline.scrollLeft + liveTimeline.clientWidth >= liveTimeline.scrollWidth - 1;
+          el.dragHintLeft.classList.toggle("is-disabled", atStart);
+          el.dragHintRight.classList.toggle("is-disabled", atEnd);
+        };
+        updateDragHintsState();
+        liveTimeline.addEventListener("scroll", updateDragHintsState);
       }
     }
   }
