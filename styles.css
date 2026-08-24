@@ -965,7 +965,17 @@ body[data-state="landing"] .index-link{ display:flex; }
 
 /* Timeline: nodes distributed edge-to-edge, however many there are.
    Generous, symmetric vertical padding so it isn't cramped; horizontal
-   scroll still works for large counts but the scrollbar itself is hidden. */
+   scroll still works for large counts but the scrollbar itself is hidden.
+   Il transform:translateY(50px) che viveva qui (rimosso il 25/08) era
+   uno spostamento fisso verso il basso senza nessun commento a
+   spiegarlo, che si sommava SEMPRE al centraggio gia' corretto fatto
+   da .timeline-viewport (flex:1 + align-items:center) - rompendolo di
+   50px ogni volta, indipendentemente dall'altezza reale del nodo. Con
+   le righe piu' alte di oggi (162px->222px) l'effetto era finalmente
+   visibile a occhio nudo. Se in futuro serve spostare la riga, il
+   punto giusto e' la struttura della griglia (.h-node
+   grid-template-rows) o il centraggio flessibile qui sopra - mai un
+   transform fisso scollegato da entrambi. */
 .h-timeline{
   position:relative;
   flex:1; min-width:0;
@@ -973,7 +983,6 @@ body[data-state="landing"] .index-link{ display:flex; }
   justify-content:space-between;
   overflow-x:visible; overflow-y:visible;
   padding:44px 0;
-  transform:translateY(50px);
 }
 .h-timeline::-webkit-scrollbar{ display:none; }
 .h-timeline::before{
