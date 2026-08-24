@@ -787,6 +787,18 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     max-width:85%;
   }
 
+  /* --- PLACEHOLDER TEMPORANEO (da togliere quando non serve piu'):
+     box di 300px sul lato destro, per vedere come si comporta il
+     blurb con una tabella vera a fianco (come nella vista "title"),
+     invece che a piena larghezza come ora nella vista "game". --- */
+  body[data-state="game"] .stage::after{
+    content:"";
+    position:fixed; top:0; right:0; bottom:0; width:300px;
+    background:var(--bg-soft);
+    border-left:1px solid var(--line);
+    z-index:20;
+  }
+
   /* --- Titolo della saga a raso con la cima dell'avatar (prima era
      centrato in verticale insieme alla blurb, ora sparita): .game-
      header-item e' la riga flex cover+info, allineata dal basso in
