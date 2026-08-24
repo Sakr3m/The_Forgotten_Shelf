@@ -10,8 +10,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Ace Combat", en: "Ace Combat" },
     blurb: {
-      it: "Guerre aeree combattute su Strangereal, una Terra parallela quasi identica alla nostra ma con geografia e storia proprie, segnata dall'impatto di un asteroide negli anni '90 che ha ridisegnato gli equilibri geopolitici per decenni. Non tutti i capitoli della saga condividono la stessa continuità: questa voce copre la cosiddetta \"Vera Strangereal\", il filone realmente connesso da personaggi ed eventi ricorrenti (Zero, 04, 5, 6, 7). Altri titoli come Air Combat, Ace Combat 2 e il particolare Ace Combat 3: Electrosphere esistono sullo stesso pianeta ma restano ai margini, con legami narrativi minimi o assenti verso il resto della saga.",
-      en: "Aerial wars fought over Strangereal, a parallel Earth nearly identical to ours but with its own geography and history, shaped by an asteroid impact in the '90s that redrew geopolitical balances for decades. Not every chapter of the saga shares the same continuity: this entry covers the so-called \"True Strangereal\", the thread genuinely connected by recurring characters and events (Zero, 04, 5, 6, 7). Other titles like Air Combat, Ace Combat 2, and the peculiar Ace Combat 3: Electrosphere exist on the same planet but remain on the margins, with minimal or no narrative ties to the rest of the saga."
+      it: "",
+      en: ""
     },
     palette: ["#1a3a5c", "#c9c9c9", "#8b0000"],
     accentColor: "#1a3a5c",
@@ -115,8 +115,8 @@ const GAMES = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
     ],
     blurb: {
-      it: "Una serie survival horror che intreccia case infestate, occultismo e segreti di famiglia sepolti nel tempo, tra i primi titoli a portare gli orrori cosmici di ispirazione lovecraftiana nei videogiochi. Ambientata perlopiù in ville isolate e manieri decadenti, dove la luce è merce rara. Considerata la capostipite del genere horror videoludico.",
-      en: "A survival horror series weaving together haunted houses, occultism, and family secrets buried in time, among the first titles to bring Lovecraftian cosmic horror into video games. Set within isolated mansions and decaying estates, where light itself is scarce. Regarded as the originator of the genre."
+      it: "",
+      en: ""
     },
     universes: [
       {
@@ -228,8 +228,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Assassin's Creed", en: "Assassin's Creed" },
     blurb: {
-      it: "Una saga storica che attraversa duemilacinquecento anni di civiltà umana, dall'antica Grecia alla Londra vittoriana, attraverso il conflitto segreto e millenario tra gli Assassini (custodi del libero arbitrio) e i Templari (fautori dell'ordine imposto). Ogni protagonista rivive le memorie genetiche di un antenato tramite l'Animus, una macchina capace di leggere il DNA come un archivio storico.",
-      en: "A historical saga spanning two and a half thousand years of human civilisation, from ancient Greece to Victorian London, through the secret, age-old conflict between the Assassins (guardians of free will) and the Templars (champions of imposed order). Each protagonist relives the genetic memories of an ancestor through the Animus, a machine capable of reading DNA as a historical archive."
+      it: "",
+      en: ""
     },
     palette: ["#8b0000", "#d4af37", "#1a1a1a"],
     accentColor: "#8b0000",
@@ -395,8 +395,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Castlevania", en: "Castlevania" },
     blurb: {
-      it: "Una saga action-gotica che racconta la guerra secolare tra il clan Belmont e Dracula, tra castelli maledetti e la leggendaria frusta Vampire Killer, di generazione in generazione. Il conte rinasce ogni cento anni, e un nuovo discendente è sempre chiamato a fermarlo.",
-      en: "A gothic action saga chronicling the centuries-old war between the Belmont clan and Dracula, through cursed castles and the legendary Vampire Killer whip, across generations. The count is reborn every hundred years, and a new descendant is always called to stop him."
+      it: "",
+      en: ""
     },
     palette: ["#6b0d1a", "#4b2e6b", "#d4af37"],
     accentColor: "#6b0d1a",
@@ -610,8 +610,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Una saga action dallo stile sopra le righe, che segue i cacciatori di demoni della stirpe di Sparda tra spade leggendarie e pistole gemelle, tra sangue umano e demoniaco. Dante e il gemello Vergil ne sono il cuore, divisi da scelte opposte ma legati da uno stesso destino che continuano a incrociare.",
-      en: "A flashy, over-the-top action saga following the demon hunters of Sparda's bloodline through legendary swords and twin pistols, between human blood and demon blood. Dante and his twin Vergil are its heart, divided by opposite choices yet bound by a shared fate they keep crossing paths with."
+      it: "",
+      en: ""
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#c4cbd4",
@@ -750,8 +750,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Diablo", en: "Diablo" },
     blurb: {
-      it: "Il Conflitto Eterno tra il Paradiso e gli Inferi Ardenti, combattuto sulla terra di Santuario da eroi mortali contro i Mali Primigeni. Dungeon generati proceduralmente, bottino infinito da raccogliere e un'atmosfera gotica che ha definito il genere action RPG per un'intera generazione.",
-      en: "The Eternal Conflict between the High Heavens and the Burning Hells, fought on the earth of Sanctuary by mortal heroes against the Prime Evils. Procedurally generated dungeons, endless loot to collect, and a gothic atmosphere that defined the action RPG genre for an entire generation."
+      it: "",
+      en: ""
     },
     palette: ["#8b0000", "#1a1a1a", "#c9a227"],
     accentColor: "#8b0000",
@@ -833,8 +833,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Doom", en: "Doom" },
     blurb: {
-      it: "Una saga action di violenza pura, portali infernali e un marine trasformato in una forza cosmica di sterminio contro le legioni dell'Inferno. Nata nei laboratori marziani dell'UAC, ha reso iconiche armi come il BFG9000 e un ritmo di gioco tanto veloce quanto spietato, senza tregua né riparo.",
-      en: "An action saga of pure violence, hellish portals, and a marine turned into a cosmic force of extermination against the legions of Hell. Born in the UAC's Martian facilities, it made weapons like the BFG9000 iconic, alongside a pace as fast as it is merciless, with no rest and nowhere to hide."
+      it: "",
+      en: ""
     },
     palette: ["#46433a", "#991b1b", "#f97316"],
     accentColor: "#f97316",
@@ -873,8 +873,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dragon Quest", en: "Dragon Quest" },
     blurb: {
-      it: "Una saga RPG che segue una stirpe di eroi leggendari, discendenti di Erdrick, chiamati a fermare demoni, draghi e signori oscuri in mondi che rinascono nel tempo. Ogni capitolo racconta un nuovo regno minacciato, con villaggi da salvare, torri da scalare e un male antico sempre in agguato.",
-      en: "An RPG saga following a lineage of legendary heroes, descendants of Erdrick, called to stop demons, dragons, and dark lords in worlds reborn across time. Each chapter tells of a new kingdom under threat, with villages to save, towers to climb, and an ancient evil always lying in wait."
+      it: "",
+      en: ""
     },
     palette: ["#0f9b8e", "#94a3b8", "#d4a017"],
     accentColor: "#0f9b8e",
@@ -970,8 +970,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "The Elder Scrolls", en: "The Elder Scrolls" },
     blurb: {
-      it: "Il continente di Tamriel attraverso le Ere, tra invasioni Daedriche, imperi che sorgono e crollano, e la profezia sempre presente del Nerevarine e del Sangue di Drago. Una delle poche saghe che usa un proprio calendario interno (Era + anno) invece di date reali, con salti temporali di secoli tra un capitolo e l'altro.",
-      en: "The continent of Tamriel across the Eras, through Daedric invasions, empires that rise and fall, and the ever-present prophecy of the Nerevarine and the Dragonborn. One of the few sagas to use its own internal calendar (Era + year) instead of real dates, with centuries-long time skips between chapters."
+      it: "",
+      en: ""
     },
     palette: ["#1a2e1a", "#8b7355", "#c9a227"],
     accentColor: "#8b7355",
@@ -1039,8 +1039,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Fallout", en: "Fallout" },
     blurb: {
-      it: "Un'America retrofuturista devastata dalla Grande Guerra nucleare del 2077, dove estetica anni '50 e tecnologia atomica convivono in un wasteland pieno di mutanti, fazioni in guerra e satira sul sogno americano. Ogni gioco è ambientato decenni dopo il precedente, in una regione diversa degli Stati Uniti.",
-      en: "A retro-futuristic America devastated by the Great War of 2077, where 1950s aesthetics and atomic technology coexist in a wasteland full of mutants, warring factions, and satire of the American dream. Each game is set decades after the last, in a different region of the United States."
+      it: "",
+      en: ""
     },
     palette: ["#4a5c2a", "#c9a227", "#1a1a1a"],
     accentColor: "#4a5c2a",
@@ -1108,8 +1108,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Final Fantasy", en: "Final Fantasy" },
     blurb: {
-      it: "Cristalli, Chocobo, un personaggio di nome Cid in ogni capitolo: la saga JRPG più longeva e influente del medium, che da sempre rinuncia deliberatamente a una continuità condivisa in favore di mondi, cast e sistemi di combattimento sempre nuovi ad ogni numero.",
-      en: "Crystals, Chocobos, a character named Cid in every chapter: the medium's longest-running and most influential JRPG saga, which has always deliberately forgone a shared continuity in favour of new worlds, casts, and combat systems with every number."
+      it: "",
+      en: ""
     },
     palette: ["#1a3a5c", "#c9a227", "#c41e3a"],
     accentColor: "#c9a227",
@@ -1141,8 +1141,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Fire Emblem", en: "Fire Emblem" },
     blurb: {
-      it: "Strategia a turni su griglia con un costo emotivo reale: nella maggior parte dei capitoli, un'unità caduta in battaglia resta morta per sempre. A differenza di Final Fantasy, qui esistono davvero alcuni cluster di continuità confermata tra continenti diversi, anche se la saga nel suo complesso non ha mai avuto una linea temporale unica.",
-      en: "Grid-based tactical strategy with a real emotional cost: in most chapters, a unit fallen in battle stays dead for good. Unlike Final Fantasy, some genuinely confirmed continuity clusters do exist between different continents here, even though the saga as a whole has never had a single timeline."
+      it: "",
+      en: ""
     },
     palette: ["#8b1a1a", "#1a3a5c", "#c9a227"],
     accentColor: "#8b1a1a",
@@ -1177,8 +1177,8 @@ const GAMES = {
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     blurb: {
-      it: "Una saga survival-horror in prima persona, tra parkour su tetti infestati e un virus capace di ridurre la civiltà in rovina, dal focolaio locale al collasso globale. Di giorno si esplora con relativa libertà, di notte le creature diventano più veloci, più aggressive, e ogni rifugio smette di essere sicuro.",
-      en: "A first-person survival horror saga of rooftop parkour and a virus capable of reducing civilization to ruin, from a local outbreak to global collapse. By day there's relative freedom to explore; by night the infected grow faster and more aggressive, and no shelter stays truly safe."
+      it: "",
+      en: ""
     },
     palette: ["#eab308", "#4d7c0f", "#1e3a5f"],
     accentColor: "#4d7c0f",
@@ -1231,8 +1231,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Gears of War", en: "Gears of War" },
     blurb: {
-      it: "La guerra dell'umanità sopravvissuta di Sera contro il Locust Horde, orda sotterranea emersa dal pianeta stesso nel giorno dell'Emergenza, e contro lo Swarm, la loro mutazione evoluta decenni dopo. Motoseghe innestate sui fucili e una scala cromatica quasi interamente sui toni del grigio, per una delle saghe sparatutto più cupe della sua generazione.",
-      en: "Sera's surviving humanity at war against the Locust Horde, a subterranean force that emerged from the planet itself on Emergence Day, and later against the Swarm, their evolved mutation decades on. Chainsaws mounted on rifles and a colour palette almost entirely in shades of grey, for one of the grimmest shooter sagas of its generation."
+      it: "",
+      en: ""
     },
     palette: ["#4a4a4a", "#8b0000", "#1a1a1a"],
     accentColor: "#8b0000",
@@ -1307,8 +1307,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
     blurb: {
-      it: "Una saga open world action-crime che segue criminali, rapinatori e trafficanti attraverso due linee temporali distinte e incompatibili tra loro. Città immaginarie modellate su grandi metropoli reali fanno da sfondo a storie di ambizione, tradimento e scalata criminale, tra alleanze che si rompono e imperi costruiti sul crimine.",
-      en: "An open-world action-crime saga following criminals, robbers, and traffickers across two separate, mutually incompatible timelines. Fictional cities modeled on real-world metropolises serve as the backdrop for stories of ambition, betrayal, and criminal rise, where alliances break and empires are built on crime."
+      it: "",
+      en: ""
     },
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",
@@ -1419,8 +1419,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "God of War", en: "God of War" },
     blurb: {
-      it: "La storia di Kratos, guerriero spartano ingannato dal proprio dio in un massacro che non riesce a perdonarsi, e della sua sanguinosa ascesa attraverso due pantheon mitologici. Prima la vendetta contro gli dei greci, poi, decenni dopo in un'altra vita, un tentativo di redenzione come padre nel mondo norreno.",
-      en: "The story of Kratos, a Spartan warrior tricked by his own god into a massacre he cannot forgive himself for, and his bloody rise through two mythological pantheons. First revenge against the Greek gods, then, decades later in another life, an attempt at redemption as a father in the Norse world."
+      it: "",
+      en: ""
     },
     palette: ["#8b1a1a", "#2c2c2c", "#c9a961"],
     accentColor: "#8b1a1a",
@@ -1516,8 +1516,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Halo", en: "Halo" },
     blurb: {
-      it: "Una saga fantascientifica di guerra spaziale, incentrata sul supersoldato Master Chief John-117 e la sua alleata artificiale Cortana, nella lotta dell'umanità contro il Covenant e le antiche minacce lasciate indietro dai Precursori. Nata come titolo di lancio dell'Xbox originale, ha definito il genere degli sparatutto in prima persona su console per un'intera generazione.",
-      en: "A science fiction saga of interstellar war, centred on the super-soldier Master Chief John-117 and his artificial ally Cortana, in humanity's fight against the Covenant and the ancient threats left behind by the Precursors. Born as a launch title for the original Xbox, it defined the console first-person shooter genre for an entire generation."
+      it: "",
+      en: ""
     },
     palette: ["#1b3a5c", "#4a7fb5", "#c9c9c9"],
     accentColor: "#4a7fb5",
@@ -1630,8 +1630,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Kingdom Hearts", en: "Kingdom Hearts" },
     blurb: {
-      it: "Una saga fantasy che intreccia i mondi Disney a una mitologia originale fatta di Keyblade, cuori, luce e oscurità, seguendo Sora e i suoi amici attraverso una trama sempre più stratificata di viaggi nel tempo, identità sdoppiate e profezie antiche quanto la prima Guerra dei Keyblade.",
-      en: "A fantasy saga weaving Disney worlds into an original mythology of Keyblades, hearts, light and darkness, following Sora and his friends through an increasingly layered plot of time travel, split identities, and prophecies as old as the first Keyblade War."
+      it: "",
+      en: ""
     },
     palette: ["#f4c430", "#3b5bdb", "#e63980"],
     accentColor: "#f4c430",
@@ -1743,8 +1743,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "The Legend of Zelda", en: "The Legend of Zelda" },
     blurb: {
-      it: "Una saga fantasy che racconta il ciclo eterno tra un eroe di nome Link, una principessa di nome Zelda e un male di nome Ganon, attraverso il regno di Hyrule. Nata come mito frammentato più che come cronologia lineare: la stessa Nintendo tratta le storie come leggende tramandate nel tempo, i cui dettagli si sfumano di generazione in generazione. Ufficialmente esiste una linea temporale (pubblicata per la prima volta nel libro Hyrule Historia del 2011), che dopo Ocarina of Time si divide in tre rami paralleli.",
-      en: "A fantasy saga chronicling the eternal cycle between a hero named Link, a princess named Zelda, and an evil named Ganon, across the kingdom of Hyrule. Born as fragmented myth more than linear chronology: Nintendo itself treats the stories as legends passed down over time, their details blurring from generation to generation. An official timeline does exist (first published in the 2011 book Hyrule Historia), which after Ocarina of Time splits into three parallel branches."
+      it: "",
+      en: ""
     },
     palette: ["#4a4a4a", "#7a7a7a", "#a8a8a8"],
     accentColor: "#7a7a7a",
@@ -1958,8 +1958,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Legacy of Kain", en: "Legacy of Kain" },
     blurb: {
-      it: "Una saga action-avventura gotica che segue Kain e Raziel attraverso i secoli di Nosgoth, tra vampiri, viaggi nel tempo e un ciclo di manipolazioni divine che intreccia libero arbitrio, destino e la lenta corruzione di un mondo retto da Pilastri sempre più fragili.",
-      en: "A gothic action-adventure saga following Kain and Raziel across the centuries of Nosgoth, amid vampires, time travel, and a cycle of divine manipulation that weaves together free will, destiny, and the slow corruption of a world held up by increasingly fragile Pillars."
+      it: "",
+      en: ""
     },
     palette: ["#8b1a2b", "#2e2a1f", "#3ec6c6"],
     accentColor: "#3ec6c6",
@@ -2051,8 +2051,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Lost Planet", en: "Lost Planet" },
     blurb: {
-      it: "Una saga action-avventura ambientata sul pianeta ghiacciato E.D.N. III, tra una corporazione senza scrupoli, creature aliene territoriali e coloni costretti a sopravvivere in condizioni estreme. Mech da combattimento ed energia termica sono al centro di un conflitto che attraversa generazioni, mentre il pianeta stesso cambia lentamente pelle.",
-      en: "An action-adventure saga set on the frozen planet E.D.N. III, caught between a ruthless corporation, territorial alien creatures, and colonists forced to survive in extreme conditions. Combat mechs and thermal energy sit at the center of a conflict spanning generations, as the planet itself slowly changes shape."
+      it: "",
+      en: ""
     },
     palette: ["#b3e5fc", "#f97316", "#1e3a5f"],
     accentColor: "#b3e5fc",
@@ -2100,8 +2100,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Mass Effect", en: "Mass Effect" },
     blurb: {
-      it: "Un'opera spaziale che segue il Comandante Shepard nella lotta contro i Razziatori, macchine senzienti che sterminano ogni civiltà avanzata in cicli di estinzione lunghi decine di migliaia di anni. Una trilogia dalle scelte che si ripercuotono da un capitolo all'altro, seguita da un capitolo a parte ambientato in un'altra galassia.",
-      en: "A space opera following Commander Shepard's fight against the Reapers, sentient machines that exterminate every advanced civilisation in extinction cycles spanning tens of thousands of years. A trilogy whose choices carry over from one chapter to the next, followed by a separate chapter set in another galaxy."
+      it: "",
+      en: ""
     },
     palette: ["#1a2744", "#4a90d9", "#e8532a"],
     accentColor: "#4a90d9",
@@ -2162,8 +2162,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Mortal Kombat", en: "Mortal Kombat" },
     blurb: {
-      it: "Un torneo di combattimento tra regni (Earthrealm, Outworld, Netherrealm e altri) che decide il destino dell'universo, tra fatality sanguinose e un cast di guerrieri leggendari. Caso unico in questo archivio: la saga ha riscritto la propria linea temporale due volte, e lo ha fatto come evento della trama stessa, non come semplice reboot di marketing.",
-      en: "A tournament between realms (Earthrealm, Outworld, Netherrealm, and others) that decides the fate of the universe, through bloody fatalities and a cast of legendary warriors. A unique case in this archive: the saga has rewritten its own timeline twice, and did so as an event within the story itself, not as a simple marketing reboot."
+      it: "",
+      en: ""
     },
     palette: ["#8b0000", "#1a1a1a", "#d4af37"],
     accentColor: "#8b0000",
@@ -2280,8 +2280,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
     blurb: {
-      it: "Una saga stealth-action che segue le vite di Big Boss e dei suoi cloni attraverso decenni di guerra fredda, tradimenti e cospirazioni militari, tra Metal Gear (carri armati nucleari bipedi), organizzazioni segrete e la lotta per il controllo dell'informazione globale.",
-      en: "A stealth-action saga following the lives of Big Boss and his clones across decades of Cold War conflict, betrayal, and military conspiracy, amid Metal Gears (bipedal nuclear tanks), secret organizations, and the fight for control over the flow of global information."
+      it: "",
+      en: ""
     },
     palette: ["#4b5320", "#7c8b96", "#ff6a00"],
     accentColor: "#7c8b96",
@@ -2386,8 +2386,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Prince of Persia", en: "Prince of Persia" },
     blurb: {
-      it: "Acrobazia, trappole letali e manipolazione del tempo in una Persia fantastica. Come Tomb Raider, non ha una linea temporale unica: tre continuità separate, ognuna nata azzerando la precedente, più un capitolo recentissimo che non si sforza nemmeno di dichiarare a quale delle tre appartenga.",
-      en: "Acrobatics, lethal traps, and time manipulation in a fantastical Persia. Like Tomb Raider, it has no single timeline: three separate continuities, each born by resetting the last, plus a very recent chapter that doesn't even bother declaring which of the three it belongs to."
+      it: "",
+      en: ""
     },
     palette: ["#2c1810", "#c9a227", "#4a1a1a"],
     accentColor: "#c9a227",
@@ -2503,8 +2503,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Pokémon", en: "Pokémon" },
     blurb: {
-      it: "Una saga di avventura e collezionismo ambientata in un mondo popolato da creature catturabili e addestrabili, i Pokémon. Ogni generazione introduce una nuova regione, nuovi protagonisti e una nuova minaccia da fermare, in un formato che si ripete da quasi trent'anni: otto medaglie, la Lega Pokémon, un'organizzazione criminale di turno.",
-      en: "An adventure and collecting saga set in a world populated by capturable, trainable creatures, the Pokémon. Each generation introduces a new region, new protagonists, and a new threat to stop, in a format that has repeated itself for nearly thirty years: eight badges, the Pokémon League, a criminal organisation of the moment."
+      it: "",
+      en: ""
     },
     palette: ["#2a2a2a", "#ffcb05", "#3b4cca"],
     accentColor: "#ffcb05",
@@ -2536,8 +2536,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Resident Evil", en: "Resident Evil" },
     blurb: {
-      it: "Una saga survival-horror che segue decenni di cospirazioni biotecnologiche, dalla scoperta di un virus capace di riscrivere il DNA fino alle sue infinite mutazioni, tra corporazioni senza scrupoli, tradimenti a catena e sopravvissuti che imparano, capitolo dopo capitolo, quanto poco ci si possa fidare di chi dice di volerli proteggere.",
-      en: "A survival-horror saga following decades of biotechnological conspiracy, from the discovery of a virus capable of rewriting DNA to its endless mutations, amid ruthless corporations, chains of betrayal, and survivors who learn, chapter after chapter, just how little they can trust those who claim to want to protect them."
+      it: "",
+      en: ""
     },
     palette: ["#c81a1a", "#6b8e23", "#f5f5f5"],
     accentColor: "#c81a1a",
@@ -2769,8 +2769,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Silent Hill", en: "Silent Hill" },
     blurb: {
-      it: "Una saga horror psicologico in cui la cittadina di Silent Hill materializza i sensi di colpa, i traumi e i peccati di chiunque vi entri, sotto forma di mostri, nebbia e realtà distorte. Nel corso dei decenni ha intrecciato videogiochi, romanzi, fumetti e manga, con livelli di canonicità spesso incerti o dibattuti.",
-      en: "A psychological horror saga in which the town of Silent Hill materialises the guilt, trauma, and sins of anyone who enters it, in the form of monsters, fog, and distorted realities. Over the decades it has woven together videogames, novels, comics, and manga, with levels of canonicity often uncertain or debated."
+      it: "",
+      en: ""
     },
     palette: ["#c98fa3", "#8a8f94", "#7a2e2e"],
     accentColor: "#8a8f94",
@@ -2902,8 +2902,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Tomb Raider", en: "Tomb Raider" },
     blurb: {
-      it: "Le avventure dell'archeologa Lara Croft tra tombe perdute, civiltà scomparse e artefatti soprannaturali. A differenza delle altre saghe di questo archivio, Tomb Raider non ha una linea temporale unica: nella sua storia ha avuto tre continuità separate e non collegate tra loro, ognuna nata azzerando la precedente invece di proseguirla. Solo di recente (2025-2026) Crystal Dynamics ha dichiarato l'intenzione di unificarle con il remake Legacy of Atlantis, non ancora uscito al momento di questa scheda.",
-      en: "The adventures of archaeologist Lara Croft among lost tombs, vanished civilisations, and supernatural artefacts. Unlike the other franchises in this archive, Tomb Raider does not have a single timeline: over its history it has had three separate, unconnected continuities, each born by resetting the previous one rather than continuing it. Only recently (2025-2026) has Crystal Dynamics announced the intention to unify them with the remake Legacy of Atlantis, not yet released at the time of writing."
+      it: "",
+      en: ""
     },
     palette: ["#5c1a1a", "#c9a227", "#2e2e2e"],
     accentColor: "#c9a227",
@@ -3039,8 +3039,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Warcraft", en: "Warcraft" },
     blurb: {
-      it: "Il mondo di Azeroth, dalla guerra tra Alleanza e Orda fino a minacce cosmiche capaci di minacciare la realtà stessa. La saga più vasta di questo archivio: tre giochi di strategia in tempo reale che hanno gettato le fondamenta, seguiti da vent'anni ininterrotti di espansioni per il gioco di ruolo online World of Warcraft, ognuna un capitolo narrativo a sé. Qui coperte solo le espansioni principali, non i dettagli delle singole patch o raid.",
-      en: "The world of Azeroth, from the war between the Alliance and the Horde to cosmic threats capable of endangering reality itself. The largest saga in this archive: three real-time strategy games that laid the groundwork, followed by twenty uninterrupted years of expansions for the MMORPG World of Warcraft, each its own narrative chapter. Only the main expansions are covered here, not individual patches or raids."
+      it: "",
+      en: ""
     },
     palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
     accentColor: "#c9a227",
@@ -3185,8 +3185,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
     blurb: {
-      it: "L'universo condiviso di Remedy Entertainment, costruito attorno al concetto di Altered World Event: fenomeni paranormali indagati e insabbiati da un'agenzia governativa segreta, che intrecciano scrittori intrappolati in dimensioni parallele, edifici che sfidano la geografia ed entità capaci di riscrivere la realtà attraverso la creatività umana.",
-      en: "Remedy Entertainment's shared universe, built around the concept of the Altered World Event: paranormal phenomena investigated and covered up by a secret government agency, weaving together writers trapped in parallel dimensions, buildings that defy geography, and entities capable of rewriting reality through human creativity."
+      it: "",
+      en: ""
     },
     palette: ["#f0a202", "#1b2a4a", "#c0293b"],
     accentColor: "#f0a202",
@@ -3263,8 +3263,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Wolfenstein", en: "Wolfenstein" },
     blurb: {
-      it: "Una saga action-avventura che racconta la lotta di B.J. Blazkowicz e della sua famiglia contro il regime nazista, nella continuità del reboot moderno firmato MachineGames: dall'evasione da una fortezza tedesca nel 1946 fino alla resistenza delle sue figlie gemelle a Parigi, tra tecnologia bellica avanzata e un'occupazione che si protrae ben oltre la fine della Seconda Guerra Mondiale.",
-      en: "An action-adventure saga chronicling B.J. Blazkowicz and his family's fight against the Nazi regime, set within the continuity of the modern MachineGames reboot: from an escape out of a German fortress in 1946 to his twin daughters' resistance in Paris, amid advanced war technology and an occupation that drags on well past the end of the Second World War."
+      it: "",
+      en: ""
     },
     palette: ["#a3161a", "#355e3b", "#5c6773"],
     accentColor: "#355e3b",
@@ -3320,8 +3320,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Yakuza: Like a Dragon", en: "Yakuza: Like a Dragon" },
     blurb: {
-      it: "Il dramma criminale di Kazuma Kiryu, uomo d'onore in un mondo di yakuza che non gli somiglia più, ambientato quasi interamente nel quartiere fittizio di Kamurocho. Melodramma, minigiochi assurdi e combattimenti da strada convivono nella stessa storia, che dopo otto capitoli passa il testimone a un nuovo protagonista, Ichiban Kasuga, senza mai davvero lasciare andare il primo.",
-      en: "The crime drama of Kazuma Kiryu, a man of honour in a yakuza world that no longer resembles him, set almost entirely in the fictional district of Kamurocho. Melodrama, absurd minigames, and street brawls coexist in the same story, which after eight chapters hands the torch to a new protagonist, Ichiban Kasuga, without ever quite letting go of the first."
+      it: "",
+      en: ""
     },
     palette: ["#1a1a2e", "#c9a227", "#8b1a1a"],
     accentColor: "#c9a227",
