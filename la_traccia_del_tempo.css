@@ -145,6 +145,15 @@
     pointer-events:none;
     z-index:5;
   }
+  /* Trovato: background-size:contain (regola condivisa in styles.css)
+     fa "stare dentro" l'immagine al box mantenendo le proporzioni
+     originali, lasciando spazio vuoto sopra o ai lati quando le
+     proporzioni dell'immagine non coincidono con quelle del box (qui
+     molto alto e stretto) - da qui il vuoto visto nello screenshot.
+     cover invece riempie tutto il box, ritagliando l'eccesso invece
+     di lasciare vuoti - qui, non nel file condiviso, per non
+     cambiare le altre due pagine mai discusse in questo contesto. */
+  body[data-state="title"] .title-watermark{ background-size:cover; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
   /* --- Barra di luminosita': struttura a colonna come Storie Senza
