@@ -617,6 +617,45 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .game-header-item:not([hidden]){ align-items:flex-start; }
   body[data-state="game"] .game-header__title{ margin-top:0; }
 
+  /* ============================================================
+     "Come se ci fosse la tabella a destra, come nella home" (25/08):
+     stesso principio gia' applicato su .stage-topbar in landing/game
+     (padding-right:375px = 75 di base + 300 fantasma) esteso qui a
+     tutto cio' che vive dentro #gamePanel. Riferimento: .stage parte
+     gia' subito dopo la sidebar VERA (300px) e ha 25px di padding
+     proprio, quindi il suo bordo di contenuto e' a 325px dal vero
+     bordo sinistro; per arrivare a 400px (100px oltre la sidebar,
+     lo stesso punto dov'e' Discord in topbar) serve un margine
+     aggiuntivo di 75px. Sul lato destro .stage arriva fino al vero
+     bordo della finestra (nessuna tabella reale li'), quindi per
+     fermarsi a 400px dal bordo destro (100px prima di dove
+     comincerebbe la tabella fantasma da 300px) serve un margine di
+     375px (400 - 25px di padding proprio di .stage). Stessi 75px/
+     375px su ogni riga: barra sottile, barra avatar, blocco
+     universo+linea - cosi' tutto si allinea alla stessa colonna
+     verticale, esattamente come Discord/switch lingua in alto.
+     ============================================================ */
+  #gameHeaderBar, #gameHeader, #universesRow{
+    margin-left:75px; margin-right:375px;
+  }
+  /* L'avatar (e il titolo) devono toccare il nuovo bordo sinistro
+     della barra (= 100px dalla sidebar, stesso punto di Discord):
+     tolto il padding-left:28px ereditato dal file condiviso, che li
+     avrebbe spinti altri 28px piu' in la'. padding-right lasciato
+     com'era (28px): a destra non c'e' piu' nulla da allineare (blurb
+     nascosta), non ha effetto visibile. */
+  body[data-state="game"] #gameHeader{ padding-left:0; }
+
+  /* .timeline-viewport ha di suo width:90%; margin:0 auto (file
+     condiviso) - dentro il nuovo #universesRow gia' allineato a
+     400px/400px, questo lo restringerebbe ulteriormente al 90% di
+     quella zona, centrato ma piu' corto del richiesto. Portato a
+     100% pieno: la riga temporale (.h-timeline, flex:1 al suo
+     interno) arriva cosi' esattamente da 100px oltre la sidebar a
+     100px prima della tabella fantasma, bordo a bordo con la barra
+     sopra di lei. */
+  body[data-state="game"] .timeline-viewport{ width:100%; margin:0; }
+
   /* --- Barra header vuota, riutilizzata identica in due punti:
      sopra a #gameHeader nella vista "game" (saga: Doom, Assassin's
      Creed, ecc. - anche quelle senza vera linea temporale) e da sola
