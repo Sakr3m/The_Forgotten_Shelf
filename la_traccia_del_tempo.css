@@ -878,7 +878,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (il tag) ora segue .title-name direttamente - stesso margine di
      prima (20px), nessuna nuova distanza specificata per questo
      salto. */
-  .title-meta{ margin-top:20px; }
+  .title-meta{ margin-top:15px; }
   .title-date{ margin-top:25px; margin-bottom:0; }
   .title-date--release + .title-date--story{ margin-top:5px; }
   .title-synopsis{ margin-top:30px; }
