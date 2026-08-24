@@ -886,7 +886,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (15px, li' dichiarato a mano - qui prima mancava del tutto,
      ereditava quello generico del corpo pagina). */
   .title-tag{ padding:5px 15px; line-height:15px; }
-  .title-date{ margin-top:45px; margin-bottom:0; }
+  .title-date{ margin-top:50px; margin-bottom:0; }
   .title-date--release + .title-date--story{ margin-top:5px; }
   .title-synopsis{ margin-top:30px; }
   /* La regola condivisa .title-date + .title-synopsis{margin-top:0}
