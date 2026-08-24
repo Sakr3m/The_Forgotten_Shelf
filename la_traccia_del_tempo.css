@@ -129,21 +129,21 @@
      il titolo (.title-name{margin-top:25px}, meta' di 25) = 92.5px. */
   body[data-state="title"] .title-watermark{ top:92.5px; }
   /* DEBUG TEMPORANEO - da togliere dopo il controllo. Il tentativo
-     precedente (solo outline) era praticamente invisibile per due
-     motivi che si sommavano: .title-watermark ha opacity:.16
-     sull'INTERO elemento (quindi anche sul mio contorno, ridotto
-     anche lui al 16%) e una maschera che sfuma a trasparente tutto
-     il lato sinistro (quindi anche il contorno li' spariva del
-     tutto) - lo stesso motivo per cui la filigrana vera e' cosi'
-     tenue. Stavolta forzo opacity:1 e tolgo la maschera, oltre a un
-     riempimento pieno (non solo il contorno) cosi' il box e'
-     davvero impossibile non vederlo. */
-  body[data-state="title"] .title-watermark{
-    opacity:1 !important;
-    -webkit-mask-image:none !important;
-    mask-image:none !important;
-    background:rgba(0,255,255,.35) !important;
-    outline:3px solid var(--cyan);
+     precedente rendeva visibile il box ma nascondeva la filigrana
+     vera sotto un riempimento pieno - inutile per giudicare
+     com'e' fatta davvero. Qui invece un elemento SEPARATO (un
+     ::after su .title-panel, non su .title-watermark stesso):
+     opacity e maschera di .title-watermark non lo toccano perche'
+     non e' un suo discendente, quindi il contorno resta sempre a
+     piena intensita' - la filigrana sotto invece resta esattamente
+     come sarebbe per davvero (stessa opacita' e maschera vere),
+     visibile attraverso il contorno che la circonda senza coprirla. */
+  body[data-state="title"] .title-panel::after{
+    content:"";
+    position:fixed; top:92.5px; right:300px; bottom:0; width:42vw;
+    border:3px dashed var(--cyan);
+    pointer-events:none;
+    z-index:5;
   }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
