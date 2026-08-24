@@ -100,7 +100,7 @@
      flex), i quadratini escono con position:absolute; left:100% -
      fuori dal box, centrati verticalmente tramite transform. */
   .watermark-brightness-line{
-    left:400px; right:400px; top:81px;
+    left:400px; right:400px; top:80px;
     align-items:flex-start; /* la barra vera (.track) era centrata
       verticalmente dentro il box di 20px (align-items:center, file
       condiviso) - quindi anche con top preciso appariva qualche px
