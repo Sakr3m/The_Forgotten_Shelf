@@ -1037,7 +1037,6 @@ function updateTitlePanelText(entryId){
   const typeLabel = state.lang === "it" ? entry.type : (entry.typeEn || entry.type);
   rec.panel.innerHTML = `
     <h2 class="title-name">${tf(entry.title)}</h2>
-    <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
     <div class="title-meta"><span class="title-tag">${typeLabel}</span></div>
     ${releaseLabel ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseLabel}</p>` : ""}
     ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}

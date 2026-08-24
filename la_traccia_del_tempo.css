@@ -863,7 +863,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      ============================================================ */
   body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
   .title-name{ margin-top:25px; }
-  .title-universe-of{ margin-top:10px; }
+  /* .title-universe-of rimossa dal markup (script.js) su richiesta:
+     ridondante, il nome della saga si vede gia' dalla tabella a
+     sinistra e quello dell'universo dalla tabella a destra. .title-meta
+     (il tag) ora segue .title-name direttamente - stesso margine di
+     prima (20px), nessuna nuova distanza specificata per questo
+     salto. */
   .title-meta{ margin-top:20px; }
   .title-date{ margin-top:25px; margin-bottom:0; }
   .title-date--release + .title-date--story{ margin-top:5px; }
@@ -880,6 +885,18 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .title-date + .title-synopsis{ margin-top:30px; }
   .title-nav{ margin-top:30px; }
 
+  /* --- Il testo della sinossi partiva visibilmente piu' a destra
+     degli altri elementi: la causa vera non era il font-weight (quello
+     resta, e' normale), ma .text-highlight (lo sfondo morbido dietro
+     al testo), che ha padding:0 .3em anche a SINISTRA - l'unico
+     elemento di tutto il blocco ad avere un padding proprio che
+     sposta il testo visibile lontano dal bordo del suo box. Ricentrato
+     con un margine negativo della stessa entita' sul paragrafo che lo
+     contiene: il testo torna a toccare il bordo sinistro come tutto
+     il resto, restando pero' dentro il box (il padding via' a destra
+     di .text-highlight non tocca comunque il limite del 70%). --- */
+  .title-synopsis{ margin-left:-0.3em; }
+
   /* ============================================================
    DEBUG TEMPORANEO (rimesso su richiesta - da togliere quando non
    serve piu'): contorno tratteggiato ciano su ogni box della zona
@@ -888,7 +905,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   #titleContent,
   .title-content-item,
   .title-name,
-  .title-universe-of,
   .title-meta,
   .title-tag,
   .title-date,
