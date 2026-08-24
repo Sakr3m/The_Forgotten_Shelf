@@ -138,49 +138,37 @@
      di lasciare vuoti - qui, non nel file condiviso, per non
      cambiare le altre due pagine mai discusse in questo contesto. */
   body[data-state="title"] .title-watermark{ background-size:cover; }
-  body[data-state="title"] .watermark-brightness-line{ right:300px; }
-  /* La barra resta a 0px dalla riga dell'header (align-items:
-     flex-start, non piu' center): il .track si appoggia al bordo
-     alto del box invece di restarci centrato in mezzo. I quadratini
-     (position:absolute, escono a destra oltre il bordo del box)
-     seguono la barra alla sua NUOVA posizione - non il contrario:
-     top:0 invece di top:50%+transform, cosi' restano allineati a lei
-     dove lei e' adesso, non dove stava prima. */
-  body[data-state="title"] .watermark-brightness-line{ align-items:flex-start; }
-
-  /* --- La struttura vera (Discord -> switch lingua e' la barra
-     stessa, i 3 quadratini stanno OLTRE, alla sua destra - non
-     dentro la stessa larghezza a spartirsela con lei, come avevo
-     fatto nei due tentativi precedenti, che per questo la
-     restringevano). .watermark-brightness-line (position:fixed,
-     left/right impostati in script.js sulla posizione reale di
-     Discord/switch lingua) resta la barra vera e propria: .track
-     riempie tutta quella larghezza (100%, non piu' condivisa via
-     flex con i quadratini). I quadratini escono dal suo bordo destro
-     con position:absolute; left:100% - fuori dal box, nello spazio
-     tra lo switch lingua e la tabella, allineati alla barra (top:0,
-     non piu' centrati verticalmente nel vecchio box). --- */
-  /* height:25px, la stessa dei quadratini (.watermark-brightness-
-     line__preset, ora 25px anche loro): senza un'altezza esplicita
-     il track eredita quella "nativa" del browser per l'input range
-     al suo interno (spesso diversa da quella dei quadratini, e non
-     del tutto prevedibile) - un semplice top:0 su entrambi non basta
-     ad allinearli se le loro altezze non coincidono. Con la stessa
-     altezza, e align-items:center gia' proprio del track (per
-     centrare lo slider sottile al suo interno), i due centri
-     combaciano automaticamente. */
-  .watermark-brightness-line__track{ width:100%; max-width:none; height:25px; }
-  /* Il tentativo "top:-45px" (spingerli su, nella zona della barra
-     header, calcolando a mano un'altezza di 15px per la topbar) e'
-     finito sopra al vero pulsante EN/IT, sovrapposto - quella stima
-     era sbagliata, la topbar vera e' piu' alta di quanto pensassi.
-     Riportati ad allinearsi alla barra stessa (top:0, il punto sicuro
-     di prima), niente altre supposizioni sull'altezza della topbar
-     finche' non ho un riferimento certo. --- */
-  .watermark-brightness-line__presets{
-    position:absolute; left:100%; top:0;
-    margin-left:10px;
+  /* DEBUG TEMPORANEO - da togliere quando non serve piu': elemento
+     SEPARATO (::after su .title-panel, non su .title-watermark
+     stesso), cosi' opacity/maschera della filigrana vera non lo
+     toccano e il contorno resta sempre a piena intensita'. */
+  body[data-state="title"] .title-panel::after{
+    content:"";
+    position:fixed; top:105px; right:300px; bottom:0; width:42vw;
+    border:3px dashed var(--cyan);
+    pointer-events:none;
+    z-index:5;
   }
+  body[data-state="title"] .watermark-brightness-line{ right:300px; }
+  /* --- PROVA su richiesta esplicita: niente piu' calcoli su chi
+     sovrasta chi. Barra e quadratini di nuovo un blocco unico
+     (align-items:center, come all'origine - non piu' flex-start),
+     entrambi su un livello proprio molto alto (z-index:9999) cosi'
+     stanno sempre sopra a tutto il resto della pagina, qualunque
+     cosa ci sia sotto - niente piu' preoccupazioni di sovrapposizioni
+     con altri elementi. Barra a 0px dalla riga dell'header (top:80px
+     in script.js), estesa verso il basso. Quadratini di nuovo
+     centrati sulla barra ma alla sua destra (non piu' sotto):
+     tornano dentro al flusso normale (non piu' position:absolute),
+     .track riprende la sua vecchia larghezza limitata (max-width:900px
+     del file condiviso) per lasciare spazio ai quadratini nella
+     stessa riga, invece di occupare il 100% da solo. --- */
+  body[data-state="title"] .watermark-brightness-line{
+    align-items:center;
+    z-index:9999;
+  }
+  .watermark-brightness-line__track{ width:auto; flex:1; order:1; }
+  .watermark-brightness-line__presets{ margin-left:10px; order:2; }
 
   /* --- Nome dell'universo trattato davvero come un titolino (come
      "Libreria Timeline" sulla sidebar): resta fermo, a scorrere
