@@ -47,6 +47,45 @@
   .sidebar .game-list{
     flex:1 1 auto; min-height:0;
     overflow-y:auto;
+    scrollbar-width:thin;
+    scrollbar-color:transparent transparent;
+    margin-right:0;
+  }
+
+  /* --- Scrollbar della lista: stesso aspetto sottile di Storie
+     Senza Cornice/Il Filo Nascosto (--line a riposo, --cyan in
+     hover) al posto di quella grigia di sistema - prima mancava del
+     tutto qui, restava quella grezza del browser. Trasparente a
+     riposo, visibile solo passando il mouse sul pannello, nessuna
+     transizione aggiunta (stesso comportamento immediato delle
+     pagine gemelle). --- */
+  #sidebar:hover .game-list{
+    scrollbar-color:var(--line) transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar{ width:5px; }
+  #sidebar .game-list::-webkit-scrollbar-track{ background:transparent; }
+  #sidebar .game-list::-webkit-scrollbar-thumb{
+    background:transparent;
+    border-radius:999px;
+  }
+  #sidebar:hover .game-list::-webkit-scrollbar-thumb{ background:var(--line); }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+}
+
+/* --- Pulsanti della topbar "come se ci fosse una seconda tabella":
+   su Storie Senza Cornice/Il Filo Nascosto la vera tabella destra
+   (300px) restringe .stage da sola, spingendo i pulsanti verso il
+   centro. Qui, nelle viste "landing"/"game", non esiste una vera
+   tabella a destra (a differenza della vista "title", dove la vera
+   timeline-rail da 300px fa gia' questo lavoro) - quindi si aumenta
+   apposta il padding destro della topbar della stessa quota
+   (75px di base + 300px fantasma = 375px), cosi' i pulsanti si
+   fermano alla stessa distanza dal bordo che avrebbero con una
+   seconda tabella vera. --- */
+@media (min-width:901px){
+  body[data-state="landing"] .stage-topbar,
+  body[data-state="game"] .stage-topbar{
+    padding-right:375px;
   }
 }
 
