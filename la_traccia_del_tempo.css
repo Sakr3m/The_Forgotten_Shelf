@@ -125,10 +125,10 @@
   body[data-state="title"] .title-watermark{ right:300px; }
   /* Top costante (non piu' misurato via JS - vedi commento in
      script.js/renderTitlePanel): 15px di topbar + 65px di barra
-     header = 80px, +25px di margin-top di .title-name = 105px -
+     header = 80px, +50px di margin-top di .title-name = 130px -
      la filigrana parte da dove inizia il titolo, stesse proporzioni
      di prima (background-size:cover, invariato). */
-  body[data-state="title"] .title-watermark{ top:105px; }
+  body[data-state="title"] .title-watermark{ top:130px; }
   /* Trovato: background-size:contain (regola condivisa in styles.css)
      fa "stare dentro" l'immagine al box mantenendo le proporzioni
      originali, lasciando spazio vuoto sopra o ai lati quando le
@@ -144,31 +144,28 @@
      toccano e il contorno resta sempre a piena intensita'. */
   body[data-state="title"] .title-panel::after{
     content:"";
-    position:fixed; top:105px; right:300px; bottom:0; width:42vw;
+    position:fixed; top:130px; right:300px; bottom:0; width:42vw;
     border:3px dashed var(--cyan);
     pointer-events:none;
     z-index:5;
   }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
-  /* --- PROVA su richiesta esplicita: niente piu' calcoli su chi
-     sovrasta chi. Barra e quadratini di nuovo un blocco unico
-     (align-items:center, come all'origine - non piu' flex-start),
-     entrambi su un livello proprio molto alto (z-index:9999) cosi'
-     stanno sempre sopra a tutto il resto della pagina, qualunque
-     cosa ci sia sotto - niente piu' preoccupazioni di sovrapposizioni
-     con altri elementi. Barra a 0px dalla riga dell'header (top:80px
-     in script.js), estesa verso il basso. Quadratini di nuovo
-     centrati sulla barra ma alla sua destra (non piu' sotto):
-     tornano dentro al flusso normale (non piu' position:absolute),
-     .track riprende la sua vecchia larghezza limitata (max-width:900px
-     del file condiviso) per lasciare spazio ai quadratini nella
-     stessa riga, invece di occupare il 100% da solo. --- */
+  /* --- Definitivo (su richiesta esplicita, dopo vari tentativi):
+     i quadratini non possono superare la riga dell'header, punto.
+     Struttura a colonna: barra sopra (a 0px dalla riga, estesa verso
+     il basso - top:80px in script.js), quadratini SOTTO di lei,
+     allineati a destra (alla fine della barra, cioe' allo switch
+     lingua). z-index alto mantenuto per sicurezza, non fa male. --- */
   body[data-state="title"] .watermark-brightness-line{
-    align-items:center;
+    flex-direction:column; align-items:stretch;
+    height:auto;
     z-index:9999;
   }
-  .watermark-brightness-line__track{ width:auto; flex:1; order:1; }
-  .watermark-brightness-line__presets{ margin-left:10px; order:2; }
+  .watermark-brightness-line__track{ width:100%; max-width:none; order:1; }
+  .watermark-brightness-line__presets{
+    order:2; width:100%; justify-content:flex-end;
+    margin-top:5px; margin-left:0;
+  }
 
   /* --- Nome dell'universo trattato davvero come un titolino (come
      "Libreria Timeline" sulla sidebar): resta fermo, a scorrere
@@ -907,7 +904,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      era tra quelli da correggere e resta invariato).
      ============================================================ */
   body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
-  .title-name{ margin-top:25px; }
+  .title-name{ margin-top:50px; }
   /* Tentativo empirico (a differenza della sinossi, qui non c'e' un
      padding nascosto vero e proprio da smascherare/cancellare -
      JetBrains Mono, usata solo per il titolo, e' un font monospace

@@ -91,23 +91,21 @@
      va spostata a 300px insieme a loro, solo su questa pagina.
      top:80px = a filo della riga dell'header (era 237px nella
      regola condivisa, pensata per il vecchio banner intero), estesa
-     verso il basso. PROVA su richiesta esplicita: niente piu' calcoli
-     su chi sovrasta chi - barra e quadratini di nuovo un blocco unico
-     (align-items:center, come all'origine), su un livello proprio
-     molto alto (z-index:9999) cosi' stanno sempre sopra a tutto il
-     resto della pagina. Quadratini di nuovo centrati sulla barra ma
-     alla sua destra (non piu' sotto, non piu' fuori dal box):
-     tornano nel flusso normale, .track riprende flex:1 (non piu'
-     100%) per lasciare spazio ai quadratini nella stessa riga -
-     order:1/2 perche' nell'HTML i quadratini vengono PRIMA della
-     barra, non dopo (altrimenti finirebbero a sinistra). */
+     verso il basso. Definitivo (su richiesta esplicita, dopo vari
+     tentativi): i quadratini non possono superare la riga
+     dell'header, punto. Struttura a colonna: barra sopra, quadratini
+     SOTTO di lei, allineati a destra (alla fine della barra). */
   .watermark-brightness-line{
     left:400px; right:400px; top:80px;
-    align-items:center;
+    flex-direction:column; align-items:stretch;
+    height:auto;
     z-index:9999;
   }
-  .watermark-brightness-line__track{ width:auto; flex:1; order:1; }
-  .watermark-brightness-line__presets{ margin-left:10px; order:2; }
+  .watermark-brightness-line__track{ width:100%; max-width:none; order:1; }
+  .watermark-brightness-line__presets{
+    order:2; width:100%; justify-content:flex-end;
+    margin-top:5px; margin-left:0;
+  }
 }
 .side-rail{
   flex-shrink:0;
