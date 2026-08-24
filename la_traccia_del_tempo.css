@@ -162,6 +162,22 @@
   .timeline-rail{ direction:rtl; }
   .timeline-rail .rail-label, .timeline-rail .rail-track{ direction:ltr; }
 
+  /* --- "Specchiata" vuol dire anche: la barra deve stare alla
+     STESSA distanza dalla linea che separa la tabella dal resto
+     della pagina (il bordo sinistro di .timeline-rail) di quanto lo
+     scrollbar della sidebar (via #sidebar .game-list) sta dalla SUA
+     linea divisoria (il bordo destro della sidebar) - 16px, il
+     padding-right vero della sidebar (file condiviso). Il padding
+     sinistro di base di questa tabella era 20px, non 16: qui e' la
+     tabella STESSA ad avere overflow-y:auto (non un contenitore
+     interno separato come sulla sidebar), quindi e' il suo
+     padding-left a determinare dove lo scrollbar (ora sul lato
+     sinistro grazie al direction:rtl qui sopra) si ferma rispetto al
+     bordo. Non c'entra il padding di .rail-track qui sotto, quello
+     e' un dettaglio interno separato (la posizione della riga
+     temporale verticale, non dello scrollbar). --- */
+  .timeline-rail{ padding-left:16px; }
+
   /* --- Linea verticale (e pallini) della lista voci, spostata un
      po' piu' a destra su richiesta esplicita (+10px): padding-left
      di .rail-track 20px->30px, la riga stessa (.rail-track::before)
@@ -333,6 +349,34 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   body[data-panels="hover"] #sidebar:hover .panel-inner,
   body[data-panels="hover"] #sidebar:focus-within .panel-inner{
+    opacity:1; pointer-events:auto;
+    transition:opacity 1s ease-in-out .08s;
+  }
+
+  /* --- Lo stesso identico effetto, esteso ora anche alla tabella a
+     destra (#timelineRail): il pulsante prima agiva solo sulla
+     sidebar sinistra, dato che in home c'era una sola tabella - ma
+     nella vista "title" (voce singola) esistono entrambe, e il
+     pulsante deve controllarle insieme. Serviva un .panel-inner
+     anche qui (aggiunto in HTML, prima assente: #timelineRail non
+     delega lo scroll a un contenitore interno separato come la
+     sidebar, ma per l'effetto di dissolvenza serve comunque un
+     livello in piu' da nascondere). --- */
+  body[data-panels="hover"] #timelineRail{
+    background:transparent; border-color:transparent;
+    transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] #timelineRail .panel-inner{
+    opacity:0; pointer-events:none;
+    transition:opacity 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] #timelineRail:hover,
+  body[data-panels="hover"] #timelineRail:focus-within{
+    background:var(--bg-soft); border-color:var(--line);
+    transition:background 1s ease-in-out .08s, border-color 1s ease-in-out .08s;
+  }
+  body[data-panels="hover"] #timelineRail:hover .panel-inner,
+  body[data-panels="hover"] #timelineRail:focus-within .panel-inner{
     opacity:1; pointer-events:auto;
     transition:opacity 1s ease-in-out .08s;
   }
