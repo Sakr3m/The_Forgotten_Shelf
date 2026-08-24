@@ -143,19 +143,44 @@
   .landing{ max-width:950px; }
 }
 
+/* --- Blocco di testo centrale e pulsanti Discord/Ko-fi: spostati
+   150px a sinistra (stesso spostamento e stessa ragione dell'alert
+   spoiler qui sopra - una vera tabella solo a sinistra sposta il
+   centro naturale 150px a destra del vero centro finestra). Il
+   blocco di testo si centra di suo via margin:auto dentro .stage
+   (nessun left/right esplicito da correggere) - un transform basta.
+   Discord/Ko-fi invece si centrano con left:50% (regola condivisa in
+   styles.css, body[data-state="landing"] .social-links) relativo a
+   .stage-topbar: qui si sovrascrive solo quel left, sottraendo gli
+   stessi 150px. --- */
+@media (min-width:901px){
+  body[data-state="landing"] .landing{
+    transform:translateX(-150px);
+  }
+  body[data-state="landing"] .social-links{
+    left:calc(50% - 150px);
+  }
+}
+
 /* --- Alert spoiler: preso da Il Filo Nascosto (Storie Senza Cornice
    non ce l'ha). Spostato fuori da .landing nell'HTML (vedi commento
    li'), qui solo il posizionamento: fascia fissa in fondo allo
-   schermo, ancorata simmetricamente a sinistra e a destra a 400px
-   (sidebar+100), come se ci fosse una seconda tabella anche sul lato
-   destro anche se qui non esiste. Nascosta nelle viste "game"/
-   "title" (l'equivalente qui dello stato "entry" delle altre due
-   pagine). --- */
+   schermo. Ancoraggi asimmetrici (250px a sinistra, 550px a destra
+   - stessa larghezza di prima, 400/400, ma l'intera fascia spostata
+   150px a sinistra): qui c'e' una vera tabella solo a sinistra, non
+   una vera seconda a destra come sulle pagine gemelle, quindi il
+   centro naturale di una fascia larga quanto lo stage cade 150px
+   PIU' A DESTRA del centro reale della finestra (meta' della
+   larghezza della sidebar, 300px/2). Stesso spostamento applicato
+   qui sotto a .social-links e .landing, per coerenza - tutto il
+   blocco centrale ora si allinea allo stesso punto. Nascosta nelle
+   viste "game"/"title" (l'equivalente qui dello stato "entry" delle
+   altre due pagine). --- */
 body[data-state="game"] .spoiler-alert,
 body[data-state="title"] .spoiler-alert{ display:none; }
 @media (min-width:901px){
   .spoiler-alert{
-    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
+    position:fixed; left:250px; right:550px; bottom:125px; z-index:5;
     justify-content:space-between;
     max-width:none;
     margin-top:0;
