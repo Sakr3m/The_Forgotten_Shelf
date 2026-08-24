@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/jetbrains-mono.css">
 <link rel="stylesheet" href="styles.css?v=20260823a">
-<link rel="stylesheet" href="la_traccia_del_tempo.css?v=20260820b">
+<link rel="stylesheet" href="la_traccia_del_tempo.css?v=20260824a">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -61,8 +61,10 @@
 
   <div class="layout">
     <aside class="sidebar" id="sidebar">
-      <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Libreria Timeline</p>
-      <ul class="game-list" id="gameList"></ul>
+      <div class="panel-inner">
+        <p class="sidebar-eyebrow" data-i18n="sidebarEyebrow">Libreria Timeline</p>
+        <ul class="game-list" id="gameList"></ul>
+      </div>
     </aside>
 
     <main class="stage" id="stage">
@@ -127,6 +129,14 @@
             </div>
           </div>
 
+          <button class="panel-toggle" id="panelToggle" type="button" aria-label="Attiva/disattiva la visualizzazione a comparsa della tabella laterale" aria-pressed="false">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <rect x="1" y="3" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <rect class="panel-toggle__left" x="1" y="3" width="5" height="14" rx="2" fill="currentColor"/>
+              <rect class="panel-toggle__right" x="14" y="3" width="5" height="14" rx="2" fill="currentColor"/>
+            </svg>
+          </button>
+
           <button class="lang-switch" id="langSwitch" type="button" aria-label="Cambia lingua / Change language">
             <span class="lang-option is-active" data-lang-option="en">EN</span>
             <span class="lang-sep">/</span>
@@ -150,13 +160,22 @@
           The Forgotten Shelf raccoglie le linee temporali di alcune delle saghe videoludiche più amate, con l'ordine cronologico degli eventi ricostruito capitolo per capitolo. Un archivio pensato per chi vuole i fatti, in ordine, senza perdersi tra spin-off, reboot e universi paralleli.
         </p>
 
-        <div class="spoiler-alert">
-          <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
-          <p data-i18n="spoilerAlert">Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.</p>
-        </div>
-
         <p class="landing-sub" data-i18n="landingSub">Seleziona un titolo dalla libreria a sinistra per esplorarne la linea temporale.</p>
       </section>
+
+      <!-- Alert spoiler fuori da .landing (stessa ragione di Il Filo
+           Nascosto): su mobile .landing usa position:absolute +
+           transform per centrarsi, e un transform su un antenato
+           rompe position:fixed su qualunque discendente. Fratello di
+           .landing, mostrato/nascosto in base allo stato via CSS. -->
+      <div class="spoiler-alert">
+        <span class="spoiler-alert__icon" aria-hidden="true">⚠</span>
+        <p data-i18n="spoilerAlert">Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.</p>
+        <!-- Triangolo anche a destra, SOLO desktop (vedi CSS): la
+             fascia e' ancorata simmetricamente a sinistra/destra come
+             se ci fosse una seconda tabella anche sul lato destro. -->
+        <span class="spoiler-alert__icon spoiler-alert__icon--right" aria-hidden="true">⚠</span>
+      </div>
 
       <div class="watermark-brightness-line" id="watermarkBrightness" hidden>
         <div class="watermark-brightness-line__presets" id="watermarkPresets">
@@ -199,7 +218,7 @@
 
   <script src="data.js?v=20260809"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script.js?v=202608172154"></script>
+  <script src="script.js?v=202608241200"></script>
   <script src="stats.js?v=20260809"></script>
 </body>
 </html>

@@ -111,6 +111,7 @@ const el = {
   sidebar: document.querySelector(".sidebar"),
   musicControl: document.getElementById("musicControl"),
   langSwitch: document.getElementById("langSwitch"),
+  panelToggle: document.getElementById("panelToggle"),
   musicToggle: document.getElementById("musicToggle"),
   bgMusic: document.getElementById("bgMusic"),
   trackInfo: document.getElementById("trackInfo"),
@@ -162,6 +163,18 @@ const storedVolume = localStorage.getItem(VOLUME_KEY);
 if(storedVolume !== null) el.volumeSlider.value = storedVolume;
 const storedLang = localStorage.getItem(LANG_KEY);
 if(storedLang === "it" || storedLang === "en") state.lang = storedLang;
+
+// Tabella a comparsa (sidebar sempre aperta di default, oppure
+// nascosta finche' non ci si passa sopra col mouse): stessa chiave
+// condivisa con Storie Senza Cornice/Il Filo Nascosto
+// (tfs-panels-hover) - attivarla su una pagina la attiva su tutte.
+// Applicato subito, non dopo, cosi' la pagina non mostra per un
+// istante lo stato sbagliato prima di passare a quello salvato.
+const PANELS_HOVER_KEY = "tfs-panels-hover";
+if(localStorage.getItem(PANELS_HOVER_KEY) === "true"){
+  document.body.dataset.panels = "hover";
+  if(el.panelToggle) el.panelToggle.setAttribute("aria-pressed", "true");
+}
 
 // "Gradiometro" — moltiplicatore di luminosità per le filigrane.
 // Stessa identica logica di storie_senza_cornice.html (curva a due fasi +
@@ -1156,6 +1169,26 @@ function selectEntry(entryId){
   window.scrollTo(0, 0);
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
+}
+
+// ---------------------------------------------------------
+// Tabella a comparsa (mostra/nascondi la sidebar finche' non ci si
+// passa sopra col mouse) - stessa meccanica di Storie Senza
+// Cornice/Il Filo Nascosto.
+// ---------------------------------------------------------
+if(el.panelToggle){
+  el.panelToggle.addEventListener("click", () => {
+    const acceso = document.body.dataset.panels === "hover";
+    if(acceso){
+      delete document.body.dataset.panels;
+      el.panelToggle.setAttribute("aria-pressed", "false");
+      localStorage.setItem(PANELS_HOVER_KEY, "false");
+    } else {
+      document.body.dataset.panels = "hover";
+      el.panelToggle.setAttribute("aria-pressed", "true");
+      localStorage.setItem(PANELS_HOVER_KEY, "true");
+    }
+  });
 }
 
 // ---------------------------------------------------------

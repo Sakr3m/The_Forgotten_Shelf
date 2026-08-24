@@ -16,18 +16,162 @@
   font-family:'JetBrains Mono', monospace; font-weight:700;
 }
 
+/* Pulsante mostra/nascondi tabella: nascosto di default (mobile
+   incluso, dove non ha senso - nessun carosello da nascondere li').
+   Senza questa riga esplicita il pulsante rischierebbe di comparire
+   grezzo, senza stile, su mobile - stesso bug gia' preso su Storie
+   Senza Cornice/Il Filo Nascosto. Reso visibile solo dentro la media
+   query desktop piu' in basso nel file. */
+.panel-toggle{ display:none; }
+
 /* --- Stesso comportamento del blocco mobile qui sotto ("solo la
    lista scorre, l'etichetta resta ferma"), versione desktop: la
    regola condivisa di styles.css fa scorrere l'intero .sidebar
    (height:100vh; overflow-y:auto), etichetta compresa - qui invece
-   si disattiva quello scroll esterno e si sposta tutto sulla lista
-   interna, che scorre per conto proprio. 88px = 24px di padding
-   sopra + 24px sotto + l'etichetta col suo margine (~40px). --- */
+   si disattiva quello scroll esterno. Aggiornato (24/08, insieme al
+   pulsante mostra/nascondi tabella): non piu' un max-height calcolato
+   a mano sulla lista, ma lo stesso schema flex di Storie Senza
+   Cornice/Il Filo Nascosto - .panel-inner (il nuovo contenitore
+   dentro #sidebar, richiesto anche per l'effetto di dissolvenza del
+   panel-toggle) diventa una colonna flex alta quanto il pannello,
+   l'etichetta resta a dimensione fissa e solo .game-list si allarga
+   e scorre per conto suo (min-height:0 necessario, altrimenti un
+   figlio flex non si restringe mai sotto l'altezza del contenuto). --- */
 @media (min-width:901px){
   .sidebar{ overflow-y:hidden; }
+  #sidebar .panel-inner{
+    height:100%;
+    display:flex; flex-direction:column;
+    min-height:0;
+  }
   .sidebar .game-list{
-    max-height:calc(100vh - 88px);
+    flex:1 1 auto; min-height:0;
     overflow-y:auto;
+  }
+}
+
+/* ============================================================
+   Allineamento a Storie Senza Cornice / Il Filo Nascosto (24/08):
+   tabella a sinistra a 300px (era 250px, valore di base condiviso),
+   bordo 2px sui pulsanti dell'header, misure del testo centrale
+   della home, alert spoiler (preso da Il Filo Nascosto) e pulsante
+   mostra/nascondi tabella. Vedi i blocchi qui sotto, uno per punto.
+   ============================================================ */
+
+/* --- Tabella a sinistra: 300px invece di 250 (var(--rail-width)
+   resta 250 nel file condiviso, qui la si sovrascrive in modo
+   esplicito solo su #sidebar). Ricalcolo degli ancoraggi collegati:
+   report-bug-btn era a sidebar(250px)+100=350px, ora 300+100=400px;
+   la barra di luminosita' filigrana partiva da left:250px, ora 300px. --- */
+@media (min-width:901px){
+  #sidebar{ width:300px; }
+  .report-bug-btn{ left:400px; }
+  .watermark-brightness-line{ left:300px; }
+}
+
+/* --- Bordo 2px sui pulsanti dell'header, stessa convenzione fissa
+   di Storie Senza Cornice/Il Filo Nascosto (era 1px, lo standard di
+   base condiviso). Su desktop e mobile. --- */
+@media (min-width:901px){
+  .report-bug-btn,
+  .kofi-link,
+  .discord-link,
+  .index-link,
+  .lang-switch,
+  .music-toggle,
+  .panel-toggle,
+  .track-info{
+    border-width:2px;
+  }
+}
+@media (max-width:900px){
+  .kofi-link, .discord-link, .index-link, .lang-switch,
+  .music-toggle, .track-info{
+    border-width:2px;
+  }
+}
+
+/* --- Testo centrale della home: misure identiche a Storie Senza
+   Cornice/Il Filo Nascosto (font-size/line-height/margin in px,
+   arrotondati a multipli di 5). Il font resta JetBrains Mono
+   (identita' propria di questa pagina, vedi regola in testa al
+   file) - qui si allineano solo dimensioni e posizioni, non il
+   carattere. Solo desktop: il mobile ha gia' le sue misure proprie,
+   non toccate da questa richiesta. --- */
+@media (min-width:901px){
+  .landing-title{ width:450px; margin-left:auto; margin-right:auto; font-size:50px; line-height:65px; margin-top:50px; }
+  .landing-eyebrow{ font-size:15px; line-height:15px; }
+  .landing-intro{ font-size:20px; line-height:30px; margin-top:30px; max-width:800px; }
+  .landing-sub{ font-size:15px; line-height:20px; margin-top:50px; }
+  .landing{ max-width:950px; }
+}
+
+/* --- Alert spoiler: preso da Il Filo Nascosto (Storie Senza Cornice
+   non ce l'ha). Spostato fuori da .landing nell'HTML (vedi commento
+   li'), qui solo il posizionamento: fascia fissa in fondo allo
+   schermo, ancorata simmetricamente a sinistra e a destra a 400px
+   (sidebar+100), come se ci fosse una seconda tabella anche sul lato
+   destro anche se qui non esiste. Nascosta nelle viste "game"/
+   "title" (l'equivalente qui dello stato "entry" delle altre due
+   pagine). --- */
+body[data-state="game"] .spoiler-alert,
+body[data-state="title"] .spoiler-alert{ display:none; }
+@media (min-width:901px){
+  .spoiler-alert{
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
+    justify-content:space-between;
+    max-width:none;
+    margin-top:0;
+  }
+}
+@media (max-width:900px){
+  .spoiler-alert{
+    position:fixed; left:15px; right:15px; bottom:20px; z-index:5;
+    justify-content:center;
+    max-width:none;
+    margin-top:0;
+  }
+}
+
+/* --- Pulsante mostra/nascondi tabella (panel-toggle): stessa
+   meccanica di Storie Senza Cornice/Il Filo Nascosto, applicata alla
+   sola #sidebar (qui c'e' una sola tabella in home, non due). Stato
+   "acceso" salvato in localStorage con la stessa chiave condivisa
+   (tfs-panels-hover): attivarlo su un'altra pagina del sito lo
+   attiva anche qui, e viceversa. --- */
+@media (min-width:901px){
+  .panel-toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:40px; height:40px; box-sizing:border-box;
+    border:1px solid var(--cyan);
+    background:var(--panel);
+    border-radius:50%;
+    color:var(--text-dim);
+    transition:color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .panel-toggle:hover{ color:var(--text); }
+  .panel-toggle svg{ width:20px; height:20px; }
+  .panel-toggle__left, .panel-toggle__right{ opacity:1; transition:opacity var(--dur-fast) var(--ease); }
+  .panel-toggle[aria-pressed="true"] .panel-toggle__left,
+  .panel-toggle[aria-pressed="true"] .panel-toggle__right{ opacity:0; }
+
+  body[data-panels="hover"] #sidebar{
+    background:transparent; border-color:transparent;
+    transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] #sidebar .panel-inner{
+    opacity:0; pointer-events:none;
+    transition:opacity 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] #sidebar:hover,
+  body[data-panels="hover"] #sidebar:focus-within{
+    background:var(--bg-soft); border-color:var(--line);
+    transition:background 1s ease-in-out .08s, border-color 1s ease-in-out .08s;
+  }
+  body[data-panels="hover"] #sidebar:hover .panel-inner,
+  body[data-panels="hover"] #sidebar:focus-within .panel-inner{
+    opacity:1; pointer-events:auto;
+    transition:opacity 1s ease-in-out .08s;
   }
 }
 
