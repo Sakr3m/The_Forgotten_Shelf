@@ -697,6 +697,18 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     height:auto; align-items:flex-start; margin-top:20px;
   }
 
+  /* --- La scritta-pulsante "La Traccia del Tempo": stessa cosa di
+     sopra, stesso buco nel file condiviso. La regola che la rende
+     alta 40px come gli altri pulsanti e la centra verticalmente
+     esiste li' solo per body[data-state="entry"] - qui restava senza
+     altezza propria (quella dettata dal solo testo, molto meno di
+     40px) e disallineata rispetto a Discord/Ko-fi/topbar accanto.
+     Stessa identica regola, sui nomi di stato giusti. --- */
+  body[data-state="game"] .brand-text,
+  body[data-state="title"] .brand-text{
+    height:40px; display:flex; align-items:center;
+  }
+
   /* Il file condiviso styles.css riduce .brand da 100 a 50px dal
      bordo della sidebar (margin-left:-50px) per ogni pagina che lo
      usa - qui si annulla per tornare a 100px, come gia' fatto su
