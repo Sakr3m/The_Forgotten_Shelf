@@ -91,25 +91,23 @@
      va spostata a 300px insieme a loro, solo su questa pagina.
      top:80px = a filo della riga dell'header (era 237px nella
      regola condivisa, pensata per il vecchio banner intero).
-     I quadratini preset sono tornati sulla stessa riga della barra
-     (a destra, centrati verticalmente su di lei - su richiesta
-     esplicita, non piu' su una riga propria sotto come nel giro
-     precedente): justify-content:space-between al posto del center
-     di base, che centrava l'intero gruppo barra+quadratini invece di
-     spingere i quadratini fino al vero bordo destro. ATTENZIONE
-     pero': nell'HTML i quadratini vengono PRIMA della barra, non
-     dopo - con space-between il primo elemento va sempre a sinistra,
-     quindi senza altro intervento i quadratini finivano a sinistra e
-     la barra a destra (bug preso e corretto solo dopo, vedi
-     commit successivo). Corretto con "order" (CSS puro, non tocca
-     l'HTML): la barra visivamente prima (order:1, a sinistra), i
-     quadratini dopo (order:2, a destra). */
+     Struttura vera: 400px<->400px E' la barra vera e propria (stessa
+     larghezza di sempre su questa pagina, sidebar/side-rail + 100).
+     I 3 quadratini preset stanno OLTRE il suo bordo destro, non
+     dentro la stessa larghezza a spartirsela con lei (i due tentativi
+     precedenti la restringevano per fare posto ai quadratini, sbagliato):
+     .track riempie tutta la larghghezza (100%, non piu' condivisa via
+     flex), i quadratini escono con position:absolute; left:100% -
+     fuori dal box, centrati verticalmente tramite transform. */
   .watermark-brightness-line{
     left:400px; right:400px; top:80px;
-    justify-content:space-between;
   }
-  .watermark-brightness-line__track{ order:1; }
-  .watermark-brightness-line__presets{ order:2; }
+  .watermark-brightness-line__track{ width:100%; max-width:none; }
+  .watermark-brightness-line__presets{
+    position:absolute; left:100%; top:50%;
+    transform:translateY(-50%);
+    margin-left:10px;
+  }
 }
 .side-rail{
   flex-shrink:0;
