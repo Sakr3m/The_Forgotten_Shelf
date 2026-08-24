@@ -649,6 +649,18 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      = 95px. */
   body[data-state="game"] #gameHeader{ top:95px; }
 
+  /* --- Distanza avatar<->bordi dell'header: 25px sopra e sotto
+     invece di 65/25 (valori del file condiviso, pensati per quando
+     l'header ospitava anche un banner). L'altezza fissa (230px, da
+     65+140+25) va ridotta di conseguenza a 190px (25+140+25),
+     altrimenti l'avatar resterebbe piccolo dentro un box ancora
+     alto 230, con vuoto in piu' sotto. Sinistra/destra (28px)
+     invariati, non richiesti. --- */
+  #gameHeader{
+    padding-top:25px; padding-bottom:25px;
+    height:190px; max-height:190px;
+  }
+
   /* "Torna a [Gioco]": unico pulsante di navigazione che non aveva
      nessuno sfondo dietro il testo (le frecce sinistra/destra invece
      ce l'hanno gia', var(--panel), pieno). Sulla pagina title (voci
