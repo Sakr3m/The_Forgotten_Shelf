@@ -709,12 +709,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      tazzina lascia il posto ai pulsanti veri di Discord e Ko-fi
      (solo cuoricino + "KoFi"), spostati fisicamente dentro .brand da
      script.js. Ordine: Discord, poi Ko-fi alla sua destra, poi la
-     scritta (diverso da Il Filo Nascosto/Storie Senza Cornice, dove
-     l'ordine e' invertito - scelta esplicita per questa pagina). Nel
-     DOM sono gia' discord-poi-kofi, quindi qui basta il flex di
-     base, senza bisogno di row-reverse. Bordo del colore della saga
-     aperta - qui e' semplicemente var(--cyan), che su questa pagina
-     viene gia' sovrascritta col colore del gioco corrente (vedi
+     scritta - STESSO ordine di Il Filo Nascosto/Storie Senza Cornice
+     (verificato di persona sullo schermo reale, non sul commento nel
+     loro codice: quel commento dice "row-reverse" ma la regola CSS
+     vera lì sotto non lo applica affatto - un commento rimasto
+     vecchio nel loro file, mai aggiornato). Il DOM qui e' gia'
+     discord-poi-kofi, quindi basta il flex di base, senza bisogno di
+     nessun row-reverse. Bordo del colore della saga aperta - qui e'
+     semplicemente var(--cyan), che su questa pagina viene gia'
+     sovrascritta col colore del gioco corrente (vedi
      applyPaletteToCSS in script.js), non serve un --item-accent
      separato con fallback come sulle altre due pagine. Cuoricino/
      icona Discord grigi "spenti", colorati del colore della saga
