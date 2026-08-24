@@ -89,19 +89,18 @@
      brightness-line) e' ancorata nel file condiviso a 250px da
      entrambi i lati (larghezza delle due tabelle prima di oggi) -
      va spostata a 300px insieme a loro, solo su questa pagina.
-     top:83px = 3px sotto la riga dell'header (80px di bordo
-     inferiore), era 237px nella regola condivisa (pensata per il
-     vecchio banner intero). flex-direction:column + align-items:
-     flex-end: i pulsanti preset (sotto) si allineano cosi' al bordo
-     destro della barra (sopra) invece di stare in linea con lei -
-     height:auto perche' ora sono due righe, non piu' una sola da
-     20px fissi. */
+     top:80px = a filo della riga dell'header (era 237px nella
+     regola condivisa, pensata per il vecchio banner intero).
+     I quadratini preset sono tornati sulla stessa riga della barra
+     (a destra, centrati verticalmente su di lei - su richiesta
+     esplicita, non piu' su una riga propria sotto come nel giro
+     precedente): justify-content:space-between al posto del center
+     di base, che centrava l'intero gruppo barra+quadratini invece di
+     spingere i quadratini fino al vero bordo destro. */
   .watermark-brightness-line{
     left:400px; right:400px; top:80px;
-    flex-direction:column; align-items:stretch;
-    height:auto;
+    justify-content:space-between;
   }
-  .watermark-brightness-line__track{ order:1; max-width:none; }
 }
 .side-rail{
   flex-shrink:0;
@@ -1204,8 +1203,6 @@ body[data-state="entry"] .landing{ display:none; }
 @media (min-width:901px){
   .watermark-brightness-line__presets{
     display:flex; align-items:center; gap:5px;
-    order:2; margin-right:0; margin-top:5px;
-    width:100%; justify-content:flex-end;
   }
   .watermark-brightness-line__preset{
     width:20px; height:25px;

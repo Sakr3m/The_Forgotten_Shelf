@@ -125,11 +125,10 @@
   body[data-state="title"] .title-watermark{ right:300px; }
   /* Top costante (non piu' misurato via JS - vedi commento in
      script.js/renderTitlePanel): 15px di topbar + 65px di barra
-     header = 80px, +30px di margin-top di .title-name = 110px -
-     la filigrana parte ora esattamente da dove inizia il titolo
-     (non piu' a meta' strada), stesse proporzioni di prima
-     (background-size:cover, invariato). */
-  body[data-state="title"] .title-watermark{ top:110px; }
+     header = 80px, +25px di margin-top di .title-name = 105px -
+     la filigrana parte da dove inizia il titolo, stesse proporzioni
+     di prima (background-size:cover, invariato). */
+  body[data-state="title"] .title-watermark{ top:105px; }
   /* DEBUG TEMPORANEO - da togliere dopo il controllo. Il tentativo
      precedente rendeva visibile il box ma nascondeva la filigrana
      vera sotto un riempimento pieno - inutile per giudicare
@@ -142,7 +141,7 @@
      visibile attraverso il contorno che la circonda senza coprirla. */
   body[data-state="title"] .title-panel::after{
     content:"";
-    position:fixed; top:110px; right:300px; bottom:0; width:42vw;
+    position:fixed; top:105px; right:300px; bottom:0; width:42vw;
     border:3px dashed var(--cyan);
     pointer-events:none;
     z-index:5;
@@ -158,23 +157,17 @@
   body[data-state="title"] .title-watermark{ background-size:cover; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
-  /* --- Barra di luminosita': struttura a colonna come Storie Senza
-     Cornice/Il Filo Nascosto (era ancora una riga sola, la barra
-     scorrevole e i quadratini preset fianco a fianco - il file
-     condiviso base non e' mai stato aggiornato quando le altre due
-     pagine sono passate a due righe). height:auto, non piu' 20px
-     fisso: ora ci stanno due righe, non una. Quadratini preset in
-     basso a destra (order:2, sotto la barra vera; justify-content:
-     flex-end - corretto da flex-start del giro precedente, su
-     richiesta esplicita: ora a destra, come Storie/Filo Nascosto). --- */
+  /* --- Quadratini preset: tornano a destra della barra, sulla
+     stessa riga (non piu' sotto, il tentativo del giro precedente),
+     centrati verticalmente rispetto ad essa - su richiesta esplicita,
+     stavolta anche su Storie Senza Cornice/Il Filo Nascosto (vedi
+     racconti.css/storie-teorie.css). Il file condiviso di base era
+     gia' una riga sola con align-items:center (centratura verticale
+     gia' gratis), ma justify-content:center vi centrava l'intero
+     gruppo barra+quadratini nel mezzo, non spingeva i quadratini
+     fino al vero bordo destro - space-between li porta li'. --- */
   body[data-state="title"] .watermark-brightness-line{
-    flex-direction:column; align-items:stretch;
-    height:auto;
-  }
-  .watermark-brightness-line__track{ order:1; max-width:none; }
-  .watermark-brightness-line__presets{
-    order:2; width:100%; justify-content:flex-end;
-    margin-top:5px; margin-right:0;
+    justify-content:space-between;
   }
 
   /* --- Nome dell'universo trattato davvero come un titolino (come
@@ -914,7 +907,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      era tra quelli da correggere e resta invariato).
      ============================================================ */
   body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
-  .title-name{ margin-top:30px; }
+  .title-name{ margin-top:25px; }
   /* Tentativo empirico (a differenza della sinossi, qui non c'e' un
      padding nascosto vero e proprio da smascherare/cancellare -
      JetBrains Mono, usata solo per il titolo, e' un font monospace
