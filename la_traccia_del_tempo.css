@@ -868,6 +868,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .title-date{ margin-top:25px; margin-bottom:0; }
   .title-date--release + .title-date--story{ margin-top:5px; }
   .title-synopsis{ margin-top:30px; }
+  /* La regola condivisa .title-date + .title-synopsis{margin-top:0}
+     (styles.css - "niente doppio spazio", pensata per quando la
+     sinossi seguiva le date con l'ordine vecchio) ha specificita'
+     maggiore della semplice .title-synopsis qui sopra (due classi
+     contro una) e vinceva SEMPRE lei, azzerando il margine ogni
+     volta che una data precede davvero il testo - esattamente il
+     problema segnalato ("il testo non si stacca per nulla dalle
+     date"). Serve la stessa identica specificita' per sovrascriverla
+     davvero. */
+  .title-date + .title-synopsis{ margin-top:30px; }
   .title-nav{ margin-top:30px; }
 
   /* ============================================================

@@ -1038,9 +1038,7 @@ function updateTitlePanelText(entryId){
   rec.panel.innerHTML = `
     <h2 class="title-name">${tf(entry.title)}</h2>
     <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
-    <div class="title-meta">
-      <span class="title-tag">${typeLabel}</span>
-    </div>
+    <div class="title-meta"><span class="title-tag">${typeLabel}</span></div>
     ${releaseLabel ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseLabel}</p>` : ""}
     ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}
     <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
@@ -1248,9 +1246,18 @@ function setState(view){
   } else if(view === "title"){
     applyPaletteToCSS();
     renderSidebar();
+    // Cruciale: rivelare la tabella destra PRIMA di renderTitlePanel,
+    // non dopo. renderTitlePanel misura la posizione reale di
+    // Discord/switch lingua per calcolare la larghezza del box di
+    // testo - se la tabella e' ancora nascosta in quel momento,
+    // .stage e' ancora largo come in stato "game"/"landing" (niente
+    // rail a rubargli 300px), e lo switch lingua viene misurato
+    // molto piu' a destra di dove finira' per davvero. Risultato:
+    // il box calcolato risultava troppo largo, ben oltre lo switch
+    // lingua vero - esattamente il problema segnalato.
+    el.timelineRail.hidden = false;
     renderTitlePanel();
     renderRail();
-    el.timelineRail.hidden = false;
   }
   if(view !== "title") el.timelineRail.hidden = true;
   updateMusicPlayback();
