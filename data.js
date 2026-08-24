@@ -10,8 +10,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Ace Combat", en: "Ace Combat" },
     blurb: {
-      it: "Nei cieli di un mondo immaginario chiamato Strangereal, piloti da caccia si contendono il controllo di nazioni in guerra, tra ambizioni politiche, alleanze tradite e superarmi capaci di cambiare il destino di interi continenti.",
-      en: "In the skies of a fictional world called Strangereal, fighter pilots contest control of nations at war, amid political ambition, betrayed alliances, and superweapons capable of reshaping the fate of entire continents."
+      it: "Nei cieli di un mondo immaginario chiamato Strangereal, piloti da caccia si contendono il controllo di nazioni in guerra, tra ambizioni politiche e superarmi capaci di cambiare il destino.",
+      en: "In the skies of a fictional world called Strangereal, fighter pilots contest control of nations at war, amid political ambition and superweapons capable of reshaping the fate of entire continents."
     },
     palette: ["#1a3a5c", "#c9c9c9", "#8b0000"],
     accentColor: "#1a3a5c",
@@ -750,7 +750,7 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Diablo", en: "Diablo" },
     blurb: {
-      it: "Sopra Sanctuarium infuria da sempre il Conflitto Eterno tra gli Angeli del Paradiso e i Demoni dell'Inferno, con l'umanità intrappolata nel mezzo e i Signori del Terrore pronti a corromperla dall'interno.",
+      it: "Sopra Sanctuarium infuria da sempre il Conflitto Eterno tra gli Angeli del Paradiso e i Demoni dell'Inferno, con l'umanità intrappolata nel mezzo e i Signori del Terrore pronti a corromperla.",
       en: "Above Sanctuary rages the Eternal Conflict between the Angels of Heaven and the Demons of Hell, with humanity trapped in the middle and the Lords of Terror ready to corrupt it from within."
     },
     palette: ["#8b0000", "#1a1a1a", "#c9a227"],
@@ -1108,7 +1108,7 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Final Fantasy", en: "Final Fantasy" },
     blurb: {
-      it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio del mondo, spesso legato a un cristallo o una magia antica.",
+      it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio del mondo.",
       en: "Each chapter tells of a different world, but the heart stays the same: young heroes rise against an oppressive power threatening the world's balance, often tied to a crystal or an ancient magic."
     },
     palette: ["#1a3a5c", "#c9a227", "#c41e3a"],
