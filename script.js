@@ -1180,6 +1180,19 @@ function renderTitlePanel(){
       watermark.style.top = (headerBar.getBoundingClientRect().bottom + 12.5).toFixed(2) + "px";
     }
   }
+
+  // Barra di luminosita': da sotto Discord a sotto lo switch lingua,
+  // come su Storie Senza Cornice - misurata a runtime sulla
+  // posizione REALE dei due pulsanti (stessa tecnica robusta gia' in
+  // uso per il box di testo qui sopra), non piu' un left/right fisso
+  // nel CSS. left/right qui sono style inline diretti (l'elemento e'
+  // gia' position:fixed via CSS condiviso).
+  if(!mobileBreakpoint.matches && el.discordLink && el.langSwitch && el.watermarkBrightness){
+    const discordRect = el.discordLink.getBoundingClientRect();
+    const langRect = el.langSwitch.getBoundingClientRect();
+    el.watermarkBrightness.style.left = discordRect.left.toFixed(2) + "px";
+    el.watermarkBrightness.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+  }
   el.watermarkBrightness.hidden = !watermarkSrc;
   // Qui non c'è una riga di header a cui appoggiarsi (a differenza
   // di Doom): la barra segue invece dove finisce, in alto, la
