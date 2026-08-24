@@ -123,6 +123,7 @@ const el = {
   socialLinks: document.querySelector(".social-links"),
   stageControls: document.querySelector(".stage-controls"),
   kofiLink: document.querySelector(".kofi-link"),
+  discordLink: document.querySelector(".discord-link"),
   sidebar: document.querySelector(".sidebar"),
   musicControl: document.getElementById("musicControl"),
   langSwitch: document.getElementById("langSwitch"),
@@ -784,28 +785,33 @@ function renderGamePanel(){
     }
 
     // Larghezza e posizione del contenitore (.timeline-viewport)
-    // calcolate dalla posizione REALE di Ko-fi (sinistra) e dello
+    // calcolate dalla posizione REALE di Discord (sinistra) e dello
     // switch lingua (destra), misurata a runtime - non piu' un
     // margine/larghezza CSS indovinati a mano (il giro precedente li
     // aveva sbagliati due volte, e comunque venivano poi ignorati dal
     // ricentraggio via translateX qui sotto, applicato DOPO senza mai
     // cambiare la larghezza: ecco perche' non si vedeva alcun
-    // effetto). Il PRIMO pallino deve toccare esattamente il bordo
-    // sinistro di Ko-fi; il bordo del contenitore (non il pallino,
-    // che per scelta esplicita resta 50px piu' dentro) non deve mai
-    // superare il bordo destro dello switch lingua - la stessa
-    // freccetta destra e' ancorata li' (vedi piu' sotto). Impostata
-    // PRIMA di leggere clientWidth qui sotto, non dopo: i nodi si
-    // distribuiscono sulla larghezza vera, non su quella di un
-    // istante prima.
+    // effetto). Discord, non Ko-fi: da quando l'ordine dei due
+    // pulsanti e' stato invertito (Discord poi Ko-fi, non piu' il
+    // contrario), e' Discord ad essere il piu' a sinistra - usare
+    // ancora Ko-fi qui (come faceva questo codice preesistente,
+    // scritto per il vecchio ordine) spostava tutto piu' a destra del
+    // dovuto, esattamente il problema nello screenshot. Il PRIMO
+    // pallino deve toccare esattamente il bordo sinistro di Discord;
+    // il bordo del contenitore (non il pallino, che per scelta
+    // esplicita resta 50px piu' dentro) non deve mai superare il
+    // bordo destro dello switch lingua - la stessa freccetta destra
+    // e' ancorata li' (vedi piu' sotto). Impostata PRIMA di leggere
+    // clientWidth qui sotto, non dopo: i nodi si distribuiscono sulla
+    // larghezza vera, non su quella di un istante prima.
     const viewportEl = liveTimeline.closest(".timeline-viewport");
-    if(viewportEl && el.kofiLink && el.langSwitch){
+    if(viewportEl && el.discordLink && el.langSwitch){
       viewportEl.style.transform = "none";
       viewportEl.style.width = "";
       const viewportRect = viewportEl.getBoundingClientRect();
-      const kofiRect = el.kofiLink.getBoundingClientRect();
+      const discordRect = el.discordLink.getBoundingClientRect();
       const langRect = el.langSwitch.getBoundingClientRect();
-      const targetLeft = kofiRect.left - 50;
+      const targetLeft = discordRect.left - 50;
       const targetRight = langRect.right;
       const newWidth = Math.max(0, targetRight - targetLeft);
       viewportEl.style.width = newWidth.toFixed(2) + "px";
@@ -911,18 +917,18 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
       // Le freccette animate (solo sopra soglia, isLargeUniverse) si
-      // ancorano alle stesse posizioni reali di Ko-fi/switch lingua
+      // ancorano alle stesse posizioni reali di Discord/switch lingua
       // gia' usate piu' in alto per il contenitore - qui serve solo
       // il centraggio verticale sulla riga vera, che cambia da
       // universo a universo (uno a due righe di titoli sopra/sotto
       // ha un centro diverso da uno a una riga sola).
-      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight && el.kofiLink && el.langSwitch){
-        const kofiRect = el.kofiLink.getBoundingClientRect();
+      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight && el.discordLink && el.langSwitch){
+        const discordRect = el.discordLink.getBoundingClientRect();
         const langRect = el.langSwitch.getBoundingClientRect();
         const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
         el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
         el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
-        el.dragHintLeft.style.left = kofiRect.left.toFixed(2) + "px";
+        el.dragHintLeft.style.left = discordRect.left.toFixed(2) + "px";
         el.dragHintRight.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
 
         // Si spengono da sole quando non c'e' piu' nulla da vedere in
