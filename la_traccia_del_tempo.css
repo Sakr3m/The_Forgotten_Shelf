@@ -706,24 +706,26 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
   /* --- Vista "game"/"title" (l'equivalente qui della vista voce
      delle altre pagine — questa non usa lo stato "entry"): la
-     tazzina lascia il posto ai pulsanti veri di Ko-fi (solo
-     cuoricino + "KoFi") e Discord, spostati fisicamente dentro
-     .brand da script.js. Ordine: Ko-fi, poi Discord alla sua destra,
-     poi la scritta. Nel DOM sono discord-poi-kofi, quindi qui li
-     giro con row-reverse invece di riscrivere il markup. Bordo del
-     colore della saga aperta - qui e' semplicemente var(--cyan),
-     che su questa pagina viene gia' sovrascritta col colore del
-     gioco corrente (vedi applyPaletteToCSS in script.js), non serve
-     un --item-accent separato con fallback come sulle altre due
-     pagine. Cuoricino/icona Discord grigi "spenti", colorati del
-     colore della saga solo in hover. --- */
+     tazzina lascia il posto ai pulsanti veri di Discord e Ko-fi
+     (solo cuoricino + "KoFi"), spostati fisicamente dentro .brand da
+     script.js. Ordine: Discord, poi Ko-fi alla sua destra, poi la
+     scritta (diverso da Il Filo Nascosto/Storie Senza Cornice, dove
+     l'ordine e' invertito - scelta esplicita per questa pagina). Nel
+     DOM sono gia' discord-poi-kofi, quindi qui basta il flex di
+     base, senza bisogno di row-reverse. Bordo del colore della saga
+     aperta - qui e' semplicemente var(--cyan), che su questa pagina
+     viene gia' sovrascritta col colore del gioco corrente (vedi
+     applyPaletteToCSS in script.js), non serve un --item-accent
+     separato con fallback come sulle altre due pagine. Cuoricino/
+     icona Discord grigi "spenti", colorati del colore della saga
+     solo in hover. --- */
   body[data-state="game"] .brand-icon,
   body[data-state="title"] .brand-icon{ display:none; }
   body[data-state="game"] .brand,
   body[data-state="title"] .brand{ width:auto; justify-content:flex-start; gap:10px; }
   body[data-state="game"] .brand .social-links,
   body[data-state="title"] .brand .social-links{
-    display:flex; flex-direction:row-reverse; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:10px;
   }
   body[data-state="game"] .kofi-link,
   body[data-state="game"] .discord-link,
