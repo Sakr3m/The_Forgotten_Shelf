@@ -783,12 +783,18 @@ function renderGamePanel(){
       return;
     }
 
-    // Fixed rail rule: 42px in from the sidebar's game-list rows on the left
-    // (already true as-is: h-timeline sits flush at the stage's own content
-    // edge, which is naturally 42px from the sidebar rows) and 42px in from
-    // the stage's content edge on the right too. So the usable width is
-    // simply the natural full width minus that 42px right inset.
-    const RIGHT_INSET = 42;
+    // Vecchia regola dei 42px superata (25/08): la posizione del
+    // contenitore stesso e' ora governata dal CSS (100px dalla
+    // sidebar vera a sinistra, 100px dalla tabella fantasma a
+    // destra, vedi la_traccia_del_tempo.css) - RIGHT_INSET qui
+    // aggiungeva un ulteriore rientro asimmetrico (solo a destra),
+    // pensato per il vecchio layout, che ora romperebbe la simmetria
+    // messa apposta nel CSS. Il contenitore stesso e' gia' largo
+    // esattamente quanto serve (100px in piu' per lato rispetto al
+    // vero limite, per compensare i 50px di rientro naturale del
+    // primo/ultimo pallino - centrato nel proprio nodo da 100px):
+    // nessun inset aggiuntivo da fare qui.
+    const RIGHT_INSET = 0;
     const naturalWidth = liveTimeline.clientWidth;
     const availableWidth = Math.max(0, naturalWidth - RIGHT_INSET);
 

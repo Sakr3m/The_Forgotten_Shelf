@@ -653,12 +653,23 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   /* .timeline-viewport ha di suo width:90%; margin:0 auto (file
      condiviso) - dentro il nuovo #universesRow, gia' correttamente
      allineato a sinistra e ora fermato a destra, questo lo
-     restringerebbe ulteriormente al 90% di quella zona, centrato ma
-     piu' corto del richiesto. Portato a 100% pieno: la riga
-     temporale (.h-timeline, flex:1 al suo interno) arriva cosi'
-     esattamente da dove sta Discord a 100px prima della tabella
-     fantasma, bordo a bordo con la barra sopra di lei. */
-  body[data-state="game"] .timeline-viewport{ width:100%; margin:0; }
+     restringerebbe ulteriormente al 90% di quella zona.
+     Corretto (il giro precedente si fermava a "100% pieno", ancora
+     insufficiente): la RIGA vera e propria (.h-timeline::before,
+     ancorata al centro esatto del primo/ultimo pallino via JS - vedi
+     script.js) e' sempre inset di 50px extra rispetto ai bordi del
+     contenitore, perche' ogni pallino sta al centro del proprio nodo
+     largo 100px, e il primo/ultimo nodo tocca il bordo con il proprio
+     bordo esterno, non col pallino. Per far si' che sia la RIGA
+     (pallino a pallino), non il bordo dei nodi, a toccare i 100px
+     dalla sidebar/dalla tabella fantasma, il contenitore va allargato
+     di 50px extra per lato oltre quel limite - i nodi (titoli/avatar,
+     piu' larghi del pallino) possono cosi' sporgere leggermente oltre
+     il limite richiesto, esplicitamente concesso: non arrivano mai a
+     toccare le tabelle vicine. */
+  body[data-state="game"] .timeline-viewport{
+    width:calc(100% + 100px); margin-left:-50px; margin-right:0;
+  }
 
   /* --- Barra header vuota, riutilizzata identica in due punti:
      sopra a #gameHeader nella vista "game" (saga: Doom, Assassin's
