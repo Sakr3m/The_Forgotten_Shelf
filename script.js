@@ -1165,6 +1165,18 @@ function renderTitlePanel(){
   } else if(watermark){
     watermark.remove();
   }
+  // Filigrana: parte da meta' strada tra tag e date (25px, meta' dei
+  // 50px che oggi separano i due), misurata a runtime sul vero
+  // bordo basso del tag - non piu' un top:70px fisso, che non
+  // seguiva la spaziatura reale del blocco di testo. Le proporzioni
+  // (width:42vw, bottom:0 - vedi CSS) restano invariate, cambia solo
+  // da dove parte verticalmente.
+  if(watermark && !mobileBreakpoint.matches){
+    const tagWrap = activeRec.panel.querySelector(".title-meta");
+    if(tagWrap){
+      watermark.style.top = (tagWrap.getBoundingClientRect().bottom + 25).toFixed(2) + "px";
+    }
+  }
   el.watermarkBrightness.hidden = !watermarkSrc;
   // Qui non c'è una riga di header a cui appoggiarsi (a differenza
   // di Doom): la barra segue invece dove finisce, in alto, la

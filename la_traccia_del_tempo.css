@@ -125,6 +125,25 @@
   body[data-state="title"] .title-watermark{ right:300px; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
+  /* --- Barra di luminosita': struttura a colonna come Storie Senza
+     Cornice/Il Filo Nascosto (era ancora una riga sola, la barra
+     scorrevole e i quadratini preset fianco a fianco - il file
+     condiviso base non e' mai stato aggiornato quando le altre due
+     pagine sono passate a due righe). height:auto, non piu' 20px
+     fisso: ora ci stanno due righe, non una. Quadratini preset in
+     basso a sinistra (order:2, sotto la barra vera; justify-content:
+     flex-start, non flex-end come Storie/Filo Nascosto - qui su
+     richiesta esplicita). --- */
+  body[data-state="title"] .watermark-brightness-line{
+    flex-direction:column; align-items:stretch;
+    height:auto;
+  }
+  .watermark-brightness-line__track{ order:1; max-width:none; }
+  .watermark-brightness-line__presets{
+    order:2; width:100%; justify-content:flex-start;
+    margin-top:5px; margin-right:0;
+  }
+
   /* --- Nome dell'universo trattato davvero come un titolino (come
      "Libreria Timeline" sulla sidebar): resta fermo, a scorrere
      sotto di lui e' solo la linea temporale delle voci - esattamente
@@ -1165,7 +1184,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 @media (min-width:901px){
   .watermark-brightness-line__presets{
     display:flex; align-items:center; gap:5px;
-    margin-right:10px;
   }
   .watermark-brightness-line__preset{
     width:22px; height:26px;
