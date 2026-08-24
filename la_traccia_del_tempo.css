@@ -853,19 +853,43 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      proprio e' stato riordinato in script.js/updateTitlePanelText,
      qui solo lo spazio tra un pezzo e il successivo). Tutto
      allineato a sinistra (gia' cosi' di default, flusso normale).
-     20px dal bordo basso della barra header (#titleHeaderBar, il suo
+     25px dal bordo basso della barra header (#titleHeaderBar, il suo
      margin-bottom condiviso di 15px azzerato qui sotto e sostituito
      dal margin-top esplicito di .title-name, per avere un numero
-     solo e leggibile invece di due che si sommano).
+     solo e leggibile invece di due che si sommano). Valori corretti
+     una seconda volta su richiesta esplicita (erano 20/-/15/15/20/20,
+     ora 25/-/20/25/30/30 - lo spazio titolo->universo, 10px, non
+     era tra quelli da correggere e resta invariato).
      ============================================================ */
   body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
-  .title-name{ margin-top:20px; }
+  .title-name{ margin-top:25px; }
   .title-universe-of{ margin-top:10px; }
-  .title-meta{ margin-top:15px; }
-  .title-date{ margin-top:15px; margin-bottom:0; }
+  .title-meta{ margin-top:20px; }
+  .title-date{ margin-top:25px; margin-bottom:0; }
   .title-date--release + .title-date--story{ margin-top:5px; }
-  .title-synopsis{ margin-top:20px; }
-  .title-nav{ margin-top:20px; }
+  .title-synopsis{ margin-top:30px; }
+  .title-nav{ margin-top:30px; }
+
+  /* ============================================================
+   DEBUG TEMPORANEO (25/08, su richiesta - da togliere quando non
+   serve piu'): contorno tratteggiato ciano su ogni box della zona
+   centrale, per controllare a vista i margini appena impostati e la
+   larghezza reale del contenitore. outline invece di border: non
+   sposta ne' ridimensiona nulla (a differenza di un vero bordo, che
+   avrebbe alterato le misure appena fissate).
+   ============================================================ */
+  #titleContent,
+  .title-content-item,
+  .title-name,
+  .title-universe-of,
+  .title-meta,
+  .title-date,
+  .title-synopsis,
+  .title-nav,
+  .title-nav__side,
+  .title-back{
+    outline:1px dashed var(--cyan);
+  }
 
   /* --- Il testo della voce (sinossi): 70% del box (non 75% come nel
      turno precedente - richiesto esplicitamente ora, per lasciare
