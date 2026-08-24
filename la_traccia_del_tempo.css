@@ -129,23 +129,6 @@
      la filigrana parte da dove inizia il titolo, stesse proporzioni
      di prima (background-size:cover, invariato). */
   body[data-state="title"] .title-watermark{ top:105px; }
-  /* DEBUG TEMPORANEO - da togliere dopo il controllo. Il tentativo
-     precedente rendeva visibile il box ma nascondeva la filigrana
-     vera sotto un riempimento pieno - inutile per giudicare
-     com'e' fatta davvero. Qui invece un elemento SEPARATO (un
-     ::after su .title-panel, non su .title-watermark stesso):
-     opacity e maschera di .title-watermark non lo toccano perche'
-     non e' un suo discendente, quindi il contorno resta sempre a
-     piena intensita' - la filigrana sotto invece resta esattamente
-     come sarebbe per davvero (stessa opacita' e maschera vere),
-     visibile attraverso il contorno che la circonda senza coprirla. */
-  body[data-state="title"] .title-panel::after{
-    content:"";
-    position:fixed; top:105px; right:300px; bottom:0; width:42vw;
-    border:3px dashed var(--cyan);
-    pointer-events:none;
-    z-index:5;
-  }
   /* Trovato: background-size:contain (regola condivisa in styles.css)
      fa "stare dentro" l'immagine al box mantenendo le proporzioni
      originali, lasciando spazio vuoto sopra o ai lati quando le
@@ -187,17 +170,15 @@
      centrare lo slider sottile al suo interno), i due centri
      combaciano automaticamente. */
   .watermark-brightness-line__track{ width:100%; max-width:none; height:25px; }
-  /* I quadratini hanno ora una posizione PROPRIA, indipendente da
-     quella della barra (container a top:80px, a filo della riga
-     dell'header, verso il basso - quella e' giusta cosi'): prima
-     ogni aggiustamento sui quadratini spostava l'intero contenitore
-     (barra+quadratini insieme), quindi sistemare l'uno rompeva
-     l'altro sempre. top:-45px li porta nella zona della barra header
-     vera (15px di topbar -> 80px della riga, 65px di spazio),
-     centrati in quello spazio (65-25)/2=20, +15 di topbar = 35px dal
-     bordo pagina, cioe' -45px rispetto al container (80-35). --- */
+  /* Il tentativo "top:-45px" (spingerli su, nella zona della barra
+     header, calcolando a mano un'altezza di 15px per la topbar) e'
+     finito sopra al vero pulsante EN/IT, sovrapposto - quella stima
+     era sbagliata, la topbar vera e' piu' alta di quanto pensassi.
+     Riportati ad allinearsi alla barra stessa (top:0, il punto sicuro
+     di prima), niente altre supposizioni sull'altezza della topbar
+     finche' non ho un riferimento certo. --- */
   .watermark-brightness-line__presets{
-    position:absolute; left:100%; top:-45px;
+    position:absolute; left:100%; top:0;
     margin-left:10px;
   }
 
