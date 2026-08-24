@@ -978,19 +978,28 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-timeline::-webkit-scrollbar{ display:none; }
 .h-timeline::before{
   content:"";
-  position:absolute; left:var(--tl-line-left, calc(50px * var(--avatar-scale, 1))); top:calc(40.5px + 162px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1)); height:7px; border-radius:7px;
+  position:absolute; left:var(--tl-line-left, calc(50px * var(--avatar-scale, 1))); top:calc(40.5px + 222px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1)); height:7px; border-radius:7px;
   width: var(--tl-line-width, calc(var(--tl-content-width, 100%) - (100px * var(--avatar-scale, 1))));
   background:var(--gradient);
   opacity:.95;
 }
 
 /* Each node reserves the same fixed height above/below the line regardless of
-   which side its cover lands on, so the dot always sits on the line. */
+   which side its cover lands on, so the dot always sits on the line.
+   162px -> 222px (25/08): il contenuto reale (tile 125px + gap 10px +
+   titolo 52px fisso + padding 35px, appena portato da 20 a 35 per la
+   distanza vera dal trattino) misura 222px, non 162 - il vecchio
+   valore era gia' insufficiente PRIMA di oggi (avanzo di 45px), oggi
+   l'aumento del padding lo ha peggiorato a 60px, rendendo il taglio
+   delle immagini ai due estremi (sopra per le voci in alto, sotto per
+   quelle in basso) finalmente visibile. Il valore va aggiornato anche
+   nella formula qui sotto (.h-timeline::before, la posizione verticale
+   della riga), che lo referenzia direttamente. */
 .h-node{
   text-decoration:none;
   position:relative;
   display:grid;
-  grid-template-rows: calc(162px * var(--avatar-scale, 1)) calc(22px * var(--dot-scale, 1)) calc(162px * var(--avatar-scale, 1));
+  grid-template-rows: calc(222px * var(--avatar-scale, 1)) calc(22px * var(--dot-scale, 1)) calc(222px * var(--avatar-scale, 1));
   justify-items:center;
   width:calc(100px * var(--avatar-scale, 1)); flex-shrink:0; cursor:pointer;
   opacity:0; animation:nodeIn .45s var(--ease) forwards;
@@ -1012,6 +1021,20 @@ body[data-state="landing"] .index-link{ display:flex; }
   display:flex; flex-direction:column; align-items:center; gap:10px;
   padding-top:35px; /* vedi commento gemello su .h-node__top */
 }
+
+/* --- Area cliccabile/hover: il nodo intero (<a class="h-node">) e'
+   alto 346px anche quando il contenuto vive solo sopra o solo sotto
+   la riga (l'altra meta' resta riservata ma vuota, per tenere ogni
+   pallino sempre alla stessa altezza) - risultato: passando il mouse
+   in quella meta' vuota (visivamente "aria" tra il nome dell'universo
+   e le voci, o sotto le voci in basso) il browser mostra comunque
+   l'anteprima del link e lo status bar, come se si stesse per
+   cliccare qualcosa di visibile li'. .h-node stesso diventa
+   "trasparente" al mouse, e viene riacceso solo sui suoi contenuti
+   veri (copertina, titolo, pallino): cosi' hover/click funzionano
+   solo dove c'e' davvero qualcosa da vedere o premere. --- */
+.h-node{ pointer-events:none; }
+.h-node__tile, .h-node__title, .h-node__marker{ pointer-events:auto; }
 
 
 .h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
