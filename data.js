@@ -970,8 +970,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "The Elder Scrolls", en: "The Elder Scrolls" },
     blurb: {
-      it: "Nella terra di Tamriel, profezie antiche e divinità capricciose intrecciano il destino di eroi improbabili con eventi capaci di riscrivere la storia di intere province. Ogni angolo del mondo nasconde culture, fazioni e conflitti propri, ma un'unica minaccia epocale finisce sempre per coinvolgere tutti. La libertà di scelta resta il cuore di ogni cammino.",
-      en: "In the land of Tamriel, ancient prophecies and capricious gods intertwine the fate of unlikely heroes with events capable of rewriting the history of entire provinces. Every corner of the world hides its own cultures, factions, and conflicts, yet one epoch-defining threat always ends up drawing everyone in. Freedom of choice remains the heart of every path."
+      it: "Nella terra di Tamriel, profezie antiche e divinità capricciose intrecciano il destino di eroi improbabili con eventi capaci di riscrivere la storia di intere province. Ogni provincia nasconde culture e conflitti propri, ma un'unica minaccia epocale finisce per coinvolgere tutti.",
+      en: "In the land of Tamriel, ancient prophecies and capricious gods intertwine the fate of unlikely heroes with events able to rewrite the history of entire provinces. Each province hides its own cultures and conflicts, yet one epoch-defining threat always draws everyone in."
     },
     palette: ["#1a2e1a", "#8b7355", "#c9a227"],
     accentColor: "#8b7355",
@@ -1108,8 +1108,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Final Fantasy", en: "Final Fantasy" },
     blurb: {
-      it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio naturale delle cose, spesso legato a un cristallo, una magia antica o una divinità corrotta. Il sacrificio personale è sempre il prezzo della salvezza collettiva. La speranza sopravvive anche quando tutto sembra perduto.",
-      en: "Each chapter tells of a different world, but the heart stays the same: young heroes rise against an oppressive power threatening the natural balance of things, often tied to a crystal, an ancient magic, or a corrupted divinity. Personal sacrifice is always the price of collective salvation. Hope survives even when all seems lost."
+      it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio del mondo, spesso legato a un cristallo o una magia antica. Il sacrificio personale è sempre il prezzo della salvezza collettiva.",
+      en: "Each chapter tells of a different world, but the heart stays the same: young heroes rise against an oppressive power threatening the world's balance, often tied to a crystal or an ancient magic. Personal sacrifice is always the price of collective salvation."
     },
     palette: ["#1a3a5c", "#c9a227", "#c41e3a"],
     accentColor: "#c9a227",
@@ -1231,8 +1231,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Gears of War", en: "Gears of War" },
     blurb: {
-      it: "Sul pianeta Sera, l'umanità combatte per la sopravvivenza contro l'Orda Locusta, un nemico emerso dalle profondità sotterranee per spazzare via ogni forma di vita in superficie. Soldati sempre più esausti si trascinano da una trincea all'altra in una guerra che sembra non avere fine. Ogni battaglia è una lotta per il domani stesso della specie.",
-      en: "On the planet Sera, humanity fights for survival against the Locust Horde, an enemy that emerged from the depths below to wipe out every form of life on the surface. Soldiers, worn down but unbroken, drag themselves from one trench to the next in a war that seems endless. Every battle is a fight for the species' very tomorrow."
+      it: "Sul pianeta Sera, l'umanità combatte per la sopravvivenza contro l'Orda Locusta, un nemico emerso dalle profondità sotterranee per spazzare via ogni forma di vita in superficie. Soldati esausti si trascinano da una trincea all'altra in una guerra senza fine apparente.",
+      en: "On the planet Sera, humanity fights for survival against the Locust Horde, an enemy that emerged from the depths to wipe out every form of life on the surface. Worn-down soldiers drag themselves from one trench to the next in an endless war."
     },
     palette: ["#4a4a4a", "#8b0000", "#1a1a1a"],
     accentColor: "#8b0000",
@@ -1419,8 +1419,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "God of War", en: "God of War" },
     blurb: {
-      it: "Un guerriero perseguitato dal proprio passato si scontra ripetutamente con dèi, mostri e intere mitologie che si frappongono tra lui e la pace che non riesce a trovare. La sua rabbia è tanto un'arma quanto una condanna, capace di travolgere chiunque, mortale o divino. Dietro ogni battaglia si nasconde sempre un padre in cerca di redenzione.",
-      en: "A warrior haunted by his own past repeatedly clashes with gods, monsters, and entire mythologies standing between him and the peace he cannot find. His rage is both his weapon and his curse, capable of overwhelming anyone, mortal or divine. Behind every battle lies a father in search of redemption."
+      it: "Un guerriero perseguitato dal proprio passato si scontra ripetutamente con dèi, mostri e intere mitologie che si frappongono tra lui e la pace che non trova. La sua rabbia è tanto un'arma quanto una condanna. Dietro ogni battaglia c'è sempre un padre in cerca di redenzione.",
+      en: "A warrior haunted by his own past repeatedly clashes with gods, monsters, and mythologies standing between him and the peace he cannot find. His rage is both his weapon and his curse. Behind every battle lies a father in search of redemption."
     },
     palette: ["#8b1a1a", "#2c2c2c", "#c9a961"],
     accentColor: "#8b1a1a",
@@ -1516,8 +1516,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Halo", en: "Halo" },
     blurb: {
-      it: "L'umanità, dispersa tra le stelle, si trova coinvolta in una guerra contro un'alleanza aliena che venera antiche reliquie disseminate nella galassia. Al centro dello scontro, misteriosi anelli artificiali costruiti da una civiltà scomparsa nascondono un segreto capace di decidere il destino di ogni forma di vita conosciuta. Un soldato oltre l'umano porta il peso di questa guerra sulle spalle.",
-      en: "Humanity, scattered among the stars, finds itself drawn into a war against an alien alliance that worships ancient relics scattered across the galaxy. At the center of the conflict, mysterious artificial rings built by a vanished civilization hide a secret capable of deciding the fate of every known form of life. A soldier beyond human carries the weight of this war."
+      it: "L'umanità, dispersa tra le stelle, è coinvolta in una guerra contro un'alleanza aliena che venera antiche reliquie della galassia. Misteriosi anelli artificiali di una civiltà scomparsa nascondono un segreto capace di decidere il destino di ogni vita conosciuta.",
+      en: "Humanity, scattered among the stars, is drawn into a war against an alien alliance that worships ancient relics across the galaxy. Mysterious artificial rings built by a vanished civilization hide a secret that could decide the fate of all known life."
     },
     palette: ["#1b3a5c", "#4a7fb5", "#c9c9c9"],
     accentColor: "#4a7fb5",
@@ -1630,8 +1630,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Kingdom Hearts", en: "Kingdom Hearts" },
     blurb: {
-      it: "Innumerevoli mondi restano collegati da un filo invisibile fatto di cuori, minacciati costantemente dall'avanzata dell'oscurità che si nutre proprio di essi. Un ragazzo armato di una chiave capace di aprire e chiudere ogni serratura viaggia da un regno all'altro per proteggere l'equilibrio tra luce e tenebra. L'amicizia è l'arma più forte contro il vuoto.",
-      en: "Countless worlds remain connected by an invisible thread made of hearts, constantly threatened by the advance of a darkness that feeds on them. A boy wielding a key capable of opening and locking any door travels from realm to realm to protect the balance between light and darkness. Friendship is the strongest weapon against the void."
+      it: "Innumerevoli mondi restano collegati da un filo invisibile fatto di cuori, minacciati da un'oscurità che si nutre proprio di essi. Un ragazzo armato di una chiave capace di aprire ogni serratura viaggia da un regno all'altro per proteggerne l'equilibrio.",
+      en: "Countless worlds remain connected by an invisible thread made of hearts, threatened by a darkness that feeds on them. A boy wielding a key that can open any door travels from realm to realm, protecting the balance between light and darkness."
     },
     palette: ["#f4c430", "#3b5bdb", "#e63980"],
     accentColor: "#f4c430",
@@ -1743,8 +1743,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "The Legend of Zelda", en: "The Legend of Zelda" },
     blurb: {
-      it: "Nel regno di Hyrule, un'incarnazione dello stesso eroe risponde sempre alla chiamata quando le forze del male, spesso legate a un antico usurpatore, minacciano di sopraffare la terra. Al suo fianco, una principessa custode di una saggezza ancestrale, e un artefatto capace di equilibrare potere, saggezza e coraggio. Il ciclo si ripete, ma l'eroe non manca mai.",
-      en: "In the kingdom of Hyrule, a reincarnation of the same hero always answers the call whenever the forces of evil, often tied to an ancient usurper, threaten to overwhelm the land. At his side stands a princess who guards an ancestral wisdom, and an artifact capable of balancing power, wisdom, and courage. The cycle repeats, but the hero never fails to appear."
+      it: "Nel regno di Hyrule, un'incarnazione dello stesso eroe risponde sempre alla chiamata quando le forze del male, legate a un antico usurpatore, minacciano di sopraffare la terra. Al suo fianco, una principessa custode di una saggezza ancestrale. Il ciclo si ripete, ma l'eroe non manca mai.",
+      en: "In the kingdom of Hyrule, a reincarnation of the same hero always answers the call when the forces of evil, tied to an ancient usurper, threaten to overwhelm the land. At his side stands a princess who guards an ancestral wisdom. The cycle repeats, but the hero never fails."
     },
     palette: ["#4a4a4a", "#7a7a7a", "#a8a8a8"],
     accentColor: "#7a7a7a",
@@ -1958,8 +1958,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Legacy of Kain", en: "Legacy of Kain" },
     blurb: {
-      it: "Nel regno decaduto di Nosgoth, un vampiro e chi lo ha tradito e poi rinnegato si muovono attraverso epoche diverse, manipolando il passato per cambiare un futuro già segnato. Vendetta, libero arbitrio e il destino di un intero mondo si intrecciano in un ciclo che sembra impossibile da spezzare. Ogni scelta riscrive la storia, ma raramente la migliora.",
-      en: "In the fallen realm of Nosgoth, a vampire and the one who betrayed and then renounced him move across different eras, manipulating the past to change an already written future. Vengeance, free will, and the fate of an entire world intertwine in a cycle that seems impossible to break. Every choice rewrites history, but rarely improves it."
+      it: "Nel regno decaduto di Nosgoth, un vampiro e chi lo ha tradito si muovono attraverso epoche diverse, manipolando il passato per cambiare un futuro già segnato. Vendetta, libero arbitrio e il destino di un intero mondo si intrecciano in un ciclo impossibile da spezzare.",
+      en: "In the fallen realm of Nosgoth, a vampire and the one who betrayed him move across different eras, manipulating the past to change an already written future. Vengeance, free will, and the fate of a world intertwine in an unbreakable cycle."
     },
     palette: ["#8b1a2b", "#2e2a1f", "#3ec6c6"],
     accentColor: "#3ec6c6",
@@ -2051,7 +2051,7 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Lost Planet", en: "Lost Planet" },
     blurb: {
-      it: "Su un pianeta gelido e ostile, i coloni sopravvivono cacciando gli Akrid, creature aliene che custodiscono nel corpo un'energia termica indispensabile per resistere al freddo mortale. Tra fazioni corporative senza scrupoli e un ambiente che non perdona errori, ogni missione è una scommessa con la sopravvivenza stessa. Il ghiaccio non fa sconti a nessuno.",
+      it: "Su un pianeta gelido e ostile, i coloni sopravvivono cacciando gli Akrid, creature aliene che custodiscono un'energia termica indispensabile contro il freddo mortale. Tra fazioni corporative senza scrupoli, ogni missione è una scommessa con la sopravvivenza. Il ghiaccio non fa sconti a nessuno.",
       en: "On a frozen, hostile planet, colonists survive by hunting the Akrid, alien creatures whose bodies hold a thermal energy essential to withstand the deadly cold. Amid ruthless corporate factions and an environment that forgives no mistakes, every mission is a gamble with survival itself. The ice shows no mercy to anyone."
     },
     palette: ["#b3e5fc", "#f97316", "#1e3a5f"],
@@ -2100,8 +2100,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Mass Effect", en: "Mass Effect" },
     blurb: {
-      it: "Le civiltà della galassia, unite in un fragile consiglio di razze aliene, si trovano di fronte a una minaccia ciclica: un'antica specie meccanica che ritorna periodicamente per sterminare ogni forma di vita avanzata. Un comandante umano diventa il ponte tra specie diverse, spesso in disaccordo tra loro, nel tentativo di unirle contro l'estinzione. Le scelte di pochi decidono il destino di miliardi.",
-      en: "The galaxy's civilizations, united in a fragile council of alien races, face a cyclical threat: an ancient mechanical species that periodically returns to wipe out every advanced form of life. A human commander becomes the bridge between different, often quarreling species, trying to unite them against extinction. The choices of a few decide the fate of billions."
+      it: "Le civiltà della galassia, unite in un fragile consiglio di razze aliene, affrontano una minaccia ciclica: un'antica specie meccanica che ritorna per sterminare ogni forma di vita avanzata. Un comandante umano diventa il ponte tra specie diverse nel tentativo di unirle contro l'estinzione.",
+      en: "The galaxy's civilizations, united in a fragile council of alien races, face a cyclical threat: an ancient mechanical species returning to wipe out advanced life. A human commander becomes the bridge between quarreling species in the fight against extinction."
     },
     palette: ["#1a2744", "#4a90d9", "#e8532a"],
     accentColor: "#4a90d9",
@@ -2280,8 +2280,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
     blurb: {
-      it: "Soldati leggendari, spesso legati dallo stesso sangue o dallo stesso addestramento, si infiltrano in basi segrete per fermare armi bipedi capaci di lanciare testate nucleari da qualunque punto del pianeta. Dietro ogni missione si nascondono cospirazioni, tradimenti e la domanda su chi controlli davvero la guerra stessa. Nessuno è mai davvero chi sembra.",
-      en: "Legendary soldiers, often bound by the same blood or the same training, infiltrate secret bases to stop bipedal weapons capable of launching nuclear warheads from anywhere on the planet. Behind every mission lie conspiracies, betrayals, and the question of who truly controls war itself. No one is ever quite who they seem."
+      it: "Soldati leggendari, spesso legati dallo stesso sangue o addestramento, si infiltrano in basi segrete per fermare armi bipedi capaci di lanciare testate nucleari da ovunque nel mondo. Dietro ogni missione si nascondono cospirazioni e la domanda su chi controlli davvero la guerra.",
+      en: "Legendary soldiers, often bound by the same blood or training, infiltrate secret bases to stop bipedal weapons capable of launching nuclear warheads from anywhere. Behind every mission lie conspiracies and the question of who truly controls war itself."
     },
     palette: ["#4b5320", "#7c8b96", "#ff6a00"],
     accentColor: "#7c8b96",
@@ -2386,8 +2386,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Prince of Persia", en: "Prince of Persia" },
     blurb: {
-      it: "Un principe si trova spesso a dover rimediare a un errore capace di scatenare forze in grado di alterare il tempo stesso, tra sabbie magiche, palazzi in rovina e nemici resi mostruosi dalla stessa magia impazzita. L'agilità e l'ingegno contano quanto la forza, in un mondo dove ogni salto può significare la vita o la morte. Il tempo stesso diventa un'arma, e una condanna.",
-      en: "A prince often finds himself having to fix a mistake capable of unleashing forces able to alter time itself, amid magical sands, crumbling palaces, and enemies twisted into monsters by the very same runaway magic. Agility and wit matter as much as strength, in a world where every leap can mean life or death. Time itself becomes both a weapon and a curse."
+      it: "Un principe si trova spesso a dover rimediare a un errore capace di scatenare forze in grado di alterare il tempo, tra sabbie magiche, palazzi in rovina e nemici resi mostruosi dalla stessa magia impazzita. Agilità e ingegno contano quanto la forza, dove ogni salto può costare la vita.",
+      en: "A prince often finds himself fixing a mistake that unleashes forces able to alter time itself, amid magical sands, crumbling palaces, and enemies twisted by that same runaway magic. Agility and wit matter as much as strength, where every leap can cost a life."
     },
     palette: ["#2c1810", "#c9a227", "#4a1a1a"],
     accentColor: "#c9a227",
@@ -2503,8 +2503,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Pokémon", en: "Pokémon" },
     blurb: {
-      it: "Giovani allenatori lasciano casa per intraprendere un viaggio attraverso regioni popolate da creature straordinarie, imparando a combatterle, catturarle e soprattutto a diventarne compagni. Palestre, campioni e rivali scandiscono un percorso di crescita personale prima ancora che sportiva. Il legame tra allenatore e creatura è sempre il vero cuore del viaggio.",
-      en: "Young trainers leave home to embark on a journey through regions populated by extraordinary creatures, learning to battle them, capture them, and above all become their companions. Gyms, champions, and rivals mark a path of personal growth even more than competitive achievement. The bond between trainer and creature is always the true heart of the journey."
+      it: "Giovani allenatori lasciano casa per un viaggio attraverso regioni popolate da creature straordinarie, imparando a catturarle e soprattutto a diventarne compagni. Palestre, campioni e rivali scandiscono un percorso di crescita più personale che sportivo.",
+      en: "Young trainers leave home for a journey through regions full of extraordinary creatures, learning to capture them and, above all, become their companions. Gyms, champions, and rivals mark a path of growth that is personal as much as competitive."
     },
     palette: ["#2a2a2a", "#ffcb05", "#3b4cca"],
     accentColor: "#ffcb05",
@@ -2536,8 +2536,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Resident Evil", en: "Resident Evil" },
     blurb: {
-      it: "Corporazioni senza scrupoli sperimentano armi biologiche capaci di trasformare la popolazione in creature mostruose, scatenando focolai che travolgono città intere. Agenti speciali e sopravvissuti comuni si trovano a dover affrontare l'orrore generato da questi esperimenti, spesso scoprendo cospirazioni ben più vaste di quanto immaginassero. La scienza, qui, è sempre la vera minaccia.",
-      en: "Unscrupulous corporations experiment with biological weapons capable of turning the population into monstrous creatures, unleashing outbreaks that overwhelm entire cities. Special agents and ordinary survivors must face the horror born from these experiments, often uncovering conspiracies far larger than they imagined. Science, here, is always the true threat."
+      it: "Corporazioni senza scrupoli sperimentano armi biologiche capaci di trasformare la popolazione in creature mostruose, scatenando focolai che travolgono città intere. Agenti speciali e sopravvissuti comuni affrontano l'orrore di questi esperimenti, spesso scoprendo cospirazioni ben più vaste.",
+      en: "Unscrupulous corporations experiment with biological weapons capable of turning people into monstrous creatures, unleashing outbreaks that overwhelm entire cities. Special agents and ordinary survivors face the horror of these experiments, often uncovering far larger conspiracies."
     },
     palette: ["#c81a1a", "#6b8e23", "#f5f5f5"],
     accentColor: "#c81a1a",
@@ -3039,7 +3039,7 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Warcraft", en: "Warcraft" },
     blurb: {
-      it: "Sul continente di Azeroth, Orda e Alleanza combattono una guerra senza fine, spesso costrette a mettere da parte l'odio reciproco davanti a minacce ben più grandi: legioni demoniache, flagelli non morti e forze elementali capaci di cancellare ogni forma di vita. Eroi di ogni razza scelgono da che parte stare, sapendo che la posta in gioco è sempre la sopravvivenza del mondo intero.",
+      it: "Sul continente di Azeroth, Orda e Alleanza combattono una guerra senza fine, spesso costrette a mettere da parte l'odio reciproco davanti a minacce ben più grandi: legioni demoniache e forze elementali capaci di cancellare ogni forma di vita. Eroi di ogni razza scelgono da che parte stare.",
       en: "On the continent of Azeroth, the Horde and the Alliance wage an endless war, often forced to set aside their mutual hatred in the face of far greater threats: demonic legions, undead scourges, and elemental forces capable of erasing all life. Heroes of every race choose a side, knowing the stakes are always the survival of the entire world."
     },
     palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
@@ -3185,8 +3185,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
     blurb: {
-      it: "Storie apparentemente distanti si rivelano intrecciate da un filo sottile fatto di fenomeni inspiegabili, oggetti dotati di un potere proprio e una realtà che sembra piegarsi attorno a chi ne è toccato. Un'agenzia segreta indaga su questi eventi mentre scrittori, agenti e persone comuni si trovano invischiati in qualcosa più grande di loro. Il confine tra finzione e realtà è sempre più sottile del previsto.",
-      en: "Seemingly distant stories reveal themselves woven together by a thin thread of unexplainable phenomena, objects with a power all their own, and a reality that seems to bend around whoever is touched by it. A secret agency investigates these events while writers, agents, and ordinary people find themselves entangled in something far bigger than they are. The line between fiction and reality is always thinner than expected."
+      it: "Storie apparentemente distanti si rivelano intrecciate da un filo sottile fatto di fenomeni inspiegabili e oggetti dotati di un potere proprio, capaci di piegare la realtà attorno a chi ne è toccato. Un'agenzia segreta indaga su questi eventi mentre persone comuni si ritrovano invischiate in qualcosa più grande di loro.",
+      en: "Seemingly distant stories reveal themselves woven together by unexplainable phenomena and objects with a power all their own, capable of bending reality around whoever is touched by them. A secret agency investigates these events while ordinary people find themselves entangled in something far bigger."
     },
     palette: ["#f0a202", "#1b2a4a", "#c0293b"],
     accentColor: "#f0a202",
