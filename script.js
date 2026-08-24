@@ -1165,16 +1165,19 @@ function renderTitlePanel(){
   } else if(watermark){
     watermark.remove();
   }
-  // Filigrana: parte da meta' strada tra tag e date (25px, meta' dei
-  // 50px che oggi separano i due), misurata a runtime sul vero
-  // bordo basso del tag - non piu' un top:70px fisso, che non
-  // seguiva la spaziatura reale del blocco di testo. Le proporzioni
-  // (width:42vw, bottom:0 - vedi CSS) restano invariate, cambia solo
-  // da dove parte verticalmente.
+  // Filigrana: corretto su richiesta - troppo piccola partendo da
+  // meta' tag/date (25px, il turno precedente). Riportata a partire
+  // da meta' strada tra la riga dell'header e il titolo (12.5px,
+  // meta' dei 25px che li separano - .title-name{margin-top:25px}),
+  // misurata a runtime sul vero bordo basso della barra header
+  // (#titleHeaderBar) - non piu' un top:70px fisso ne' il punto di
+  // meta' tag/date di prima. Le proporzioni (width:42vw, bottom:0 -
+  // vedi CSS) restano invariate, cambia solo da dove parte
+  // verticalmente.
   if(watermark && !mobileBreakpoint.matches){
-    const tagWrap = activeRec.panel.querySelector(".title-meta");
-    if(tagWrap){
-      watermark.style.top = (tagWrap.getBoundingClientRect().bottom + 25).toFixed(2) + "px";
+    const headerBar = document.getElementById("titleHeaderBar");
+    if(headerBar){
+      watermark.style.top = (headerBar.getBoundingClientRect().bottom + 12.5).toFixed(2) + "px";
     }
   }
   el.watermarkBrightness.hidden = !watermarkSrc;
