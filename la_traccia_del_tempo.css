@@ -128,6 +128,8 @@
      header = 80px, +12.5px di meta' strada tra la riga dell'header e
      il titolo (.title-name{margin-top:25px}, meta' di 25) = 92.5px. */
   body[data-state="title"] .title-watermark{ top:92.5px; }
+  /* DEBUG TEMPORANEO - da togliere dopo il controllo. */
+  body[data-state="title"] .title-watermark{ outline:2px dashed var(--cyan); }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
   /* --- Barra di luminosita': struttura a colonna come Storie Senza
@@ -910,7 +912,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (15px, li' dichiarato a mano - qui prima mancava del tutto,
      ereditava quello generico del corpo pagina). */
   .title-tag{ padding:5px 15px; line-height:15px; }
-  .title-date{ margin-top:50px; margin-bottom:0; }
+  .title-date{ margin-top:30px; margin-bottom:0; }
   .title-date--release + .title-date--story{ margin-top:5px; }
   .title-synopsis{ margin-top:30px; }
   /* La regola condivisa .title-date + .title-synopsis{margin-top:0}
