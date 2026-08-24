@@ -661,13 +661,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
   /* --- La vera larghezza/posizione di .timeline-viewport non e'
      piu' qui: viene ora impostata a runtime da script.js, misurando
-     la posizione REALE di Ko-fi e dello switch lingua (getBoundingClientRect),
-     non calcolata a mano dal CSS - i due giri precedenti avevano
-     sbagliato i calcoli, e comunque c'era gia' un ricentraggio via
-     translateX in script.js che rendeva vani questi valori CSS senza
-     che ce ne accorgessimo. Questa regola resta solo come fallback
-     minimo (nel caso lo script non riuscisse a girare per qualche
-     motivo), width:100% del nuovo #universesRow gia' allineato. --- */
+     la posizione REALE di Discord e dello switch lingua
+     (getBoundingClientRect), non calcolata a mano dal CSS - i giri
+     precedenti avevano sbagliato i calcoli piu' volte, e comunque
+     c'era gia' un ricentraggio via translateX in script.js che
+     rendeva vani questi valori CSS senza che ce ne accorgessimo.
+     Il contenitore combacia ESATTAMENTE con quei due bordi (niente
+     margine extra: allargarlo rompeva lo scroll libero negli
+     universi con tanti titoli, vedi commento in script.js). Questa
+     regola resta solo come fallback minimo (nel caso lo script non
+     riuscisse a girare per qualche motivo), width:100% del nuovo
+     #universesRow gia' allineato. --- */
   body[data-state="game"] .timeline-viewport{
     width:100%;
   }

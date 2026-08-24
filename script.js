@@ -812,23 +812,19 @@ function renderGamePanel(){
     // Larghezza e posizione del contenitore (.timeline-viewport)
     // calcolate dalla posizione REALE di Discord (sinistra) e dello
     // switch lingua (destra), misurata a runtime - non piu' un
-    // margine/larghezza CSS indovinati a mano (il giro precedente li
-    // aveva sbagliati due volte, e comunque venivano poi ignorati dal
-    // ricentraggio via translateX qui sotto, applicato DOPO senza mai
-    // cambiare la larghezza: ecco perche' non si vedeva alcun
-    // effetto). Discord, non Ko-fi: da quando l'ordine dei due
-    // pulsanti e' stato invertito (Discord poi Ko-fi, non piu' il
-    // contrario), e' Discord ad essere il piu' a sinistra - usare
-    // ancora Ko-fi qui (come faceva questo codice preesistente,
-    // scritto per il vecchio ordine) spostava tutto piu' a destra del
-    // dovuto, esattamente il problema nello screenshot. Il PRIMO
-    // pallino deve toccare esattamente il bordo sinistro di Discord;
-    // il bordo del contenitore (non il pallino, che per scelta
-    // esplicita resta 50px piu' dentro) non deve mai superare il
-    // bordo destro dello switch lingua - la stessa freccetta destra
-    // e' ancorata li' (vedi piu' sotto). Impostata PRIMA di leggere
-    // clientWidth qui sotto, non dopo: i nodi si distribuiscono sulla
-    // larghezza vera, non su quella di un istante prima.
+    // margine/larghezza CSS indovinati a mano. Il contenitore ora
+    // combacia ESATTAMENTE con questi due bordi (niente piu' i 50px
+    // extra aggiunti in precedenza per far toccare il pallino invece
+    // del bordo del nodo): quei 50px allargavano il contenitore
+    // stesso, che negli universi con scroll libero (tanti titoli,
+    // come Castlevania) e' anche l'area scorrevole vera - risultato,
+    // trascinando si vedeva contenuto oltre il limite vero, e la
+    // freccetta destra (calcolata sull'ultimo nodo di un contenitore
+    // "gonfiato" 50px oltre lo schermo) spariva del tutto. Le
+    // immagini/titoli dei nodi possono ancora sporgere leggermente
+    // oltre questo bordo per conto proprio (overflow:visible, gia'
+    // il comportamento di base quando non c'e' scroll) - qui pero'
+    // non si allarga piu' il contenitore per farglielo fare apposta.
     const viewportEl = liveTimeline.closest(".timeline-viewport");
     if(viewportEl && el.discordLink && el.langSwitch){
       viewportEl.style.transform = "none";
@@ -836,7 +832,7 @@ function renderGamePanel(){
       const viewportRect = viewportEl.getBoundingClientRect();
       const discordRect = el.discordLink.getBoundingClientRect();
       const langRect = el.langSwitch.getBoundingClientRect();
-      const targetLeft = discordRect.left - 50;
+      const targetLeft = discordRect.left;
       const targetRight = langRect.right;
       const newWidth = Math.max(0, targetRight - targetLeft);
       viewportEl.style.width = newWidth.toFixed(2) + "px";
@@ -942,22 +938,28 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
       // Le freccette animate (solo sopra soglia, isLargeUniverse):
-      // 50px a sinistra dell'inizio della riga e 50px a destra della
-      // sua fine (non piu' ancorate a Discord/switch lingua - su
-      // richiesta esplicita, ora seguono la riga stessa), alla sua
-      // stessa altezza (il centro verticale del primo/ultimo pallino,
-      // che coincide sempre con l'altezza della riga). Il
-      // meccanismo di accensione/spegnimento (solo la direzione in
-      // cui si puo' ancora scorrere resta accesa/animata) resta
-      // identico a prima, invariato.
-      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight){
+      // 50px a sinistra/destra del bordo del contenitore (le stesse
+      // posizioni di Discord/switch lingua usate poco piu' in alto -
+      // coincidono sempre con l'inizio/fine vera della riga, visto
+      // che il contenitore ora combacia esattamente con quei due
+      // bordi). Non piu' calcolate sul primo/ultimo pallino renderizzato
+      // (lineLeft/lineRight): in un universo con scroll libero (tanti
+      // titoli) l'ultimo pallino puo' trovarsi molto oltre il bordo
+      // destro dello schermo, spingendo la freccetta fuori vista - qui
+      // Discord e lo switch lingua sono invece sempre veri elementi
+      // fissi in schermo, mai fuori vista. Stessa altezza della riga
+      // (il centro verticale del primo/ultimo pallino). Il meccanismo
+      // di accensione/spegnimento (solo la direzione in cui si puo'
+      // ancora scorrere resta accesa/animata) resta identico a prima,
+      // invariato.
+      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight && el.discordLink && el.langSwitch){
+        const discordRect = el.discordLink.getBoundingClientRect();
+        const langRect = el.langSwitch.getBoundingClientRect();
         const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
         el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
         el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
-        const lineAbsLeft = timelineRect.left + lineLeft;
-        const lineAbsRight = timelineRect.left + lineRight;
-        el.dragHintLeft.style.left = (lineAbsLeft - 50).toFixed(2) + "px";
-        el.dragHintRight.style.right = (window.innerWidth - (lineAbsRight + 50)).toFixed(2) + "px";
+        el.dragHintLeft.style.left = (discordRect.left - 50).toFixed(2) + "px";
+        el.dragHintRight.style.right = (window.innerWidth - (langRect.right + 50)).toFixed(2) + "px";
 
         // Si spengono da sole quando non c'e' piu' nulla da vedere in
         // quella direzione (riga gia' tutta a sinistra/destra), invece
