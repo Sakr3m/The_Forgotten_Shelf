@@ -784,7 +784,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      condiviso). --- */
   body[data-state="game"] .game-header__blurb{
     margin-top:0;
-    max-width:70%;
+    max-width:75%;
   }
 
   /* --- Titolo della saga a raso con la cima dell'avatar (prima era
