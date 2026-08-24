@@ -123,6 +123,11 @@
      il suo lato sinistro e' incollato alla sidebar). --- */
   .timeline-rail{ width:300px; }
   body[data-state="title"] .title-watermark{ right:300px; }
+  /* Top costante (non piu' misurato via JS - vedi commento in
+     script.js/renderTitlePanel): 15px di topbar + 65px di barra
+     header = 80px, +12.5px di meta' strada tra la riga dell'header e
+     il titolo (.title-name{margin-top:25px}, meta' di 25) = 92.5px. */
+  body[data-state="title"] .title-watermark{ top:92.5px; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
   /* --- Barra di luminosita': struttura a colonna come Storie Senza

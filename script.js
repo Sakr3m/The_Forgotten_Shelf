@@ -1165,21 +1165,13 @@ function renderTitlePanel(){
   } else if(watermark){
     watermark.remove();
   }
-  // Filigrana: corretto su richiesta - troppo piccola partendo da
-  // meta' tag/date (25px, il turno precedente). Riportata a partire
-  // da meta' strada tra la riga dell'header e il titolo (12.5px,
-  // meta' dei 25px che li separano - .title-name{margin-top:25px}),
-  // misurata a runtime sul vero bordo basso della barra header
-  // (#titleHeaderBar) - non piu' un top:70px fisso ne' il punto di
-  // meta' tag/date di prima. Le proporzioni (width:42vw, bottom:0 -
-  // vedi CSS) restano invariate, cambia solo da dove parte
-  // verticalmente.
-  if(watermark && !mobileBreakpoint.matches){
-    const headerBar = document.getElementById("titleHeaderBar");
-    if(headerBar){
-      watermark.style.top = (headerBar.getBoundingClientRect().bottom + 12.5).toFixed(2) + "px";
-    }
-  }
+  // Filigrana: il "top" NON serve piu' misurarlo a runtime (rischio
+  // di timing legato allo scroll, vedi commento in selectEntry) - a
+  // differenza di Discord/switch lingua (larghezza variabile), qui
+  // l'altezza della barra header e' sempre una costante fissa (15px
+  // di topbar + 65px di barra = 80px), mai dipendente dal contenuto.
+  // Il valore vero (80 + 12.5 di meta' strada = 92.5px) e' impostato
+  // direttamente in CSS, vedi la_traccia_del_tempo.css.
 
   // Barra di luminosita': da sotto Discord a sotto lo switch lingua,
   // come su Storie Senza Cornice - misurata a runtime sulla
@@ -1309,10 +1301,18 @@ function selectEntry(entryId){
   if(!found) return;
   state.entryId = entryId;
   state.universeIndex = currentGame().universes.indexOf(found.universe);
-  setState("title");
+  // Scroll azzerato PRIMA di setState/renderTitlePanel, non dopo:
+  // #titleHeaderBar e' sticky, la sua posizione (misurata a runtime
+  // per la filigrana, vedi renderTitlePanel) dipende da quanto la
+  // pagina e' scorsa in quel momento. Passando da una voce all'altra
+  // (avanti/indietro) senza mai tornare alla vista "game", la pagina
+  // poteva restare scorsa dalla voce precedente proprio nell'istante
+  // della misurazione - risultato, la filigrana finiva ancorata a un
+  // punto sbagliato (troppo in alto, quasi al livello del titolo).
   window.scrollTo(0, 0);
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
+  setState("title");
 }
 
 // ---------------------------------------------------------
