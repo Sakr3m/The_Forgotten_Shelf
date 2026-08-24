@@ -138,17 +138,6 @@
      di lasciare vuoti - qui, non nel file condiviso, per non
      cambiare le altre due pagine mai discusse in questo contesto. */
   body[data-state="title"] .title-watermark{ background-size:cover; }
-  /* DEBUG TEMPORANEO - da togliere quando non serve piu': elemento
-     SEPARATO (::after su .title-panel, non su .title-watermark
-     stesso), cosi' opacity/maschera della filigrana vera non lo
-     toccano e il contorno resta sempre a piena intensita'. */
-  body[data-state="title"] .title-panel::after{
-    content:"";
-    position:fixed; top:130px; right:300px; bottom:0; width:42vw;
-    border:3px dashed var(--cyan);
-    pointer-events:none;
-    z-index:5;
-  }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
   /* --- Definitivo (su richiesta esplicita, dopo vari tentativi):
      i quadratini non possono superare la riga dell'header, punto.
