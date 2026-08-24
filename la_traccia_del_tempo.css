@@ -125,57 +125,63 @@
   body[data-state="title"] .title-watermark{ right:300px; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
-  /* --- Scrollbar della tabella a destra: stesso identico problema
-     gia' preso e risolto sulla sidebar sinistra (#sidebar .game-list
-     qui sopra), mai applicato a questa tabella. Restava lo scrollbar
-     grezzo del browser (fino a 15-17px), che "mangia" spazio visibile
-     dal lato destro della tabella - risultato, appariva piu' stretta
-     della sidebar anche a larghezza CSS identica (300px entrambe).
-     Stesso trattamento sottile: trasparente a riposo, visibile solo
-     in hover. Applicata direttamente a .timeline-rail (a differenza
-     della sidebar non serve un contenitore interno separato: qui non
-     c'e' nessun panel-toggle da far dissolvere insieme al resto). --- */
-  .timeline-rail{
+  /* --- Scrollbar della tabella a destra: sottile come quello della
+     sidebar sinistra, sul lato interno (verso lo stage, specchiata)
+     e alla STESSA distanza dalla linea divisoria (16px, il
+     padding-right vero della sidebar). Il primo tentativo aveva
+     messo overflow-y:auto direttamente su .timeline-rail (l'elemento
+     esterno): sbagliato - la sidebar invece delega lo scroll a un
+     contenitore INTERNO (#sidebar .game-list), che e' esattamente il
+     motivo per cui il suo scrollbar appare 16px dentro il bordo
+     (fila con il bordo del contenitore interno, che a sua volta e'
+     16px dentro il vero bordo della sidebar). Con overflow sulla
+     tabella stessa lo scrollbar finiva invece quasi a filo del vero
+     bordo, non a 16px da esso - da qui la differenza visibile nello
+     screenshot. Corretto spostando overflow-y (e tutto lo scrollbar
+     sottile) su #timelineRail .panel-inner, lo stesso contenitore
+     gia' aggiunto per l'effetto di dissolvenza del panel-toggle:
+     vive dentro il padding-left di 16px della tabella, quindi il suo
+     bordo - e lo scrollbar che ci si aggancia - cade automaticamente
+     alla stessa distanza della sidebar, senza bisogno di calcoli. La
+     tabella esterna (.timeline-rail) resta invece overflow-y:hidden,
+     esattamente come .sidebar. --- */
+  .timeline-rail{ overflow-y:hidden; }
+  #timelineRail .panel-inner{
+    height:100%;
+    overflow-y:auto;
     scrollbar-width:thin;
     scrollbar-color:transparent transparent;
   }
-  .timeline-rail:hover{
+  #timelineRail:hover .panel-inner{
     scrollbar-color:var(--line) transparent;
   }
-  .timeline-rail::-webkit-scrollbar{ width:5px; }
-  .timeline-rail::-webkit-scrollbar-track{ background:transparent; }
-  .timeline-rail::-webkit-scrollbar-thumb{
+  #timelineRail .panel-inner::-webkit-scrollbar{ width:5px; }
+  #timelineRail .panel-inner::-webkit-scrollbar-track{ background:transparent; }
+  #timelineRail .panel-inner::-webkit-scrollbar-thumb{
     background:transparent;
     border-radius:999px;
   }
-  .timeline-rail:hover::-webkit-scrollbar-thumb{ background:var(--line); }
-  .timeline-rail::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+  #timelineRail:hover .panel-inner::-webkit-scrollbar-thumb{ background:var(--line); }
+  #timelineRail .panel-inner::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
 
   /* --- Specchiata rispetto alla sidebar sinistra: la barra deve
      stare sul lato INTERNO (verso lo stage), non su quello esterno
      (verso il bordo della finestra) come farebbe di default un
      qualunque elemento scorrevole. Trucco classico: direction:rtl
      sposta lo scrollbar nativo dalla destra alla sinistra
-     dell'elemento; direction:ltr sui figli veri (etichetta e lista)
-     annulla l'effetto sul TESTO, che altrimenti si leggerebbe
-     al contrario. --- */
-  .timeline-rail{ direction:rtl; }
+     dell'elemento (qui va su .panel-inner, il vero elemento con
+     overflow adesso); direction:ltr sui figli veri (etichetta e
+     lista) annulla l'effetto sul TESTO, che altrimenti si
+     leggerebbe al contrario. --- */
+  #timelineRail .panel-inner{ direction:rtl; }
   .timeline-rail .rail-label, .timeline-rail .rail-track{ direction:ltr; }
 
-  /* --- "Specchiata" vuol dire anche: la barra deve stare alla
-     STESSA distanza dalla linea che separa la tabella dal resto
-     della pagina (il bordo sinistro di .timeline-rail) di quanto lo
-     scrollbar della sidebar (via #sidebar .game-list) sta dalla SUA
-     linea divisoria (il bordo destro della sidebar) - 16px, il
-     padding-right vero della sidebar (file condiviso). Il padding
-     sinistro di base di questa tabella era 20px, non 16: qui e' la
-     tabella STESSA ad avere overflow-y:auto (non un contenitore
-     interno separato come sulla sidebar), quindi e' il suo
-     padding-left a determinare dove lo scrollbar (ora sul lato
-     sinistro grazie al direction:rtl qui sopra) si ferma rispetto al
-     bordo. Non c'entra il padding di .rail-track qui sotto, quello
-     e' un dettaglio interno separato (la posizione della riga
-     temporale verticale, non dello scrollbar). --- */
+  /* --- Padding sinistro della tabella (non del suo contenuto
+     interno, vedi .rail-track piu' sotto per quello): determina la
+     distanza reale tra il bordo della tabella e il bordo di
+     .panel-inner, cioe' dove si ferma lo scrollbar - 16px, uguale
+     al padding-right vero della sidebar (file condiviso). Il
+     padding sinistro di base di questa tabella era 20px, non 16. --- */
   .timeline-rail{ padding-left:16px; }
 
   /* --- Linea verticale (e pallini) della lista voci, spostata un
