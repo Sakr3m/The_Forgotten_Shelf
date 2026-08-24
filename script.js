@@ -1186,14 +1186,16 @@ function renderTitlePanel(){
     el.watermarkBrightness.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
   }
   el.watermarkBrightness.hidden = !watermarkSrc;
-  // Qui non c'è una riga di header a cui appoggiarsi (a differenza
-  // di Doom): la barra segue invece dove finisce, in alto, la
-  // filigrana stessa (stesso valore del suo "top" in CSS).
-  el.watermarkBrightness.style.top = watermarkSrc ? "97px" : ""; /* 70 di base
-    +10px (stima dell'utente: l'immagine reale non è misurabile da qui, la
-    rete del sandbox non arriva al bucket Cloudflare) +1px (stesso
-    aggiustamento universale delle altre viste) */
-  el.watermarkBrightness.style.right = "";
+  // "0px dalla linea dell'header" = esattamente al bordo basso della
+  // barra header (15px di topbar + 65px di barra = 80px), non piu'
+  // il vecchio "97px" (calcolato per il vecchio top:70px della
+  // filigrana, ormai superato). left/right impostati qui sopra -
+  // NON vanno piu' azzerati qui sotto: un residuo del vecchio codice
+  // (style.right = "") sovrascriveva ogni volta il valore appena
+  // calcolato da Discord/switch lingua, riportando la barra al
+  // fallback CSS (300px, fino quasi al bordo della tabella destra) -
+  // esattamente il "piu' lunga di quanto chiesto" segnalato.
+  el.watermarkBrightness.style.top = watermarkSrc ? "80px" : "";
 
   // restart entrance animation
   activeRec.panel.style.animation = "none";

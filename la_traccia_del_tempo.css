@@ -136,16 +136,16 @@
      condiviso base non e' mai stato aggiornato quando le altre due
      pagine sono passate a due righe). height:auto, non piu' 20px
      fisso: ora ci stanno due righe, non una. Quadratini preset in
-     basso a sinistra (order:2, sotto la barra vera; justify-content:
-     flex-start, non flex-end come Storie/Filo Nascosto - qui su
-     richiesta esplicita). --- */
+     basso a destra (order:2, sotto la barra vera; justify-content:
+     flex-end - corretto da flex-start del giro precedente, su
+     richiesta esplicita: ora a destra, come Storie/Filo Nascosto). --- */
   body[data-state="title"] .watermark-brightness-line{
     flex-direction:column; align-items:stretch;
     height:auto;
   }
   .watermark-brightness-line__track{ order:1; max-width:none; }
   .watermark-brightness-line__presets{
-    order:2; width:100%; justify-content:flex-start;
+    order:2; width:100%; justify-content:flex-end;
     margin-top:5px; margin-right:0;
   }
 
