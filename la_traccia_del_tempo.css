@@ -128,8 +128,23 @@
      header = 80px, +12.5px di meta' strada tra la riga dell'header e
      il titolo (.title-name{margin-top:25px}, meta' di 25) = 92.5px. */
   body[data-state="title"] .title-watermark{ top:92.5px; }
-  /* DEBUG TEMPORANEO - da togliere dopo il controllo. */
-  body[data-state="title"] .title-watermark{ outline:2px dashed var(--cyan); }
+  /* DEBUG TEMPORANEO - da togliere dopo il controllo. Il tentativo
+     precedente (solo outline) era praticamente invisibile per due
+     motivi che si sommavano: .title-watermark ha opacity:.16
+     sull'INTERO elemento (quindi anche sul mio contorno, ridotto
+     anche lui al 16%) e una maschera che sfuma a trasparente tutto
+     il lato sinistro (quindi anche il contorno li' spariva del
+     tutto) - lo stesso motivo per cui la filigrana vera e' cosi'
+     tenue. Stavolta forzo opacity:1 e tolgo la maschera, oltre a un
+     riempimento pieno (non solo il contorno) cosi' il box e'
+     davvero impossibile non vederlo. */
+  body[data-state="title"] .title-watermark{
+    opacity:1 !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+    background:rgba(0,255,255,.35) !important;
+    outline:3px solid var(--cyan);
+  }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
   /* --- Barra di luminosita': struttura a colonna come Storie Senza
