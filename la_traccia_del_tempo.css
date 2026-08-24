@@ -187,8 +187,17 @@
      centrare lo slider sottile al suo interno), i due centri
      combaciano automaticamente. */
   .watermark-brightness-line__track{ width:100%; max-width:none; height:25px; }
+  /* I quadratini hanno ora una posizione PROPRIA, indipendente da
+     quella della barra (container a top:80px, a filo della riga
+     dell'header, verso il basso - quella e' giusta cosi'): prima
+     ogni aggiustamento sui quadratini spostava l'intero contenitore
+     (barra+quadratini insieme), quindi sistemare l'uno rompeva
+     l'altro sempre. top:-45px li porta nella zona della barra header
+     vera (15px di topbar -> 80px della riga, 65px di spazio),
+     centrati in quello spazio (65-25)/2=20, +15 di topbar = 35px dal
+     bordo pagina, cioe' -45px rispetto al container (80-35). --- */
   .watermark-brightness-line__presets{
-    position:absolute; left:100%; top:0;
+    position:absolute; left:100%; top:-45px;
     margin-left:10px;
   }
 
