@@ -177,7 +177,16 @@
      con position:absolute; left:100% - fuori dal box, nello spazio
      tra lo switch lingua e la tabella, allineati alla barra (top:0,
      non piu' centrati verticalmente nel vecchio box). --- */
-  .watermark-brightness-line__track{ width:100%; max-width:none; }
+  /* height:25px, la stessa dei quadratini (.watermark-brightness-
+     line__preset, ora 25px anche loro): senza un'altezza esplicita
+     il track eredita quella "nativa" del browser per l'input range
+     al suo interno (spesso diversa da quella dei quadratini, e non
+     del tutto prevedibile) - un semplice top:0 su entrambi non basta
+     ad allinearli se le loro altezze non coincidono. Con la stessa
+     altezza, e align-items:center gia' proprio del track (per
+     centrare lo slider sottile al suo interno), i due centri
+     combaciano automaticamente. */
+  .watermark-brightness-line__track{ width:100%; max-width:none; height:25px; }
   .watermark-brightness-line__presets{
     position:absolute; left:100%; top:0;
     margin-left:10px;
@@ -1225,7 +1234,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     display:flex; align-items:center; gap:5px;
   }
   .watermark-brightness-line__preset{
-    width:22px; height:26px;
+    width:25px; height:25px;
     display:flex; align-items:center; justify-content:center;
     border:1px solid var(--cyan);
     border-radius:5px;
