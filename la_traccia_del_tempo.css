@@ -924,14 +924,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
    soglia (LARGE_UNIVERSE_THRESHOLD in script.js, mostrate/nascoste da
    li'), ferme sullo schermo. Posizione (sia orizzontale che verticale)
    calcolata a runtime in script.js (renderGamePanel), non un valore
-   fisso qui: sinistra alla stessa X di Discord (non piu' Ko-fi -
-   aggiornato il 25/08 insieme all'inversione dell'ordine dei due
-   pulsanti, che ha reso Discord il piu' a sinistra dei due), destra
-   alla stessa distanza dal bordo destro dello schermo del selettore
-   lingua, entrambe centrate sulla riga vera dei pallini (misurando il
-   primo e l'ultimo pallino renderizzato). Il contenitore della
-   timeline (.timeline-viewport) usa le stesse due misure per la
-   propria larghezza/posizione, non un semplice ricentraggio. Solo
+   fisso qui: 50px a sinistra dell'inizio della riga vera e 50px a
+   destra della sua fine (non piu' ancorate a Discord/switch lingua -
+   su richiesta esplicita del 25/08, ora seguono la riga stessa),
+   entrambe alla sua stessa altezza (il centro verticale del primo e
+   dell'ultimo pallino renderizzato, che coincide sempre con l'altezza
+   della riga). Il contenitore della timeline (.timeline-viewport) usa
+   invece le posizioni reali di Discord/switch lingua per la propria
+   larghezza/posizione - le freccette e il contenitore non condividono
+   piu' lo stesso riferimento, sono due cose separate ora. Solo
    desktop: su mobile la riga e' gia' verticale con scroll naturale,
    non serve nessun promemoria. */
 .drag-hint{

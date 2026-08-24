@@ -941,20 +941,23 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
-      // Le freccette animate (solo sopra soglia, isLargeUniverse) si
-      // ancorano alle stesse posizioni reali di Discord/switch lingua
-      // gia' usate piu' in alto per il contenitore - qui serve solo
-      // il centraggio verticale sulla riga vera, che cambia da
-      // universo a universo (uno a due righe di titoli sopra/sotto
-      // ha un centro diverso da uno a una riga sola).
-      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight && el.discordLink && el.langSwitch){
-        const discordRect = el.discordLink.getBoundingClientRect();
-        const langRect = el.langSwitch.getBoundingClientRect();
+      // Le freccette animate (solo sopra soglia, isLargeUniverse):
+      // 50px a sinistra dell'inizio della riga e 50px a destra della
+      // sua fine (non piu' ancorate a Discord/switch lingua - su
+      // richiesta esplicita, ora seguono la riga stessa), alla sua
+      // stessa altezza (il centro verticale del primo/ultimo pallino,
+      // che coincide sempre con l'altezza della riga). Il
+      // meccanismo di accensione/spegnimento (solo la direzione in
+      // cui si puo' ancora scorrere resta accesa/animata) resta
+      // identico a prima, invariato.
+      if(isLargeUniverse && el.dragHintLeft && el.dragHintRight){
         const dotCenterY = (firstDot.top + firstDot.bottom) / 4 + (lastDot.top + lastDot.bottom) / 4;
         el.dragHintLeft.style.top = dotCenterY.toFixed(2) + "px";
         el.dragHintRight.style.top = dotCenterY.toFixed(2) + "px";
-        el.dragHintLeft.style.left = discordRect.left.toFixed(2) + "px";
-        el.dragHintRight.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+        const lineAbsLeft = timelineRect.left + lineLeft;
+        const lineAbsRight = timelineRect.left + lineRight;
+        el.dragHintLeft.style.left = (lineAbsLeft - 50).toFixed(2) + "px";
+        el.dragHintRight.style.right = (window.innerWidth - (lineAbsRight + 50)).toFixed(2) + "px";
 
         // Si spengono da sole quando non c'e' piu' nulla da vedere in
         // quella direzione (riga gia' tutta a sinistra/destra), invece
