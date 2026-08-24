@@ -846,14 +846,72 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   .title-panel{ margin-top:0; }
 
-  /* --- Il testo della voce (sinossi) non deve arrivare fino al
-     bordo destro: qui non ha alcun limite di larghezza proprio,
-     riempie tutto lo spazio libero rimasto dopo la tabella a destra
-     - finendo per sovrastare troppo la filigrana di sfondo
-     (.title-watermark). Fermata al 55% del proprio spazio
-     disponibile (non del contenitore, che sarebbe piu' largo per via
-     del padding-left del pannello). --- */
-  .title-synopsis{ max-width:75%; }
+  /* ============================================================
+     Riordino e spaziatura precisa del contenuto di una voce
+     (25/08, su richiesta esplicita): titolo, "Gioco — Universo",
+     tag, date, testo, pulsanti - in quest'ordine (il markup vero e
+     proprio e' stato riordinato in script.js/updateTitlePanelText,
+     qui solo lo spazio tra un pezzo e il successivo). Tutto
+     allineato a sinistra (gia' cosi' di default, flusso normale).
+     20px dal bordo basso della barra header (#titleHeaderBar, il suo
+     margin-bottom condiviso di 15px azzerato qui sotto e sostituito
+     dal margin-top esplicito di .title-name, per avere un numero
+     solo e leggibile invece di due che si sommano).
+     ============================================================ */
+  body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
+  .title-name{ margin-top:20px; }
+  .title-universe-of{ margin-top:10px; }
+  .title-meta{ margin-top:15px; }
+  .title-date{ margin-top:15px; margin-bottom:0; }
+  .title-date--release + .title-date--story{ margin-top:5px; }
+  .title-synopsis{ margin-top:20px; }
+  .title-nav{ margin-top:20px; }
+
+  /* --- Il testo della voce (sinossi): 70% del box (non 75% come nel
+     turno precedente - richiesto esplicitamente ora, per lasciare
+     piu' spazio alla filigrana di sfondo). Il box stesso non e' piu'
+     "tutto lo spazio libero rimasto dopo la tabella a destra": ora
+     e' #titleContent, con larghezza calcolata a runtime in
+     script.js/renderTitlePanel dalla posizione reale di Discord e
+     dello switch lingua (stessa tecnica gia' in uso per l'header
+     della vista "game") - questo 70% e' quindi relativo a quel box
+     preciso, non a uno spazio approssimato. --- */
+  .title-synopsis{ max-width:70%; }
+  .title-content-item{ max-width:none; width:100%; }
+
+  /* --- Pulsanti sotto il testo: non piu' un flex a tutta larghezza
+     con "spazio tra" i tre - ora un box di posizionamento assoluto,
+     largo quanto il testo (70%, la stessa misura qui sopra), con tre
+     punti fissi: il pulsante sinistro (voce precedente) a sinistra
+     - sotto Discord, dato che il box stesso parte da li' - il
+     pulsante destro (voce successiva) al bordo destro del box, cioe'
+     esattamente dove finisce il testo; il pulsante "Torna a [gioco]"
+     centrato esattamente a meta' tra i due. Nessuno dei tre supera
+     mai la larghezza del testo, dato che vivono tutti dentro lo
+     stesso box al 70%. Larghezza di ciascuno "quanto basta" per il
+     proprio contenuto (non piu' flex:1, che li allargava a
+     riempire): se un nome e' troppo lungo va semplicemente a capo
+     (white-space:normal, gia' il comportamento di base per i due
+     "side", .title-back lo fa gia' di suo su due righe fisse). --- */
+  .title-nav{
+    position:relative;
+    width:70%;
+    min-height:60px;
+    display:block;
+  }
+  .title-nav__side{
+    position:absolute; top:0;
+    flex:none; width:auto; max-width:none;
+    white-space:normal;
+  }
+  .title-nav__side--prev{ left:0; }
+  .title-nav__side--next{ right:0; }
+  .title-back{
+    position:absolute; top:0; left:50%;
+    transform:translateX(-50%);
+    flex:none; width:auto;
+  }
+  .title-nav__spacer{ display:none; }
 
   /* #gameHeaderBar (vista "game") non ha bisogno del margin-bottom:
      15px ereditato dalla riga sopra - li' serviva per staccare la

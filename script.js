@@ -1036,11 +1036,11 @@ function updateTitlePanelText(entryId){
   const releaseLabel = state.lang === "it" ? entry.releaseYear : (entry.releaseYearEn || entry.releaseYear);
   const typeLabel = state.lang === "it" ? entry.type : (entry.typeEn || entry.type);
   rec.panel.innerHTML = `
+    <h2 class="title-name">${tf(entry.title)}</h2>
+    <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
     <div class="title-meta">
       <span class="title-tag">${typeLabel}</span>
     </div>
-    <h2 class="title-name">${tf(entry.title)}</h2>
-    <p class="title-universe-of">${tf(g.title)} — ${tf(universe.name)}</p>
     ${releaseLabel ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseLabel}</p>` : ""}
     ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}
     <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
@@ -1104,6 +1104,24 @@ function renderTitlePanel(){
   });
   const activeRec = titlePanels[entry.id];
   if(!activeRec) return;
+
+  // Larghezza e posizione del box di testo (#titleContent, contiene
+  // tutti i pannelli .title-content-item) calcolate dalla posizione
+  // REALE di Discord (sinistra) e dello switch lingua (destra),
+  // misurata a runtime - stessa tecnica gia' robusta usata per
+  // #gameHeaderBar/#gameHeader/#universesRow nella vista "game",
+  // qui applicata al box di testo della vista "title". Solo
+  // desktop: su mobile il layout e' tutt'altra cosa.
+  if(!mobileBreakpoint.matches && el.discordLink && el.langSwitch && el.titleContent){
+    el.titleContent.style.marginLeft = "0px";
+    el.titleContent.style.width = "";
+    const contentRect = el.titleContent.getBoundingClientRect();
+    const discordRect = el.discordLink.getBoundingClientRect();
+    const langRect = el.langSwitch.getBoundingClientRect();
+    const delta = discordRect.left - contentRect.left;
+    el.titleContent.style.marginLeft = delta.toFixed(2) + "px";
+    el.titleContent.style.width = (langRect.right - discordRect.left).toFixed(2) + "px";
+  }
 
   // Solo mobile: il pulsante musica si sposta dentro alla pagina
   // titolo, sul lato destro della riga tag/anno — il centraggio
