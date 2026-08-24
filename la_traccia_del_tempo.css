@@ -799,20 +799,28 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     z-index:20;
   }
 
-  /* --- Titolo della saga a raso con la cima dell'avatar (prima era
-     centrato in verticale insieme alla blurb, ora sparita): .game-
-     header-item e' la riga flex cover+info, allineata dal basso in
-     alto (align-items:flex-start) invece che al centro - l'avatar
-     (140px, il piu' alto) non si sposta (era gia' lui a dettare
-     l'altezza della riga), solo game-header__info (ora solo il
-     titolo, molto piu' basso di 140px) sale in cima invece di
-     restare a meta'. margin-top:0 sul titolo stesso per toglier
-     l'8px di distanza dal bordo alto del suo contenitore, pensato
-     quando doveva lasciare spazio sopra rispetto al centro - qui
-     serve il contrario, zero distanza dalla cima. Dimensione del
-     titolo non toccata (resta quella di sempre). --- */
-  .game-header-item:not([hidden]){ align-items:flex-start; gap:30px; }
+  /* --- Titolo della saga a raso con la cima dell'avatar: margin-top:0
+     sul titolo stesso per toglier l'8px di distanza dal bordo alto
+     del suo contenitore, pensato quando doveva lasciare spazio sopra
+     rispetto al centro - qui serve il contrario, zero distanza dalla
+     cima. Dimensione del titolo non toccata (resta quella di
+     sempre). --- */
   body[data-state="game"] .game-header__title{ margin-top:0; }
+
+  /* --- Blurb spostata tra il titolo e la base dell'avatar (non piu'
+     subito sotto il titolo): .game-header-item torna a stiracchiare
+     (align-items:stretch, non piu' flex-start) game-header__info fino
+     all'altezza vera della riga (140px, quella dell'avatar - il piu'
+     alto dei due, resta lui a dettarla), che diventa a sua volta una
+     colonna flex - il titolo resta comunque in cima per conto suo
+     (comportamento di base di flex-direction:column, nessun bisogno
+     di dirglielo esplicitamente), la blurb prende margin-top:auto, il
+     trucco classico per spingere un elemento fino in fondo a una
+     colonna flex - la sua base finisce cosi' a combaciare con la base
+     dell'avatar, qualunque sia l'altezza reale del titolo sopra. --- */
+  .game-header-item:not([hidden]){ align-items:stretch; gap:30px; }
+  .game-header__info{ display:flex; flex-direction:column; }
+  body[data-state="game"] .game-header__blurb{ margin-top:auto; }
 
   /* --- Barra sotto l'avatar <-> nome dell'universo: 30px (era 40px,
      il margine di base condiviso - CORREZIONE di un mio errore
