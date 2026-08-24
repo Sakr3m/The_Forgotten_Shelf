@@ -144,43 +144,51 @@
 }
 
 /* --- Blocco di testo centrale e pulsanti Discord/Ko-fi: spostati
-   150px a sinistra (stesso spostamento e stessa ragione dell'alert
-   spoiler qui sopra - una vera tabella solo a sinistra sposta il
-   centro naturale 150px a destra del vero centro finestra). Il
-   blocco di testo si centra di suo via margin:auto dentro .stage
-   (nessun left/right esplicito da correggere) - un transform basta.
-   Discord/Ko-fi invece si centrano con left:50% (regola condivisa in
-   styles.css, body[data-state="landing"] .social-links) relativo a
+   150px a sinistra (stessa ragione dell'alert spoiler qui sotto -
+   una vera tabella solo a sinistra sposta il centro naturale 150px
+   a destra del vero centro finestra). Il blocco di testo si centra
+   di suo via margin:auto dentro .stage (nessun left/right esplicito
+   da correggere) - un transform basta. Discord/Ko-fi invece si
+   centrano con left:50% (regola condivisa in styles.css,
+   body[data-state="landing"] .social-links) relativo a
    .stage-topbar: qui si sovrascrive solo quel left, sottraendo gli
-   stessi 150px. --- */
+   stessi 150px. Distanza TRA Discord e Ko-fi portata a 15px (era
+   10px, valore di base condiviso in styles.css) - stessa quota del
+   gap tra panel-toggle e lang-switch (.stage-controls, 15px),
+   stesso identico override gia' presente su Storie Senza Cornice/Il
+   Filo Nascosto. Nessun'altra regola in questo file tocca questo
+   gap: quella condivisa (10px) resta l'unica dichiarazione a monte,
+   sovrascritta qui e solo qui. --- */
 @media (min-width:901px){
   body[data-state="landing"] .landing{
     transform:translateX(-150px);
   }
   body[data-state="landing"] .social-links{
     left:calc(50% - 150px);
+    gap:15px;
   }
 }
 
 /* --- Alert spoiler: preso da Il Filo Nascosto (Storie Senza Cornice
    non ce l'ha). Spostato fuori da .landing nell'HTML (vedi commento
    li'), qui solo il posizionamento: fascia fissa in fondo allo
-   schermo. Ancoraggi asimmetrici (250px a sinistra, 550px a destra
-   - stessa larghezza di prima, 400/400, ma l'intera fascia spostata
-   150px a sinistra): qui c'e' una vera tabella solo a sinistra, non
-   una vera seconda a destra come sulle pagine gemelle, quindi il
-   centro naturale di una fascia larga quanto lo stage cade 150px
-   PIU' A DESTRA del centro reale della finestra (meta' della
-   larghezza della sidebar, 300px/2). Stesso spostamento applicato
-   qui sotto a .social-links e .landing, per coerenza - tutto il
-   blocco centrale ora si allinea allo stesso punto. Nascosta nelle
-   viste "game"/"title" (l'equivalente qui dello stato "entry" delle
-   altre due pagine). --- */
+   schermo, ancorata simmetricamente a 400px sia a sinistra che a
+   destra - 100px dal bordo destro della vera tabella a sinistra
+   (300px) e 100px da dove finirebbe una seconda tabella a destra se
+   ci fosse davvero (stessa larghezza, 300px, anche se qui non
+   esiste). A differenza del testo centrale e di Discord/Ko-fi qui
+   sopra, questa fascia NON va spostata ulteriormente: essendo
+   ancorata in modo fisso e simmetrico (400/400) rispetto alla
+   finestra vera, il suo centro coincide gia' con quello vero della
+   finestra - esattamente lo stesso punto in cui cadono gli altri
+   elementi dopo il loro spostamento di 150px. Nascosta nelle viste
+   "game"/"title" (l'equivalente qui dello stato "entry" delle altre
+   due pagine). --- */
 body[data-state="game"] .spoiler-alert,
 body[data-state="title"] .spoiler-alert{ display:none; }
 @media (min-width:901px){
   .spoiler-alert{
-    position:fixed; left:250px; right:550px; bottom:125px; z-index:5;
+    position:fixed; left:400px; right:400px; bottom:125px; z-index:5;
     justify-content:space-between;
     max-width:none;
     margin-top:0;
@@ -606,11 +614,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
 
   /* La barra di luminosita' delle filigrane (.watermark-brightness-
-     line) ha invece un left:230px "duro" nel foglio comune, pensato
-     apposta per allinearsi al bordo della sidebar quando era 230px:
-     va spostato a 250px insieme a lei, altrimenti resterebbe
-     scollegato dal nuovo bordo. */
-  .watermark-brightness-line{ left:250px; }
+     line) ha un left:250px "duro" nel foglio comune (var(--rail-width)
+     non c'entra, e' un valore fisso separato) - il vero valore per
+     questa pagina (300px, sidebar allargata il 24/08) e' impostato
+     una volta sola piu' in alto nel file: qui restava questo
+     doppione ereditato da quando la sidebar era 230px/250px, mai
+     ripulito nei passaggi successivi e che vinceva lui per ordine nel
+     file, silenziosamente. Rimosso: nessun'altra regola in questo
+     file tocca piu' questo left. */
 
   /* Niente sottolineatura su KoFi/"Torna all'index" (erano ancora
      link col trattino sotto di default). */
