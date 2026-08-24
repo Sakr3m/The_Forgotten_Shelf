@@ -901,11 +901,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      esattamente dove finisce il testo; il pulsante "Torna a [gioco]"
      centrato esattamente a meta' tra i due. Nessuno dei tre supera
      mai la larghezza del testo, dato che vivono tutti dentro lo
-     stesso box al 70%. Larghezza di ciascuno "quanto basta" per il
-     proprio contenuto (non piu' flex:1, che li allargava a
-     riempire): se un nome e' troppo lungo va semplicemente a capo
-     (white-space:normal, gia' il comportamento di base per i due
-     "side", .title-back lo fa gia' di suo su due righe fisse). --- */
+     stesso box al 70%. Larghezza massima esplicita per ciascuno
+     (oltre la quale va a capo, su richiesta): 250px per i due
+     laterali, 200px per quello centrale - se il testo va a capo la
+     freccetta (nei laterali, sempre un figlio flex separato dal
+     testo) si ricentra da sola a meta' delle due righe, gia' gratis
+     grazie ad align-items:center ereditato dalla regola di base.
+     Tutti e tre centrati sulla stessa linea orizzontale (top:50% +
+     transform, non piu' top:0): quando quello centrale cresce a due
+     righe (o piu', se il nome del gioco e' lungo), i laterali
+     restano centrati su di lui invece di restare "appesi" in alto
+     come un singolo bordo comune. --- */
   .title-nav{
     position:relative;
     width:70%;
@@ -913,16 +919,26 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     display:block;
   }
   .title-nav__side{
-    position:absolute; top:0;
-    flex:none; width:auto; max-width:none;
+    position:absolute; top:50%;
+    flex:none; width:auto; max-width:250px;
     white-space:normal;
   }
-  .title-nav__side--prev{ left:0; }
-  .title-nav__side--next{ right:0; }
+  .title-nav__side--prev{ left:0; transform:translateY(-50%); }
+  .title-nav__side--next{ right:0; transform:translateY(-50%); }
+  /* La regola condivisa .title-nav__side span (styles.css) tronca
+     con puntini invece di andare a capo (era pensata per un
+     pulsante di larghezza fissa, non per uno che puo' crescere fino
+     a 250px come questo) - piu' specifica del semplice
+     .title-nav__side qui sopra, andava sovrascritta esplicitamente
+     anche lei, non solo il contenitore. */
+  .title-nav__side span{
+    overflow:visible; text-overflow:clip; white-space:normal;
+    min-width:0;
+  }
   .title-back{
-    position:absolute; top:0; left:50%;
-    transform:translateX(-50%);
-    flex:none; width:auto;
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    flex:none; width:auto; max-width:200px;
   }
   .title-nav__spacer{ display:none; }
 
