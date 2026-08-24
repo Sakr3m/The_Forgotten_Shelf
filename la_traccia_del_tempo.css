@@ -863,6 +863,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      ============================================================ */
   body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
   .title-name{ margin-top:25px; }
+  /* Tentativo empirico (a differenza della sinossi, qui non c'e' un
+     padding nascosto vero e proprio da smascherare/cancellare -
+     JetBrains Mono, usata solo per il titolo, e' un font monospace
+     con un "left bearing" (spazio proprio del carattere prima del
+     disegno vero) tipicamente piu' pronunciato di un font
+     proporzionale come Inter, usato per tutto il resto del blocco.
+     Stima iniziale, quasi certamente da ritoccare dopo un controllo
+     visivo vero). */
+  .title-name{ margin-left:-3px; }
   /* .title-universe-of rimossa dal markup (script.js) su richiesta:
      ridondante, il nome della saga si vede gia' dalla tabella a
      sinistra e quello dell'universo dalla tabella a destra. .title-meta
