@@ -880,27 +880,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .title-date + .title-synopsis{ margin-top:30px; }
   .title-nav{ margin-top:30px; }
 
-  /* ============================================================
-   DEBUG TEMPORANEO (25/08, su richiesta - da togliere quando non
-   serve piu'): contorno tratteggiato ciano su ogni box della zona
-   centrale, per controllare a vista i margini appena impostati e la
-   larghezza reale del contenitore. outline invece di border: non
-   sposta ne' ridimensiona nulla (a differenza di un vero bordo, che
-   avrebbe alterato le misure appena fissate).
-   ============================================================ */
-  #titleContent,
-  .title-content-item,
-  .title-name,
-  .title-universe-of,
-  .title-meta,
-  .title-date,
-  .title-synopsis,
-  .title-nav,
-  .title-nav__side,
-  .title-back{
-    outline:1px dashed var(--cyan);
-  }
-
   /* --- Il testo della voce (sinossi): 70% del box (non 75% come nel
      turno precedente - richiesto esplicitamente ora, per lasciare
      piu' spazio alla filigrana di sfondo). Il box stesso non e' piu'
