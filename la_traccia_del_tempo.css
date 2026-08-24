@@ -681,6 +681,22 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   .discord-link{ width:40px; }
 
+  /* --- Posizione dall'alto dei pulsanti nella topbar, vista
+     "game"/"title": il file condiviso ha gia' questa stessa regola
+     (margin-top:20px invece dei 15px di base, height:auto invece di
+     38px fisso) ma solo per body[data-state="entry"] - lo stato che
+     usano Storie Senza Cornice/Il Filo Nascosto per le voci. Qui lo
+     stato si chiama "game"/"title", quindi quella regola condivisa
+     non scattava mai: i pulsanti restavano piu' in alto (15px)
+     rispetto alle pagine gemelle. Stessa regola, applicata qui sotto
+     ai nomi di stato giusti. --- */
+  body[data-state="game"] .stage-topbar .brand,
+  body[data-state="game"] .stage-topbar .stage-controls,
+  body[data-state="title"] .stage-topbar .brand,
+  body[data-state="title"] .stage-topbar .stage-controls{
+    height:auto; align-items:flex-start; margin-top:20px;
+  }
+
   /* Il file condiviso styles.css riduce .brand da 100 a 50px dal
      bordo della sidebar (margin-left:-50px) per ogni pagina che lo
      usa - qui si annulla per tornare a 100px, come gia' fatto su
@@ -717,7 +733,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     border-color:var(--cyan);
   }
   body[data-state="game"] .kofi-link,
-  body[data-state="title"] .kofi-link{ font-size:.76rem; }
+  body[data-state="title"] .kofi-link{
+    font-size:.76rem;
+    width:auto; padding:0 15px; /* mancava: senza questo il pulsante
+      restava largo 180px (la misura fissa pensata per il testo lungo
+      di home, "Sostienimi su Ko-fi") anche qui, dove il testo e'
+      corto ("KoFi") - un vuoto enorme intorno a quattro lettere.
+      Stesso identico fix e stesso identico commento di Il Filo
+      Nascosto/Storie Senza Cornice. */
+  }
   body[data-state="game"] .kofi-link__full,
   body[data-state="title"] .kofi-link__full{ display:none; }
   body[data-state="game"] .kofi-link__short,
