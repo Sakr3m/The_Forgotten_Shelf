@@ -96,11 +96,20 @@
      esplicita, non piu' su una riga propria sotto come nel giro
      precedente): justify-content:space-between al posto del center
      di base, che centrava l'intero gruppo barra+quadratini invece di
-     spingere i quadratini fino al vero bordo destro. */
+     spingere i quadratini fino al vero bordo destro. ATTENZIONE
+     pero': nell'HTML i quadratini vengono PRIMA della barra, non
+     dopo - con space-between il primo elemento va sempre a sinistra,
+     quindi senza altro intervento i quadratini finivano a sinistra e
+     la barra a destra (bug preso e corretto solo dopo, vedi
+     commit successivo). Corretto con "order" (CSS puro, non tocca
+     l'HTML): la barra visivamente prima (order:1, a sinistra), i
+     quadratini dopo (order:2, a destra). */
   .watermark-brightness-line{
     left:400px; right:400px; top:80px;
     justify-content:space-between;
   }
+  .watermark-brightness-line__track{ order:1; }
+  .watermark-brightness-line__presets{ order:2; }
 }
 .side-rail{
   flex-shrink:0;

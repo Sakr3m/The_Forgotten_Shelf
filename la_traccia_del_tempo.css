@@ -157,18 +157,27 @@
   body[data-state="title"] .title-watermark{ background-size:cover; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
 
-  /* --- Quadratini preset: tornano a destra della barra, sulla
-     stessa riga (non piu' sotto, il tentativo del giro precedente),
+  /* --- Quadratini preset: a destra della barra, sulla stessa riga,
      centrati verticalmente rispetto ad essa - su richiesta esplicita,
-     stavolta anche su Storie Senza Cornice/Il Filo Nascosto (vedi
-     racconti.css/storie-teorie.css). Il file condiviso di base era
-     gia' una riga sola con align-items:center (centratura verticale
-     gia' gratis), ma justify-content:center vi centrava l'intero
-     gruppo barra+quadratini nel mezzo, non spingeva i quadratini
-     fino al vero bordo destro - space-between li porta li'. --- */
+     stavolta anche su Storie Senza Cornice (vedi racconti.css). Il
+     file condiviso di base era gia' una riga sola con align-items:
+     center (centratura verticale gia' gratis), ma justify-content:
+     center vi centrava l'intero gruppo barra+quadratini nel mezzo,
+     non spingeva i quadratini fino al vero bordo destro -
+     space-between li porta li'. ATTENZIONE pero': nell'HTML i
+     quadratini (.watermark-brightness-line__presets) vengono PRIMA
+     della barra (.watermark-brightness-line__track), non dopo - con
+     space-between il primo elemento va sempre a sinistra, quindi
+     senza altro intervento i quadratini finivano a sinistra e la
+     barra a destra, l'esatto opposto del richiesto. Corretto con
+     "order" (CSS puro, non tocca l'HTML): la barra visivamente prima
+     (order:1, a sinistra), i quadratini dopo (order:2, a destra) -
+     indipendentemente dal loro vero ordine nel markup. --- */
   body[data-state="title"] .watermark-brightness-line{
     justify-content:space-between;
   }
+  .watermark-brightness-line__track{ order:1; }
+  .watermark-brightness-line__presets{ order:2; }
 
   /* --- Nome dell'universo trattato davvero come un titolino (come
      "Libreria Timeline" sulla sidebar): resta fermo, a scorrere
