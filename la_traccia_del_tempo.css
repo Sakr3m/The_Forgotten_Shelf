@@ -814,13 +814,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      alto dei due, resta lui a dettarla), che diventa a sua volta una
      colonna flex - il titolo resta comunque in cima per conto suo
      (comportamento di base di flex-direction:column, nessun bisogno
-     di dirglielo esplicitamente), la blurb prende margin-top:auto, il
-     trucco classico per spingere un elemento fino in fondo a una
-     colonna flex - la sua base finisce cosi' a combaciare con la base
-     dell'avatar, qualunque sia l'altezza reale del titolo sopra. --- */
+     di dirglielo esplicitamente), la blurb prende margin-top:auto E
+     margin-bottom:auto insieme (non solo margin-top come nel giro
+     precedente, che la spingeva fino in fondo): con entrambi, lo
+     spazio libero rimasto nella colonna si distribuisce in parti
+     UGUALI sopra e sotto la blurb, invece di finire tutto sopra -
+     la blurb finisce cosi' esattamente a meta' strada tra la base
+     del titolo e la base dell'avatar, come richiesto. --- */
   .game-header-item:not([hidden]){ align-items:stretch; gap:30px; }
   .game-header__info{ display:flex; flex-direction:column; }
-  body[data-state="game"] .game-header__blurb{ margin-top:auto; }
+  body[data-state="game"] .game-header__blurb{ margin-top:auto; margin-bottom:auto; }
 
   /* --- Barra sotto l'avatar <-> nome dell'universo: 30px (era 40px,
      il margine di base condiviso - CORREZIONE di un mio errore
