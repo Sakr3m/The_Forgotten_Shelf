@@ -58,13 +58,12 @@
    mostra/nascondi tabella. Vedi i blocchi qui sotto, uno per punto.
    ============================================================ */
 
-/* --- Tabella a sinistra: 300px invece di 250 (var(--rail-width)
-   resta 250 nel file condiviso, qui la si sovrascrive in modo
-   esplicito solo su #sidebar). Ricalcolo degli ancoraggi collegati:
-   report-bug-btn era a sidebar(250px)+100=350px, ora 300+100=400px;
-   la barra di luminosita' filigrana partiva da left:250px, ora 300px. --- */
+/* --- Ricalcolo degli ancoraggi collegati alla larghezza della
+   tabella a sinistra (300px, vedi piu' sotto nel file dove la sidebar
+   viene effettivamente impostata): report-bug-btn era a
+   sidebar(250px)+100=350px, ora 300+100=400px; la barra di luminosita'
+   filigrana partiva da left:250px, ora 300px. --- */
 @media (min-width:901px){
-  #sidebar{ width:300px; }
   .report-bug-btn{ left:400px; }
   .watermark-brightness-line{ left:300px; }
 }
@@ -79,7 +78,6 @@
   .index-link,
   .lang-switch,
   .music-toggle,
-  .panel-toggle,
   .track-info{
     border-width:2px;
   }
@@ -143,7 +141,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .panel-toggle{
     display:flex; align-items:center; justify-content:center;
     width:40px; height:40px; box-sizing:border-box;
-    border:1px solid var(--cyan);
+    border:2px solid var(--cyan);
     background:var(--panel);
     border-radius:50%;
     color:var(--text-dim);
@@ -498,14 +496,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 }
 
 @media (min-width:901px){
-  /* --- Sidebar a 250px, uguale a Storie Senza
-     Cornice/Il Filo Nascosto), da 230px. Contenuto centrale (.stage,
+  /* --- Sidebar a 300px, uguale a Storie Senza
+     Cornice/Il Filo Nascosto (24/08, era 250px prima di allora - le
+     due pagine gemelle erano state portate a 300 in un secondo
+     momento senza aggiornare qui). Contenuto centrale (.stage,
      flex:1) si restringe di conseguenza per far posto: automatico,
      nessun'altra regola da toccare per quello. Il pulsante volume e
      il toggle della linea temporale (.stage-controls, right:40px)
      restano fermi: sono ancorati al bordo DESTRO dello stage, non
      influenzato dalla larghezza della sidebar a sinistra. --- */
-  #sidebar{ width:250px; }
+  #sidebar{ width:300px; }
 
   /* --- ESPERIMENTO (banner nascosti, non eliminati): solo su questa
      pagina, solo desktop. Descrizione allargata per occupare lo
