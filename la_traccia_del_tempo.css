@@ -105,6 +105,25 @@
 @media (min-width:901px){
   .report-bug-btn{ left:400px; }
   .watermark-brightness-line{ left:300px; }
+
+  /* --- Tabella a destra (timeline-rail, visibile solo nella vista
+     "title"), portata a 300px come quella a sinistra - stessa tecnica
+     gia' usata su Storie Senza Cornice/Il Filo Nascosto per lo stesso
+     identico problema (var(--rail-width) nel file condiviso resta
+     250px, sovrascritta qui solo per questa pagina, senza toccarla
+     nel file condiviso - altrimenti cambierebbe anche sulle altre
+     due). Filigrana (.title-watermark) e barra di luminosita' erano
+     ancorate a destra con var(--rail-width) (250px): la filigrana
+     tocca il bordo della tabella senza alcun distacco (right:300px,
+     stessa larghezza esatta, nessun margine aggiuntivo - e' uno
+     sfondo decorativo, non un pulsante), la barra di luminosita'
+     segue lo stesso criterio "a filo" gia' usato per il suo lato
+     sinistro qui sopra (300px, non 400 - qui non si applica il
+     margine di 100px dei pulsanti, e' incollata alla filigrana come
+     il suo lato sinistro e' incollato alla sidebar). --- */
+  .timeline-rail{ width:300px; }
+  body[data-state="title"] .title-watermark{ right:300px; }
+  body[data-state="title"] .watermark-brightness-line{ right:300px; }
 }
 
 /* --- Bordo 2px sui pulsanti dell'header, stessa convenzione fissa
@@ -696,6 +715,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     opacity:1; animation:none;
   }
   .title-panel{ margin-top:0; }
+
+  /* --- Il testo della voce (sinossi) non deve arrivare fino al
+     bordo destro: qui non ha alcun limite di larghezza proprio,
+     riempie tutto lo spazio libero rimasto dopo la tabella a destra
+     - finendo per sovrastare troppo la filigrana di sfondo
+     (.title-watermark). Fermata al 55% del proprio spazio
+     disponibile (non del contenitore, che sarebbe piu' largo per via
+     del padding-left del pannello). --- */
+  .title-synopsis{ max-width:55%; }
 
   /* #gameHeaderBar (vista "game") non ha bisogno del margin-bottom:
      15px ereditato dalla riga sopra - li' serviva per staccare la
