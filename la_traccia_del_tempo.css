@@ -439,7 +439,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      riga header + 25px di spazio voluto). Voci a piena larghezza,
      testo con altri 15px di margine interno su entrambi i lati. */
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
-  #sidebar .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; }
+  #sidebar .game-list button, #sidebar .game-list a{
+    width:100%; margin-left:0; padding-left:15px; padding-right:15px;
+  } /* mancava "button" qui (solo "a" prima): le voci vere sono
+    <button>, non <a> - la regola non li toccava affatto, ricadendo
+    sul padding:12px 14px condiviso in styles.css invece dei 15px
+    voluti. Trovato confrontando il valore VERO calcolato (14px) con
+    quello di Il Filo Nascosto (15px), non fidandomi piu' di quello
+    scritto qui. */
 
   /* Scrollbar sottile e colorata al posto di quella nativa di
      sistema, stesso stile gia' in uso su desktop. */
