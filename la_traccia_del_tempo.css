@@ -559,9 +559,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      130px = 76px di padding sopra + 24px sotto + l'etichetta col suo
      margine, stessi valori di base condivisi con Storie Senza
      Cornice. --- */
+  /* --- 165px = valore aggiornato di Il Filo Nascosto (era 130px qui
+     su Timeline, calcolato su un padding-top del pannello ormai
+     superato - 76px invece degli attuali 90px): il disallineamento
+     tra questo limite e il padding-top vero del pannello sotto
+     causava probabilmente la sovrapposizione/doppio scroll
+     segnalata. Ora coerente con .sidebar{padding-top:90px} qui
+     sotto. --- */
   .sidebar .game-list{
-    max-height:calc(100vh - 130px);
-    max-height:calc(100dvh - 130px);
+    max-height:calc(100vh - 165px);
+    max-height:calc(100dvh - 165px);
     overflow-y:auto;
   }
 
@@ -573,6 +580,10 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .discord-link{ width:35px; height:35px; color:var(--cyan); }
   .kofi-link{
     height:35px; box-sizing:border-box;
+    width:auto; /* la regola base (styles.css, pensata per il
+      pulsante lungo di desktop) fissa width:180px senza media
+      query - su mobile vinceva comunque, ignorando il testo breve
+      "KoFi" e restando largo quanto su desktop. */
     text-decoration:none;
   }
   .kofi-link__short{ color:var(--cyan); }
