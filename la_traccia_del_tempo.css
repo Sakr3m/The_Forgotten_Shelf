@@ -401,22 +401,23 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="landing"] .stage-topbar{ padding:15px; }
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
 
-  /* Freccette centrate verticalmente sullo schermo (circa a meta'
-     della lista voci sotto), non piu' fisse a 145px dall'alto - su
-     richiesta esplicita, estesa anche a Storie Senza Cornice/Il
-     Filo Nascosto/Diari di Gioco. Il duplicato in basso
-     (--right-bottom) non serve piu': una sola freccia centrata
-     resta visibile comunque. La freccetta sinistra (torna dalla
-     tabella a stage, dato che qui il carosello e' invertito
-     rispetto al gemello) resta gestita dalla stessa logica di
-     visibilita' gia' pronta in updateSwipeHints() - solo la
-     posizione cambia qui. */
-  body[data-state="landing"] .swipe-hint--left,
-  body[data-state="landing"] .swipe-hint--right{
-    top:50%; transform:translateY(-50%);
-  }
+  /* Frecce della HOME (verso destra, dove sta la tabella): tornano
+     ad essere due, come prima della modifica - una vicino alla cima
+     (145px, il valore vero preso da Il Filo Nascosto) e una
+     specchiata vicino al fondo (140px dal basso). La freccia della
+     TABELLA invece (sinistra, per tornare a stage - qui il
+     carosello e' invertito rispetto al gemello) resta una sola,
+     centrata verticalmente sullo schermo: sono view diverse, non
+     serve che si comportino allo stesso modo. Quale delle due si
+     vede quando resta gestito dalla stessa logica di visibilita'
+     gia' pronta in updateSwipeHints() - qui cambia solo la
+     posizione di ciascuna. */
+  body[data-state="landing"] .swipe-hint--right{ top:145px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    display:none;
+    top:auto; bottom:140px;
+  }
+  body[data-state="landing"] .swipe-hint--left{
+    top:50%; transform:translateY(-50%);
   }
 
   /* Bordo 2px sui pulsanti header: gia' presente per questa pagina
@@ -468,19 +469,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     quello di Il Filo Nascosto (15px), non fidandomi piu' di quello
     scritto qui. */
 
-  /* Scrollbar sottile e colorata al posto di quella nativa di
-     sistema, stesso stile gia' in uso su desktop. */
+  /* Scrollbar tolta del tutto su richiesta esplicita (le due prove
+     precedenti - a sinistra con direction:rtl, poi di default a
+     destra - non erano piaciute): scrollbar-width:none/::-webkit-
+     scrollbar{display:none} nascondono la sola barra visiva, lo
+     scorrimento della lista (overflow-y:auto, gia' impostato piu'
+     sopra) resta perfettamente funzionante col dito. */
   #sidebar .game-list{
-    scrollbar-width:thin;
-    scrollbar-color:var(--line) transparent;
+    scrollbar-width:none;
   }
-  #sidebar .game-list::-webkit-scrollbar{ width:5px; }
-  #sidebar .game-list::-webkit-scrollbar-track{ background:transparent; }
-  #sidebar .game-list::-webkit-scrollbar-thumb{
-    background:var(--line);
-    border-radius:999px;
-  }
-  #sidebar .game-list::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+  #sidebar .game-list::-webkit-scrollbar{ display:none; }
 
   /* ---- Carosello a 2 tappe: Home + tabella unica ---- */
   /* #stage sempre PRIMO pannello visivo (order:-1), quindi

@@ -1251,15 +1251,14 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   }
   .swipe-hint--table-left svg{ width:15px; height:15px; display:block; }
 
-  /* Frecce animate della home, verso la tabella genere (ora a destra
-     invece che a sinistra): centrate verticalmente sullo schermo
-     (50%), non piu' fisse a 145px dall'alto - su richiesta esplicita,
-     estesa anche a Storie Senza Cornice/Il Filo Nascosto/Traccia del
-     Tempo. Il duplicato in basso (--right-bottom) non serve piu': una
-     sola freccia centrata resta visibile comunque. */
-  body[data-state="landing"] .swipe-hint{ top:50%; transform:translateY(-50%); }
+  /* Frecce animate della home (verso la tabella, a destra): tornano
+     ad essere due, come prima - una vicino alla cima (145px) e una
+     specchiata vicino al fondo (140px dal basso). Quella della
+     TABELLA invece (--table-left, qui sopra) resta una sola,
+     centrata - sono view diverse. */
+  body[data-state="landing"] .swipe-hint{ top:145px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    display:none;
+    top:auto; bottom:140px;
   }
 
   /* Frecce del carosello generi: stessa distanza dal bordo (14px)
