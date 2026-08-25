@@ -26,6 +26,10 @@ const STRINGS = {
     landingTitle: "La Traccia del Tempo",
     landingIntro: "Le linee temporali di alcune delle saghe videoludiche più amate, con l'ordine cronologico degli eventi ricostruito capitolo per capitolo. Un archivio pensato per chi vuole i fatti, in ordine, senza perdersi tra spin-off, reboot e universi paralleli.",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
+    // Solo mobile: versione corta, presa identica da Il Filo Nascosto
+    // (mancava qui - la pagina ricadeva sulla versione lunga da
+    // desktop anche su schermi piccoli, dove serve piu' spazio).
+    spoilerAlertMobile: "Contiene spoiler: procedi solo se hai già finito i titoli o non te ne importa.",
     landingSub: "Seleziona un titolo dalla libreria a sinistra per esplorarne la linea temporale.",
     // Solo mobile: qui la tabella si apre a destra (carosello a 2
     // tappe, vedi #stage{order:-1} in CSS), non a sinistra come su
@@ -68,6 +72,7 @@ const STRINGS = {
     landingTitle: "The Trace of Time",
     landingIntro: "The timelines of some of the most beloved video game sagas, with the chronological order of events reconstructed chapter by chapter. An archive built for anyone who wants the facts, in order, without getting lost among spin-offs, reboots, and parallel universes.",
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
+    spoilerAlertMobile: "Contains spoilers: proceed only if you've finished the games or don't mind.",
     landingSub: "Select a title from the library on the left to explore its timeline.",
     landingSubMobile: "Select a title from the library on the right to explore its timeline.",
     kofiLabel: "Support me on Ko-fi",

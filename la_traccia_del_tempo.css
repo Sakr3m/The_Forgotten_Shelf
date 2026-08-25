@@ -392,14 +392,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="landing"] .stage-topbar{ padding:15px; }
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
 
-  /* Freccette animate: la barra pulsanti in alto e' alta 65px
-     (15px padding sopra + 35px pulsanti + 15px sotto) - le
-     freccette stanno 25px sotto quella riga (90px), e specchiate
-     140px dal fondo per la seconda copia in basso. Qui pero' e' la
+  /* Freccette animate: 145px dal bordo superiore - stesso valore
+     REALE applicato su Il Filo Nascosto (avevo calcolato 90px a
+     parole dal commento originale li' - 65px di riga header + 25px -
+     ma il numero scritto nella regola vera e' 145px: il commento era
+     rimasto indietro rispetto all'ultima messa a punto, il valore
+     giusto era quello nel CSS, non nel conto a parole). Qui e' la
      freccia DESTRA quella attiva (la tabella e' li', non a
      sinistra) - .swipe-hint--left non esiste piu' in questa pagina
      (rimossa dall'HTML, non punterebbe da nessuna parte). */
-  body[data-state="landing"] .swipe-hint--right{ top:90px; }
+  body[data-state="landing"] .swipe-hint--right{ top:145px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
     top:auto; bottom:140px;
   }
