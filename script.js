@@ -27,6 +27,11 @@ const STRINGS = {
     landingIntro: "Le linee temporali di alcune delle saghe videoludiche più amate, con l'ordine cronologico degli eventi ricostruito capitolo per capitolo. Un archivio pensato per chi vuole i fatti, in ordine, senza perdersi tra spin-off, reboot e universi paralleli.",
     spoilerAlert: "Ogni pagina contiene sinossi dettagliate delle trame, inclusi finali e colpi di scena. Procedi solo se hai già completato i titoli o non temi gli spoiler.",
     landingSub: "Seleziona un titolo dalla libreria a sinistra per esplorarne la linea temporale.",
+    // Solo mobile: qui la tabella si apre a destra (carosello a 2
+    // tappe, vedi #stage{order:-1} in CSS), non a sinistra come su
+    // desktop - meccanismo gia' pronto in paintStaticText() per le
+    // chiavi con suffisso "Mobile".
+    landingSubMobile: "Seleziona un titolo dalla libreria a destra per esplorarne la linea temporale.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     universeLabel: "Universo",
@@ -64,6 +69,7 @@ const STRINGS = {
     landingIntro: "The timelines of some of the most beloved video game sagas, with the chronological order of events reconstructed chapter by chapter. An archive built for anyone who wants the facts, in order, without getting lost among spin-offs, reboots, and parallel universes.",
     spoilerAlert: "Every page contains detailed plot synopses, including endings and twists. Proceed only if you've already finished the games or aren't worried about spoilers.",
     landingSub: "Select a title from the library on the left to explore its timeline.",
+    landingSubMobile: "Select a title from the library on the right to explore its timeline.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     universeLabel: "Universe",
@@ -1752,20 +1758,26 @@ function closeMobileSidebar(){ scrollCarouselToStage(); }
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
 const layoutEl = document.querySelector(".layout");
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
-const swipeRightEl = document.querySelector(".swipe-hint--right");
+const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
+const spoilerAlertEl = document.querySelector(".spoiler-alert");
 function updateSwipeHints(){
   if(!mobileBreakpoint.matches || !layoutEl) return;
   const w = window.innerWidth;
   const maxScroll = layoutEl.scrollWidth - w;
   if(swipeLeftEl) swipeLeftEl.style.visibility = layoutEl.scrollLeft <= w * 0.5 ? "hidden" : "visible";
-  if(swipeRightEl) swipeRightEl.style.visibility = layoutEl.scrollLeft >= maxScroll - w * 0.5 ? "hidden" : "visible";
-  if(el.reportBugBtn){
-    // "in stage" = non al pannello piu a sinistra (sidebar) ne, se esiste,
-    // a quello piu a destra (rail): funziona sia con 2 pannelli (Timeline,
-    // niente rail in home) sia con 3 (Racconti/Teorie, sidebar+stage+rail).
-    const pastSidebar = layoutEl.scrollLeft > w * 0.5;
-    const beforeRail = maxScroll <= w || layoutEl.scrollLeft < maxScroll - w * 0.5;
-    el.reportBugBtn.style.display = (pastSidebar && beforeRail) ? "" : "none";
+  const nascondiDestra = layoutEl.scrollLeft >= maxScroll - w * 0.5;
+  swipeRightEls.forEach(elFreccia => { elFreccia.style.visibility = nascondiDestra ? "hidden" : "visible"; });
+  if(stageEl){
+    // "in stage" = confronto diretto con la posizione vera di stageEl,
+    // non aritmetica basata su "centrale" o "non ai bordi" - qui stage
+    // e' il PRIMO pannello (order:-1), non uno in mezzo ad altri due.
+    const inStage = Math.abs(layoutEl.scrollLeft - stageEl.offsetLeft) < w * 0.5;
+    if(el.reportBugBtn) el.reportBugBtn.style.display = inStage ? "" : "none";
+    // L'alert spoiler (position:fixed, vedi HTML/CSS) deve vedersi
+    // solo sulla home vera, non scorrendo verso la tabella - senza
+    // questo, restando fixed rispetto al viewport (non a .layout),
+    // sarebbe rimasto visibile sopra alla lista anche li'.
+    if(spoilerAlertEl) spoilerAlertEl.style.display = inStage ? "" : "none";
   }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });

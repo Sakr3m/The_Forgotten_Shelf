@@ -362,6 +362,112 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
 }
 
+/* ============================================================
+   MOBILE: home e tabella riprese da Il Filo Nascosto (25/08, su
+   richiesta esplicita) - stessa impostazione, stesse rifiniture,
+   solo il testo e le voci restano quelli propri di questa pagina.
+   Differenze volute rispetto al gemello: nessun pulsante per
+   scegliere tra due liste (qui c'e' una sola tabella, non due), e
+   la tabella si apre a DESTRA invece che a sinistra (vedi
+   #stage{order:-1} qui sotto - la ragione strutturale e' la
+   stessa, solo la direzione e' invertita per come Timeline e'
+   organizzata).
+   ============================================================ */
+@media (max-width:900px){
+  /* Titolo/eyebrow/intro/sub della home: valori base identici al
+     gemello (25px/15px/15px/25px+10px), tranne il titolo, ridotto a
+     18px/18px (invece di 25/25) per lo stesso motivo del desktop -
+     JetBrains Mono (qui) e' piu' largo carattere per carattere di
+     Manrope (li'): "La Traccia del Tempo" a 25px avrebbe rischiato
+     di andare a capo nello spazio stretto di un telefono, cosa che
+     non capita a "Il Filo Nascosto" alla sua dimensione piena. */
+  .landing-title{ font-size:18px; line-height:18px; margin-top:20px; }
+  .landing-eyebrow{ font-size:10px; }
+  .landing-intro{ margin-top:15px; font-size:15px; line-height:22.5px; }
+  .landing-sub{ margin-top:25px; font-size:10px; }
+  body[data-state="landing"] .landing{ width:calc(100% - 30px); }
+
+  /* Pulsanti header: stessi margini/gap di Il Filo Nascosto. */
+  .stage-controls{ gap:10px; }
+  body[data-state="landing"] .stage-topbar{ padding:15px; }
+  body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
+
+  /* Freccette animate: la barra pulsanti in alto e' alta 65px
+     (15px padding sopra + 35px pulsanti + 15px sotto) - le
+     freccette stanno 25px sotto quella riga (90px), e specchiate
+     140px dal fondo per la seconda copia in basso. Qui pero' e' la
+     freccia DESTRA quella attiva (la tabella e' li', non a
+     sinistra) - .swipe-hint--left non esiste piu' in questa pagina
+     (rimossa dall'HTML, non punterebbe da nessuna parte). */
+  body[data-state="landing"] .swipe-hint--right{ top:90px; }
+  body[data-state="landing"] .swipe-hint--right-bottom{
+    top:auto; bottom:140px;
+  }
+
+  /* Bordo 2px sui pulsanti header: gia' presente per questa pagina
+     piu' in alto in questo file (stessa regola, prima di questa
+     sezione) - nessuna aggiunta necessaria qui. */
+
+  /* ---- Tabella (sidebar) ---- */
+
+  /* Titolino ("Libreria Timeline"): 25px, interlinea uguale
+     (box e testo coincidono), margini riprogettati come sul
+     gemello - il padding-top del pannello stesso (90px, sotto) crea
+     da solo l'intero spazio sopra, il titolino ha margin-top:0. */
+  .sidebar-eyebrow{
+    font-size:25px; line-height:25px;
+    margin-top:0; margin-bottom:25px;
+  }
+
+  /* Voci: stessa striscia laterale, spessore 3px, testo allineato a
+     destra (la tabella qui vive a destra, non a sinistra) - striscia
+     specchiata di conseguenza (a destra, vicino al testo). Gap tra
+     voci 5px (era 3px di base). */
+  #sidebar .game-list{ gap:5px; }
+  #sidebar .game-list button, #sidebar .game-list a{
+    text-align:right;
+    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+  }
+  #sidebar .game-list button.is-active, #sidebar .game-list a.is-active{
+    box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+  }
+
+  /* Margini della tabella e delle voci al suo interno: pannello a
+     15px dal bordo su entrambi i lati, padding-top 90px (65px di
+     riga header + 25px di spazio voluto). Voci a piena larghezza,
+     testo con altri 15px di margine interno su entrambi i lati. */
+  .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
+  #sidebar .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; }
+
+  /* Scrollbar sottile e colorata al posto di quella nativa di
+     sistema, stesso stile gia' in uso su desktop. */
+  #sidebar .game-list{
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  #sidebar .game-list::-webkit-scrollbar{ width:5px; }
+  #sidebar .game-list::-webkit-scrollbar-track{ background:transparent; }
+  #sidebar .game-list::-webkit-scrollbar-thumb{
+    background:var(--line);
+    border-radius:999px;
+  }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+
+  /* ---- Carosello a 2 tappe: Home + tabella unica ---- */
+  /* #stage sempre PRIMO pannello visivo (order:-1), quindi
+     scrollLeft=0 - la posizione di riposo naturale del browser,
+     senza bisogno di nessuna correzione via JavaScript, coincide
+     sempre con la home (stesso fix del bug "refresh mostra la
+     sidebar" preso su Storie Senza Cornice/Il Filo Nascosto).
+     #sidebar (che nell'HTML viene prima di #stage) finisce cosi'
+     SECONDA nell'ordine visivo - cioe' a DESTRA, raggiungibile
+     scorrendo verso destra dallo stage: esattamente il
+     comportamento richiesto ("la tabella si apre a destra"),
+     ottenuto specchiando l'ordine invece di spostare la tabella
+     nell'HTML. */
+  #stage{ order:-1; }
+}
+
 /* --- Pulsante mostra/nascondi tabella (panel-toggle): stessa
    meccanica di Storie Senza Cornice/Il Filo Nascosto, applicata alla
    sola #sidebar (qui c'e' una sola tabella in home, non due). Stato
