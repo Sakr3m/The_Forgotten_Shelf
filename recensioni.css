@@ -324,8 +324,14 @@
    ============================================================ */
 .gate-side-toggle{ display:none; }
 .landing-sub--desktop-only{ display:none; }
+/* Complementare: mancava del tutto il testo mobile "seleziona una
+   recensione" (o equivalente) - la versione desktop restava
+   nascosta li' (giusto), ma non c'era nessun testo a sostituirla,
+   lasciando la home muta su come raggiungere le recensioni. */
+.landing-sub--mobile-only{ display:block; }
 @media (min-width:901px){
   .landing-sub--desktop-only{ display:block; }
+  .landing-sub--mobile-only{ display:none; }
   .gate-side-toggle{
     display:flex; align-items:center; justify-content:center;
     width:40px; height:40px; box-sizing:border-box;
@@ -1233,24 +1239,27 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
      home o alla recensione aperta — direzione invertita rispetto a
      prima (la tabella ora sta a destra dello stage, non piu' a
      sinistra), stessa animazione/stile gia' usata su Storie Senza
-     Cornice e Il Filo Nascosto. */
+     Cornice e Il Filo Nascosto. Centrata verticalmente (50%) come le
+     colleghe della home qui sotto, su richiesta esplicita - non piu'
+     fissa a 80px dall'alto. */
   body[data-state="landing"] .swipe-hint--table-left{
-    display:block; position:absolute; top:80px; left:15px; z-index:20;
+    display:block; position:absolute; top:50%; left:15px; z-index:20;
     color:var(--text-faint);
+    transform:translateY(-50%);
     animation:swipeHintLeft 1.6s ease-in-out infinite;
     pointer-events:none;
   }
   .swipe-hint--table-left svg{ width:15px; height:15px; display:block; }
 
   /* Frecce animate della home, verso la tabella genere (ora a destra
-     invece che a sinistra): stessa posizione (per ora) di Il Filo
-     Nascosto - 145px dal bordo superiore per quella in alto, 140px
-     dal bordo inferiore per quella in basso. La direzione orizzontale
-     (right:14px) e l'animazione arrivano gia' dalla regola condivisa
-     in styles.css, valida per ogni pagina. */
-  body[data-state="landing"] .swipe-hint{ top:145px; }
+     invece che a sinistra): centrate verticalmente sullo schermo
+     (50%), non piu' fisse a 145px dall'alto - su richiesta esplicita,
+     estesa anche a Storie Senza Cornice/Il Filo Nascosto/Traccia del
+     Tempo. Il duplicato in basso (--right-bottom) non serve piu': una
+     sola freccia centrata resta visibile comunque. */
+  body[data-state="landing"] .swipe-hint{ top:50%; transform:translateY(-50%); }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:140px;
+    display:none;
   }
 
   /* Frecce del carosello generi: stessa distanza dal bordo (14px)

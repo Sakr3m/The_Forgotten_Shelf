@@ -1554,8 +1554,18 @@ body[data-entry-animate="true"] .entry-panel{
      condivisa qui sopra (stessa classe .swipe-hint), finendo
      sovrapposta a quella in alto invece che in fondo allo schermo.
      "top:auto" annulla esplicitamente il top:90px ereditato. */
+  /* Freccette centrate verticalmente sullo schermo (circa a meta'
+     della lista voci sotto), non piu' fisse a 145px dall'alto - su
+     richiesta esplicita, estesa a tutte le pagine con questa stessa
+     struttura di carosello. Il duplicato in basso (--right-bottom)
+     non serve piu': una sola freccia centrata resta visibile
+     comunque, senza bisogno di una seconda copia vicino al fondo. */
+  body[data-state="landing"] .swipe-hint--left,
+  body[data-state="landing"] .swipe-hint--right{
+    top:50%; transform:translateY(-50%);
+  }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:140px;
+    display:none;
   }
 
   /* Nota: le vecchie regole per il testo/icona del pulsante video

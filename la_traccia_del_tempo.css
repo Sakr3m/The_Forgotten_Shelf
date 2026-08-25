@@ -16,6 +16,15 @@
   font-family:'JetBrains Mono', monospace; font-weight:700;
 }
 
+/* Contenitore avatar+musica nella vista "game" (aggiunto nel markup
+   in script.js/updateGameHeaderPanelText): trasparente di default
+   (display:contents, i figli si comportano come se fossero diretti
+   di .game-header-item, layout desktop invariato) - diventa una vera
+   riga flex SOLO su mobile (vedi @media piu' sotto), dove serve
+   davvero per affiancare avatar e pulsante musica senza affidarsi a
+   trucchi flex-wrap sull'intero pannello. */
+.game-header__top-row{ display:contents; }
+
 /* Pulsante mostra/nascondi tabella: nascosto di default (mobile
    incluso, dove non ha senso - nessun carosello da nascondere li').
    Senza questa riga esplicita il pulsante rischierebbe di comparire
@@ -392,24 +401,22 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="landing"] .stage-topbar{ padding:15px; }
   body[data-state="landing"] .stage-topbar .social-links{ gap:10px; }
 
-  /* Freccette animate: 145px dal bordo superiore - stesso valore
-     REALE applicato su Il Filo Nascosto (avevo calcolato 90px a
-     parole dal commento originale li' - 65px di riga header + 25px -
-     ma il numero scritto nella regola vera e' 145px: il commento era
-     rimasto indietro rispetto all'ultima messa a punto, il valore
-     giusto era quello nel CSS, non nel conto a parole). La
-     freccetta SINISTRA e' tornata (era stata tolta per errore,
-     pensando non servisse piu' - ma serve per tornare dalla
-     TABELLA a stage, non da stage: qui il carosello e' invertito
-     rispetto al gemello, tabella a destra invece che a sinistra, e
-     la logica di visibilita' gia' pronta in updateSwipeHints() la
-     nasconde/mostra correttamente da sola in base a dove ci si
-     trova, nessun cambio JS necessario). Stessa altezza della
-     freccia destra (145px), a specchio. */
-  body[data-state="landing"] .swipe-hint--left{ top:145px; }
-  body[data-state="landing"] .swipe-hint--right{ top:145px; }
+  /* Freccette centrate verticalmente sullo schermo (circa a meta'
+     della lista voci sotto), non piu' fisse a 145px dall'alto - su
+     richiesta esplicita, estesa anche a Storie Senza Cornice/Il
+     Filo Nascosto/Diari di Gioco. Il duplicato in basso
+     (--right-bottom) non serve piu': una sola freccia centrata
+     resta visibile comunque. La freccetta sinistra (torna dalla
+     tabella a stage, dato che qui il carosello e' invertito
+     rispetto al gemello) resta gestita dalla stessa logica di
+     visibilita' gia' pronta in updateSwipeHints() - solo la
+     posizione cambia qui. */
+  body[data-state="landing"] .swipe-hint--left,
+  body[data-state="landing"] .swipe-hint--right{
+    top:50%; transform:translateY(-50%);
+  }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:140px;
+    display:none;
   }
 
   /* Bordo 2px sui pulsanti header: gia' presente per questa pagina
@@ -433,18 +440,11 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      voci 5px (era 3px di base). */
   #sidebar .game-list{ gap:5px; }
 
-  /* --- Scrollbar sul lato che guarda il centro pagina (sinistra
-     qui, dato che la tabella e' il pannello di destra), non su
-     quello esterno - stesso trucco di Il Filo Nascosto per la sua
-     tabella destra (#storieRail): il browser disegna la scrollbar
-     sempre sul bordo destro dell'elemento che scorre, quindi si
-     forza il lato sinistro con direction:rtl sul contenitore -
-     l'allineamento del testo/della striscia resta identico perche'
-     scritto con proprieta' fisiche (text-align:right, box-shadow),
-     mai logiche. direction:ltr sui bottoni stessi e' una sicurezza
-     in piu' contro un possibile riordino del testo. --- */
-  #sidebar .game-list{ direction:rtl; }
-  #sidebar .game-list button{ direction:ltr; }
+  /* --- Scrollbar: il trucco direction:rtl (per spostarla a
+     sinistra, come su Il Filo Nascosto) e' stato tolto su richiesta
+     esplicita - il risultato non piaceva. Resta solo lo stile
+     sottile/colorato qui sotto, applicato alla posizione naturale
+     (destra, dietro le linguette) invece che forzata a sinistra. --- */
 
   #sidebar .game-list button, #sidebar .game-list a{
     text-align:right;
@@ -673,96 +673,77 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     position:static; width:auto; top:auto; right:auto; left:auto;
   }
 
-  /* --- Banner della vista "game": stessa distanza dalla topbar di
-     Storie Senza Cornice/Il Filo Nascosto (70px, vedi anche il nuovo
-     padding-top dello stage qui sotto). Avatar e pulsante musica non
-     sono piu' ancorati in alto a sinistra/destra: sono centrati
-     verticalmente sul banner (top:50% + translateY, cosi' non serve
-     conoscere l'altezza esatta di nessuno dei due). Il pulsante
-     musica e' spostato qui fisicamente da script.js/renderGamePanel
-     (solo su mobile: senza quel trasferimento .music-control non e'
-     discendente di .game-header e "position:absolute" qui sotto si
-     ancorerebbe alla stage-topbar fissa invece che al banner — bug
-     gia' preso una volta). Titolo/blurb sotto, centrati, in flusso
-     normale. Niente tendina di selezione voce qui (non serve su
-     mobile per questa pagina). --- */
+  /* --- Vista "game" su mobile, riscritta (25/08, su richiesta
+     esplicita): via il vecchio sistema legato a un banner "fantasma"
+     (il banner vero e' display:none su mobile, ma avatar/musica
+     restavano comunque ancorati in absolute come se un banner da
+     130px ci fosse per davvero, lasciando un vuoto enorme sopra di
+     loro). #gameHeaderBar (la barra vuota subito sotto la riga
+     dell'header, priva di contenuto reale su mobile) e' stata
+     tolta di mezzo: non serve, era pensata solo per il layout
+     desktop.
+
+     Avatar e pulsante musica affiancati in un contenitore VERO e
+     proprio (.game-header__top-row, aggiunto nel markup - vedi
+     updateGameHeaderPanelText in script.js), non piu' affidato a un
+     trucco flex-wrap sull'intero .game-header-item: un primo
+     tentativo con flex-wrap si comportava in modo imprevedibile (la
+     musica finiva comunque su una riga propria anche forzando
+     flex-wrap:nowrap in prova, senza una causa isolabile) - un
+     contenitore dedicato toglie ogni ambiguita'. Su desktop questo
+     stesso contenitore e' display:contents (vedi regola comune, non
+     scoped qui), quindi trasparente e senza alcun effetto sul
+     layout esistente.
+
+     Margini in numeri tondi, ciascuno verificabile da solo: riga
+     avatar+musica a 25px dalla riga dell'header (lo stage parte gia'
+     49px sotto di lei, per via del suo stesso padding-top qui sotto),
+     titolo+blurb a 25px dalla riga avatar+musica. --- */
+  body[data-state="game"] #gameHeaderBar{ display:none; }
   body[data-state="game"] .stage,
   body[data-state="title"] .stage{ padding-top:49px; }
   body[data-state="game"] .game-header{
-    padding-bottom:10px; /* solo qui (non nel file condiviso, usato
-      anche da altre pagine): era 20px come tutti i lati, dimezzato
-      solo il basso per alzare la riga verso la descrizione */
-    margin-bottom:27.5px; /* era 40px (dal file condiviso). Il gap
-      visibile reale (riga -> riga universo) partiva da 25px, non 40
-      (altri fattori intervengono) - riducendo qui di 12.5px si
-      ottiene un taglio di 12.5px sul gap visibile reale, la vera
-      metà di 25 */
+    padding:0; margin-bottom:25px; /* spazio verso la riga
+      "Universo..." sotto - era andato perso togliendo il vecchio
+      27.5px senza sostituirlo, causando la sovrapposizione col
+      blurb vista nello screenshot di verifica. */
   }
-  body[data-state="game"] .game-header-item{
-    position:relative;
-    flex-direction:row; align-items:flex-start; text-align:center;
+  body[data-state="game"] .game-header-item:not([hidden]){
+    position:static; display:block;
+    text-align:center;
     height:auto; max-height:none; overflow:visible;
-    padding:0; gap:0; margin-bottom:12px; /* era 24px, dimezzato per
-      alzare la riga verso la descrizione */
+    padding:0;
+  }
+  body[data-state="game"] .game-header__top-row{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top:25px;
   }
   body[data-state="game"] .game-header__banner,
   body[data-state="game"] .game-header__banner-overlay{
-    display:none; /* niente banner su mobile, su richiesta. Il resto
-      (avatar, pulsante musica, margine del titolo) resta al suo
-      posto: quei numeri sono gia' fissi e non dipendono dal banner
-      essendoci davvero o no (vedi commento in script.js,
-      renderGamePanel) - quindi non serve toccare altro. */
-  }
-  body[data-state="game"] .game-header__banner{
-    position:absolute; top:0; left:0; right:0; height:130px;
-    border-radius:var(--radius);
-    overflow:hidden;
-    /* Su desktop la banner_x_offset (JS, per-gioco) centra la parte
-       "bella" dell'immagine dentro un riquadro molto più largo che
-       alto. Su mobile il riquadro è invece molto più basso che
-       largo: quella formula non regge più. Qui si torna al criterio
-       usato da Il Filo Nascosto/Diari di Gioco: l'immagine si scala
-       (proporzioni intatte) finché tocca sopra/sotto, resta sempre
-       centrata in orizzontale, e ciò che sporge viene tagliato
-       dall'overflow:hidden qui sopra. */
-    background-position:center center;
-    background-size:auto 100%;
-  }
-  body[data-state="game"] .game-header__banner-overlay{
-    background:rgba(0,0,0,.45);
+    display:none; /* niente banner su mobile, su richiesta - qui non
+      c'e' piu' nessun numero altrove che dipenda da un banner
+      presente o assente, la nuova riga avatar+musica e' in flusso
+      normale indipendente da lui. */
   }
   body[data-state="game"] .game-header__cover{
-    position:absolute; z-index:2;
-    left:-16px; top:65px; transform:translateY(-50%); /* 65px = metà
-      dei 130px del banner: centra l'avatar sull'altezza del banner
-      senza dover conoscere la sua altezza in anticipo. left:-16px
-      (non 16px) perché il contenitore ha gia' 32px di margine suo:
-      serve un valore negativo per allinearsi alla vera stessa
-      distanza dal bordo di "La Traccia del Tempo" (16px), non 48px */
-    width:96px; height:96px; /* x1.5 rispetto ai 64px precedenti */
+    position:static;
+    width:96px; height:96px;
     margin:0;
   }
   body[data-state="game"] .game-header__cover .monogram{ font-size:2.2rem; }
+  body[data-state="game"] .game-header__top-row .music-control{
+    position:static;
+  }
   body[data-state="game"] .game-header__info{
-    position:relative; z-index:1;
+    position:static;
     width:100%;
-    margin-top:136px; /* sotto al banner, -10px su richiesta */
-    padding-bottom:2.5px; /* era 5px, dimezzato insieme al resto per
-      alzare la riga (border-bottom di .game-header) verso la
-      descrizione
-      di 5px, senza toccare la posizione del testo sopra */
+    margin-top:25px;
+    padding-bottom:0;
     text-align:center;
   }
   body[data-state="game"] .game-header__title{ font-size:1.3rem; }
-  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:6px; /* -10px rispetto agli 16px di base */ }
+  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:6px; }
   body[data-state="game"] .game-header__blurb br{ display:none; }
-  body[data-state="game"] .game-header > .music-control{
-    /* Posizione (absolute, centrata sull'altezza del banner, right:16px
-       fisso, speculare al left:16px dell'avatar) calcolata da
-       script.js/renderGamePanel: qui non serve altro, l'inline style
-       di JS vince sempre su questa regola. */
-    z-index:2;
-  }
   body[data-state="game"] .track-info,
   body[data-state="title"] .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
 

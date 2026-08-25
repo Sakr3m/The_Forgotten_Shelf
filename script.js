@@ -567,7 +567,9 @@ function updateGameHeaderPanelText(gameId){
   const g = GAMES[gameId];
   panel.innerHTML = `
     ${g.banner ? `<div class="game-header__banner" style="background-image:url('${g.banner}')"></div><div class="game-header__banner-overlay"></div>` : ""}
-    <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
+    <div class="game-header__top-row">
+      <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
+    </div>
     <div class="game-header__info">
       <h2 class="game-header__title">${tf(g.title)}</h2>
       <p class="game-header__blurb">${tf(g.blurb)}</p>
@@ -652,21 +654,36 @@ function renderGamePanel(){
   // ora che .stage non ruba piu' spazio con la sua scrollbar.
   const cover = activeHeaderPanel ? activeHeaderPanel.querySelector(".game-header__cover") : null;
   if(mobileBreakpoint.matches){
+    // Riscritto (25/08, su richiesta esplicita): niente piu'
+    // posizionamento assoluto centrato su un banner "fantasma" (il
+    // banner vero e' display:none su mobile, ma i vecchi numeri
+    // fissi facevano finta che ci fosse comunque, lasciando un vuoto
+    // enorme sopra avatar/musica). Avatar e pulsante musica tornano
+    // in flusso normale, affiancati in un contenitore dedicato
+    // (.game-header__top-row, gia' nel markup - vedi
+    // updateGameHeaderPanelText) invece che affidarsi a un trucco
+    // flex-wrap sull'intero .game-header-item: il tentativo
+    // precedente con flex-wrap si comportava in modo imprevedibile
+    // (la musica finiva comunque su una riga propria anche forzando
+    // flex-wrap:nowrap in prova), un contenitore vero e proprio
+    // toglie ogni ambiguita'. "top"/"transform"/"position" JS di
+    // prima azzerati esplicitamente (altrimenti, essendo inline,
+    // vincerebbero comunque su qualunque regola CSS).
     if(cover){
-      cover.style.top = "65px";
-      cover.style.transform = "translateY(-50%)";
+      cover.style.position = "";
+      cover.style.top = "";
+      cover.style.left = "";
+      cover.style.transform = "";
     }
     if(el.musicControl && activeHeaderPanel){
-      activeHeaderPanel.appendChild(el.musicControl);
-      el.musicControl.style.position = "absolute";
-      el.musicControl.style.left = "auto";
-      el.musicControl.style.right = "-16px"; /* a filo con lo switch lingua,
-        16px dal vero bordo dello schermo - non 0px, perche' il
-        contenitore ha gia' 32px di margine suo: serve un valore
-        negativo per la stessa distanza reale (16px) dello switch */
-      el.musicControl.style.zIndex = "3";
-      el.musicControl.style.top = "65px";
-      el.musicControl.style.transform = "translateY(-50%)";
+      const topRow = activeHeaderPanel.querySelector(".game-header__top-row");
+      if(topRow) topRow.appendChild(el.musicControl);
+      el.musicControl.style.position = "";
+      el.musicControl.style.left = "";
+      el.musicControl.style.right = "";
+      el.musicControl.style.top = "";
+      el.musicControl.style.zIndex = "";
+      el.musicControl.style.transform = "";
     }
   } else if(el.discordLink){
     // Allineamento reale (desktop): #gameHeaderBar e #gameHeader
