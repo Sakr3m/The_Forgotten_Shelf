@@ -397,10 +397,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      parole dal commento originale li' - 65px di riga header + 25px -
      ma il numero scritto nella regola vera e' 145px: il commento era
      rimasto indietro rispetto all'ultima messa a punto, il valore
-     giusto era quello nel CSS, non nel conto a parole). Qui e' la
-     freccia DESTRA quella attiva (la tabella e' li', non a
-     sinistra) - .swipe-hint--left non esiste piu' in questa pagina
-     (rimossa dall'HTML, non punterebbe da nessuna parte). */
+     giusto era quello nel CSS, non nel conto a parole). La
+     freccetta SINISTRA e' tornata (era stata tolta per errore,
+     pensando non servisse piu' - ma serve per tornare dalla
+     TABELLA a stage, non da stage: qui il carosello e' invertito
+     rispetto al gemello, tabella a destra invece che a sinistra, e
+     la logica di visibilita' gia' pronta in updateSwipeHints() la
+     nasconde/mostra correttamente da sola in base a dove ci si
+     trova, nessun cambio JS necessario). Stessa altezza della
+     freccia destra (145px), a specchio. */
+  body[data-state="landing"] .swipe-hint--left{ top:145px; }
   body[data-state="landing"] .swipe-hint--right{ top:145px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
     top:auto; bottom:140px;
@@ -426,6 +432,20 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      specchiata di conseguenza (a destra, vicino al testo). Gap tra
      voci 5px (era 3px di base). */
   #sidebar .game-list{ gap:5px; }
+
+  /* --- Scrollbar sul lato che guarda il centro pagina (sinistra
+     qui, dato che la tabella e' il pannello di destra), non su
+     quello esterno - stesso trucco di Il Filo Nascosto per la sua
+     tabella destra (#storieRail): il browser disegna la scrollbar
+     sempre sul bordo destro dell'elemento che scorre, quindi si
+     forza il lato sinistro con direction:rtl sul contenitore -
+     l'allineamento del testo/della striscia resta identico perche'
+     scritto con proprieta' fisiche (text-align:right, box-shadow),
+     mai logiche. direction:ltr sui bottoni stessi e' una sicurezza
+     in piu' contro un possibile riordino del testo. --- */
+  #sidebar .game-list{ direction:rtl; }
+  #sidebar .game-list button{ direction:ltr; }
+
   #sidebar .game-list button, #sidebar .game-list a{
     text-align:right;
     box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);

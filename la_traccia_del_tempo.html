@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/jetbrains-mono.css">
 <link rel="stylesheet" href="styles.css?v=20260824f">
-<link rel="stylesheet" href="la_traccia_del_tempo.css?v=20260825w">
+<link rel="stylesheet" href="la_traccia_del_tempo.css?v=20260825x">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -157,6 +157,17 @@
 
       <div class="stage-cover" aria-hidden="true"></div>
 
+      <!-- Freccetta sinistra: NON per tornare da stage (li' non
+           punterebbe a nulla, stage e' sempre il primo pannello) ma
+           per tornare dalla TABELLA a stage - la tabella qui e' il
+           secondo pannello (a destra), quindi mentre la si guarda
+           serve indicare che si torna indietro verso sinistra. La
+           logica di visibilita' (nascosta quando si e' su stage,
+           visibile altrove) e' gia' pronta in updateSwipeHints() e
+           funziona automaticamente col solo elemento presente. -->
+      <span class="swipe-hint swipe-hint--left" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M12 3L5 10l7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
       <span class="swipe-hint swipe-hint--right" aria-hidden="true">
         <svg viewBox="0 0 20 20"><path d="M8 3l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
