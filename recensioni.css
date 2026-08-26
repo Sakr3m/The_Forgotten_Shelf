@@ -1189,6 +1189,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   }
   .mobile-genre-table__items li:first-child{ margin-top:20px; }
   .mobile-genre-table__items button{
+    position:relative; /* ancora per lo pseudo-elemento :before qui sotto */
     width:100%;
     height:40px; box-sizing:border-box;
     display:flex; align-items:center; justify-content:flex-end;
@@ -1204,18 +1205,26 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   .mobile-genre-table__items button:active,
   .mobile-genre-table__items button.is-active{
     color:var(--text); font-weight:600;
-    background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
-    /* Due ombre: quella destra (-5px, gia' presente su ogni voce) +
-       una sinistra (2px, nuova) - mancava proprio questa, ed e' la
-       differenza vera rispetto alle altre 3 pagine (confermato con
-       zoom reale sui pixel, non dal codice): li' la lista condivisa
-       (.game-list) porta gia' di suo una striscia sinistra da 2px
-       sull'attivo/hover (styles.css), qui la lista e' strutturata a
-       parte (.mobile-genre-table__items, mai stata figlia di
-       .game-list) e quella regola condivisa non l'ha mai toccata. */
-    box-shadow:
-      inset 2px 0 0 var(--item-accent, var(--cyan)),
-      inset -5px 0 0 var(--item-accent, var(--cyan));
+    background:linear-gradient(90deg,
+      transparent 5%,
+      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 5%,
+      rgba(232,121,249,.06));
+    /* Striscia destra (-5px, sempre presente su ogni voce) invariata
+       col box-shadow. La striscia sinistra invece non e' piu' un
+       secondo box-shadow (un primo tentativo aveva legato larghezza
+       e posizione allo stesso numero, creando un blocco pieno) -
+       vedi ::before qui sotto: left/width/border-radius separati,
+       la striscia resta 2px, arrotondata come il <li> stesso, e si
+       sposta al 5% insieme all'inizio del gradiente. */
+    box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+  }
+  .mobile-genre-table__items button:active::before,
+  .mobile-genre-table__items button.is-active::before{
+    content:"";
+    position:absolute; top:0; bottom:0;
+    left:5%; width:2px;
+    border-radius:var(--radius-sm);
+    background:var(--item-accent, var(--cyan));
   }
   /* .is-active (persistente, la recensione APERTA in questo
      momento - impostata da fillGenreList()/syncTableToReview() in

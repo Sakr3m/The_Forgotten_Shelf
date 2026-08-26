@@ -1713,6 +1713,42 @@ body[data-entry-animate="true"] .entry-panel{
     box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   }
 
+  /* --- Evidenziazione (sfondo + striscia sinistra) accorciata del
+     5% da sinistra, SOLO qui (mobile) - la striscia destra
+     individuale qui sopra (-5px, sempre presente su ogni voce) non
+     e' toccata. La regola condivisa (styles.css, .game-list > li:
+     hover/is-active) resta invariata per il desktop.
+     Striscia sinistra: non piu' un box-shadow sul <li> (un primo
+     tentativo aveva legato larghezza e posizione allo stesso
+     numero, creando un blocco pieno) - uno pseudo-elemento vero
+     (::before), left e width separati: resta 2px, si sposta al 5%
+     insieme all'inizio del gradiente. border-radius aggiunto QUI
+     (mancava nel tentativo precedente, segnalato con screenshot: la
+     striscia era un rettangolo dritto invece della stessa forma "a
+     parentesi" arrotondata di quella originale, che segue gli
+     angoli del box-shadow di partenza - stesso raggio del <li>
+     stesso, var(--radius-sm), applicato su tutti e 4 gli angoli dato
+     che ora la striscia non tocca piu' il bordo del contenitore. */
+  .game-list > li{ position:relative; }
+  .game-list > li:hover,
+  .game-list > li:has(> a.is-active),
+  .game-list > li:has(> button.is-active:not(.row-lock)){
+    background:linear-gradient(90deg,
+      transparent 5%,
+      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 5%,
+      rgba(232,121,249,.06));
+    box-shadow:none;
+  }
+  .game-list > li:hover::before,
+  .game-list > li:has(> a.is-active)::before,
+  .game-list > li:has(> button.is-active:not(.row-lock))::before{
+    content:"";
+    position:absolute; top:0; bottom:0;
+    left:5%; width:2px;
+    border-radius:var(--radius-sm);
+    background:var(--item-accent, var(--cyan));
+  }
+
   /* Margini laterali delle voci: il box/striscia resta a 15px dal
      pannello (invariato). Il testo dentro arriva a un massimo di
      20px su ENTRAMBI i lati (15+5px di padding proprio, simmetrico -
