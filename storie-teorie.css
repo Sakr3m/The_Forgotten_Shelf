@@ -1718,17 +1718,20 @@ body[data-entry-animate="true"] .entry-panel{
      individuale qui sopra (-5px, sempre presente su ogni voce) non
      e' toccata. La regola condivisa (styles.css, .game-list > li:
      hover/is-active) resta invariata per il desktop.
-     Striscia sinistra: non piu' un box-shadow sul <li> (un primo
-     tentativo aveva legato larghezza e posizione allo stesso
-     numero, creando un blocco pieno) - uno pseudo-elemento vero
-     (::before), left e width separati: resta 2px, si sposta al 5%
-     insieme all'inizio del gradiente. border-radius aggiunto QUI
-     (mancava nel tentativo precedente, segnalato con screenshot: la
-     striscia era un rettangolo dritto invece della stessa forma "a
-     parentesi" arrotondata di quella originale, che segue gli
-     angoli del box-shadow di partenza - stesso raggio del <li>
-     stesso, var(--radius-sm), applicato su tutti e 4 gli angoli dato
-     che ora la striscia non tocca piu' il bordo del contenitore. */
+     Striscia sinistra: uno pseudo-elemento (::before), left al 5%
+     - ma NON largo 2px con un suo border-radius: provato, il
+     risultato era una riga quasi dritta (segnalato con screenshot,
+     verificato anche io con uno zoom reale) perche' un raggio non
+     si vede quasi su una striscia cosi' stretta. La curva "a
+     parentesi" vera dell'originale non viene da un raggio sulla
+     striscia stessa: viene dal box-shadow che eredita l'INTERO
+     raggio del <li> (un morso tagliato da una forma piu' larga).
+     Stessa identica ricetta qui: un contenitore largo 8px (invisibile
+     di suo) con lo stesso border-radius del <li>, dentro il quale un
+     box-shadow inset 2px ritaglia la porzione "sinistra" per come
+     sappiamo gia' fare - il morso viene fuori identico
+     all'originale, semplicemente spostato al 5% invece che sul
+     bordo. */
   .game-list > li{ position:relative; }
   .game-list > li:hover,
   .game-list > li:has(> a.is-active),
@@ -1744,9 +1747,9 @@ body[data-entry-animate="true"] .entry-panel{
   .game-list > li:has(> button.is-active:not(.row-lock))::before{
     content:"";
     position:absolute; top:0; bottom:0;
-    left:5%; width:2px;
+    left:5%; width:8px;
     border-radius:var(--radius-sm);
-    background:var(--item-accent, var(--cyan));
+    box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
   }
 
   /* Margini laterali delle voci: il box/striscia resta a 15px dal
