@@ -1252,13 +1252,16 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   .swipe-hint--table-left svg{ width:15px; height:15px; display:block; }
 
   /* Frecce animate della home (verso la tabella, a destra): tornano
-     ad essere due, come prima - una vicino alla cima (145px) e una
-     specchiata vicino al fondo (140px dal basso). Quella della
-     TABELLA invece (--table-left, qui sopra) resta una sola,
-     centrata - sono view diverse. */
-  body[data-state="landing"] .swipe-hint{ top:145px; }
+     ad essere due, come prima - una vicino alla cima e una
+     specchiata vicino al fondo. Quella della TABELLA invece
+     (--table-left, qui sopra) resta una sola, centrata - sono view
+     diverse. Regolazione fine su richiesta esplicita (solo qui, non
+     sulle altre 3 pagine): quella in alto scende di 30px (145->175),
+     quella in basso sale di 20px (140->160, cioe' piu' lontana dal
+     fondo = piu' in alto) - si avvicinano leggermente tra loro. */
+  body[data-state="landing"] .swipe-hint{ top:175px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:140px;
+    top:auto; bottom:160px;
   }
 
   /* Frecce del carosello generi: stessa distanza dal bordo (14px)
