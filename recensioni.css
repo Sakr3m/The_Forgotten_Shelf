@@ -1222,7 +1222,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   .mobile-genre-table__items button.is-active::before{
     content:"";
     position:absolute; top:0; bottom:0;
-    left:5%; width:8px;
+    left:5%; width:10px;
     border-radius:var(--radius-sm);
     box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
   }
