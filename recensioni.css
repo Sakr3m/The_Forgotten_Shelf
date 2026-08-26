@@ -1198,11 +1198,18 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
     color:var(--text-dim); font-size:.9rem; font-weight:500;
   }
-  .mobile-genre-table__items button:active{
+  .mobile-genre-table__items button:active,
+  .mobile-genre-table__items button.is-active{
     color:var(--text); font-weight:600;
     background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
     box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   }
+  /* .is-active (persistente, la recensione APERTA in questo
+     momento - impostata da fillGenreList()/syncTableToReview() in
+     script-recensioni.js): stessa identica evidenziazione di
+     ":active" (il lampo del tocco), nessun taglio - qui semplicemente
+     mancava del tutto una versione che restasse dopo il rilascio del
+     dito. */
 
   /* Carosello generi dentro alla tabella (spostato dalla home):
      ancorato in fondo al pannello, altezza fissa (flex-shrink:0),
