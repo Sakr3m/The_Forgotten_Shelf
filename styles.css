@@ -521,71 +521,19 @@ body[data-state="landing"] .brand{ display:none; }
    con la stessa regola. :has() per lo stato attivo (la voce aperta al
    momento): supportato da tutti i browser evergreen attuali. */
 .game-list > li{
-  position:relative; /* ancora per lo pseudo-elemento :before qui sotto */
   border-radius:var(--radius-sm);
-  transition:background var(--dur-fast) var(--ease);
+  transition:background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 .game-list > li:hover,
 .game-list > li:has(> a.is-active),
 .game-list > li:has(> button.is-active:not(.row-lock)){
   background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
-}
-/* Striscia sinistra da 2px: uno pseudo-elemento con left/width
-   espliciti (non piu' un trucco box-shadow inset, che lega larghezza
-   e posizione allo stesso numero - non permetteva di spostarla senza
-   allargarla). border-radius solo sul lato sinistro, per restare
-   dentro l'angolo arrotondato della riga. */
-.game-list > li:hover::before,
-.game-list > li:has(> a.is-active)::before,
-.game-list > li:has(> button.is-active:not(.row-lock))::before{
-  content:"";
-  position:absolute; top:0; bottom:0;
-  left:0; width:2px;
-  background:var(--item-accent, var(--cyan));
-  border-radius:var(--radius-sm) 0 0 var(--radius-sm);
-  transition:left var(--dur-fast) var(--ease);
+  box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
 }
 .game-list > li:hover > a, .game-list > li:hover > button:not(.row-lock),
 .game-list > li:has(> a.is-active) > a,
 .game-list > li:has(> button.is-active:not(.row-lock)) > button:not(.row-lock){
   color:var(--text); font-weight:600;
-}
-
-@media (max-width:900px){
-  /* Su mobile la tabella ha una freccetta animata fissa (position:
-     fixed/absolute) vicino al bordo sinistro dello schermo, sempre
-     alla stessa altezza (centro verticale) su tutte e 4 le pagine
-     che condividono questo file. L'evidenziazione qui sopra
-     (background a piena larghezza della riga) arriva fino a quel
-     bordo: se la voce evidenziata capita vicino al centro della
-     lista, finisce sotto la freccetta. Qui si accorcia
-     l'evidenziazione di 20px da sinistra (un blocco trasparente,
-     poi lo stesso sfumato di sempre).
-
-     La striscia da 2px (qui sopra, ::before) va spostata alla STESSA
-     distanza (20px), senza cambiarne la larghezza - un primo
-     tentativo aveva invece allargato la striscia a 20px (un blocco
-     pieno, sproporzionato: confermato "troppo grande" con screenshot
-     reale), perche' un box-shadow inset lega insieme "quanto e'
-     larga" e "quanto dista dal bordo" nello stesso numero. Con uno
-     pseudo-elemento vero, "left" (posizione) e "width" (larghezza,
-     invariata, sempre 2px) sono due proprieta' separate: si sposta
-     una senza toccare l'altra. */
-  .game-list > li:hover,
-  .game-list > li:has(> a.is-active),
-  .game-list > li:has(> button.is-active:not(.row-lock)){
-    background:linear-gradient(90deg,
-      transparent 20px,
-      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 20px,
-      rgba(232,121,249,.06));
-  }
-  .game-list > li:hover::before,
-  .game-list > li:has(> a.is-active)::before,
-  .game-list > li:has(> button.is-active:not(.row-lock))::before{
-    left:20px;
-    border-radius:0; /* non serve piu' l'arrotondamento sul lato
-      sinistro, la striscia non tocca piu' il bordo della riga */
-  }
 }
 
 

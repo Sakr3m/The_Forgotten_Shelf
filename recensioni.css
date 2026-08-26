@@ -1191,7 +1191,6 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   }
   .mobile-genre-table__items li:first-child{ margin-top:20px; }
   .mobile-genre-table__items button{
-    position:relative; /* ancora per lo pseudo-elemento :before qui sotto */
     width:100%; text-align:right;
     padding:10px 14px;
     border-radius:var(--radius-sm);
@@ -1199,35 +1198,11 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
     color:var(--text-dim); font-size:.9rem; font-weight:500;
   }
-  .mobile-genre-table__items button:active,
-  .mobile-genre-table__items button.is-active{
+  .mobile-genre-table__items button:active{
     color:var(--text); font-weight:600;
-    background:linear-gradient(90deg,
-      transparent 20px,
-      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 20px,
-      rgba(232,121,249,.06));
+    background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
     box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   }
-  /* Striscia sinistra da 2px (mancava del tutto qui, segnalata "XD"
-     - questa lista ha gia' una sua striscia individuale a destra
-     (-5px, sopra, su ogni voce) ma nessuna a sinistra per lo stato
-     attivo, a differenza delle altre 3 pagine). Stesso pseudo-
-     elemento con left/width espliciti usato li', spostato a 20px
-     (non un blocco pieno da 20px: larghezza 2px e posizione 20px
-     sono due proprieta' separate, non lo stesso numero). */
-  .mobile-genre-table__items button:active::before,
-  .mobile-genre-table__items button.is-active::before{
-    content:"";
-    position:absolute; top:0; bottom:0;
-    left:20px; width:2px;
-    background:var(--item-accent, var(--cyan));
-  }
-  /* .is-active (persistente, la recensione APERTA in questo
-     momento - impostata da fillGenreList()/syncTableToReview() in
-     script-recensioni.js) mancava del tutto prima: l'unica
-     evidenziazione esistente era ":active" (il lampo momentaneo del
-     tocco, sparito subito dopo il rilascio del dito) - per questo
-     "non rimaneva affatto" come segnalato. */
 
   /* Carosello generi dentro alla tabella (spostato dalla home):
      ancorato in fondo al pannello, altezza fissa (flex-shrink:0),
