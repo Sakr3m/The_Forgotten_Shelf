@@ -1260,7 +1260,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
      basso 140->160->165 (ulteriori 5px piu' in alto). */
   body[data-state="landing"] .swipe-hint{ top:175px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:162px; /* 165px era troppo in alto, scesa di 3px */
+    top:auto; bottom:160px; /* ancora 2px piu' giu' */
   }
 
   /* Frecce del carosello generi: stessa distanza dal bordo (14px)
