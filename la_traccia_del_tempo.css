@@ -438,8 +438,8 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   /* Voci: stessa striscia laterale, spessore 3px, testo allineato a
      destra (la tabella qui vive a destra, non a sinistra) - striscia
      specchiata di conseguenza (a destra, vicino al testo). Gap tra
-     voci 5px (era 3px di base). */
-  #sidebar .game-list{ gap:5px; }
+     voci 3px, su richiesta esplicita (era 5px). */
+  #sidebar .game-list{ gap:3px; }
 
   /* --- Scrollbar: il trucco direction:rtl (per spostarla a
      sinistra, come su Il Filo Nascosto) e' stato tolto su richiesta
@@ -462,13 +462,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; }
   #sidebar .game-list button, #sidebar .game-list a{
     width:100%; margin-left:0; padding-left:15px; padding-right:15px;
-  } /* mancava "button" qui (solo "a" prima): le voci vere sono
-    <button>, non <a> - la regola non li toccava affatto, ricadendo
-    sul padding:12px 14px condiviso in styles.css invece dei 15px
-    voluti. Trovato confrontando il valore VERO calcolato (14px) con
-    quello di Il Filo Nascosto (15px), non fidandomi piu' di quello
-    scritto qui. */
-
+    /* Altezza fissa a 40px (su richiesta esplicita, uguale sulle
+       altre 3 pagine) invece di lasciarla dipendere da padding
+       verticale + line-height (che dava 43-44px, leggermente
+       diverso da pagina a pagina): height+flex garantisce lo stesso
+       numero preciso ovunque, indipendentemente da eventuali
+       differenze residue di font/line-height. */
+    height:40px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:flex-end;
+    font-size:15px; line-height:20px; /* entrambi multipli di 5 */
+  }
   /* Scrollbar tolta del tutto su richiesta esplicita (le due prove
      precedenti - a sinistra con direction:rtl, poi di default a
      destra - non erano piaciute): scrollbar-width:none/::-webkit-

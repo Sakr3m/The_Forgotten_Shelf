@@ -1699,14 +1699,10 @@ body[data-entry-animate="true"] .entry-panel{
      invece #sidebar resta a sinistra, testo e striscia a sinistra
      come sempre (questa intera sezione e' dentro
      @media(max-width:900px), non tocca desktop). */
-  /* Spazio tra le voci della lista: 5px (era 3px, il valore
-     condiviso in styles.css, mai toccato qui prima) - allineato a
-     Diari di Gioco, dove lo stesso arrotondamento era gia' stato
-     fatto (richiesto esplicitamente li'), notato come "piu' separate"
-     e piaciuto abbastanza da chiedere di riportarlo anche qui. Solo
-     mobile: il gap desktop (3px, .game-list condiviso) resta
-     invariato. */
-  #sidebar .game-list, #storieRail .game-list{ gap:5px; }
+  /* Spazio tra le voci della lista: 3px, su richiesta esplicita
+     (era stato portato a 5px, ora torna al valore condiviso). Solo
+     mobile: il gap desktop resta invariato. */
+  #sidebar .game-list, #storieRail .game-list{ gap:3px; }
   #sidebar .game-list button, #sidebar .game-list a,
   #storieRail .game-list button, #storieRail .game-list a{
     text-align:right;
@@ -1727,11 +1723,23 @@ body[data-entry-animate="true"] .entry-panel{
   .sidebar{ padding-left:15px; padding-right:15px; padding-top:90px; } /* .side-rail
     non serve piu' qui: la sua base (piu' sopra in questo file, non
     nel condiviso styles.css) ha gia' i valori finali direttamente. */
-  #sidebar .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* Box/striscia
+  #sidebar .game-list a{
+    width:100%; margin-left:0; padding-left:15px; padding-right:15px;
+    height:40px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:flex-end;
+    font-size:15px; line-height:20px;
+  } /* Box/striscia
     a 15px netti (dal padding del pannello sopra), testo a 15+15=30px
     su ENTRAMBI i lati. margin-left:0 aggiunto per coerenza con
-    storieRail, anche se qui non ha mai avuto un valore diverso. */
-  #storieRail .game-list a{ width:100%; margin-left:0; padding-left:15px; padding-right:15px; } /* stesso, specchiato */
+    storieRail, anche se qui non ha mai avuto un valore diverso.
+    Altezza fissa 40px (su richiesta esplicita, uguale sulle altre 3
+    pagine), font-size/line-height multipli di 5. */
+  #storieRail .game-list a{
+    width:100%; margin-left:0; padding-left:15px; padding-right:15px;
+    height:40px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:flex-end;
+    font-size:15px; line-height:20px;
+  } /* stesso, specchiato */
 
   /* ============================================================
      NUOVO CAROSELLO MOBILE A 2 TAPPE (Home + Tabella unica), non
