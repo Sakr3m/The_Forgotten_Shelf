@@ -1229,38 +1229,48 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
 
   /* Frecce del carosello generi: dimensione e distanza dal bordo
      definite piu' sotto in questo file (dopo il blocco che imposta
-     top:145px per le frecce della home - stessa classe base
+     top:175px per le frecce della home - stessa classe base
      .swipe-hint, serve venire dopo nel file per vincere a parita' di
      specificita'). */
   .swipe-hint--genre-left svg, .swipe-hint--genre-right svg{ width:15px; height:15px; display:block; }
+  .swipe-hint--table-left svg{ width:15px; height:15px; display:block; }
+
+  /* Frecce animate della home (verso la tabella, a destra): tornano
+     ad essere due, come prima - una vicino alla cima e una
+     specchiata vicino al fondo. Quella della TABELLA invece
+     (--table-left, qui sotto) resta una sola, centrata - sono view
+     diverse. Regolazione fine su richiesta esplicita (solo qui, non
+     sulle altre 3 pagine): alto 145->175 (confermato giusto cosi'),
+     basso 140->160->165->162->160 (una serie di ritocchi di pochi
+     px, confermato giusto cosi'). */
+  body[data-state="landing"] .swipe-hint{ top:175px; }
+  body[data-state="landing"] .swipe-hint--right-bottom{
+    top:auto; bottom:160px;
+  }
 
   /* Freccetta animata (non un pulsante: e' solo un suggerimento
      visivo) che indica di scorrere verso sinistra per tornare alla
      home o alla recensione aperta — direzione invertita rispetto a
      prima (la tabella ora sta a destra dello stage, non piu' a
      sinistra), stessa animazione/stile gia' usata su Storie Senza
-     Cornice e Il Filo Nascosto. Centrata verticalmente (50%) come le
-     colleghe della home qui sotto, su richiesta esplicita - non piu'
-     fissa a 80px dall'alto. */
-  body[data-state="landing"] .swipe-hint--table-left{
+     Cornice e Il Filo Nascosto. Centrata verticalmente (50%), DEVE
+     venire DOPO la regola generica .swipe-hint{top:175px} qui sopra
+     per vincere a parita' di specificita' (stessa classe base
+     .swipe-hint su entrambe) - prima veniva PRIMA, quindi quel
+     top:175px vinceva anche qui, rompendo la centratura (trovato
+     con una misura diretta, non si vedeva affatto dal solo codice).
+     Persistente su entrambi gli stati dove la tabella e' raggiungibile
+     scorrendo a destra (non solo "landing" come prima, su richiesta
+     esplicita): dalla home E dalla pagina di una recensione aperta
+     ("entry"), visto che la tabella e' sempre la stessa, raggiungibile
+     da entrambe. */
+  body[data-state="landing"] .swipe-hint--table-left,
+  body[data-state="entry"] .swipe-hint--table-left{
     display:block; position:absolute; top:50%; left:15px; z-index:20;
     color:var(--text-faint);
     transform:translateY(-50%);
     animation:swipeHintLeft 1.6s ease-in-out infinite;
     pointer-events:none;
-  }
-  .swipe-hint--table-left svg{ width:15px; height:15px; display:block; }
-
-  /* Frecce animate della home (verso la tabella, a destra): tornano
-     ad essere due, come prima - una vicino alla cima e una
-     specchiata vicino al fondo. Quella della TABELLA invece
-     (--table-left, qui sopra) resta una sola, centrata - sono view
-     diverse. Regolazione fine su richiesta esplicita (solo qui, non
-     sulle altre 3 pagine): alto 145->175 (confermato giusto cosi'),
-     basso 140->160->165 (ulteriori 5px piu' in alto). */
-  body[data-state="landing"] .swipe-hint{ top:175px; }
-  body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:160px; /* ancora 2px piu' giu' */
   }
 
   /* Frecce del carosello generi: stessa distanza dal bordo (14px)
