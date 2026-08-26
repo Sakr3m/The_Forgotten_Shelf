@@ -461,6 +461,16 @@ function renderSidebar(){
     btn.type = "button";
     btn.textContent = tf(g.listTitle);
     btn.classList.toggle("is-active", state.gameId === id);
+    li.style.setProperty("--item-accent", g.accentColor || "#6b7280"); /* sul
+      <li> (il genitore), non solo sul bottone: la regola condivisa
+      del box-shadow su hover/is-active (styles.css) legge la
+      variabile dal <li> stesso - impostarla solo sul figlio non
+      basta, le custom property CSS non risalgono dal figlio al
+      genitore. Stesso identico pattern gia' in uso su Storie Senza
+      Cornice/Il Filo Nascosto (li.style.setProperty, non
+      btn.style.setProperty) - qui mancava, la striscia sull'hover
+      ricadeva sul colore di fallback (--cyan, chiaro/bianco) invece
+      del colore proprio di ciascun gioco. */
     btn.style.setProperty("--item-accent", g.accentColor || "#6b7280");
     btn.addEventListener("click", () => selectGame(id));
     li.appendChild(btn);
