@@ -455,6 +455,37 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   }
 
+  /* --- Evidenziazione (sfondo + striscia sinistra) accorciata del
+     15% da sinistra, SOLO qui (mobile) - la striscia destra
+     individuale qui sopra (-5px, sempre presente su ogni voce) non
+     e' toccata. La regola condivisa (styles.css, .game-list > li:
+     hover/is-active) resta invariata per il desktop: qui la
+     sovrascrivo di nuovo, dentro la stessa media query mobile gia'
+     in uso in questo file, non nel file condiviso.
+     Striscia sinistra: non piu' un box-shadow sul <li> (un tentativo
+     precedente aveva creato un blocco pieno invece di una striscia
+     sottile spostata) - uno pseudo-elemento vero (::before), left e
+     width separati: la striscia resta 2px, si sposta al 15% insieme
+     all'inizio del gradiente. */
+  #sidebar .game-list > li{ position:relative; }
+  #sidebar .game-list > li:hover,
+  #sidebar .game-list > li:has(> a.is-active),
+  #sidebar .game-list > li:has(> button.is-active:not(.row-lock)){
+    background:linear-gradient(90deg,
+      transparent 15%,
+      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 15%,
+      rgba(232,121,249,.06));
+    box-shadow:none;
+  }
+  #sidebar .game-list > li:hover::before,
+  #sidebar .game-list > li:has(> a.is-active)::before,
+  #sidebar .game-list > li:has(> button.is-active:not(.row-lock))::before{
+    content:"";
+    position:absolute; top:0; bottom:0;
+    left:15%; width:2px;
+    background:var(--item-accent, var(--cyan));
+  }
+
   /* Margini della tabella e delle voci al suo interno: pannello a
      15px dal bordo su entrambi i lati, padding-top 90px (65px di
      riga header + 25px di spazio voluto). Voci a piena larghezza,
