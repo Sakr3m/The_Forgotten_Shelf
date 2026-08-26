@@ -1781,40 +1781,6 @@ body[data-entry-animate="true"] #watermarkBrightness{
     box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
   }
 
-  /* --- Evidenziazione (sfondo + striscia sinistra) accorciata del
-     15% da sinistra, SOLO qui (mobile) - la striscia destra
-     individuale qui sopra (-5px, sempre presente su ogni voce) non
-     e' toccata. La regola condivisa (styles.css, .game-list > li:
-     hover/is-active) resta invariata per il desktop: qui la
-     sovrascrivo di nuovo, ma dentro la stessa media query mobile
-     gia' in uso in questo file, non nel file condiviso - stavolta
-     il raggio d'azione resta chiuso qui dentro, niente rischio per
-     il desktop.
-     Striscia sinistra: non piu' un box-shadow sul <li> (larghezza e
-     posizione legate allo stesso numero, un tentativo precedente
-     aveva creato un blocco pieno invece di una striscia sottile
-     spostata) - uno pseudo-elemento vero (::before), left e width
-     separati: la striscia resta 2px, si sposta al 15% insieme
-     all'inizio del gradiente. */
-  .game-list > li{ position:relative; }
-  .game-list > li:hover,
-  .game-list > li:has(> a.is-active),
-  .game-list > li:has(> button.is-active:not(.row-lock)){
-    background:linear-gradient(90deg,
-      transparent 15%,
-      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 15%,
-      rgba(232,121,249,.06));
-    box-shadow:none;
-  }
-  .game-list > li:hover::before,
-  .game-list > li:has(> a.is-active)::before,
-  .game-list > li:has(> button.is-active:not(.row-lock))::before{
-    content:"";
-    position:absolute; top:0; bottom:0;
-    left:15%; width:2px;
-    background:var(--item-accent, var(--cyan));
-  }
-
   /* Margini laterali delle voci: il box/striscia resta a 15px dal
      pannello (invariato). Il testo dentro arriva a un massimo di
      20px su ENTRAMBI i lati (15+5px di padding proprio, simmetrico -
