@@ -536,6 +536,29 @@ body[data-state="landing"] .brand{ display:none; }
   color:var(--text); font-weight:600;
 }
 
+@media (max-width:900px){
+  /* Su mobile la tabella ha una freccetta animata fissa (position:
+     fixed/absolute) vicino al bordo sinistro dello schermo, sempre
+     alla stessa altezza (centro verticale) su tutte e 4 le pagine
+     che condividono questo file. L'evidenziazione qui sopra
+     (background a piena larghezza della riga) arriva fino a quel
+     bordo: se la voce evidenziata capita vicino al centro della
+     lista, finisce sotto la freccetta. Qui si accorcia
+     l'evidenziazione di 25px da sinistra (un blocco trasparente,
+     poi lo stesso sfumato di sempre) - il box-shadow (striscia
+     laterale, sinistra su Storie Senza Cornice/Il Filo Nascosto,
+     specchiata a destra altrove) non cambia, resta quello di
+     ciascuna pagina. */
+  .game-list > li:hover,
+  .game-list > li:has(> a.is-active),
+  .game-list > li:has(> button.is-active:not(.row-lock)){
+    background:linear-gradient(90deg,
+      transparent 25px,
+      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 25px,
+      rgba(232,121,249,.06));
+  }
+}
+
 
 .stage{ position:relative; flex:1; min-width:0; padding:15px 25px 80px; display:flex; flex-direction:column; }
 
