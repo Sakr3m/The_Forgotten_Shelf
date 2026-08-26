@@ -669,7 +669,16 @@ function fillGenreList(genreName){
     const btn = document.createElement("button");
     btn.type = "button";
     btn.textContent = item.title;
+    btn.dataset.reviewId = item.id; /* per ritrovare il pulsante giusto
+      da syncTableToReview() senza rifare tutta la lista, quando si
+      apre un'altra voce dello stesso genere gia' in vista */
     if(REVIEW_ACCENTS[item.id]) btn.style.setProperty("--item-accent", REVIEW_ACCENTS[item.id]);
+    // Segna la recensione attualmente aperta (persistente, non solo
+    // durante il tocco): mancava del tutto prima, l'unica
+    // evidenziazione esistente era ":active" (il lampo momentaneo
+    // del tocco stesso), sparita subito dopo - stessa idea gia' in
+    // uso sulle altre 3 pagine (game-list button.is-active).
+    if(item.id === state.view) btn.classList.add("is-active");
     btn.addEventListener("click", () => {
       // instant:true - lo scorrimento verso lo stage qui sotto e'
       // gia' la transizione visiva, non serve un'altra dissolvenza
@@ -714,9 +723,23 @@ function selectGenre(genreName){
 // tabella).
 function syncTableToReview(reviewId){
   const genreName = findGenreForReview(reviewId);
-  if(!genreName || genreName === currentTableGenre) return;
-  fillGenreList(genreName);
-  renderMobileGenreBar();
+  if(!genreName) return;
+  if(genreName !== currentTableGenre){
+    fillGenreList(genreName);
+    renderMobileGenreBar();
+    return;
+  }
+  // Stesso genere gia' mostrato: fillGenreList() non viene rifatta
+  // (evita un ricostruzione/dissolvenza inutile), ma la voce attiva
+  // va comunque aggiornata alla nuova recensione appena aperta -
+  // altrimenti restava segnata quella precedente, o nessuna la
+  // prima volta che si apre una voce dello stesso genere gia' in
+  // vista.
+  if(el.mobileGenreListItems){
+    el.mobileGenreListItems.querySelectorAll("button").forEach(btn => {
+      btn.classList.toggle("is-active", btn.dataset.reviewId === reviewId);
+    });
+  }
 }
 
 renderMobileGenreBar();

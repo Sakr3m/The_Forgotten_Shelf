@@ -416,9 +416,24 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="landing"] .swipe-hint--right-bottom{
     top:auto; bottom:140px;
   }
-  body[data-state="landing"] .swipe-hint--left{
+  body[data-state="landing"] .swipe-hint--left,
+  body[data-state="game"] .swipe-hint--left{
+    /* Tutte le proprieta' di base (styles.css, scritte solo per
+       "landing") ripetute qui esplicitamente per "game": senza,
+       la freccia risulterebbe display:none (il default globale) e
+       priva di position/colore/animazione anche mettendo
+       display:block da solo - stesso fix gia' fatto per lo stato
+       "entry" sulle altre 3 pagine, qui la voce si chiama "game"
+       (la vista della singola saga), non "entry". Trovato con un
+       test reale (non supposizioni): scrollLeft cambiava scorrendo
+       a destra da "game", ma la freccia restava display:none. */
+    display:block; position:fixed; z-index:20;
+    color:var(--text-faint);
+    pointer-events:none;
+    left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite;
     top:50%; transform:translateY(-50%);
   }
+  body[data-state="game"] .swipe-hint--left svg{ width:15px; height:15px; display:block; }
 
   /* Bordo 2px sui pulsanti header: gia' presente per questa pagina
      piu' in alto in questo file (stessa regola, prima di questa
