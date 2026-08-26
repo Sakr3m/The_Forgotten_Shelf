@@ -119,7 +119,7 @@
    .game-list a) - richiesto esplicitamente, cosi' ciascuna tabella
    "guarda" verso il proprio bordo esterno invece che verso il centro
    della pagina in entrambe. */
-.side-rail .game-list button,
+.side-rail .game-list button:not(.row-lock),
 .side-rail .game-list a{ text-align:right; justify-content:flex-end; }
 
 /* Distanze uniformi su entrambe le tabelle nonostante il padding
