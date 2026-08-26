@@ -1256,12 +1256,11 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
      specchiata vicino al fondo. Quella della TABELLA invece
      (--table-left, qui sopra) resta una sola, centrata - sono view
      diverse. Regolazione fine su richiesta esplicita (solo qui, non
-     sulle altre 3 pagine): quella in alto scende di 30px (145->175),
-     quella in basso sale di 20px (140->160, cioe' piu' lontana dal
-     fondo = piu' in alto) - si avvicinano leggermente tra loro. */
+     sulle altre 3 pagine): alto 145->175 (confermato giusto cosi'),
+     basso 140->160->165 (ulteriori 5px piu' in alto). */
   body[data-state="landing"] .swipe-hint{ top:175px; }
   body[data-state="landing"] .swipe-hint--right-bottom{
-    top:auto; bottom:160px;
+    top:auto; bottom:165px;
   }
 
   /* Frecce del carosello generi: stessa distanza dal bordo (14px)
