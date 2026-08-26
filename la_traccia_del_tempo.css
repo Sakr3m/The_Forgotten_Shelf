@@ -536,6 +536,23 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     transition:opacity 1s ease-in-out .08s;
   }
 
+  /* Striscia laterale delle voci su hover/attivo: 2px->5px, stesso
+     identico valore e stesso identico meccanismo (sul bottone
+     stesso, non sul <li>) gia' in uso su Storie Senza Cornice/Il
+     Filo Nascosto - qui mancava del tutto, la pagina restava sui
+     2px condivisi di styles.css (quelli sul <li>), molto piu'
+     sottile del previsto (segnalato piu' volte, trovato solo ora
+     controllando le regole page-specific delle pagine gemelle, non
+     solo il file condiviso). */
+  #sidebar .game-list button.is-active:not(.row-lock),
+  #sidebar .game-list a.is-active{
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+  }
+  #sidebar .game-list button:hover:not(.row-lock),
+  #sidebar .game-list a:hover{
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+  }
+
   /* --- Lo stesso identico effetto, esteso ora anche alla tabella a
      destra (#timelineRail): il pulsante prima agiva solo sulla
      sidebar sinistra, dato che in home c'era una sola tabella - ma
