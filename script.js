@@ -151,6 +151,10 @@ const el = {
   gameList: document.getElementById("gameList"),
   landingPanel: document.getElementById("landingPanel"),
   gamePanel: document.getElementById("gamePanel"),
+  universeTimelinePanel: document.getElementById("universeTimelinePanel"),
+  universeTimelineTrack: document.getElementById("universeTimelineTrack"),
+  universeTimelineSwipeHint: document.getElementById("universeTimelineSwipeHint"),
+  titleSwipeHint: document.getElementById("titleSwipeHint"),
   gameHeader: document.getElementById("gameHeader"),
   gameHeaderBar: document.getElementById("gameHeaderBar"),
   universesRow: document.getElementById("universesRow"),
@@ -550,6 +554,116 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   return track;
 }
 
+// ---------------------------------------------------------
+// Posizionamento verticale della linea temporale, SOLO MOBILE: line
+// runs top-to-bottom, nodes stacked, avatar/title alternating left/
+// right of it instead of above/below. Estratta da renderGamePanel
+// (dove viveva prima che Screen B smettesse di mostrare la linea
+// temporale direttamente) - ora chiamata da renderUniverseTimelinePanel,
+// l'unico posto dove la linea temporale vive davvero su mobile.
+// ---------------------------------------------------------
+function positionVerticalTimeline(liveTimeline){
+  liveTimeline.style.setProperty("--avatar-scale", "1.000");
+  liveTimeline.style.setProperty("--dot-scale", "0.625"); // 15px dot
+  // The page itself already scrolls vertically, so there's no need
+  // for any of the desktop's width-fitting/overlap/scroll-toggle
+  // machinery — just a comfortable fixed gap between stacked nodes.
+  liveTimeline.style.justifyContent = "";
+  liveTimeline.style.gap = "0px";
+  liveTimeline.style.overflowX = "";
+  liveTimeline.style.flexGrow = "";
+  liveTimeline.style.flexShrink = "";
+  liveTimeline.style.flexBasis = "";
+  liveTimeline.style.width = "";
+  liveTimeline.classList.remove("is-scrollable");
+  Array.from(liveTimeline.querySelectorAll(".h-node")).forEach(node => { node.style.marginLeft = ""; });
+
+  // Il marker (pallino+trattino) va allineato al centro dell'AVATAR,
+  // non al centro dell'intero blocco avatar+titolo: quel blocco ha
+  // altezza variabile a seconda di quanto è lungo il titolo, quindi
+  // un centraggio CSS statico (grid align-self:center sull'intera
+  // riga) punta al centro del blocco, non dell'avatar. Qui si
+  // corregge nodo per nodo misurando la differenza reale.
+  liveTimeline.querySelectorAll(".h-node").forEach(node => {
+    const tile = node.querySelector(".h-node__tile");
+    const marker = node.querySelector(".h-node__marker");
+    if(!tile || !marker){ if(marker) marker.style.transform = ""; return; }
+    const nodeRect = node.getBoundingClientRect();
+    const tileCenter = tile.getBoundingClientRect().top + tile.getBoundingClientRect().height / 2 - nodeRect.top;
+    marker.style.transform = "";
+    const markerRect = marker.getBoundingClientRect();
+    const markerCenter = markerRect.top + markerRect.height / 2 - nodeRect.top;
+    const delta = tileCenter - markerCenter;
+    marker.style.transform = Math.abs(delta) > 0.5 ? `translateY(${delta.toFixed(2)}px)` : "";
+  });
+
+  // Distanza tra i pallini SEMPRE uguale, anche quando un nodo non
+  // ha immagine (e quindi e' molto piu' basso del normale): un
+  // margine fisso uguale per tutti sballava in quei casi. Qui si
+  // misura la posizione vera di ogni pallino (dopo il centraggio
+  // sopra) e si sposta ogni nodo, uno alla volta in ordine, cosi'
+  // la distanza dal pallino precedente sia sempre la stessa,
+  // qualunque sia l'altezza reale del nodo.
+  const nodeEls = Array.from(liveTimeline.querySelectorAll(".h-node"));
+  const targetDotGap = 90; // px tra un pallino e il successivo
+  nodeEls.forEach(node => { node.style.marginTop = ""; });
+  let prevDotY = null;
+  nodeEls.forEach(node => {
+    const dot = node.querySelector(".h-node__dot");
+    if(!dot) return;
+    const r = dot.getBoundingClientRect();
+    const dotY = r.top + r.height / 2;
+    if(prevDotY !== null){
+      const actualGap = dotY - prevDotY;
+      const delta = targetDotGap - actualGap;
+      node.style.marginTop = delta.toFixed(2) + "px";
+    }
+    // Rimisuro dopo l'eventuale aggiustamento, cosi' il nodo
+    // successivo parte dalla posizione vera, non da quella di
+    // prima della correzione.
+    const r2 = dot.getBoundingClientRect();
+    prevDotY = r2.top + r2.height / 2;
+  });
+
+  const dots = liveTimeline.querySelectorAll(".h-node__dot");
+  if(dots.length){
+    const timelineRect = liveTimeline.getBoundingClientRect();
+    const firstDot = dots[0].getBoundingClientRect();
+    const lastDot = dots[dots.length - 1].getBoundingClientRect();
+    const lineTop = (firstDot.top + firstDot.bottom) / 2 - timelineRect.top;
+    const lineBottom = (lastDot.top + lastDot.bottom) / 2 - timelineRect.top;
+    liveTimeline.style.setProperty("--tl-line-top", lineTop.toFixed(2) + "px");
+    liveTimeline.style.setProperty("--tl-line-height", Math.max(0, lineBottom - lineTop).toFixed(2) + "px");
+  }
+}
+
+// ---------------------------------------------------------
+// Screen C, SOLO MOBILE: apre la linea temporale di UN solo
+// universo (scelto dall'elenco di Screen B). Riusa buildUniverseTrack
+// senza prevBtn/nextBtn (la scelta dell'universo e' gia' avvenuta
+// nell'elenco, niente piu' frecce per cambiarlo sulla stessa vista).
+// ---------------------------------------------------------
+function openUniverseTimeline(idx){
+  state.universeIndex = idx;
+  setState("universe");
+  window.scrollTo(0, 0);
+  const stage = document.querySelector(".stage");
+  if(stage) stage.scrollTop = 0;
+}
+
+function renderUniverseTimelinePanel(){
+  const g = currentGame();
+  if(!g) return;
+  const uni = g.universes[state.universeIndex];
+  if(!uni) return;
+
+  el.universeTimelineTrack.innerHTML = "";
+  el.universeTimelineTrack.appendChild(buildUniverseTrack(uni, null, null));
+
+  const liveTimeline = el.universeTimelineTrack.querySelector(".h-timeline");
+  if(liveTimeline) positionVerticalTimeline(liveTimeline);
+}
+
 function arrowIcon(direction){
   const d = direction === "left" ? "M11 2L4 9L11 16" : "M5 2L12 9L5 16";
   return `<svg viewBox="0 0 16 18" class="carousel-arrow__icon" aria-hidden="true"><path d="${d}" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -750,6 +864,32 @@ function renderGamePanel(){
   const multi = universes.length > 1;
 
   el.universesRow.innerHTML = "";
+
+  // ===========================================================
+  // MOBILE: Screen B mostra solo l'elenco dei nomi degli universi
+  // (con distanza uguale tra loro, vedi CSS justify-content:
+  // space-evenly su .universes-row) - niente linea temporale diretta
+  // qui, quella vive nella sua sotto-schermata a se' stante
+  // (openUniverseTimeline/renderUniverseTimelinePanel piu' sotto).
+  // Il carosello con le frecce prev/next resta invece SOLO desktop
+  // (ramo sotto, invariato).
+  // ===========================================================
+  if(mobileBreakpoint.matches){
+    el.universesRow.className = "universes-row";
+    universes.forEach((u, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "universe-name-list__item";
+      btn.innerHTML = `
+        <span class="universe-name-list__name">${tf(u.name)}</span>
+        <span class="universe-name-list__span">${tf(u.span)}</span>
+      `;
+      btn.addEventListener("click", () => openUniverseTimeline(i));
+      el.universesRow.appendChild(btn);
+    });
+    return;
+  }
+
   el.universesRow.className = "universe-stage" + (multi ? "" : " single");
 
   let prevBtn = null, nextBtn = null;
@@ -784,88 +924,10 @@ function renderGamePanel(){
 
   const liveTimeline = el.universesRow.querySelector(".h-timeline");
   if(liveTimeline){
-    const isDesktop = window.innerWidth > 900;
     const avatarScale = 1;
     const dotScale = 0.625; // 15px dot
     liveTimeline.style.setProperty("--avatar-scale", avatarScale.toFixed(3));
     liveTimeline.style.setProperty("--dot-scale", dotScale.toFixed(3));
-
-    if(!isDesktop){
-      // Mobile: the timeline is vertical (line runs top-to-bottom, nodes
-      // stacked, avatar/title alternating left/right of it instead of
-      // above/below). The page itself already scrolls vertically, so there's
-      // no need for any of the desktop's width-fitting/overlap/scroll-toggle
-      // machinery — just a comfortable fixed gap between stacked nodes.
-      liveTimeline.style.justifyContent = "";
-      liveTimeline.style.gap = "0px"; /* ancora piu' vicini, richiesto
-        di nuovo: prima 6px */
-      liveTimeline.style.overflowX = "";
-      liveTimeline.style.flexGrow = "";
-      liveTimeline.style.flexShrink = "";
-      liveTimeline.style.flexBasis = "";
-      liveTimeline.style.width = "";
-      liveTimeline.classList.remove("is-scrollable");
-      Array.from(liveTimeline.querySelectorAll(".h-node")).forEach(node => { node.style.marginLeft = ""; });
-
-      // Il marker (pallino+trattino) va allineato al centro dell'AVATAR,
-      // non al centro dell'intero blocco avatar+titolo: quel blocco ha
-      // altezza variabile a seconda di quanto è lungo il titolo, quindi
-      // un centraggio CSS statico (grid align-self:center sull'intera
-      // riga) punta al centro del blocco, non dell'avatar. Qui si
-      // corregge nodo per nodo misurando la differenza reale.
-      liveTimeline.querySelectorAll(".h-node").forEach(node => {
-        const tile = node.querySelector(".h-node__tile");
-        const marker = node.querySelector(".h-node__marker");
-        if(!tile || !marker){ if(marker) marker.style.transform = ""; return; }
-        const nodeRect = node.getBoundingClientRect();
-        const tileCenter = tile.getBoundingClientRect().top + tile.getBoundingClientRect().height / 2 - nodeRect.top;
-        marker.style.transform = "";
-        const markerRect = marker.getBoundingClientRect();
-        const markerCenter = markerRect.top + markerRect.height / 2 - nodeRect.top;
-        const delta = tileCenter - markerCenter;
-        marker.style.transform = Math.abs(delta) > 0.5 ? `translateY(${delta.toFixed(2)}px)` : "";
-      });
-
-      // Distanza tra i pallini SEMPRE uguale, anche quando un nodo non
-      // ha immagine (e quindi e' molto piu' basso del normale): un
-      // margine fisso uguale per tutti sballava in quei casi. Qui si
-      // misura la posizione vera di ogni pallino (dopo il centraggio
-      // sopra) e si sposta ogni nodo, uno alla volta in ordine, cosi'
-      // la distanza dal pallino precedente sia sempre la stessa,
-      // qualunque sia l'altezza reale del nodo.
-      const nodeEls = Array.from(liveTimeline.querySelectorAll(".h-node"));
-      const targetDotGap = 90; // px tra un pallino e il successivo
-      nodeEls.forEach(node => { node.style.marginTop = ""; });
-      let prevDotY = null;
-      nodeEls.forEach(node => {
-        const dot = node.querySelector(".h-node__dot");
-        if(!dot) return;
-        const r = dot.getBoundingClientRect();
-        const dotY = r.top + r.height / 2;
-        if(prevDotY !== null){
-          const actualGap = dotY - prevDotY;
-          const delta = targetDotGap - actualGap;
-          node.style.marginTop = delta.toFixed(2) + "px";
-        }
-        // Rimisuro dopo l'eventuale aggiustamento, cosi' il nodo
-        // successivo parte dalla posizione vera, non da quella di
-        // prima della correzione.
-        const r2 = dot.getBoundingClientRect();
-        prevDotY = r2.top + r2.height / 2;
-      });
-
-      const dots = liveTimeline.querySelectorAll(".h-node__dot");
-      if(dots.length){
-        const timelineRect = liveTimeline.getBoundingClientRect();
-        const firstDot = dots[0].getBoundingClientRect();
-        const lastDot = dots[dots.length - 1].getBoundingClientRect();
-        const lineTop = (firstDot.top + firstDot.bottom) / 2 - timelineRect.top;
-        const lineBottom = (lastDot.top + lastDot.bottom) / 2 - timelineRect.top;
-        liveTimeline.style.setProperty("--tl-line-top", lineTop.toFixed(2) + "px");
-        liveTimeline.style.setProperty("--tl-line-height", Math.max(0, lineBottom - lineTop).toFixed(2) + "px");
-      }
-      return;
-    }
 
     // Larghezza e posizione del contenitore (.timeline-viewport)
     // calcolate dalla posizione REALE di Discord (sinistra) e dello
@@ -1307,6 +1369,7 @@ function setState(view){
 
   el.landingPanel.hidden = view !== "landing";
   el.gamePanel.hidden = view !== "game";
+  el.universeTimelinePanel.hidden = view !== "universe";
   el.titlePanel.hidden = view !== "title";
 
   if(view === "landing"){
@@ -1322,6 +1385,14 @@ function setState(view){
     applyPaletteToCSS();
     renderSidebar();
     renderGamePanel();
+  } else if(view === "universe"){
+    // SOLO MOBILE: sotto-schermata Screen C (linea temporale di un
+    // solo universo). Niente timelineRail qui (quello e' solo per la
+    // vista "title" desktop) - su mobile e' comunque sempre nascosto.
+    state.entryId = null;
+    applyPaletteToCSS();
+    renderSidebar();
+    renderUniverseTimelinePanel();
   } else if(view === "title"){
     applyPaletteToCSS();
     renderSidebar();
@@ -1432,12 +1503,18 @@ function updateMusicPlayback(){
     // resta cosi' finche' l'utente non sceglie esplicitamente un gioco
     // (selectGame azzera il flag), non la tocca la logica normale qui sotto.
   const g = currentGame();
+  // "universe" (Screen C, solo mobile) NON ha il pulsante musica -
+  // richiesto esplicitamente, "non avra' pulsanti" - ma l'audio
+  // continua a suonare lo stesso (quello scelto/avviato su Screen B),
+  // quindi va incluso in hasTracks/pausa ma non in inGamePages (che
+  // controlla solo la VISIBILITA' del pulsante).
   const inGamePages = state.view === "game" || state.view === "title";
+  const audioAllowedPages = inGamePages || state.view === "universe";
   el.musicToggle.hidden = !inGamePages;
   el.musicToggle.setAttribute("aria-pressed", String(state.musicOn));
 
   const tracks = getTrackList(g);
-  const hasTracks = inGamePages && tracks.length > 0;
+  const hasTracks = audioAllowedPages && tracks.length > 0;
 
   if(!hasTracks || !state.musicOn){
     el.bgMusic.pause();
@@ -1820,6 +1897,16 @@ el.brandBtn.addEventListener("click", () => {
   // allo stage indipendentemente da dove ci si trova nel carosello.
   scrollCarouselToStage();
 });
+
+// Freccette "torna indietro" di Screen C/D (solo mobile) - vedi
+// commento CSS: scorciatoia a tocco in attesa del vero gesto di
+// scroll richiesto ("torna con un semplice scroll a destra").
+if(el.universeTimelineSwipeHint){
+  el.universeTimelineSwipeHint.addEventListener("click", () => setState("game"));
+}
+if(el.titleSwipeHint){
+  el.titleSwipeHint.addEventListener("click", () => setState("universe"));
+}
 
 // ---------------------------------------------------------
 // Boot

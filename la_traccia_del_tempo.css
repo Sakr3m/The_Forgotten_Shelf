@@ -5,6 +5,22 @@
    il file condiviso con le altre.
    ============================================================ */
 
+/* Bug reale trovato testando la nuova Screen C/D (26/08): .landing e
+   .game-panel hanno entrambe un display:flex incondizionato in
+   styles.css (condiviso), che vince su [hidden] a parita' di
+   specificita' - stesso identico bug gia' incontrato e risolto piu'
+   volte su altre pagine di questo sito. Qui non era mai stato notato
+   prima perche' fino ad oggi la vista "game" mostrava direttamente
+   la linea temporale (nessuno spazio vuoto sotto in cui la landing
+   nascosta-ma-visibile potesse "spuntare" dietro) - con la nuova
+   Screen B/C piu' corte, il contenuto residuo della landing (o del
+   game-panel quando si e' su "universe"/"title") diventava visibile
+   sotto, sovrapposto. Altre pagine del sito hanno gia' questo stesso
+   fix (vedi .stage > .landing[hidden] in recensioni.css/
+   commissioni.css) - mai portato qui prima d'ora. */
+.stage > .landing[hidden]{ display:none; }
+.stage > .game-panel[hidden]{ display:none; }
+
 /* Font titolo di sezione: JetBrains Mono su tutti e tre i livelli
    (hero d'ingresso, titolo di ogni saga, titolo di ogni singola voce)
    stesso peso ovunque — qui la gerarchia la fa solo la dimensione,
@@ -770,13 +786,30 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      49px sotto di lei, per via del suo stesso padding-top qui sotto),
      titolo+blurb a 25px dalla riga avatar+musica. --- */
   body[data-state="game"] #gameHeaderBar{ display:none; }
+  /* #gameHeader eredita position:sticky;top:15px dalla regola
+     condivisa .game-header (styles.css) - un valore pensato per
+     desktop, corretto li' con un override a top:80px (vedi
+     @media(min-width:901px) piu' sotto, DESKTOP SOLO). Su mobile
+     quell'override non esiste mai stato: il 15px ereditato faceva
+     scivolare #gameHeader 15px piu' in basso della sua posizione di
+     riposo, mangiandosi 15px dei 20px di gap verso il separatore
+     sotto (bug reale trovato misurando: con margin-bottom:100px
+     forzato il gap restava fermo a 85px, mai 100 - la differenza
+     costante di 15px ha portato dritti qui). Su mobile #gameHeader
+     non deve restare incollato durante lo scroll (l'intera Screen B
+     scorre in blocco dentro .stage, come tutto il resto) - position:
+     static lo rimette in flusso normale, nessun offset residuo. */
+  body[data-state="game"] #gameHeader{ position:static; }
+  body[data-state="universe"] #universeTimelineHeaderBar{ display:none; }
   body[data-state="game"] .stage,
+  body[data-state="universe"] .stage,
   body[data-state="title"] .stage{ padding-top:49px; }
   body[data-state="game"] .game-header{
-    padding:0; margin-bottom:25px; /* spazio verso la riga
-      "Universo..." sotto - era andato perso togliendo il vecchio
-      27.5px senza sostituirlo, causando la sovrapposizione col
-      blurb vista nello screenshot di verifica. */
+    padding:0; margin-bottom:20px; /* 20px verso la nuova riga
+      separatrice sotto (era 25px, corretto su richiesta esplicita
+      per la nuova sequenza Screen B: header->avatar 20px,
+      avatar->titolo 20px, titolo->blurb 10px, blurb->separatore
+      20px). */
   }
   body[data-state="game"] .game-header-item:not([hidden]){
     position:static; display:block;
@@ -786,7 +819,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   body[data-state="game"] .game-header__top-row{
     display:flex; align-items:center; justify-content:space-between;
-    margin-top:25px;
+    margin-top:20px; /* era 25px */
   }
   body[data-state="game"] .game-header__banner,
   body[data-state="game"] .game-header__banner-overlay{
@@ -807,15 +840,57 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="game"] .game-header__info{
     position:static;
     width:100%;
-    margin-top:25px;
+    margin-top:20px; /* era 25px, spazio avatar->titolo */
     padding-bottom:0;
     text-align:center;
   }
   body[data-state="game"] .game-header__title{ font-size:1.3rem; }
-  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:6px; }
+  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:10px; } /* era 6px, spazio titolo->blurb */
   body[data-state="game"] .game-header__blurb br{ display:none; }
   body[data-state="game"] .track-info,
   body[data-state="title"] .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
+
+  /* ===========================================================
+     Screen B (elenco nomi universo, sostituisce la vecchia linea
+     temporale diretta su mobile - stato "game"): #gamePanel diventa
+     una colonna flessibile alta quanto lo schermo meno l'header
+     (49px, stesso valore di .stage{padding-top} qui sopra), cosi'
+     .universes-row (riusata per l'elenco, non piu' per la linea
+     temporale) puo' riempire tutto lo spazio rimanente sotto
+     game-header e distribuire i nomi con spazi uguali - justify-
+     content:space-evenly crea da solo i N+1 spazi uguali richiesti
+     (separatore->primo nome, nome->nome successivo, ultimo
+     nome->fondo pagina), nessun calcolo manuale necessario. La riga
+     separatrice e' un border-top su .universes-row stessa (niente
+     elemento extra nel markup): il gap di 20px dal blurb e' gia'
+     garantito da game-header{margin-bottom:20px} qui sopra, PRIMA
+     del bordo - resta quindi un gap fisso e separato dai gap uguali
+     sottostanti, esattamente come richiesto. Il fondo pagina e'
+     semplicemente il padding-bottom condiviso di .stage (80px,
+     styles.css) - nessun margine aggiuntivo necessario qui.
+     =========================================================== */
+  body[data-state="game"] #gamePanel{
+    display:flex; flex-direction:column;
+    min-height:calc(100dvh - 49px);
+  }
+  body[data-state="game"] .universes-row{
+    flex:1; display:flex; flex-direction:column;
+    justify-content:space-evenly; align-items:center;
+    border-top:1px solid var(--line);
+  }
+  .universe-name-list__item{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    background:none; border:none; padding:0;
+    color:var(--text);
+    font-family:inherit;
+    cursor:pointer;
+  }
+  .universe-name-list__item .universe-name-list__name{
+    font-size:1.15rem; font-weight:700;
+  }
+  .universe-name-list__item .universe-name-list__span{
+    font-size:.82rem; color:var(--text-dim);
+  }
 
   /* --- Riga "Universo IGA (...)" + frecce: spostata più su (66px
      di margine sul figlio .u-track diventano 44px di padding su
@@ -842,54 +917,71 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      in gioco), e l'unico elemento che scorre resta .stage — niente
      scroll annidati da nessuna parte, come richiesto. --- */
   body[data-state="game"] .game-panel{ display:block; }
-  body[data-state="game"] .universe-stage{
+
+  /* ===========================================================
+     Screen C (linea temporale di UN solo universo, #universeTimelinePanel):
+     stesso identico stile dei nodi che prima viveva sotto "game" (la
+     vecchia schermata unica con carosello frecce), spostato qui dato
+     che ora la linea temporale vive nella sua sotto-schermata a se'
+     stante, mai piu' le frecce prev/next (la scelta dell'universo
+     avviene tornando a Screen B e scegliendo un altro nome dalla
+     lista, non piu' scorrendo avanti/indietro sulla stessa vista).
+     =========================================================== */
+  body[data-state="universe"] .universe-timeline-track{
+    display:block; height:auto;
+    padding-top:9px;
+  }
+  body[data-state="universe"] .u-track{ display:block; height:auto; margin-top:0; }
+  body[data-state="universe"] .timeline-viewport{
     display:block; flex:none; min-height:0;
-    padding-top:9px; /* era 19px, dimezzato per ridurre lo spazio tra
-      la riga e la riga universo */
+    margin-top:25px;
   }
-  body[data-state="game"] .universe-stage .u-track{
-    display:block; height:auto; margin-top:0;
-  }
-  body[data-state="game"] .timeline-viewport{
-    display:block; flex:none; min-height:0;
-    margin-top:25px; /* -10px prima, +15px ora */
-  }
-  body[data-state="game"] .u-track__head{ justify-content:center; width:100%; }
-  /* Con le frecce prev/next presenti (piu' di un universo), tornano a
-     spingersi ai due lati come prima — senza, il nome (unico figlio)
-     restava incollato al bordo sinistro invece che centrato
-     (space-between con un solo elemento non centra nulla). */
-  body[data-state="game"] .u-track__head:has(.carousel-arrow){ justify-content:space-between; }
-  body[data-state="game"] .carousel-arrow{ padding:9px 12px; gap:6px; }
-  /* L'etichetta col nome dell'universo di destinazione (riattivata
-     qui in precedenza, vedi commento sopra) e' stata tolta di nuovo:
-     lo spazio col nome dell'universo corrente (.u-track__name) era
-     troppo stretto. Torna al comportamento di base (styles.css,
-     .carousel-arrow__label{display:none}) — solo l'icona freccia
-     sui pulsanti, nessun testo. */
+  body[data-state="universe"] .u-track__head{ justify-content:center; width:100%; }
 
   /* --- Nodi della linea temporale: avatar ingranditi x1.1 (72x92 ->
      79x101), distanza dal trattino raddoppiata (20px -> 40px), nome
      centrato sull'avatar (stessa larghezza dell'avatar). Il centraggio
      pallino/trattino sull'avatar resta calcolato a runtime in
      script.js. --- */
-  body[data-state="game"] .h-node__tile{ width:79px; height:101px; }
-  body[data-state="game"] .h-node__title{ width:79px; }
-  body[data-state="game"] .h-node__top,
-  body[data-state="game"] .h-node__bottom{ gap:6px; }
-  body[data-state="game"] .h-node__top{ padding-right:40px; }
-  body[data-state="game"] .h-node__bottom{ padding-left:40px; }
+  body[data-state="universe"] .h-node__tile{ width:79px; height:101px; }
+  body[data-state="universe"] .h-node__title{ width:79px; }
+  body[data-state="universe"] .h-node__top,
+  body[data-state="universe"] .h-node__bottom{ gap:6px; }
+  body[data-state="universe"] .h-node__top{ padding-right:40px; }
+  body[data-state="universe"] .h-node__bottom{ padding-left:40px; }
   /* Titolo sempre sopra l'immagine, su entrambi i lati: a DOM invariato
      (il desktop usa lo stesso HTML e li vuole nell'ordine opposto per
      un lato), qui basta forzare l'ordine visivo con "order" invece di
      toccare lo script. */
-  body[data-state="game"] .h-node__title{ order:1; }
-  body[data-state="game"] .h-node__tile{ order:2; }
+  body[data-state="universe"] .h-node__title{ order:1; }
+  body[data-state="universe"] .h-node__tile{ order:2; }
   /* La distanza tra i pallini (costante, indipendente dalla presenza
      o meno di un'immagine per ogni voce) e' gestita a runtime in
-     script.js/renderGamePanel — qui non serve piu' un margine fisso,
-     era proprio quello a rompersi quando un nodo non aveva
-     immagine. --- */
+     script.js/renderUniverseTimelinePanel — qui non serve piu' un
+     margine fisso, era proprio quello a rompersi quando un nodo non
+     aveva immagine. --- */
+
+  /* Freccetta animata "torna indietro" (centrale a destra, richiesta
+     esplicita) su Screen C e Screen D: stesso linguaggio visivo delle
+     swipe-hint della home (styles.css), ma qui e' anche un vero
+     pulsante cliccabile - un tap la aziona come scorciatoia mentre
+     il vero gesto di scroll (quello richiesto, "torna con un
+     semplice scroll a destra") non e' ancora stato costruito. Uso
+     margin-top fisso invece di transform:translateY(-50%) per il
+     centraggio verticale: l'animazione qui sotto usa gia' transform
+     (translateX) per il movimento, i due non possono coesistere sulla
+     stessa proprieta'. */
+  body[data-state="universe"] .swipe-hint--universe-timeline,
+  body[data-state="title"] .swipe-hint--universe-timeline{
+    display:flex; align-items:center; justify-content:center;
+    position:fixed; top:50%; right:14px; margin-top:-10px; z-index:20;
+    width:35px; height:35px;
+    color:var(--text-faint);
+    cursor:pointer;
+    animation:swipeHintRight 1.6s ease-in-out infinite;
+  }
+  body[data-state="universe"] .swipe-hint--universe-timeline svg,
+  body[data-state="title"] .swipe-hint--universe-timeline svg{ width:20px; height:20px; display:block; }
 
   /* --- Vista "title" (la timeline vera e propria di una saga): il
      testo va sotto in flusso normale, niente filigrana su mobile
@@ -925,11 +1017,13 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   body[data-state="title"] .title-nav__side span{ display:none; }
   body[data-state="title"] .title-nav__spacer{ flex:none; width:40px; }
-  body[data-state="title"] .title-back{
-    order:0; width:auto; flex:1; min-width:0;
-    white-space:normal; line-height:1.3; text-align:center;
-    padding:10px 12px;
-  }
+  /* Il pulsante "torna a [saga]" sparisce su mobile (richiesto
+     esplicitamente): quella funzione si fa con un semplice scroll,
+     restano solo i pulsanti titolo precedente/successivo. Con lui
+     nascosto, .title-nav (justify-content:space-between, styles.css)
+     distribuisce da solo i 2 pulsanti rimasti ai due estremi - nessun
+     aggiustamento di layout necessario oltre al display:none. */
+  body[data-state="title"] .title-back{ display:none; }
 
   /* --- Vista "title": blocco tag/anno abbassato un po' rispetto a
      prima, spazio libero sulla destra per il pulsante musica
@@ -1020,7 +1114,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      del titolo e la base dell'avatar, come richiesto. --- */
   .game-header-item:not([hidden]){ align-items:stretch; gap:30px; }
   .game-header__info{ display:flex; flex-direction:column; }
-  body[data-state="game"] .game-header__blurb{ margin-top:auto; margin-bottom:auto; }
+  /* Il margin-top:auto/margin-bottom:auto che centrava la blurb qui
+     (retaggio del vecchio layout "game" con linea temporale diretta,
+     dove la blurb doveva stare a meta' tra titolo e base
+     dell'avatar) e' stato rimosso: la nuova sequenza Screen B vuole
+     distanze fisse (20/20/10/20px), non piu' un centraggio - la
+     blurb resta ora semplicemente 10px sotto il titolo, in flusso
+     normale, lasciando che sia game-header{margin-bottom:20px} a
+     creare il gap verso il separatore sotto. */
 
   /* --- Barra sotto l'avatar <-> nome dell'universo: 30px (era 40px,
      il margine di base condiviso - CORREZIONE di un mio errore
