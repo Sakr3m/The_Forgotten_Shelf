@@ -1331,8 +1331,18 @@ body[data-entry-animate="true"] .entry-panel{
   #sidebar .game-list a.is-active{
     box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
   }
-  #sidebar .game-list button:hover:not(.row-lock),
-  #sidebar .game-list a:hover{
+  /* :hover sull'INTERA riga (<li>), non sul solo link/bottone: prima
+     bastava spostare il mouse sul lucchetto (un pulsante fratello,
+     non un figlio del link) per far perdere l'hover al link e far
+     ricadere la striscia sui 2px condivisi di base - segnalato con
+     screenshot (si restringeva visibilmente passando sopra il
+     lucchetto). La voce selezionata (.is-active, qui sopra) non
+     aveva questo problema perche' e' una classe persistente,
+     indipendente da dove si trovi il mouse in quel momento - ora il
+     hover si comporta allo stesso modo, sempre 5px in tutta la
+     riga. */
+  #sidebar .game-list > li:hover button:not(.row-lock),
+  #sidebar .game-list > li:hover a{
     box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
   }
 }
