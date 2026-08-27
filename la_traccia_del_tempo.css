@@ -676,12 +676,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      della timeline — bloccarlo li' avrebbe impedito di leggerla. --- */
   body[data-state="landing"]{ overflow:hidden; height:100%; }
   html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
-  /* Blocco scroll su Saga RIMOSSO (era qui, overflow:hidden+position:
-     fixed) - segnalato esplicitamente non funzionante sul dispositivo
-     reale nonostante risultasse bloccato nei test, e comunque
-     penalizzante per giochi come Doom (piu' testo del solito,
-     spiegazione del "nessuna linea temporale ufficiale") che
-     avrebbero solo perso contenuto tagliato invece di guadagnarci. */
+  /* Saga trattata come Home (richiesto esplicitamente), ma SOLO per
+     i giochi con universi veri: se #canonPages e' visibile (Doom,
+     Pokemon e simili - niente timeline ufficiale, solo una lunga
+     spiegazione testuale) il blocco va escluso, altrimenti quel
+     testo finirebbe tagliato e irraggiungibile (era gia' successo,
+     vedi il tentativo precedente rimosso). :has() controlla che
+     #canonPages sia DAVVERO nascosto (hidden), condizione vera solo
+     per i giochi che mostrano l'elenco universi invece della
+     spiegazione. */
+  body[data-state="game"]:has(#canonPages[hidden]){ overflow:hidden; height:100%; }
+  html:has(body[data-state="game"]:has(#canonPages[hidden])){ overflow:hidden; height:100%; }
 
   /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
      la lista dei giochi sotto scorre in verticale quando sono troppi
@@ -1084,34 +1089,32 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      pulsanti, non piu' impilati su due righe come prima. --- */
   body[data-state="title"] .title-nav{ flex-wrap:nowrap; }
   body[data-state="title"] .title-nav__side{
-    /* Non piu' 40x40 fissi solo icona (segnalati "quasi invisibili",
-       bordo 1px quasi trasparente var(--line) e testo nascosto) -
-       larghezza flessibile per contenere anche il nome del titolo di
-       destinazione (gia' presente nel markup via JS, solo nascosto
-       qui), bordo 2px nel colore della saga aperta, richiesto
-       esplicitamente su entrambi i punti. */
+    /* Tornati a 40x40 fissi solo icona (richiesto esplicitamente:
+       "mobile ha un grosso problema di spazio", il nome del titolo
+       di destinazione non ci sta - tolto di nuovo dopo un tentativo
+       precedente che lo mostrava). */
+    flex:none; width:40px; height:40px;
+    padding:0; justify-content:center;
     border-width:2px; border-color:var(--item-accent, var(--cyan));
     color:var(--item-accent, var(--cyan));
   }
+  body[data-state="title"] .title-nav__side span{ display:none; }
   body[data-state="title"] .title-nav__side svg{ color:var(--item-accent, var(--cyan)); }
-  body[data-state="title"] .title-nav__spacer{ flex:1; }
-  /* Il pulsante centrale ("torna alla linea temporale", Titolo->LT)
-     torna visibile su mobile: nel nuovo modello di navigazione
-     (27/08, tutto hidden-toggle, niente piu' scroll interno tra
-     Saga/LT/Titolo) serve di nuovo un modo esplicito per tornare
-     indietro di un livello - lo scroll stesso resta riservato solo
-     al livello piu' esterno (Tabella<->Home/Saga/LT/Titolo). La
-     regola condivisa (styles.css) ha flex-shrink:0, pensata per
-     desktop dove e' l'unico elemento nella riga - qui, insieme a
-     prev/next, quel non-restringersi lo faceva occupare tutta la
-     riga da solo, spingendo gli altri due fuori dallo schermo
-     (misurato: prev/next finivano a x:390/442, oltre il bordo
-     visibile). flex:1 + min-width:0 gli permette di restringersi e
-     condividere lo spazio, esattamente come gli altri due. */
+  body[data-state="title"] .title-nav__spacer{ flex:none; width:40px; }
+  /* Il pulsante centrale ("Indietro", Titolo->LT) torna visibile su
+     mobile: nel nuovo modello di navigazione (27/08, tutto
+     hidden-toggle, niente piu' scroll interno tra Saga/LT/Titolo)
+     serve di nuovo un modo esplicito per tornare indietro di un
+     livello - lo scroll stesso resta riservato solo al livello piu'
+     esterno (Tabella<->Home/Saga/LT/Titolo). Bordo 2px nel colore
+     della saga aperta, stesso trattamento di prev/next (richiesto
+     esplicitamente) - ora che prev/next sono tornati compatti
+     (40px), il pulsante centrale puo' riprendersi lo spazio
+     rimanente senza piu' bisogno di restringersi lui stesso. */
   body[data-state="title"] .title-back{
-    flex:1; min-width:0; flex-shrink:1;
-    padding:9px 12px;
-    white-space:normal;
+    flex:1; min-width:0;
+    border-width:2px; border-color:var(--item-accent, var(--cyan));
+    color:var(--item-accent, var(--cyan));
   }
 
   /* --- Vista "title": blocco tag/anno abbassato un po' rispetto a
