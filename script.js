@@ -1147,18 +1147,35 @@ function renderGamePanel(){
       // per lato, con un margine di sicurezza. --- */
       const INSET = 50;
       const bandHalf = 40;
+      // EXTRA: margine di sicurezza aggiuntivo SOLO per le zone
+      // sopra/sotto la riga (dove vivono copertina e titolo), non per
+      // la riga stessa - segnalato con screenshot: sull'ultima (o
+      // prima) voce di un universo piccolo, il titolo (130px, .h-node__title)
+      // e' piu' largo della copertina (100px, .h-node__tile) a cui e'
+      // agganciato, e la copertina stessa e' gia' posizionata a
+      // ridosso del bordo esterno (per farla "toccare fino al bordo",
+      // vedi sopra) - quindi il titolo sporgeva oltre il bordo esterno
+      // stesso (fino a 30px, la differenza 130-100) e veniva tagliato
+      // dalla maschera. Qui il bordo esterno (sopra/sotto) si allarga
+      // di EXTRA in piu' per dargli respiro, la riga (che usa INSET
+      // relativo al W originale, invariato) resta esattamente dove
+      // deve stare - i due margini sono ora scorporati, non piu' lo
+      // stesso identico valore.
+      const EXTRA = 40;
       const lineY = (firstDot.top + firstDot.bottom) / 2 - timelineRect.top;
       const lineTop = Math.max(0, lineY - bandHalf);
       const lineBottom = lineY + bandHalf;
       const W = timelineRect.width;
       const H = timelineRect.height;
+      const L = -EXTRA;
+      const R = W + EXTRA;
       liveTimeline.style.clipPath = `polygon(
-        0px 0px, ${W}px 0px,
-        ${W}px ${lineTop.toFixed(2)}px, ${(W - INSET).toFixed(2)}px ${lineTop.toFixed(2)}px,
-        ${(W - INSET).toFixed(2)}px ${lineBottom.toFixed(2)}px, ${W}px ${lineBottom.toFixed(2)}px,
-        ${W}px ${H}px, 0px ${H}px,
-        0px ${lineBottom.toFixed(2)}px, ${INSET}px ${lineBottom.toFixed(2)}px,
-        ${INSET}px ${lineTop.toFixed(2)}px, 0px ${lineTop.toFixed(2)}px
+        ${L}px 0px, ${R}px 0px,
+        ${R}px ${lineTop.toFixed(2)}px, ${(W - INSET).toFixed(2)}px ${lineTop.toFixed(2)}px,
+        ${(W - INSET).toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
+        ${R}px ${H}px, ${L}px ${H}px,
+        ${L}px ${lineBottom.toFixed(2)}px, ${INSET}px ${lineBottom.toFixed(2)}px,
+        ${INSET}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
       )`;
 
       // Le freccette animate (solo sopra soglia, isLargeUniverse):
