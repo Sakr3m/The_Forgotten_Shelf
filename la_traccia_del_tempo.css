@@ -520,22 +520,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
   }
 
-  /* --- Freccetta della tabella persistente anche tornando da una
-     saga aperta (stato "game"), non solo dalla home - mancava, si
-     era persa in uno dei ripristini precedenti. Stesse proprieta' di
-     base ripetute qui esplicitamente (styles.css le applica solo a
-     "landing"): senza, la freccia risulterebbe display:none (il
-     default globale) e priva di position/colore/animazione anche
-     mettendo display:block da solo. */
-  body[data-state="game"] .swipe-hint--left{
-    display:block; position:fixed; z-index:20;
-    color:var(--text-faint);
-    pointer-events:none;
-    left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite;
-    top:50%; transform:translateY(-50%);
-  }
-  body[data-state="game"] .swipe-hint--left svg{ width:15px; height:15px; display:block; }
-
   /* Margini della tabella e delle voci al suo interno: pannello a
      15px dal bordo su entrambi i lati, padding-top 90px (65px di
      riga header + 25px di spazio voluto). Voci a piena larghezza,
@@ -852,13 +836,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     esattamente al bordo vero della topbar, i margini specifici sotto
     (25px su .game-header__top-row, e quello nuovo su LT qui sotto)
     partono finalmente dal punto giusto. */
-  body[data-state="game"] #gamePanel{
-    padding-left:15px; padding-right:15px; /* avatar/musica/testo
-      toccavano i bordi (x:0-390) mentre "La Traccia del Tempo" e lo
-      switch lingua stanno tra x:15-375 (misurato con
-      getBoundingClientRect) - richiesto esplicitamente che tutto il
-      contenuto di Saga resti contenuto tra quei due limiti. */
-  }
+  /* Niente padding-left/right qui: .stage ha gia' il suo (16px,
+     mobile) - la mia aggiunta precedente di 15px si sommava sopra
+     invece di sostituirla, portando avatar/musica/testo a 31px dal
+     bordo invece dei 15px di "La Traccia del Tempo"/switch lingua
+     (segnalato esplicitamente: "i padding laterali sono aumentati a
+     caso"). .stage da solo porta gia' tutto a 16px, praticamente
+     identico al bordo vero (15px) - 1px di differenza, nato da due
+     valori indipendenti mai stati esattamente uguali nel codice
+     condiviso, non percepibile. */
   body[data-state="game"] .game-header{
     padding:0 0 20px; margin-bottom:0; /* era 25px pieni - misurato
       con precisione (25.01px header->avatar vs 25.99px blurb->riga,
@@ -1112,7 +1098,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (40px), il pulsante centrale puo' riprendersi lo spazio
      rimanente senza piu' bisogno di restringersi lui stesso. */
   body[data-state="title"] .title-back{
+    order:0; /* la regola condivisa (styles.css) lo mette a order:-1,
+      pensata per un vecchio layout a due righe (title-back sopra,
+      prev/next sotto) - qui, in un'unica riga, lo forzava sempre per
+      primo (a sinistra) indipendentemente da dove sta davvero nel
+      DOM (in mezzo, tra prev e next) - segnalato esplicitamente
+      con uno screenshot: il pulsante appariva a sinistra invece che
+      al centro tra le due frecce. */
     flex:1; min-width:0;
+    padding:9px 12px; /* era 9px 20px (styles.css) - troppo spazio
+      morto ai lati del testo breve "Indietro"/"Back", segnalato
+      esplicitamente. */
     border-width:2px; border-color:var(--item-accent, var(--cyan));
     color:var(--item-accent, var(--cyan));
   }
