@@ -663,17 +663,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      della timeline — bloccarlo li' avrebbe impedito di leggerla. --- */
   body[data-state="landing"]{ overflow:hidden; height:100%; }
   html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
-  /* Stesso blocco (scroll del BROWSER, non solo l'input touch - vedi
-     richiesta esplicita che distingue i due) esteso a Saga: la
-     schermata non ha abbastanza contenuto da giustificare lo scroll
-     come invece serve su LT/Titolo. position:fixed in piu' rispetto
-     al blocco di Home (non solo overflow:hidden): segnalato non
-     funzionante su dispositivo reale - overflow:hidden da solo e'
-     noto non bastare sempre contro il rimbalzo elastico di iOS
-     Safari, position:fixed e' la tecnica piu' solida per quel caso
-     specifico. */
-  body[data-state="game"]{ overflow:hidden; height:100%; position:fixed; width:100%; }
-  html:has(body[data-state="game"]){ overflow:hidden; height:100%; }
+  /* Blocco scroll su Saga RIMOSSO (era qui, overflow:hidden+position:
+     fixed) - segnalato esplicitamente non funzionante sul dispositivo
+     reale nonostante risultasse bloccato nei test, e comunque
+     penalizzante per giochi come Doom (piu' testo del solito,
+     spiegazione del "nessuna linea temporale ufficiale") che
+     avrebbero solo perso contenuto tagliato invece di guadagnarci. */
 
   /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
      la lista dei giochi sotto scorre in verticale quando sono troppi
@@ -1080,7 +1075,10 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (posizionato via JS in renderTitlePanel, altezza della riga
      tag/anno), e il nome del titolo abbassato un po' rispetto al
      blocco tag/anno. --- */
-  body[data-state="title"] .title-panel{ margin-top:54px; } /* +10px */
+  body[data-state="title"] .title-panel{ margin-top:25px; } /* era
+    54px, valore ereditato da una vecchia convenzione mai allineata
+    al fix della vera riga header (66px) - corretto per i 25px esatti
+    richiesti dal pulsante musica (primo contenuto reale qui dentro). */
   /* Riga vuota senza contenuto reale (nessun avatar/blurb da
      mostrare qui, serviva solo a dare continuita' visiva sotto la
      topbar) - inutile su questo nuovo flusso, tolta di mezzo su
@@ -1094,7 +1092,11 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      DOM da script.js (renderTitlePanel), qui serve solo margine sotto
      per staccarlo dal titolo che segue subito dopo. */
   body[data-state="title"] .music-control{
-    margin-bottom:15px;
+    margin-bottom:25px; /* era 15px - ma collassava con il
+      margin-top:26px di .title-name qui sotto (margini di elementi
+      adiacenti in flusso normale), dando 26px totali invece del
+      25px netto voluto. Tolto il valore duplicato su .title-name,
+      questo resta l'unica fonte del gap. */
     height:40px; /* fissa - senza, il contenitore cresce quando
       appare la tabellina col nome del brano (piu' alta del solo
       pulsante), e il pulsante (centrato con align-items:center) si
@@ -1117,7 +1119,9 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       richiesta esplicitamente: "se il pulsante e' a sinistra, il
       blocco si apre a destra". */
   }
-  body[data-state="title"] .title-name{ margin-top:26px; } /* +10px */
+  body[data-state="title"] .title-name{ margin-top:0; } /* era 26px,
+    duplicava/collassava con margin-bottom di .music-control qui
+    sopra - tolto, un solo valore chiaro ora controlla il gap. */
 }
 
 @media (min-width:901px){

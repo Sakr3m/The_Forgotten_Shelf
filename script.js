@@ -1908,15 +1908,48 @@ el.brandBtn.addEventListener("click", () => {
   scrollCarouselToStage();
 });
 
-// Freccette "torna indietro" di Screen C/D (solo mobile) - vedi
-// commento CSS: scorciatoia a tocco in attesa del vero gesto di
-// scroll richiesto ("torna con un semplice scroll a destra").
+// Freccette "torna indietro" di Screen C/D (solo mobile) - scorciatoia
+// a tocco, resta valida insieme al vero gesto di scroll qui sotto.
 if(el.universeTimelineSwipeHint){
   el.universeTimelineSwipeHint.addEventListener("click", () => setState("game"));
 }
 if(el.titleSwipeHint){
   el.titleSwipeHint.addEventListener("click", () => setState("universe"));
 }
+
+// ---------------------------------------------------------
+// Vero gesto di scorrimento (swipe a destra), richiesto esplicitamente
+// al posto del solo tocco sulla freccetta: da Titolo uno swipe a
+// destra riporta a LT, da LT uno swipe a destra riporta a Saga (mai
+// direttamente alla Tabella, un passo alla volta). Rilevato via
+// touchstart/touchend: una distanza orizzontale minima (60px) E
+// prevalente su quella verticale (altrimenti sarebbe un normale
+// scroll per leggere il testo/la linea temporale, non deve
+// scatenare la navigazione).
+// ---------------------------------------------------------
+function attachSwipeBack(panelEl, targetState){
+  if(!panelEl) return;
+  let startX = 0, startY = 0, tracking = false;
+  panelEl.addEventListener("touchstart", ev => {
+    if(ev.touches.length !== 1) return;
+    startX = ev.touches[0].clientX;
+    startY = ev.touches[0].clientY;
+    tracking = true;
+  }, { passive:true });
+  panelEl.addEventListener("touchend", ev => {
+    if(!tracking) return;
+    tracking = false;
+    const endX = ev.changedTouches[0].clientX;
+    const endY = ev.changedTouches[0].clientY;
+    const dx = endX - startX;
+    const dy = endY - startY;
+    if(dx > 60 && Math.abs(dx) > Math.abs(dy) * 1.5){
+      setState(targetState);
+    }
+  }, { passive:true });
+}
+attachSwipeBack(el.universeTimelinePanel, "game");
+attachSwipeBack(el.titlePanel, "universe");
 
 // ---------------------------------------------------------
 // Boot
