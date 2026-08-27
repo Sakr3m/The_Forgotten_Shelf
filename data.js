@@ -1020,11 +1020,74 @@ const GAMES = {
               en: "Centuries before the events of Diablo, the archangel Inarius and the demoness Lilith, both disillusioned with the Eternal Conflict between Heaven and Hell, steal a fragment of the Worldstone to create Sanctuary, a realm hidden from both factions. Their union produces the Nephalem, angel-demon hybrids more powerful than either angels or demons. Fearing a future rebellion, renegade angels and demons attempt to exterminate them; Lilith defends them by killing her own allies, but Inarius, unable to kill her, banishes her from Sanctuary and weakens the Nephalem bloodline, which over generations fades into the human race. When the Prime Evils Diablo, Mephisto, and Baal are in turn exiled to Sanctuary after a rebellion breaks out in Hell, the archangel Tyrael forms the order of the Horadrim and forges Soulstones, cut from the Worldstone itself, to hunt them down. The Horadrim imprison Mephisto beneath a temple in the jungles of Kehjistan and Baal through the sacrifice of Tal Rasha, who seals his essence within his own body; Diablo is finally captured by the warlord Jered Cain, and his Soulstone buried beneath the cathedral of Tristram. Centuries later, Archbishop Lazarus, corrupted by the cult of the Triune, unearths the stone and frees Diablo, setting in motion the events of the saga's first chapter."
             }
           },
+          { id: "legends-bul-kathos", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "Era dei Nefalem, molto prima della Guerra del Peccato", yearEn: "Age of the Nephalem, long before the Sin War", releaseYear: "2023", releaseYearEn: "2023", noAvatar: true,
+            title: { it: "Legends of the Barbarian: Bul-Kathos", en: "Legends of the Barbarian: Bul-Kathos" },
+            synopsis: {
+              it: "Molto prima della Guerra del Peccato, nell'epoca in cui i Nefalem popolano ancora Santuario, Bul-Kathos, futuro progenitore dei Barbari e custode del Monte Arreat, ha due soli figli: Naarah, che ne segue le orme diventando una grande guerriera, e Hiram, mai a proprio agio con le usanze della tribù. Tornato da un lungo pellegrinaggio, Hiram porta con sé una via nuova e un potere che intende reclamare con l'aiuto del padre, mettendo alla prova il legame tra i due e il futuro della stirpe barbarica.",
+              en: "Long before the Sin War, in the age when the Nephalem still walk Sanctuary, Bul-Kathos, future progenitor of the Barbarians and guardian of Mount Arreat, has only two children: Naarah, who follows in his footsteps to become a great warrior, and Hiram, who has never felt at ease with his tribe's ways. Returning from a long pilgrimage, Hiram brings back a new path and a power he intends to claim with his father's help, testing the bond between them and the future of the barbarian bloodline."
+            }
+          },
+          { id: "legends-rathma", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "Secoli dopo l'esilio di Lilith, prima della Guerra del Peccato", yearEn: "Centuries after Lilith's exile, before the Sin War", releaseYear: "2024", releaseYearEn: "2024", noAvatar: true,
+            title: { it: "Legends of the Necromancer: Rathma", en: "Legends of the Necromancer: Rathma" },
+            synopsis: {
+              it: "Secoli dopo l'esilio di Lilith da Santuario, suo figlio Linarian ha seppellito la propria stirpe, negando l'innata capacità di controllare la vita e la morte. Quando una regina spietata infrange la sua pace e lo convoca nella cittadella in rovina dei Primogeniti, Linarian è costretto a riprendere il proprio potere per salvare Santuario dalle sue intenzioni, mentre una voce familiare lo guida verso il ruolo che diventerà: Rathma, fondatore dell'ordine dei Necromanti.",
+              en: "Centuries after Lilith's banishment from Sanctuary, her son Linarian has buried his own lineage, denying his innate ability to control life and death. When a ruthless queen shatters his peace and summons him to the ruined citadel of the Firstborn, Linarian is forced to reclaim his power to save Sanctuary from her intentions, while a familiar voice guides him toward the role he will become: Rathma, founder of the order of the Necromancers."
+            }
+          },
+          { id: "sin-war-birthright", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2006", releaseYearEn: "2006", noAvatar: true,
+            title: { it: "The Sin War: Birthright", en: "The Sin War: Birthright" },
+            synopsis: {
+              it: "Nell'epoca in cui la Chiesa della Luce di Inarius e il culto della Triuna, guidato da Lucion figlio di Mefisto, si contendono in segreto le anime dell'umanità, il contadino Uldyssian si scopre dotato di un potere sconosciuto dopo essere stato accusato ingiustamente dell'omicidio di un missionario della Triuna. In fuga dal proprio villaggio di Seram, comincia a scoprire la natura dei propri poteri e a raccogliere seguaci, mentre entrambe le fazioni, ostili tra loro ma ugualmente interessate a lui, cercano di volgerlo alla propria causa.",
+              en: "In the age when Inarius's Cathedral of Light and the Triune cult, led by Lucion, son of Mephisto, secretly vie for humanity's souls, the farmer Uldyssian discovers he possesses an unknown power after being falsely accused of murdering a Triune missionary. Fleeing his home town of Seram, he begins to uncover the nature of his powers and gathers followers, while both factions, hostile to each other yet equally interested in him, seek to turn him to their cause."
+            }
+          },
+          { id: "sin-war-scales", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2007", releaseYearEn: "2007", noAvatar: true,
+            title: { it: "The Sin War: Scales of the Serpent", en: "The Sin War: Scales of the Serpent" },
+            synopsis: {
+              it: "Rifiutando sia la Chiesa della Luce che la Triuna, Uldyssian raduna attorno a sé un numero crescente di seguaci mentre affina poteri sempre più simili a quelli degli angeli e dei demoni che infestano Santuario in segreto. Il suo movimento, pensato come una via indipendente dalle due fedi corrotte, attira l'attenzione ancora più ostile di entrambe le fazioni, decise a impedirgli di scoprire fino in fondo la verità sulla natura stessa di Santuario.",
+              en: "Rejecting both the Cathedral of Light and the Triune, Uldyssian gathers an ever-growing number of followers as he hones powers increasingly similar to those of the angels and demons secretly infesting Sanctuary. His movement, meant as a path independent of both corrupted faiths, draws the even more hostile attention of both factions, determined to stop him from uncovering the full truth about the nature of Sanctuary itself."
+            }
+          },
+          { id: "sin-war-veiled-prophet", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2007", releaseYearEn: "2007", noAvatar: true,
+            title: { it: "The Sin War: The Veiled Prophet", en: "The Sin War: The Veiled Prophet" },
+            synopsis: {
+              it: "Nello scontro finale della Guerra del Peccato, Uldyssian scopre che il misterioso Veiled Prophet, che ha manipolato gli eventi fin dall'inizio, è in realtà Inarius stesso, l'arcangelo rinnegato co-fondatore di Santuario. Nella battaglia decisiva contro Inarius e i seguaci della Triuna, Uldyssian sacrifica la propria umanità per salvare Santuario, disperdendo la propria essenza e quella dei suoi compagni nel mondo.",
+              en: "In the final confrontation of the Sin War, Uldyssian discovers that the mysterious Veiled Prophet who has manipulated events from the start is in fact Inarius himself, the renegade archangel who co-founded Sanctuary. In the decisive battle against Inarius and the Triune's followers, Uldyssian sacrifices his own humanity to save Sanctuary, scattering his essence and that of his companions across the world."
+            }
+          },
+          { id: "demonsbane", type: "ROMANZO", typeEn: "NOVEL", year: "Poco prima di Diablo", yearEn: "Shortly before Diablo", releaseYear: "2000", releaseYearEn: "2000", noAvatar: true,
+            title: { it: "Demonsbane", en: "Demonsbane" },
+            synopsis: {
+              it: "Poco prima degli eventi di Diablo, Siggard, unico superstite della battaglia di Blackmarch, incapace di ricordare gli ultimi istanti dello scontro, è spinto a vendicare i compagni caduti per mano di un'armata di demoni. Nel dare la caccia a quelle stesse forze oscure, Siggard ricostruisce pian piano la verità su quella notte terribile, scoprendo che il proprio incubo è appena cominciato.",
+              en: "Shortly before the events of Diablo, Siggard, the only survivor of the battle of Blackmarch, unable to recall the final moments of the clash, is driven to avenge his fallen comrades at the hands of a demonic army. Hunting down those same dark forces, Siggard slowly pieces together the truth of that terrible night, only to discover that his nightmare has only just begun."
+            }
+          },
+          { id: "the-black-road", type: "ROMANZO", typeEn: "NOVEL", year: "In parallelo a Diablo", yearEn: "Parallel to Diablo", releaseYear: "2002", releaseYearEn: "2002", noAvatar: true,
+            title: { it: "The Black Road", en: "The Black Road" },
+            synopsis: {
+              it: "Il marinaio Darrick Lang, tornato nella città natale di Bramwell dopo anni al servizio della marina di Westmarch, scopre che gli abitanti sono stati sedotti da una nuova fede miracolosa. Dietro di essa si cela Kabraxis, un potente demone liberato dall'ex sacerdote zakarumita Buyard Cholik, che intende soppiantare la Chiesa di Zakarum e sottomettere l'intera umanità al proprio volere. Darrick affronta e uccide Kabraxis con la spada mistica Stormfury, ma nell'atto stesso di ucciderlo ne diventa il nuovo, riluttante varco verso il mondo mortale.",
+              en: "The sailor Darrick Lang, returning to his hometown of Bramwell after years serving the Westmarch navy, discovers its people have been seduced by a new, miracle-working faith. Behind it lies Kabraxis, a powerful demon freed by the former Zakarum priest Buyard Cholik, who intends to supplant the Church of Zakarum and bend all of humanity to his will. Darrick confronts and kills Kabraxis with the mystical sword Stormfury, but in slaying him becomes, against his will, the demon's new gateway into the mortal world."
+            }
+          },
           { id: "diablo-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263", releaseYear: "1996", releaseYearEn: "1996",
             title: { it: "Diablo", en: "Diablo" },
             synopsis: {
               it: "Un eroe scende nella cattedrale sotto la città di Tristram per fermare Diablo, Signore del Terrore, che ha posseduto il corpo del piccolo principe Albrecht. Sconfitto il demone, l'eroe si conficca da solo nella fronte la sua Pietra dell'Anima per contenerne lo spirito, condannandosi a una lenta corruzione interiore.",
               en: "A hero descends into the cathedral beneath the town of Tristram to stop Diablo, Lord of Terror, who has possessed the body of young Prince Albrecht. Having defeated the demon, the hero drives Diablo's own Soulstone into his own forehead to contain its spirit, dooming himself to a slow inner corruption."
+            }
+          },
+          { id: "legacy-of-blood", type: "ROMANZO", typeEn: "NOVEL", year: "In parallelo a Diablo II", yearEn: "Parallel to Diablo II", releaseYear: "2001", releaseYearEn: "2001", noAvatar: true,
+            title: { it: "Legacy of Blood", en: "Legacy of Blood" },
+            synopsis: {
+              it: "Tre tombaroli, tra cui il giovane Norrec, scoprono un'armatura di potere incalcolabile appartenuta a Bartuc, il più brutale stregone mai esistito, capace di dominare i demoni e un tempo sconfitto dal proprio stesso fratello Horazon. Ignaro di cosa stia per risvegliare, Norrec indossa l'armatura, liberando ancora una volta le legioni infernali legate al suo antico proprietario.",
+              en: "Three tomb raiders, among them the young Norrec, discover armor of unfathomable power once belonging to Bartuc, the most brutal sorcerer to ever walk the earth, capable of commanding demons and long ago defeated by his own brother Horazon. Unaware of what he is about to awaken, Norrec dons the armor, unleashing once more the infernal legions bound to its former owner."
+            }
+          },
+          { id: "tales-of-sanctuary", type: "FUMETTO", typeEn: "COMIC", year: "Epoca di Diablo II", yearEn: "Diablo II era", releaseYear: "2001", releaseYearEn: "2001", noAvatar: true,
+            title: { it: "Tales of Sanctuary", en: "Tales of Sanctuary" },
+            synopsis: {
+              it: "Tre racconti indipendenti ambientati durante l'epoca di Diablo II. Il barbaro Renit e il negromante Cairo danno la caccia alla leggendaria Mano di Naz per fermare un'orda di demoni. Il paladino Hale affronta un male che lo costringe a mettere in dubbio la propria stessa natura. Il druido Azgar difende il proprio villaggio dai demoni che si annidano anche dentro di lui.",
+              en: "Three standalone stories set during the era of Diablo II. The barbarian Renit and the necromancer Cairo hunt for the legendary Hand of Naz to stop a demon horde. The paladin Hale faces an evil that forces him to question his own nature. The druid Azgar defends his village from the demons lurking within himself as much as around it."
             }
           },
           { id: "diablo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263 – 1265", releaseYear: "2000", releaseYearEn: "2000",
@@ -1034,11 +1097,25 @@ const GAMES = {
               en: "The hero of the first game, now possessed by Diablo, sows chaos across the continent in search of his fellow Prime Evils, Mephisto and Baal, to reunite the Evil Trinity. A new group of heroes pursues him across four acts and as many continents, ultimately defeating both Diablo and Mephisto."
             }
           },
+          { id: "the-kingdom-of-shadow", type: "ROMANZO", typeEn: "NOVEL", year: "In parallelo a Diablo II e Lord of Destruction", yearEn: "Parallel to Diablo II and Lord of Destruction", releaseYear: "2002", releaseYearEn: "2002", noAvatar: true,
+            title: { it: "The Kingdom of Shadow", en: "The Kingdom of Shadow" },
+            synopsis: {
+              it: "Il mago vizjerei Quov Tsin conduce un gruppo di mercenari, tra cui il negromante Zayl, a testimoniare la rinascita di Ureh, città leggendaria creduta un tempo porta d'accesso al Paradiso, che secondo la leggenda risorge dalle proprie rovine ogni duemila anni. Ciò che i mercenari trovano però non è il dono divino che si aspettavano, ma un incubo distorto orchestrato dal demone Kabraxis, sopravvissuto al proprio precedente ospite.",
+              en: "The Vizjerei mage Quov Tsin leads a band of mercenaries, among them the necromancer Zayl, to witness the rebirth of Ureh, a legendary city once believed to be a gateway to Heaven, said to rise from its own ruins every two thousand years. What the mercenaries find, however, is not the divine gift they expected, but a twisted nightmare orchestrated by the demon Kabraxis, who survived the death of his previous host."
+            }
+          },
           { id: "lord-of-destruction", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1265", releaseYear: "2001", releaseYearEn: "2001",
             title: { it: "Diablo II: Lord of Destruction", en: "Diablo II: Lord of Destruction" },
             synopsis: {
               it: "Baal, ultimo dei tre fratelli rimasto libero, marcia verso la Worldstone, capace di alterare la realtà stessa, per corromperla e completare il piano dei Mali Primigeni. Gli eroi lo affrontano al Monte Arreat; per impedire che la pietra venga sfruttata di nuovo, l'angelo Tyrael la distrugge lui stesso, alterando per sempre l'equilibrio tra Paradiso e Inferi.",
               en: "Baal, the last of the three brothers still free, marches toward the Worldstone, capable of altering reality itself, to corrupt it and complete the Prime Evils' plan. The heroes confront him at Mount Arreat; to prevent the stone from being exploited again, the angel Tyrael destroys it himself, forever altering the balance between Heaven and Hell."
+            }
+          },
+          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Poco dopo Lord of Destruction", yearEn: "Shortly after Lord of Destruction", releaseYear: "2012", releaseYearEn: "2012", noAvatar: true,
+            title: { it: "Sword of Justice", en: "Sword of Justice" },
+            synopsis: {
+              it: "Poco dopo che Tyrael ha scagliato la propria spada contro la Worldstone corrotta al termine di Lord of Destruction, il giovane fuggitivo Jacob, perseguitato dai propri stessi conterranei per un omicidio mai commesso, viene guidato dalle visioni di un antico profeta fino ai resti dell'arma. Jacob dovrà reclamarne il potere per fermare una piaga di follia che dilaga nelle Terre Desolate, prima che la corruzione consumi lui stesso e chiunque lo circondi.",
+              en: "Shortly after Tyrael cast his own sword into the corrupted Worldstone at the end of Lord of Destruction, the young fugitive Jacob, hunted by his own countrymen for a murder he never committed, is led by the visions of an ancient prophet to the weapon's remains. Jacob must claim its power to stop a plague of madness sweeping through the Dreadlands, before the corruption consumes him and everyone around him."
             }
           },
           { id: "diablo-immortal", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1269 – 1270", releaseYear: "2022", releaseYearEn: "2022",
@@ -1048,11 +1125,39 @@ const GAMES = {
               en: "Five years after the destruction of the Worldstone, its corrupted fragments are scattered across Sanctuary, and demonic cults seek to gather them to bring Diablo back to life. A group of heroes confronts the sorcerer Skarn to prevent the fragments from being reunited, filling a fifteen-year narrative gap before the events of Diablo III."
             }
           },
+          { id: "moon-of-the-spider", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo la distruzione della Worldstone", yearEn: "After the Worldstone's destruction", releaseYear: "2006", releaseYearEn: "2006", noAvatar: true,
+            title: { it: "Moon of the Spider", en: "Moon of the Spider" },
+            synopsis: {
+              it: "Qualche tempo dopo la distruzione della Worldstone, Lord Aldric Jitan, tormentato da incubi ricorrenti, si dirige verso le rovine di un'antica tomba per risvegliare un male sopito dalla caduta di Tristram. Il negromante Zayl, attirato dalla stessa oscurità crescente, scopre che uno dei suoi stessi confratelli ha innescato gli eventi, mentre il demone ragno Astrogha si prepara a scatenare i propri servitori su Santuario sotto la luce della Luna del Ragno.",
+              en: "Some time after the destruction of the Worldstone, Lord Aldric Jitan, plagued by recurring nightmares, journeys to the ruins of an ancient tomb to awaken an evil that has slumbered since the fall of Tristram. The necromancer Zayl, drawn by the same growing darkness, discovers that one of his own brethren set these events in motion, while the spider demon Astrogha prepares to unleash its minions upon Sanctuary under the rising Moon of the Spider."
+            }
+          },
+          { id: "the-order", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Diablo III", yearEn: "Before Diablo III", releaseYear: "2012", releaseYearEn: "2012", noAvatar: true,
+            title: { it: "The Order", en: "The Order" },
+            synopsis: {
+              it: "Ormai anziano e ultimo Horadrim rimasto, Deckard Cain scopre che altri superstiti dell'ordine si nascondono sparsi per Santuario, proprio mentre voci sempre più insistenti annunciano il risveglio di un male antico. Nel darne la caccia, Cain stringe un'alleanza inaspettata con Leah, un'orfana di appena otto anni dotata di poteri che nemmeno lei comprende, gettando le basi per il loro legame alla vigilia degli eventi di Diablo III.",
+              en: "Now an old man and the last surviving Horadrim, Deckard Cain discovers that other remnants of the order are hiding scattered across Sanctuary, just as ever more insistent rumors announce the awakening of an ancient evil. In tracking them down, Cain forms an unexpected bond with Leah, an eight-year-old orphan with powers she herself does not understand, laying the foundation for their relationship on the eve of the events of Diablo III."
+            }
+          },
+          { id: "book-of-cain", type: "LORE", typeEn: "LORE", year: "Poco prima di Diablo III", yearEn: "Shortly before Diablo III", releaseYear: "2011", releaseYearEn: "2011", noAvatar: true,
+            title: { it: "Book of Cain", en: "Book of Cain" },
+            synopsis: {
+              it: "Poco prima degli eventi di Diablo III, Deckard Cain lascia in eredità alla propria figlia adottiva Leah un diario che raccoglie tutta la conoscenza accumulata in una vita passata al servizio degli Horadrim: la creazione di Santuario, la storia dei Mali Primigeni e dell'Angiris Council, l'ascesa dello Zakarum e i momenti chiave che hanno condotto fino alla distruzione di Tristram.",
+              en: "Shortly before the events of Diablo III, Deckard Cain bequeaths to his adopted daughter Leah a journal gathering all the knowledge accumulated over a lifetime in service to the Horadrim: the creation of Sanctuary, the history of the Prime Evils and the Angiris Council, the rise of the Zakarum faith, and the key moments that led to the destruction of Tristram."
+            }
+          },
           { id: "diablo-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1285", releaseYear: "2012", releaseYearEn: "2012",
             title: { it: "Diablo III", en: "Diablo III" },
             synopsis: {
               it: "Una stella cadente si schianta sulla cattedrale di Tristram: è Tyrael stesso, decaduto dal Paradiso per aver distrutto la Worldstone senza permesso. Un nuovo gruppo di eroi affronta il Signore della Menzogna Belial e il Signore del Dolore Azmodan, infine unificati in un unico essere, il Prime Evil Diablo risorto, sconfitto nella battaglia finale in Paradiso.",
               en: "A falling star crashes into the cathedral of Tristram: it is Tyrael himself, cast down from Heaven for destroying the Worldstone without permission. A new group of heroes confronts the Lord of Lies Belial and the Lord of Sin Azmodan, ultimately unified into a single risen being, the Prime Evil Diablo, defeated in the final battle within Heaven itself."
+            }
+          },
+          { id: "storm-of-light", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Diablo III e Reaper of Souls", yearEn: "Between Diablo III and Reaper of Souls", releaseYear: "2014", releaseYearEn: "2014", noAvatar: true,
+            title: { it: "Storm of Light", en: "Storm of Light" },
+            synopsis: {
+              it: "Dopo la caduta del Prime Evil Diablo, l'Angiris Council custodisce la Pietra Nera dell'Anima nel cuore del Paradiso, ignaro che la sua influenza corrotta si stia già insinuando tra le mura della Città d'Argento. Tyrael, divenuto mortale e a disagio nel proprio nuovo ruolo di Aspetto della Saggezza, riforma l'ordine degli Horadrim con un gruppo di eroi umani — tra cui il negromante Zayl e Jacob, l'ex avatar della Giustizia — incaricandoli dell'impresa impossibile di sottrarre la pietra dal Paradiso stesso, prima che la corruzione dilaghi.",
+              en: "After the fall of the Prime Evil Diablo, the Angiris Council keeps watch over the Black Soulstone in the heart of Heaven, unaware that its corrupting influence is already seeping through the walls of the Silver City. Tyrael, now mortal and ill at ease in his new role as Aspect of Wisdom, reforges the order of the Horadrim with a band of human heroes — among them the necromancer Zayl and Jacob, the former avatar of Justice — and charges them with the impossible task of stealing the stone from Heaven itself before the corruption spreads."
             }
           },
           { id: "reaper-of-souls", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo Diablo III", releaseYear: "2014", releaseYearEn: "2014",
@@ -1062,6 +1167,48 @@ const GAMES = {
               en: "Malthael, once the Angel of Wisdom and now the Angel of Death, steals the Black Soulstone containing Diablo's essence to use it against humanity itself, which he believes to be the true cause of the endless Eternal Conflict. The heroes confront him at Westmarch and ultimately defeat him, saving humanity from extermination."
             }
           },
+          { id: "book-of-tyrael", type: "LORE", typeEn: "LORE", year: "Dopo Reaper of Souls", yearEn: "After Reaper of Souls", releaseYear: "2013", releaseYearEn: "2013", noAvatar: true,
+            title: { it: "Book of Tyrael", en: "Book of Tyrael" },
+            synopsis: {
+              it: "Nel periodo successivo alla caduta di Diablo, l'ex arcangelo Tyrael mette per iscritto la propria versione della storia di Santuario, rivelando segreti sulla propria vita nell'Angiris Council, sulle minacce ancora incombenti sull'umanità e sulla scelta che lo ha portato a rinunciare alla propria natura angelica per unirsi ai ranghi dei mortali.",
+              en: "In the period following Diablo's fall, the former archangel Tyrael sets down his own account of Sanctuary's history, revealing secrets about his life within the Angiris Council, the threats still looming over humanity, and the choice that led him to renounce his angelic nature and join the ranks of mortals."
+            }
+          },
+          { id: "heroes-rise-darkness-falls", type: "ROMANZO", typeEn: "NOVEL", year: "Epoca di Diablo III", yearEn: "Diablo III era", releaseYear: "2012", releaseYearEn: "2012", noAvatar: true,
+            title: { it: "Heroes Rise, Darkness Falls", en: "Heroes Rise, Darkness Falls" },
+            synopsis: {
+              it: "Una raccolta di racconti indipendenti ambientati nell'epoca di Diablo III: una cacciatrice di demoni rischia di diventare essa stessa la propria preda, un barbaro segnato dal passato torna nella propria patria devastata, un monaco silenzioso ripulisce una foresta dove il confine tra alleato e nemico si è dissolto, e altre storie di eroi comuni alle prese con gli orrori di Santuario.",
+              en: "A collection of standalone stories set in the era of Diablo III: a demon hunter risks becoming her own worst prey, a barbarian haunted by his past returns to his shattered homeland, a silent monk cleanses a forest where the line between ally and enemy has vanished, and other tales of ordinary heroes confronting the horrors of Sanctuary."
+            }
+          },
+          { id: "morbed", type: "ROMANZO", typeEn: "NOVEL", year: "Epoca di Diablo III", yearEn: "Diablo III era", releaseYear: "2014", releaseYearEn: "2014", noAvatar: true,
+            title: { it: "Diablo III: Morbed", en: "Diablo III: Morbed" },
+            synopsis: {
+              it: "Il ladro Morbed si unisce a un mago, un druido, un negromante e un crociato per raggiungere un'isola remota e recuperare alcuni oggetti di valore trafugati dalla città di Westmarch. Sull'isola però si nasconde qualcosa che ha già ucciso e che è pronto a colpire ancora, costringendo Morbed a confrontarsi non solo con la creatura in agguato, ma anche con gli angoli più oscuri del proprio stesso spirito.",
+              en: "The thief Morbed joins a wizard, a druid, a necromancer, and a crusader on a journey to a remote island to recover valuables stolen from the city of Westmarch. But something lurking on the island has already killed once and is ready to kill again, forcing Morbed to confront not only the creature stalking the forests, but the darkest corners of his own spirit."
+            }
+          },
+          { id: "book-of-adria", type: "LORE", typeEn: "LORE", year: "Dopo Reaper of Souls", yearEn: "After Reaper of Souls", releaseYear: "2018", releaseYearEn: "2018", noAvatar: true,
+            title: { it: "Book of Adria", en: "Book of Adria" },
+            synopsis: {
+              it: "Un bestiario compilato dalla misteriosa strega Adria, che raccoglie la propria conoscenza proibita su demoni, mostri, non-morti e angeli incontrati nel corso della propria vita, offrendo una guida alla magia arcana e alle creature che popolano Santuario e i regni oltre di esso.",
+              en: "A bestiary compiled by the mysterious witch Adria, gathering her own forbidden knowledge of demons, monsters, the undead, and angels encountered over the course of her life, offering a guide to the arcane magic and creatures that populate Sanctuary and the realms beyond it."
+            }
+          },
+          { id: "tales-from-horadric-library", type: "ROMANZO", typeEn: "NOVEL", year: "Diverse epoche, dai Nefalem a Diablo IV", yearEn: "Various eras, from the Nephalem to Diablo IV", releaseYear: "2022", releaseYearEn: "2022", noAvatar: true,
+            title: { it: "Tales from the Horadric Library", en: "Tales from the Horadric Library" },
+            synopsis: {
+              it: "Una raccolta di racconti dell'orrore, ambientati in epoche diverse, dai tempi dei Nefalem fino al periodo di Diablo IV, presentata come un archivio di leggende locali e ammonimenti raccolti nei secoli dall'ordine degli Horadrim per proteggere gli innocenti da ciò che si annida nell'ombra di Santuario.",
+              en: "A collection of horror stories, set across eras ranging from the age of the Nephalem to the period of Diablo IV, framed as an archive of local legends and cautionary tales gathered over the centuries by the Horadrim to protect the innocent from what lurks in Sanctuary's shadows."
+            }
+          },
+          { id: "the-lost-horadrim", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Reaper of Souls e Diablo IV", yearEn: "Between Reaper of Souls and Diablo IV", releaseYear: "2026", releaseYearEn: "2026", noAvatar: true,
+            title: { it: "The Lost Horadrim", en: "The Lost Horadrim" },
+            synopsis: {
+              it: "Nel mondo decimato dalla Mietitura di Malthael, gli ultimi Horadrim rimasti — tra cui Lorath Nahr e Tyrael — salpano verso le remote Isole di Skovos per scoprire il destino di una spedizione inviata anni prima a stringere rapporti diplomatici con gli Askari e mai più tornata, oltre a recuperare un'antica cassaforte horadrica nascosta nel cuore delle isole. Scoprono che Skovos, apparentemente risparmiata dalla devastazione del resto di Santuario, nasconde a sua volta i propri pericoli, costringendo Lorath e la comandante askara Adreona a un'alleanza forzata contro minacce che emergono anche dalle acque circostanti.",
+              en: "In a world decimated by Malthael's Reaping, the last surviving Horadrim — among them Lorath Nahr and Tyrael — sail to the remote Skovos Isles to discover the fate of an expedition sent years earlier to establish diplomatic ties with the Askari and never heard from again, as well as to recover an ancient Horadric vault hidden within the isles. There they discover that Skovos, seemingly spared the devastation that struck the rest of Sanctuary, harbors dangers of its own, forcing Lorath and the Askari commander Adreona into an uneasy alliance against threats emerging even from the surrounding waters."
+            }
+          },
           { id: "diablo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1336 circa (50 anni dopo Reaper of Souls)", yearEn: "c. 1336 (50 years after Reaper of Souls)", releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Diablo IV", en: "Diablo IV" },
             synopsis: {
@@ -1069,11 +1216,46 @@ const GAMES = {
               en: "Lilith, daughter of Mephisto and co-creator of Sanctuary itself alongside the angel Inarius, is resurrected by a cult of followers and attempts to reclaim the world she once helped shape. A new hero pursues her across a Sanctuary ravaged by her corruption, ultimately confronting her in a battle that banishes her, defeated but not killed, to an in-between realm."
             }
           },
+          { id: "book-of-lorath", type: "LORE", typeEn: "LORE", year: "Dopo Diablo IV", yearEn: "After Diablo IV", releaseYear: "2023", releaseYearEn: "2023", noAvatar: true,
+            title: { it: "Book of Lorath", en: "Book of Lorath" },
+            synopsis: {
+              it: "Dopo aver perso la cassaforte horadrica in favore della Chiesa della Luce, Lorath Nahr inizia a scrivere un libro destinato a Neyrelle e a chiunque altro possa averne bisogno in futuro, viaggiando per Santuario alla ricerca di reliquie con cui proteggerlo da occhi malevoli. Il volume raccoglie la conoscenza degli Horadrim sui manufatti più potenti del mondo, nella speranza di preservarla per chi erediterà la lotta contro i Mali Primigeni.",
+              en: "After losing the Horadric Vault to the Cathedral of Light, Lorath Nahr begins writing a book intended for Neyrelle and anyone else who might need it in the future, traveling across Sanctuary in search of relics with which to protect it from malevolent eyes. The volume gathers the Horadrim's knowledge of the world's most powerful artifacts, in the hope of preserving it for whoever inherits the fight against the Prime Evils."
+            }
+          },
           { id: "vessel-of-hatred", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo Diablo IV", releaseYear: "2024", releaseYearEn: "2024",
             title: { it: "Diablo IV: Vessel of Hatred", en: "Diablo IV: Vessel of Hatred" },
             synopsis: {
               it: "Neyrelle, portando con sé la Pietra dell'Anima contenente Mefisto, fugge nella giungla di Nahantu per impedire che il Male Primigenio venga liberato di nuovo, ma finisce per essere manipolata da lui stesso. L'eroe la insegue per impedire che Mefisto trovi un nuovo corpo ospite, in un capitolo che introduce la classe Spirituccio e amplia il mondo di gioco verso sud.",
               en: "Neyrelle, carrying the Soulstone containing Mephisto, flees into the jungles of Nahantu to prevent the Prime Evil from being freed again, but ends up manipulated by him regardless. The hero pursues her to stop Mephisto from finding a new host body, in a chapter that introduces the Spiritborn class and expands the game world southward."
+            }
+          },
+          { id: "book-of-prava", type: "LORE", typeEn: "LORE", year: "Poco dopo Vessel of Hatred", yearEn: "Shortly after Vessel of Hatred", releaseYear: "2024", releaseYearEn: "2024", noAvatar: true,
+            title: { it: "Book of Prava", en: "Book of Prava" },
+            synopsis: {
+              it: "Dopo l'inaspettata sconfitta della Chiesa della Luce negli Inferi Ardenti durante gli eventi di Vessel of Hatred, la Reverenda Madre Prava torna a Kyovashad spezzata nel corpo e nello spirito. Priva della guida della propria patrona, si dedica allo studio delle altre fedi di Santuario per ritrovare un proprio cammino, mentre una forza corruttrice inizia silenziosamente a crescere dentro di lei.",
+              en: "After the Cathedral of Light's unexpected defeat in the Burning Hells during the events of Vessel of Hatred, Reverend Mother Prava returns to Kyovashad broken in body and spirit. Lacking guidance from her patron, she turns to studying Sanctuary's other faiths to find a new path forward, even as a corrupting force begins quietly growing within her."
+            }
+          },
+          { id: "dawn-of-hatred", type: "FUMETTO", typeEn: "COMIC", year: "Poco dopo Vessel of Hatred", yearEn: "Shortly after Vessel of Hatred", releaseYear: "2025", releaseYearEn: "2025", noAvatar: true,
+            title: { it: "Dawn of Hatred", en: "Dawn of Hatred" },
+            synopsis: {
+              it: "All'alba dell'Età dell'Odio, subito dopo gli eventi di Vessel of Hatred, l'antico profeta Akarat, fondatore della fede zakarumita, torna inspiegabilmente dalla morte predicando un rinnovato messaggio di pace e radunando attorno a sé nuovi seguaci, tra cui membri della tribù barbara della Volpe. Mentre la Chiesa di Zakarum, memore della propria storia di corruzione, osserva con crescente diffidenza il ritorno del profeta, il guerriero barbaro Derris e i suoi compagni si mettono sulle tracce del mistero che avvolge Akarat.",
+              en: "At the dawn of the Age of Hatred, immediately after the events of Vessel of Hatred, the ancient prophet Akarat, founder of the Zakarum faith, inexplicably returns from death preaching a renewed message of peace and gathering new followers, including members of the Fox barbarian tribe. As the Church of Zakarum, mindful of its own history of corruption, watches the prophet's return with growing suspicion, the barbarian warrior Derris and his companions set out to uncover the mystery surrounding Akarat."
+            }
+          },
+          { id: "shadows-of-sanctuary", type: "ROMANZO", typeEn: "NOVEL", year: "Diverse epoche", yearEn: "Various eras", releaseYear: "2025", releaseYearEn: "2025", noAvatar: true,
+            title: { it: "Shadows of Sanctuary", en: "Shadows of Sanctuary" },
+            synopsis: {
+              it: "Una raccolta di racconti dell'orrore ambientati in diversi angoli e diverse epoche di Santuario, dai bassifondi di Kingsport alle coste delle Isole Fredde, dalle fogne di Khanduras a un castello in rovina sulle brughiere di Scosglen, a testimonianza di come il Male attecchisca ovunque, sotto forme sempre diverse.",
+              en: "A collection of horror stories set in different corners and eras of Sanctuary, from the slums of Kingsport to the shores of the Cold Isles, from the sewers of Khanduras to a crumbling castle on the moors of Scosglen, bearing witness to how Hell takes root everywhere, in ever-changing forms."
+            }
+          },
+          { id: "lord-of-hatred", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco dopo Vessel of Hatred", yearEn: "Shortly after Vessel of Hatred", releaseYear: "2026", releaseYearEn: "2026",
+            title: { it: "Diablo IV: Lord of Hatred", en: "Diablo IV: Lord of Hatred" },
+            synopsis: {
+              it: "Dopo gli eventi di Vessel of Hatred, Mefisto si libera definitivamente impossessandosi del corpo del profeta risorto Akarat e dirige la propria corruzione verso le Isole di Skovos, culla dell'umanità e sede delle Pozze della Creazione, con l'intento di rimodellare la razza umana in un'arma contro il Paradiso stesso. Il Vagabondo, aiutato dallo spirito di Lilith ancora legato alla propria anima, raggiunge Mefisto alle Pozze e lo trafigge con un pugnale forgiato da un osso della stessa Lilith, bandendolo per sempre nel Vuoto — la stessa prigione che un tempo aveva contenuto lei — invece di ucciderlo, l'unico modo per impedirgli di rinascere negli Inferi. Conclude la trilogia dell'Età dell'Odio iniziata con Diablo IV.",
+              en: "After the events of Vessel of Hatred, Mephisto finally breaks free by possessing the body of the resurrected prophet Akarat and turns his corruption toward the Skovos Isles, the birthplace of humanity and home to the Pools of Creation, intending to reshape the human race into a weapon against Heaven itself. The Wanderer, aided by the spirit of Lilith still bound to their soul, catches up with Mephisto at the Pools and stabs him with a dagger forged from one of Lilith's own bones, banishing him forever into the Void — the same prison that once held her — rather than killing him outright, the only way to prevent his rebirth in the Burning Hells. This concludes the Age of Hatred trilogy that began with Diablo IV."
             }
           }
         ]
