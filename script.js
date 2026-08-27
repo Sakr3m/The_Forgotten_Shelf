@@ -1147,6 +1147,24 @@ function renderGamePanel(){
       // per lato, con un margine di sicurezza. --- */
       const INSET = 50;
       const bandHalf = 40;
+      // DOT_MARGIN: segnalato con screenshot - il pallino finale
+      // spariva del tutto (non solo il titolo, come nel giro
+      // precedente). Causa: l'ultimo nodo ha il proprio pallino
+      // centrato esattamente sul bordo INSET (il tile e' largo 100px
+      // e finisce esattamente al bordo esterno, quindi il suo centro
+      // cade a 50px da esso, cioe' proprio su INSET=50) - ma il
+      // pallino e' un cerchio con un diametro reale (~24px, raggio
+      // ~12px) che si estende un po' PRIMA e un po' DOPO il proprio
+      // centro: la maschera, tagliando esattamente a INSET, si
+      // portava via meta' pallino, lasciando a schermo solo una
+      // sfumatura senza cerchio visibile. Qui la fascia stretta (dove
+      // vive la riga con i pallini) si allarga di DOT_MARGIN in piu'
+      // per lato, quanto basta per contenere l'intero pallino anche
+      // quando il suo centro cade esattamente sul bordo - la riga
+      // stessa (--tl-line-width, ancorata ai centri reali dei
+      // pallini) resta ferma dov'era, e' solo la maschera a diventare
+      // un po' piu' permissiva.
+      const DOT_MARGIN = 35;
       // EXTRA: margine di sicurezza aggiuntivo SOLO per le zone
       // sopra/sotto la riga (dove vivono copertina e titolo), non per
       // la riga stessa - segnalato con screenshot: sull'ultima (o
@@ -1169,13 +1187,15 @@ function renderGamePanel(){
       const H = timelineRect.height;
       const L = -EXTRA;
       const R = W + EXTRA;
+      const bandLeftX = INSET - DOT_MARGIN;
+      const bandRightX = W - INSET + DOT_MARGIN;
       liveTimeline.style.clipPath = `polygon(
         ${L}px 0px, ${R}px 0px,
-        ${R}px ${lineTop.toFixed(2)}px, ${(W - INSET).toFixed(2)}px ${lineTop.toFixed(2)}px,
-        ${(W - INSET).toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
+        ${R}px ${lineTop.toFixed(2)}px, ${bandRightX.toFixed(2)}px ${lineTop.toFixed(2)}px,
+        ${bandRightX.toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
         ${R}px ${H}px, ${L}px ${H}px,
-        ${L}px ${lineBottom.toFixed(2)}px, ${INSET}px ${lineBottom.toFixed(2)}px,
-        ${INSET}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
+        ${L}px ${lineBottom.toFixed(2)}px, ${bandLeftX.toFixed(2)}px ${lineBottom.toFixed(2)}px,
+        ${bandLeftX.toFixed(2)}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
       )`;
 
       // Le freccette animate (solo sopra soglia, isLargeUniverse):
