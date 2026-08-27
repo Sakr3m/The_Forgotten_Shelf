@@ -2107,3 +2107,17 @@ function initReportModal(){
   });
 }
 initReportModal();
+
+// ---------------------------------------------------------
+// MARCATORE DI BUILD TEMPORANEO (da togliere appena confermato che
+// il dispositivo carica la versione giusta): un numero visibile in
+// basso a sinistra, cosi' si vede a colpo d'occhio se la pagina sta
+// eseguendo il JS aggiornato o una copia vecchia in cache, senza
+// bisogno di nessun altro test.
+// ---------------------------------------------------------
+(function(){
+  const marker = document.createElement("div");
+  marker.textContent = "build 20260827-01";
+  marker.style.cssText = "position:fixed;left:4px;bottom:4px;z-index:99999;background:#f00;color:#fff;font-size:11px;font-family:monospace;padding:2px 6px;border-radius:4px;pointer-events:none;";
+  document.body.appendChild(marker);
+})();
