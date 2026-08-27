@@ -1479,6 +1479,18 @@ function setState(view){
     applyPaletteToCSS();
     renderSidebar();
     renderGamePanel();
+    if(mobileBreakpoint.matches){
+      // Richiesto esplicitamente: da Saga si puo' tornare a sinistra
+      // (Tabella) ma lo scroll a destra resta bloccato - ci si arriva
+      // SOLO cliccando un universo, mai scorrendo. Ri-nascondendo qui
+      // LT e Titolo ogni volta che si (ri)arriva su Saga, non c'e'
+      // piu' nulla di sbloccato in cui scorrere verso destra, anche
+      // se erano gia' stati visitati in precedenza (stessa sessione,
+      // stesso o altro gioco) - tornano ad essere raggiungibili solo
+      // scegliendo di nuovo un universo da qui.
+      el.universeTimelinePanel.hidden = true;
+      el.titlePanel.hidden = true;
+    }
   } else if(view === "universe"){
     // SOLO MOBILE: sotto-schermata Screen C (linea temporale di un
     // solo universo). Niente timelineRail qui (quello e' solo per la
@@ -2107,6 +2119,23 @@ function syncStateAlloScroll(){
   }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", syncStateAlloScroll, { passive: true });
+
+// Da Saga si puo' tornare a sinistra (Tabella) ma lo scroll a destra
+// resta bloccato - richiesto esplicitamente, ci si arriva SOLO
+// cliccando un universo. Il ri-nascondere LT/Titolo va fatto pero'
+// solo a scroll DAVVERO fermo (evento nativo scrollend), non ad ogni
+// tick intermedio durante un trascinamento: nascondendoli troppo
+// presto (mentre l'utente sta ancora scorrendo via da LT verso Saga,
+// magari a meta' strada) li farebbe sparire di colpo mentre sono
+// ancora parzialmente visibili sullo schermo.
+if(layoutEl && "onscrollend" in layoutEl){
+  layoutEl.addEventListener("scrollend", () => {
+    if(mobileBreakpoint.matches && state.view === "game"){
+      el.universeTimelinePanel.hidden = true;
+      el.titlePanel.hidden = true;
+    }
+  }, { passive: true });
+}
 
 el.brandBtn.addEventListener("click", () => {
   setState("landing");
