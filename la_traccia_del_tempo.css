@@ -666,8 +666,13 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   /* Stesso blocco (scroll del BROWSER, non solo l'input touch - vedi
      richiesta esplicita che distingue i due) esteso a Saga: la
      schermata non ha abbastanza contenuto da giustificare lo scroll
-     come invece serve su LT/Titolo. */
-  body[data-state="game"]{ overflow:hidden; height:100%; }
+     come invece serve su LT/Titolo. position:fixed in piu' rispetto
+     al blocco di Home (non solo overflow:hidden): segnalato non
+     funzionante su dispositivo reale - overflow:hidden da solo e'
+     noto non bastare sempre contro il rimbalzo elastico di iOS
+     Safari, position:fixed e' la tecnica piu' solida per quel caso
+     specifico. */
+  body[data-state="game"]{ overflow:hidden; height:100%; position:fixed; width:100%; }
   html:has(body[data-state="game"]){ overflow:hidden; height:100%; }
 
   /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
@@ -822,7 +827,18 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="universe"] #universeTimelineHeaderBar{ display:none; }
   body[data-state="game"] .stage,
   body[data-state="universe"] .stage,
-  body[data-state="title"] .stage{ padding-top:49px; }
+  body[data-state="title"] .stage{ padding-top:66px; } /* era 49px -
+    bug reale trovato: la topbar (.stage-topbar) e' alta DAVVERO 66px
+    (verificato con getBoundingClientRect, non un valore assunto dal
+    codice), quindi con 49px qui il contenuto iniziava 17px PRIMA
+    della vera riga dell'header, finendo nascosto dietro di lei (il
+    nome dell'universo su LT tagliato a meta', segnalato
+    esplicitamente) - e i margini "25px" aggiunti sopra al contenuto
+    diventavano in realta' solo 8px visibili (25-17), anche loro
+    segnalati esplicitamente come troppo piccoli. Ora 66px allinea
+    esattamente al bordo vero della topbar, i margini specifici sotto
+    (25px su .game-header__top-row, e quello nuovo su LT qui sotto)
+    partono finalmente dal punto giusto. */
   body[data-state="game"] .game-header{
     padding:0 0 25px; margin-bottom:0; /* padding-bottom:25px (non
       margin) cosi' il border-bottom GIA' presente su .game-header
@@ -891,7 +907,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      =========================================================== */
   body[data-state="game"] #gamePanel{
     display:flex; flex-direction:column;
-    min-height:calc(100dvh - 49px);
+    min-height:calc(100dvh - 66px); /* era 49px, ora allineato al
+      vero padding-top corretto dello stage (vedi fix piu' sopra) -
+      disallineati, il contenuto poteva risultare piu' alto della
+      vera area visibile, causando scroll indesiderato anche con
+      overflow:hidden sugli antenati (bug segnalato: "la schermata
+      non e' bloccata"). */
   }
   body[data-state="game"] .universes-row{
     flex:1; display:flex; flex-direction:column;
@@ -948,7 +969,11 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      =========================================================== */
   body[data-state="universe"] .universe-timeline-track{
     display:block; height:auto;
-    padding-top:9px;
+    padding-top:25px; /* era 9px - lasciava il nome dell'universo
+      troppo vicino alla riga vera dell'header (e con il vecchio
+      padding-top:49px dello stage, addirittura tagliato a meta',
+      segnalato esplicitamente - vedi fix piu' sopra). Ora 25px
+      esatti dalla riga, stessa distanza richiesta su Saga. */
   }
   body[data-state="universe"] .u-track{ display:block; height:auto; margin-top:0; }
   body[data-state="universe"] .timeline-viewport{
@@ -1031,11 +1056,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      pulsanti, non piu' impilati su due righe come prima. --- */
   body[data-state="title"] .title-nav{ flex-wrap:nowrap; }
   body[data-state="title"] .title-nav__side{
-    flex:none; width:40px; height:40px;
-    padding:0; justify-content:center;
+    /* Non piu' 40x40 fissi solo icona (segnalati "quasi invisibili",
+       bordo 1px quasi trasparente var(--line) e testo nascosto) -
+       larghezza flessibile per contenere anche il nome del titolo di
+       destinazione (gia' presente nel markup via JS, solo nascosto
+       qui), bordo 2px nel colore della saga aperta, richiesto
+       esplicitamente su entrambi i punti. */
+    border-width:2px; border-color:var(--item-accent, var(--cyan));
+    color:var(--item-accent, var(--cyan));
   }
-  body[data-state="title"] .title-nav__side span{ display:none; }
-  body[data-state="title"] .title-nav__spacer{ flex:none; width:40px; }
+  body[data-state="title"] .title-nav__side svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="title"] .title-nav__spacer{ flex:1; }
   /* Il pulsante "torna a [saga]" sparisce su mobile (richiesto
      esplicitamente): quella funzione si fa con un semplice scroll,
      restano solo i pulsanti titolo precedente/successivo. Con lui
@@ -1064,6 +1095,27 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      per staccarlo dal titolo che segue subito dopo. */
   body[data-state="title"] .music-control{
     margin-bottom:15px;
+    height:40px; /* fissa - senza, il contenitore cresce quando
+      appare la tabellina col nome del brano (piu' alta del solo
+      pulsante), e il pulsante (centrato con align-items:center) si
+      sposta per restare al centro della riga cresciuta - stesso
+      identico bug gia' risolto altrove nel sito per lo stesso
+      motivo. Segnalato esplicitamente: "quando e' on, non si deve
+      spostare nulla, ne' il pulsante ne' il testo sotto". */
+    justify-content:flex-start; /* non row-reverse: con un solo
+      figlio visibile (tabellina nascosta) row-reverse ancorava il
+      pulsante a DESTRA invece che a sinistra - qui order sui singoli
+      figli (sotto) risolve senza questo effetto collaterale. */
+  }
+  body[data-state="title"] .music-control .volume-control{
+    order:1; /* il pulsante (dentro qui) resta SEMPRE il primo/piu'
+      a sinistra, con o senza tabellina visibile. */
+  }
+  body[data-state="title"] .music-control .track-info{
+    order:2; /* la tabellina del brano, quando appare, si apre verso
+      destra del pulsante - mai il contrario. Regola generale
+      richiesta esplicitamente: "se il pulsante e' a sinistra, il
+      blocco si apre a destra". */
   }
   body[data-state="title"] .title-name{ margin-top:26px; } /* +10px */
 }
