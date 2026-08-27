@@ -660,6 +660,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      della timeline — bloccarlo li' avrebbe impedito di leggerla. --- */
   body[data-state="landing"]{ overflow:hidden; height:100%; }
   html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
+  body[data-state="landing"] .stage{ overflow-y:hidden; }
   /* Saga trattata come Home (richiesto esplicitamente), ma SOLO per
      i giochi con universi veri: se #canonPages e' visibile (Doom,
      Pokemon e simili - niente timeline ufficiale, solo una lunga
@@ -671,6 +672,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      spiegazione. */
   body[data-state="game"]:has(#canonPages[hidden]){ overflow:hidden; height:100%; }
   html:has(body[data-state="game"] #canonPages[hidden]){ overflow:hidden; height:100%; }
+  /* .stage ha un proprio overflow-y:auto (condiviso, styles.css) -
+     bloccare solo body/html NON bastava, segnalato con screenshot
+     reali (barra di scroll visibile sul bordo destro): .stage e' un
+     contesto di scroll SEPARATO e indipendente, che body/html non
+     controllano affatto. Stessa condizione :has() di sopra. */
+  body[data-state="game"]:has(#canonPages[hidden]) .stage{ overflow-y:hidden; }
 
   /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
      la lista dei giochi sotto scorre in verticale quando sono troppi
@@ -1075,6 +1082,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      esplicitamente) - ora che prev/next sono tornati compatti
      (40px), il pulsante centrale puo' riprendersi lo spazio
      rimanente senza piu' bisogno di restringersi lui stesso. */
+  body[data-state="title"] .title-nav{ position:relative; }
   body[data-state="title"] .title-back{
     order:0; /* la regola condivisa (styles.css) lo mette a order:-1,
       pensata per un vecchio layout a due righe (title-back sopra,
@@ -1083,10 +1091,20 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       DOM (in mezzo, tra prev e next) - segnalato esplicitamente
       con uno screenshot: il pulsante appariva a sinistra invece che
       al centro tra le due frecce. */
-    flex:1; min-width:0;
-    padding:9px 12px; /* era 9px 20px (styles.css) - troppo spazio
-      morto ai lati del testo breve "Indietro"/"Back", segnalato
-      esplicitamente. */
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%, -50%);
+    /* NON piu' flex:1 (segnalato di nuovo con uno screenshot -
+      avevo ridotto solo il padding INTERNO, ma flex:1 lo faceva
+      comunque CRESCERE a riempire tutto lo spazio rimasto tra le due
+      frecce, quindi lo spazio morto restava, solo spostato appena
+      fuori dal testo invece che intorno - la vera causa era la
+      crescita, non il padding). position:absolute + centraggio reale
+      qui: la larghezza ora segue solo il proprio contenuto
+      ("Indietro"/"Back", una parola breve), indipendente da quanto
+      sono larghi prev/next. */
+    width:auto; min-width:0;
+    padding:9px 20px;
+    white-space:nowrap;
     border-width:2px; border-color:var(--item-accent, var(--cyan));
     color:var(--item-accent, var(--cyan));
   }
