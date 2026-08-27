@@ -5,6 +5,19 @@
    il file condiviso con le altre.
    ============================================================ */
 
+/* touch-action:manipulation su pulsanti/link (26/08, ipotesi per il
+   ritorno a Home segnalato dopo aver selezionato una voce dalla
+   Tabella, mai riprodotto nei test automatici): elimina il ritardo di
+   ~300ms che alcuni browser mobile usano per generare un "doppio tap
+   per zoomare" - durante quel ritardo puo' scattare un click
+   sintetico posticipato con le coordinate ORIGINALI del tocco, che se
+   nel frattempo la schermata e' gia' cambiata (voce selezionata,
+   passaggio a Saga) puo' colpire un elemento diverso in quella nuova
+   posizione (es. il pulsante che riporta alla Home). Tecnica
+   standard, sicura da applicare a prescindere da questa ipotesi
+   specifica. */
+button, a{ touch-action:manipulation; }
+
 /* Bug reale trovato testando la nuova Screen C/D (26/08): .landing e
    .game-panel hanno entrambe un display:flex incondizionato in
    styles.css (condiviso), che vince su [hidden] a parita' di
