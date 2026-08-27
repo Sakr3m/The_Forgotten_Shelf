@@ -372,6 +372,24 @@ function appendLikeWidget(container, workId){
 function tf(field){ return field ? (field[state.lang] || field.en || field.it || "") : ""; }
 function monogram(str){ return (str || "?").trim().charAt(0).toUpperCase(); }
 
+// Contenuto di un riquadro avatar (linea temporale desktop/mobile E
+// rail verticale nella pagina voce, stesso identico markup nei due
+// posti): immagine vera se c'e', altrimenti monogramma - a meno che
+// l'immagine sia segnata come "in arrivo" (imagePending, es. Ace
+// Combat 8 prima del lancio), nel qual caso il riquadro diventa
+// rosso e mostra la data di uscita al suo posto, promemoria visivo
+// di quello che manca invece di un monogramma qualunque che
+// nasconderebbe il problema.
+function tileInnerHTML(entry){
+  if(entry.imagePending){
+    return `<span class="tile-missing">${tf(entry.releaseDateShort)}</span>`;
+  }
+  return entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`;
+}
+function tileMissingClass(entry, base){
+  return entry.imagePending ? ` ${base}--missing` : "";
+}
+
 // Dot color follows position along the sequence (like the line's own gradient),
 // not the media type — cyan -> magenta -> orange across the whole timeline.
 const DEFAULT_PALETTE = ["#00f0ff", "#ff2ec4", "#a742ff"];
@@ -555,7 +573,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
     const hasAvatar = !entry.noAvatar;
     const tileSpan = hasAvatar
-      ? `<span class="h-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>`
+      ? `<span class="h-node__tile${tileMissingClass(entry, "h-node__tile")}">${tileInnerHTML(entry)}</span>`
       : "";
 
     // "up": avatar (farthest from line) -> title (text top-aligned, touching avatar) -> [reserved empty 2nd line, touching line] -> line
@@ -1210,7 +1228,7 @@ function updateTitlePanelText(entryId){
     <div class="title-meta"><span class="title-tag">${typeLabel}</span></div>
     ${releaseLabel ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseLabel}</p>` : ""}
     ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}
-    <p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>
+    ${entry.synopsis ? `<p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>` : ""}
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
     <div class="title-nav">
       ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
@@ -1444,7 +1462,7 @@ function renderRail(){
     node.className = "v-node" + (entry.id === state.entryId ? " is-active" : "");
     const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
     node.innerHTML = `
-      <span class="v-node__tile">${entry.image ? `<img src="${entry.image}" alt="">` : `<span class="monogram">${monogram(tf(entry.title))}</span>`}</span>
+      <span class="v-node__tile${tileMissingClass(entry, "v-node__tile")}">${tileInnerHTML(entry)}</span>
       <span class="v-node__meta">
         <span class="v-node__year">${yearLabel}</span><br>
         <span class="v-node__title">${tf(entry.title)}</span>

@@ -109,10 +109,15 @@ const GAMES = {
           },
           { id: "ace-8", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2029 (in uscita)", yearEn: "2029 (upcoming)", releaseYear: "2026", releaseYearEn: "2026",
             title: { it: "Ace Combat 8: Wings of Theve", en: "Ace Combat 8: Wings of Theve" },
-            synopsis: {
-              it: "SINOSSI PROVVISORIA, DA RIVEDERE AL LANCIO (2 ottobre 2026): la Federazione dell'Usea Centrale viene travolta da un'invasione lampo della Repubblica di Sotoa. Il protagonista, salvato in mare dalla vecchia portaerei Endurance, eredita il nome di battaglia \"Wings of Theve\" dall'asso caduto in azione di cui era il navigatore, e ne porta avanti la leggenda per restituire speranza a un paese quasi del tutto occupato.",
-              en: "PROVISIONAL SYNOPSIS, TO REVIEW AT LAUNCH (October 2, 2026): the Federation of Central Usea is overrun by a lightning invasion from the Republic of Sotoa. The protagonist, rescued at sea by the aging carrier Endurance, inherits the battle name \"Wings of Theve\" from the ace he served as navigator for after the ace falls in action, carrying the legend forward to give hope to a nearly fully occupied homeland."
-            }
+            // Sinossi rimossa di proposito (28/08): il gioco non e'
+            // ancora uscito (2 ottobre 2026), qualunque riassunto ora
+            // sarebbe basato solo su anteprime/hands-on pre-lancio.
+            // imagePending fa comparire un riquadro rosso al posto
+            // dell'avatar lungo la linea, con la data di uscita al
+            // suo interno - promemoria visivo per tornarci ad ottobre
+            // con sinossi vera E immagine.
+            imagePending: true,
+            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" }
           },
           { id: "ace-3-electrosphere", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Gennaio – luglio 2040 (Guerra Intercorporativa)", yearEn: "January – July 2040 (Intercorporate War)", releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Ace Combat 3: Electrosphere", en: "Ace Combat 3: Electrosphere" },

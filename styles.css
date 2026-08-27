@@ -1102,6 +1102,21 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .h-node__tile img{ width:100%; height:100%; object-fit:cover; }
 .h-node__tile .monogram{ font-size:calc(1.6rem * var(--avatar-scale, 1)); font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* Riquadro "immagine in arrivo" (imagePending in data.js, es. un
+   gioco non ancora uscito): rosso invece del bordo/sfondo normali,
+   promemoria visivo di cosa manca ancora - al posto del monogramma
+   compare la data di uscita, centrata e a capo automatico dato che
+   il riquadro resta piccolo e stretto. Colore fisso (non legato a
+   --item-accent/--cyan del resto del sito): deve risaltare come
+   avviso, non confondersi con la palette normale della saga. */
+.h-node__tile--missing{
+  border-color:#e5484d; background:color-mix(in srgb, #e5484d 12%, var(--panel));
+}
+.h-node__tile--missing .tile-missing{
+  font-size:calc(.62rem * var(--avatar-scale, 1)); font-weight:700; text-align:center;
+  color:#ff6b6f; line-height:1.3; padding:0 6px;
+}
+.h-node:hover .h-node__tile--missing{ border-color:#ff6b6f; }
 .h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--cyan)); }
 .h-node__title{
   font-size:calc(.78rem * var(--avatar-scale, 1)); font-weight:600; text-align:center; color:var(--text-dim);
@@ -1136,6 +1151,14 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .v-node__tile img{ width:100%; height:100%; object-fit:cover; }
 .v-node__tile .monogram{ font-size:.9rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* Stesso trattamento "immagine in arrivo" di .h-node__tile qui sopra,
+   scalato alle dimensioni piu' piccole del rail verticale. */
+.v-node__tile--missing{
+  border-color:#e5484d; background:color-mix(in srgb, #e5484d 12%, var(--panel));
+}
+.v-node__tile--missing .tile-missing{
+  font-size:.5rem; font-weight:700; text-align:center; color:#ff6b6f; line-height:1.2; padding:0 3px;
+}
 .v-node__meta{ min-width:0; }
 .v-node__year{ font-size:.66rem; font-weight:700; color:var(--text-faint); }
 .v-node__title{ font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25; }
@@ -1174,7 +1197,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-content-item{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
 .title-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:1px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
+  color:var(--cyan); border:2px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
 }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
 .title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
