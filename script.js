@@ -1321,6 +1321,32 @@ function renderTitlePanel(){
       const navWidth = textRight - navEl.getBoundingClientRect().left;
       navEl.style.width = navWidth > 0 ? navWidth.toFixed(2) + "px" : "";
     }
+
+    // "Indietro" centrato DAVVERO tra prev e next (segnalato
+    // esplicitamente: deve restare centrale ai due pulsanti laterali),
+    // non solo al centro geometrico del box .title-nav: left:50% (CSS)
+    // centra sul box, ma prev e next quasi mai hanno la stessa
+    // larghezza tra loro (i titoli di voce precedente/successiva sono
+    // testi diversi) - un box centrato non e' lo stesso di un punto
+    // equidistante dai due VERI bordi interni dei pulsanti vicini.
+    // Calcolato qui il punto medio reale tra il bordo destro di prev e
+    // il bordo sinistro di next (quando uno dei due manca, cioe' e'
+    // il primo o l'ultimo titolo dell'universo, si usa il bordo del
+    // box .title-nav al suo posto, dato che li' lo spaziatore e'
+    // display:none e non occupa spazio).
+    if(navEl){
+      const backEl = navEl.querySelector(".title-back");
+      const prevSide = navEl.querySelector(".title-nav__side--prev");
+      const nextSide = navEl.querySelector(".title-nav__side--next");
+      if(backEl){
+        const navRect = navEl.getBoundingClientRect();
+        const innerLeft = prevSide ? prevSide.getBoundingClientRect().right : navRect.left;
+        const innerRight = nextSide ? nextSide.getBoundingClientRect().left : navRect.right;
+        const midpoint = (innerLeft + innerRight) / 2;
+        const backLeftPx = midpoint - navRect.left;
+        backEl.style.left = backLeftPx.toFixed(2) + "px";
+      }
+    }
   }
 
   // Solo mobile: il pulsante musica si sposta dentro alla pagina
