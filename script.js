@@ -465,6 +465,8 @@ function renderSidebar(){
     btn.type = "button";
     btn.textContent = tf(g.listTitle);
     btn.classList.toggle("is-active", state.gameId === id);
+    btn.dataset.gameId = id; // per la delega eventi qui sotto, mai
+      // piu' un addEventListener per pulsante ricreato ad ogni render
     li.style.setProperty("--item-accent", g.accentColor || "#6b7280"); /* sul
       <li> (il genitore), non solo sul bottone: la regola condivisa
       del box-shadow su hover/is-active (styles.css) legge la
@@ -476,11 +478,26 @@ function renderSidebar(){
       ricadeva sul colore di fallback (--cyan, chiaro/bianco) invece
       del colore proprio di ciascun gioco. */
     btn.style.setProperty("--item-accent", g.accentColor || "#6b7280");
-    btn.addEventListener("click", () => selectGame(id));
     li.appendChild(btn);
     el.gameList.appendChild(li);
   });
 }
+// ---------------------------------------------------------
+// Delega eventi (26/08, ricostruzione della logica di navigazione
+// mobile dopo un ritorno a "landing" segnalato piu' volte e mai
+// riprodotto nei test): UN SOLO listener permanente su el.gameList
+// (mai ricreato), invece di un addEventListener per ogni singolo
+// pulsante ricostruito ad ogni chiamata di renderSidebar() -
+// elimina alla radice qualunque possibile inconsistenza tra
+// "elemento davvero cliccato sullo schermo" e "listener che
+// effettivamente reagisce", dato che qui il listener vive UNA volta
+// sola sul contenitore stabile, non su elementi che vengono distrutti
+// e ricreati in continuazione.
+// ---------------------------------------------------------
+el.gameList.addEventListener("click", ev => {
+  const btn = ev.target.closest("button[data-game-id]");
+  if(btn) selectGame(btn.dataset.gameId);
+});
 
 // ---------------------------------------------------------
 function selectUniverse(idx){
@@ -547,12 +564,28 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
       <span class="h-node__marker"><span class="h-node__dot"></span></span>
       <span class="h-node__bottom">${bottomContent}</span>
     `;
-    node.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(entry.id); });
+    node.dataset.entryId = entry.id; // per la delega eventi, vedi
+      // i due listener permanenti aggiunti dopo buildUniverseTrack
+      // (uno per il contenitore desktop, uno per quello mobile -
+      // questa funzione costruisce nodi per entrambi)
     timeline.appendChild(node);
   });
 
   return track;
 }
+// Delega eventi (stesso schema di el.gameList/el.universesRow sopra)
+// per i nodi della linea temporale (.h-node, costruiti da
+// buildUniverseTrack qui sopra): due listener permanenti, uno per
+// contenitore, dato che la stessa funzione popola contenitori diversi
+// a seconda del breakpoint - desktop usa el.universesRow (carosello
+// con frecce), mobile usa el.universeTimelineTrack (Screen LT a se'
+// stante). Ciascuno trova solo i nodi che gli competono davvero.
+function handleTimelineNodeClick(ev){
+  const node = ev.target.closest("a.h-node[data-entry-id]");
+  if(node){ ev.preventDefault(); selectEntry(node.dataset.entryId); }
+}
+el.universesRow.addEventListener("click", handleTimelineNodeClick);
+if(el.universeTimelineTrack) el.universeTimelineTrack.addEventListener("click", handleTimelineNodeClick);
 
 // ---------------------------------------------------------
 // Posizionamento verticale della linea temporale, SOLO MOBILE: line
@@ -650,6 +683,16 @@ function openUniverseTimeline(idx){
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
 }
+// Delega eventi (stesso schema di el.gameList sopra): un solo
+// listener permanente su el.universesRow, che su mobile ospita
+// l'elenco nomi universo (ricostruito ad ogni renderGamePanel) - su
+// desktop lo stesso contenitore ospita tutt'altro (la linea
+// temporale con le frecce prev/next), il selettore qui sotto
+// semplicemente non trova mai nulla li' e non interferisce.
+el.universesRow.addEventListener("click", ev => {
+  const btn = ev.target.closest("button.universe-name-list__item[data-universe-idx]");
+  if(btn) openUniverseTimeline(Number(btn.dataset.universeIdx));
+});
 
 function renderUniverseTimelinePanel(){
   const g = currentGame();
@@ -880,11 +923,11 @@ function renderGamePanel(){
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "universe-name-list__item";
+      btn.dataset.universeIdx = i; // per la delega eventi, vedi sotto
       btn.innerHTML = `
         <span class="universe-name-list__name">${tf(u.name)}</span>
         <span class="universe-name-list__span">${tf(u.span)}</span>
       `;
-      btn.addEventListener("click", () => openUniverseTimeline(i));
       el.universesRow.appendChild(btn);
     });
     return;
@@ -1350,6 +1393,15 @@ function renderRail(){
 // State transitions
 // ---------------------------------------------------------
 function setState(view){
+  if(view === "landing" && state.view && state.view !== "landing"){
+    // Diagnostica permanente (26/08): il ritorno a "landing" segnalato
+    // piu' volte non e' mai stato riprodotto nei test automatici - se
+    // succede di nuovo, questo dice ESATTAMENTE da dove parte la
+    // chiamata, invece di continuare a supporre. console.trace() stampa
+    // la pila di chiamata intera nella developer console del browser.
+    console.warn("[diagnostica] setState('landing') chiamato da stato:", state.view);
+    console.trace();
+  }
   state.view = view;
   el.body.dataset.state = view;
 
