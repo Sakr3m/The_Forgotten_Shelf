@@ -1011,23 +1011,30 @@ const GAMES = {
       {
         id: "main",
         name: { it: "Santuario", en: "Sanctuary" },
-        span: { it: "1258 – 1285 circa", en: "c. 1258 – 1285" },
+        span: { it: "Origini di Santuario – 1336 circa", en: "The Birth of Sanctuary – c. 1336" },
         entries: [
-          { id: "diablo-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1258", releaseYear: "1996", releaseYearEn: "1996",
+          { id: "birth-of-sanctuary", type: "STORIA", typeEn: "STORY", year: "Secoli prima di Diablo", yearEn: "Centuries before Diablo", noAvatar: true,
+            title: { it: "La Nascita di Santuario e l'Esilio dei Mali Primigeni", en: "The Birth of Sanctuary and the Exile of the Prime Evils" },
+            synopsis: {
+              it: "Secoli prima degli eventi di Diablo, l'arcangelo Inarius e la demonessa Lilith, entrambi disillusi dal Conflitto Eterno tra Paradiso e Inferi, sottraggono un frammento della Pietra del Mondo per creare Santuario, un regno nascosto a entrambe le fazioni. Dalla loro unione nascono i Nefalem, ibridi angelo-demone più potenti sia degli angeli che dei demoni. Temendo una loro futura ribellione, angeli e demoni rinnegati tentano di sterminarli; Lilith li difende uccidendo i propri stessi alleati, ma Inarius, incapace di ucciderla, la bandisce da Santuario e indebolisce la stirpe dei Nefalem, che nel corso delle generazioni si affievolisce fino a diventare la razza umana. Quando i Mali Primigeni Diablo, Mefisto e Baal vengono a loro volta esiliati a Santuario dopo una rivolta scoppiata nell'Inferno, l'arcangelo Tyrael forma l'ordine degli Horadrim e forgia le Pietre dell'Anima, ricavate dalla stessa Pietra del Mondo, per dare loro la caccia. Gli Horadrim imprigionano Mefisto sotto un tempio nella giungla di Kehjistan e Baal grazie al sacrificio di Tal Rasha, che ne rinchiude l'essenza nel proprio corpo; Diablo viene infine catturato dal condottiero Jered Cain e la sua Pietra dell'Anima sepolta sotto la cattedrale di Tristram. Secoli dopo, l'arcivescovo Lazarus, corrotto dal culto della Triuna, dissotterra la pietra e libera Diablo, dando inizio agli eventi del primo capitolo della saga.",
+              en: "Centuries before the events of Diablo, the archangel Inarius and the demoness Lilith, both disillusioned with the Eternal Conflict between Heaven and Hell, steal a fragment of the Worldstone to create Sanctuary, a realm hidden from both factions. Their union produces the Nephalem, angel-demon hybrids more powerful than either angels or demons. Fearing a future rebellion, renegade angels and demons attempt to exterminate them; Lilith defends them by killing her own allies, but Inarius, unable to kill her, banishes her from Sanctuary and weakens the Nephalem bloodline, which over generations fades into the human race. When the Prime Evils Diablo, Mephisto, and Baal are in turn exiled to Sanctuary after a rebellion breaks out in Hell, the archangel Tyrael forms the order of the Horadrim and forges Soulstones, cut from the Worldstone itself, to hunt them down. The Horadrim imprison Mephisto beneath a temple in the jungles of Kehjistan and Baal through the sacrifice of Tal Rasha, who seals his essence within his own body; Diablo is finally captured by the warlord Jered Cain, and his Soulstone buried beneath the cathedral of Tristram. Centuries later, Archbishop Lazarus, corrupted by the cult of the Triune, unearths the stone and frees Diablo, setting in motion the events of the saga's first chapter."
+            }
+          },
+          { id: "diablo-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263", releaseYear: "1996", releaseYearEn: "1996",
             title: { it: "Diablo", en: "Diablo" },
             synopsis: {
               it: "Un eroe scende nella cattedrale sotto la città di Tristram per fermare Diablo, Signore del Terrore, che ha posseduto il corpo del piccolo principe Albrecht. Sconfitto il demone, l'eroe si conficca da solo nella fronte la sua Pietra dell'Anima per contenerne lo spirito, condannandosi a una lenta corruzione interiore.",
               en: "A hero descends into the cathedral beneath the town of Tristram to stop Diablo, Lord of Terror, who has possessed the body of young Prince Albrecht. Having defeated the demon, the hero drives Diablo's own Soulstone into his own forehead to contain its spirit, dooming himself to a slow inner corruption."
             }
           },
-          { id: "diablo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263 – 1264", releaseYear: "2000", releaseYearEn: "2000",
+          { id: "diablo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263 – 1265", releaseYear: "2000", releaseYearEn: "2000",
             title: { it: "Diablo II", en: "Diablo II" },
             synopsis: {
               it: "L'eroe del primo gioco, ormai posseduto da Diablo, semina il caos attraverso il continente in cerca dei propri fratelli Mali Primigeni, Mefisto e Baal, per riunire la Triuna Trinità del Male. Un nuovo gruppo di eroi lo insegue attraverso quattro atti e altrettanti continenti, sconfiggendo infine sia Diablo che Mefisto.",
               en: "The hero of the first game, now possessed by Diablo, sows chaos across the continent in search of his fellow Prime Evils, Mephisto and Baal, to reunite the Evil Trinity. A new group of heroes pursues him across four acts and as many continents, ultimately defeating both Diablo and Mephisto."
             }
           },
-          { id: "lord-of-destruction", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1264", releaseYear: "2001", releaseYearEn: "2001",
+          { id: "lord-of-destruction", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1265", releaseYear: "2001", releaseYearEn: "2001",
             title: { it: "Diablo II: Lord of Destruction", en: "Diablo II: Lord of Destruction" },
             synopsis: {
               it: "Baal, ultimo dei tre fratelli rimasto libero, marcia verso la Worldstone, capace di alterare la realtà stessa, per corromperla e completare il piano dei Mali Primigeni. Gli eroi lo affrontano al Monte Arreat; per impedire che la pietra venga sfruttata di nuovo, l'angelo Tyrael la distrugge lui stesso, alterando per sempre l'equilibrio tra Paradiso e Inferi.",
@@ -1055,7 +1062,7 @@ const GAMES = {
               en: "Malthael, once the Angel of Wisdom and now the Angel of Death, steals the Black Soulstone containing Diablo's essence to use it against humanity itself, which he believes to be the true cause of the endless Eternal Conflict. The heroes confront him at Westmarch and ultimately defeat him, saving humanity from extermination."
             }
           },
-          { id: "diablo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decenni dopo Reaper of Souls", releaseYear: "2023", releaseYearEn: "2023",
+          { id: "diablo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1336 circa (50 anni dopo Reaper of Souls)", yearEn: "c. 1336 (50 years after Reaper of Souls)", releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Diablo IV", en: "Diablo IV" },
             synopsis: {
               it: "Lilith, figlia di Mefisto e co-creatrice di Santuario stessa insieme all'angelo Inarius, viene resuscitata da un culto di seguaci e tenta di riconquistare il mondo che un tempo aveva contribuito a plasmare. Un nuovo eroe la insegue attraverso Sanctuario devastato dalla sua corruzione, affrontandola infine in uno scontro che la relega, sconfitta ma non uccisa, in un regno intermedio.",
