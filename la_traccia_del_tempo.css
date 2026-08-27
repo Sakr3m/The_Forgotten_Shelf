@@ -835,12 +835,18 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     (25px su .game-header__top-row, e quello nuovo su LT qui sotto)
     partono finalmente dal punto giusto. */
   body[data-state="game"] .game-header{
-    padding:0 0 25px; margin-bottom:0; /* padding-bottom:25px (non
-      margin) cosi' il border-bottom GIA' presente su .game-header
-      (styles.css, condiviso) resta a 25px esatti dal blurb - prima
-      creavo un margin-bottom SEPARATO verso un secondo bordo su
-      .universes-row, risultando in DUE righe vicine invece di una
-      sola (segnalato esplicitamente, "2 righe... a caso"). */
+    padding:0 0 20px; margin-bottom:0; /* era 25px pieni - misurato
+      con precisione (25.01px header->avatar vs 25.99px blurb->riga,
+      quindi matematicamente quasi identici), ma segnalato
+      visivamente diverso: causa reale, il line-height del testo
+      (23.55px per un font-size di .92rem/14.72px) aggiunge circa
+      4-5px di "leading" tipografico invisibile sotto l'ultima riga -
+      spazio che il box CSS conta ma l'occhio non legge come testo,
+      quindi il gap sotto il blurb SEMBRA piu' ampio di quello sopra
+      l'avatar (bordo netto di un'immagine, senza questo effetto)
+      anche se il numero e' lo stesso. Ridotto qui di quella stessa
+      quantita' per compensare, cosi' i due gap si equivalgono anche
+      visivamente, non solo sulla carta. */
   }
   body[data-state="game"] .game-header-item:not([hidden]){
     position:static; display:block;

@@ -1888,6 +1888,17 @@ function updateSwipeHints(){
     // e' il PRIMO pannello (order:-1), non uno in mezzo ad altri due.
     const inStage = Math.abs(layoutEl.scrollLeft - stageEl.offsetLeft) < w * 0.5;
     if(el.reportBugBtn) el.reportBugBtn.style.display = inStage ? "" : "none";
+    // Normalizza lo stato interno a "landing" quando si esce dallo
+    // stage verso la tabella, qualunque fosse lo stato profondo
+    // prima (game/universe/title - tutti vivono dentro .stage, lo
+    // scroll esterno e' indipendente da loro). Senza questo,
+    // arrivando alla tabella da LT/Titolo tramite scroll, lo stato
+    // restava "universe"/"title" - nessuna regola CSS posiziona le
+    // freccette per quegli stati mentre si e' sulla tabella (esistono
+    // solo per "landing"/"game"), risultando in una freccetta senza
+    // vera posizione. Segnalato esplicitamente: la tabella raggiunta
+    // da LT mostrava la freccetta dalla parte sbagliata.
+    if(!inStage && state.view !== "landing") setState("landing");
     // L'alert spoiler (position:fixed, vedi HTML/CSS) deve vedersi
     // solo sulla home vera, non scorrendo verso la tabella - senza
     // questo, restando fixed rispetto al viewport (non a .layout),
@@ -1929,13 +1940,32 @@ if(el.titleSwipeHint){
 // ---------------------------------------------------------
 function attachSwipeBack(panelEl, targetState){
   if(!panelEl) return;
-  let startX = 0, startY = 0, tracking = false;
+  panelEl.style.touchAction = "pan-y"; /* impedisce al browser di
+    interpretare uno swipe orizzontale come proprio gesto nativo (su
+    iOS Safari, uno swipe da sinistra puo' essere letto come "torna
+    indietro" nella cronologia, rubando l'evento prima che arrivi
+    qui - segnalato non funzionante sul dispositivo reale nonostante
+    funzionasse nei test). Lo scroll verticale resta libero. */
+  let startX = 0, startY = 0, tracking = false, horizontalIntent = false;
   panelEl.addEventListener("touchstart", ev => {
     if(ev.touches.length !== 1) return;
     startX = ev.touches[0].clientX;
     startY = ev.touches[0].clientY;
     tracking = true;
+    horizontalIntent = false;
   }, { passive:true });
+  panelEl.addEventListener("touchmove", ev => {
+    if(!tracking || ev.touches.length !== 1) return;
+    const dx = ev.touches[0].clientX - startX;
+    const dy = ev.touches[0].clientY - startY;
+    if(!horizontalIntent && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.5){
+      horizontalIntent = true;
+    }
+    // Sopprime esplicitamente il gesto nativo (oltre a touch-action
+    // sopra, che da solo puo' non bastare su tutti i browser) non
+    // appena l'intento e' chiaramente orizzontale.
+    if(horizontalIntent) ev.preventDefault();
+  }, { passive:false });
   panelEl.addEventListener("touchend", ev => {
     if(!tracking) return;
     tracking = false;
