@@ -1241,14 +1241,14 @@ function renderTitlePanel(){
   }
 
   // Solo mobile: il pulsante musica si sposta dentro alla pagina
-  // titolo, sul lato destro della riga tag/anno — il centraggio
-  // verticale lo fa il CSS (.title-meta position:relative +
-  // .music-control position:absolute/transform), non serve piu'
-  // calcolarlo via JS ad ogni apertura.
+  // titolo, PRIMA del titolo stesso (sinistra, sopra - richiesto
+  // esplicitamente, prima stava sulla riga tag/anno). Il
+  // centraggio verticale via CSS non serve piu' qui: e' un elemento
+  // normale nel flusso, non piu' absolute/transform.
   if(mobileBreakpoint.matches && el.musicControl){
-    const meta = activeRec.panel.querySelector(".title-meta");
-    if(meta){
-      meta.appendChild(el.musicControl);
+    const titleName = activeRec.panel.querySelector(".title-name");
+    if(titleName && titleName.parentElement){
+      titleName.parentElement.insertBefore(el.musicControl, titleName);
       // Ripulisco gli stili in linea eventualmente rimasti da
       // un'altra vista (es. quella "gioco", che li imposta a mano):
       // altrimenti vincerebbero loro sulla nuova regola CSS qui
@@ -1411,6 +1411,12 @@ function setState(view){
   }
   if(view !== "title") el.timelineRail.hidden = true;
   updateMusicPlayback();
+  // Aggiorna anche l'alert spoiler (e gli altri elementi legati a
+  // "inStage" qui dentro) - senza questa chiamata, cambiare stato
+  // interno (landing->game->universe->title) senza un vero scroll
+  // esterno non ricalcolava mai la loro visibilita', lasciando
+  // l'alert visibile anche fuori dalla home vera.
+  updateSwipeHints();
 }
 
 function selectGame(id){
@@ -1885,8 +1891,12 @@ function updateSwipeHints(){
     // L'alert spoiler (position:fixed, vedi HTML/CSS) deve vedersi
     // solo sulla home vera, non scorrendo verso la tabella - senza
     // questo, restando fixed rispetto al viewport (non a .layout),
-    // sarebbe rimasto visibile sopra alla lista anche li'.
-    if(spoilerAlertEl) spoilerAlertEl.style.display = inStage ? "" : "none";
+    // sarebbe rimasto visibile sopra alla lista anche li'. In PIU',
+    // richiesto esplicitamente dopo averlo trovato su Saga/LT/Titolo:
+    // "inStage" da solo non basta, resta vero anche dentro quelle 3
+    // schermate (tutte vivono nello stesso .stage della vera home) -
+    // serve anche il controllo dello stato interno.
+    if(spoilerAlertEl) spoilerAlertEl.style.display = (inStage && state.view === "landing") ? "" : "none";
   }
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });

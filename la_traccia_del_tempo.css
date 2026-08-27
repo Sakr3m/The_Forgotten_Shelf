@@ -663,6 +663,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      della timeline — bloccarlo li' avrebbe impedito di leggerla. --- */
   body[data-state="landing"]{ overflow:hidden; height:100%; }
   html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
+  /* Stesso blocco (scroll del BROWSER, non solo l'input touch - vedi
+     richiesta esplicita che distingue i due) esteso a Saga: la
+     schermata non ha abbastanza contenuto da giustificare lo scroll
+     come invece serve su LT/Titolo. */
+  body[data-state="game"]{ overflow:hidden; height:100%; }
+  html:has(body[data-state="game"]){ overflow:hidden; height:100%; }
 
   /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
      la lista dei giochi sotto scorre in verticale quando sono troppi
@@ -712,17 +718,23 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      con l'accento proprio della saga aperta (--item-accent, ciano di
      riserva). --- */
   body[data-state="game"] .stage-topbar,
+  body[data-state="universe"] .stage-topbar,
   body[data-state="title"] .stage-topbar{
     display:flex; align-items:center; justify-content:space-between;
     position:fixed; top:0; left:0; right:0;
-    padding:14px 16px;
+    padding:15px; /* era 14px 16px, valore condiviso mai allineato al
+      fix di Home (15px uniforme, la_traccia_del_tempo.css riga 417) -
+      la differenza (2px totali di altezza) faceva salire la riga
+      dell'header rispetto a Home, richiesto esplicito di correggere. */
     background:var(--bg);
     border-bottom:1px solid var(--line);
     z-index:50;
   }
   body[data-state="game"] .brand,
+  body[data-state="universe"] .brand,
   body[data-state="title"] .brand{ display:contents; }
   body[data-state="game"] .brand-text,
+  body[data-state="universe"] .brand-text,
   body[data-state="title"] .brand-text{
     order:1;
     margin-right:auto;
@@ -735,25 +747,32 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     text-align:center;
   }
   body[data-state="game"] .brand-icon,
+  body[data-state="universe"] .brand-icon,
   body[data-state="title"] .brand-icon{ display:none; }
   body[data-state="game"] .kofi-link,
+  body[data-state="universe"] .kofi-link,
   body[data-state="title"] .kofi-link,
   body[data-state="game"] .discord-link,
+  body[data-state="universe"] .discord-link,
   body[data-state="title"] .discord-link{
     display:flex;
     border-color:var(--item-accent, var(--cyan));
   }
   body[data-state="game"] .discord-link,
+  body[data-state="universe"] .discord-link,
   body[data-state="title"] .discord-link{ color:var(--item-accent, var(--cyan)); }
   body[data-state="game"] .kofi-link svg,
+  body[data-state="universe"] .kofi-link svg,
   body[data-state="title"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
   body[data-state="game"] .social-links,
+  body[data-state="universe"] .social-links,
   body[data-state="title"] .social-links{
     display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:50%;
     transform:translate(-50%, -50%);
   }
   body[data-state="game"] .stage-controls,
+  body[data-state="universe"] .stage-controls,
   body[data-state="title"] .stage-controls{
     order:3;
     position:static; width:auto; top:auto; right:auto; left:auto;
@@ -805,11 +824,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="universe"] .stage,
   body[data-state="title"] .stage{ padding-top:49px; }
   body[data-state="game"] .game-header{
-    padding:0; margin-bottom:20px; /* 20px verso la nuova riga
-      separatrice sotto (era 25px, corretto su richiesta esplicita
-      per la nuova sequenza Screen B: header->avatar 20px,
-      avatar->titolo 20px, titolo->blurb 10px, blurb->separatore
-      20px). */
+    padding:0 0 25px; margin-bottom:0; /* padding-bottom:25px (non
+      margin) cosi' il border-bottom GIA' presente su .game-header
+      (styles.css, condiviso) resta a 25px esatti dal blurb - prima
+      creavo un margin-bottom SEPARATO verso un secondo bordo su
+      .universes-row, risultando in DUE righe vicine invece di una
+      sola (segnalato esplicitamente, "2 righe... a caso"). */
   }
   body[data-state="game"] .game-header-item:not([hidden]){
     position:static; display:block;
@@ -819,7 +839,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   body[data-state="game"] .game-header__top-row{
     display:flex; align-items:center; justify-content:space-between;
-    margin-top:20px; /* era 25px */
+    margin-top:25px; /* corretto da 20 a 25px, richiesto esplicito */
   }
   body[data-state="game"] .game-header__banner,
   body[data-state="game"] .game-header__banner-overlay{
@@ -876,7 +896,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="game"] .universes-row{
     flex:1; display:flex; flex-direction:column;
     justify-content:space-evenly; align-items:center;
-    border-top:1px solid var(--line);
   }
   .universe-name-list__item{
     display:flex; flex-direction:column; align-items:center; gap:4px;
@@ -1031,16 +1050,20 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      tag/anno), e il nome del titolo abbassato un po' rispetto al
      blocco tag/anno. --- */
   body[data-state="title"] .title-panel{ margin-top:54px; } /* +10px */
+  /* Riga vuota senza contenuto reale (nessun avatar/blurb da
+     mostrare qui, serviva solo a dare continuita' visiva sotto la
+     topbar) - inutile su questo nuovo flusso, tolta di mezzo su
+     richiesta esplicita. */
+  body[data-state="title"] #titleHeaderBar{ display:none; }
   body[data-state="title"] .title-meta{
-    padding-right:56px;
-    position:relative; /* ancora per il controllo musica, che si
-      autocentra in verticale via CSS (top:50%+transform) invece di
-      essere calcolato via JS ad ogni apertura della pagina */
+    padding-right:0;
   }
-  body[data-state="title"] .title-meta .music-control{
-    position:absolute; top:50%; right:0; left:auto;
-    transform:translateY(-50%);
-    z-index:2;
+  /* Controllo musica: da "sulla riga tag/anno, a destra" a "prima
+     del titolo, a sinistra" (richiesto esplicitamente) - spostato nel
+     DOM da script.js (renderTitlePanel), qui serve solo margine sotto
+     per staccarlo dal titolo che segue subito dopo. */
+  body[data-state="title"] .music-control{
+    margin-bottom:15px;
   }
   body[data-state="title"] .title-name{ margin-top:26px; } /* +10px */
 }
