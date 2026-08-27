@@ -901,6 +901,30 @@ function renderGamePanel(){
       const delta = discordRect.left - rect.left;
       elRef.style.marginLeft = delta.toFixed(2) + "px";
     });
+
+    // Blurb centrato VERAMENTE a meta' tra la fine del titolo e il
+    // fondo dell'avatar (segnalato con screenshot: stava incollato
+    // al titolo, molto piu' in alto del centro reale) - non un
+    // margine fisso indovinato (il titolo puo' andare su una riga
+    // sola o su due a seconda della lunghezza, quindi un margine
+    // fisso funziona solo per caso su alcuni titoli). Misurato a
+    // runtime: punto medio tra il bordo inferiore del titolo e il
+    // bordo inferiore della copertina (140px, sempre la stessa),
+    // poi il blurb viene spostato in modo che il SUO centro (non il
+    // suo bordo superiore) cada esattamente li'.
+    const titleEl = activeHeaderPanel ? activeHeaderPanel.querySelector(".game-header__title") : null;
+    const blurbEl = activeHeaderPanel ? activeHeaderPanel.querySelector(".game-header__blurb") : null;
+    if(titleEl && blurbEl && cover){
+      blurbEl.style.marginTop = "";
+      const titleRect = titleEl.getBoundingClientRect();
+      const coverRect = cover.getBoundingClientRect();
+      const blurbRect = blurbEl.getBoundingClientRect();
+      const midpoint = (titleRect.bottom + coverRect.bottom) / 2;
+      const desiredTop = midpoint - blurbRect.height / 2;
+      const delta = desiredTop - blurbRect.top;
+      const baseMarginTop = parseFloat(getComputedStyle(blurbEl).marginTop) || 0;
+      blurbEl.style.marginTop = (baseMarginTop + delta).toFixed(2) + "px";
+    }
   }
 
   if(g.noTimeline){
@@ -981,6 +1005,30 @@ function renderGamePanel(){
   }
 
   el.universesRow.appendChild(buildUniverseTrack(uni, prevBtn, nextBtn));
+
+  // Pulsanti prev/next dell'universo posizionati a runtime, 100px
+  // esatti dal bordo del blocco nome (non dal centro del
+  // contenitore) - il nome stesso resta un blocco normale, sempre
+  // centrato per conto suo (vedi CSS, .u-track__head ora usa
+  // position:absolute sui pulsanti apposta per questo). Misurato con
+  // getBoundingClientRect dopo l'inserimento nel DOM, non calcolato
+  // a mano: la larghezza del nome (quindi anche quella dei pulsanti,
+  // diversi da un universo all'altro) varia da saga a saga. Solo
+  // desktop: su mobile questi due pulsanti non esistono nel markup.
+  if(prevBtn && nextBtn && !mobileBreakpoint.matches){
+    const headEl = el.universesRow.querySelector(".u-track__head");
+    const nameBlockEl = el.universesRow.querySelector(".u-track__name-block");
+    if(headEl && nameBlockEl){
+      prevBtn.style.left = "";
+      nextBtn.style.left = "";
+      const headRect = headEl.getBoundingClientRect();
+      const nameRect = nameBlockEl.getBoundingClientRect();
+      const prevWidth = prevBtn.getBoundingClientRect().width;
+      const GAP = 100;
+      prevBtn.style.left = (nameRect.left - headRect.left - GAP - prevWidth).toFixed(2) + "px";
+      nextBtn.style.left = (nameRect.right - headRect.left + GAP).toFixed(2) + "px";
+    }
+  }
 
   const isLargeUniverse = uni.entries.length > LARGE_UNIVERSE_THRESHOLD;
 

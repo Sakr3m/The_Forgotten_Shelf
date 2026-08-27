@@ -318,6 +318,27 @@ button, a{ touch-action:manipulation; }
   }
 }
 
+/* --- Nome dell'universo (.u-track__name-block) sempre centrato per
+   davvero, indipendentemente da quanto sono lunghi i nomi degli
+   universi precedente/successivo - segnalato con screenshot: prima
+   .u-track__head centrava l'INTERO gruppo (prev + nome + next) con
+   justify-content:center, quindi se i due pulsanti avevano larghezze
+   diverse (nomi di lunghezza diversa) il nome non cadeva affatto al
+   centro del contenitore, solo il gruppo intero lo faceva. Qui i due
+   pulsanti escono dal flusso (position:absolute, .u-track__head come
+   riferimento) cosi' non influenzano piu' la centratura del nome, che
+   resta un blocco normale a se stante nel mezzo. La loro posizione
+   esatta (100px dal bordo del nome, non dal centro del contenitore)
+   viene calcolata a runtime in script.js/renderGamePanel una volta
+   noto lo spazio reale occupato dal nome, mai indovinata via CSS.
+   Solo desktop: su mobile questo blocco non ha pulsanti laterali. --- */
+@media (min-width:901px){
+  .u-track__head{ position:relative; justify-content:center; }
+  .u-track__head .carousel-arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+  }
+}
+
 /* --- Testo centrale della home: misure di partenza identiche a
    Storie Senza Cornice/Il Filo Nascosto (50px/65px per il titolo),
    poi corretto SOLO il titolo (36px/46px): JetBrains Mono e'
