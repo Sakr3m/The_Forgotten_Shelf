@@ -28,6 +28,7 @@ const GAMES = {
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Insurrezione delle Isole Skully)", yearEn: "1995 (Skully Islands Insurrection)", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Air Combat", en: "Air Combat" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Air%20Combat.jpg",
             synopsis: {
               it: "Una squadriglia di piloti mercenari viene ingaggiata per liberare le Isole Skully, cadute nelle mani di un'organizzazione terroristica che ne ha preso il controllo. Capitolo che apre la serie, ambientato retroattivamente nella stessa Terra di Strangereal.",
               en: "A squadron of mercenary pilots is hired to liberate the Skully Islands, seized by a terrorist organization that has taken control of them. The game that opened the series, retroactively set on the same Strangereal Earth."
@@ -35,6 +36,7 @@ const GAMES = {
           },
           { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Guerra di Belka)", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Ace Combat Zero: The Belkan War", en: "Ace Combat Zero: The Belkan War" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Zero%20The%20Balkan%20War.jpg",
             synopsis: {
               it: "Il pilota mercenario Cipher combatte nella Guerra di Belka, conflitto scatenato da anni di crisi economica interna che hanno spinto il principato a invadere i propri ex territori per riappropriarsi di risorse perdute, affiancato dal compagno Pixy. Nel finale, incapace di reggere l'avanzata della coalizione alleata, Belka detona sette testate nucleari sul proprio stesso territorio pur di non cedere: un evento la cui ombra si allungherà su tutti i conflitti successivi della continuità.",
               en: "Mercenary pilot Cipher fights in the Belkan War, a conflict sparked by years of internal economic crisis that pushed the principality to invade its former territories to reclaim lost resources, alongside his wingman Pixy. In the finale, unable to withstand the allied coalition's advance, Belka detonates seven nuclear warheads on its own territory rather than surrender — an event whose shadow looms over every subsequent conflict in the continuity."
@@ -42,6 +44,7 @@ const GAMES = {
           },
           { id: "ace-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996 (Colpo di Stato Useano)", yearEn: "1996 (Usean Coup d'État)", releaseYear: "1997", releaseYearEn: "1997",
             title: { it: "Ace Combat 2", en: "Ace Combat 2" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%202.jpg",
             synopsis: {
               it: "Il mercenario Phoenix, alla guida dello Squadrone Scarface, viene ingaggiato dalle Forze Alleate Useane per fermare l'avanzata delle Forze Ribelli durante il colpo di stato che ha sconvolto il continente di Usea, ribaltando le sorti del conflitto fino alla vittoria finale a Fortress Intolerance.",
               en: "Mercenary pilot Phoenix, leading Scarface Squadron, is hired by the Usean Allied Forces to halt the advance of the Usean Rebel Forces during the coup d'état that has thrown the continent of Usea into chaos, turning the tide of the conflict all the way to the final victory at Fortress Intolerance."
@@ -57,6 +60,7 @@ const GAMES = {
           },
           { id: "ace-04", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2003 – 2005 (Guerra Continentale)", releaseYear: "2001", releaseYearEn: "2001",
             title: { it: "Ace Combat 04: Shattered Skies", en: "Ace Combat 04: Shattered Skies" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%2004%20Shattered%20Skies.jpg",
             synopsis: {
               it: "Il pilota Mobius 1 affronta la Guerra Continentale tra Usea ed Erusea, culminata nell'attivazione della Stonehenge, una batteria di cannoni anti-aerei mai vista prima capace di abbattere qualunque velivolo in volo. Il gioco che ha coniato ufficialmente il nome Strangereal e definito il tono della saga da lì in avanti.",
               en: "Pilot Mobius 1 fights in the Continental War between Usea and Erusea, culminating in the activation of Stonehenge, an unprecedented anti-air cannon battery capable of shooting down any aircraft in flight. The game that officially coined the name Strangereal and defined the saga's tone from that point on."
@@ -72,6 +76,7 @@ const GAMES = {
           },
           { id: "ace-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010 (Guerra del Circum-Pacifico)", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "Ace Combat 5: The Unsung War", en: "Ace Combat 5: The Unsung War" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%205%20The%20Unsung%20War.jpg",
             synopsis: {
               it: "Il pilota Blaze e lo Squadrone Wardog affrontano la Guerra del Circum-Pacifico tra Osea e Yuktobania, innescata da un attacco a sorpresa alle installazioni oseane. Nel corso del conflitto scoprono che dietro l'attacco si cela un gruppo di superstiti nazionalisti belkani, intenzionato a far ripiombare in guerra le due nazioni per vendicare la sconfitta subita anni prima. Insieme ai piloti di entrambi gli schieramenti contrari al conflitto, Wardog espone il complotto e sconfigge i cospiratori, ponendo fine alle ostilità.",
               en: "Pilot Blaze and the Wardog Squadron fight in the Circum-Pacific War between Osea and Yuktobania, sparked by a surprise attack on Osean installations. Over the course of the conflict they discover the attack was orchestrated by a group of Belkan nationalist survivors, determined to plunge the two nations back into war to avenge their defeat years earlier. Together with pilots from both sides opposed to the conflict, Wardog exposes the conspiracy and defeats the plotters, bringing the hostilities to an end."
@@ -87,6 +92,7 @@ const GAMES = {
           },
           { id: "ace-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015 (Guerra Emmeria-Estovacchia)", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "Ace Combat 6: Fires of Liberation", en: "Ace Combat 6: Fires of Liberation" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%206%20Fires%20of%20Liberation.jpg",
             synopsis: {
               it: "Il pilota Talisman, a capo dello Squadrone Garuda, difende l'Emmeria da un'invasione a sorpresa dell'Estovacchia, che occupa in poche ore la capitale Gracemeria costringendo l'esercito emmeriano alla ritirata. Insieme al gregario Shamrock, guida il riorganizzarsi delle forze superstiti sull'Isola di Khesed e la successiva controffensiva che libera il paese città dopo città, fino alla riconquista della capitale. La disfatta sul campo provoca il collasso del regime militare estovacchiano, che firma la resa ponendo fine al conflitto.",
               en: "Pilot Talisman, leader of Garuda Team, defends Emmeria from a surprise invasion by Estovakia, which occupies the capital Gracemeria within hours and forces the Emmerian army to retreat. Together with his wingman Shamrock, he leads the regrouping of surviving forces on Khesed Island and the subsequent counteroffensive that liberates the country city by city, culminating in the recapture of the capital. The defeat on the battlefield triggers the collapse of Estovakia's military regime, which signs a surrender that brings the conflict to an end."
@@ -102,6 +108,7 @@ const GAMES = {
           },
           { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019 (Guerra del Faro)", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Ace Combat 7: Skies Unknown", en: "Ace Combat 7: Skies Unknown" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%207%20Skies%20Unknown.jpg",
             synopsis: {
               it: "Il pilota Trigger, incarcerato ingiustamente in un'unità penale dopo essere stato incolpato di un crimine mai commesso, viene reintegrato come pilota di riserva quando droni da combattimento autonomi e due enormi Arsenal Bird catturate ribaltano l'equilibrio della guerra a sfavore di Osea. Al comando del Long Range Strategic Strike Group, Trigger risale il fronte fino a riconquistare la capitale eruseana, affrontando più volte in duello il leggendario asso Mihaly A. Shilage, mentre una fazione interna a Erusea si ribella ai vertici radicali che hanno voluto la guerra. Si chiude con la resa firmata a Expo City.",
               en: "Pilot Trigger, wrongfully imprisoned in a penal unit after being framed for a crime he never committed, is reinstated as a reserve pilot when autonomous combat drones and two massive captured Arsenal Birds tip the war decisively against Osea. Commanding the Long Range Strategic Strike Group, Trigger pushes the front back and recaptures the Erusean capital, repeatedly dueling the legendary ace Mihaly A. Shilage, while a faction within Erusea rebels against the radical leadership that wanted the war. It closes with a surrender signed at Expo City."
