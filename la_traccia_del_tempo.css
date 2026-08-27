@@ -934,15 +934,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       non e' bloccata"). */
   }
   body[data-state="game"] .universes-row{
-    display:flex; flex-direction:column; align-items:center;
-    padding-top:25px; /* dalla riga sotto il blurb al primo universo */
-    gap:25px; /* tra un universo e il successivo, se piu' di uno -
-      non piu' distribuiti nello spazio rimanente (era flex:1 +
-      space-evenly, centrava tutto a meta' schermo con un solo
-      universo), ora impilati con la stessa distanza fissa richiesta
-      esplicitamente, indipendentemente da quanti sono. Verificato su
-      1 e su 5 universi (The Legend of Zelda) - tutti i gap esatti a
-      25px. */
+    flex:1; display:flex; flex-direction:column;
+    justify-content:space-evenly; align-items:center;
+    /* Ripristinato (28/08) allo schema a spazi uguali richiesto di
+      nuovo esplicitamente: con un solo universo, centrato nello
+      spazio rimanente tra la riga sopra e il fondo della pagina; con
+      due (o piu'), lo spazio si divide in parti uguali tra riga->
+      primo, tra i due, e secondo->fondo. justify-content:space-evenly
+      crea da solo gli N+1 spazi uguali richiesti, nessun calcolo
+      manuale necessario - stessa tecnica gia' verificata in un giro
+      precedente di questa sessione. */
   }
   .universe-name-list__item{
     display:flex; flex-direction:column; align-items:center; gap:4px;
