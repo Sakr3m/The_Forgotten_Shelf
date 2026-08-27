@@ -153,8 +153,6 @@ const el = {
   gamePanel: document.getElementById("gamePanel"),
   universeTimelinePanel: document.getElementById("universeTimelinePanel"),
   universeTimelineTrack: document.getElementById("universeTimelineTrack"),
-  universeTimelineSwipeHint: document.getElementById("universeTimelineSwipeHint"),
-  titleSwipeHint: document.getElementById("titleSwipeHint"),
   gameHeader: document.getElementById("gameHeader"),
   gameHeaderBar: document.getElementById("gameHeaderBar"),
   universesRow: document.getElementById("universesRow"),
@@ -2144,15 +2142,14 @@ el.brandBtn.addEventListener("click", () => {
   scrollCarouselToStage();
 });
 
-// Le freccette animate di LT/Titolo (#universeTimelineSwipeHint,
-// #titleSwipeHint) restano solo un'indicazione visiva "si continua da
-// questa parte" - nessuna interazione di ritorno agganciata a loro:
-// il modello di navigazione e' stato semplificato a un unico percorso
-// in avanti, sempre verso destra (Home -> Tabella -> Saga -> LT ->
-// Titolo), niente piu' swipe/tap per tornare indietro (il precedente
-// tentativo di swipe a destra per tornare indietro causava piu'
-// problemi di quanti ne risolvesse, tra cui la regressione sulla
-// selezione dalla Tabella - rimosso interamente su richiesta esplicita).
+// Le freccette animate di LT/Titolo sono state rimosse del tutto
+// (27/08, richiesto esplicitamente "togli le frecce animate ovunque
+// tranne la Home") - restava solo l'indicazione "si continua da
+// questa parte" di LT/Titolo (Home la mantiene, essendo l'eccezione
+// esplicita). Il modello di navigazione resta un unico percorso in
+// avanti, sempre verso destra (Home -> Tabella -> Saga -> LT ->
+// Titolo) tramite selezione del contenuto, mai tramite swipe/tap
+// su una freccetta.
 
 // ---------------------------------------------------------
 // Sposta Saga/LT/Titolo tra "dentro .stage" (desktop, comportamento
