@@ -153,8 +153,6 @@ const el = {
   gamePanel: document.getElementById("gamePanel"),
   universeTimelinePanel: document.getElementById("universeTimelinePanel"),
   universeTimelineTrack: document.getElementById("universeTimelineTrack"),
-  universeTimelineSwipeHint: document.getElementById("universeTimelineSwipeHint"),
-  titleSwipeHint: document.getElementById("titleSwipeHint"),
   gameHeader: document.getElementById("gameHeader"),
   gameHeaderBar: document.getElementById("gameHeaderBar"),
   universesRow: document.getElementById("universesRow"),
