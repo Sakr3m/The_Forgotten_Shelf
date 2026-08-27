@@ -1197,7 +1197,15 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-content-item{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
 .title-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:2px solid color-mix(in srgb, var(--cyan) 40%, transparent); border-radius:999px; padding:4px 12px;
+  color:var(--cyan); border:2px solid var(--cyan); border-radius:999px; padding:4px 12px;
+  /* Era color-mix(...40%, transparent): per le saghe con un accento
+     scuro (es. il navy di Ace Combat, #1a3a5c) quel 40% di opacita'
+     rendeva il bordo quasi invisibile su sfondo quasi nero, anche a
+     2px di spessore - segnalato esplicitamente con screenshot
+     confrontando due saghe con accenti di luminosita' diversa. Ora
+     stesso colore pieno del testo (nessuna trasparenza), coerente
+     con gli altri bordi in accento pieno gia' usati altrove nel sito
+     (es. .title-nav__side, .title-back). */
 }
 .title-name{ font-size:2.2rem; margin-top:16px; color:var(--text); }
 .title-universe-of{ margin-top:6px; font-size:.82rem; color:var(--text-faint); font-weight:500; }
