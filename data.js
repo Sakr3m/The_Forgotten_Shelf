@@ -128,6 +128,7 @@ const GAMES = {
           },
           { id: "ace-3-electrosphere", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Gennaio – luglio 2040 (Guerra Intercorporativa)", yearEn: "January – July 2040 (Intercorporate War)", releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Ace Combat 3: Electrosphere", en: "Ace Combat 3: Electrosphere" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%203%20Electrosphere.jpg",
             synopsis: {
               it: "Nel continente useano, ormai governato da megacorporazioni al posto degli stati nazionali, il pilota Nemo presta servizio per l'organizzazione di pace UPEO mentre la rivalità tra la Neucom (erede delle industrie belkane) e la General Resource degenera in un conflitto aperto, la Guerra Intercorporativa, orchestrato nell'ombra dal gruppo transumanista Ouroboros attraverso l'Electrosphere, la rete globale che permette di caricarvi la propria coscienza.",
               en: "On the Usean continent, now ruled by megacorporations in place of nation-states, pilot Nemo serves the peacekeeping organization UPEO as the rivalry between Neucom (heir to the Belkan industries) and General Resource escalates into open conflict, the Intercorporate War, secretly orchestrated by the transhumanist group Ouroboros through the Electrosphere, the global network that allows one's consciousness to be uploaded to it."
