@@ -457,6 +457,26 @@ function paintStaticText(){
 // Sidebar
 // ---------------------------------------------------------
 function renderSidebar(){
+  // Su mobile, se la lista esiste gia', aggiorno solo la classe
+  // is-active sui pulsanti esistenti (operazione leggerissima)
+  // invece di svuotare e ricostruire tutti i 33 elementi da zero.
+  // Trovato con una diagnostica mirata: quella ricostruzione pesante
+  // (chiamata ad OGNI cambio di stato, anche solo per navigare piu'
+  // a fondo su Saga/LT/Titolo, mai per un vero cambiamento della
+  // lista in se') causava un salto involontario dello scroll
+  // orizzontale (.layout.scrollLeft tornava di colpo alla posizione
+  // della Tabella) - il tipico "scroll anchoring" con cui i browser
+  // compensano cambi di contenuto sopra al punto di scroll corrente,
+  // scatenato proprio nell'istante in cui l'animazione verso il
+  // pannello successivo doveva partire. Segnalato esplicitamente:
+  // "torno da LT/Titolo, mi salta le schermate, glitchando tutto".
+  if(mobileBreakpoint.matches && el.gameList.children.length === GAME_ORDER.length){
+    Array.from(el.gameList.children).forEach((li, i) => {
+      const btn = li.querySelector("button");
+      if(btn) btn.classList.toggle("is-active", state.gameId === GAME_ORDER[i]);
+    });
+    return;
+  }
   el.gameList.innerHTML = "";
   GAME_ORDER.forEach(id => {
     const g = GAMES[id];
@@ -678,9 +698,15 @@ function positionVerticalTimeline(liveTimeline){
 // ---------------------------------------------------------
 function openUniverseTimeline(idx){
   state.universeIndex = idx;
+  if(mobileBreakpoint.matches) el.universeTimelinePanel.hidden = false; // PRIMA
+    // di setState/renderUniverseTimelinePanel: quella funzione misura
+    // le posizioni reali dei pallini (getBoundingClientRect) per
+    // disegnare la linea - se il pannello e' ancora display:none in
+    // quel momento, ogni misura risulta zero (elemento senza alcuna
+    // "scatola" di layout), motivo esatto per cui la linea risultava
+    // invisibile (altezza calcolata: 0px).
   setState("universe");
   if(mobileBreakpoint.matches){
-    el.universeTimelinePanel.hidden = false;
     avviaScrollAnimato(el.universeTimelinePanel);
   }
   window.scrollTo(0, 0);
@@ -1494,12 +1520,13 @@ function selectGame(id){
   if(state.gameId !== id) state.trackIndex = 0;
   state.gameId = id;
   state.universeIndex = 0;
+  if(mobileBreakpoint.matches) el.gamePanel.hidden = false; // PRIMA di
+    // setState/renderGamePanel - stessa cautela di openUniverseTimeline,
+    // per sicurezza (qui il mobile non misura posizioni via
+    // getBoundingClientRect come su LT, ma tenerlo hidden durante il
+    // render e' comunque scorretto in linea di principio).
   setState("game");
   if(mobileBreakpoint.matches){
-    el.gamePanel.hidden = false; // setState() su mobile non tocca
-      // piu' l'hidden dei pannelli profondi (li lascerebbe scomparire
-      // dal carosello tornando indietro) - lo sblocco va fatto qui,
-      // una volta per tutte, alla prima selezione.
     // Scroll animato in AVANTI (verso Saga, non piu' closeMobileSidebar
     // che riportava indietro verso Home - comportamento del vecchio
     // impianto a stati nascosti, sbagliato per il vero carosello di
@@ -1529,9 +1556,11 @@ function selectEntry(entryId){
   window.scrollTo(0, 0);
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
+  if(mobileBreakpoint.matches) el.titlePanel.hidden = false; // PRIMA di
+    // setState/renderTitlePanel - stessa cautela delle altre due
+    // funzioni di navigazione.
   setState("title");
   if(mobileBreakpoint.matches){
-    el.titlePanel.hidden = false;
     avviaScrollAnimato(el.titlePanel);
   }
 }
@@ -1973,7 +2002,21 @@ function avviaScrollAnimato(panelEl){
   } else {
     setTimeout(fine, 600);
   }
-  panelEl.scrollIntoView({ behavior:"smooth", inline:"start", block:"nearest" });
+  // Doppio requestAnimationFrame prima di avviare davvero lo scroll:
+  // chiamare setState() poco prima (renderSidebar/renderTitlePanel/
+  // renderRail, tutte mutazioni DOM sincrone) puo' scatenare lo
+  // "scroll anchoring" del browser - un salto involontario dello
+  // scroll orizzontale mentre la pagina ricalcola il layout dopo
+  // quelle mutazioni. Se lo scroll verso il pannello di destinazione
+  // parte PRIMA che quell'eventuale salto sia gia' avvenuto, i due
+  // competono e il risultato finale e' imprevedibile (segnalato
+  // esplicitamente: "mi salta le schermate, glitchando tutto").
+  // Aspettare due frame lascia al browser il tempo di sistemare da
+  // solo il proprio layout/scroll-anchoring PRIMA che il nostro
+  // scroll animato parta per davvero, cosi' i due non si accavallano.
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    panelEl.scrollIntoView({ behavior:"smooth", inline:"start", block:"nearest" });
+  }));
 }
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
 const swipeRightEls = document.querySelectorAll(".swipe-hint--right");

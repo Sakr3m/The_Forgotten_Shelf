@@ -1107,8 +1107,19 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
   /* --- Vista "title" (dettaglio di un singolo titolo): la fascia
      orizzontale con tutti i titoli dell'universo (sotto "Universo
-     IGA...") sparisce del tutto su mobile, resta solo desktop. --- */
-  body[data-state="title"] .timeline-rail{ display:none; }
+     IGA...") sparisce del tutto su mobile, resta solo desktop.
+     Regola rinforzata (27/08) dopo la ricostruzione a carosello:
+     #timelineRail e' un figlio DIRETTO di .layout (mai spostato da
+     posizionaPannelliCarosello, ma sempre stato li' anche prima) - se
+     mai risulta visibile (script.js lo sblocca con hidden=false
+     entrando in "title", su QUALSIASI breakpoint), diventa un
+     PANNELLO FANTASMA extra nella sequenza di scroll-snap, causando
+     esattamente lo skip/glitch segnalato tornando indietro da
+     LT/Titolo (un'intera schermata vuota di troppo da attraversare).
+     Per ID e incondizionata da qualsiasi stato, cosi' non dipende
+     piu' da un'eventuale altra regola con specificita' diversa che
+     vincesse per qualche motivo non isolato con certezza. */
+  #timelineRail{ display:none !important; }
 
   /* I tre pulsanti sotto al testo: prev e next diventano semplici
      cerchi con solo la freccetta (il titolo della voce precedente/
