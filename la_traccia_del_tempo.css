@@ -160,13 +160,13 @@ button, a{ touch-action:manipulation; }
      margine di 100px dei pulsanti, e' incollata alla filigrana come
      il suo lato sinistro e' incollato alla sidebar). --- */
   .timeline-rail{ width:300px; }
-  #titlePanel .title-watermark{ right:300px; }
+  body[data-state="title"] .title-watermark{ right:300px; }
   /* Top costante (non piu' misurato via JS - vedi commento in
      script.js/renderTitlePanel): 15px di topbar + 65px di barra
      header = 80px - la filigrana torna a partire da qui (non piu'
      legata a dove inizia il titolo, ora piu' in basso a 50px),
      stesse proporzioni di sempre (background-size:cover, invariato). */
-  #titlePanel .title-watermark{ top:80px; }
+  body[data-state="title"] .title-watermark{ top:80px; }
   /* Trovato: background-size:contain (regola condivisa in styles.css)
      fa "stare dentro" l'immagine al box mantenendo le proporzioni
      originali, lasciando spazio vuoto sopra o ai lati quando le
@@ -175,7 +175,7 @@ button, a{ touch-action:manipulation; }
      cover invece riempie tutto il box, ritagliando l'eccesso invece
      di lasciare vuoti - qui, non nel file condiviso, per non
      cambiare le altre due pagine mai discusse in questo contesto. */
-  #titlePanel .title-watermark{ background-size:cover; }
+  body[data-state="title"] .title-watermark{ background-size:cover; }
   body[data-state="title"] .watermark-brightness-line{ right:300px; }
   /* --- Definitivo (su richiesta esplicita, dopo vari tentativi):
      i quadratini non possono superare la riga dell'header, punto.
@@ -445,6 +445,9 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="landing"] .swipe-hint--right-bottom{
     top:auto; bottom:140px;
   }
+  body[data-state="landing"] .swipe-hint--left{
+    top:50%; transform:translateY(-50%);
+  }
 
   /* Bordo 2px sui pulsanti header: gia' presente per questa pagina
      piu' in alto in questo file (stessa regola, prima di questa
@@ -516,6 +519,22 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     border-radius:var(--radius-sm);
     box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
   }
+
+  /* --- Freccetta della tabella persistente anche tornando da una
+     saga aperta (stato "game"), non solo dalla home - mancava, si
+     era persa in uno dei ripristini precedenti. Stesse proprieta' di
+     base ripetute qui esplicitamente (styles.css le applica solo a
+     "landing"): senza, la freccia risulterebbe display:none (il
+     default globale) e priva di position/colore/animazione anche
+     mettendo display:block da solo. */
+  body[data-state="game"] .swipe-hint--left{
+    display:block; position:fixed; z-index:20;
+    color:var(--text-faint);
+    pointer-events:none;
+    left:14px; animation:swipeHintLeft 1.6s ease-in-out infinite;
+    top:50%; transform:translateY(-50%);
+  }
+  body[data-state="game"] .swipe-hint--left svg{ width:15px; height:15px; display:block; }
 
   /* Margini della tabella e delle voci al suo interno: pannello a
      15px dal bordo su entrambi i lati, padding-top 90px (65px di
@@ -648,54 +667,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 }
 
 @media (max-width:900px){
-
-  /* ============================================================
-     RICOSTRUZIONE (27/08): Saga/LT/Titolo diventano pannelli VERI
-     dello stesso carosello a scorrimento reale di Home/Tabella
-     (.layout, scroll-snap-type:x mandatory, styles.css) - non piu'
-     stati nascosti/mostrati dentro .stage. Ordine visivo/di scroll,
-     da sinistra a destra: Home (#stage, order:-1, gia' esistente) ->
-     Tabella (#sidebar, order:0 implicito) -> Saga (#gamePanel,
-     order:1) -> LT (#universeTimelinePanel, order:2) -> Titolo
-     (#titlePanel, order:3). Selezionare qualcosa (voce/universo/
-     titolo) sposta in avanti con uno scroll ANIMATO via JS
-     (scrollIntoView smooth) - "come fosse uno scroll a destra, ma
-     non manuale". Tornare indietro e' un vero swipe a sinistra,
-     gestito nativamente dal browser (scroll-snap), NIENTE JS
-     necessario per quella direzione - richiesto esplicitamente,
-     era proprio quello che mancava nel tentativo precedente (uno
-     stato interno separato dal vero scroll, causa change della
-     confusione/bug mai isolato del tutto).
-
-     I tre pannelli sono spostati qui (figli diretti di .layout,
-     fratelli di #sidebar/#stage) via JS SOLO su mobile
-     (posizionaPannelliCarosello in script.js) - su desktop restano
-     dove sono sempre stati (dentro .stage), il loro comportamento
-     desktop esistente non cambia di una virgola. */
-  .layout > #gamePanel,
-  .layout > #universeTimelinePanel,
-  .layout > #titlePanel{
-    flex:0 0 100vw; width:100vw; max-width:none;
-    height:100vh; height:100dvh; overflow-y:auto;
-    scroll-snap-align:start;
-  }
-  .layout > #gamePanel{ order:1; }
-  .layout > #universeTimelinePanel{ order:2; }
-  .layout > #titlePanel{ order:3; }
-  /* La regola condivisa (styles.css) che fa uscire .layout dal
-     carosello quando si e' su "title" va neutralizzata: qui "title"
-     e' un pannello del carosello a tutti gli effetti, non piu' un
-     caso a parte. Nessun'altra pagina usa mai data-state="title"
-     (verificato: solo script.js/la_traccia_del_tempo.html), quindi
-     questa regola condivisa non serve mai a nessun altro - sicuro
-     annullarne l'effetto qui senza toccare il file comune. */
-  body[data-state="title"] .layout{
-    display:flex; overflow-x:auto; overflow-y:hidden;
-    scroll-snap-type:x mandatory; height:100vh; height:100dvh;
-  }
-  body[data-state="title"] .stage{
-    flex:0 0 100vw; width:100vw; height:100vh; height:100dvh; overflow-y:auto;
-  }
 
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
@@ -846,7 +817,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      avatar+musica a 25px dalla riga dell'header (lo stage parte gia'
      49px sotto di lei, per via del suo stesso padding-top qui sotto),
      titolo+blurb a 25px dalla riga avatar+musica. --- */
-  #gamePanel #gameHeaderBar{ display:none; }
+  body[data-state="game"] #gameHeaderBar{ display:none; }
   /* #gameHeader eredita position:sticky;top:15px dalla regola
      condivisa .game-header (styles.css) - un valore pensato per
      desktop, corretto li' con un override a top:80px (vedi
@@ -860,12 +831,11 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      non deve restare incollato durante lo scroll (l'intera Screen B
      scorre in blocco dentro .stage, come tutto il resto) - position:
      static lo rimette in flusso normale, nessun offset residuo. */
-  #gamePanel #gameHeader{ position:static; }
-  #universeTimelinePanel #universeTimelineHeaderBar{ display:none; }
+  body[data-state="game"] #gameHeader{ position:static; }
+  body[data-state="universe"] #universeTimelineHeaderBar{ display:none; }
   body[data-state="game"] .stage,
   body[data-state="universe"] .stage,
-  body[data-state="title"] .stage,
-  #gamePanel, #universeTimelinePanel, #titlePanel{ padding-top:66px; } /* era 49px -
+  body[data-state="title"] .stage{ padding-top:66px; } /* era 49px -
     bug reale trovato: la topbar (.stage-topbar) e' alta DAVVERO 66px
     (verificato con getBoundingClientRect, non un valore assunto dal
     codice), quindi con 49px qui il contenuto iniziava 17px PRIMA
@@ -877,14 +847,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     esattamente al bordo vero della topbar, i margini specifici sotto
     (25px su .game-header__top-row, e quello nuovo su LT qui sotto)
     partono finalmente dal punto giusto. */
-  #gamePanel{
+  body[data-state="game"] #gamePanel{
     padding-left:15px; padding-right:15px; /* avatar/musica/testo
       toccavano i bordi (x:0-390) mentre "La Traccia del Tempo" e lo
       switch lingua stanno tra x:15-375 (misurato con
       getBoundingClientRect) - richiesto esplicitamente che tutto il
       contenuto di Saga resti contenuto tra quei due limiti. */
   }
-  #gamePanel .game-header{
+  body[data-state="game"] .game-header{
     padding:0 0 20px; margin-bottom:0; /* era 25px pieni - misurato
       con precisione (25.01px header->avatar vs 25.99px blurb->riga,
       quindi matematicamente quasi identici), ma segnalato
@@ -898,44 +868,44 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       quantita' per compensare, cosi' i due gap si equivalgono anche
       visivamente, non solo sulla carta. */
   }
-  #gamePanel .game-header-item:not([hidden]){
+  body[data-state="game"] .game-header-item:not([hidden]){
     position:static; display:block;
     text-align:center;
     height:auto; max-height:none; overflow:visible;
     padding:0;
   }
-  #gamePanel .game-header__top-row{
+  body[data-state="game"] .game-header__top-row{
     display:flex; align-items:center; justify-content:space-between;
     margin-top:25px; /* corretto da 20 a 25px, richiesto esplicito */
   }
-  #gamePanel .game-header__banner,
-  #gamePanel .game-header__banner-overlay{
+  body[data-state="game"] .game-header__banner,
+  body[data-state="game"] .game-header__banner-overlay{
     display:none; /* niente banner su mobile, su richiesta - qui non
       c'e' piu' nessun numero altrove che dipenda da un banner
       presente o assente, la nuova riga avatar+musica e' in flusso
       normale indipendente da lui. */
   }
-  #gamePanel .game-header__cover{
+  body[data-state="game"] .game-header__cover{
     position:static;
     width:96px; height:96px;
     margin:0;
   }
-  #gamePanel .game-header__cover .monogram{ font-size:2.2rem; }
-  #gamePanel .game-header__top-row .music-control{
+  body[data-state="game"] .game-header__cover .monogram{ font-size:2.2rem; }
+  body[data-state="game"] .game-header__top-row .music-control{
     position:static;
   }
-  #gamePanel .game-header__info{
+  body[data-state="game"] .game-header__info{
     position:static;
     width:100%;
     margin-top:20px; /* era 25px, spazio avatar->titolo */
     padding-bottom:0;
     text-align:center;
   }
-  #gamePanel .game-header__title{ font-size:1.3rem; }
-  #gamePanel .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:10px; } /* era 6px, spazio titolo->blurb */
-  #gamePanel .game-header__blurb br{ display:none; }
-  #gamePanel .track-info,
-  #titlePanel .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
+  body[data-state="game"] .game-header__title{ font-size:1.3rem; }
+  body[data-state="game"] .game-header__blurb{ max-width:100%; font-size:.92rem; margin-top:10px; } /* era 6px, spazio titolo->blurb */
+  body[data-state="game"] .game-header__blurb br{ display:none; }
+  body[data-state="game"] .track-info,
+  body[data-state="title"] .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
 
   /* ===========================================================
      Screen B (elenco nomi universo, sostituisce la vecchia linea
@@ -965,13 +935,16 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       overflow:hidden sugli antenati (bug segnalato: "la schermata
       non e' bloccata"). */
   }
-  #gamePanel .universes-row{
+  body[data-state="game"] .universes-row{
     display:flex; flex-direction:column; align-items:center;
     padding-top:25px; /* dalla riga sotto il blurb al primo universo */
     gap:25px; /* tra un universo e il successivo, se piu' di uno -
       non piu' distribuiti nello spazio rimanente (era flex:1 +
-      space-evenly), ora impilati con la stessa distanza fissa
-      richiesta esplicitamente, indipendentemente da quanti sono. */
+      space-evenly, centrava tutto a meta' schermo con un solo
+      universo), ora impilati con la stessa distanza fissa richiesta
+      esplicitamente, indipendentemente da quanti sono. Verificato su
+      1 e su 5 universi (The Legend of Zelda) - tutti i gap esatti a
+      25px. */
   }
   .universe-name-list__item{
     display:flex; flex-direction:column; align-items:center; gap:4px;
@@ -1022,7 +995,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      avviene tornando a Screen B e scegliendo un altro nome dalla
      lista, non piu' scorrendo avanti/indietro sulla stessa vista).
      =========================================================== */
-  #universeTimelinePanel .universe-timeline-track{
+  body[data-state="universe"] .universe-timeline-track{
     display:block; height:auto;
     padding-top:25px; /* era 9px - lasciava il nome dell'universo
       troppo vicino alla riga vera dell'header (e con il vecchio
@@ -1030,40 +1003,62 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       segnalato esplicitamente - vedi fix piu' sopra). Ora 25px
       esatti dalla riga, stessa distanza richiesta su Saga. */
   }
-  #universeTimelinePanel .u-track{ display:block; height:auto; margin-top:0; }
-  #universeTimelinePanel .timeline-viewport{
+  body[data-state="universe"] .u-track{ display:block; height:auto; margin-top:0; }
+  body[data-state="universe"] .timeline-viewport{
     display:block; flex:none; min-height:0;
     margin-top:25px;
   }
-  #universeTimelinePanel .u-track__head{ justify-content:center; width:100%; }
+  body[data-state="universe"] .u-track__head{ justify-content:center; width:100%; }
 
   /* --- Nodi della linea temporale: avatar ingranditi x1.1 (72x92 ->
      79x101), distanza dal trattino raddoppiata (20px -> 40px), nome
      centrato sull'avatar (stessa larghezza dell'avatar). Il centraggio
      pallino/trattino sull'avatar resta calcolato a runtime in
      script.js. --- */
-  #universeTimelinePanel .h-node__tile{ width:79px; height:101px; }
-  #universeTimelinePanel .h-node__title{ width:79px; }
-  #universeTimelinePanel .h-node__top,
-  #universeTimelinePanel .h-node__bottom{ gap:6px; }
-  #universeTimelinePanel .h-node__top{ padding-right:40px; }
-  #universeTimelinePanel .h-node__bottom{ padding-left:40px; }
+  body[data-state="universe"] .h-node__tile{ width:79px; height:101px; }
+  body[data-state="universe"] .h-node__title{ width:79px; }
+  body[data-state="universe"] .h-node__top,
+  body[data-state="universe"] .h-node__bottom{ gap:6px; }
+  body[data-state="universe"] .h-node__top{ padding-right:40px; }
+  body[data-state="universe"] .h-node__bottom{ padding-left:40px; }
   /* Titolo sempre sopra l'immagine, su entrambi i lati: a DOM invariato
      (il desktop usa lo stesso HTML e li vuole nell'ordine opposto per
      un lato), qui basta forzare l'ordine visivo con "order" invece di
      toccare lo script. */
-  #universeTimelinePanel .h-node__title{ order:1; }
-  #universeTimelinePanel .h-node__tile{ order:2; }
+  body[data-state="universe"] .h-node__title{ order:1; }
+  body[data-state="universe"] .h-node__tile{ order:2; }
   /* La distanza tra i pallini (costante, indipendente dalla presenza
      o meno di un'immagine per ogni voce) e' gestita a runtime in
      script.js/renderUniverseTimelinePanel — qui non serve piu' un
      margine fisso, era proprio quello a rompersi quando un nodo non
      aveva immagine. --- */
 
+  /* Freccetta animata "torna indietro" (centrale a destra, richiesta
+     esplicita) su Screen C e Screen D: stesso linguaggio visivo delle
+     swipe-hint della home (styles.css), ma qui e' anche un vero
+     pulsante cliccabile - un tap la aziona come scorciatoia mentre
+     il vero gesto di scroll (quello richiesto, "torna con un
+     semplice scroll a destra") non e' ancora stato costruito. Uso
+     margin-top fisso invece di transform:translateY(-50%) per il
+     centraggio verticale: l'animazione qui sotto usa gia' transform
+     (translateX) per il movimento, i due non possono coesistere sulla
+     stessa proprieta'. */
+  body[data-state="universe"] .swipe-hint--universe-timeline,
+  body[data-state="title"] .swipe-hint--universe-timeline{
+    display:flex; align-items:center; justify-content:center;
+    position:fixed; top:50%; right:14px; margin-top:-10px; z-index:20;
+    width:35px; height:35px;
+    color:var(--text-faint);
+    cursor:pointer;
+    animation:swipeHintRight 1.6s ease-in-out infinite;
+  }
+  body[data-state="universe"] .swipe-hint--universe-timeline svg,
+  body[data-state="title"] .swipe-hint--universe-timeline svg{ width:20px; height:20px; display:block; }
+
   /* --- Vista "title" (la timeline vera e propria di una saga): il
      testo va sotto in flusso normale, niente filigrana su mobile
      (resta un dettaglio solo desktop). --- */
-  #titlePanel .title-watermark{ display:none; }
+  body[data-state="title"] .title-watermark{ display:none; }
 
   /* --- Giochi senza timeline (es. Doom): stessa filigrana di sfondo
      del "canone", niente filigrana su mobile qui, non c'era una
@@ -1077,19 +1072,8 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
   /* --- Vista "title" (dettaglio di un singolo titolo): la fascia
      orizzontale con tutti i titoli dell'universo (sotto "Universo
-     IGA...") sparisce del tutto su mobile, resta solo desktop.
-     Regola rinforzata (27/08) dopo la ricostruzione a carosello:
-     #timelineRail e' un figlio DIRETTO di .layout (mai spostato da
-     posizionaPannelliCarosello, ma sempre stato li' anche prima) - se
-     mai risulta visibile (script.js lo sblocca con hidden=false
-     entrando in "title", su QUALSIASI breakpoint), diventa un
-     PANNELLO FANTASMA extra nella sequenza di scroll-snap, causando
-     esattamente lo skip/glitch segnalato tornando indietro da
-     LT/Titolo (un'intera schermata vuota di troppo da attraversare).
-     Per ID e incondizionata da qualsiasi stato, cosi' non dipende
-     piu' da un'eventuale altra regola con specificita' diversa che
-     vincesse per qualche motivo non isolato con certezza. */
-  #timelineRail{ display:none !important; }
+     IGA...") sparisce del tutto su mobile, resta solo desktop. --- */
+  body[data-state="title"] .timeline-rail{ display:none; }
 
   /* I tre pulsanti sotto al testo: prev e next diventano semplici
      cerchi con solo la freccetta (il titolo della voce precedente/
@@ -1098,8 +1082,8 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      (impostato in script.js/renderTitlePanel) invece del generico
      "Torna alla linea temporale" di desktop. Una sola riga di
      pulsanti, non piu' impilati su due righe come prima. --- */
-  #titlePanel .title-nav{ flex-wrap:nowrap; }
-  #titlePanel .title-nav__side{
+  body[data-state="title"] .title-nav{ flex-wrap:nowrap; }
+  body[data-state="title"] .title-nav__side{
     /* Non piu' 40x40 fissi solo icona (segnalati "quasi invisibili",
        bordo 1px quasi trasparente var(--line) e testo nascosto) -
        larghezza flessibile per contenere anche il nome del titolo di
@@ -1109,15 +1093,26 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     border-width:2px; border-color:var(--item-accent, var(--cyan));
     color:var(--item-accent, var(--cyan));
   }
-  #titlePanel .title-nav__side svg{ color:var(--item-accent, var(--cyan)); }
-  #titlePanel .title-nav__spacer{ flex:1; }
-  /* Il pulsante "torna a [saga]" sparisce su mobile (richiesto
-     esplicitamente): quella funzione si fa con un semplice scroll,
-     restano solo i pulsanti titolo precedente/successivo. Con lui
-     nascosto, .title-nav (justify-content:space-between, styles.css)
-     distribuisce da solo i 2 pulsanti rimasti ai due estremi - nessun
-     aggiustamento di layout necessario oltre al display:none. */
-  #titlePanel .title-back{ display:none; }
+  body[data-state="title"] .title-nav__side svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="title"] .title-nav__spacer{ flex:1; }
+  /* Il pulsante centrale ("torna alla linea temporale", Titolo->LT)
+     torna visibile su mobile: nel nuovo modello di navigazione
+     (27/08, tutto hidden-toggle, niente piu' scroll interno tra
+     Saga/LT/Titolo) serve di nuovo un modo esplicito per tornare
+     indietro di un livello - lo scroll stesso resta riservato solo
+     al livello piu' esterno (Tabella<->Home/Saga/LT/Titolo). La
+     regola condivisa (styles.css) ha flex-shrink:0, pensata per
+     desktop dove e' l'unico elemento nella riga - qui, insieme a
+     prev/next, quel non-restringersi lo faceva occupare tutta la
+     riga da solo, spingendo gli altri due fuori dallo schermo
+     (misurato: prev/next finivano a x:390/442, oltre il bordo
+     visibile). flex:1 + min-width:0 gli permette di restringersi e
+     condividere lo spazio, esattamente come gli altri due. */
+  body[data-state="title"] .title-back{
+    flex:1; min-width:0; flex-shrink:1;
+    padding:9px 12px;
+    white-space:normal;
+  }
 
   /* --- Vista "title": blocco tag/anno abbassato un po' rispetto a
      prima, spazio libero sulla destra per il pulsante musica
@@ -1132,15 +1127,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      mostrare qui, serviva solo a dare continuita' visiva sotto la
      topbar) - inutile su questo nuovo flusso, tolta di mezzo su
      richiesta esplicita. */
-  #titlePanel #titleHeaderBar{ display:none; }
-  #titlePanel .title-meta{
+  body[data-state="title"] #titleHeaderBar{ display:none; }
+  body[data-state="title"] .title-meta{
     padding-right:0;
   }
   /* Controllo musica: da "sulla riga tag/anno, a destra" a "prima
      del titolo, a sinistra" (richiesto esplicitamente) - spostato nel
      DOM da script.js (renderTitlePanel), qui serve solo margine sotto
      per staccarlo dal titolo che segue subito dopo. */
-  #titlePanel .music-control{
+  body[data-state="title"] .music-control{
     margin-bottom:25px; /* era 15px - ma collassava con il
       margin-top:26px di .title-name qui sotto (margini di elementi
       adiacenti in flusso normale), dando 26px totali invece del
@@ -1158,17 +1153,17 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       pulsante a DESTRA invece che a sinistra - qui order sui singoli
       figli (sotto) risolve senza questo effetto collaterale. */
   }
-  #titlePanel .music-control .volume-control{
+  body[data-state="title"] .music-control .volume-control{
     order:1; /* il pulsante (dentro qui) resta SEMPRE il primo/piu'
       a sinistra, con o senza tabellina visibile. */
   }
-  #titlePanel .music-control .track-info{
+  body[data-state="title"] .music-control .track-info{
     order:2; /* la tabellina del brano, quando appare, si apre verso
       destra del pulsante - mai il contrario. Regola generale
       richiesta esplicitamente: "se il pulsante e' a sinistra, il
       blocco si apre a destra". */
   }
-  #titlePanel .title-name{ margin-top:0; } /* era 26px,
+  body[data-state="title"] .title-name{ margin-top:0; } /* era 26px,
     duplicava/collassava con margin-bottom di .music-control qui
     sopra - tolto, un solo valore chiaro ora controlla il gap. */
 }
@@ -1188,8 +1183,8 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   /* --- ESPERIMENTO (banner nascosti, non eliminati): solo su questa
      pagina, solo desktop. Per tornare indietro basta commentare/
      rimuovere questo blocco, il banner e' ancora li' nell'HTML. --- */
-  #gamePanel .game-header__banner,
-  #gamePanel .game-header__banner-overlay{
+  body[data-state="game"] .game-header__banner,
+  body[data-state="game"] .game-header__banner-overlay{
     display:none;
   }
 
@@ -1201,7 +1196,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      margin-top:0 dalla riga qui sotto), arriva fino al 70% dello
      spazio disponibile a destra (non piu' 640px fissi del file
      condiviso). --- */
-  #gamePanel .game-header__blurb{
+  body[data-state="game"] .game-header__blurb{
     margin-top:0;
     max-width:85%;
   }
@@ -1224,7 +1219,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      rispetto al centro - qui serve il contrario, zero distanza dalla
      cima. Dimensione del titolo non toccata (resta quella di
      sempre). --- */
-  #gamePanel .game-header__title{ margin-top:0; }
+  body[data-state="game"] .game-header__title{ margin-top:0; }
 
   /* --- Blurb spostata tra il titolo e la base dell'avatar (non piu'
      subito sotto il titolo): .game-header-item torna a stiracchiare
@@ -1291,7 +1286,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      avrebbe spinti altri 28px piu' in la'. padding-right lasciato
      com'era (28px): a destra non c'e' piu' nulla da allineare (blurb
      nascosta), non ha effetto visibile. */
-  #gamePanel #gameHeader{ padding-left:0; }
+  body[data-state="game"] #gameHeader{ padding-left:0; }
 
   /* --- La vera larghezza/posizione di .timeline-viewport non e'
      piu' qui: viene ora impostata a runtime da script.js, misurando
@@ -1346,7 +1341,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      ora 25/-/20/25/30/30 - lo spazio titolo->universo, 10px, non
      era tra quelli da correggere e resta invariato).
      ============================================================ */
-  #titlePanel #titleHeaderBar{ margin-bottom:0; }
+  body[data-state="title"] #titleHeaderBar{ margin-bottom:0; }
   .title-name{ margin-top:50px; }
   /* Tentativo empirico (a differenza della sinossi, qui non c'e' un
      padding nascosto vero e proprio da smascherare/cancellare -
@@ -1480,7 +1475,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      sovrapponendosi alla barra sottile che ora sta li' sopra. Nuovo
      valore: 15 (topbar) + 65 (barra sottile) + 0 (margin-bottom, ora
      azzerato) = 80px. */
-  #gamePanel #gameHeader{ top:80px; }
+  body[data-state="game"] #gameHeader{ top:80px; }
 
   /* --- Distanza avatar<->bordi dell'header: 25px sopra e sotto
      invece di 65/25 (valori del file condiviso, pensati per quando
@@ -1500,10 +1495,10 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      singole) sta sopra alla filigrana, quindi la scritta puo'
      diventare poco leggibile a seconda del colore sotto - stessa
      logica gia' usata altrove sul sito per proteggere il testo. */
-  #titlePanel .title-back{
+  body[data-state="title"] .title-back{
     background:rgba(5,8,15,.65);
   }
-  #titlePanel .title-nav__side{
+  body[data-state="title"] .title-nav__side{
     background:rgba(5,8,15,.65); /* stesso trattamento, dimenticato al
       primo giro - questi due (prev/next voce) non avevano proprio
       nessuno sfondo, non solo un'opacita' insufficiente */
