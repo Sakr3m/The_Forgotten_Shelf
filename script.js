@@ -1075,9 +1075,47 @@ function renderGamePanel(){
       // gap or to scrolling.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      const spacing = nodes.length > 1 ? (availableWidth - 100) / (nodes.length - 1) : 0;
+      // DOT_RADIUS: meta' del diametro reale del pallino (15px, vedi
+      // .h-node__dot in styles.css) - segnalato con forza, piu' e
+      // piu' volte: TUTTO cio' che costruiamo in queste pagine deve
+      // stare DENTRO i confini Discord (sinistra) <-> switch lingua
+      // (destra), mai oltre - le uniche eccezioni sono quelle
+      // esplicitamente concordate (qui: copertina/titolo, che possono
+      // sporgere un po', vedi EXTRA piu' sotto). Il pallino NON e'
+      // una di quelle eccezioni: deve restare dentro, toccando il
+      // confine con il proprio bordo esterno, non superandolo mai
+      // nemmeno di un pixel col proprio centro (come negli ultimi due
+      // giri, entrambi sbagliati - allargare il contenitore per fare
+      // spazio al pallino invece di stringere lo spazio tra i
+      // pallini era esattamente l'errore da non fare). Qui il centro
+      // di ogni pallino viene spostato verso l'interno di questo
+      // raggio ad entrambi gli estremi, cosi' e' il bordo ESTERNO del
+      // pallino - non il suo centro - a toccare esattamente Discord/
+      // switch lingua.
+      const DOT_RADIUS = 8;
+      // TRACK_OVERFLOW: scarto strutturale, misurato (non indovinato):
+      // .h-node e' una grid a colonna singola, larga 100px per
+      // dichiarazione esplicita - ma .h-node__title e' largo 130px
+      // (.h-node__title, styles.css), e la colonna implicita della
+      // grid si dimensiona sul figlio piu' largo (130px), non sulla
+      // dichiarazione esplicita del contenitore. Risultato verificato
+      // con getBoundingClientRect: sia la copertina che il pallino
+      // (entrambi piu' stretti di 130px) risultano centrati su
+      // quella colonna larga 130px, il cui bordo sinistro coincide
+      // col bordo sinistro del nodo (nessuna centratura li') - quindi
+      // il loro centro reale cade 15px (= (130-100)/2) piu' a destra
+      // del centro "teorico" della casella 100px, in OGNI nodo,
+      // sempre. Il giro precedente ignorava questo scarto e
+      // posizionava i pallini 15px oltre il previsto in entrambi gli
+      // estremi.
+      const TRACK_OVERFLOW = (130 - 100) / 2;
+      const spacing = nodes.length > 1
+        ? (availableWidth - 100 - 2 * DOT_RADIUS) / (nodes.length - 1)
+        : 0;
       nodes.forEach((node, i) => {
-        node.style.marginLeft = i === 0 ? "0px" : (spacing - 100).toFixed(2) + "px";
+        node.style.marginLeft = i === 0
+          ? (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px"
+          : (spacing - 100).toFixed(2) + "px";
       });
     }
 
@@ -1147,38 +1185,17 @@ function renderGamePanel(){
       // per lato, con un margine di sicurezza. --- */
       const INSET = 50;
       const bandHalf = 40;
-      // DOT_MARGIN: segnalato con screenshot - il pallino finale
-      // spariva del tutto (non solo il titolo, come nel giro
-      // precedente). Causa: l'ultimo nodo ha il proprio pallino
-      // centrato esattamente sul bordo INSET (il tile e' largo 100px
-      // e finisce esattamente al bordo esterno, quindi il suo centro
-      // cade a 50px da esso, cioe' proprio su INSET=50) - ma il
-      // pallino e' un cerchio con un diametro reale (~24px, raggio
-      // ~12px) che si estende un po' PRIMA e un po' DOPO il proprio
-      // centro: la maschera, tagliando esattamente a INSET, si
-      // portava via meta' pallino, lasciando a schermo solo una
-      // sfumatura senza cerchio visibile. Qui la fascia stretta (dove
-      // vive la riga con i pallini) si allarga di DOT_MARGIN in piu'
-      // per lato, quanto basta per contenere l'intero pallino anche
-      // quando il suo centro cade esattamente sul bordo - la riga
-      // stessa (--tl-line-width, ancorata ai centri reali dei
-      // pallini) resta ferma dov'era, e' solo la maschera a diventare
-      // un po' piu' permissiva.
-      const DOT_MARGIN = 35;
       // EXTRA: margine di sicurezza aggiuntivo SOLO per le zone
-      // sopra/sotto la riga (dove vivono copertina e titolo), non per
-      // la riga stessa - segnalato con screenshot: sull'ultima (o
-      // prima) voce di un universo piccolo, il titolo (130px, .h-node__title)
-      // e' piu' largo della copertina (100px, .h-node__tile) a cui e'
-      // agganciato, e la copertina stessa e' gia' posizionata a
-      // ridosso del bordo esterno (per farla "toccare fino al bordo",
-      // vedi sopra) - quindi il titolo sporgeva oltre il bordo esterno
-      // stesso (fino a 30px, la differenza 130-100) e veniva tagliato
-      // dalla maschera. Qui il bordo esterno (sopra/sotto) si allarga
-      // di EXTRA in piu' per dargli respiro, la riga (che usa INSET
-      // relativo al W originale, invariato) resta esattamente dove
-      // deve stare - i due margini sono ora scorporati, non piu' lo
-      // stesso identico valore.
+      // sopra/sotto la riga (dove vivono copertina e titolo, la sola
+      // eccezione concordata che PUO' sporgere un po' oltre Discord/
+      // switch lingua) - non per la riga o i pallini stessi, che
+      // restano dentro per costruzione (vedi DOT_RADIUS qui sopra,
+      // dove i pallini vengono gia' posizionati con il proprio bordo
+      // esterno esattamente sul confine, mai oltre). Titolo (130px,
+      // .h-node__title) piu' largo della propria copertina (100px,
+      // .h-node__tile): quando la copertina e' gia' a ridosso del
+      // bordo, il titolo sporgerebbe fino a 30px oltre - EXTRA da'
+      // spazio a questo, con margine.
       const EXTRA = 40;
       const lineY = (firstDot.top + firstDot.bottom) / 2 - timelineRect.top;
       const lineTop = Math.max(0, lineY - bandHalf);
@@ -1187,15 +1204,13 @@ function renderGamePanel(){
       const H = timelineRect.height;
       const L = -EXTRA;
       const R = W + EXTRA;
-      const bandLeftX = INSET - DOT_MARGIN;
-      const bandRightX = W - INSET + DOT_MARGIN;
       liveTimeline.style.clipPath = `polygon(
         ${L}px 0px, ${R}px 0px,
-        ${R}px ${lineTop.toFixed(2)}px, ${bandRightX.toFixed(2)}px ${lineTop.toFixed(2)}px,
-        ${bandRightX.toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
+        ${R}px ${lineTop.toFixed(2)}px, ${(W - INSET).toFixed(2)}px ${lineTop.toFixed(2)}px,
+        ${(W - INSET).toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
         ${R}px ${H}px, ${L}px ${H}px,
-        ${L}px ${lineBottom.toFixed(2)}px, ${bandLeftX.toFixed(2)}px ${lineBottom.toFixed(2)}px,
-        ${bandLeftX.toFixed(2)}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
+        ${L}px ${lineBottom.toFixed(2)}px, ${INSET}px ${lineBottom.toFixed(2)}px,
+        ${INSET}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
       )`;
 
       // Le freccette animate (solo sopra soglia, isLargeUniverse):
