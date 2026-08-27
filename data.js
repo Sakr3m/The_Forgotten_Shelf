@@ -174,8 +174,8 @@ const GAMES = {
             title: { it: "Alone in the Dark", en: "Alone in the Dark" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark.jpg",
             synopsis: {
-              it: "Jeremy Hartwood, pittore e proprietario di Villa Derceto in Louisiana, si è impiccato nella mansarda. Le circostanze sono sospette. Il giocatore sceglie tra due protagonisti: Edward Carnby, investigatore privato ingaggiato da un antiquario per recuperare un pianoforte nella soffitta, o Emily Hartwood, nipote di Jeremy, convinta che il pianoforte nasconda una lettera con la spiegazione del suicidio. Entrambi si ritrovano intrappolati nella villa quando le porte si chiudono da sole. Esplorando la casa e le caverne sottostanti, Carnby/Emily scopre che Derceto fu costruita nel 1818 dal pirata occulto Ezechiel Pregzt, travestito sotto l'identità di Elijah Pickford. Pregzt aveva accumulato ricchezze e immortalità attraverso riti oscuri nelle caverne sotto la villa. Durante la Guerra di Secessione Americana, dopo un tentativo di avvelenare una pattuglia di soldati unionisti, Pregzt fu sparato dal loro capitano e Derceto venne data alle fiamme, ma il suo spirito sopravvisse, intrappolato nel cadavere sepolto all'interno di un albero nelle caverne sottostanti. Jeremy Hartwood si era suicidato deliberatamente per evitare di essere posseduto da Pregzt come nuovo ospite. Il protagonista trova un talismano recante il Segno degli Anziani, scende nelle caverne, lo piazza sulla tomba di Pregzt per spezzarne il rituale di reincarnazione e lancia una lampada accesa sull'albero: Pregzt brucia e la villa è liberata. Il gioco fu tra i primi due titoli a utilizzare personaggi poligonali in tempo reale su sfondi prerenderizzati, una soluzione tecnica che avrebbe influenzato profondamente l'intero genere survival horror negli anni successivi.",
-              en: "Jeremy Hartwood, a painter and owner of Derceto Manor in Louisiana, has hanged himself in the attic. The circumstances are suspicious. The player chooses between two protagonists: Edward Carnby, a private investigator hired by an antique dealer to retrieve a piano from the loft, or Emily Hartwood, Jeremy's niece, convinced that the piano hides a letter explaining her uncle's suicide. Both end up trapped inside the manor when the doors slam shut behind them. Exploring the house and the caverns beneath it, Carnby/Emily discovers that Derceto was built in 1818 by the occultist pirate Ezechiel Pregzt, operating under the false identity of Elijah Pickford. Pregzt had amassed wealth and immortality through dark rituals performed in the caverns below the manor. During the American Civil War, after attempting to poison a Union patrol, Pregzt was shot by their captain and Derceto was set ablaze, but his spirit survived, trapped within a corpse buried inside a tree in the caverns below. Jeremy Hartwood took his own life deliberately to avoid being possessed by Pregzt as a new host. The protagonist finds a talisman bearing the Elder Sign, descends into the caverns, places it on Pregzt's tomb to break his reincarnation ritual, and hurls a lit lantern at the tree: Pregzt burns, and the manor is freed. The game was among the first two titles to use real-time polygonal characters over pre-rendered backgrounds, a technical solution that would deeply influence the entire survival horror genre in the years that followed."
+              it: "Jeremy Hartwood, pittore e proprietario di Villa Derceto in Louisiana, si è impiccato nella mansarda. Le circostanze sono sospette. Il giocatore sceglie tra due protagonisti: Edward Carnby, investigatore privato ingaggiato da un antiquario per recuperare un pianoforte nella soffitta, o Emily Hartwood, nipote di Jeremy, convinta che il pianoforte nasconda una lettera con la spiegazione del suicidio. Entrambi si ritrovano intrappolati nella villa quando le porte si chiudono da sole. Esplorando la casa e le caverne sottostanti, Carnby/Emily scopre che Derceto fu costruita nel 1818 dal pirata occulto Ezechiel Pregzt, travestito sotto l'identità di Elijah Pickford. Pregzt aveva accumulato ricchezze e immortalità attraverso riti oscuri nelle caverne sotto la villa. Durante la Guerra di Secessione Americana, dopo un tentativo di avvelenare una pattuglia di soldati unionisti, Pregzt fu sparato dal loro capitano e Derceto venne data alle fiamme, ma il suo spirito sopravvisse, intrappolato nel cadavere sepolto all'interno di un albero nelle caverne sottostanti. Jeremy Hartwood si era suicidato deliberatamente per evitare di essere posseduto da Pregzt come nuovo ospite. Il protagonista trova il Talismano, un medaglione di pietra inciso con un pentacolo che inibisce il potere degli Dei Antichi, scende nelle caverne, lo piazza sulla tomba di Pregzt per spezzarne il rituale di reincarnazione e lancia una lampada accesa sull'albero: Pregzt brucia e la villa è liberata. Il gioco fu tra i primi due titoli a utilizzare personaggi poligonali in tempo reale su sfondi prerenderizzati, una soluzione tecnica che avrebbe influenzato profondamente l'intero genere survival horror negli anni successivi.",
+              en: "Jeremy Hartwood, a painter and owner of Derceto Manor in Louisiana, has hanged himself in the attic. The circumstances are suspicious. The player chooses between two protagonists: Edward Carnby, a private investigator hired by an antique dealer to retrieve a piano from the loft, or Emily Hartwood, Jeremy's niece, convinced that the piano hides a letter explaining her uncle's suicide. Both end up trapped inside the manor when the doors slam shut behind them. Exploring the house and the caverns beneath it, Carnby/Emily discovers that Derceto was built in 1818 by the occultist pirate Ezechiel Pregzt, operating under the false identity of Elijah Pickford. Pregzt had amassed wealth and immortality through dark rituals performed in the caverns below the manor. During the American Civil War, after attempting to poison a Union patrol, Pregzt was shot by their captain and Derceto was set ablaze, but his spirit survived, trapped within a corpse buried inside a tree in the caverns below. Jeremy Hartwood took his own life deliberately to avoid being possessed by Pregzt as a new host. The protagonist finds the Talisman, a stone medallion engraved with a pentagram that inhibits the power of the Ancient Gods, descends into the caverns, places it on Pregzt's tomb to break his reincarnation ritual, and hurls a lit lantern at the tree: Pregzt burns, and the manor is freed. The game was among the first two titles to use real-time polygonal characters over pre-rendered backgrounds, a technical solution that would deeply influence the entire survival horror genre in the years that followed."
             }
           },
           {
@@ -258,6 +258,75 @@ const GAMES = {
             }
           }
         ]
+      },
+      {
+        id: "eden-games",
+        name: { it: "Universo Eden Games", en: "Eden Games Universe" },
+        span: { it: "2008 – 2015", en: "2008 – 2015" },
+        entries: [
+          {
+            id: "aitd-2008",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "2008",
+            releaseYear: "2008",
+            releaseYearEn: "2008",
+            title: { it: "Alone in the Dark", en: "Alone in the Dark" },
+            synopsis: {
+              it: "Edward Carnby si risveglia amnesico in un appartamento di New York, pochi istanti prima che un gruppo di uomini incappucciati tenti di ucciderlo su ordine di un certo Crowley. Fuggito con l'aiuto di una forza invisibile, incontra la mercante d'arte Sarah Flores e l'occultista Theophile Paddington, che rivela di aver appena eseguito un esorcismo su di lui. Mentre la città viene squarciata da fenditure sovrannaturali, Paddington spiega che una Pietra Filosofale contiene Lucifero, imprigionato dopo la cacciata dal paradiso, e che lo stesso Crowley l'ha liberato per usarla e scatenare la fine del mondo. Prima di morire suicida, Paddington affida a Carnby la Pietra e lo indirizza verso Central Park, epicentro del cataclisma, dove Edward scopre il segreto capace di fermare Crowley e la sua furia. Reboot della serie, ambientato in una New York contemporanea slegata dalla continuità dei capitoli precedenti.",
+              en: "Edward Carnby wakes up with amnesia in a New York apartment, moments before a group of hooded men try to kill him on the orders of a man named Crowley. Escaping with the help of an unseen force, he meets art dealer Sarah Flores and occultist Theophile Paddington, who reveals he has just performed an exorcism on him. As the city is torn open by supernatural fissures, Paddington explains that a Philosopher's Stone contains Lucifer, imprisoned since his fall from heaven, and that Crowley himself has freed it to unleash the end of the world. Before taking his own life, Paddington entrusts Carnby with the Stone and points him toward Central Park, the epicentre of the cataclysm, where Edward discovers the secret capable of stopping Crowley and his fury. A reboot of the series, set in a present-day New York disconnected from the continuity of the earlier chapters."
+            }
+          },
+          {
+            id: "illumination",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "Epoca contemporanea",
+            yearEn: "Present day",
+            releaseYear: "2015",
+            releaseYearEn: "2015",
+            title: { it: "Alone in the Dark: Illumination", en: "Alone in the Dark: Illumination" },
+            synopsis: {
+              it: "Nella cittadina mineraria abbandonata di Lorwich, in Virginia, evacuata anni prima dopo un'alluvione mai del tutto spiegata, un'oscurità innaturale ha iniziato a inghiottire le strade, liberando orde di creature dagli incubi. Quattro personaggi convergono sul luogo per motivi diversi, tra cui Ted Carnby, cacciatore di mostri e discendente diretto di Edward Carnby — sottinteso essere lo stesso Edward, sopravvissuto e immortale dopo gli eventi del 2008 — e Celeste, strega discendente di Emily Hartwood, alla ricerca di alcune consorelle scomparse. Insieme affrontano le forze al servizio di Cthulhu per fare luce sull'origine della maledizione di Lorwich.",
+              en: "In the abandoned mining town of Lorwich, Virginia, evacuated years earlier after a flood that was never fully explained, an unnatural darkness has begun swallowing the streets, unleashing hordes of nightmarish creatures. Four characters converge on the town for different reasons, among them Ted Carnby, a monster hunter and direct descendant of Edward Carnby — implied to be Edward himself, having survived and become immortal after the events of 2008 — and Celeste, a witch descended from Emily Hartwood, searching for missing sisters of her coven. Together they face forces serving Cthulhu to uncover the origin of Lorwich's curse."
+            }
+          }
+        ]
+      },
+      {
+        id: "pieces-interactive",
+        name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
+        span: { it: "2024", en: "2024" },
+        entries: [
+          {
+            id: "grace-in-the-dark",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "1924 (ipotizzato)",
+            yearEn: "1924 (implied)",
+            releaseYear: "2023",
+            releaseYearEn: "2023",
+            title: { it: "Alone in the Dark Prologue", en: "Alone in the Dark Prologue" },
+            synopsis: {
+              it: "A Derceto, ora casa di cura per malati di nervi, l'undicenne Grace Saunders aiuta un paranoico Jeremy Hartwood a scrivere una lettera per la nipote Emily, camuffandola con la propria calligrafia perché non venga intercettata dal direttore Waites. Dopo essere riuscita a imbucarla di nascosto, Grace avverte un rumore nel buio e viene attaccata da una creatura mostruosa. La scena successiva mostra Emily Hartwood, in auto insieme all'investigatore privato Edward Carnby, arrivare a Derceto proprio in risposta a quella lettera. Teaser giocabile e gratuito distribuito prima del lancio del reboot 2024, in aperto omaggio a Jack in the Dark.",
+              en: "At Derceto, now a rest home for the nervously afflicted, eleven-year-old Grace Saunders helps a paranoid Jeremy Hartwood write a letter to his niece Emily, disguising it in her own handwriting so it won't be intercepted by the administrator Mr. Waites. After managing to sneak it into the post, Grace hears a noise in the dark and is attacked by a monstrous creature. The following scene shows Emily Hartwood, arriving by car with private investigator Edward Carnby, pulling up to Derceto in direct response to that letter. A free, playable teaser released ahead of the 2024 reboot, in open homage to Jack in the Dark."
+            }
+          },
+          {
+            id: "aitd-2024",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "1924 (ipotizzato)",
+            yearEn: "1924 (implied)",
+            releaseYear: "2024",
+            releaseYearEn: "2024",
+            title: { it: "Alone in the Dark", en: "Alone in the Dark" },
+            synopsis: {
+              it: "Emily Hartwood e l'investigatore privato Edward Carnby arrivano a Derceto, ormai una casa di cura per malati di nervi in Louisiana, per cercare lo zio di Emily, Jeremy, ricoverato lì e scomparso. Esplorando la tenuta e i suoi sotterranei, scoprono che una setta di adoratori di un antico Male, radicata nella storia stessa di Derceto, sta per compiere un rituale di sacrificio proprio sulla piccola Grace Saunders. I due protagonisti, ciascuno seguendo un proprio percorso e un proprio finale, fermano il rituale e affrontano la vera natura mostruosa che si cela dietro la manifestazione del Male. Reimmaginazione del gioco originale del 1992, con una propria continuità dichiaratamente separata da quella dei capitoli storici.",
+              en: "Emily Hartwood and private investigator Edward Carnby arrive at Derceto, now a rest home for the nervously afflicted in Louisiana, searching for Emily's uncle Jeremy, a patient there who has gone missing. Exploring the estate and its underground passages, they discover that a cult devoted to an ancient Evil, rooted in Derceto's own history, is about to carry out a sacrificial ritual on young Grace Saunders. The two protagonists, each following their own path and ending, stop the ritual and confront the true monstrous nature behind the Evil's manifestation. A reimagining of the original 1992 game, with its own continuity explicitly separate from that of the classic chapters."
+            }
+          }
+        ]
       }
     ]
   },
@@ -296,8 +365,8 @@ const GAMES = {
             releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Assassin's Creed Origins", en: "Assassin's Creed Origins" },
             synopsis: {
-              it: "Nell'Egitto tolemaico sotto Cleopatra e Giulio Cesare, Bayek di Siwa, ultimo Medjay a servizio della legge, e sua moglie Aya danno la caccia ai membri degli Occulti (i \"Mascherati\"), la setta segreta che ha ucciso il figlio della coppia, scoprendone il coinvolgimento con la politica romana e la nascente cospirazione che diverrà l'Ordine degli Antichi. Nel corso della vendetta, Bayek fonda i Nascosti (Hidden Ones), organizzazione dedicata a proteggere il libero arbitrio dell'umanità che diverrà, secoli dopo, la Confraternita degli Assassini. Il gioco che rivela le vere origini della Confraternita e della lama celata.",
-              en: "In Ptolemaic Egypt under Cleopatra and Julius Caesar, Bayek of Siwa, the last Medjay in service of the law, and his wife Aya hunt down the members of the Order of the Ancients (the \"Masked Ones\"), the secret sect that killed the couple's son, uncovering their involvement with Roman politics and the nascent conspiracy that will become the Order of the Ancients. In the course of the vendetta, Bayek founds the Hidden Ones, an organisation dedicated to protecting humanity's free will that will, centuries later, become the Brotherhood of Assassins. The game that reveals the true origins of the Brotherhood and of the hidden blade."
+              it: "Nell'Egitto tolemaico sotto Cleopatra e Giulio Cesare, Bayek di Siwa, ultimo Medjay a servizio della legge, e sua moglie Aya danno la caccia a una setta di uomini mascherati che ha ucciso il figlio della coppia. Solo a indagine avanzata Cleopatra rivela loro il vero nome della setta, l'Ordine degli Antichi, svelandone anche il coinvolgimento nella politica romana e il complotto per controllare l'Egitto attraverso Tolomeo. Nel corso della vendetta, Bayek fonda i Nascosti (Hidden Ones), organizzazione dedicata a proteggere il libero arbitrio dell'umanità che diverrà, secoli dopo, la Confraternita degli Assassini. Il gioco che rivela le vere origini della Confraternita e della lama celata.",
+              en: "In Ptolemaic Egypt under Cleopatra and Julius Caesar, Bayek of Siwa, the last Medjay in service of the law, and his wife Aya hunt down a sect of masked men who killed the couple's son. Only once the investigation is well underway does Cleopatra reveal their true name, the Order of the Ancients, along with their involvement in Roman politics and a scheme to control Egypt through Ptolemy. In the course of the vendetta, Bayek founds the Hidden Ones, an organisation dedicated to protecting humanity's free will that will, centuries later, become the Brotherhood of Assassins. The game that reveals the true origins of the Brotherhood and of the hidden blade."
             }
           }
         ]
@@ -328,7 +397,7 @@ const GAMES = {
       {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
-        span: { it: "1191 – 1512", en: "1191 – 1512" },
+        span: { it: "1191 – 1526", en: "1191 – 1526" },
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -336,6 +405,22 @@ const GAMES = {
             synopsis: {
               it: "Durante la Terza Crociata, l'Assassino Altaïr Ibn-La'Ahad, punito dal proprio Mentore Al Mualim per un'insubordinazione che ha messo a rischio la Confraternita, viene incaricato di espiare la propria arroganza uccidendo nove figure chiave dell'Ordine dei Templari, guidato in segreto da Al Mualim stesso, sparse tra Gerusalemme, Acri e Damasco. Nel corso della missione, Altaïr scopre che Al Mualim è in realtà a capo dei Templari e sta cercando di impossessarsi di un Frutto dell'Eden per soggiogare la volontà umana con l'inganno della pace forzata; lo affronta e lo sconfigge, ereditandone il ruolo di Mentore. Il capostipite dell'intera serie, che introduce l'Animus e il presente narrativo di Desmond Miles.",
               en: "During the Third Crusade, the Assassin Altaïr Ibn-La'Ahad, punished by his own Mentor Al Mualim for an insubordination that endangered the Brotherhood, is tasked with atoning for his arrogance by killing nine key figures of the Templar Order, secretly guided by Al Mualim himself, scattered across Jerusalem, Acre, and Damascus. In the course of the mission, Altaïr discovers that Al Mualim is in truth the head of the Templars and is seeking to seize a Piece of Eden to subjugate human will through the deception of forced peace; he confronts and defeats him, inheriting the role of Mentor. The progenitor of the entire series, introducing the Animus and the narrative present of Desmond Miles."
+            }
+          },
+          { id: "ac-bloodlines", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Assassin's Creed: Bloodlines", en: "Assassin's Creed: Bloodlines" },
+            synopsis: {
+              it: "Poco dopo gli eventi del primo capitolo, Altaïr scopre un piano dei Templari superstiti per rifugiarsi a Cipro e vi si getta all'inseguimento, catturando lungo il cammino Maria Thorpe, ex agente templare in cerca di vendetta per la morte del proprio maestro Robert de Sablé. Sull'isola, ormai sotto il controllo del nuovo Gran Maestro templare Armand Bouchart, Altaïr elimina uno dopo l'altro i suoi luogotenenti per individuare un archivio segreto di conoscenze templari, affrontando infine lo stesso Bouchart prima che l'archivio crolli su se stesso. Il gioco segue anche l'evolversi del rapporto tra Altaïr e Maria, dall'iniziale ostilità a un legame sempre più stretto. Colma il vuoto narrativo tra il primo capitolo e Assassin's Creed II.",
+              en: "Shortly after the events of the first game, Altaïr uncovers a plan by the surviving Templars to take refuge in Cyprus and sets off in pursuit, capturing along the way Maria Thorpe, a former Templar agent seeking revenge for the death of her master Robert de Sablé. On the island, now under the control of the new Templar Grand Master Armand Bouchart, Altaïr eliminates his lieutenants one by one to track down a secret archive of Templar knowledge, ultimately confronting Bouchart himself before the archive collapses in on itself. The game also traces the evolving relationship between Altaïr and Maria, from initial hostility to an increasingly close bond. It bridges the narrative gap between the first game and Assassin's Creed II."
+            }
+          },
+          { id: "lineage", type: "CORTOMETRAGGIO", typeEn: "SHORT FILM", year: "1476",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Assassin's Creed: Lineage", en: "Assassin's Creed: Lineage" },
+            synopsis: {
+              it: "A Firenze, l'Assassino Giovanni Auditore, padre del futuro protagonista Ezio, indaga su una cospirazione ordita da Rodrigo Borgia contro la famiglia Medici, sventando in extremis un attentato al Duca di Milano Galeazzo Maria Sforza. Le indagini di Giovanni portano alla luce l'intreccio di tradimenti che, di lì a poco, costerà la vita a lui stesso e a due dei suoi figli, innescando la vendetta di Ezio raccontata in Assassin's Creed II. Trilogia di cortometraggi live-action prodotta da Ubisoft, diretta come antefatto diretto del gioco.",
+              en: "In Florence, the Assassin Giovanni Auditore, father of future protagonist Ezio, investigates a conspiracy orchestrated by Rodrigo Borgia against the Medici family, foiling an assassination attempt on the Duke of Milan, Galeazzo Maria Sforza, at the last moment. Giovanni's investigation uncovers the web of betrayals that will shortly cost him and two of his sons their lives, setting in motion the revenge told in Assassin's Creed II. A live-action short film trilogy produced by Ubisoft, made as a direct lead-in to the game."
             }
           },
           { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
@@ -361,13 +446,29 @@ const GAMES = {
               it: "Un Ezio ormai anziano viaggia a Costantinopoli in cerca delle chiavi lasciate da Altaïr, morto secoli prima, per accedere a una biblioteca segreta sotto la sede della Confraternita di Masyaf. Alleandosi con la Assassina Yusuf Tazim e l'ingegnere Piri Reis, Ezio contrasta i Templari guidati dal principe ottomano Ahmet, recupera le memorie finali di Altaïr — che rivelano il destino della sua famiglia e il luogo in cui nascose la propria Mela dell'Eden — e chiude simbolicamente il cerchio tra le due grandi icone della serie prima di ritirarsi definitivamente dalla vita da Assassino.",
               en: "An aging Ezio travels to Constantinople in search of the keys left behind by Altaïr, dead for centuries, to access a secret library beneath the Brotherhood's headquarters at Masyaf. Allying with the Assassin Yusuf Tazim and the engineer Piri Reis, Ezio thwarts the Templars led by Ottoman prince Ahmet, recovers Altaïr's final memories — which reveal the fate of his family and where he hid his own Apple of Eden — and symbolically closes the circle between the series' two great icons before retiring from the life of an Assassin for good."
             }
+          },
+          { id: "embers", type: "CORTOMETRAGGIO", typeEn: "SHORT FILM", year: "1524",
+            releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Assassin's Creed: Embers", en: "Assassin's Creed: Embers" },
+            synopsis: {
+              it: "Ormai anziano e ritirato in una villa toscana con la moglie Sofia e i figli, Ezio riceve la visita della giovane Assassina cinese Shao Jun, in fuga dai servitori dell'Imperatore che hanno appena decimato la sua Confraternita, venuta a cercare la sua guida per ricostruirla. Ezio le racconta la propria storia e le trasmette gli ultimi insegnamenti prima di respingere un attacco notturno alla villa insieme a lei. Il giorno dopo la congeda con in dono uno scrigno che tornerà utile solo se lei perderà la propria strada. Poco dopo, durante una gita a Firenze con Sofia, Ezio muore di un attacco cardiaco sulla stessa piazza dove da ragazzo vide giustiziare il padre e i fratelli. Cortometraggio animato che chiude la trilogia di Ezio.",
+              en: "Now elderly and retired to a Tuscan villa with his wife Sofia and their children, Ezio is visited by the young Chinese Assassin Shao Jun, fleeing the Emperor's servants who have just decimated her Brotherhood, who has come seeking his guidance to rebuild it. Ezio tells her his story and passes on his final teachings before fighting off a night attack on the villa alongside her. The next day he sends her off with a box that will only prove useful if she loses her way. Shortly after, during a trip to Florence with Sofia, Ezio dies of a heart attack in the very square where, as a boy, he watched his father and brothers executed. An animated short film closing out the Ezio trilogy."
+            }
+          },
+          { id: "chronicles-china", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1526",
+            releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Assassin's Creed Chronicles: China", en: "Assassin's Creed Chronicles: China" },
+            synopsis: {
+              it: "Tornata in Cina dopo l'addestramento ricevuto da Ezio Auditore in Toscana, Shao Jun dà la caccia agli Otto Tigri, la fazione templare di eunuchi che ha ordinato la purga della Confraternita cinese e manipola il giovane Imperatore Jiajing, mentre la dinastia Ming inizia a vacillare. Nel corso della vendetta perde il forziere donatole da Ezio, recuperato dai Templari, ma riesce comunque a eliminare a uno a uno i membri della fazione fino al confronto finale con il loro capo, Zhang Yong. Primo capitolo della trilogia Chronicles, in 2.5D con uno stile grafico ispirato alla pittura tradizionale a inchiostro.",
+              en: "Having returned to China after training under Ezio Auditore in Tuscany, Shao Jun hunts down the Eight Tigers, the Templar faction of eunuchs who ordered the purge of the Chinese Brotherhood and manipulate the young Jiajing Emperor, as the Ming dynasty begins to crumble. In the course of her revenge she loses the chest given to her by Ezio, recovered by the Templars, but still manages to eliminate the faction's members one by one up to a final confrontation with their leader, Zhang Yong. The first chapter of the Chronicles trilogy, in 2.5D with a visual style inspired by traditional ink-brush painting."
+            }
           }
         ]
       },
       {
         id: "eta-vela",
         name: { it: "Epoca Moderna ed Età della Vela", en: "Early Modern Era and Age of Sail" },
-        span: { it: "1579 – 1760", en: "1579 – 1760" },
+        span: { it: "1579 – 1780", en: "1579 – 1780" },
         entries: [
           { id: "shadows", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1579",
             releaseYear: "2025", releaseYearEn: "2025",
@@ -385,12 +486,28 @@ const GAMES = {
               en: "During the Golden Age of Piracy in the Caribbean, the Welshman Edward Kenway, grandfather of Connor (AC3's protagonist) and future father of the Templar antagonist Haytham Kenway, becomes captain of the ship Jackdaw in pursuit of wealth and freedom, becoming unwittingly entangled in the secret conflict between Assassins and Templars, who are vying for control of an Isu Observatory capable of surveilling anyone on Earth. For most of the game Edward remains an ordinary man chasing fortune, only gradually drawn toward the Assassins' cause."
             }
           },
+          { id: "freedom-cry", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1735 – 1737",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Assassin's Creed: Freedom Cry", en: "Assassin's Creed: Freedom Cry" },
+            synopsis: {
+              it: "Vent'anni dopo Black Flag, l'ex quartiermastro Adéwalé, ormai Assassino a tutti gli effetti, naufraga al largo di Saint-Domingue mentre insegue una fazione templare. A terra scopre che i Templari finanziano segretamente la tratta degli schiavi tramite la tenutaria Bastienne Josèphe, e si allea con i Maroon, un gruppo di schiavi fuggiti guidato da Augustin Dieufort, per liberare la colonia dal commercio schiavista, arrivando a scontrarsi con il governatore Pierre de Fayet. Nato come contenuto scaricabile per Black Flag, distribuito anche come esperienza autonoma, affronta di petto il tema della schiavitù nei Caraibi.",
+              en: "Twenty years after Black Flag, former quartermaster Adéwalé, now a full-fledged Assassin, is shipwrecked off Saint-Domingue while pursuing a Templar faction. Ashore, he discovers the Templars are secretly financing the slave trade through brothel owner Bastienne Josèphe, and allies with the Maroons, a band of escaped slaves led by Augustin Dieufort, to free the colony from the slave trade, eventually clashing with governor Pierre de Fayet. Originally released as downloadable content for Black Flag, later made available as a standalone experience, it confronts the subject of slavery in the Caribbean head-on."
+            }
+          },
           { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
             releaseYear: "2014", releaseYearEn: "2014",
             title: { it: "Assassin's Creed Rogue", en: "Assassin's Creed Rogue" },
             synopsis: {
               it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
               en: "In the North Atlantic during the Seven Years' War, the Assassin Shay Patrick Cormac, after unwittingly causing the death of innocents by triggering a cataclysm with an Isu artefact recovered on the Brotherhood's behalf, becomes disillusioned with his mentors' ruthless methods and defects to the Templars, becoming the hunter of his own former comrades. The first and only chapter in the series to tell the story from the Templar point of view, laying the groundwork for the Templar Colonial Rite that will oppose Connor in AC3."
+            }
+          },
+          { id: "liberation", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1765 – 1780",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed: Liberation", en: "Assassin's Creed: Liberation" },
+            synopsis: {
+              it: "A New Orleans, sotto la contestata transizione dal dominio francese a quello spagnolo, l'Assassina franco-africana Aveline de Grandpré, addestrata dal proprio mentore Agaté dopo essere scampata bambina a un tentativo di rapimento, indaga sulla misteriosa identità del 'Company Man', il Templare che manovra la città nell'ombra. Nel corso delle sue indagini, Aveline assassina il governatore francese d'Abbadie, corrotto dai Templari, e smaschera Baptiste, un Assassino rinnegato che complotta per avvelenare la nobiltà locale. Prima protagonista donna della serie, il gioco intreccia la sua vicenda personale alla piaga della schiavitù nella Louisiana coloniale.",
+              en: "In New Orleans, amid the contested transition from French to Spanish rule, the French-African Assassin Aveline de Grandpré, trained by her mentor Agaté after narrowly escaping a kidnapping attempt as a child, investigates the mysterious identity of the 'Company Man', the Templar secretly pulling the city's strings. In the course of her investigation, Aveline assassinates the Templar-corrupted French governor d'Abbadie and exposes Baptiste, a renegade Assassin plotting to poison the local nobility. The series' first female protagonist, the game weaves her personal story together with the scourge of slavery in colonial Louisiana."
             }
           }
         ]
@@ -422,6 +539,37 @@ const GAMES = {
             synopsis: {
               it: "Nella Londra vittoriana dominata dallo sfruttamento industriale, i gemelli Assassini Jacob ed Evie Frye giungono in città per strappare il controllo dei quartieri operai alla banda templare dei Blighters guidata da Pearl Attaway e Rupert Ferris, fondando una propria gang, i Rooks. Mentre Jacob si getta nel conflitto di strada con metodi diretti e talvolta imprudenti, Evie segue una pista più metodica che la porta a recuperare un antico Frutto dell'Eden custodito dai Templari, incrociando lungo il cammino figure storiche come Charles Dickens, Charles Darwin e Karl Marx.",
               en: "In Victorian London dominated by industrial exploitation, the Assassin twins Jacob and Evie Frye arrive in the city to wrest control of its working-class districts from the Templar gang known as the Blighters, led by Pearl Attaway and Rupert Ferris, founding their own gang, the Rooks. While Jacob throws himself into the street conflict with direct and sometimes reckless methods, Evie follows a more methodical trail that leads her to recover an ancient Piece of Eden held by the Templars, crossing paths along the way with historical figures such as Charles Dickens, Charles Darwin, and Karl Marx."
+            }
+          }
+        ]
+      },
+      {
+        id: "rivoluzione-russa",
+        name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
+        span: { it: "1888 – 1920", en: "1888 – 1920" },
+        entries: [
+          { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
+            releaseYear: "2010", releaseYearEn: "2010",
+            title: { it: "Assassin's Creed: The Fall", en: "Assassin's Creed: The Fall" },
+            synopsis: {
+              it: "L'Assassino russo Nikolai Orelov, membro della Narodnaja Volja, attraversa oltre due decenni di storia russa segnata dalla repressione zarista, incrociando lo Zar Alessandro III e affrontando la perdita di compagni come Aleksandr Uljanov, giustiziato dopo un attentato fallito. Le sue memorie genetiche vengono rivissute nel presente dal discepolo templare Daniel Cross, tormentato da immagini che non riesce a spiegarsi. Fumetto in tre albi che getta le basi per Assassin's Creed Chronicles: Russia.",
+              en: "Russian Assassin Nikolai Orelov, a member of Narodnaya Volya, lives through more than two decades of Russian history marked by tsarist repression, crossing paths with Tsar Alexander III and enduring the loss of comrades such as Aleksandr Ulyanov, executed after a failed assassination attempt. His genetic memories are relived in the present day by the Templar operative Daniel Cross, tormented by images he cannot explain. A three-issue comic that lays the groundwork for Assassin's Creed Chronicles: Russia."
+            }
+          },
+          { id: "chronicles-russia", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1918",
+            releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Assassin's Creed Chronicles: Russia", en: "Assassin's Creed Chronicles: Russia" },
+            synopsis: {
+              it: "Nel pieno del caos della Rivoluzione Russa, Nikolai Orelov sta per lasciare il paese con la propria famiglia quando la Confraternita gli affida un ultimo incarico: sottrarre un manufatto degli Isu alla famiglia dello Zar Nicola II. Nel corso della missione assiste all'uccisione della maggior parte dei figli dello Zar per mano bolscevica, riuscendo però a salvare la Granduchessa Anastasia, che dovrà proteggere insieme al manufatto dai Templari. Capitolo conclusivo della trilogia Chronicles, ambientato tra gli eventi dei fumetti The Fall e The Chain.",
+              en: "Amid the chaos of the Russian Revolution, Nikolai Orelov is about to leave the country with his family when the Brotherhood assigns him one last task: to steal an Isu artefact from the family of Tsar Nicholas II. In the course of the mission he witnesses the Bolsheviks killing most of the Tsar's children, but manages to save Grand Duchess Anastasia, whom he must protect along with the artefact from the Templars. The concluding chapter of the Chronicles trilogy, set between the events of the comics The Fall and The Chain."
+            }
+          },
+          { id: "the-chain", type: "FUMETTO", typeEn: "COMIC", year: "1918 – 1920",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed: The Chain", en: "Assassin's Creed: The Chain" },
+            synopsis: {
+              it: "Dopo essersi lasciato alle spalle la Confraternita, Nikolai Orelov emigra negli Stati Uniti col figlio Innokenti per proteggerlo, ma viene raggiunto dall'ex compagno Sergei, inviato dal Mentore per riportarlo in Russia a causa di ciò che ha visto durante l'evento di Tunguska. Quando Sergei minaccia il ragazzo, Nikolai lo uccide, chiudendo definitivamente i conti con il proprio passato di Assassino. Nel presente, il discepolo templare Daniel Cross continua a rivivere questi ricordi attraverso l'effetto sanguinamento, senza comprenderne appieno il peso. Seguito a fumetti di The Fall, conclude la storia di Orelov.",
+              en: "Having left the Brotherhood behind, Nikolai Orelov emigrates to the United States with his son Innokenti to protect him, but is tracked down by his former comrade Sergei, sent by the Mentor to bring him back to Russia because of what he witnessed during the Tunguska event. When Sergei threatens the boy, Nikolai kills him, closing the book on his past as an Assassin for good. In the present, Templar operative Daniel Cross continues to relive these memories through the Bleeding Effect, without fully understanding their weight. A sequel comic to The Fall, it concludes Orelov's story."
             }
           }
         ]
