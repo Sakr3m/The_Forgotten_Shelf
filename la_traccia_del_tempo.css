@@ -668,6 +668,54 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
 @media (max-width:900px){
 
+  /* ============================================================
+     RICOSTRUZIONE (27/08): Saga/LT/Titolo diventano pannelli VERI
+     dello stesso carosello a scorrimento reale di Home/Tabella
+     (.layout, scroll-snap-type:x mandatory, styles.css) - non piu'
+     stati nascosti/mostrati dentro .stage. Ordine visivo/di scroll,
+     da sinistra a destra: Home (#stage, order:-1, gia' esistente) ->
+     Tabella (#sidebar, order:0 implicito) -> Saga (#gamePanel,
+     order:1) -> LT (#universeTimelinePanel, order:2) -> Titolo
+     (#titlePanel, order:3). Selezionare qualcosa (voce/universo/
+     titolo) sposta in avanti con uno scroll ANIMATO via JS
+     (scrollIntoView smooth) - "come fosse uno scroll a destra, ma
+     non manuale". Tornare indietro e' un vero swipe a sinistra,
+     gestito nativamente dal browser (scroll-snap), NIENTE JS
+     necessario per quella direzione - richiesto esplicitamente,
+     era proprio quello che mancava nel tentativo precedente (uno
+     stato interno separato dal vero scroll, causa change della
+     confusione/bug mai isolato del tutto).
+
+     I tre pannelli sono spostati qui (figli diretti di .layout,
+     fratelli di #sidebar/#stage) via JS SOLO su mobile
+     (posizionaPannelliCarosello in script.js) - su desktop restano
+     dove sono sempre stati (dentro .stage), il loro comportamento
+     desktop esistente non cambia di una virgola. */
+  .layout > #gamePanel,
+  .layout > #universeTimelinePanel,
+  .layout > #titlePanel{
+    flex:0 0 100vw; width:100vw; max-width:none;
+    height:100vh; height:100dvh; overflow-y:auto;
+    scroll-snap-align:start;
+  }
+  .layout > #gamePanel{ order:1; }
+  .layout > #universeTimelinePanel{ order:2; }
+  .layout > #titlePanel{ order:3; }
+  /* La regola condivisa (styles.css) che fa uscire .layout dal
+     carosello quando si e' su "title" va neutralizzata: qui "title"
+     e' un pannello del carosello a tutti gli effetti, non piu' un
+     caso a parte. Nessun'altra pagina usa mai data-state="title"
+     (verificato: solo script.js/la_traccia_del_tempo.html), quindi
+     questa regola condivisa non serve mai a nessun altro - sicuro
+     annullarne l'effetto qui senza toccare il file comune. */
+  body[data-state="title"] .layout{
+    display:flex; overflow-x:auto; overflow-y:hidden;
+    scroll-snap-type:x mandatory; height:100vh; height:100dvh;
+  }
+  body[data-state="title"] .stage{
+    flex:0 0 100vw; width:100vw; height:100vh; height:100dvh; overflow-y:auto;
+  }
+
   /* --- Blocco l'altezza che il browser ricalcola da solo quando
      nasconde/mostra la propria barra degli indirizzi (stesso
      accorgimento gia' su index.html/Storie Senza Cornice). Qui SOLO

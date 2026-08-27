@@ -679,6 +679,10 @@ function positionVerticalTimeline(liveTimeline){
 function openUniverseTimeline(idx){
   state.universeIndex = idx;
   setState("universe");
+  if(mobileBreakpoint.matches){
+    el.universeTimelinePanel.hidden = false;
+    avviaScrollAnimato(el.universeTimelinePanel);
+  }
   window.scrollTo(0, 0);
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
@@ -1419,10 +1423,22 @@ function setState(view){
     }
   }
 
-  el.landingPanel.hidden = view !== "landing";
-  el.gamePanel.hidden = view !== "game";
-  el.universeTimelinePanel.hidden = view !== "universe";
-  el.titlePanel.hidden = view !== "title";
+  if(mobileBreakpoint.matches){
+    // CAROSELLO REALE (27/08): landing (#stage) resta SEMPRE
+    // presente nel DOM/scroll - deve restare un bersaglio valido per
+    // tornare indietro con un vero swipe a sinistra, mai nascosta.
+    // I tre pannelli piu' profondi si sbloccano UNA VOLTA (mai piu'
+    // ri-nascosti dopo) dalle rispettive funzioni di navigazione
+    // (selectGame/openUniverseTimeline/selectEntry) - qui non
+    // tocchiamo il loro hidden, altrimenti sparirebbero dal
+    // carosello proprio quando si scorre indietro per raggiungerli.
+    el.landingPanel.hidden = false;
+  } else {
+    el.landingPanel.hidden = view !== "landing";
+    el.gamePanel.hidden = view !== "game";
+    el.universeTimelinePanel.hidden = view !== "universe";
+    el.titlePanel.hidden = view !== "title";
+  }
 
   if(view === "landing"){
     state.gameId = null; state.universeIndex = 0; state.entryId = null;
@@ -1479,7 +1495,19 @@ function selectGame(id){
   state.gameId = id;
   state.universeIndex = 0;
   setState("game");
-  closeMobileSidebar();
+  if(mobileBreakpoint.matches){
+    el.gamePanel.hidden = false; // setState() su mobile non tocca
+      // piu' l'hidden dei pannelli profondi (li lascerebbe scomparire
+      // dal carosello tornando indietro) - lo sblocco va fatto qui,
+      // una volta per tutte, alla prima selezione.
+    // Scroll animato in AVANTI (verso Saga, non piu' closeMobileSidebar
+    // che riportava indietro verso Home - comportamento del vecchio
+    // impianto a stati nascosti, sbagliato per il vero carosello di
+    // adesso). "Come fosse uno scroll a destra, ma non manuale."
+    avviaScrollAnimato(el.gamePanel);
+  } else {
+    closeMobileSidebar();
+  }
   window.scrollTo(0, 0);
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
@@ -1502,6 +1530,10 @@ function selectEntry(entryId){
   const stage = document.querySelector(".stage");
   if(stage) stage.scrollTop = 0;
   setState("title");
+  if(mobileBreakpoint.matches){
+    el.titlePanel.hidden = false;
+    avviaScrollAnimato(el.titlePanel);
+  }
 }
 
 // ---------------------------------------------------------
@@ -1924,6 +1956,25 @@ function closeMobileSidebar(){ scrollCarouselToStage(); }
 // Freccette di swipe: nascosta quella che punta verso un bordo già
 // raggiunto (non c'è altro da quel lato), visibile l'altra.
 const layoutEl = document.querySelector(".layout");
+// ---------------------------------------------------------
+// Scroll animato in avanti (verso Saga/LT/Titolo), con protezione
+// dalla corsa critica descritta sopra a syncStateAlloScroll(): il
+// flag resta attivo per tutta la durata dell'animazione, azzerato
+// dall'evento nativo "scrollend" (quando il browser lo supporta) o,
+// altrimenti, da un timeout di sicurezza (le animazioni "smooth" di
+// scrollIntoView durano tipicamente sotto i 500ms).
+// ---------------------------------------------------------
+let programmaticScrollInCorso = false;
+function avviaScrollAnimato(panelEl){
+  programmaticScrollInCorso = true;
+  const fine = () => { programmaticScrollInCorso = false; syncStateAlloScroll(); };
+  if(layoutEl && "onscrollend" in layoutEl){
+    layoutEl.addEventListener("scrollend", fine, { once:true });
+  } else {
+    setTimeout(fine, 600);
+  }
+  panelEl.scrollIntoView({ behavior:"smooth", inline:"start", block:"nearest" });
+}
 const swipeLeftEl = document.querySelector(".swipe-hint--left");
 const swipeRightEls = document.querySelectorAll(".swipe-hint--right");
 const spoilerAlertEl = document.querySelector(".spoiler-alert");
@@ -1953,6 +2004,67 @@ function updateSwipeHints(){
 }
 if(layoutEl) layoutEl.addEventListener("scroll", updateSwipeHints, { passive: true });
 
+// ---------------------------------------------------------
+// Sincronizza lo stato leggero (state.view, data-state, tavolozza,
+// musica) con la posizione REALE dello scroll - necessario ora che
+// tornare indietro e' un vero swipe a sinistra gestito nativamente
+// dal browser (scroll-snap), non piu' un tap che passa da setState().
+// Senza questo, scorrendo indietro da Titolo a LT (per esempio) lo
+// stato interno resterebbe fermo su "title" anche se visivamente si
+// e' tornati a LT - sbagliando la topbar, la musica, ecc. Volutamente
+// LEGGERA: aggiorna solo i valori di stato e le variabili CSS,
+// NON richiama i render pesanti (renderGamePanel/renderSidebar/...)
+// - il contenuto dei pannelli e' gia' quello giusto da quando ci si
+// e' navigati la prima volta in avanti, non serve ricostruirlo.
+// Se il pannello piu' vicino e' invece la sidebar (Tabella, che non
+// ha un suo state.view dedicato), non tocca nulla - stesso motivo
+// per cui il tentativo precedente di forzare "landing" li' aveva
+// rotto la selezione di una voce (la scrivevo QUI, dentro la stessa
+// funzione chiamata anche a scroll concluso dopo un click legittimo).
+// ---------------------------------------------------------
+function syncStateAlloScroll(){
+  if(!mobileBreakpoint.matches || !layoutEl || !stageEl) return;
+  if(programmaticScrollInCorso) return; // vedi commento su
+    // avviaScrollAnimato() qui sotto: durante un'animazione di scroll
+    // avviata da JS (selectGame/openUniverseTimeline/selectEntry),
+    // gli eventi di scroll INTERMEDI (a meta' animazione) leggerebbero
+    // una posizione ancora "in transito", piu' vicina al pannello di
+    // PARTENZA che a quello di arrivo - risultato, questa stessa
+    // funzione riportava lo stato indietro (es. selectEntry chiamava
+    // setState("title"), ma un attimo dopo l'evento di scroll
+    // intermedio lo ri-scriveva a "universe") prima che l'animazione
+    // completasse davvero. Ignorata qui, gestita a scroll fermo da
+    // avviaScrollAnimato() stessa.
+  const w = window.innerWidth;
+  const candidati = [
+    { view: "landing", el: stageEl },
+    { view: "game", el: el.gamePanel },
+    { view: "universe", el: el.universeTimelinePanel },
+    { view: "title", el: el.titlePanel }
+  ];
+  for(const c of candidati){
+    if(c.el.hidden) continue; // non ancora sbloccato, non puo' essere il bersaglio attuale
+    if(Math.abs(layoutEl.scrollLeft - c.el.offsetLeft) < w * 0.5){
+      if(state.view !== c.view){
+        state.view = c.view;
+        el.body.dataset.state = c.view;
+        if(c.view === "landing"){
+          document.body.style.setProperty("--tl-1", DEFAULT_PALETTE[0]);
+          document.body.style.setProperty("--tl-2", DEFAULT_PALETTE[1]);
+          document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
+          document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
+          document.body.style.setProperty("--cyan", LANDING_COLOR);
+        } else {
+          applyPaletteToCSS();
+        }
+        updateMusicPlayback();
+      }
+      return;
+    }
+  }
+}
+if(layoutEl) layoutEl.addEventListener("scroll", syncStateAlloScroll, { passive: true });
+
 el.brandBtn.addEventListener("click", () => {
   setState("landing");
   // Stesso fix gia' fatto per Storie Senza Cornice: riporta sempre
@@ -1969,6 +2081,39 @@ el.brandBtn.addEventListener("click", () => {
 // tentativo di swipe a destra per tornare indietro causava piu'
 // problemi di quanti ne risolvesse, tra cui la regressione sulla
 // selezione dalla Tabella - rimosso interamente su richiesta esplicita).
+
+// ---------------------------------------------------------
+// Sposta Saga/LT/Titolo tra "dentro .stage" (desktop, comportamento
+// originale mai toccato) e "fratelli diretti di .layout" (mobile,
+// veri pannelli aggiuntivi dello stesso carosello di Home/Tabella) -
+// stesso schema di relocation via JS gia' in uso altrove nel sito
+// per casi analoghi (es. posizionaTextSizeToggle su altre pagine).
+// Le posizioni originali (padre + fratello successivo) sono salvate
+// UNA VOLTA all'avvio, cosi' si puo' sempre tornare al punto esatto
+// di partenza passando a desktop.
+// ---------------------------------------------------------
+const pannelloHomes = {
+  gamePanel: { parent: el.gamePanel.parentNode, next: el.gamePanel.nextSibling },
+  universeTimelinePanel: { parent: el.universeTimelinePanel.parentNode, next: el.universeTimelinePanel.nextSibling },
+  titlePanel: { parent: el.titlePanel.parentNode, next: el.titlePanel.nextSibling }
+};
+function posizionaPannelliCarosello(){
+  if(mobileBreakpoint.matches){
+    [el.gamePanel, el.universeTimelinePanel, el.titlePanel].forEach(p => {
+      if(p.parentElement !== layoutEl) layoutEl.appendChild(p);
+    });
+  } else {
+    ["gamePanel", "universeTimelinePanel", "titlePanel"].forEach(key => {
+      const p = el[key];
+      const home = pannelloHomes[key];
+      if(home.parent && p.parentNode !== home.parent){
+        home.parent.insertBefore(p, home.next);
+      }
+    });
+  }
+}
+posizionaPannelliCarosello();
+mobileBreakpoint.addEventListener("change", posizionaPannelliCarosello);
 
 // ---------------------------------------------------------
 // Boot
@@ -2159,17 +2304,3 @@ function initReportModal(){
   });
 }
 initReportModal();
-
-// ---------------------------------------------------------
-// MARCATORE DI BUILD TEMPORANEO (da togliere appena confermato che
-// il dispositivo carica la versione giusta): un numero visibile in
-// basso a sinistra, cosi' si vede a colpo d'occhio se la pagina sta
-// eseguendo il JS aggiornato o una copia vecchia in cache, senza
-// bisogno di nessun altro test.
-// ---------------------------------------------------------
-(function(){
-  const marker = document.createElement("div");
-  marker.textContent = "build 20260827-01";
-  marker.style.cssText = "position:fixed;left:4px;bottom:4px;z-index:99999;background:#f00;color:#fff;font-size:11px;font-family:monospace;padding:2px 6px;border-radius:4px;pointer-events:none;";
-  document.body.appendChild(marker);
-})();
