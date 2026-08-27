@@ -36,7 +36,7 @@ const GAMES = {
           },
           { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Guerra di Belka)", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Ace Combat Zero: The Belkan War", en: "Ace Combat Zero: The Belkan War" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Zero%20The%20Balkan%20War.jpg",
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Zero%20The%20Belkan%20War.jpg",
             synopsis: {
               it: "Il pilota mercenario Cipher combatte nella Guerra di Belka, conflitto scatenato da anni di crisi economica interna che hanno spinto il principato a invadere i propri ex territori per riappropriarsi di risorse perdute, affiancato dal compagno Pixy. Nel finale, incapace di reggere l'avanzata della coalizione alleata, Belka detona sette testate nucleari sul proprio stesso territorio pur di non cedere: un evento la cui ombra si allungherà su tutti i conflitti successivi della continuità.",
               en: "Mercenary pilot Cipher fights in the Belkan War, a conflict sparked by years of internal economic crisis that pushed the principality to invade its former territories to reclaim lost resources, alongside his wingman Pixy. In the finale, unable to withstand the allied coalition's advance, Belka detonates seven nuclear warheads on its own territory rather than surrender — an event whose shadow looms over every subsequent conflict in the continuity."
