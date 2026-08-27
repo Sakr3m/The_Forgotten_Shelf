@@ -883,7 +883,8 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="universe"] #universeTimelineHeaderBar{ display:none; }
   body[data-state="game"] .stage,
   body[data-state="universe"] .stage,
-  body[data-state="title"] .stage{ padding-top:66px; } /* era 49px -
+  body[data-state="title"] .stage,
+  #gamePanel, #universeTimelinePanel, #titlePanel{ padding-top:66px; } /* era 49px -
     bug reale trovato: la topbar (.stage-topbar) e' alta DAVVERO 66px
     (verificato con getBoundingClientRect, non un valore assunto dal
     codice), quindi con 49px qui il contenuto iniziava 17px PRIMA
