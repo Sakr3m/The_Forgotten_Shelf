@@ -1293,6 +1293,34 @@ function renderTitlePanel(){
     const delta = discordRect.left - contentRect.left;
     el.titleContent.style.marginLeft = delta.toFixed(2) + "px";
     el.titleContent.style.width = (langRect.right - discordRect.left).toFixed(2) + "px";
+
+    // Larghezza REALE di .title-nav allineata al testo della sinossi,
+    // non al box fisso al 70% (segnalato con screenshot: il pulsante
+    // "voce successiva" sporgeva oltre il margine destro del testo,
+    // perche' la sinossi quasi mai riempie tutta la larghezza
+    // disponibile fino in fondo sull'ultima riga). .title-synopsis ha
+    // ora width:fit-content (CSS) quindi si stringe alla riga piu'
+    // lunga davvero renderizzata - ma il box misurabile e' quello di
+    // .text-highlight al suo interno, non del paragrafo: .text-highlight
+    // ha un padding orizzontale di 0.3em (per lo sfondo morbido dietro
+    // al testo) che sporge oltre l'ultimo carattere vero su entrambi i
+    // lati, quindi va sottratto per trovare il margine destro REALE del
+    // testo visibile (misurato via getComputedStyle, non ricalcolato a
+    // mano dall'em - un valore fisso sarebbe sbagliato ad ogni cambio
+    // di font-size). Il lato sinistro non serve: .title-nav parte gia'
+    // dallo stesso punto del testo visibile (il -0.3em di margin-left
+    // sulla sinossi compensa esattamente il padding sinistro di
+    // .text-highlight, vedi sopra), quindi qui basta la larghezza.
+    const highlightEl = activeRec.panel.querySelector(".title-synopsis .text-highlight");
+    const navEl = activeRec.panel.querySelector(".title-nav");
+    if(highlightEl && navEl){
+      const hlRect = highlightEl.getBoundingClientRect();
+      const hlStyle = getComputedStyle(highlightEl);
+      const paddingRight = parseFloat(hlStyle.paddingRight) || 0;
+      const textRight = hlRect.right - paddingRight;
+      const navWidth = textRight - navEl.getBoundingClientRect().left;
+      navEl.style.width = navWidth > 0 ? navWidth.toFixed(2) + "px" : "";
+    }
   }
 
   // Solo mobile: il pulsante musica si sposta dentro alla pagina

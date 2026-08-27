@@ -1398,7 +1398,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      dello switch lingua (stessa tecnica gia' in uso per l'header
      della vista "game") - questo 70% e' quindi relativo a quel box
      preciso, non a uno spazio approssimato. --- */
-  .title-synopsis{ max-width:70%; }
+  .title-synopsis{ max-width:70%; width:fit-content; }
   .title-content-item{ max-width:none; width:100%; }
 
   /* --- Pulsanti sotto il testo: non piu' un flex a tutta larghezza
@@ -1423,7 +1423,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      come un singolo bordo comune. --- */
   .title-nav{
     position:relative;
-    width:70%;
+    width:70%; /* fallback statico: il valore vero viene impostato
+      inline da script.js/renderTitlePanel misurando la larghezza
+      REALE della sinossi (che ora si stringe al proprio testo con
+      width:fit-content, vedi .title-synopsis) - il pulsante "voce
+      successiva" deve fermarsi dove finisce davvero il testo, non
+      dove finirebbe un box fisso al 70% che il testo spesso non
+      riempie del tutto (segnalato esplicitamente con screenshot: il
+      pulsante sporgeva oltre il margine destro della sinossi). */
     min-height:60px;
     display:block;
   }
