@@ -24,13 +24,27 @@ const GAMES = {
       {
         id: "vera-strangereal",
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
-        span: { it: "1995 – 2019", en: "1995 – 2019" },
+        span: { it: "1995 – 2040", en: "1995 – 2040" },
         entries: [
+          { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Insurrezione delle Isole Skully)", yearEn: "1995 (Skully Islands Insurrection)", releaseYear: "1995", releaseYearEn: "1995",
+            title: { it: "Air Combat", en: "Air Combat" },
+            synopsis: {
+              it: "Una squadriglia di piloti mercenari viene ingaggiata per liberare le Isole Skully, cadute nelle mani di un'organizzazione terroristica che ne ha preso il controllo. Capitolo che apre la serie, ambientato retroattivamente nella stessa Terra di Strangereal.",
+              en: "A squadron of mercenary pilots is hired to liberate the Skully Islands, seized by a terrorist organization that has taken control of them. The game that opened the series, retroactively set on the same Strangereal Earth."
+            }
+          },
           { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Guerra di Belka)", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Ace Combat Zero: The Belkan War", en: "Ace Combat Zero: The Belkan War" },
             synopsis: {
               it: "Il pilota mercenario Cipher combatte nella Guerra di Belka, conflitto scatenato da anni di crisi economica interna che hanno spinto il principato a invadere i propri ex territori per riappropriarsi di risorse perdute, affiancato dal compagno Pixy. Nel finale, incapace di reggere l'avanzata della coalizione alleata, Belka detona sette testate nucleari sul proprio stesso territorio pur di non cedere: un evento la cui ombra si allungherà su tutti i conflitti successivi della continuità.",
               en: "Mercenary pilot Cipher fights in the Belkan War, a conflict sparked by years of internal economic crisis that pushed the principality to invade its former territories to reclaim lost resources, alongside his wingman Pixy. In the finale, unable to withstand the allied coalition's advance, Belka detonates seven nuclear warheads on its own territory rather than surrender — an event whose shadow looms over every subsequent conflict in the continuity."
+            }
+          },
+          { id: "ace-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996 (Colpo di Stato Useano)", yearEn: "1996 (Usean Coup d'État)", releaseYear: "1997", releaseYearEn: "1997",
+            title: { it: "Ace Combat 2", en: "Ace Combat 2" },
+            synopsis: {
+              it: "Il mercenario Phoenix, alla guida dello Squadrone Scarface, viene ingaggiato dalle Forze Alleate Useane per fermare l'avanzata delle Forze Ribelli durante il colpo di stato che ha sconvolto il continente di Usea, ribaltando le sorti del conflitto fino alla vittoria finale a Fortress Intolerance.",
+              en: "Mercenary pilot Phoenix, leading Scarface Squadron, is hired by the Usean Allied Forces to halt the advance of the Usean Rebel Forces during the coup d'état that has thrown the continent of Usea into chaos, turning the tide of the conflict all the way to the final victory at Fortress Intolerance."
             }
           },
           { id: "impatto-ulisse", type: "STORIA", typeEn: "STORY", year: "3–20 luglio 1999", yearEn: "July 3–20, 1999",
@@ -89,8 +103,22 @@ const GAMES = {
           { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019 (Guerra del Faro)", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Ace Combat 7: Skies Unknown", en: "Ace Combat 7: Skies Unknown" },
             synopsis: {
-              it: "Il pilota Trigger, incarcerato ingiustamente in un'unità penale dopo essere stato incolpato di un crimine mai commesso, viene reintegrato come pilota di riserva quando droni da combattimento autonomi e due enormi Arsenal Bird catturate ribaltano l'equilibrio della guerra a sfavore di Osea. Al comando del Long Range Strategic Strike Group, Trigger risale il fronte fino a riconquistare la capitale eruseana, affrontando più volte in duello il leggendario asso Mihaly A. Shilage, mentre una fazione interna a Erusea si ribella ai vertici radicali che hanno voluto la guerra. Capitolo più recente della continuità, si chiude con la resa firmata a Expo City.",
-              en: "Pilot Trigger, wrongfully imprisoned in a penal unit after being framed for a crime he never committed, is reinstated as a reserve pilot when autonomous combat drones and two massive captured Arsenal Birds tip the war decisively against Osea. Commanding the Long Range Strategic Strike Group, Trigger pushes the front back and recaptures the Erusean capital, repeatedly dueling the legendary ace Mihaly A. Shilage, while a faction within Erusea rebels against the radical leadership that wanted the war. The most recent chapter of the continuity, it closes with a surrender signed at Expo City."
+              it: "Il pilota Trigger, incarcerato ingiustamente in un'unità penale dopo essere stato incolpato di un crimine mai commesso, viene reintegrato come pilota di riserva quando droni da combattimento autonomi e due enormi Arsenal Bird catturate ribaltano l'equilibrio della guerra a sfavore di Osea. Al comando del Long Range Strategic Strike Group, Trigger risale il fronte fino a riconquistare la capitale eruseana, affrontando più volte in duello il leggendario asso Mihaly A. Shilage, mentre una fazione interna a Erusea si ribella ai vertici radicali che hanno voluto la guerra. Si chiude con la resa firmata a Expo City.",
+              en: "Pilot Trigger, wrongfully imprisoned in a penal unit after being framed for a crime he never committed, is reinstated as a reserve pilot when autonomous combat drones and two massive captured Arsenal Birds tip the war decisively against Osea. Commanding the Long Range Strategic Strike Group, Trigger pushes the front back and recaptures the Erusean capital, repeatedly dueling the legendary ace Mihaly A. Shilage, while a faction within Erusea rebels against the radical leadership that wanted the war. It closes with a surrender signed at Expo City."
+            }
+          },
+          { id: "ace-8", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2029 (in uscita)", yearEn: "2029 (upcoming)", releaseYear: "2026", releaseYearEn: "2026",
+            title: { it: "Ace Combat 8: Wings of Theve", en: "Ace Combat 8: Wings of Theve" },
+            synopsis: {
+              it: "SINOSSI PROVVISORIA, DA RIVEDERE AL LANCIO (2 ottobre 2026): la Federazione dell'Usea Centrale viene travolta da un'invasione lampo della Repubblica di Sotoa. Il protagonista, salvato in mare dalla vecchia portaerei Endurance, eredita il nome di battaglia \"Wings of Theve\" dall'asso caduto in azione di cui era il navigatore, e ne porta avanti la leggenda per restituire speranza a un paese quasi del tutto occupato.",
+              en: "PROVISIONAL SYNOPSIS, TO REVIEW AT LAUNCH (October 2, 2026): the Federation of Central Usea is overrun by a lightning invasion from the Republic of Sotoa. The protagonist, rescued at sea by the aging carrier Endurance, inherits the battle name \"Wings of Theve\" from the ace he served as navigator for after the ace falls in action, carrying the legend forward to give hope to a nearly fully occupied homeland."
+            }
+          },
+          { id: "ace-3-electrosphere", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Gennaio – luglio 2040 (Guerra Intercorporativa)", yearEn: "January – July 2040 (Intercorporate War)", releaseYear: "1999", releaseYearEn: "1999",
+            title: { it: "Ace Combat 3: Electrosphere", en: "Ace Combat 3: Electrosphere" },
+            synopsis: {
+              it: "Nel continente useano, ormai governato da megacorporazioni al posto degli stati nazionali, il pilota Nemo presta servizio per l'organizzazione di pace UPEO mentre la rivalità tra la Neucom (erede delle industrie belkane) e la General Resource degenera in un conflitto aperto, la Guerra Intercorporativa, orchestrato nell'ombra dal gruppo transumanista Ouroboros attraverso l'Electrosphere, la rete globale che permette di caricarvi la propria coscienza.",
+              en: "On the Usean continent, now ruled by megacorporations in place of nation-states, pilot Nemo serves the peacekeeping organization UPEO as the rivalry between Neucom (heir to the Belkan industries) and General Resource escalates into open conflict, the Intercorporate War, secretly orchestrated by the transhumanist group Ouroboros through the Electrosphere, the global network that allows one's consciousness to be uploaded to it."
             }
           }
         ]
