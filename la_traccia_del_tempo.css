@@ -182,8 +182,16 @@ button, a{ touch-action:manipulation; }
      Struttura a colonna: barra sopra (a 0px dalla riga, estesa verso
      il basso - top:80px in script.js), quadratini SOTTO di lei,
      allineati a destra (alla fine della barra, cioe' allo switch
-     lingua). z-index alto mantenuto per sicurezza, non fa male. --- */
-  body[data-state="title"] .watermark-brightness-line{
+     lingua). z-index alto mantenuto per sicurezza, non fa male.
+     Esteso anche a state="game" (Doom e gli altri giochi senza
+     timeline ufficiale) - segnalato con screenshot: la stessa barra
+     ci vive anche li', ma questa regola valeva solo per state="title"
+     e non era mai stata portata anche li', lasciando quadratini
+     affiancati alla barra invece che sotto, diversi da come deciso
+     qui. Stessa identica regola, nessuna differenza tra i due
+     contesti. --- */
+  body[data-state="title"] .watermark-brightness-line,
+  body[data-state="game"] .watermark-brightness-line{
     flex-direction:column; align-items:stretch;
     height:auto;
     z-index:9999;
@@ -1673,7 +1681,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .watermark-brightness-line__preset{
     width:25px; height:25px;
     display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--cyan);
+    border:2px solid var(--cyan);
     border-radius:5px;
     background:transparent;
     color:var(--text-faint);
