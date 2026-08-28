@@ -916,7 +916,13 @@ body[data-state="landing"] .index-link{ display:flex; }
   position:relative; z-index:1;
   max-width:900px;
   font-size:.98rem; line-height:1.75; color:var(--text-dim);
-  padding:36px 0;
+  /* Solo padding-bottom: prima era 36px anche sopra, che sommato allo
+     spazio gia' esistente sotto l'header portava "NESSUNA TIMELINE
+     UFFICIALE" molto piu' in basso (92px dal fondo header) del nome
+     universo nelle pagine normali (53px, .u-track__name-block) -
+     segnalato con screenshot. Tolto il padding-top per allinearsi
+     alla stessa altezza. */
+  padding:0 0 36px;
 }
 .canon-note p{ margin-bottom:20px; }
 /* Calcata esattamente su .section-eyebrow di Diari di Gioco

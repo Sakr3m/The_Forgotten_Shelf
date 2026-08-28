@@ -940,6 +940,28 @@ function renderGamePanel(){
     el.watermarkBrightness.style.right = "25px"; /* qui il rail non c'è (display:none),
       il contenuto si estende fino al vero margine destro (25px), non fino a
       var(--rail-width) come nelle pagine con rail visibile */
+
+    // Pagine senza timeline (es. Doom): la filigrana di sfondo e il
+    // titoletto "NESSUNA TIMELINE UFFICIALE" avevano posizioni fisse
+    // indovinate (top:245px in CSS, right:0 fino al vero bordo della
+    // finestra) - segnalato con screenshot: la filigrana sconfinava
+    // nella riga dell'header/blurb invece di restare sotto di essa, E
+    // arrivava fino al bordo fisico dello schermo invece di fermarsi
+    // al confine destro che tutte le altre pagine rispettano (fine
+    // dello switch lingua). Corretto misurando a runtime: la filigrana
+    // parte esattamente dal fondo dell'header (mai piu' in alto) e dal
+    // bordo destro vero (langSwitch), non da un margine fisso indovinato.
+    const activeCanonPanel = canonPanels[state.gameId];
+    if(activeCanonPanel && el.langSwitch && !mobileBreakpoint.matches){
+      const watermarkEl = activeCanonPanel.querySelector(".canon-watermark");
+      const headerBottomEl = activeHeaderPanel;
+      if(watermarkEl && headerBottomEl){
+        const headerRect = headerBottomEl.getBoundingClientRect();
+        const langRect = el.langSwitch.getBoundingClientRect();
+        watermarkEl.style.top = headerRect.bottom.toFixed(2) + "px";
+        watermarkEl.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+      }
+    }
     return;
   }
 
