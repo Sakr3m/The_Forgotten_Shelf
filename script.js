@@ -988,15 +988,24 @@ function renderGamePanel(){
     // costruzione non taglia mai l'immagine qualunque sia la sua
     // proporzione reale (mostra sempre tutta l'immagine, lasciando
     // eventualmente un margine invece di tagliarla).
+    // Eccezione dichiarata dall'utente fin dal primo messaggio su
+    // questa filigrana: a differenza di tutto il resto del sito, QUI
+    // il bordo destro non deve fermarsi allo switch lingua, ma a un
+    // margine fisso di 300px dal bordo vero della finestra - un
+    // margine indipendente da dove sta lo switch lingua, non
+    // agganciato a quel confine come invece fa correttamente tutto il
+    // resto del sito. Confermato con screenshot: il confronto era
+    // proprio tra la fine della filigrana e lo switch lingua (che
+    // combaciavano) contro il margine di 300px che l'utente chiede
+    // invece di usare.
     const activeCanonPanel = canonPanels[state.gameId];
-    if(activeCanonPanel && el.langSwitch && !mobileBreakpoint.matches){
+    if(activeCanonPanel && !mobileBreakpoint.matches){
       const watermarkEl = activeCanonPanel.querySelector(".canon-watermark");
       const headerBottomEl = activeHeaderPanel;
       if(watermarkEl && headerBottomEl && g.watermark){
         const headerRect = headerBottomEl.getBoundingClientRect();
-        const langRect = el.langSwitch.getBoundingClientRect();
         const top = headerRect.bottom;
-        const rightOffset = window.innerWidth - langRect.right;
+        const rightOffset = 300;
         const availableHeight = window.innerHeight - top - 40;
         watermarkEl.style.top = top.toFixed(2) + "px";
         watermarkEl.style.right = rightOffset.toFixed(2) + "px";
