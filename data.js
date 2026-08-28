@@ -360,9 +360,9 @@ const GAMES = {
     palette: ["#8b0000", "#d4af37", "#1a1a1a"],
     accentColor: "#8b0000",
     tracks: [],
-    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Avatar.jpg",
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Filigrana.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
