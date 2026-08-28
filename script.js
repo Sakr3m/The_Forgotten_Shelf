@@ -951,10 +951,21 @@ function renderGamePanel(){
     // (da Discord a switch lingua, non da un left:250px fisso e
     // scollegato usato prima) e a 0px esatti dalla riga sotto il
     // blurb (non piu' il top:237px fisso di default, indovinato).
+    // ATTENZIONE: il riferimento giusto per "la riga sotto il blurb"
+    // e' el.gameHeader (il contenitore ESTERNO, quello col bordo e
+    // gli angoli arrotondati visibili sullo schermo, alto 190px) - non
+    // activeHeaderPanel (il pannello INTERNO col solo testo, alto
+    // 139px, che finisce 26px piu' in alto). Confuso piu' volte in
+    // questa stessa sessione: activeHeaderPanel.getBoundingClientRect()
+    // restituisce un fondo che sembra plausibile ma non e' quello che
+    // l'occhio vede come "fine del riquadro" - segnalato con
+    // screenshot, la barra sembrava infilata dentro il riquadro
+    // proprio perche' il bordo vero finisce piu' in basso di dove la
+    // si stava mettendo.
     if(el.discordLink && el.langSwitch && !mobileBreakpoint.matches){
       const discordRect = el.discordLink.getBoundingClientRect();
       const langRect = el.langSwitch.getBoundingClientRect();
-      const headerRect = activeHeaderPanel ? activeHeaderPanel.getBoundingClientRect() : null;
+      const headerRect = el.gameHeader ? el.gameHeader.getBoundingClientRect() : null;
       el.watermarkBrightness.style.left = discordRect.left.toFixed(2) + "px";
       el.watermarkBrightness.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
       if(headerRect) el.watermarkBrightness.style.top = headerRect.bottom.toFixed(2) + "px";
@@ -1020,7 +1031,11 @@ function renderGamePanel(){
     const activeCanonPanel = canonPanels[state.gameId];
     if(activeCanonPanel && !mobileBreakpoint.matches){
       const watermarkEl = activeCanonPanel.querySelector(".canon-watermark");
-      const headerBottomEl = activeHeaderPanel;
+      // Stesso riferimento corretto della barra qui sopra:
+      // el.gameHeader (il riquadro col bordo visibile, 190px), non
+      // activeHeaderPanel (il pannello interno di solo testo, 139px,
+      // 26px piu' in alto - era la causa dello scarto mai trovato).
+      const headerBottomEl = el.gameHeader;
       if(watermarkEl && headerBottomEl && g.watermark){
         const headerRect = headerBottomEl.getBoundingClientRect();
         // 25px in piu' rispetto alla riga sotto il blurb, su
