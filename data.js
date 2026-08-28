@@ -493,16 +493,8 @@ const GAMES = {
       {
         id: "eta-vela",
         name: { it: "Epoca Moderna ed Età della Vela", en: "Early Modern Era and Age of Sail" },
-        span: { it: "1579 – 1780", en: "1579 – 1780" },
+        span: { it: "1715 – 1780", en: "1715 – 1780" },
         entries: [
-          { id: "shadows", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1579",
-            releaseYear: "2025", releaseYearEn: "2025",
-            title: { it: "Assassin's Creed Shadows", en: "Assassin's Creed Shadows" },
-            synopsis: {
-              it: "Nel Giappone del tardo periodo Sengoku, mentre Oda Nobunaga muove verso l'unificazione del paese, la shinobi Naoe, sopravvissuta al massacro del proprio villaggio e della propria famiglia, e il samurai africano Yasuke, realmente esistito al servizio di Nobunaga, uniscono le forze contro un Ordine degli Antichi radicato nella nobiltà feudale giapponese. Primo capitolo mainline della serie ambientato in Giappone, alterna lo stile stealth incentrato su Naoe a quello più diretto e in armatura di Yasuke.",
-              en: "In late Sengoku-period Japan, as Oda Nobunaga moves toward unifying the country, the shinobi Naoe, survivor of the massacre of her own village and family, and the African samurai Yasuke, a real historical figure who served Nobunaga, join forces against an Order of the Ancients rooted in Japan's feudal nobility. The series' first mainline chapter set in Japan, alternating between Naoe's stealth-focused playstyle and Yasuke's more direct, armoured approach."
-            }
-          },
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
             releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Assassin's Creed IV: Black Flag", en: "Assassin's Creed IV: Black Flag" },
