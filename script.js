@@ -1732,15 +1732,6 @@ function setState(view){
     state.entryId = null;
     applyPaletteToCSS();
     renderSidebar();
-    // La tabella destra (#timelineRail) resta riservata (300px) anche
-    // qui, vuota - su richiesta esplicita: deve rispondere allo
-    // stesso pulsante di comparsa/sparizione delle pagine di voce,
-    // anche se per ora non ci va nessun contenuto. Stesso elemento,
-    // stessa logica CSS gia' esistente (body[data-panels="hover"]) -
-    // basta non nasconderlo e svuotarlo, senza chiamare renderRail().
-    el.timelineRail.hidden = false;
-    if(el.railLabel) el.railLabel.textContent = "";
-    if(el.railTrack) el.railTrack.innerHTML = "";
     renderGamePanel();
   } else if(view === "universe"){
     // SOLO MOBILE: sotto-schermata Screen C (linea temporale di un
@@ -1766,7 +1757,7 @@ function setState(view){
     renderTitlePanel();
     renderRail();
   }
-  if(view !== "title" && view !== "game") el.timelineRail.hidden = true;
+  if(view !== "title") el.timelineRail.hidden = true;
   updateMusicPlayback();
   // Aggiorna anche l'alert spoiler (e gli altri elementi legati a
   // "inStage" qui dentro) - senza questa chiamata, cambiare stato
