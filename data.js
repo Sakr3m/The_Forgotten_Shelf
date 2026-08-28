@@ -15,7 +15,15 @@ const GAMES = {
     },
     palette: ["#1a3a5c", "#c9c9c9", "#8b0000"],
     accentColor: "#1a3a5c",
-    tracks: [],
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Linkage.mp3", title: "Linkage", game: "Ace Combat 3: Electrosphere" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20The%20Unsung%20War.mp3", title: "The Unsung War", game: "Ace Combat 5: The Unsung War" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Mayhem.mp3", title: "Mayhem", game: "Ace Combat Zero: The Belkan War" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Liberation%20of%20Gracemeria.mp3", title: "Liberation of Gracemeria", game: "Ace Combat 6: Fires of Liberation" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Megalith%20-Agnus%20Dei-.mp3", title: "Megalith -Agnus Dei-", game: "Ace Combat 04: Shattered Skies" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Daredevil.mp3", title: "Daredevil", game: "Ace Combat 7: Skies Unknown" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Zero.mp3", title: "Zero", game: "Ace Combat Zero: The Belkan War" }
+    ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
