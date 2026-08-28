@@ -1810,6 +1810,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
    destro di riferimento), ciano = riquadro header/blurb. Scope solo a
    .canon-page cosi' non tocca nessun'altra pagina del sito. --- */
 .canon-page *{ outline:1px solid rgba(255,0,0,.5) !important; }
-.canon-page .canon-watermark{ outline:4px solid lime !important; }
+.canon-page .canon-watermark{ outline:4px solid lime !important; outline-offset:-6px !important; }
 .lang-switch{ outline:4px solid yellow !important; }
 .game-header-item:not([hidden]){ outline:4px solid cyan !important; }

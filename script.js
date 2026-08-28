@@ -941,6 +941,23 @@ function renderGamePanel(){
       il contenuto si estende fino al vero margine destro (25px), non fino a
       var(--rail-width) come nelle pagine con rail visibile */
 
+    // Il testo delle pagine "nessuna timeline" (es. Doom) partiva
+    // 50px prima del bordo sinistro vero (Discord) - segnalato con
+    // screenshot: a differenza dell'header/blurb (allineato a Discord
+    // qualche riga sopra), questo contenitore non riceveva mai lo
+    // stesso allineamento a runtime, restando fermo alla propria
+    // posizione statica di CSS (25px dal bordo di .game-panel, non
+    // da Discord). Stessa identica tecnica di allineamento gia' usata
+    // per l'header: si misura dove sta davvero Discord e si sposta
+    // il contenitore di conseguenza.
+    if(el.discordLink && !mobileBreakpoint.matches){
+      const discordRect = el.discordLink.getBoundingClientRect();
+      el.canonPages.style.marginLeft = "0px";
+      const canonRect = el.canonPages.getBoundingClientRect();
+      const delta = discordRect.left - canonRect.left;
+      el.canonPages.style.marginLeft = delta.toFixed(2) + "px";
+    }
+
     // Le freccette animate di trascinamento (drag-hint) appartengono
     // solo alle timeline con scorrimento libero (universi con piu' di
     // 10 voci, vedi isLargeUniverse) - segnalato con screenshot:
