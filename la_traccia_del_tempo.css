@@ -169,7 +169,14 @@ button, a{ touch-action:manipulation; }
      lingua stesso, questa striscia lo ricopre per intero fino al
      bordo fisico. */
   .game-rail-decor{
-    display:block; position:fixed; top:0; right:0; bottom:0; width:300px;
+    /* niente display:block esplicito: un div e' gia' block di
+       default - scriverlo qui vinceva SEMPRE sull'attributo [hidden]
+       (stessa specificita', ma regola d'autore contro regola dello
+       user-agent), lasciando il pannello visibile anche in home con
+       dentro ancora scritta l'ultima saga visitata, segnalato con
+       screenshot. Senza questa riga, [hidden] torna a funzionare
+       normalmente. */
+    position:fixed; top:0; right:0; bottom:0; width:300px;
     border-left:1px solid var(--line);
     background:var(--bg-soft);
     padding:24px 16px; /* stessa identica convenzione di .sidebar/.timeline-rail */
@@ -199,6 +206,19 @@ button, a{ touch-action:manipulation; }
   body[data-panels="hover"] .game-rail-decor{
     background:transparent; border-color:transparent;
     transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;
+  }
+  /* Mancava: col toggle attivo prima spariva solo bordo/sfondo, ma il
+     testo (titolo + elenco) restava scritto e leggibile, "fluttuante"
+     senza contenitore - segnalato ("non scompare"). Stessa identica
+     dissolvenza usata per .panel-inner su sidebar/timeline-rail,
+     applicata qui a titolo ed elenco. */
+  body[data-panels="hover"] .game-rail-decor .rail-label,
+  body[data-panels="hover"] .game-rail-decor .game-rail-content{
+    opacity:0; transition:opacity 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] .game-rail-decor:hover .rail-label,
+  body[data-panels="hover"] .game-rail-decor:hover .game-rail-content{
+    opacity:1; transition:opacity 1s ease-in-out .08s;
   }
   body[data-panels="hover"] .game-rail-decor:hover{
     background:var(--bg-soft); border-color:var(--line);

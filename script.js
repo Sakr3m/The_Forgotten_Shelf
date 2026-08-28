@@ -1779,8 +1779,17 @@ function setState(view){
   el.universeTimelinePanel.hidden = view !== "universe";
   el.titlePanel.hidden = view !== "title";
   // Striscia decorativa (bordo+sfondo, nessuna larghezza rubata):
-  // visibile solo nella vista "game" (pagine di saga).
-  if(el.gameRailDecor) el.gameRailDecor.hidden = view !== "game";
+  // visibile solo nella vista "game" (pagine di saga). Contenuto
+  // svuotato esplicitamente quando si esce da quella vista - non
+  // basta [hidden] da solo per essere puliti (l'HTML restava
+  // comunque compilato con l'ultima saga vista, anche se invisibile).
+  if(el.gameRailDecor){
+    el.gameRailDecor.hidden = view !== "game";
+    if(view !== "game"){
+      if(el.gameRailLabel) el.gameRailLabel.textContent = "";
+      if(el.gameRailContent) el.gameRailContent.innerHTML = "";
+    }
+  }
 
   if(view === "landing"){
     state.gameId = null; state.universeIndex = 0; state.entryId = null;
