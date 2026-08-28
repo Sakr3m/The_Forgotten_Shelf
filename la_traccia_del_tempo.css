@@ -1294,18 +1294,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     max-width:85%;
   }
 
-  /* --- PLACEHOLDER TEMPORANEO (da togliere quando non serve piu'):
-     box di 300px sul lato destro, per vedere come si comporta il
-     blurb con una tabella vera a fianco (come nella vista "title"),
-     invece che a piena larghezza come ora nella vista "game". --- */
-  body[data-state="game"] .stage::after{
-    content:"";
-    position:fixed; top:0; right:0; bottom:0; width:300px;
-    background:var(--bg-soft);
-    border-left:1px solid var(--line);
-    z-index:20;
-  }
-
   /* --- Titolo della saga a raso con la cima dell'avatar: margin-top:0
      sul titolo stesso per toglier l'8px di distanza dal bordo alto
      del suo contenitore, pensato quando doveva lasciare spazio sopra
