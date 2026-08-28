@@ -224,6 +224,15 @@ body[data-state="landing"] .brand{ display:none; }
     background:var(--bg);
     pointer-events:none;
   }
+  /* In home non serve (non c'e' nessun testo lungo che scorre dietro
+     l'header sticky, qui il contenuto e' solo il messaggio di
+     benvenuto) - e lasciandolo attivo crea un rettangolo visibile:
+     var(--bg) e' un colore piatto, mentre lo sfondo della pagina in
+     home ha sopra due sfumature radiali (vedi body[data-state]
+     generico piu' sopra) - lo stage-cover le copre nella propria
+     zona, apparendo come un "buco" scuro all'altezza dello switch
+     lingua, segnalato con screenshot. */
+  body[data-state="landing"] .stage-cover{ display:none; }
 
   /* In home, il gruppo Discord+Ko-fi non segue il flusso insieme
      allo switch: va centrato esattamente a metà tra "torna
