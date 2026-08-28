@@ -941,6 +941,17 @@ function renderGamePanel(){
       il contenuto si estende fino al vero margine destro (25px), non fino a
       var(--rail-width) come nelle pagine con rail visibile */
 
+    // Le freccette animate di trascinamento (drag-hint) appartengono
+    // solo alle timeline con scorrimento libero (universi con piu' di
+    // 10 voci, vedi isLargeUniverse) - segnalato con screenshot:
+    // arrivando da una di quelle pagine (es. Ace Combat) restavano
+    // visibili anche su Doom, perche' il loro stato "hidden" viene
+    // deciso solo nel ramo normale della funzione (piu' sotto), che
+    // qui non viene mai raggiunto per via del return anticipato. Vanno
+    // quindi nascoste esplicitamente anche in questo ramo.
+    if(el.dragHintLeft) el.dragHintLeft.hidden = true;
+    if(el.dragHintRight) el.dragHintRight.hidden = true;
+
     // Pagine senza timeline (es. Doom): la filigrana di sfondo aveva
     // posizione fissa indovinata (top:245px in CSS, right:0 fino al
     // vero bordo della finestra) - sconfinava nella riga dell'header/

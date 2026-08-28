@@ -1169,7 +1169,7 @@ const GAMES = {
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Filigrana.jpg",
+    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Filigrana%201.2.jpg",
     watermarkOpacity: 0.18,
     watermarkSize: "cover",
     watermarkPosition: "calc(100% + 45px) top",
