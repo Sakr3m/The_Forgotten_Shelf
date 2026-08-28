@@ -557,6 +557,16 @@ body[data-state="landing"] .brand{ display:none; }
   border-left:1px solid var(--line);
   background:var(--bg-soft);
   overflow-y:auto;
+  position:relative; z-index:10; /* piu' alto di .game-header (4) e
+    di qualunque altro elemento con z-index dentro lo stage, non solo
+    di stage stesso (z-index:auto) - senza questo, il contenuto della
+    vista "game" (timeline orizzontale) risultava impilato SOPRA il
+    rail nonostante i rispettivi riquadri non si sovrappongano affatto
+    - un normale hover sul rail finiva quindi rilevato da #stage
+    sottostante, non dal rail stesso, rompendo la dissolvenza al
+    passaggio del mouse proprio nel momento in cui serviva (rail
+    vuoto sulla vista "game"). Mai emerso prima perche' sulla vista
+    "title" il contenuto sotto non arrivava mai a quel punto. */
 }
 
 /* ============================================================
@@ -1307,7 +1317,12 @@ body[data-state="landing"] .index-link{ display:flex; }
    State visibility
    ============================================================ */
 body[data-state="landing"] .game-panel, body[data-state="landing"] .title-panel, body[data-state="landing"] .timeline-rail{ display:none; }
-body[data-state="game"] .landing, body[data-state="game"] .title-panel, body[data-state="game"] .timeline-rail{ display:none; }
+body[data-state="game"] .landing, body[data-state="game"] .title-panel{ display:none; }
+/* .timeline-rail NON va piu' forzata a display:none qui - su
+   richiesta esplicita, resta riservata (vuota) anche nello stato
+   "game", per rispondere allo stesso pulsante di comparsa/sparizione
+   gia' in uso nello stato "title". La visibilita' vera resta gestita
+   dall'attributo [hidden] impostato a runtime in script.js. */
 body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display:none; }
 
 /* ============================================================
