@@ -1040,7 +1040,10 @@ function renderGamePanel(){
         const headerRect = headerBottomEl.getBoundingClientRect();
         // 25px in piu' rispetto alla riga sotto il blurb, su
         // richiesta esplicita - non piu' a pelo con quella riga.
-        const top = headerRect.bottom + 25;
+        // A pelo con la riga vera (el.gameHeader), 0px - tolto il
+        // +25 aggiunto in un giro precedente, non piu' voluto ora che
+        // il riferimento e' quello giusto.
+        const top = headerRect.bottom;
         const rightOffset = 300;
         const availableHeight = window.innerHeight - top - 40;
         watermarkEl.style.top = top.toFixed(2) + "px";
