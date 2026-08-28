@@ -1298,8 +1298,8 @@ const GAMES = {
         en: "Doom (1993) → Doom II: Hell on Earth → Final Doom → Doom 64 → Doom: The Dark Ages → Doom (2016) → Doom VFR → Doom Eternal"
       },
       outro: {
-        it: "Il collegamento tra le due epoche è stato ricostruito a posteriori attraverso i Codex e le cutscene dei giochi più recenti, non da un piano narrativo originario.",
-        en: "The connective tissue between the two eras was reconstructed after the fact through Codex entries and cutscenes in the newer games, rather than an original narrative plan."
+        it: "Il collegamento tra le due epoche è stato ricostruito a posteriori attraverso i Codex e le cutscene dei giochi più recenti, non da un piano narrativo originario. Doom 3 (2004), pur non comparendo in questa sequenza, esiste nello stesso limbo di incertezza: presentato all'epoca quasi come un reboot a sé, ambientato in tono horror piuttosto che action, non è mai stato ufficialmente collocato con certezza né nella continuità dei capitoli classici né in quella dello Slayer moderno, e lo stesso studio si è espresso in modo contraddittorio nel tempo su dove (o se) debba considerarsi canonico.",
+        en: "The connective tissue between the two eras was reconstructed after the fact through Codex entries and cutscenes in the newer games, rather than an original narrative plan. Doom 3 (2004), though absent from this sequence, exists in that same limbo of uncertainty: presented at the time as something close to a standalone reboot, with a horror tone rather than an action one, it has never been officially placed with any certainty in either the classic continuity or the modern Slayer one, and the studio itself has spoken about it inconsistently over the years as to where, or whether, it should be considered canon."
       }
     }
   },
