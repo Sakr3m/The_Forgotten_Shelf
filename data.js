@@ -456,7 +456,7 @@ const GAMES = {
             }
           },
           { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
-            releaseYear: "2009", releaseYearEn: "2009",
+            releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
             title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20II.jpg",
             synopsis: {
@@ -465,7 +465,7 @@ const GAMES = {
             }
           },
           { id: "brotherhood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1499 – 1507",
-            releaseYear: "2010", releaseYearEn: "2010",
+            releaseYear: "2010 (Remaster: 2016)", releaseYearEn: "2010 (Remaster: 2016)",
             title: { it: "Assassin's Creed: Brotherhood", en: "Assassin's Creed: Brotherhood" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Brotherhood.jpg",
             synopsis: {
@@ -474,7 +474,7 @@ const GAMES = {
             }
           },
           { id: "revelations", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1511 – 1512",
-            releaseYear: "2011", releaseYearEn: "2011",
+            releaseYear: "2011 (Remaster: 2016)", releaseYearEn: "2011 (Remaster: 2016)",
             title: { it: "Assassin's Creed: Revelations", en: "Assassin's Creed: Revelations" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Revelations.jpg",
             synopsis: {
@@ -525,7 +525,7 @@ const GAMES = {
             }
           },
           { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
-            releaseYear: "2014", releaseYearEn: "2014",
+            releaseYear: "2014 (Remaster: 2018)", releaseYearEn: "2014 (Remaster: 2018)",
             title: { it: "Assassin's Creed Rogue", en: "Assassin's Creed Rogue" },
             synopsis: {
               it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
@@ -533,11 +533,11 @@ const GAMES = {
             }
           },
           { id: "liberation", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1765 – 1780",
-            releaseYear: "2012", releaseYearEn: "2012",
-            title: { it: "Assassin's Creed: Liberation", en: "Assassin's Creed: Liberation" },
+            releaseYear: "2012 (Remaster: 2014, 2019)", releaseYearEn: "2012 (Remaster: 2014, 2019)",
+            title: { it: "Assassin's Creed III: Liberation", en: "Assassin's Creed III: Liberation" },
             synopsis: {
-              it: "A New Orleans, sotto la contestata transizione dal dominio francese a quello spagnolo, l'Assassina franco-africana Aveline de Grandpré, addestrata dal proprio mentore Agaté dopo essere scampata bambina a un tentativo di rapimento, indaga sulla misteriosa identità del 'Company Man', il Templare che manovra la città nell'ombra. Nel corso delle sue indagini, Aveline assassina il governatore francese d'Abbadie, corrotto dai Templari, e smaschera Baptiste, un Assassino rinnegato che complotta per avvelenare la nobiltà locale. Prima protagonista donna della serie, il gioco intreccia la sua vicenda personale alla piaga della schiavitù nella Louisiana coloniale.",
-              en: "In New Orleans, amid the contested transition from French to Spanish rule, the French-African Assassin Aveline de Grandpré, trained by her mentor Agaté after narrowly escaping a kidnapping attempt as a child, investigates the mysterious identity of the 'Company Man', the Templar secretly pulling the city's strings. In the course of her investigation, Aveline assassinates the Templar-corrupted French governor d'Abbadie and exposes Baptiste, a renegade Assassin plotting to poison the local nobility. The series' first female protagonist, the game weaves her personal story together with the scourge of slavery in colonial Louisiana."
+              it: "A New Orleans, sotto la contestata transizione dal dominio francese a quello spagnolo, l'Assassina franco-africana Aveline de Grandpré, addestrata dal proprio mentore Agaté dopo essere scampata bambina a un tentativo di rapimento, indaga sulla misteriosa identità del 'Company Man', il Templare che manovra la città nell'ombra. Nel corso delle sue indagini, Aveline assassina il governatore francese d'Abbadie, corrotto dai Templari, e smaschera Baptiste, un Assassino rinnegato che complotta per avvelenare la nobiltà locale. Prima protagonista donna della serie, il gioco intreccia la sua vicenda personale alla piaga della schiavitù nella Louisiana coloniale.\n\nNota — versioni successive: il gioco originale uscì nel 2012 per PS Vita col titolo Assassin's Creed III: Liberation. Nel 2014 arrivò una versione rielaborata in alta definizione per PS3/Xbox 360/PC, intitolata solo Assassin's Creed: Liberation HD (senza 'III'), seguita da un'ulteriore Remastered nel 2019 insieme ad Assassin's Creed III Remastered. La storia resta la stessa in tutte le versioni; le edizioni successive rimuovono le meccaniche pensate apposta per il touch screen di Vita e la modalità multigiocatore, aggiungendo qualche missione in più e una grafica aggiornata, più vicina nello stile ad Assassin's Creed III.",
+              en: "In New Orleans, amid the contested transition from French to Spanish rule, the French-African Assassin Aveline de Grandpré, trained by her mentor Agaté after narrowly escaping a kidnapping attempt as a child, investigates the mysterious identity of the 'Company Man', the Templar secretly pulling the city's strings. In the course of her investigation, Aveline assassinates the Templar-corrupted French governor d'Abbadie and exposes Baptiste, a renegade Assassin plotting to poison the local nobility. The series' first female protagonist, the game weaves her personal story together with the scourge of slavery in colonial Louisiana.\n\nNote — later versions: the original game released in 2012 for PS Vita under the title Assassin's Creed III: Liberation. A reworked high-definition version arrived in 2014 for PS3/Xbox 360/PC, titled simply Assassin's Creed: Liberation HD (dropping the 'III'), followed by a further Remastered edition in 2019 alongside Assassin's Creed III Remastered. The story remains the same across all versions; the later editions remove the mechanics designed specifically for the Vita's touch screen and the multiplayer mode, adding a handful of extra missions and updated visuals closer in style to Assassin's Creed III."
             }
           }
         ]
@@ -548,7 +548,7 @@ const GAMES = {
         span: { it: "1754 – 1868", en: "1754 – 1868" },
         entries: [
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
-            releaseYear: "2012", releaseYearEn: "2012",
+            releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",
             title: { it: "Assassin's Creed III", en: "Assassin's Creed III" },
             synopsis: {
               it: "Durante la Rivoluzione Americana, Ratonhnhaké:ton detto Connor, figlio del Templare britannico Haytham Kenway e di una donna Mohawk, si allea con gli Assassini dopo aver visto il proprio villaggio minacciato dall'espansione coloniale, opponendosi al padre e ai suoi alleati templari che manipolano entrambi gli schieramenti del conflitto rivoluzionario per i propri fini. Nel corso della guerra Connor affronta e uccide uno dopo l'altro i Templari del Rito Coloniale, incluso lo stesso Haytham, ricostruendo la Confraternita americana dalle sue rovine.",
@@ -711,7 +711,7 @@ const GAMES = {
             }
           },
           { id: "rondo-of-blood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1792",
-            releaseYear: "1993", releaseYearEn: "1993",
+            releaseYear: "1993 (Remaster: 2018)", releaseYearEn: "1993 (Remaster: 2018)",
             title: { it: "Rondo of Blood", en: "Rondo of Blood" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Rondo%20of%20Blood.jpg",
             synopsis: {
@@ -720,7 +720,7 @@ const GAMES = {
             }
           },
           { id: "symphony-of-the-night", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1797",
-            releaseYear: "1997", releaseYearEn: "1997",
+            releaseYear: "1997 (Remaster: 2018)", releaseYearEn: "1997 (Remaster: 2018)",
             title: { it: "Symphony of the Night", en: "Symphony of the Night" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Symphony%20of%20the%20Night.jpg",
             note: { it: "Uno dei titoli più celebrati della saga e padre del genere Metroidvania.", en: "One of the most celebrated titles in the franchise and the defining game of the Metroidvania genre." },
@@ -1067,14 +1067,14 @@ const GAMES = {
               en: "A hero descends into the cathedral beneath the town of Tristram to stop Diablo, Lord of Terror, who has possessed the body of young Prince Albrecht. Having defeated the demon, the hero drives Diablo's own Soulstone into his own forehead to contain its spirit, dooming himself to a slow inner corruption."
             }
           },
-          { id: "diablo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263 – 1265", releaseYear: "2000", releaseYearEn: "2000",
+          { id: "diablo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1263 – 1265", releaseYear: "2000 (Remaster: 2021)", releaseYearEn: "2000 (Remaster: 2021)",
             title: { it: "Diablo II", en: "Diablo II" },
             synopsis: {
               it: "L'eroe del primo gioco, ormai posseduto da Diablo, semina il caos attraverso il continente in cerca dei propri fratelli Mali Primigeni, Mefisto e Baal, per riunire la Triuna Trinità del Male. Un nuovo gruppo di eroi lo insegue attraverso quattro atti e altrettanti continenti, sconfiggendo infine sia Diablo che Mefisto.",
               en: "The hero of the first game, now possessed by Diablo, sows chaos across the continent in search of his fellow Prime Evils, Mephisto and Baal, to reunite the Evil Trinity. A new group of heroes pursues him across four acts and as many continents, ultimately defeating both Diablo and Mephisto."
             }
           },
-          { id: "lord-of-destruction", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1265", releaseYear: "2001", releaseYearEn: "2001",
+          { id: "lord-of-destruction", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1265", releaseYear: "2001 (Remaster: 2021)", releaseYearEn: "2001 (Remaster: 2021)",
             title: { it: "Diablo II: Lord of Destruction", en: "Diablo II: Lord of Destruction" },
             synopsis: {
               it: "Baal, ultimo dei tre fratelli rimasto libero, marcia verso la Worldstone, capace di alterare la realtà stessa, per corromperla e completare il piano dei Mali Primigeni. Gli eroi lo affrontano al Monte Arreat; per impedire che la pietra venga sfruttata di nuovo, l'angelo Tyrael la distrugge lui stesso, alterando per sempre l'equilibrio tra Paradiso e Inferi.",
