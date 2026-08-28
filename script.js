@@ -941,30 +941,25 @@ function renderGamePanel(){
       il contenuto si estende fino al vero margine destro (25px), non fino a
       var(--rail-width) come nelle pagine con rail visibile */
 
-    // Pagine senza timeline (es. Doom): la filigrana di sfondo e il
-    // titoletto "NESSUNA TIMELINE UFFICIALE" avevano posizioni fisse
-    // indovinate (top:245px in CSS, right:0 fino al vero bordo della
-    // finestra) - segnalato con screenshot: la filigrana sconfinava
-    // nella riga dell'header/blurb invece di restare sotto di essa, E
-    // arrivava fino al bordo fisico dello schermo invece di fermarsi
-    // al confine destro che tutte le altre pagine rispettano (fine
-    // dello switch lingua). Corretto misurando a runtime: la filigrana
-    // parte esattamente dal fondo dell'header (mai piu' in alto) e dal
-    // bordo destro vero (langSwitch), non da un margine fisso indovinato.
-    //
-    // Larghezza/altezza del riquadro: richiesto esplicitamente che
-    // l'immagine sia "piena", accostata sia alla riga del blurb (sopra)
-    // che al bordo destro (a destra) senza alcun taglio - un
-    // width/height fisso indovinato avrebbe tagliato o lasciato bande
-    // vuote a seconda delle proporzioni reali del file caricato su R2.
-    // Qui si carica l'immagine una volta con un Image() di appoggio, si
-    // legge la sua proporzione VERA (naturalWidth/naturalHeight) e si
-    // dimensiona il riquadro di conseguenza: altezza pari allo spazio
-    // verticale realmente disponibile sotto l'header (fino a 40px dal
-    // fondo pagina, stesso margine di prima), larghezza calcolata da
-    // quella proporzione - cosi' l'immagine riempie esattamente il
-    // riquadro (background-size:contain) senza lasciare bande vuote ne'
-    // tagliare nulla, qualunque sia la sua risoluzione reale.
+    // Pagine senza timeline (es. Doom): la filigrana di sfondo aveva
+    // posizione fissa indovinata (top:245px in CSS, right:0 fino al
+    // vero bordo della finestra) - sconfinava nella riga dell'header/
+    // blurb invece di restare sotto di essa, e superava il confine
+    // destro vero (switch lingua) invece di fermarsi li'. Corretto
+    // misurando a runtime il fondo reale dell'header e il bordo destro
+    // reale dello switch lingua - stessa identica logica di
+    // allineamento gia' usata in tutto il resto del sito.
+    // Larghezza: NON piu' calcolata a partire dalla proporzione reale
+    // del file (un giro precedente ci aveva provato con un Image() di
+    // appoggio asincrono, ma il caricamento poteva risolversi in un
+    // momento diverso dal render, congelando una larghezza sbagliata
+    // rispetto all'altezza nel frattempo aggiornata) - qui si usa
+    // invece lo stesso trattamento, piu' semplice e gia' collaudato,
+    // delle filigrane interne alle voci (.title-watermark): una
+    // larghezza fissa in vw e background-size:contain, che per
+    // costruzione non taglia mai l'immagine qualunque sia la sua
+    // proporzione reale (mostra sempre tutta l'immagine, lasciando
+    // eventualmente un margine invece di tagliarla).
     const activeCanonPanel = canonPanels[state.gameId];
     if(activeCanonPanel && el.langSwitch && !mobileBreakpoint.matches){
       const watermarkEl = activeCanonPanel.querySelector(".canon-watermark");
@@ -978,16 +973,6 @@ function renderGamePanel(){
         watermarkEl.style.top = top.toFixed(2) + "px";
         watermarkEl.style.right = rightOffset.toFixed(2) + "px";
         watermarkEl.style.height = availableHeight.toFixed(2) + "px";
-        if(watermarkEl.dataset.sizedFor !== g.watermark){
-          const probe = new Image();
-          probe.onload = () => {
-            if(state.gameId !== g.id) return; // l'utente ha gia' cambiato gioco
-            const ratio = probe.naturalWidth / probe.naturalHeight;
-            watermarkEl.style.width = (availableHeight * ratio).toFixed(2) + "px";
-            watermarkEl.dataset.sizedFor = g.watermark;
-          };
-          probe.src = g.watermark;
-        }
       }
     }
     return;

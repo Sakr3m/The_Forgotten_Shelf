@@ -904,18 +904,19 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }
 .canon-watermark{
-  /* position, top, right, width, height: impostati a runtime in
-     script.js (renderGamePanel) in base alle proporzioni REALI del
-     file caricato - prima "width:38vw" fisso unito a "top/right"
-     indovinati non mostrava l'immagine intera, ne' la accostava
-     esattamente alla riga del blurb (sopra) e al bordo destro vero
-     (switch lingua). Qui restano solo le proprieta' che NON
-     dipendono dalla singola immagine.
-     La sfumatura sul lato sinistro (mask-image) resta: e' voluta,
-     stessa identica sfumatura usata sulle filigrane interne alle
-     voci (.title-watermark) - non e' quello il "taglio" da
-     correggere, che riguardava solo il dimensionamento. */
-  position:fixed;
+  /* top, right, height: impostati a runtime in script.js
+     (renderGamePanel), ancorati al fondo reale dell'header e al
+     bordo destro reale (switch lingua) - stesso principio di
+     allineamento gia' usato in tutto il resto del sito.
+     width: fissa qui in CSS (non piu' calcolata dalla proporzione
+     reale del file, vedi commento in script.js) - stesso trattamento
+     delle filigrane interne alle voci (.title-watermark), piu'
+     contenuta di un tempo su richiesta esplicita ("non serve
+     un'immagine cosi' grande"). background-size:contain garantisce
+     da solo che l'immagine non venga MAI tagliata qualunque sia la
+     sua proporzione reale, a costo di lasciare margine libero invece
+     di riempire tutto il riquadro. */
+  position:fixed; width:26vw;
   background-size:contain; background-repeat:no-repeat; background-position:top right;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 22%);
   mask-image:linear-gradient(90deg, transparent, black 22%);
