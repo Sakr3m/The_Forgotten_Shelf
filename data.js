@@ -160,7 +160,11 @@ const GAMES = {
     accentColor: "#6b3fa0",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20In%20the%20Eye%20of%20the%20Storm.mp3", title: "In the Eye of the Storm", game: "Alone in the Dark (1992)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Welcome%20to%20Derceto.mp3", title: "Welcome to Derceto", game: "Alone in the Dark (2024)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20I%27m%20Not%20Afraid...%20I%20Think.mp3", title: "I'm Not Afraid... I Think", game: "Alone in the Dark (1992)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Credits%20Song.mp3", title: "Alone in the Dark (Theme/Credits Song)", game: "Alone in the Dark: The New Nightmare" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Fa%C3%A7ade.mp3", title: "The Façade", game: "Alone in the Dark (2008)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20New%20Orleans%20Doom%20Shuffle.mp3", title: "The New Orleans Doom Shuffle", game: "Alone in the Dark (2024)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
     ],
     blurb: {
