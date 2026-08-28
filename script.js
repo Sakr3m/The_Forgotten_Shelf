@@ -162,6 +162,7 @@ const el = {
   titlePanel: document.getElementById("titlePanel"),
   titleContent: document.getElementById("titleContent"),
   timelineRail: document.getElementById("timelineRail"),
+  gameRailDecor: document.getElementById("gameRailDecor"),
   railLabel: document.getElementById("railLabel"),
   railTrack: document.getElementById("railTrack"),
   watermarkBrightness: document.getElementById("watermarkBrightness"),
@@ -1719,6 +1720,9 @@ function setState(view){
   el.gamePanel.hidden = view !== "game";
   el.universeTimelinePanel.hidden = view !== "universe";
   el.titlePanel.hidden = view !== "title";
+  // Striscia decorativa (bordo+sfondo, nessuna larghezza rubata):
+  // visibile solo nella vista "game" (pagine di saga).
+  if(el.gameRailDecor) el.gameRailDecor.hidden = view !== "game";
 
   if(view === "landing"){
     state.gameId = null; state.universeIndex = 0; state.entryId = null;

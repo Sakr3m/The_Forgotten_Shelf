@@ -160,6 +160,29 @@ button, a{ touch-action:manipulation; }
      margine di 100px dei pulsanti, e' incollata alla filigrana come
      il suo lato sinistro e' incollato alla sidebar). --- */
   .timeline-rail{ width:300px; }
+  /* Striscia decorativa per la vista "game" (pagine di saga): stessa
+     larghezza esatta del rail (300px), ma position:fixed - non ruba
+     spazio a nessuno, e' solo l'aspetto (bordo + sfondo) sovrapposto
+     allo spazio che il contenuto lascia gia' libero da solo in quella
+     vista. Ancorata al bordo vero della finestra (right:0), non allo
+     switch lingua - lo spazio naturale finisce un po' oltre lo switch
+     lingua stesso, questa striscia lo ricopre per intero fino al
+     bordo fisico. */
+  .game-rail-decor{
+    display:block; position:fixed; top:0; right:0; bottom:0; width:300px;
+    border-left:1px solid var(--line);
+    background:var(--bg-soft);
+    pointer-events:none; z-index:0;
+  }
+  body[data-panels="hover"] .game-rail-decor{
+    background:transparent; border-color:transparent;
+    transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;
+  }
+  body[data-panels="hover"] .game-rail-decor:hover{
+    background:var(--bg-soft); border-color:var(--line);
+    transition:background 1s ease-in-out .08s, border-color 1s ease-in-out .08s;
+  }
+  body[data-panels="hover"] .game-rail-decor{ pointer-events:auto; }
   body[data-state="title"] .title-watermark{ right:300px; }
   /* Top costante (non piu' misurato via JS - vedi commento in
      script.js/renderTitlePanel): 15px di topbar + 65px di barra
@@ -1080,6 +1103,9 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      orizzontale con tutti i titoli dell'universo (sotto "Universo
      IGA...") sparisce del tutto su mobile, resta solo desktop. --- */
   body[data-state="title"] .timeline-rail{ display:none; }
+  /* Stessa sorte per la striscia decorativa della vista "game": su
+     mobile 300px fissi coprirebbero gran parte dello schermo. */
+  .game-rail-decor{ display:none; }
 
   /* I tre pulsanti sotto al testo: prev e next diventano semplici
      cerchi con solo la freccetta (il titolo della voce precedente/

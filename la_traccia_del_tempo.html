@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="fonts/inter.css">
 <link rel="stylesheet" href="fonts/jetbrains-mono.css">
 <link rel="stylesheet" href="styles.css?v=20260828f">
-<link rel="stylesheet" href="la_traccia_del_tempo.css?v=202608280017">
+<link rel="stylesheet" href="la_traccia_del_tempo.css?v=202608280018">
 </head>
 <body data-state="landing" data-lang="it">
 <script>
@@ -267,11 +267,23 @@
         <div class="rail-track" id="railTrack"></div>
       </div>
     </aside>
+
+    <!-- Striscia puramente decorativa (nessuna larghezza tolta al
+         resto della pagina, position:fixed - fuori dal flusso) per
+         le pagine di saga (vista "game"): dà l'aspetto di una tabella
+         (bordo + sfondo, identico a #sidebar/#timelineRail) allo
+         spazio di 300px che esiste GIA' naturalmente sulla destra in
+         quella vista (il contenuto si ferma da solo circa allo switch
+         lingua) - richiesto esplicitamente dopo un primo tentativo
+         sbagliato che aveva invece tolto altri 300px veri di spazio
+         utile, raddoppiando una riserva che era gia' li'. Vuota per
+         ora, nessun contenuto dentro. -->
+    <div class="game-rail-decor" id="gameRailDecor" hidden></div>
   </div>
 
   <script src="data.js?v=20260828x"></script>
   <script src="likes.js?v=20260809"></script>
-  <script src="script.js?v=202608280020"></script>
+  <script src="script.js?v=202608280021"></script>
   <script src="stats.js?v=20260809"></script>
 </body>
 </html>
