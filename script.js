@@ -1779,12 +1779,16 @@ function setState(view){
   el.universeTimelinePanel.hidden = view !== "universe";
   el.titlePanel.hidden = view !== "title";
   // Striscia decorativa (bordo+sfondo, nessuna larghezza rubata):
-  // visibile solo nella vista "game" (pagine di saga). Contenuto
-  // svuotato esplicitamente quando si esce da quella vista - non
-  // basta [hidden] da solo per essere puliti (l'HTML restava
-  // comunque compilato con l'ultima saga vista, anche se invisibile).
+  // visibile su home e nelle pagine di saga (dove non esiste nessun'
+  // altra tabella a destra) - nascosta solo su "title"/"universe",
+  // dove c'e' gia' la tabella vera (#timelineRail) nello stesso
+  // identico spazio, altrimenti si sovrapporrebbero. Il contenuto
+  // (titolo+elenco) resta invece SEMPRE svuotato tranne che su
+  // "game" - segnalato: la richiesta era solo togliere il testo
+  // residuo della saga precedente quando si torna in home, non far
+  // sparire anche l'aspetto della tabella stessa.
   if(el.gameRailDecor){
-    el.gameRailDecor.hidden = view !== "game";
+    el.gameRailDecor.hidden = (view === "title" || view === "universe");
     if(view !== "game"){
       if(el.gameRailLabel) el.gameRailLabel.textContent = "";
       if(el.gameRailContent) el.gameRailContent.innerHTML = "";
