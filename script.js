@@ -936,18 +936,29 @@ function renderGamePanel(){
     });
     if(g.watermark) loadWatermarkForId(g.id);
     el.watermarkBrightness.hidden = !g.watermark;
-    el.watermarkBrightness.style.top = ""; /* posizione standard (CSS, riga dell'header) */
-    el.watermarkBrightness.style.right = "25px"; /* qui il rail non c'è (display:none),
-      il contenuto si estende fino al vero margine destro (25px), non fino a
-      var(--rail-width) come nelle pagine con rail visibile */
 
     // Niente animazione di ingresso per la striscia avatar/titolo/
     // blurb qui - mai richiesta su queste pagine (a differenza di
     // tutte le altre, dove resta voluta). Con l'animazione tolta,
     // l'header e' gia' nella sua posizione finale nello stesso
     // istante in cui viene misurato piu' sotto: niente piu' bisogno
-    // di rincorrerne la fine.
+    // di rincorrerne la fine. Va fatto PRIMA di misurare il fondo
+    // dell'header per la barra di illuminazione qui sotto - se no la
+    // misura cade ancora a meta' dell'animazione appena tolta.
     if(el.gameHeader) el.gameHeader.classList.add("game-header--static");
+
+    // Barra di illuminazione: centrata nell'area di contenuto vera
+    // (da Discord a switch lingua, non da un left:250px fisso e
+    // scollegato usato prima) e a 0px esatti dalla riga sotto il
+    // blurb (non piu' il top:237px fisso di default, indovinato).
+    if(el.discordLink && el.langSwitch && !mobileBreakpoint.matches){
+      const discordRect = el.discordLink.getBoundingClientRect();
+      const langRect = el.langSwitch.getBoundingClientRect();
+      const headerRect = activeHeaderPanel ? activeHeaderPanel.getBoundingClientRect() : null;
+      el.watermarkBrightness.style.left = discordRect.left.toFixed(2) + "px";
+      el.watermarkBrightness.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+      if(headerRect) el.watermarkBrightness.style.top = headerRect.bottom.toFixed(2) + "px";
+    }
 
     // Il testo delle pagine "nessuna timeline" (es. Doom) partiva
     // 50px prima del bordo sinistro vero (Discord) - segnalato con
@@ -1012,7 +1023,9 @@ function renderGamePanel(){
       const headerBottomEl = activeHeaderPanel;
       if(watermarkEl && headerBottomEl && g.watermark){
         const headerRect = headerBottomEl.getBoundingClientRect();
-        const top = headerRect.bottom;
+        // 25px in piu' rispetto alla riga sotto il blurb, su
+        // richiesta esplicita - non piu' a pelo con quella riga.
+        const top = headerRect.bottom + 25;
         const rightOffset = 300;
         const availableHeight = window.innerHeight - top - 40;
         watermarkEl.style.top = top.toFixed(2) + "px";
