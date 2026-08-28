@@ -904,8 +904,19 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }
 .canon-watermark{
-  position:fixed; top:245px; bottom:40px; right:0; width:38vw;
-  background-size:contain; background-repeat:no-repeat; background-position:right center;
+  /* position, top, right, width, height: impostati a runtime in
+     script.js (renderGamePanel) in base alle proporzioni REALI del
+     file caricato - prima "width:38vw" fisso unito a "top/right"
+     indovinati non mostrava l'immagine intera, ne' la accostava
+     esattamente alla riga del blurb (sopra) e al bordo destro vero
+     (switch lingua). Qui restano solo le proprieta' che NON
+     dipendono dalla singola immagine.
+     La sfumatura sul lato sinistro (mask-image) resta: e' voluta,
+     stessa identica sfumatura usata sulle filigrane interne alle
+     voci (.title-watermark) - non e' quello il "taglio" da
+     correggere, che riguardava solo il dimensionamento. */
+  position:fixed;
+  background-size:contain; background-repeat:no-repeat; background-position:top right;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 22%);
   mask-image:linear-gradient(90deg, transparent, black 22%);
   opacity:.14;

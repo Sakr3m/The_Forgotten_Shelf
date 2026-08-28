@@ -951,15 +951,43 @@ function renderGamePanel(){
     // dello switch lingua). Corretto misurando a runtime: la filigrana
     // parte esattamente dal fondo dell'header (mai piu' in alto) e dal
     // bordo destro vero (langSwitch), non da un margine fisso indovinato.
+    //
+    // Larghezza/altezza del riquadro: richiesto esplicitamente che
+    // l'immagine sia "piena", accostata sia alla riga del blurb (sopra)
+    // che al bordo destro (a destra) senza alcun taglio - un
+    // width/height fisso indovinato avrebbe tagliato o lasciato bande
+    // vuote a seconda delle proporzioni reali del file caricato su R2.
+    // Qui si carica l'immagine una volta con un Image() di appoggio, si
+    // legge la sua proporzione VERA (naturalWidth/naturalHeight) e si
+    // dimensiona il riquadro di conseguenza: altezza pari allo spazio
+    // verticale realmente disponibile sotto l'header (fino a 40px dal
+    // fondo pagina, stesso margine di prima), larghezza calcolata da
+    // quella proporzione - cosi' l'immagine riempie esattamente il
+    // riquadro (background-size:contain) senza lasciare bande vuote ne'
+    // tagliare nulla, qualunque sia la sua risoluzione reale.
     const activeCanonPanel = canonPanels[state.gameId];
     if(activeCanonPanel && el.langSwitch && !mobileBreakpoint.matches){
       const watermarkEl = activeCanonPanel.querySelector(".canon-watermark");
       const headerBottomEl = activeHeaderPanel;
-      if(watermarkEl && headerBottomEl){
+      if(watermarkEl && headerBottomEl && g.watermark){
         const headerRect = headerBottomEl.getBoundingClientRect();
         const langRect = el.langSwitch.getBoundingClientRect();
-        watermarkEl.style.top = headerRect.bottom.toFixed(2) + "px";
-        watermarkEl.style.right = (window.innerWidth - langRect.right).toFixed(2) + "px";
+        const top = headerRect.bottom;
+        const rightOffset = window.innerWidth - langRect.right;
+        const availableHeight = window.innerHeight - top - 40;
+        watermarkEl.style.top = top.toFixed(2) + "px";
+        watermarkEl.style.right = rightOffset.toFixed(2) + "px";
+        watermarkEl.style.height = availableHeight.toFixed(2) + "px";
+        if(watermarkEl.dataset.sizedFor !== g.watermark){
+          const probe = new Image();
+          probe.onload = () => {
+            if(state.gameId !== g.id) return; // l'utente ha gia' cambiato gioco
+            const ratio = probe.naturalWidth / probe.naturalHeight;
+            watermarkEl.style.width = (availableHeight * ratio).toFixed(2) + "px";
+            watermarkEl.dataset.sizedFor = g.watermark;
+          };
+          probe.src = g.watermark;
+        }
       }
     }
     return;
