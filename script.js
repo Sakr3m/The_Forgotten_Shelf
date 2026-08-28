@@ -163,6 +163,8 @@ const el = {
   titleContent: document.getElementById("titleContent"),
   timelineRail: document.getElementById("timelineRail"),
   gameRailDecor: document.getElementById("gameRailDecor"),
+  gameRailLabel: document.getElementById("gameRailLabel"),
+  gameRailContent: document.getElementById("gameRailContent"),
   railLabel: document.getElementById("railLabel"),
   railTrack: document.getElementById("railTrack"),
   watermarkBrightness: document.getElementById("watermarkBrightness"),
@@ -826,9 +828,65 @@ function updateAllCanonPanelsText(){
   Object.keys(canonPanels).forEach(updateCanonPanelText);
 }
 
+// Etichette al plurale per ciascun tipo di media, usate nel box
+// "composizione" della tabella decorativa a destra (vedi
+// renderGameRailInfo). Chiave = valore esatto gia' presente in
+// type/typeEn nei dati - un tipo nuovo mai visto qui dentro va
+// semplicemente mostrato cosi' com'e' (fallback), non e' un errore.
+const MEDIA_TYPE_LABELS_IT = {
+  "VIDEOGIOCO": "Videogiochi", "STORIA": "Storia", "FUMETTO": "Fumetti",
+  "ROMANZO": "Romanzi", "ANIME": "Anime", "MANGA": "Manga", "LORE": "Lore",
+  "GRAPHIC NOVEL": "Graphic Novel", "LIGHT NOVEL": "Light Novel",
+  "SERIE ANIMATA": "Serie Animate", "CORTOMETRAGGIO": "Cortometraggi",
+  "FILM CGI": "Film CGI", "CABINATO ARCADE": "Cabinati Arcade",
+  "VIDEOGIOCO MOBILE": "Videogiochi Mobile", "BACKGROUND": "Background", "BLOG": "Blog"
+};
+const MEDIA_TYPE_LABELS_EN = {
+  "VIDEOGAME": "Video Games", "STORY": "Story", "COMIC": "Comics",
+  "NOVEL": "Novels", "ANIME": "Anime", "MANGA": "Manga", "LORE": "Lore",
+  "GRAPHIC NOVEL": "Graphic Novels", "LIGHT NOVEL": "Light Novels",
+  "ANIMATED SERIES": "Animated Series", "SHORT FILM": "Short Films",
+  "CGI FILM": "CGI Films", "ARCADE": "Arcade Cabinets", "MOBILE GAME": "Mobile Games",
+  "BACKGROUND": "Background", "BLOG": "Blog"
+};
+
+// Contenuto della tabella decorativa a destra nelle pagine di saga:
+// per ciascun universo del gioco corrente, conteggio delle voci per
+// tipo di media (es. "9 Videogiochi, 4 Storia"). Puramente derivato
+// dai dati - si aggiorna da solo se si aggiungono/tolgono voci,
+// nessuna curatela manuale richiesta. Solo su Ace Combat per ora
+// (prima prova, su richiesta esplicita) ma la funzione e' generica:
+// funzionerebbe gia' identica su qualunque altro gioco.
+function renderGameRailInfo(g){
+  if(!el.gameRailLabel || !el.gameRailContent) return;
+  if(!Array.isArray(g.universes)){ el.gameRailContent.innerHTML = ""; el.gameRailLabel.textContent = ""; return; }
+  el.gameRailLabel.textContent = state.lang === "it" ? "Composizione" : "Composition";
+  const labels = state.lang === "it" ? MEDIA_TYPE_LABELS_IT : MEDIA_TYPE_LABELS_EN;
+  const html = g.universes.map(u => {
+    const counts = {};
+    const order = [];
+    u.entries.forEach(e => {
+      const raw = state.lang === "it" ? e.type : (e.typeEn || e.type);
+      if(!raw) return;
+      if(!(raw in counts)){ counts[raw] = 0; order.push(raw); }
+      counts[raw]++;
+    });
+    const lines = order.map(raw => {
+      const label = labels[raw] || raw;
+      return `<div>${counts[raw]} ${label}</div>`;
+    }).join("");
+    return `<div>
+      <p class="game-rail-content__universe-name">${tf(u.name)}</p>
+      <div class="game-rail-content__counts">${lines}</div>
+    </div>`;
+  }).join("");
+  el.gameRailContent.innerHTML = html;
+}
+
 function renderGamePanel(){
   const g = currentGame();
   if(!g) return;
+  renderGameRailInfo(g);
 
   Object.entries(gameHeaderPanels).forEach(([id, panel]) => {
     panel.hidden = id !== state.gameId;

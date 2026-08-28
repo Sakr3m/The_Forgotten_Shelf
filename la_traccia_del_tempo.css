@@ -172,7 +172,29 @@ button, a{ touch-action:manipulation; }
     display:block; position:fixed; top:0; right:0; bottom:0; width:300px;
     border-left:1px solid var(--line);
     background:var(--bg-soft);
-    pointer-events:none; z-index:0;
+    padding:24px 16px; /* stessa identica convenzione di .sidebar/.timeline-rail */
+    box-sizing:border-box;
+    overflow-y:auto;
+    pointer-events:none; z-index:50; /* 10 (come .timeline-rail) non
+      bastava qui - esistono elementi con z-index piu' alto dentro
+      #stage (es. .volume-panel a 20) che continuavano a coprire il
+      contenuto anche con quel valore; confermato empiricamente che
+      50 basta. Stesso identico problema di stacking gia' affrontato
+      per l'hover del rail: #stage dipinge sopra i fratelli
+      indipendentemente dalla sovrapposizione geometrica reale - senza
+      un valore sufficientemente alto, tutto il contenuto (testo)
+      restava del tutto invisibile pur essendo corretto in ogni altro
+      aspetto (confermato forzando uno sfondo acceso di prova). */
+  }
+  .game-rail-decor .rail-label{ margin-top:9px; } /* stesso allineamento verticale della sidebar */
+  .game-rail-content{ display:flex; flex-direction:column; gap:20px; }
+  .game-rail-content__universe-name{
+    font-size:.82rem; font-weight:700; color:var(--text);
+    margin-bottom:6px;
+  }
+  .game-rail-content__counts{
+    display:flex; flex-direction:column; gap:3px;
+    font-size:.78rem; color:var(--text-dim);
   }
   body[data-panels="hover"] .game-rail-decor{
     background:transparent; border-color:transparent;
