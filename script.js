@@ -941,6 +941,14 @@ function renderGamePanel(){
       il contenuto si estende fino al vero margine destro (25px), non fino a
       var(--rail-width) come nelle pagine con rail visibile */
 
+    // Niente animazione di ingresso per la striscia avatar/titolo/
+    // blurb qui - mai richiesta su queste pagine (a differenza di
+    // tutte le altre, dove resta voluta). Con l'animazione tolta,
+    // l'header e' gia' nella sua posizione finale nello stesso
+    // istante in cui viene misurato piu' sotto: niente piu' bisogno
+    // di rincorrerne la fine.
+    if(el.gameHeader) el.gameHeader.classList.add("game-header--static");
+
     // Il testo delle pagine "nessuna timeline" (es. Doom) partiva
     // 50px prima del bordo sinistro vero (Discord) - segnalato con
     // screenshot: a differenza dell'header/blurb (allineato a Discord
@@ -1010,26 +1018,12 @@ function renderGamePanel(){
         watermarkEl.style.top = top.toFixed(2) + "px";
         watermarkEl.style.right = rightOffset.toFixed(2) + "px";
         watermarkEl.style.height = availableHeight.toFixed(2) + "px";
-
-        // Il bordo dell'header sale dal basso con una piccola
-        // animazione (fadeUp, 0.5s) - misurando la sua posizione
-        // subito al click, prima che l'animazione sia finita, il
-        // fondo reale risultava qualche pixel piu' in alto di quello
-        // finale (~8-9px di scarto misurato) - la filigrana partiva
-        // quindi leggermente PRIMA della riga sotto il blurb invece
-        // di essere a pelo con essa. Rimisurato dopo che l'animazione
-        // e' sicuramente finita, per la sola posizione verticale
-        // (nient'altro: stessi identici right/height di sopra).
-        setTimeout(() => {
-          if(state.gameId !== g.id) return; // l'utente ha gia' cambiato gioco
-          const settledTop = headerBottomEl.getBoundingClientRect().bottom;
-          watermarkEl.style.top = settledTop.toFixed(2) + "px";
-        }, 600);
       }
     }
     return;
   }
 
+  if(el.gameHeader) el.gameHeader.classList.remove("game-header--static");
   el.canonPages.hidden = true;
   Object.values(canonPanels).forEach(panel => { panel.hidden = true; });
   el.universesRow.hidden = false;

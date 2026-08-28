@@ -900,6 +900,18 @@ body[data-state="landing"] .index-link{ display:flex; }
    anche la timeline "troppo in su/schiacciata"). */
 .canon-pages:not([hidden]){ display:flex; justify-content:flex-start; align-items:flex-start; flex:1; min-height:0; }
 
+/* Nelle pagine "nessuna timeline" (es. Doom) la striscia
+   avatar/titolo/blurb NON deve avere l'animazione di ingresso
+   (fadeUp) che invece resta corretta e voluta su tutte le altre
+   pagine - qui non e' mai stata richiesta, e la sua durata (mezzo
+   secondo) era anche la causa dello scarto rincorso a lungo sulla
+   posizione della filigrana sottostante. Qui la striscia deve essere
+   parte ferma della pagina fin dal primo istante, mai un elemento che
+   "sale" dopo. La classe viene aggiunta/tolta a runtime in
+   script.js/renderGamePanel a seconda che il gioco mostrato abbia o
+   no una timeline. */
+.game-header.game-header--static{ opacity:1 !important; animation:none !important; }
+
 .h-timeline.is-scrollable{ cursor:grab; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }
