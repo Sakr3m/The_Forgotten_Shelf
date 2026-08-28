@@ -1801,3 +1801,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     visibility:hidden;
   }
 }
+
+/* --- DEBUG TEMPORANEO (da rimuovere a richiesta): contorni visibili
+   su tutti gli elementi della pagina Doom, per verificare a occhio le
+   posizioni reali senza dover fidarsi di screenshot fatti da un
+   ambiente che non riesce a caricare le immagini vere di R2. Verde
+   acceso = riquadro della filigrana, giallo = switch lingua (bordo
+   destro di riferimento), ciano = riquadro header/blurb. Scope solo a
+   .canon-page cosi' non tocca nessun'altra pagina del sito. --- */
+.canon-page *{ outline:1px solid rgba(255,0,0,.5) !important; }
+.canon-page .canon-watermark{ outline:4px solid lime !important; }
+.lang-switch{ outline:4px solid yellow !important; }
+.game-header-item:not([hidden]){ outline:4px solid cyan !important; }
