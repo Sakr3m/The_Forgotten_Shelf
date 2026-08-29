@@ -1032,7 +1032,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Universo Limbo City", en: "Limbo City Universe" },
+        name: { it: "Limbo City", en: "Limbo City" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
         entries: [
           { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "2000 anni fa", yearEn: "2,000 years ago", noAvatar: true,
@@ -1186,7 +1186,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Universo Santuario", en: "Sanctuary Universe" },
+        name: { it: "Santuario", en: "Sanctuary" },
         span: { it: "Origini di Santuario – 1336 circa", en: "The Birth of Sanctuary – c. 1336" },
         entries: [
           { id: "birth-of-sanctuary", type: "STORIA", typeEn: "STORY", year: "Secoli prima di Diablo", yearEn: "Centuries before Diablo", noAvatar: true,
