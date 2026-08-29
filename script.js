@@ -1271,7 +1271,7 @@ function renderGamePanel(){
   // (quindi anche quella dei pulsanti, diversi da un universo
   // all'altro) varia da saga a saga. Solo desktop: su mobile questi
   // due pulsanti non esistono nel markup.
-  if(prevBtn && nextBtn && !mobileBreakpoint.matches){
+  {
     const headEl = el.universesRow.querySelector(".u-track__head");
     const nameBlockEl = el.universesRow.querySelector(".u-track__name-block");
     if(headEl && nameBlockEl){
@@ -1285,7 +1285,19 @@ function renderGamePanel(){
       // nameRect/headRect per le frecce prev/next qui sotto, cosi'
       // restano ancorate ai bordi del nome nella sua posizione finale,
       // non in quella pre-spostamento.
-      if(el.discordLink && el.langSwitch){
+      //
+      // Sganciato dalla presenza delle frecce prev/next (bug trovato
+      // 29/08): prima questo intero blocco viveva dentro
+      // "if(prevBtn && nextBtn && ...)", quindi scattava SOLO per le
+      // saghe con piu' di un universo. Le 14 saghe con un solo
+      // universo (Diablo, Ace Combat, Elder Scrolls, ecc.) restavano
+      // centrate in un contenitore diverso e piu' largo, causando lo
+      // "scatto" visibile passando da una saga all'altra anche con
+      // nomi di lunghezza quasi identica (es. "Limbo City" vs
+      // "Santuario"). Il centraggio del nome ora e' incondizionato;
+      // solo il posizionamento delle frecce (che non esistono senza
+      // multi) resta dentro il suo blocco.
+      if(el.discordLink && el.langSwitch && !mobileBreakpoint.matches){
         headEl.style.marginLeft = "0px";
         headEl.style.width = "";
         const headRectBefore = headEl.getBoundingClientRect();
@@ -1296,14 +1308,16 @@ function renderGamePanel(){
         headEl.style.width = (langRectHead.right - discordRectHead.left).toFixed(2) + "px";
       }
 
-      prevBtn.style.left = "";
-      nextBtn.style.left = "";
-      const headRect = headEl.getBoundingClientRect();
-      const nameRect = nameBlockEl.getBoundingClientRect();
-      const prevWidth = prevBtn.getBoundingClientRect().width;
-      const GAP = 100;
-      prevBtn.style.left = (nameRect.left - headRect.left - GAP - prevWidth).toFixed(2) + "px";
-      nextBtn.style.left = (nameRect.right - headRect.left + GAP).toFixed(2) + "px";
+      if(prevBtn && nextBtn && !mobileBreakpoint.matches){
+        prevBtn.style.left = "";
+        nextBtn.style.left = "";
+        const headRect = headEl.getBoundingClientRect();
+        const nameRect = nameBlockEl.getBoundingClientRect();
+        const prevWidth = prevBtn.getBoundingClientRect().width;
+        const GAP = 100;
+        prevBtn.style.left = (nameRect.left - headRect.left - GAP - prevWidth).toFixed(2) + "px";
+        nextBtn.style.left = (nameRect.right - headRect.left + GAP).toFixed(2) + "px";
+      }
     }
   }
 
