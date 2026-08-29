@@ -34,7 +34,7 @@ const GAMES = {
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
         span: { it: "1995 – 2040", en: "1995 – 2040" },
         entries: [
-          { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Insurrezione delle Isole Skully)", yearEn: "1995 (Skully Islands Insurrection)", releaseYear: "1995", releaseYearEn: "1995",
+          { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Air Combat", en: "Air Combat" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Air%20Combat.jpg",
             synopsis: {
@@ -42,7 +42,7 @@ const GAMES = {
               en: "A squadron of mercenary pilots is hired to liberate the Skully Islands, seized by a terrorist organization that has taken control of them. The game that opened the series, retroactively set on the same Strangereal Earth."
             }
           },
-          { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995 (Guerra di Belka)", releaseYear: "2006", releaseYearEn: "2006",
+          { id: "ace-zero", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Ace Combat Zero: The Belkan War", en: "Ace Combat Zero: The Belkan War" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Zero%20The%20Belkan%20War.jpg",
             synopsis: {
@@ -50,12 +50,12 @@ const GAMES = {
               en: "Mercenary pilot Cipher fights in the Belkan War, a conflict sparked by years of internal economic crisis that pushed the principality to invade its former territories to reclaim lost resources, alongside his wingman Pixy. In the finale, unable to withstand the allied coalition's advance, Belka detonates seven nuclear warheads on its own territory rather than surrender — an event whose shadow looms over every subsequent conflict in the continuity."
             }
           },
-          { id: "ace-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996 (Colpo di Stato Useano)", yearEn: "1996 (Usean Coup d'État)", releaseYear: "1997", releaseYearEn: "1997",
+          { id: "ace-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996", yearEn: "1996", releaseYear: "1997 (Remake: 2011)", releaseYearEn: "1997 (Remake: 2011)",
             title: { it: "Ace Combat 2", en: "Ace Combat 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%202.jpg",
             synopsis: {
-              it: "Il mercenario Phoenix, alla guida dello Squadrone Scarface, viene ingaggiato dalle Forze Alleate Useane per fermare l'avanzata delle Forze Ribelli durante il colpo di stato che ha sconvolto il continente di Usea, ribaltando le sorti del conflitto fino alla vittoria finale a Fortress Intolerance.",
-              en: "Mercenary pilot Phoenix, leading Scarface Squadron, is hired by the Usean Allied Forces to halt the advance of the Usean Rebel Forces during the coup d'état that has thrown the continent of Usea into chaos, turning the tide of the conflict all the way to the final victory at Fortress Intolerance."
+              it: "Il mercenario Phoenix, alla guida dello Squadrone Scarface, viene ingaggiato dalle Forze Alleate Useane per fermare l'avanzata delle Forze Ribelli durante il colpo di stato che ha sconvolto il continente di Usea, ribaltando le sorti del conflitto fino alla vittoria finale a Fortress Intolerance.\\n\\nNota — Remake 2011: uscito su Nintendo 3DS col titolo Ace Combat: Assault Horizon Legacy, espande la trama originale radicando le cause della rivolta useana nel dopoguerra della Guerra di Belka, e aggiorna il gameplay con elementi presi dai capitoli successivi della serie (chiamate radio in stile Ace Combat 04, personalizzazione dei velivoli come in Ace Combat X, scontri con squadroni assi come in Ace Combat Zero).",
+              en: "Mercenary pilot Phoenix, leading Scarface Squadron, is hired by the Usean Allied Forces to halt the advance of the Usean Rebel Forces during the coup d'état that has thrown the continent of Usea into chaos, turning the tide of the conflict all the way to the final victory at Fortress Intolerance.\\n\\nNote — Remake 2011: released on Nintendo 3DS under the title Ace Combat: Assault Horizon Legacy, it expands the original plot by rooting the causes of the Usean uprising in the aftermath of the Belkan War, and updates the gameplay with elements drawn from later entries in the series (radio chatter in the style of Ace Combat 04, aircraft customization as in Ace Combat X, ace squadron battles as in Ace Combat Zero)."
             }
           },
           { id: "impatto-ulisse", type: "STORIA", typeEn: "STORY", year: "3–20 luglio 1999", yearEn: "July 3–20, 1999",
@@ -66,7 +66,7 @@ const GAMES = {
               en: "First detected four years earlier and confirmed to be on a collision course with Earth, the asteroid Ulysses crosses the Roche limit and breaks apart: despite interception attempts, the surviving fragments rain down on the Usean continent over the following weeks, killing over half a million people in the first days alone and reducing entire regions to rubble. Millions of displaced people seek refuge in neighbouring countries, while the hardest-hit nations slide toward economic collapse and those spared by the impact emerge paradoxically stronger. The resulting humanitarian crisis and power imbalances will reshape the world's geopolitics for the next two decades."
             }
           },
-          { id: "ace-04", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2003 – 2005 (Guerra Continentale)", releaseYear: "2001", releaseYearEn: "2001",
+          { id: "ace-04", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2003 – 2005", releaseYear: "2001", releaseYearEn: "2001",
             title: { it: "Ace Combat 04: Shattered Skies", en: "Ace Combat 04: Shattered Skies" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%2004%20Shattered%20Skies.jpg",
             synopsis: {
@@ -82,7 +82,7 @@ const GAMES = {
               en: "In the aftermath of the Continental War, Osea and Yuktobania — once allies, then increasingly wary rivals — embark on an unprecedented diplomatic rapprochement: they scale back their military arsenals, dismantle part of their weapons of mass destruction, and even collaborate on joint space development projects. For a few years the détente holds, and the two nations appear headed toward a lasting peace. It is precisely this painstakingly rebuilt trust that leaves both countries vulnerable when someone decides to shatter it with a surprise attack."
             }
           },
-          { id: "ace-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010 (Guerra del Circum-Pacifico)", releaseYear: "2004", releaseYearEn: "2004",
+          { id: "ace-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "Ace Combat 5: The Unsung War", en: "Ace Combat 5: The Unsung War" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%205%20The%20Unsung%20War.jpg",
             synopsis: {
@@ -98,7 +98,7 @@ const GAMES = {
               en: "Hit hard by the Ulysses impact, Estovakia sees its economy collapse and its infrastructure pushed to breaking point, while neighbouring Emmeria, struck by the same crisis but left largely unscathed, recovers quickly. The gap between the two nations fuels deep resentment: a civil war breaks out in Estovakia, from which a military junta emerges — nicknamed 'The Generals' by the population — consolidating power by promising to restore the country's lost strength. Over the following years the junta secretly rearms its military, determined to settle by force what diplomacy can no longer afford."
             }
           },
-          { id: "ace-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015 (Guerra Emmeria-Estovacchia)", releaseYear: "2007", releaseYearEn: "2007",
+          { id: "ace-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "Ace Combat 6: Fires of Liberation", en: "Ace Combat 6: Fires of Liberation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%206%20Fires%20of%20Liberation.jpg",
             synopsis: {
@@ -114,12 +114,26 @@ const GAMES = {
               en: "In the aftermath of the Continental War, Erusea recovers from defeat with surprising speed, expanding its borders to absorb several small neighbouring states, including an ancient duchy whose royal family is deposed by the expansion. Within the renewed military apparatus, an ambitious research programme takes shape, aimed at developing autonomous combat drones capable of replacing human pilots in battle. Meanwhile the international community completes a space elevator designed to counter future threats from space. The territorial tensions and mutual distrust accumulated over these years will erupt, in 2019, into a new continent-wide conflict."
             }
           },
-          { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019 (Guerra del Faro)", releaseYear: "2019", releaseYearEn: "2019",
+          { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Ace Combat 7: Skies Unknown", en: "Ace Combat 7: Skies Unknown" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%207%20Skies%20Unknown.jpg",
             synopsis: {
               it: "Il pilota Trigger, incarcerato ingiustamente in un'unità penale dopo essere stato incolpato di un crimine mai commesso, viene reintegrato come pilota di riserva quando droni da combattimento autonomi e due enormi Arsenal Bird catturate ribaltano l'equilibrio della guerra a sfavore di Osea. Al comando del Long Range Strategic Strike Group, Trigger risale il fronte fino a riconquistare la capitale eruseana, affrontando più volte in duello il leggendario asso Mihaly A. Shilage, mentre una fazione interna a Erusea si ribella ai vertici radicali che hanno voluto la guerra. Si chiude con la resa firmata a Expo City.",
               en: "Pilot Trigger, wrongfully imprisoned in a penal unit after being framed for a crime he never committed, is reinstated as a reserve pilot when autonomous combat drones and two massive captured Arsenal Birds tip the war decisively against Osea. Commanding the Long Range Strategic Strike Group, Trigger pushes the front back and recaptures the Erusean capital, repeatedly dueling the legendary ace Mihaly A. Shilage, while a faction within Erusea rebels against the radical leadership that wanted the war. It closes with a surrender signed at Expo City."
+            }
+          },
+          { id: "ace-xi", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2020", yearEn: "2020", releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Ace Combat Xi: Skies of Incursion", en: "Ace Combat Xi: Skies of Incursion" },
+            synopsis: {
+              it: "Lo Squadrone Falco, unità sperimentale della Federal Republic of Aurelia, affronta le prime fasi dell'invasione lanciata dalla Democratic Republic of Leasath, che nel giro di pochi giorni conquista gran parte del territorio aureliano grazie alla schiacciante potenza della fortezza volante Gleipnir, portando la guerra fino alle porte della capitale Grinswall.",
+              en: "The Falco Squadron, an experimental unit of the Federal Republic of Aurelia, faces the opening phase of the invasion launched by the Democratic Republic of Leasath, which within days overruns most of Aurelian territory thanks to the overwhelming power of the flying fortress Gleipnir, pushing the war to the gates of the capital Grinswall."
+            }
+          },
+          { id: "ace-x", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2020", yearEn: "2020", releaseYear: "2006", releaseYearEn: "2006",
+            title: { it: "Ace Combat X: Skies of Deception", en: "Ace Combat X: Skies of Deception" },
+            synopsis: {
+              it: "Nella seconda fase della Guerra Aureliana, il pilota Gryphus 1 guida la controffensiva delle forze aureliane superstiti contro l'invasione della Democratic Republic of Leasath, mentre il giornalista Albert Genette scopre che dietro la falsa accusa che ha scatenato il conflitto si nasconde l'interesse personale del generale Diego Gaspar Navarro nel commercio di armi. Il conflitto si chiude con la sconfitta di Leasath e la liberazione del territorio aureliano.",
+              en: "In the second phase of the Aurelian War, pilot Gryphus 1 leads the counteroffensive of the surviving Aurelian forces against the invasion of the Democratic Republic of Leasath, while journalist Albert Genette uncovers that behind the false accusation that sparked the conflict lies General Diego Gaspar Navarro's personal interest in arms dealing. The conflict ends with Leasath's defeat and the liberation of Aurelian territory."
             }
           },
           { id: "ace-8", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2029 (in uscita)", yearEn: "2029 (upcoming)", releaseYear: "2026", releaseYearEn: "2026",
@@ -132,14 +146,16 @@ const GAMES = {
             // suo interno - promemoria visivo per tornarci ad ottobre
             // con sinossi vera E immagine.
             imagePending: true,
-            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" },
-            // releaseDateISO (29/08): usata da checkUpcomingReleases
-            // in script.js per il promemoria Discord automatico -
-            // testata con successo con una data finta nel passato,
-            // ora rimessa alla vera data di uscita.
-            releaseDateISO: "2026-10-02"
+            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" }
           },
-          { id: "ace-3-electrosphere", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Gennaio – luglio 2040 (Guerra Intercorporativa)", yearEn: "January – July 2040 (Intercorporate War)", releaseYear: "1999", releaseYearEn: "1999",
+          { id: "ace-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2032", yearEn: "2032", releaseYear: "2005", releaseYearEn: "2005",
+            title: { it: "Ace Combat Advance", en: "Ace Combat Advance" },
+            synopsis: {
+              it: "Otto anni prima della Guerra Intercorporativa, le megacorporazioni hanno ormai eroso il potere degli stati nazionali sul continente useano. Un pilota della United Air Defense, l'alleanza formata dalle ultime repubbliche indipendenti rimaste, affronta la Air Strike Force della General Resource, decisa a sottometterle con la forza per estendere il proprio controllo economico e territoriale.",
+              en: "Eight years before the Intercorporate War, megacorporations have already eroded the power of nation-states across the Usean continent. A pilot of the United Air Defense, an alliance formed by the last remaining independent republics, fights General Resource's Air Strike Force, determined to subjugate them by force to expand its economic and territorial control."
+            }
+          },
+          { id: "ace-3-electrosphere", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Gennaio – luglio 2040", yearEn: "January – July 2040", releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Ace Combat 3: Electrosphere", en: "Ace Combat 3: Electrosphere" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%203%20Electrosphere.jpg",
             synopsis: {
