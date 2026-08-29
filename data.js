@@ -132,7 +132,13 @@ const GAMES = {
             // suo interno - promemoria visivo per tornarci ad ottobre
             // con sinossi vera E immagine.
             imagePending: true,
-            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" }
+            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" },
+            // TEST (29/08): data volutamente nel passato per far
+            // scattare subito checkUpcomingReleases/handleReleaseReached
+            // e verificare che il promemoria Discord arrivi davvero.
+            // Da rimettere a "2026-10-02" (la vera data di uscita)
+            // appena confermato che funziona.
+            releaseDateISO: "2026-08-28"
           },
           { id: "ace-3-electrosphere", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Gennaio – luglio 2040 (Guerra Intercorporativa)", yearEn: "January – July 2040 (Intercorporate War)", releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Ace Combat 3: Electrosphere", en: "Ace Combat 3: Electrosphere" },
