@@ -1093,10 +1093,17 @@ body[data-state="landing"] .index-link{ display:flex; }
    veri (copertina, titolo, pallino): cosi' hover/click funzionano
    solo dove c'e' davvero qualcosa da vedere o premere. --- */
 .h-node{ pointer-events:none; }
-.h-node__tile, .h-node__title, .h-node__marker{ pointer-events:auto; }
+/* Copertina e titolo erano due zone "auto" separate con un gap
+   vuoto di 10px in mezzo (niente pointer-events li'): il cursore
+   tornava a freccia normale attraversando quello spazio. Ora l'area
+   cliccabile/hover e' il contenitore comune (.h-node__top/__bottom,
+   che raccoglie sia copertina che titolo), cosi' il gap tra i due fa
+   parte della stessa zona e il cursore resta sempre a manina. */
+.h-node__top, .h-node__bottom, .h-node__marker{ pointer-events:auto; cursor:pointer; }
+.h-node__marker{ cursor:default; } /* il pallino resta l'eccezione: solo hover, non cliccabile */
 
 
-.h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; cursor:default; }
+.h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
 .h-node--down .h-node__marker::after{
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
