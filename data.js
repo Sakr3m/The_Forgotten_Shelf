@@ -13,8 +13,8 @@ const GAMES = {
       it: "Nei cieli di un mondo immaginario chiamato Strangereal, piloti da caccia si contendono il controllo di nazioni in guerra. Ogni conflitto nasconde ambizioni politiche, alleanze tradite e superarmi capaci di ribaltare il destino di interi continenti. Al centro di tutto, un asso silenzioso che vola per chi non ha voce.",
       en: "In the skies of a fictional world called Strangereal, fighter pilots fight for control of nations at war. Every conflict hides political ambition, betrayed alliances, and superweapons capable of reshaping the fate of entire continents. At the center of it all, a silent ace who flies for those who have no voice."
     },
-    palette: ["#1a3a5c", "#c9c9c9", "#8b0000"],
-    accentColor: "#1a3a5c",
+    palette: ["#e0813f", "#98a2ab", "#4f8fc0"],
+    accentColor: "#98a2ab",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Linkage.mp3", title: "Linkage", game: "Ace Combat 3: Electrosphere" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20The%20Unsung%20War.mp3", title: "The Unsung War", game: "Ace Combat 5: The Unsung War" },
