@@ -1210,7 +1210,14 @@ body[data-state="landing"] .index-link{ display:flex; }
    "half-leading" asimmetrico che fa apparire il testo leggermente
    piu' in basso del centro reale. Corretto a occhio con un margine
    negativo. */
-.v-node__title{ font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25; margin-top:30px; }
+.v-node__title{
+  display:inline-block; /* senza questo, margin-top su uno <span> inline
+    viene ignorato dal browser per il posizionamento verticale - causa
+    vera per cui nessun valore di margin-top (-2px, -30px, +30px)
+    aveva mai spostato il testo, trovata dopo tre test dal vivo */
+  font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25;
+  margin-top:-2px;
+}
 .v-node:hover .v-node__title{ color:var(--text); }
 .v-node.is-active .v-node__title{ color:var(--text); font-weight:700; }
 .v-node.is-active::before{ background:var(--magenta); box-shadow:0 0 0 3px var(--bg-soft), 0 0 12px rgba(232,121,249,.7); }
