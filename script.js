@@ -1282,19 +1282,52 @@ function renderGamePanel(){
     const freeScrollMode = isLargeUniverse;
 
     const nodes = Array.from(liveTimeline.querySelectorAll(".h-node"));
+    // DOT_RADIUS: meta' del diametro reale del pallino (15px, vedi
+    // .h-node__dot in styles.css) - segnalato con forza, piu' e
+    // piu' volte: TUTTO cio' che costruiamo in queste pagine deve
+    // stare DENTRO i confini Discord (sinistra) <-> switch lingua
+    // (destra), mai oltre - le uniche eccezioni sono quelle
+    // esplicitamente concordate (qui: copertina/titolo, che possono
+    // sporgere un po', vedi EXTRA piu' sotto). Il pallino NON e'
+    // una di quelle eccezioni: deve restare dentro, toccando il
+    // confine con il proprio bordo esterno, non superandolo mai
+    // nemmeno di un pixel col proprio centro.
+    const DOT_RADIUS = 8;
+    // TRACK_OVERFLOW: scarto strutturale, misurato (non indovinato):
+    // .h-node e' una grid a colonna singola, larga 100px per
+    // dichiarazione esplicita - ma .h-node__title e' largo 130px
+    // (.h-node__title, styles.css), e la colonna implicita della
+    // grid si dimensiona sul figlio piu' largo (130px), non sulla
+    // dichiarazione esplicita del contenitore. Risultato verificato
+    // con getBoundingClientRect: sia la copertina che il pallino
+    // (entrambi piu' stretti di 130px) risultano centrati su
+    // quella colonna larga 130px, il cui bordo sinistro coincide
+    // col bordo sinistro del nodo (nessuna centratura li') - quindi
+    // il loro centro reale cade 15px (= (130-100)/2) piu' a destra
+    // del centro "teorico" della casella 100px, in OGNI nodo,
+    // sempre.
+    const TRACK_OVERFLOW = (130 - 100) / 2;
     if(freeScrollMode){
-      // Free/breathing spacing: la regola e' ora 10 (non piu' 8, richiesto
-      // esplicitamente 29/08 per allinearsi a LARGE_UNIVERSE_THRESHOLD):
-      // il gap e' calcolato per mostrare esattamente i primi 10 nodi
-      // nella larghezza disponibile senza scroll - tutto oltre il
-      // decimo scorre. Mai piu' piccolo del gap minimo normale, cosi'
-      // su una finestra desktop stretta non se ne stipano accidentalmente
-      // piu' di 10.
-      liveTimeline.style.justifyContent = "";
-      const minGap = 26 * dotScale;
-      const gapFor10 = (availableWidth - 10 * 100) / 9;
-      liveTimeline.style.gap = Math.max(minGap, gapFor10).toFixed(2) + "px";
-      nodes.forEach(node => { node.style.marginLeft = ""; });
+      // Stessa identica formula "a margini" del ramo fisso qui sotto,
+      // ma calcolata come se ci fossero sempre esattamente 10 voci
+      // (9 intervalli), non in base al numero reale di voci: cosi' i
+      // primi 10 pallini restano allineati esattamente agli stessi
+      // due bordi (Discord/switch lingua) del caso fisso, mai un
+      // pixel oltre. Prima si usava un gap flessibile pensato per un
+      // .h-node largo 100px, ma la colonna reale e' larga 130px
+      // (TRACK_OVERFLOW) - lo scarto ignorato spingeva l'ultimo
+      // pallino visibile oltre il bordo destro, dove la maschera lo
+      // tagliava via del tutto (invisibile). Le voci oltre la decima
+      // proseguono con lo stesso identico passo, uscendo dal bordo
+      // destro: e' li' che comincia lo scroll.
+      liveTimeline.style.justifyContent = "flex-start";
+      liveTimeline.style.gap = "0px";
+      const spacing10 = (availableWidth - 100 - 2 * DOT_RADIUS) / 9;
+      nodes.forEach((node, i) => {
+        node.style.marginLeft = i === 0
+          ? (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px"
+          : (spacing10 - 100).toFixed(2) + "px";
+      });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
@@ -1308,40 +1341,6 @@ function renderGamePanel(){
       // gap or to scrolling.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      // DOT_RADIUS: meta' del diametro reale del pallino (15px, vedi
-      // .h-node__dot in styles.css) - segnalato con forza, piu' e
-      // piu' volte: TUTTO cio' che costruiamo in queste pagine deve
-      // stare DENTRO i confini Discord (sinistra) <-> switch lingua
-      // (destra), mai oltre - le uniche eccezioni sono quelle
-      // esplicitamente concordate (qui: copertina/titolo, che possono
-      // sporgere un po', vedi EXTRA piu' sotto). Il pallino NON e'
-      // una di quelle eccezioni: deve restare dentro, toccando il
-      // confine con il proprio bordo esterno, non superandolo mai
-      // nemmeno di un pixel col proprio centro (come negli ultimi due
-      // giri, entrambi sbagliati - allargare il contenitore per fare
-      // spazio al pallino invece di stringere lo spazio tra i
-      // pallini era esattamente l'errore da non fare). Qui il centro
-      // di ogni pallino viene spostato verso l'interno di questo
-      // raggio ad entrambi gli estremi, cosi' e' il bordo ESTERNO del
-      // pallino - non il suo centro - a toccare esattamente Discord/
-      // switch lingua.
-      const DOT_RADIUS = 8;
-      // TRACK_OVERFLOW: scarto strutturale, misurato (non indovinato):
-      // .h-node e' una grid a colonna singola, larga 100px per
-      // dichiarazione esplicita - ma .h-node__title e' largo 130px
-      // (.h-node__title, styles.css), e la colonna implicita della
-      // grid si dimensiona sul figlio piu' largo (130px), non sulla
-      // dichiarazione esplicita del contenitore. Risultato verificato
-      // con getBoundingClientRect: sia la copertina che il pallino
-      // (entrambi piu' stretti di 130px) risultano centrati su
-      // quella colonna larga 130px, il cui bordo sinistro coincide
-      // col bordo sinistro del nodo (nessuna centratura li') - quindi
-      // il loro centro reale cade 15px (= (130-100)/2) piu' a destra
-      // del centro "teorico" della casella 100px, in OGNI nodo,
-      // sempre. Il giro precedente ignorava questo scarto e
-      // posizionava i pallini 15px oltre il previsto in entrambi gli
-      // estremi.
-      const TRACK_OVERFLOW = (130 - 100) / 2;
       const spacing = nodes.length > 1
         ? (availableWidth - 100 - 2 * DOT_RADIUS) / (nodes.length - 1)
         : 0;
@@ -1426,7 +1425,15 @@ function renderGamePanel(){
       // alcune saghe a seconda del colore). Il taglio vero della
       // fascia stretta ora e' spostato di questo margine, cosi' l'alone
       // del primo e dell'ultimo pallino visibile resta sempre intero.
-      const GLOW_MARGIN = 14;
+      // GLOW_MARGIN (29/08, richiesto esplicitamente, alzato una
+      // seconda volta): l'alone del pallino (box-shadow, .h-node__dot
+      // in styles.css) e' una sfumatura morbida che il browser
+      // disegna con una dissolvenza reale, non un bordo netto: la
+      // stima "spread+blur" (3+10=13px) sottostimava quanto restava
+      // visibile a occhio, la maschera continuava a tranciarne un
+      // pochino. Margine alzato con un extra di sicurezza piu'
+      // generoso, non solo la stima teorica.
+      const GLOW_MARGIN = 24;
       // EXTRA: margine di sicurezza aggiuntivo SOLO per le zone
       // sopra/sotto la riga (dove vivono copertina e titolo, la sola
       // eccezione concordata che PUO' sporgere un po' oltre Discord/
