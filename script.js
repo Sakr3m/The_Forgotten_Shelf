@@ -452,6 +452,12 @@ function findEntry(game, entryId){
   for(const u of game.universes){
     const found = u.entries.find(e => e.id === entryId);
     if(found) return { entry: found, universe: u };
+    // Voce "gemella" (entry.twin): non vive come proprio elemento in
+    // u.entries, ma la sua pagina deve essere raggiungibile per id
+    // esattamente come qualunque altra voce - vedi PARTE 3 punto 2
+    // del regolamento.
+    const twinHost = u.entries.find(e => e.twin && e.twin.id === entryId);
+    if(twinHost) return { entry: twinHost.twin, universe: u };
   }
   return null;
 }
@@ -1650,6 +1656,20 @@ function buildAllTitlePanels(){
         el.titleContent.appendChild(panel);
         titlePanels[entry.id] = { panel, entry, game: g, universe, prevEntry, nextEntry };
         updateTitlePanelText(entry.id);
+
+        // Voce "gemella" (entry.twin): condivide lo stesso punto
+        // sulla linea, quindi anche gli stessi vicini (prev/next) di
+        // chi la ospita - la sua pagina va costruita qui accanto,
+        // non e' un elemento a se' in "entries".
+        if(entry.twin){
+          const twinPanel = document.createElement("div");
+          twinPanel.className = "title-content-item";
+          twinPanel.id = `titleItem-${entry.twin.id}`;
+          twinPanel.hidden = true;
+          el.titleContent.appendChild(twinPanel);
+          titlePanels[entry.twin.id] = { panel: twinPanel, entry: entry.twin, game: g, universe, prevEntry, nextEntry };
+          updateTitlePanelText(entry.twin.id);
+        }
       });
     });
   });
