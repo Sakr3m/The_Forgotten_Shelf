@@ -1176,8 +1176,8 @@ const GAMES = {
       it: "Sopra Sanctuarium infuria da sempre il Conflitto Eterno tra gli Angeli del Paradiso e i Demoni dell'Inferno, con l'umanità intrappolata proprio nel mezzo. I Signori del Terrore, incarnazioni del male puro, cercano di corrompere il mondo mortale dall'interno. Solo eroi comuni, spinti oltre i propri limiti, possono opporsi al.",
       en: "Above Sanctuary rages the Eternal Conflict between the Angels of the High Heavens and the Demons of the Burning Hells, with humanity trapped right in the middle. The Lords of Terror, embodiments of pure evil, seek to corrupt the mortal world from within. Only ordinary heroes, pushed past their limits, can."
     },
-    palette: ["#8b0000", "#1a1a1a", "#c9a227"],
-    accentColor: "#8b0000",
+    palette: ["#2b1810", "#d4581c", "#7a0c0c"],
+    accentColor: "#d4581c",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Banner.jpg",
