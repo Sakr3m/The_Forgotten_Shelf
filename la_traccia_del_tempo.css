@@ -1452,6 +1452,15 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      di .text-highlight non tocca comunque il limite del 70%). --- */
   .title-synopsis{ margin-left:-0.3em; }
 
+  /* --- Stesso trattamento di .title-synopsis qui sopra, applicato ai
+     due paragrafi di testo libero del canonNote (Doom e simili): sono
+     gli unici due, oltre alla sinossi dei titoli, a comparire diretti
+     sopra la filigrana di sfondo (l'eyebrow, l'etichetta e la catena
+     .canon-note__titles hanno gia' un loro sfondo pieno o sono troppo
+     corti per servirsene). Stessa classe .text-highlight, stessa
+     compensazione del padding sinistro. --- */
+  .canon-note__body{ margin-left:-0.3em; }
+
   /* --- Il testo della voce (sinossi): 70% del box (non 75% come nel
      turno precedente - richiesto esplicitamente ora, per lasciare
      piu' spazio alla filigrana di sfondo). Il box stesso non e' piu'

@@ -853,10 +853,10 @@ function updateCanonPanelText(gameId){
     ${g.watermark ? `<div class="canon-watermark" style="background-image:url('${g.watermark}');${g.watermarkSize ? `background-size:${g.watermarkSize};` : ""}${g.watermarkPosition ? `background-position:${g.watermarkPosition};` : ""}${canonWatermarkExtraStyle}"></div>` : ""}
     <div class="canon-note">
       <p class="canon-note__eyebrow">${t("canonNoTimelineLabel")}</p>
-      <p>${tf(g.canonNote.intro)}</p>
+      <p class="canon-note__body"><span class="text-highlight">${tf(g.canonNote.intro)}</span></p>
       <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
       <p class="canon-note__titles">${tf(g.canonNote.titles)}</p>
-      <p>${tf(g.canonNote.outro)}</p>
+      <p class="canon-note__body"><span class="text-highlight">${tf(g.canonNote.outro)}</span></p>
     </div>
   `;
   appendLikeWidget(panel, gameId);
