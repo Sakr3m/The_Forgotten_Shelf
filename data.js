@@ -148,6 +148,14 @@ const GAMES = {
             imagePending: true,
             releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" }
           },
+          { id: "rise-of-the-megacorporations", type: "STORIA", typeEn: "STORY", year: "2020 – 2032", yearEn: "2020 – 2032",
+            noAvatar: true,
+            title: { it: "L'Ascesa delle Megacorporazioni", en: "The Rise of the Megacorporations" },
+            synopsis: {
+              it: "Nel dopoguerra della Guerra Aureliana, mentre Osea e le altre nazioni si concentrano sulla ricostruzione, le megacorporazioni useane General Resource e Neucom Incorporated approfittano del vuoto di potere per espandersi ben oltre il settore militare, rilevando infrastrutture di rete, sviluppando ricerche di nanotecnologia e assumendo un ruolo sempre più centrale nell'economia mondiale. Nel giro di un decennio le due corporazioni superano per potere economico gli stessi governi nazionali, fino a quando, nel 2032, la General Resource dispiega una propria Air Strike Force contro le ultime repubbliche indipendenti riunite nella United Air Defense, aprendo un conflitto diretto tra il vecchio ordine statale e il nuovo potere corporativo.",
+              en: "In the aftermath of the Aurelian War, while Osea and the other nations focus on reconstruction, the Usean megacorporations General Resource and Neucom Incorporated exploit the resulting power vacuum to expand well beyond the military sector, taking over network infrastructure, developing nanotechnology research, and assuming an increasingly central role in the world economy. Within a decade the two corporations surpass national governments themselves in economic power, until, in 2032, General Resource deploys its own Air Strike Force against the last independent republics united in the United Air Defense, opening a direct conflict between the old state order and the new corporate power."
+            }
+          },
           { id: "ace-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2032", yearEn: "2032", releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Ace Combat Advance", en: "Ace Combat Advance" },
             synopsis: {
