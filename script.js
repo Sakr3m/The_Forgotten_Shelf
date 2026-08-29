@@ -616,7 +616,12 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 // stante). Ciascuno trova solo i nodi che gli competono davvero.
 function handleTimelineNodeClick(ev){
   const node = ev.target.closest("a.h-node[data-entry-id]");
-  if(node){ ev.preventDefault(); selectEntry(node.dataset.entryId); }
+  if(!node) return;
+  ev.preventDefault();
+  // Il pallino (.h-node__marker) reagisce solo all'hover, non e'
+  // cliccabile: un click che cade proprio li' non deve navigare.
+  if(ev.target.closest(".h-node__marker")) return;
+  selectEntry(node.dataset.entryId);
 }
 el.universesRow.addEventListener("click", handleTimelineNodeClick);
 if(el.universeTimelineTrack) el.universeTimelineTrack.addEventListener("click", handleTimelineNodeClick);

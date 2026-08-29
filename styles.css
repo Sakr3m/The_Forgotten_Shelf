@@ -1096,7 +1096,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node__tile, .h-node__title, .h-node__marker{ pointer-events:auto; }
 
 
-.h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
+.h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; cursor:default; }
 .h-node--down .h-node__marker::after{
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
