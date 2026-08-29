@@ -1204,7 +1204,13 @@ body[data-state="landing"] .index-link{ display:flex; }
   font-size:.5rem; font-weight:700; text-align:center; color:#ff6b6f; line-height:1.2; padding:0 3px;
 }
 .v-node__meta{ min-width:0; }
-.v-node__title{ font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25; }
+/* Piccolo aggiustamento ottico (28/08, misurato su screenshot):
+   il centro geometrico del box del titolo coincide gia' con quello
+   del tile/pallino, ma il line-height del font lascia ~1.5-2px di
+   "half-leading" asimmetrico che fa apparire il testo leggermente
+   piu' in basso del centro reale. Corretto a occhio con un margine
+   negativo. */
+.v-node__title{ font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25; margin-top:-2px; }
 .v-node:hover .v-node__title{ color:var(--text); }
 .v-node.is-active .v-node__title{ color:var(--text); font-weight:700; }
 .v-node.is-active::before{ background:var(--magenta); box-shadow:0 0 0 3px var(--bg-soft), 0 0 12px rgba(232,121,249,.7); }
