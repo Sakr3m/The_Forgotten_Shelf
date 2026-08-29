@@ -755,23 +755,12 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="landing"]{ overflow:hidden; height:100%; }
   html:has(body[data-state="landing"]){ overflow:hidden; height:100%; }
   body[data-state="landing"] .stage{ overflow-y:hidden; }
-  /* Saga trattata come Home (richiesto esplicitamente), ma SOLO per
-     i giochi con universi veri: se #canonPages e' visibile (Doom,
-     Pokemon e simili - niente timeline ufficiale, solo una lunga
-     spiegazione testuale) il blocco va escluso, altrimenti quel
-     testo finirebbe tagliato e irraggiungibile (era gia' successo,
-     vedi il tentativo precedente rimosso). :has() controlla che
-     #canonPages sia DAVVERO nascosto (hidden), condizione vera solo
-     per i giochi che mostrano l'elenco universi invece della
-     spiegazione. */
-  body[data-state="game"]:has(#canonPages[hidden]){ overflow:hidden; height:100%; }
-  html:has(body[data-state="game"] #canonPages[hidden]){ overflow:hidden; height:100%; }
-  /* .stage ha un proprio overflow-y:auto (condiviso, styles.css) -
-     bloccare solo body/html NON bastava, segnalato con screenshot
-     reali (barra di scroll visibile sul bordo destro): .stage e' un
-     contesto di scroll SEPARATO e indipendente, che body/html non
-     controllano affatto. Stessa condizione :has() di sopra. */
-  body[data-state="game"]:has(#canonPages[hidden]) .stage{ overflow-y:hidden; }
+  /* Saga NON e' piu' trattata come Home (richiesta esplicita del
+     29/08 di tornare a uno scroll libero su questa schermata): tolto
+     il blocco overflow qui sopra, che restava valido SOLO per
+     "landing". #gamePanel/.universes-row sotto ora crescono in
+     altezza naturale col contenuto, e lo scroll torna quello
+     normale e condiviso di .stage (styles.css). */
 
   /* --- Sidebar ("Libreria Timeline"): il titolo resta fisso, SOLO
      la lista dei giochi sotto scorre in verticale quando sono troppi
@@ -1001,43 +990,25 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
   /* ===========================================================
      Screen B (elenco nomi universo, sostituisce la vecchia linea
-     temporale diretta su mobile - stato "game"): #gamePanel diventa
-     una colonna flessibile alta quanto lo schermo meno l'header
-     (49px, stesso valore di .stage{padding-top} qui sopra), cosi'
-     .universes-row (riusata per l'elenco, non piu' per la linea
-     temporale) puo' riempire tutto lo spazio rimanente sotto
-     game-header e distribuire i nomi con spazi uguali - justify-
-     content:space-evenly crea da solo i N+1 spazi uguali richiesti
-     (separatore->primo nome, nome->nome successivo, ultimo
-     nome->fondo pagina), nessun calcolo manuale necessario. La riga
-     separatrice e' un border-top su .universes-row stessa (niente
-     elemento extra nel markup): il gap di 20px dal blurb e' gia'
-     garantito da game-header{margin-bottom:20px} qui sopra, PRIMA
-     del bordo - resta quindi un gap fisso e separato dai gap uguali
-     sottostanti, esattamente come richiesto. Il fondo pagina e'
-     semplicemente il padding-bottom condiviso di .stage (80px,
-     styles.css) - nessun margine aggiuntivo necessario qui.
-     =========================================================== */
+     temporale diretta su mobile - stato "game"): #gamePanel resta
+     una colonna flessibile, ma non piu' vincolata a un'altezza
+     minima di schermo intero ne' a una distribuzione a spazi uguali
+     (richiesta esplicita del 29/08: scroll libero invece di schermata
+     bloccata). .universes-row ora parte allineata in alto, con un
+     padding-top fisso di 25px dalla riga sotto il blurb (il
+     border-bottom di .game-header, condiviso, styles.css) e un gap
+     fisso di 20px tra una voce e la successiva - mai piu' spazi
+     variabili calcolati da space-evenly. Se le voci non riempiono
+     lo schermo resta semplicemente vuoto sotto l'ultima, cosa
+     accettata dato che ora la pagina scorre liberamente. */
   body[data-state="game"] #gamePanel{
     display:flex; flex-direction:column;
-    min-height:calc(100dvh - 66px); /* era 49px, ora allineato al
-      vero padding-top corretto dello stage (vedi fix piu' sopra) -
-      disallineati, il contenuto poteva risultare piu' alto della
-      vera area visibile, causando scroll indesiderato anche con
-      overflow:hidden sugli antenati (bug segnalato: "la schermata
-      non e' bloccata"). */
   }
   body[data-state="game"] .universes-row{
-    flex:1; display:flex; flex-direction:column;
-    justify-content:space-evenly; align-items:center;
-    /* Ripristinato (28/08) allo schema a spazi uguali richiesto di
-      nuovo esplicitamente: con un solo universo, centrato nello
-      spazio rimanente tra la riga sopra e il fondo della pagina; con
-      due (o piu'), lo spazio si divide in parti uguali tra riga->
-      primo, tra i due, e secondo->fondo. justify-content:space-evenly
-      crea da solo gli N+1 spazi uguali richiesti, nessun calcolo
-      manuale necessario - stessa tecnica gia' verificata in un giro
-      precedente di questa sessione. */
+    display:flex; flex-direction:column;
+    align-items:center;
+    padding-top:25px;
+    gap:20px;
   }
   .universe-name-list__item{
     display:flex; flex-direction:column; align-items:center; gap:4px;
