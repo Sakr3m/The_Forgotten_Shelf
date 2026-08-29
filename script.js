@@ -2653,24 +2653,35 @@ initReportModal();
 function checkUpcomingReleases(){
   if(typeof GAMES === "undefined") return;
   const todayISO = new Date().toISOString().slice(0, 10);
+
+  // Manda l'avviso per una singola voce "in arrivo" (helper, cosi'
+  // la logica non va duplicata tra voce normale e voce gemella qui
+  // sotto - vedi PARTE 3 punto 2 del regolamento per il gemello).
+  function notifyIfDue(entry, gameId){
+    if(!entry || !entry.imagePending || !entry.releaseDateISO) return;
+    if(entry.releaseDateISO > todayISO) return; // data non ancora raggiunta
+    fetch("https://the-forgotten-shelf.sl-eternal-lux.workers.dev/release-reached", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        entryId: entry.id,
+        gameId: gameId,
+        title: tf(entry.title),
+        releaseDateISO: entry.releaseDateISO
+      })
+    }).catch(() => {});
+  }
+
   Object.keys(GAMES).forEach(gameId => {
     const g = GAMES[gameId];
     if(!g || !Array.isArray(g.universes)) return; // saghe senza
       // timeline (canonNote, es. Doom) non hanno mai voci imagePending
     g.universes.forEach(uni => {
       (uni.entries || []).forEach(entry => {
-        if(!entry.imagePending || !entry.releaseDateISO) return;
-        if(entry.releaseDateISO > todayISO) return; // data non ancora raggiunta
-        fetch("https://the-forgotten-shelf.sl-eternal-lux.workers.dev/release-reached", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            entryId: entry.id,
-            gameId: gameId,
-            title: tf(entry.title),
-            releaseDateISO: entry.releaseDateISO
-          })
-        }).catch(() => {});
+        notifyIfDue(entry, gameId);
+        notifyIfDue(entry.twin, gameId); // voce gemella (se presente):
+          // controllata a parte, e' un titolo indipendente con il
+          // suo id/data propri, non quelli dell'ospite
       });
     });
   });
