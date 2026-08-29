@@ -761,7 +761,7 @@ const GAMES = {
       {
         id: "iga",
         name: { it: "Universo IGA (Koji Igarashi)", en: "IGA Universe (Koji Igarashi)" },
-        span: { it: "1094 – 2036", en: "1094 – 2036" },
+        span: { it: "1094 – 2037", en: "1094 – 2037" },
         entries: [
           { id: "lament-of-innocence", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1094",
             releaseYear: "2003", releaseYearEn: "2003",
@@ -779,6 +779,14 @@ const GAMES = {
             synopsis: {
               it: "Dracula scatena le sue armate sulla Valacchia decimando persino gli eserciti della Chiesa. I Belmont, esiliati dalla popolazione per i loro poteri soprannaturali, vengono richiamati dalla Chiesa stessa come ultima risorsa. Trevor Belmont accetta l'incarico nonostante il clan sia stato esiliato dalla stessa popolazione che ora invoca il suo aiuto, e percorre la Valacchia in rovina per raggiungere il castello. Lungo la strada libera Grant Danasty, un pirata che Dracula aveva trasformato in mostro dopo che aveva tentato di ribellarsi, e Sypha Belnades, una strega tramutata in pietra da un incantesimo. Si allea inoltre con Alucard, figlio di Dracula che ripudia il padre. I quattro assaltano il castello e Trevor sconfigge Dracula. Alucard, incapace di elaborare il dolore di aver combattuto suo padre, si auto-induce in un sonno profondo. Trevor e Sypha si sposano una volta ristabilita la pace.",
               en: "Dracula unleashes his armies upon Wallachia, decimating even the Church's own soldiers. The Belmont clan, exiled by the people for their supernatural powers, are called upon by the Church itself as a last resort. Trevor Belmont accepts the mission despite his clan having been banished by the very people now begging for his help, and travels through the ravaged countryside toward the castle. Along the way, he frees Grant Danasty, a pirate Dracula had cursed and transformed into a monster after he tried to rebel, and Sypha Belnades, a witch petrified by a spell. He also allies with Alucard, Dracula's son who has turned against his father. The four storm the castle and Trevor defeats Dracula. Alucard, unable to cope with having fought his own father, enters a self-induced slumber. Trevor and Sypha marry once peace is restored."
+            }
+          },
+          { id: "curse-of-darkness-manga", type: "MANGA", typeEn: "MANGA", year: "Poco prima del 1479", yearEn: "Shortly before 1479",
+            releaseYear: "2005 – 2006", releaseYearEn: "2005 – 2006",
+            title: { it: "Akumajō Dracula: Yami no Juin", en: "Akumajō Dracula: Yami no Juin" },
+            synopsis: {
+              it: "Nel villaggio natale di Ted, un bambino la cui madre è morta e il cui padre è partito a combattere l'esercito demoniaco di Dracula, la suora Rosalee si prende cura di uno sconosciuto ferito trovato lungo la strada: è Hector, ex Devil Forgemaster in fuga da un passato che non riesce ad accettare. Quando l'altro generale di Dracula, Isaac, individua Hector e ne scatena la caccia, gli eventi precipitano verso lo scontro che lo spingerà a riprendere i propri poteri, gettando le basi dirette per la vicenda raccontata nel videogioco. Manga in due volumi, dichiarato dalla character designer Ayami Kojima la versione canonica di riferimento per gli eventi precedenti al gioco, più completa e dettagliata del breve fumetto promozionale allegato al preordine giapponese.",
+              en: "In the home village of Ted, a boy whose mother has died and whose father has gone to fight Dracula's demonic army, the nun Rosalee cares for a wounded stranger found by the roadside: Hector, a former Devil Forgemaster fleeing a past he cannot come to terms with. When Dracula's other general, Isaac, tracks Hector down and unleashes his hunt, events spiral toward the confrontation that will push Hector to reclaim his powers, laying the direct groundwork for the story told in the video game. A two-volume manga, declared by character designer Ayami Kojima to be the canonical reference for the events preceding the game, more complete and detailed than the short promotional comic bundled with the Japanese pre-order."
             }
           },
           { id: "curse-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1479",
@@ -906,6 +914,14 @@ const GAMES = {
             synopsis: {
               it: "Un anno dopo Aria of Sorrow, Soma Cruz vive in pace quando viene attaccato da Celia Fortner, leader di un culto convinto che senza un Dark Lord non possa esistere un vero bene nel mondo. Celia ha due candidati per il ruolo: Dmitrii Blinov e Dario Bossi, entrambi nati il giorno della morte di Dracula nel 1999 e dotati di poteri oscuri. Il piano alternativo è far cedere Soma alla sua natura oscura, spingendolo ad abbracciare volontariamente il ruolo di reincarnazione di Dracula. Soma irrompe nel castello costruito dal culto, sconfigge entrambi i candidati e affronta Celia. Nel momento decisivo, Celia fa apparire un doppio di Mina e lo uccide davanti a Soma per farlo sprofondare nell'oscurità. Soma, grazie al talismano di Mina che porta con sé, riconosce l'inganno, mantiene la propria umanità e sconfigge il Chaos, la forza primordiale che alimenta il potere del Dark Lord. Dracula non risorge. Soma e Mina si riconoscono i propri sentimenti.",
               en: "One year after Aria of Sorrow, Soma Cruz is living in peace when he is attacked by Celia Fortner, the leader of a cult that believes true good cannot exist without a Dark Lord to oppose it. Celia has two candidates for the role: Dmitrii Blinov and Dario Bossi, both born on the day of Dracula's death in 1999 and gifted with dark powers. Her backup plan is to push Soma into embracing his nature as Dracula's reincarnation. Soma storms the castle built by the cult, defeats both candidates, and confronts Celia. At the decisive moment, Celia conjures a double of Mina and kills her in front of Soma to drag him into darkness. Soma, protected by Mina's talisman, sees through the deception, holds on to his humanity, and destroys Chaos, the primordial force fuelling the Dark Lord's power. Dracula does not rise. Soma and Mina acknowledge their feelings for each other."
+            }
+          },
+          { id: "kabuchi-no-tsuisokyoku", type: "ROMANZO", typeEn: "NOVEL", year: "2037", yearEn: "2037",
+            releaseYear: "2008", releaseYearEn: "2008",
+            title: { it: "Akumajō Dracula: Kabuchi no Tsuisōkyoku", en: "Akumajō Dracula: Kabuchi no Tsuisōkyoku" },
+            synopsis: {
+              it: "Un anno dopo la fine pacifica di Dawn of Sorrow, il giovane cacciatore Curtis Lang, allievo di Julius Belmont, e la sua compagna Michelle Danasty, discendente di Grant Danasty, affrontano Olrox, un ex servitore vampiro di Dracula divenuto signore del castello e deciso a conquistare tanto il mondo umano quanto il Chaos. Il romanzo, supervisionato dallo stesso Koji Igarashi, conferma ufficialmente che il finale buono di Dawn of Sorrow è quello canonico: Soma Cruz non è diventato Dracula, e la stirpe del conte resta sigillata.",
+              en: "One year after Dawn of Sorrow's peaceful ending, young hunter Curtis Lang, apprentice to Julius Belmont, and his partner Michelle Danasty, a descendant of Grant Danasty, confront Olrox, a former vampire servant of Dracula's who has become lord of the castle and is determined to conquer both the human world and Chaos. The novel, supervised by Koji Igarashi himself, officially confirms that Dawn of Sorrow's good ending is the canonical one: Soma Cruz did not become Dracula, and the Count's bloodline remains sealed."
             }
           }
         ]
