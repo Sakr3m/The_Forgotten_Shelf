@@ -312,6 +312,29 @@ function generaTimeline(dati){
   const backHrefBase = "../../../la_traccia_del_tempo.html";
   let count = 0;
 
+  // Genera la pagina statica di una singola voce (usata sia per una
+  // voce normale sia per una voce "gemella", entry.twin - vedi
+  // sotto). Estratta in una funzione a parte perche' va richiamata
+  // due volte per un nodo gemello, una per ciascuna meta'.
+  function generaPaginaVoce(entry, sagaId, nomeSaga, outDir){
+    if(!entry.synopsis || !entry.synopsis.it || !entry.synopsis.it.trim()) return false;
+
+    scriviPagina(path.join(outDir, `${entry.id}.html`), {
+      LANG: "it",
+      TITLE: escapeHtml(`${entry.title.it} — ${nomeSaga}`),
+      PAGE_TITLE: escapeHtml(`${entry.title.it} — ${nomeSaga} | The Forgotten Shelf`),
+      DESCRIPTION: escapeHtml(truncate(stripHtml(entry.synopsis.it), 155)),
+      CANONICAL: `${SITE_URL}voci/la-traccia-del-tempo/${sagaId}/${entry.id}.html`,
+      SECTION_LABEL: `La Traccia del Tempo — ${nomeSaga}`,
+      BACK_HREF: backHrefBase,
+      BACK_LABEL: "La Traccia del Tempo",
+      SUBTITLE_HTML: `<p class="subtitle">${escapeHtml(entry.type)} — ${escapeHtml(entry.year)}</p>`,
+      BODY_HTML: paragrafiHtml(entry.synopsis.it),
+      CTA_LABEL: `Esplora tutta la linea temporale di ${escapeHtml(nomeSaga)} →`
+    });
+    return true;
+  }
+
   dati.GAME_ORDER.forEach(sagaId => {
     const saga = dati.GAMES[sagaId];
     if(!saga || !saga.universes) return; // saghe noTimeline (Doom, Pokemon, ecc.) non hanno voci singole
@@ -320,22 +343,13 @@ function generaTimeline(dati){
 
     saga.universes.forEach(universo => {
       (universo.entries || []).forEach(entry => {
-        if(!entry.synopsis || !entry.synopsis.it || !entry.synopsis.it.trim()) return;
-
-        scriviPagina(path.join(outDir, `${entry.id}.html`), {
-          LANG: "it",
-          TITLE: escapeHtml(`${entry.title.it} — ${nomeSaga}`),
-          PAGE_TITLE: escapeHtml(`${entry.title.it} — ${nomeSaga} | The Forgotten Shelf`),
-          DESCRIPTION: escapeHtml(truncate(stripHtml(entry.synopsis.it), 155)),
-          CANONICAL: `${SITE_URL}voci/la-traccia-del-tempo/${sagaId}/${entry.id}.html`,
-          SECTION_LABEL: `La Traccia del Tempo — ${nomeSaga}`,
-          BACK_HREF: backHrefBase,
-          BACK_LABEL: "La Traccia del Tempo",
-          SUBTITLE_HTML: `<p class="subtitle">${escapeHtml(entry.type)} — ${escapeHtml(entry.year)}</p>`,
-          BODY_HTML: paragrafiHtml(entry.synopsis.it),
-          CTA_LABEL: `Esplora tutta la linea temporale di ${escapeHtml(nomeSaga)} →`
-        });
-        count++;
+        if(generaPaginaVoce(entry, sagaId, nomeSaga, outDir)) count++;
+        // Voce "gemella" (entry.twin): condivide lo stesso pallino
+        // sulla linea ma e' un titolo a se', con la sua pagina
+        // indicizzabile propria - va generata qui accanto, non e'
+        // un elemento a se' in universo.entries. Vedi PARTE 3 punto
+        // 2 del regolamento.
+        if(entry.twin && generaPaginaVoce(entry.twin, sagaId, nomeSaga, outDir)) count++;
       });
     });
   });
