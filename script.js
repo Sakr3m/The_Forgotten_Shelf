@@ -41,7 +41,7 @@ const STRINGS = {
     universeLabel: "Universo",
     backToTimeline: "Indietro",
     backToGamePrefix: "Torna a",
-    canonTitlesLabel: "La progressione più accreditata segue questi titoli, nell'ordine:",
+    canonTitlesLabel: "La cronologia più accreditata tra i fan è consultabile nella linea temporale qui a destra.",
     canonNoTimelineLabel: "Nessuna timeline ufficiale",
     factReleaseDate: "Uscita",
     titleDateSetting: "Ambientato",
@@ -80,7 +80,7 @@ const STRINGS = {
     universeLabel: "Universe",
     backToTimeline: "Back",
     backToGamePrefix: "Back to",
-    canonTitlesLabel: "The most widely accepted progression follows these titles, in order:",
+    canonTitlesLabel: "The chronology most widely accepted by fans can be found in the timeline to the right.",
     canonNoTimelineLabel: "No official timeline",
     factReleaseDate: "Released",
     titleDateSetting: "Set in",
@@ -854,9 +854,8 @@ function updateCanonPanelText(gameId){
     <div class="canon-note">
       <p class="canon-note__eyebrow">${t("canonNoTimelineLabel")}</p>
       <p class="canon-note__body"><span class="text-highlight">${tf(g.canonNote.intro)}</span></p>
-      <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
-      <p class="canon-note__titles">${tf(g.canonNote.titles)}</p>
       <p class="canon-note__body"><span class="text-highlight">${tf(g.canonNote.outro)}</span></p>
+      <p class="canon-note__titles-label">${t("canonTitlesLabel")}</p>
     </div>
   `;
   appendLikeWidget(panel, gameId);
@@ -911,6 +910,10 @@ const MEDIA_TYPE_LABELS_EN = {
 // funzionerebbe gia' identica su qualunque altro gioco.
 function renderGameRailInfo(g){
   if(!el.gameRailLabel || !el.gameRailContent) return;
+  if(g.canonNote && Array.isArray(g.canonNote.chain)){
+    renderCanonPseudoRail(g);
+    return;
+  }
   if(!Array.isArray(g.universes)){ el.gameRailContent.innerHTML = ""; el.gameRailLabel.textContent = ""; return; }
   el.gameRailLabel.textContent = state.lang === "it" ? "Composizione" : "Composition";
   const labels = state.lang === "it" ? MEDIA_TYPE_LABELS_IT : MEDIA_TYPE_LABELS_EN;
@@ -933,6 +936,34 @@ function renderGameRailInfo(g){
     </div>`;
   }).join("");
   el.gameRailContent.innerHTML = html;
+}
+
+// Caso speciale (Doom e altri giochi senza timeline vera, g.canonNote):
+// la tabella a destra, altrimenti vuota per mancanza di universi/voci
+// reali, ospita invece la catena pseudo-cronologica gia' presente nel
+// testo (g.canonNote.chain), nello stesso stile verticale del rail
+// delle pagine titolo (.rail-track/.v-node: pallino, linea
+// connettrice, riquadro immagine o monogramma, titolo) - qui pero'
+// senza link ne' interattivita' (non esiste una pagina propria per
+// ciascuna voce di questa lista, e' testo ricostruito, non un vero
+// catalogo di voci). Riusa tileInnerHTML/tileMissingClass, identiche
+// a quelle del rail vero: quando in futuro queste voci riceveranno
+// un campo "image", compare da sola, nessun cambiamento di codice
+// necessario qui.
+function renderCanonPseudoRail(g){
+  el.gameRailLabel.textContent = state.lang === "it" ? "Linea Temporale (non ufficiale)" : "Timeline (unofficial)";
+  const rows = g.canonNote.chain.map(entry => {
+    const tileHTML = `<span class="v-node__tile${tileMissingClass(entry, "v-node__tile")}">${tileInnerHTML(entry)}</span>`;
+    return `
+      <div class="v-node v-node--static">
+        ${tileHTML}
+        <span class="v-node__meta">
+          <span class="v-node__title">${tf(entry.title)}</span>
+        </span>
+      </div>
+    `;
+  }).join("");
+  el.gameRailContent.innerHTML = `<div class="rail-track">${rows}</div>`;
 }
 
 function renderGamePanel(){

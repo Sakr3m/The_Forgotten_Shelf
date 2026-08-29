@@ -1228,6 +1228,13 @@ body[data-state="landing"] .index-link{ display:flex; }
 .v-node:hover .v-node__title{ color:var(--text); }
 .v-node.is-active .v-node__title{ color:var(--text); font-weight:700; }
 .v-node.is-active::before{ background:var(--magenta); box-shadow:0 0 0 3px var(--bg-soft), 0 0 12px rgba(232,121,249,.7); }
+/* Righe del pseudo-timeline (Doom e simili, tabella decorativa a
+   destra): stesso identico markup/aspetto di un .v-node vero, ma non
+   cliccabili ne' navigabili (non esiste una pagina propria per queste
+   voci ricostruite). Niente cambio colore/cursore al passaggio del
+   mouse, per non promettere un'interazione che non c'e'. */
+.v-node--static{ cursor:default; }
+.v-node--static:hover .v-node__title{ color:var(--text-dim); }
 
 /* Nodo "gemello" nella tabella (29/08): due media sullo stesso punto,
    mostrati come due righe impilate invece di una - il pallino
