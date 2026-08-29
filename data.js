@@ -400,6 +400,14 @@ const GAMES = {
               en: "During the Peloponnesian War between Athens and Sparta, the misthios (mercenary) Kassandra or Alexios, descendant of Leonidas I of Sparta and bearer of one of his spears forged from a Piece of Eden, travels across ancient Greece piecing their scattered family back together and clashing with the Cult of Kosmos, a secret organisation and ancestor of the Order of the Ancients that manipulates the war from the shadows for its own profit. The chronologically oldest game in the series, set centuries before the Brotherhood's official founding."
             }
           },
+          { id: "desert-oath", type: "ROMANZO", typeEn: "NOVEL", year: "70 a.C.", yearEn: "70 BC",
+            releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Assassin's Creed: Origins – Desert Oath", en: "Assassin's Creed: Origins – Desert Oath" },
+            synopsis: {
+              it: "Nel 70 a.C., anni prima di diventare l'ultimo Medjay d'Egitto, il giovane Bayek lascia il villaggio di Siwa per seguire le tracce del padre Sabu, protettore della città, partito senza spiegazioni per dare la caccia a un sicario che sta sterminando sistematicamente gli ultimi membri dell'antico ordine dei Medjay. Il viaggio lungo il Nilo porta Bayek a scoprire il complotto dietro la purga e a stringere un legame sempre più profondo con la futura moglie Aya, gettando le basi del suo destino di protettore dell'Egitto.",
+              en: "In 70 BC, years before becoming Egypt's last Medjay, young Bayek leaves the village of Siwa to follow the trail of his father Sabu, the town's protector, who has departed without explanation to hunt down an assassin systematically wiping out the last members of the ancient Medjay order. The journey along the Nile leads Bayek to uncover the conspiracy behind the purge and to forge an ever-deeper bond with his future wife Aya, laying the foundations of his destiny as Egypt's protector."
+            }
+          },
           { id: "origins", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "49 a.C. – 44 a.C.",
             releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Assassin's Creed Origins", en: "Assassin's Creed Origins" },
@@ -414,8 +422,16 @@ const GAMES = {
       {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
-        span: { it: "861 – 878", en: "861 – 878" },
+        span: { it: "824 – 878", en: "824 – 878" },
         entries: [
+          { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
+            releaseYear: "2023", releaseYearEn: "2023",
+            title: { it: "Assassin's Creed: Mirage – Daughter of No One", en: "Assassin's Creed: Mirage – Daughter of No One" },
+            synopsis: {
+              it: "Nell'824, decenni prima di diventare la mentore di Basim Ibn Ishaq, la giovane Roshan viene liberata dal carcere del Cairo da uno sconosciuto incappucciato e arruolata in una banda di ladri assemblata per rubare un misterioso manufatto in transito sulla Via della Seta verso la Persia. Nel corso del colpo, tra tradimenti e rivelazioni sul proprio passato, Roshan scopre per la prima volta l'esistenza dei Nascosti e il destino che la attende.",
+              en: "In 824, decades before becoming Basim Ibn Ishaq's mentor, young Roshan is freed from a Cairo prison by a hooded stranger and recruited into a crew of thieves assembled to steal a mysterious artefact being transported along the Silk Road toward Persia. In the course of the heist, amid betrayals and revelations about her own past, Roshan discovers for the first time the existence of the Hidden Ones and the destiny awaiting her."
+            }
+          },
           { id: "mirage", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "861",
             releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Assassin's Creed Mirage", en: "Assassin's Creed Mirage" },
@@ -425,6 +441,14 @@ const GAMES = {
               en: "In Baghdad's Abbasid Golden Age, the young street thief Basim Ibn Ishaq is recruited by the Hidden Ones after discovering a mysterious, recurring connection to visions of an ancient crow. Under the guidance of his mentor Roshan, Basim rises through the organisation's ranks confronting the Order of the Ancients entrenched within the Caliphate's bureaucracy, ultimately becoming a fully-fledged Hidden One — unaware, in this chapter, of his true nature, revealed only in Valhalla. A deliberate return to the series' stealth roots, after the drift toward RPG mechanics in Origins/Odyssey/Valhalla."
             }
           },
+          { id: "golden-city", type: "ROMANZO", typeEn: "NOVEL", year: "867", yearEn: "867",
+            releaseYear: "2023", releaseYearEn: "2023",
+            title: { it: "Assassin's Creed: The Golden City", en: "Assassin's Creed: The Golden City" },
+            synopsis: {
+              it: "Nell'867, l'allievo Hytham raggiunge il proprio mentore Basim Ibn Ishaq a Costantinopoli per sventare un complotto dell'Ordine degli Antichi: l'imperatore Basilio I progetta di far uccidere il proprio giovane co-imperatore e figlio Leone per consolidare il potere. Mentre indaga la cospirazione insieme all'imperatrice Eudocia Ingerina, Hytham riceve dalla Confraternita l'incarico segreto di valutare se le ossessioni personali di Basim lo stiano allontanando dal credo dei Nascosti — dubbi che risuoneranno anni dopo in Assassin's Creed Valhalla. Colma il decennio che separa Mirage da Valhalla.",
+              en: "In 867, the acolyte Hytham joins his mentor Basim Ibn Ishaq in Constantinople to foil a plot by the Order of the Ancients: Emperor Basil I plans to have his young co-emperor and son Leo killed to consolidate power. While investigating the conspiracy alongside Empress Eudocia Ingerina, Hytham is given a secret task by the Brotherhood: to assess whether Basim's personal obsessions are pulling him away from the Hidden Ones' creed — doubts that will echo years later in Assassin's Creed Valhalla. It bridges the decade separating Mirage from Valhalla."
+            }
+          },
           { id: "valhalla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "872 – 878",
             releaseYear: "2020", releaseYearEn: "2020",
             title: { it: "Assassin's Creed Valhalla", en: "Assassin's Creed Valhalla" },
@@ -432,6 +456,14 @@ const GAMES = {
             synopsis: {
               it: "Il vichingo Eivor Varinsdottir/Varinsson guida il proprio clan dalla Norvegia devastata dalle faide fino all'Inghilterra dell'era vichinga, fondando insediamenti e stringendo alleanze con i regni anglosassoni. Nel corso della conquista, Eivor scopre di essere in realtà l'ospite umano di Odino, un Isu (membro dell'antica civiltà precedente all'umanità) sopravvissuto in una forma di reincarnazione, e si allea con Basim — lo stesso protagonista di Mirage, qui rivelato essere a sua volta l'ospite del dio nordico Loki — per fondare formalmente la Confraternita dei Nascosti in terra inglese, gettando le basi dirette per la futura Confraternita degli Assassini.",
               en: "The Viking Eivor Varinsdottir/Varinsson leads their clan from a Norway ravaged by feuds to Viking Age England, founding settlements and forging alliances with the Anglo-Saxon kingdoms. Over the course of the conquest, Eivor discovers they are in truth the human host of Odin, an Isu (a member of the ancient civilisation that predates humanity) surviving through a form of reincarnation, and allies with Basim — the same protagonist from Mirage, here revealed to himself be the host of the Norse god Loki — to formally found the Brotherhood of the Hidden Ones on English soil, laying the direct groundwork for the future Brotherhood of Assassins."
+            }
+          },
+          { id: "sword-of-the-white-horse", type: "ROMANZO", typeEn: "NOVEL", year: "878", yearEn: "878",
+            releaseYear: "2022", releaseYearEn: "2022",
+            title: { it: "Assassin's Creed: Valhalla – Sword of the White Horse", en: "Assassin's Creed: Valhalla – Sword of the White Horse" },
+            synopsis: {
+              it: "Nell'878, la strega guerriera Niamh di Argyll si infiltra tra i Nascosti in Inghilterra per scoprirne le reali intenzioni e recuperare Excalibur, la spada leggendaria sacra al suo popolo, custodita dal Clan del Corvo. Nel corso della missione Niamh si scontra con lealtà divise e patti antichi quanto gli dei stessi, in un seguito diretto agli eventi di Assassin's Creed Valhalla.",
+              en: "In 878, the witch-warrior Niamh of Argyll infiltrates the Hidden Ones in England to learn their true intentions and recover Excalibur, the legendary sword sacred to her people, held by the Raven Clan. In the course of her mission Niamh runs into divided loyalties and pacts as old as the gods themselves, in a direct sequel to the events of Assassin's Creed Valhalla."
             }
           }
         ]
@@ -569,8 +601,16 @@ const GAMES = {
       {
         id: "eta-rivoluzioni",
         name: { it: "Età delle Rivoluzioni", en: "Age of Revolutions" },
-        span: { it: "1754 – 1868", en: "1754 – 1868" },
+        span: { it: "1725 – 1868", en: "1725 – 1868" },
         entries: [
+          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
+            synopsis: {
+              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781 — lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
+              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
+            }
+          },
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
             releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",
             title: { it: "Assassin's Creed III", en: "Assassin's Creed III" },
@@ -587,6 +627,30 @@ const GAMES = {
             synopsis: {
               it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.",
               en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain."
+            }
+          },
+          { id: "brahman", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "1839 – 1841", yearEn: "1839 – 1841",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Assassin's Creed: Brahman", en: "Assassin's Creed: Brahman" },
+            synopsis: {
+              it: "Nel 1839, l'Assassino kashmiro Arbaaz Mir recupera un documento che rivela l'esistenza del Koh-i-Noor, un potente Frutto dell'Eden custodito dal Maharaja Ranjit Singh dell'Impero Sikh. Dopo la morte di Singh, avvelenato dai britannici, Arbaaz viene incastrato per l'omicidio e costretto alla fuga, mentre la nipote del sovrano, la principessa Pyara Kaur, eredita il compito di proteggere il manufatto dai Templari inglesi. Una cornice narrativa ambientata nel 2013 segue il programmatore Jot Soora, coinvolto nel conflitto quando la fidanzata Monima Das si scopre discendente di Arbaaz e portatrice delle sue memorie genetiche.",
+              en: "In 1839, the Kashmiri Assassin Arbaaz Mir recovers a document revealing the existence of the Koh-i-Noor, a powerful Piece of Eden held by Maharaja Ranjit Singh of the Sikh Empire. After Singh is poisoned by the British, Arbaaz is framed for his murder and forced to flee, while the ruler's granddaughter, Princess Pyara Kaur, inherits the task of protecting the artefact from the British Templars. A framing story set in 2013 follows programmer Jot Soora, drawn into the conflict when his fiancée Monima Das is revealed to be a descendant of Arbaaz and a carrier of his genetic memories."
+            }
+          },
+          { id: "chronicles-india", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1841", yearEn: "1841",
+            releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Assassin's Creed Chronicles: India", en: "Assassin's Creed Chronicles: India" },
+            synopsis: {
+              it: "Due anni dopo gli eventi di Brahman, nel 1841, Arbaaz Mir viene incaricato dal proprio mentore Hamid di recuperare il Koh-i-Noor, ormai caduto nelle mani del nuovo Gran Maestro templare William Sleeman, mentre le tensioni tra l'Impero Sikh morente e la Compagnia delle Indie Orientali raggiungono il culmine. Nel corso della missione Arbaaz protegge anche il proprio mentore e il legame nascente con la principessa Pyara Kaur, dalla quale avrà in seguito il figlio Jayadeep. Secondo capitolo della trilogia Chronicles, in 2.5D.",
+              en: "Two years after the events of Brahman, in 1841, Arbaaz Mir is tasked by his mentor Hamid with recovering the Koh-i-Noor, now in the hands of the new Templar Grand Master William Sleeman, as tensions between the dying Sikh Empire and the East India Company reach their peak. In the course of the mission Arbaaz also protects his mentor and his budding bond with Princess Pyara Kaur, with whom he will later have a son, Jayadeep. The second chapter of the Chronicles trilogy, in 2.5D."
+            }
+          },
+          { id: "underworld", type: "ROMANZO", typeEn: "NOVEL", year: "1862 – 1868", yearEn: "1862 – 1868",
+            releaseYear: "2015", releaseYearEn: "2015",
+            title: { it: "Assassin's Creed: Underworld", en: "Assassin's Creed: Underworld" },
+            synopsis: {
+              it: "Nel 1862, sei anni prima degli eventi di Syndicate, il giovane Jayadeep Mir, figlio di Arbaaz Mir cresciuto a Londra sotto la guida del mentore Ethan Frye, fatica a conciliare la propria natura riflessiva con l'addestramento da Assassino, fino a quando assume l'identità di Henry Green per costruire una rete di informatori essenziale alla Confraternita britannica. Il romanzo segue la sua formazione e il suo isolamento negli anni successivi, per poi ricongiungersi, nell'ultima parte, agli eventi già narrati in Assassin's Creed Syndicate dal punto di vista di Henry ed Evie Frye.",
+              en: "In 1862, six years before the events of Syndicate, young Jayadeep Mir, son of Arbaaz Mir raised in London under the guidance of mentor Ethan Frye, struggles to reconcile his reflective nature with his training as an Assassin, until he adopts the identity of Henry Green to build an informant network essential to the British Brotherhood. The novel follows his formation and isolation over the following years, before converging, in its final part, with the events already told in Assassin's Creed Syndicate from the perspective of Henry and Evie Frye."
             }
           },
           { id: "syndicate", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1868",
