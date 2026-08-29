@@ -1749,7 +1749,6 @@ function renderRail(){
     const node = document.createElement("a");
     node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
     node.className = "v-node" + (entry.id === state.entryId ? " is-active" : "");
-    const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
     // Voci STORIA (entry.noAvatar): niente box immagine qui, a
     // differenza della linea orizzontale non serve nessuno spacer -
     // essendo un flex-row semplice (non una griglia a colonne fisse),
@@ -1759,10 +1758,12 @@ function renderRail(){
     const tileHTML = entry.noAvatar
       ? ""
       : `<span class="v-node__tile${tileMissingClass(entry, "v-node__tile")}">${tileInnerHTML(entry)}</span>`;
+    // Niente date qui (richiesto esplicitamente, 28/08): solo
+    // immagine e titolo, stesso criterio della linea temporale
+    // orizzontale ufficiale, che non mostra mai anni.
     node.innerHTML = `
       ${tileHTML}
       <span class="v-node__meta">
-        <span class="v-node__year">${yearLabel}</span><br>
         <span class="v-node__title">${tf(entry.title)}</span>
       </span>
     `;

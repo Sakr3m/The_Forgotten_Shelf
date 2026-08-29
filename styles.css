@@ -1204,7 +1204,6 @@ body[data-state="landing"] .index-link{ display:flex; }
   font-size:.5rem; font-weight:700; text-align:center; color:#ff6b6f; line-height:1.2; padding:0 3px;
 }
 .v-node__meta{ min-width:0; }
-.v-node__year{ font-size:.66rem; font-weight:700; color:var(--text-faint); }
 .v-node__title{ font-size:.82rem; font-weight:500; color:var(--text-dim); line-height:1.25; }
 .v-node:hover .v-node__title{ color:var(--text); }
 .v-node.is-active .v-node__title{ color:var(--text); font-weight:700; }
