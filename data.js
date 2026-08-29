@@ -1032,7 +1032,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Universo Limbo City", en: "Limbo City Universe" },
+        name: { it: "Limbo City", en: "Limbo City" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
         entries: [
           { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "2000 anni fa", yearEn: "2,000 years ago", noAvatar: true,
