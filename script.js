@@ -594,12 +594,15 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     let node;
     if(isTwin){
       // Nodo "gemello": due media diversi sullo stesso pallino, uno
-      // sopra (questa entry) e uno sotto (entry.twin) - non e' un
-      // singolo link come i nodi normali (due destinazioni diverse),
-      // quindi il contenitore esterno e' un div semplice e sono i due
-      // blocchi copertina+titolo a diventare link indipendenti, con
-      // il pallino condiviso in mezzo che resta sempre lo stesso
-      // (solo hover, mai cliccabile, come su ogni nodo).
+      // sopra (questa entry) e uno sotto (entry.twin) - convenzione
+      // FISSA confermata (29/08), non modificabile caso per caso: chi
+      // scrivo come entry normale sta sempre sopra, chi scrivo dentro
+      // .twin sta sempre sotto. Non e' un singolo link come i nodi
+      // normali (due destinazioni diverse), quindi il contenitore
+      // esterno e' un div semplice e sono i due blocchi
+      // copertina+titolo a diventare link indipendenti, con il
+      // pallino condiviso in mezzo che resta sempre lo stesso (solo
+      // hover, mai cliccabile, come su ogni nodo).
       node = document.createElement("div");
       node.className = "h-node h-node--twin";
       node.style.setProperty("--dot-color", color);
