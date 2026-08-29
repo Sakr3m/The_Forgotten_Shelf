@@ -1415,13 +1415,13 @@ function renderGamePanel(){
       const bandHalf = 40;
       // GLOW_MARGIN (29/08, richiesto esplicitamente): l'alone del
       // pallino (box-shadow, .h-node__dot in styles.css) si estende
-      // circa 14+3=17px oltre il suo bordo. Con INSET=50 il taglio
-      // della fascia stretta cadeva esattamente sul bordo del pallino,
-      // tranciando quell'alone (piu' visibile su alcune saghe a
-      // seconda del colore). Il taglio vero della fascia stretta ora
-      // e' spostato di questo margine, cosi' l'alone del primo e
-      // dell'ultimo pallino visibile resta sempre intero.
-      const GLOW_MARGIN = 18;
+      // circa 3+10=13px oltre il suo bordo (valori aggiornati). Con
+      // INSET=50 il taglio della fascia stretta cadeva esattamente sul
+      // bordo del pallino, tranciando quell'alone (piu' visibile su
+      // alcune saghe a seconda del colore). Il taglio vero della
+      // fascia stretta ora e' spostato di questo margine, cosi' l'alone
+      // del primo e dell'ultimo pallino visibile resta sempre intero.
+      const GLOW_MARGIN = 14;
       // EXTRA: margine di sicurezza aggiuntivo SOLO per le zone
       // sopra/sotto la riga (dove vivono copertina e titolo, la sola
       // eccezione concordata che PUO' sporgere un po' oltre Discord/

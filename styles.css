@@ -1118,15 +1118,15 @@ body[data-state="landing"] .index-link{ display:flex; }
   background:var(--bg);
   border:max(3px, calc(7px * var(--dot-scale, 1))) solid var(--dot-color, var(--cyan));
   box-shadow:
-    0 0 6px 1px var(--dot-color, var(--cyan)),
-    0 0 14px 3px var(--dot-color, var(--cyan));
+    0 0 5px 1px var(--dot-color, var(--cyan)),
+    0 0 10px 3px var(--dot-color, var(--cyan));
   transition:box-shadow var(--dur-fast) var(--ease);
 }
 .h-node:hover .h-node__dot, .h-node:focus-visible .h-node__dot{
   box-shadow:
-    0 0 8px 2px var(--dot-color, var(--cyan)),
-    0 0 20px 5px var(--dot-color, var(--cyan)),
-    0 0 36px 10px var(--dot-color, var(--cyan));
+    0 0 7.5px 2px var(--dot-color, var(--cyan)),
+    0 0 15px 5px var(--dot-color, var(--cyan)),
+    0 0 20px 10px var(--dot-color, var(--cyan));
 }
 
 .h-node__tile{
