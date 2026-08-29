@@ -1278,14 +1278,17 @@ function renderGamePanel(){
 
     const nodes = Array.from(liveTimeline.querySelectorAll(".h-node"));
     if(freeScrollMode){
-      // Free/breathing spacing: the gap is sized so at most 8 nodes are
-      // visible in the available width at once — everything past that
-      // scrolls. Never smaller than the normal minimum gap, so on a narrow
-      // desktop window it doesn't accidentally cram in more than 8.
+      // Free/breathing spacing: la regola e' ora 10 (non piu' 8, richiesto
+      // esplicitamente 29/08 per allinearsi a LARGE_UNIVERSE_THRESHOLD):
+      // il gap e' calcolato per mostrare esattamente i primi 10 nodi
+      // nella larghezza disponibile senza scroll - tutto oltre il
+      // decimo scorre. Mai piu' piccolo del gap minimo normale, cosi'
+      // su una finestra desktop stretta non se ne stipano accidentalmente
+      // piu' di 10.
       liveTimeline.style.justifyContent = "";
       const minGap = 26 * dotScale;
-      const gapFor8 = (availableWidth - 8 * 100) / 7;
-      liveTimeline.style.gap = Math.max(minGap, gapFor8).toFixed(2) + "px";
+      const gapFor10 = (availableWidth - 10 * 100) / 9;
+      liveTimeline.style.gap = Math.max(minGap, gapFor10).toFixed(2) + "px";
       nodes.forEach(node => { node.style.marginLeft = ""; });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
@@ -1410,6 +1413,15 @@ function renderGamePanel(){
       // per lato, con un margine di sicurezza. --- */
       const INSET = 50;
       const bandHalf = 40;
+      // GLOW_MARGIN (29/08, richiesto esplicitamente): l'alone del
+      // pallino (box-shadow, .h-node__dot in styles.css) si estende
+      // circa 14+3=17px oltre il suo bordo. Con INSET=50 il taglio
+      // della fascia stretta cadeva esattamente sul bordo del pallino,
+      // tranciando quell'alone (piu' visibile su alcune saghe a
+      // seconda del colore). Il taglio vero della fascia stretta ora
+      // e' spostato di questo margine, cosi' l'alone del primo e
+      // dell'ultimo pallino visibile resta sempre intero.
+      const GLOW_MARGIN = 18;
       // EXTRA: margine di sicurezza aggiuntivo SOLO per le zone
       // sopra/sotto la riga (dove vivono copertina e titolo, la sola
       // eccezione concordata che PUO' sporgere un po' oltre Discord/
@@ -1429,13 +1441,15 @@ function renderGamePanel(){
       const H = timelineRect.height;
       const L = -EXTRA;
       const R = W + EXTRA;
+      const dotCutLeft = INSET - GLOW_MARGIN;
+      const dotCutRight = W - INSET + GLOW_MARGIN;
       liveTimeline.style.clipPath = `polygon(
         ${L}px 0px, ${R}px 0px,
-        ${R}px ${lineTop.toFixed(2)}px, ${(W - INSET).toFixed(2)}px ${lineTop.toFixed(2)}px,
-        ${(W - INSET).toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
+        ${R}px ${lineTop.toFixed(2)}px, ${dotCutRight.toFixed(2)}px ${lineTop.toFixed(2)}px,
+        ${dotCutRight.toFixed(2)}px ${lineBottom.toFixed(2)}px, ${R}px ${lineBottom.toFixed(2)}px,
         ${R}px ${H}px, ${L}px ${H}px,
-        ${L}px ${lineBottom.toFixed(2)}px, ${INSET}px ${lineBottom.toFixed(2)}px,
-        ${INSET}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
+        ${L}px ${lineBottom.toFixed(2)}px, ${dotCutLeft.toFixed(2)}px ${lineBottom.toFixed(2)}px,
+        ${dotCutLeft.toFixed(2)}px ${lineTop.toFixed(2)}px, ${L}px ${lineTop.toFixed(2)}px
       )`;
 
       // Le freccette animate (solo sopra soglia, isLargeUniverse):
