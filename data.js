@@ -557,7 +557,7 @@ const GAMES = {
       },
       {
         id: "eta-vela",
-        name: { it: "Epoca Moderna ed Età della Vela", en: "Early Modern Era and Age of Sail" },
+        name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
@@ -694,6 +694,37 @@ const GAMES = {
             synopsis: {
               it: "Dopo essersi lasciato alle spalle la Confraternita, Nikolai Orelov emigra negli Stati Uniti col figlio Innokenti per proteggerlo, ma viene raggiunto dall'ex compagno Sergei, inviato dal Mentore per riportarlo in Russia a causa di ciò che ha visto durante l'evento di Tunguska. Quando Sergei minaccia il ragazzo, Nikolai lo uccide, chiudendo definitivamente i conti con il proprio passato di Assassino. Nel presente, il discepolo templare Daniel Cross continua a rivivere questi ricordi attraverso l'effetto sanguinamento, senza comprenderne appieno il peso. Seguito a fumetti di The Fall, conclude la storia di Orelov.",
               en: "Having left the Brotherhood behind, Nikolai Orelov emigrates to the United States with his son Innokenti to protect him, but is tracked down by his former comrade Sergei, sent by the Mentor to bring him back to Russia because of what he witnessed during the Tunguska event. When Sergei threatens the boy, Nikolai kills him, closing the book on his past as an Assassin for good. In the present, Templar operative Daniel Cross continues to relive these memories through the Bleeding Effect, without fully understanding their weight. A sequel comic to The Fall, it concludes Orelov's story."
+            }
+          }
+        ]
+      },
+      {
+        id: "era-moderna",
+        name: { it: "Era Moderna", en: "Modern Era" },
+        span: { it: "2015 – 2018", en: "2015 – 2018" },
+        entries: [
+          { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
+            releaseYear: "2015 – 2017", releaseYearEn: "2015 – 2017",
+            title: { it: "Assassin's Creed: Assassins / Templars", en: "Assassin's Creed: Assassins / Templars" },
+            synopsis: {
+              it: "\"Assassins\": la banchiera Charlotte de la Cruz viene reclutata dagli Assassini dopo essere stata scoperta a giocare con un Animus casalingo che le dà accesso ai ricordi genetici dell'antenato Tom Stoddard, coinvolto a Salem nel 1692. Charlotte entra così nel conflitto contro i Templari e nella caccia a un Assassino sospettato di tradimento in cerca di un Frutto dell'Eden. \\n\\n\"Templars\": in parallelo, il Templare Juhani Otso Berg indaga una cellula corrotta all'interno del proprio Ordine, rivivendo tramite l'Animus i ricordi dell'agente Black Cross nella Shanghai del 1927 e quelli di Albert Bolden nel 1805, alla ricerca della verità dietro un complotto interno che minaccia gli equilibri dei Templari stessi.",
+              en: "\"Assassins\": banker Charlotte de la Cruz is recruited by the Assassins after being caught using a homemade Animus that grants her access to the genetic memories of her ancestor Tom Stoddard, caught up in Salem in 1692. Charlotte is drawn into the conflict against the Templars and the hunt for an Assassin suspected of treason in search of a Piece of Eden. \\n\\n\"Templars\": in parallel, the Templar Juhani Otso Berg investigates a corrupted cell within his own Order, reliving through the Animus the memories of agent Black Cross in 1927 Shanghai and those of Albert Bolden in 1805, in search of the truth behind an internal conspiracy threatening the Templars' own balance of power."
+            }
+          },
+          { id: "reflections", type: "FUMETTO", typeEn: "COMIC", year: "2017", yearEn: "2017",
+            releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Assassin's Creed: Reflections", en: "Assassin's Creed: Reflections" },
+            synopsis: {
+              it: "Per il decimo anniversario della serie, il Templare Otso Berg consulta gli archivi segreti dell'Ordine per ripercorrere le vite di alcuni tra gli Assassini più celebri della storia — Altaïr, Ezio, Connor e Arno — riflettendo sul significato della guerra secolare contro la Confraternita. Miniserie di raccordo tra Assassins/Templars e Uprising.",
+              en: "For the series' tenth anniversary, the Templar Otso Berg consults the Order's secret archives to revisit the lives of some of history's most celebrated Assassins — Altaïr, Ezio, Connor and Arno — reflecting on the meaning of the centuries-old war against the Brotherhood. A bridging miniseries between Assassins/Templars and Uprising."
+            }
+          },
+          { id: "uprising", type: "FUMETTO", typeEn: "COMIC", year: "2017 – 2018", yearEn: "2017 – 2018",
+            releaseYear: "2017 – 2018", releaseYearEn: "2017 – 2018",
+            title: { it: "Assassin's Creed: Uprising", en: "Assassin's Creed: Uprising" },
+            synopsis: {
+              it: "Le squadre di Assassini e Templari, ormai unite dalla necessità comune, si confrontano con gli Instruments of the First Will, una fazione decisa a riportare in vita la Isu Juno per sottomettere l'umanità. Charlotte de la Cruz guida la squadra finale contro la minaccia, rivivendo ulteriori ricordi genetici per individuare la posizione del Koh-i-Noor, mentre il Progetto Fenice, avviato negli eventi di Assassin's Creed Unity, giunge alla propria conclusione.",
+              en: "The Assassin and Templar teams, now united by shared necessity, face the Instruments of the First Will, a faction determined to bring the Isu Juno back to life to subjugate humanity. Charlotte de la Cruz leads the final team against the threat, reliving further genetic memories to locate the Koh-i-Noor, as the Phoenix Project, set in motion in the events of Assassin's Creed Unity, reaches its conclusion."
             }
           }
         ]
