@@ -1156,6 +1156,12 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .h-node:hover .h-node__tile--missing{ border-color:#ff6b6f; }
 .h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--cyan)); }
+/* Voci STORIA (senza avatar): spacer della stessa dimensione del
+   box immagine, invisibile, cosi' il titolo resta alla stessa
+   distanza dalla linea di un titolo con avatar vero - la posizione
+   e' data dalla presenza dello spazio, non dall'immagine in se'. */
+.h-node__tile--spacer{ border-color:transparent; background:transparent; visibility:hidden; }
+.h-node:hover .h-node__tile--spacer{ border-color:transparent; }
 .h-node__title{
   font-size:calc(.78rem * var(--avatar-scale, 1)); font-weight:600; text-align:center; color:var(--text-dim);
   line-height:1.3; height:calc(52px * var(--avatar-scale, 1)); width:calc(130px * var(--avatar-scale, 1));

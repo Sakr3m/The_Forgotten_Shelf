@@ -575,14 +575,20 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     node.style.setProperty("--dot-color", color);
 
     const hasAvatar = !entry.noAvatar;
+    // Anche senza avatar (voci STORIA) il titolo deve restare alla
+    // stessa distanza dalla linea di un titolo con avatar: al posto
+    // del box immagine mettiamo uno spacer invisibile della stessa
+    // dimensione, cosi' lo spazio riservato resta identico e il
+    // titolo non "scivola" verso la linea (richiesto esplicitamente,
+    // prima le STORIA avevano il titolo troppo vicino alla linea).
     const tileSpan = hasAvatar
       ? `<span class="h-node__tile${tileMissingClass(entry, "h-node__tile")}">${tileInnerHTML(entry)}</span>`
-      : "";
+      : `<span class="h-node__tile h-node__tile--spacer" aria-hidden="true"></span>`;
 
     // "up": avatar (farthest from line) -> title (text top-aligned, touching avatar) -> [reserved empty 2nd line, touching line] -> line
     // "down": line -> [reserved empty 2nd line, touching line] -> title (text bottom-aligned, touching avatar) -> avatar (farthest from line)
-    const titleUp = `<span class="h-node__title${hasAvatar ? " h-node__title--top" : ""}">${tf(entry.title)}</span>`;
-    const titleDown = `<span class="h-node__title${hasAvatar ? " h-node__title--bottom" : ""}">${tf(entry.title)}</span>`;
+    const titleUp = `<span class="h-node__title h-node__title--top">${tf(entry.title)}</span>`;
+    const titleDown = `<span class="h-node__title h-node__title--bottom">${tf(entry.title)}</span>`;
 
     const topContent = tileDown ? "" : (tileSpan + titleUp);
     const bottomContent = tileDown ? (titleDown + tileSpan) : "";
