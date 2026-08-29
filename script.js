@@ -1750,8 +1750,17 @@ function renderRail(){
     node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
     node.className = "v-node" + (entry.id === state.entryId ? " is-active" : "");
     const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
+    // Voci STORIA (entry.noAvatar): niente box immagine qui, a
+    // differenza della linea orizzontale non serve nessuno spacer -
+    // essendo un flex-row semplice (non una griglia a colonne fisse),
+    // togliendo il tile il titolo scivola da solo a sinistra, esattamente
+    // dove inizierebbe normalmente il box immagine (richiesto
+    // esplicitamente: qui il box va tolto, non riempito).
+    const tileHTML = entry.noAvatar
+      ? ""
+      : `<span class="v-node__tile${tileMissingClass(entry, "v-node__tile")}">${tileInnerHTML(entry)}</span>`;
     node.innerHTML = `
-      <span class="v-node__tile${tileMissingClass(entry, "v-node__tile")}">${tileInnerHTML(entry)}</span>
+      ${tileHTML}
       <span class="v-node__meta">
         <span class="v-node__year">${yearLabel}</span><br>
         <span class="v-node__title">${tf(entry.title)}</span>
