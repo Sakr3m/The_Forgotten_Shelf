@@ -1686,7 +1686,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Universo Harran", en: "Harran Universe" },
+        name: { it: "Universo GRE", en: "GRE Universe" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
         entries: [
           { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2015", releaseYearEn: "2015",
