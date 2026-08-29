@@ -563,46 +563,72 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   const timeline = track.querySelector(".h-timeline");
 
   const total = uni.entries.length;
+  let turn = 0; // avanza di 1 per voce normale, di 2 per una voce
+    // "gemella" (entry.twin) - cosi' l'alternanza sopra/sotto della
+    // voce singola successiva riprende dal lato giusto, saltando i
+    // due turni gia' consumati dal gemello (che occupa sia sopra che
+    // sotto sullo stesso pallino).
+
+  // Genera il markup di copertina+titolo per meta' di un nodo
+  // (usata sia per una voce normale sia per ciascuna delle due meta'
+  // di un nodo gemello). "position" e' "top" o "bottom": decide
+  // l'ordine copertina/titolo (il titolo resta sempre il piu' vicino
+  // alla linea) e quale modificatore di allineamento testo usare.
+  function buildHalfHTML(data, position){
+    const hasAvatar = !data.noAvatar;
+    const tile = hasAvatar
+      ? `<span class="h-node__tile${tileMissingClass(data, "h-node__tile")}">${tileInnerHTML(data)}</span>`
+      : `<span class="h-node__tile h-node__tile--spacer" aria-hidden="true"></span>`;
+    const title = `<span class="h-node__title h-node__title--${position === "top" ? "top" : "bottom"}">${tf(data.title)}</span>`;
+    return position === "top" ? (tile + title) : (title + tile);
+  }
 
   uni.entries.forEach((entry, i) => {
-    const node = document.createElement("a");
-    const tileDown = i % 2 === 0; // alternates which side the cover sits on
-    node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
-    node.className = "h-node " + (tileDown ? "h-node--down" : "h-node--up");
+    const isTwin = !!entry.twin;
+    const tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
+      // serve un "lato": occupa entrambi, il valore non viene usato
 
     const t = total > 1 ? i / (total - 1) : 0;
     const color = gradientColorAt(t);
-    node.style.setProperty("--dot-color", color);
 
-    const hasAvatar = !entry.noAvatar;
-    // Anche senza avatar (voci STORIA) il titolo deve restare alla
-    // stessa distanza dalla linea di un titolo con avatar: al posto
-    // del box immagine mettiamo uno spacer invisibile della stessa
-    // dimensione, cosi' lo spazio riservato resta identico e il
-    // titolo non "scivola" verso la linea (richiesto esplicitamente,
-    // prima le STORIA avevano il titolo troppo vicino alla linea).
-    const tileSpan = hasAvatar
-      ? `<span class="h-node__tile${tileMissingClass(entry, "h-node__tile")}">${tileInnerHTML(entry)}</span>`
-      : `<span class="h-node__tile h-node__tile--spacer" aria-hidden="true"></span>`;
-
-    // "up": avatar (farthest from line) -> title (text top-aligned, touching avatar) -> [reserved empty 2nd line, touching line] -> line
-    // "down": line -> [reserved empty 2nd line, touching line] -> title (text bottom-aligned, touching avatar) -> avatar (farthest from line)
-    const titleUp = `<span class="h-node__title h-node__title--top">${tf(entry.title)}</span>`;
-    const titleDown = `<span class="h-node__title h-node__title--bottom">${tf(entry.title)}</span>`;
-
-    const topContent = tileDown ? "" : (tileSpan + titleUp);
-    const bottomContent = tileDown ? (titleDown + tileSpan) : "";
-
-    node.innerHTML = `
-      <span class="h-node__top">${topContent}</span>
-      <span class="h-node__marker"><span class="h-node__dot"></span></span>
-      <span class="h-node__bottom">${bottomContent}</span>
-    `;
-    node.dataset.entryId = entry.id; // per la delega eventi, vedi
-      // i due listener permanenti aggiunti dopo buildUniverseTrack
-      // (uno per il contenitore desktop, uno per quello mobile -
-      // questa funzione costruisce nodi per entrambi)
+    let node;
+    if(isTwin){
+      // Nodo "gemello": due media diversi sullo stesso pallino, uno
+      // sopra (questa entry) e uno sotto (entry.twin) - non e' un
+      // singolo link come i nodi normali (due destinazioni diverse),
+      // quindi il contenitore esterno e' un div semplice e sono i due
+      // blocchi copertina+titolo a diventare link indipendenti, con
+      // il pallino condiviso in mezzo che resta sempre lo stesso
+      // (solo hover, mai cliccabile, come su ogni nodo).
+      node = document.createElement("div");
+      node.className = "h-node h-node--twin";
+      node.style.setProperty("--dot-color", color);
+      const topHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
+      const bottomHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.twin.id}.html`;
+      node.innerHTML = `
+        <a class="h-node__top" href="${topHref}" data-entry-id="${entry.id}">${buildHalfHTML(entry, "top")}</a>
+        <span class="h-node__marker"><span class="h-node__dot"></span></span>
+        <a class="h-node__bottom" href="${bottomHref}" data-entry-id="${entry.twin.id}">${buildHalfHTML(entry.twin, "bottom")}</a>
+      `;
+    } else {
+      node = document.createElement("a");
+      node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
+      node.className = "h-node " + (tileDown ? "h-node--down" : "h-node--up");
+      node.style.setProperty("--dot-color", color);
+      const topContent = tileDown ? "" : buildHalfHTML(entry, "top");
+      const bottomContent = tileDown ? buildHalfHTML(entry, "bottom") : "";
+      node.innerHTML = `
+        <span class="h-node__top">${topContent}</span>
+        <span class="h-node__marker"><span class="h-node__dot"></span></span>
+        <span class="h-node__bottom">${bottomContent}</span>
+      `;
+      node.dataset.entryId = entry.id; // per la delega eventi, vedi
+        // i due listener permanenti aggiunti dopo buildUniverseTrack
+        // (uno per il contenitore desktop, uno per quello mobile -
+        // questa funzione costruisce nodi per entrambi)
+    }
     timeline.appendChild(node);
+    turn += isTwin ? 2 : 1;
   });
 
   return track;
@@ -615,13 +641,19 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 // con frecce), mobile usa el.universeTimelineTrack (Screen LT a se'
 // stante). Ciascuno trova solo i nodi che gli competono davvero.
 function handleTimelineNodeClick(ev){
-  const node = ev.target.closest("a.h-node[data-entry-id]");
-  if(!node) return;
+  // Nodo normale: l'intero <a class="h-node"> e' il link. Nodo
+  // gemello (due voci sullo stesso pallino): sono le due meta'
+  // (<a class="h-node__top">/<a class="h-node__bottom">) ad avere
+  // ciascuna il proprio link e il proprio data-entry-id.
+  const target = ev.target.closest(
+    "a.h-node[data-entry-id], a.h-node__top[data-entry-id], a.h-node__bottom[data-entry-id]"
+  );
+  if(!target) return;
   ev.preventDefault();
   // Il pallino (.h-node__marker) reagisce solo all'hover, non e'
   // cliccabile: un click che cade proprio li' non deve navigare.
   if(ev.target.closest(".h-node__marker")) return;
-  selectEntry(node.dataset.entryId);
+  selectEntry(target.dataset.entryId);
 }
 el.universesRow.addEventListener("click", handleTimelineNodeClick);
 if(el.universeTimelineTrack) el.universeTimelineTrack.addEventListener("click", handleTimelineNodeClick);
@@ -1307,6 +1339,18 @@ function renderGamePanel(){
     // del centro "teorico" della casella 100px, in OGNI nodo,
     // sempre.
     const TRACK_OVERFLOW = (130 - 100) / 2;
+    // PESO di ogni nodo ai fini della spaziatura: 1 per una voce
+    // normale, 2 per un nodo "gemello" (due voci sullo stesso
+    // pallino, .h-node--twin) - un gemello ha bisogno di piu' respiro
+    // dai vicini perche' occupa sia sopra che sotto. Letto dalla
+    // classe nel DOM (non dai dati) cosi' vale identico in ogni punto
+    // dove questa funzione viene chiamata.
+    const weights = nodes.map(node => node.classList.contains("h-node--twin") ? 2 : 1);
+    // Distanza tra un nodo e il successivo = spacing-unitario x la
+    // MEDIA dei due pesi coinvolti: tra due voci normali (1 e 1) resta
+    // la spaziatura di sempre; un gemello (peso 2) tra due normali
+    // ottiene 1.5x di respiro sia dal vicino prima che da quello
+    // dopo, senza toccare la spaziatura altrove sulla linea.
     if(freeScrollMode){
       // Stessa identica formula "a margini" del ramo fisso qui sotto,
       // ma calcolata come se ci fossero sempre esattamente 8 voci
@@ -1319,14 +1363,20 @@ function renderGamePanel(){
       // pallino visibile oltre il bordo destro, dove la maschera lo
       // tagliava via del tutto (invisibile). Le voci oltre l'ottava
       // proseguono con lo stesso identico passo, uscendo dal bordo
-      // destro: e' li' che comincia lo scroll.
+      // destro: e' li' che comincia lo scroll. Un gemello nella
+      // finestra "consuma" 2 unita' di peso invece di 1, quindi con
+      // un gemello dentro gli 8 slot ci stanno 7 punti (6 singoli +
+      // il gemello), non piu' 8.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      const spacing8 = (availableWidth - 100 - 2 * DOT_RADIUS) / 7;
+      const unitSpacing8 = (availableWidth - 100 - 2 * DOT_RADIUS) / 7;
       nodes.forEach((node, i) => {
-        node.style.marginLeft = i === 0
-          ? (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px"
-          : (spacing8 - 100).toFixed(2) + "px";
+        if(i === 0){
+          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px";
+        } else {
+          const step = unitSpacing8 * (weights[i - 1] + weights[i]) / 2;
+          node.style.marginLeft = (step - 100).toFixed(2) + "px";
+        }
       });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
@@ -1341,13 +1391,17 @@ function renderGamePanel(){
       // gap or to scrolling.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      const spacing = nodes.length > 1
-        ? (availableWidth - 100 - 2 * DOT_RADIUS) / (nodes.length - 1)
+      const totalWeight = weights.reduce((a, b) => a + b, 0);
+      const unitSpacing = totalWeight > 1
+        ? (availableWidth - 100 - 2 * DOT_RADIUS) / (totalWeight - 1)
         : 0;
       nodes.forEach((node, i) => {
-        node.style.marginLeft = i === 0
-          ? (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px"
-          : (spacing - 100).toFixed(2) + "px";
+        if(i === 0){
+          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px";
+        } else {
+          const step = unitSpacing * (weights[i - 1] + weights[i]) / 2;
+          node.style.marginLeft = (step - 100).toFixed(2) + "px";
+        }
       });
     }
 
