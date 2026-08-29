@@ -1253,7 +1253,16 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-date--release{ margin-bottom:4px; } /* le due date restano vicine
   tra loro (uscita/ambientazione), lo spazio vero e' solo sopra la prima
   e sotto la seconda */
-.title-date--release + .title-date--story{ margin-top:0; }
+/* Nota remake/remaster (28/08): riga propria subito sotto la data di
+   uscita invece che a destra sulla stessa riga, staccata di poco
+   (margin-bottom:4px come .title-date--release, non i 26px generici
+   di .title-date che altrimenti vincerebbero per margin collapsing).
+   Valore condiviso mobile+desktop, la versione desktop lo ribadisce
+   in la_traccia_del_tempo.css per restare esplicito li' dove e'
+   stato richiesto. */
+.title-date--remake{ margin-top:3px; margin-bottom:4px; }
+.title-date--release + .title-date--story{ margin-top:10px; }
+.title-date--remake + .title-date--story{ margin-top:10px; }
 .title-synopsis{ margin-top:26px; color:var(--text-dim); font-size:1rem; line-height:1.75; white-space:pre-line; }
 .title-date + .title-synopsis{ margin-top:0; } /* niente doppio spazio: lo spazio "sotto" lo da' gia' .title-date */
 @media (min-width:901px){

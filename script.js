@@ -1487,17 +1487,29 @@ function renderGamePanel(){
 // ---------------------------------------------------------
 const titlePanels = {}; // entryId -> { panel, entry, game, universe, prevEntry, nextEntry }
 
+function formatReleaseLabel(releaseLabel){
+  // Separa l'anno di uscita base dall'eventuale nota Remake/Remaster
+  // tra parentesi, cosi' possono finire su due righe distinte invece
+  // che sulla stessa riga a destra (richiesto esplicitamente).
+  if(!releaseLabel) return { base: releaseLabel, extra: null };
+  const match = /^(.*?)\s*\(((?:Remake|Remaster)[^)]*)\)\s*$/i.exec(releaseLabel);
+  if(!match) return { base: releaseLabel, extra: null };
+  return { base: match[1], extra: match[2] };
+}
+
 function updateTitlePanelText(entryId){
   const rec = titlePanels[entryId];
   if(!rec) return;
   const { entry, game: g, universe, prevEntry, nextEntry } = rec;
   const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
   const releaseLabel = state.lang === "it" ? entry.releaseYear : (entry.releaseYearEn || entry.releaseYear);
+  const { base: releaseBase, extra: releaseExtra } = formatReleaseLabel(releaseLabel);
   const typeLabel = state.lang === "it" ? entry.type : (entry.typeEn || entry.type);
   rec.panel.innerHTML = `
     <h2 class="title-name">${tf(entry.title)}</h2>
     <div class="title-meta"><span class="title-tag">${typeLabel}</span></div>
-    ${releaseLabel ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseLabel}</p>` : ""}
+    ${releaseBase ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseBase}</p>` : ""}
+    ${releaseExtra ? `<p class="title-date title-date--remake">${releaseExtra}</p>` : ""}
     ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}
     ${entry.synopsis ? `<p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>` : ""}
     ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}

@@ -1448,7 +1448,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      ereditava quello generico del corpo pagina). */
   .title-tag{ padding:5px 15px; line-height:15px; }
   .title-date{ margin-top:30px; margin-bottom:0; }
-  .title-date--release + .title-date--story{ margin-top:5px; }
+  /* Nota remake/remaster: riga propria subito sotto la data di
+     uscita, staccata solo di poco (non e' una nuova sezione).
+     La vera separazione richiesta (10px) e' quella tra la data di
+     uscita (con o senza remake/remaster sotto) e la data di
+     ambientazione, che restavano troppo vicine a 5px. */
+  .title-date--release + .title-date--remake{ margin-top:3px; }
+  .title-date--release + .title-date--story{ margin-top:10px; }
+  .title-date--remake + .title-date--story{ margin-top:10px; }
   .title-synopsis{ margin-top:30px; }
   /* La regola condivisa .title-date + .title-synopsis{margin-top:0}
      (styles.css - "niente doppio spazio", pensata per quando la
