@@ -1309,24 +1309,24 @@ function renderGamePanel(){
     const TRACK_OVERFLOW = (130 - 100) / 2;
     if(freeScrollMode){
       // Stessa identica formula "a margini" del ramo fisso qui sotto,
-      // ma calcolata come se ci fossero sempre esattamente 10 voci
-      // (9 intervalli), non in base al numero reale di voci: cosi' i
-      // primi 10 pallini restano allineati esattamente agli stessi
+      // ma calcolata come se ci fossero sempre esattamente 8 voci
+      // (7 intervalli), non in base al numero reale di voci: cosi' i
+      // primi 8 pallini restano allineati esattamente agli stessi
       // due bordi (Discord/switch lingua) del caso fisso, mai un
       // pixel oltre. Prima si usava un gap flessibile pensato per un
       // .h-node largo 100px, ma la colonna reale e' larga 130px
       // (TRACK_OVERFLOW) - lo scarto ignorato spingeva l'ultimo
       // pallino visibile oltre il bordo destro, dove la maschera lo
-      // tagliava via del tutto (invisibile). Le voci oltre la decima
+      // tagliava via del tutto (invisibile). Le voci oltre l'ottava
       // proseguono con lo stesso identico passo, uscendo dal bordo
       // destro: e' li' che comincia lo scroll.
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
-      const spacing10 = (availableWidth - 100 - 2 * DOT_RADIUS) / 9;
+      const spacing8 = (availableWidth - 100 - 2 * DOT_RADIUS) / 7;
       nodes.forEach((node, i) => {
         node.style.marginLeft = i === 0
           ? (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px"
-          : (spacing10 - 100).toFixed(2) + "px";
+          : (spacing8 - 100).toFixed(2) + "px";
       });
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
