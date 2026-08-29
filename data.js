@@ -378,8 +378,8 @@ const GAMES = {
       it: "Da secoli, la Confraternita degli Assassini e l'Ordine dei Templari si contendono in segreto il corso della storia umana, mascherando la loro guerra dietro gli eventi che tutti conoscono. Da una parte il libero arbitrio, dall'altra il controllo assoluto sull'umanità. Antichi manufatti di una civiltà scomparsa alimentano.",
       en: "For centuries, the Brotherhood of Assassins and the Order of Templars have secretly fought over the course of human history, hiding their war behind the events everyone knows. On one side stands free will, on the other absolute control over humanity. Ancient artifacts left by a vanished civilization fuel both."
     },
-    palette: ["#8b0000", "#d4af37", "#1a1a1a"],
-    accentColor: "#8b0000",
+    palette: ["#d9cba3", "#7a1f1f", "#3a332c"],
+    accentColor: "#d9cba3",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
