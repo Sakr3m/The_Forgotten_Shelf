@@ -569,6 +569,28 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     // due turni gia' consumati dal gemello (che occupa sia sopra che
     // sotto sullo stesso pallino).
 
+  // Titolo "ombrello" che copre un intervallo di pallini gia'
+  // esistenti (es. Resident Evil 3 su RE2 e i suoi vicini): si
+  // dichiara con entry.twin.spanFrom/spanTo (id della prima e
+  // dell'ultima voce coperta, entrambe gia' presenti in uni.entries).
+  // Tutte le voci nell'intervallo (ospite escluso, che e' gia' un
+  // gemello per conto suo) vengono forzate sullo stesso lato
+  // dell'ospite - vedi PARTE 3 punto 3 del regolamento. Qui si
+  // precalcola solo QUALI indici sono coinvolti, prima del giro vero
+  // e proprio sotto.
+  const forcedSameSideIndices = new Set();
+  uni.entries.forEach((entry, idx) => {
+    if(entry.twin && entry.twin.spanFrom && entry.twin.spanTo){
+      const fromIdx = uni.entries.findIndex(e => e.id === entry.twin.spanFrom);
+      const toIdx = uni.entries.findIndex(e => e.id === entry.twin.spanTo);
+      if(fromIdx === -1 || toIdx === -1) return; // id non trovato: ignora, nessuna forzatura
+      const lo = Math.min(fromIdx, toIdx), hi = Math.max(fromIdx, toIdx);
+      for(let k = lo; k <= hi; k++){
+        if(k !== idx) forcedSameSideIndices.add(k); // l'ospite stesso resta escluso, lo gestisce il ramo "gemello"
+      }
+    }
+  });
+
   // Genera il markup di copertina+titolo per meta' di un nodo
   // (usata sia per una voce normale sia per ciascuna delle due meta'
   // di un nodo gemello). "position" e' "top" o "bottom": decide
@@ -585,8 +607,13 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   uni.entries.forEach((entry, i) => {
     const isTwin = !!entry.twin;
-    const tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
-      // serve un "lato": occupa entrambi, il valore non viene usato
+    const isSpanned = forcedSameSideIndices.has(i); // voce "coperta"
+      // da un titolo ombrello: niente alternanza propria, va forzata
+      // sullo stesso lato dell'ospite (qui per convenzione fissa:
+      // ospite/voci coperte = "top", titolo ombrello = "bottom" -
+      // vedi buildHalfHTML/entry.twin sopra)
+    const tileDown = !isTwin && !isSpanned && (turn % 2 === 0); // per un
+      // gemello o una voce coperta non serve un "lato" calcolato qui
 
     const t = total > 1 ? i / (total - 1) : 0;
     const color = gradientColorAt(t);
@@ -599,9 +626,15 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
       // quindi il contenitore esterno e' un div semplice e sono i due
       // blocchi copertina+titolo a diventare link indipendenti, con
       // il pallino condiviso in mezzo che resta sempre lo stesso
-      // (solo hover, mai cliccabile, come su ogni nodo).
+      // (solo hover, mai cliccabile, come su ogni nodo). Se e' anche
+      // l'ospite di un titolo ombrello (entry.twin.spanFrom/spanTo
+      // presenti), riceve in piu' la classe h-node--umbrella-host:
+      // per ora serve solo ad agganciarci in futuro il trattino
+      // unito verso i pallini coperti (non ancora disegnato, vedi
+      // regolamento).
+      const isUmbrellaHost = !!(entry.twin.spanFrom && entry.twin.spanTo);
       node = document.createElement("div");
-      node.className = "h-node h-node--twin";
+      node.className = "h-node h-node--twin" + (isUmbrellaHost ? " h-node--umbrella-host" : "");
       node.style.setProperty("--dot-color", color);
       const topHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
       const bottomHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.twin.id}.html`;
@@ -611,12 +644,13 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
         <a class="h-node__bottom" href="${bottomHref}" data-entry-id="${entry.twin.id}">${buildHalfHTML(entry.twin, "bottom")}</a>
       `;
     } else {
+      const down = isSpanned ? false : tileDown; // voce coperta: mai "down", stessa convenzione dell'ospite (top)
       node = document.createElement("a");
       node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
-      node.className = "h-node " + (tileDown ? "h-node--down" : "h-node--up");
+      node.className = "h-node " + (down ? "h-node--down" : "h-node--up") + (isSpanned ? " h-node--spanned" : "");
       node.style.setProperty("--dot-color", color);
-      const topContent = tileDown ? "" : buildHalfHTML(entry, "top");
-      const bottomContent = tileDown ? buildHalfHTML(entry, "bottom") : "";
+      const topContent = down ? "" : buildHalfHTML(entry, "top");
+      const bottomContent = down ? buildHalfHTML(entry, "bottom") : "";
       node.innerHTML = `
         <span class="h-node__top">${topContent}</span>
         <span class="h-node__marker"><span class="h-node__dot"></span></span>
@@ -1341,11 +1375,15 @@ function renderGamePanel(){
     const TRACK_OVERFLOW = (130 - 100) / 2;
     // PESO di ogni nodo ai fini della spaziatura: 1 per una voce
     // normale, 2 per un nodo "gemello" (due voci sullo stesso
-    // pallino, .h-node--twin) - un gemello ha bisogno di piu' respiro
-    // dai vicini perche' occupa sia sopra che sotto. Letto dalla
-    // classe nel DOM (non dai dati) cosi' vale identico in ogni punto
-    // dove questa funzione viene chiamata.
-    const weights = nodes.map(node => node.classList.contains("h-node--twin") ? 2 : 1);
+    // pallino, .h-node--twin) o per una voce "coperta" da un titolo
+    // ombrello (.h-node--spanned, niente piu' alternanza per lei,
+    // vedi PARTE 3 punto 3 del regolamento) - in entrambi i casi
+    // serve piu' respiro dai vicini. Letto dalla classe nel DOM (non
+    // dai dati) cosi' vale identico in ogni punto dove questa
+    // funzione viene chiamata.
+    const weights = nodes.map(node =>
+      (node.classList.contains("h-node--twin") || node.classList.contains("h-node--spanned")) ? 2 : 1
+    );
     // Distanza tra un nodo e il successivo = spacing-unitario x la
     // MEDIA dei due pesi coinvolti: tra due voci normali (1 e 1) resta
     // la spaziatura di sempre; un gemello (peso 2) tra due normali
