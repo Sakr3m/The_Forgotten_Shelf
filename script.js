@@ -1825,28 +1825,57 @@ function renderRail(){
   if(!g || !u) return;
   el.railLabel.textContent = tf(u.name);
   el.railTrack.innerHTML = "";
+
+  // Markup di una riga singola (immagine+titolo), usato sia per una
+  // voce normale sia per ciascuna delle due meta' di un nodo
+  // gemello. Voci STORIA (data.noAvatar): niente box immagine qui, a
+  // differenza della linea orizzontale non serve nessuno spacer -
+  // essendo un flex-row semplice (non una griglia a colonne fisse),
+  // togliendo il tile il titolo scivola da solo a sinistra, esattamente
+  // dove inizierebbe normalmente il box immagine (richiesto
+  // esplicitamente: qui il box va tolto, non riempito). Niente date
+  // qui (richiesto esplicitamente, 28/08): solo immagine e titolo,
+  // stesso criterio della linea temporale orizzontale ufficiale.
+  function buildRowHTML(data){
+    const tileHTML = data.noAvatar
+      ? ""
+      : `<span class="v-node__tile${tileMissingClass(data, "v-node__tile")}">${tileInnerHTML(data)}</span>`;
+    return `
+      ${tileHTML}
+      <span class="v-node__meta">
+        <span class="v-node__title">${tf(data.title)}</span>
+      </span>
+    `;
+  }
+
   u.entries.forEach(entry => {
+    if(entry.twin){
+      // Nodo "gemello" nella tabella: doppia altezza, spaccata in
+      // due meta' (una per ciascun media), ognuna con la propria
+      // immagine e il proprio titolo, cliccabile per conto suo verso
+      // la propria pagina - il pallino decorativo a sinistra resta
+      // unico, condiviso, centrato sull'intero blocco (stesso
+      // concetto del pallino condiviso sulla linea orizzontale).
+      const node = document.createElement("div");
+      const isPrimaryActive = entry.id === state.entryId;
+      const isTwinActive = entry.twin.id === state.entryId;
+      node.className = "v-node v-node--twin" + ((isPrimaryActive || isTwinActive) ? " is-active" : "");
+      node.innerHTML = `
+        <a class="v-node__half${isPrimaryActive ? " is-active" : ""}" href="voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html">${buildRowHTML(entry)}</a>
+        <a class="v-node__half${isTwinActive ? " is-active" : ""}" href="voci/la-traccia-del-tempo/${state.gameId}/${entry.twin.id}.html">${buildRowHTML(entry.twin)}</a>
+      `;
+      node.querySelectorAll(".v-node__half").forEach((half, i) => {
+        const targetId = i === 0 ? entry.id : entry.twin.id;
+        half.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(targetId); });
+      });
+      el.railTrack.appendChild(node);
+      return;
+    }
+
     const node = document.createElement("a");
     node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
     node.className = "v-node" + (entry.id === state.entryId ? " is-active" : "");
-    // Voci STORIA (entry.noAvatar): niente box immagine qui, a
-    // differenza della linea orizzontale non serve nessuno spacer -
-    // essendo un flex-row semplice (non una griglia a colonne fisse),
-    // togliendo il tile il titolo scivola da solo a sinistra, esattamente
-    // dove inizierebbe normalmente il box immagine (richiesto
-    // esplicitamente: qui il box va tolto, non riempito).
-    const tileHTML = entry.noAvatar
-      ? ""
-      : `<span class="v-node__tile${tileMissingClass(entry, "v-node__tile")}">${tileInnerHTML(entry)}</span>`;
-    // Niente date qui (richiesto esplicitamente, 28/08): solo
-    // immagine e titolo, stesso criterio della linea temporale
-    // orizzontale ufficiale, che non mostra mai anni.
-    node.innerHTML = `
-      ${tileHTML}
-      <span class="v-node__meta">
-        <span class="v-node__title">${tf(entry.title)}</span>
-      </span>
-    `;
+    node.innerHTML = buildRowHTML(entry);
     node.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(entry.id); });
     el.railTrack.appendChild(node);
   });
