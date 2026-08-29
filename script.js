@@ -2638,3 +2638,41 @@ function initReportModal(){
   });
 }
 initReportModal();
+
+// ---------------------------------------------------------
+// Promemoria "titolo uscito" verso Discord (29/08): quando una voce
+// "in arrivo" (imagePending:true, es. Ace Combat 8) supera la
+// propria data di uscita (entry.releaseDateISO, es. "2026-10-02"),
+// il sito manda un avviso al Worker alla prima visita utile dopo
+// quella data. Non serve nessuna memoria qui lato browser: e' il
+// Worker (tabella release_notifications) a garantire che l'avviso
+// parta una sola volta per voce, non importa quante volte questa
+// funzione lo richiami. Fallisce sempre in silenzio, come stats.js:
+// non deve mai interferire con la normale fruizione del sito.
+// ---------------------------------------------------------
+function checkUpcomingReleases(){
+  if(typeof GAMES === "undefined") return;
+  const todayISO = new Date().toISOString().slice(0, 10);
+  Object.keys(GAMES).forEach(gameId => {
+    const g = GAMES[gameId];
+    if(!g || !Array.isArray(g.universes)) return; // saghe senza
+      // timeline (canonNote, es. Doom) non hanno mai voci imagePending
+    g.universes.forEach(uni => {
+      (uni.entries || []).forEach(entry => {
+        if(!entry.imagePending || !entry.releaseDateISO) return;
+        if(entry.releaseDateISO > todayISO) return; // data non ancora raggiunta
+        fetch("https://the-forgotten-shelf.sl-eternal-lux.workers.dev/release-reached", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            entryId: entry.id,
+            gameId: gameId,
+            title: tf(entry.title),
+            releaseDateISO: entry.releaseDateISO
+          })
+        }).catch(() => {});
+      });
+    });
+  });
+}
+checkUpcomingReleases();
