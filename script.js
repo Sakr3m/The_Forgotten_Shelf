@@ -1231,17 +1231,40 @@ function renderGamePanel(){
 
   // Pulsanti prev/next dell'universo posizionati a runtime, 100px
   // esatti dal bordo del blocco nome (non dal centro del
-  // contenitore) - il nome stesso resta un blocco normale, sempre
-  // centrato per conto suo (vedi CSS, .u-track__head ora usa
-  // position:absolute sui pulsanti apposta per questo). Misurato con
-  // getBoundingClientRect dopo l'inserimento nel DOM, non calcolato
-  // a mano: la larghezza del nome (quindi anche quella dei pulsanti,
-  // diversi da un universo all'altro) varia da saga a saga. Solo
-  // desktop: su mobile questi due pulsanti non esistono nel markup.
+  // contenitore) - il nome stesso, spostato per centrarsi esattamente
+  // tra Discord e lo switch lingua (vedi sotto), resta un blocco
+  // normale che si centra da solo dentro il proprio contenitore
+  // ridimensionato (vedi CSS, .u-track__head usa position:absolute
+  // solo sui pulsanti). Misurato con getBoundingClientRect dopo
+  // l'inserimento nel DOM, non calcolato a mano: la larghezza del nome
+  // (quindi anche quella dei pulsanti, diversi da un universo
+  // all'altro) varia da saga a saga. Solo desktop: su mobile questi
+  // due pulsanti non esistono nel markup.
   if(prevBtn && nextBtn && !mobileBreakpoint.matches){
     const headEl = el.universesRow.querySelector(".u-track__head");
     const nameBlockEl = el.universesRow.querySelector(".u-track__name-block");
     if(headEl && nameBlockEl){
+      // Il blocco nome+span dell'universo va centrato esattamente tra
+      // il pulsante Discord e lo switch lingua, non nel mezzo generico
+      // dello stage - stessa tecnica gia' in uso altrove sul sito
+      // (vedi #titleContent in renderTitlePanel): si ridimensiona il
+      // contenitore head per farlo combaciare esattamente con quello
+      // spazio, poi il justify-content:center gia' presente in CSS
+      // centra da solo il nome al suo interno. Fatto PRIMA di misurare
+      // nameRect/headRect per le frecce prev/next qui sotto, cosi'
+      // restano ancorate ai bordi del nome nella sua posizione finale,
+      // non in quella pre-spostamento.
+      if(el.discordLink && el.langSwitch){
+        headEl.style.marginLeft = "0px";
+        headEl.style.width = "";
+        const headRectBefore = headEl.getBoundingClientRect();
+        const discordRectHead = el.discordLink.getBoundingClientRect();
+        const langRectHead = el.langSwitch.getBoundingClientRect();
+        const deltaHead = discordRectHead.left - headRectBefore.left;
+        headEl.style.marginLeft = deltaHead.toFixed(2) + "px";
+        headEl.style.width = (langRectHead.right - discordRectHead.left).toFixed(2) + "px";
+      }
+
       prevBtn.style.left = "";
       nextBtn.style.left = "";
       const headRect = headEl.getBoundingClientRect();
