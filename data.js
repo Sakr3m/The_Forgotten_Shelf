@@ -2040,6 +2040,14 @@ const GAMES = {
         name: { it: "Sera", en: "Sera" },
         span: { it: "0 A.E. – 42 A.E.", en: "0 A.E. – 42 A.E." },
         entries: [
+          { id: "rise-of-raam", type: "FUMETTO", typeEn: "COMIC", year: "Prima del Giorno dell'Emergenza", yearEn: "Before Emergence Day", releaseYear: "2018", releaseYearEn: "2018",
+            noAvatar: true,
+            title: { it: "Gears of War: The Rise of RAAM", en: "Gears of War: The Rise of RAAM" },
+            synopsis: {
+              it: "Fumetto in quattro albi che racconta le origini di RAAM, il generale che diventerà il più temuto comandante del Locust Horde: come nasce all'interno della rigida gerarchia sociale Locust e come si guadagna, spietatamente, il proprio posto al vertice ben prima che il suo popolo emerga in superficie il Giorno dell'Emergenza.",
+              en: "A four-issue comic recounting the origins of RAAM, the general who becomes the Locust Horde's most feared commander: how he is born into the Locust's rigid social hierarchy and ruthlessly earns his place at the top, well before his people emerge to the surface on Emergence Day."
+            }
+          },
           { id: "e-day", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "0 A.E. (Giorno dell'Emergenza)", releaseYear: "2025", releaseYearEn: "2025",
             title: { it: "Gears of War: E-Day", en: "Gears of War: E-Day" },
             synopsis: {
@@ -2050,8 +2058,24 @@ const GAMES = {
           { id: "judgment", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo E-Day", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Gears of War: Judgment", en: "Gears of War: Judgment" },
             synopsis: {
-              it: "Damon Baird e Augustus Cole, sotto processo per un atto disobbediente commesso durante una missione, raccontano in tribunale in una serie di flashback come la Squadra Kilo abbia affrontato le prime, caotiche settimane della guerra contro il Locust, mostrando un lato più acerbo e improvvisato del conflitto rispetto alla trilogia principale.",
-              en: "Damon Baird and Augustus Cole, on trial for an act of disobedience committed during a mission, recount in court through a series of flashbacks how Kilo Squad handled the first, chaotic weeks of the war against the Locust, showing a rawer, more improvised side of the conflict compared to the main trilogy."
+              it: "Damon Baird e Augustus Cole, sotto processo per un atto disobbediente commesso durante una missione, raccontano in tribunale in una serie di flashback come la Squadra Kilo abbia affrontato le prime, caotiche settimane della guerra contro il Locust, mostrando un lato più acerbo e improvvisato del conflitto rispetto alla trilogia principale. Il DLC RAAM's Shadow, incluso nell'edizione base, racconta in parallelo la stessa guerra dal punto di vista della Squadra Delta-One di Marcus e Dom, nel giorno in cui il generale RAAM in persona guida l'attacco decisivo contro Halvo Bay.",
+              en: "Damon Baird and Augustus Cole, on trial for an act of disobedience committed during a mission, recount in court through a series of flashbacks how Kilo Squad handled the first, chaotic weeks of the war against the Locust, showing a rawer, more improvised side of the conflict compared to the main trilogy. The RAAM's Shadow DLC, included in the base edition, tells the same war in parallel from the point of view of Marcus and Dom's Delta-One squad, on the day General RAAM himself leads the decisive attack on Halvo Bay."
+            }
+          },
+          { id: "gears-tactics", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "12 A.E. circa, prima di Gears of War", yearEn: "Around 12 A.E., before Gears of War", releaseYear: "2020", releaseYearEn: "2020",
+            noAvatar: true,
+            title: { it: "Gears Tactics", en: "Gears Tactics" },
+            synopsis: {
+              it: "Capitolo strategico a turni ambientato durante i primi, disperati anni della Guerra dei Locusti, poco più di un decennio prima degli eventi di Gears of War. Gabe Diaz, futuro padre di Kait, guida una squadra di sopravvissuti nella caccia a Ukkon, lo scienziato Locust responsabile della creazione dei mostruosi Bersaglieri, mentre la COG stessa collassa attorno a loro sotto il peso della guerra.",
+              en: "A turn-based strategy chapter set during the first, desperate years of the Locust War, just over a decade before the events of Gears of War. Gabe Diaz, Kait's future father, leads a squad of survivors in the hunt for Ukkon, the Locust scientist responsible for creating the monstrous Snatchers, while the COG itself collapses around them under the weight of the war."
+            }
+          },
+          { id: "the-slab", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Gears of War", yearEn: "Before Gears of War", releaseYear: "2012", releaseYearEn: "2012",
+            noAvatar: true,
+            title: { it: "Gears of War: The Slab", en: "Gears of War: The Slab" },
+            synopsis: {
+              it: "Romanzo prequel che racconta gli anni di Marcus Fenix nella prigione militare del Slab, dove sconta la condanna per aver disobbedito agli ordini durante la missione di soccorso al padre Adam, dispersa in territorio Locust. Segue il suo rapporto con gli altri detenuti e con le guardie fino al giorno in cui, con la guerra ormai quasi persa, gli viene offerta la libertà in cambio dell'arruolamento nella Squadra Delta.",
+              en: "A prequel novel recounting Marcus Fenix's years in the Slab military prison, where he serves his sentence for disobeying orders during the rescue mission for his father Adam, lost in Locust territory. It follows his relationship with fellow inmates and guards up to the day when, with the war nearly lost, he is offered freedom in exchange for enlisting in Delta Squad."
             }
           },
           { id: "gears-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "14 A.E.", releaseYear: "2006", releaseYearEn: "2006",
@@ -2061,11 +2085,67 @@ const GAMES = {
               en: "Fourteen years after Emergence Day, with the war nearly lost, Marcus Fenix is released from prison to join Delta Squad and launch the Lightmass Offensive, a bombardment capable of destroying the Locust Horde's underground tunnels."
             }
           },
+          { id: "aspho-fields", type: "ROMANZO", typeEn: "NOVEL", year: "Subito dopo Gears of War", yearEn: "Right after Gears of War", releaseYear: "2008", releaseYearEn: "2008",
+            noAvatar: true,
+            title: { it: "Gears of War: Aspho Fields", en: "Gears of War: Aspho Fields" },
+            synopsis: {
+              it: "Una settimana dopo l'Offensiva Lightmass, mentre l'ultima roccaforte umana si prepara al prossimo assalto Locust, il ritorno di un vecchio commilitone riporta a galla per Marcus e Dom i fantasmi degli ultimi anni delle Guerre del Pendulum, raccontati in flashback: la battaglia di Aspho Fields che vide la morte di Carlos, fratello maggiore di Dom, e il segreto che da allora Marcus si porta dietro riguardo a quel giorno.",
+              en: "One week after the Lightmass Offensive, as the last human stronghold braces for the next Locust assault, the return of an old comrade dredges up for Marcus and Dom the ghosts of the final years of the Pendulum Wars, told in flashback: the battle of Aspho Fields that saw the death of Dom's older brother Carlos, and the secret Marcus has carried about that day ever since."
+            }
+          },
+          { id: "hollow", type: "FUMETTO", typeEn: "COMIC", year: "Tra Gears of War e Gears of War 2", yearEn: "Between Gears of War and Gears of War 2", releaseYear: "2008 – 2009", releaseYearEn: "2008 – 2009",
+            noAvatar: true,
+            title: { it: "Gears of War: Hollow", en: "Gears of War: Hollow" },
+            synopsis: {
+              it: "Delta-One viene inviata a indagare su una misteriosa attività sismica nella città di Montevado, dove il gruppo incontra per la prima volta la giovane recluta Jace Stratton, appena uscita dall'addestramento base. La missione si conclude in tragedia quando il Gear Gil muore tra le braccia di Jace durante l'estrazione dei sopravvissuti, in un ritorno a Jacinto segnato da tensioni personali tra Dom, Anya e Marcus.",
+              en: "Delta-One is sent to investigate mysterious seismic activity in the city of Montevado, where the group first meets the young recruit Jace Stratton, fresh out of basic training. The mission ends in tragedy when the Gear Gil dies in Jace's arms during the extraction of survivors, in a return to Jacinto marked by personal tensions between Dom, Anya, and Marcus."
+            }
+          },
+          { id: "barren", type: "FUMETTO", typeEn: "COMIC", year: "Tra Hollow e Gears of War 2", yearEn: "Between Hollow and Gears of War 2", releaseYear: "2009 – 2010", releaseYearEn: "2009 – 2010",
+            noAvatar: true,
+            title: { it: "Gears of War: Barren", en: "Gears of War: Barren" },
+            synopsis: {
+              it: "Dopo un segnale di soccorso dalla città sconvolta di Jilane, Delta Squad viene inviata a indagare con l'aiuto di Alex Brand, una guida che in quella stessa città era stata rinchiusa da bambina in una fattoria per la riproduzione forzata gestita dai Locust. Il gruppo trova un manipolo di sopravvissuti al massacro di Jilane e deve difenderli da un imminente attacco Locust in un vero e proprio assedio a oltranza.",
+              en: "After a distress signal from the devastated city of Jilane, Delta Squad is sent to investigate with the help of Alex Brand, a guide who as a child had been imprisoned in that same city at a Locust-run forced breeding farm. The group finds a handful of survivors of the Jilane massacre and must defend them against an imminent Locust attack in an all-out last stand."
+            }
+          },
           { id: "gears-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "mesi dopo Gears 1", releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "Gears of War 2", en: "Gears of War 2" },
             synopsis: {
               it: "Con il Locust Horde che inghiotte intere città facendole sprofondare nel sottosuolo, Delta Squad scende nel cuore stesso della loro civiltà per fermare Myrrah, la Regina Locust, scoprendo lungo il percorso l'esistenza del Lambent, una minaccia parassitaria che tormenta gli stessi Locust dall'interno.",
               en: "As the Locust Horde swallows entire cities, sinking them underground, Delta Squad descends into the heart of their civilisation to stop Myrrah, the Locust Queen, discovering along the way the existence of the Lambent, a parasitic threat tormenting the Locust themselves from within."
+            }
+          },
+          { id: "jacintos-remnant", type: "ROMANZO", typeEn: "NOVEL", year: "Subito dopo Gears of War 2", yearEn: "Right after Gears of War 2", releaseYear: "2009", releaseYearEn: "2009",
+            noAvatar: true,
+            title: { it: "Gears of War: Jacinto's Remnant", en: "Gears of War: Jacinto's Remnant" },
+            synopsis: {
+              it: "Subito dopo l'affondamento di Jacinto, ultima grande città umana, i sopravvissuti della COG si imbarcano alla ricerca di un nuovo rifugio, trovandolo infine sull'isola di Vectes, rimasta ai margini della guerra per quindici anni. Il romanzo alterna il presente della flotta alla deriva a flashback sui primi, disperati anni della Guerra dei Locusti e sugli attacchi Hammer of Dawn che segnarono la svolta del conflitto.",
+              en: "Right after the sinking of Jacinto, the last great human city, the COG survivors set sail in search of a new refuge, eventually finding it on the island of Vectes, which had remained on the margins of the war for fifteen years. The novel alternates between the drifting fleet's present and flashbacks to the first, desperate years of the Locust War and the Hammer of Dawn strikes that marked the conflict's turning point."
+            }
+          },
+          { id: "anvil-gate", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Jacinto's Remnant", yearEn: "After Jacinto's Remnant", releaseYear: "2010", releaseYearEn: "2010",
+            noAvatar: true,
+            title: { it: "Gears of War: Anvil Gate", en: "Gears of War: Anvil Gate" },
+            synopsis: {
+              it: "Sull'isola di Vectes, Gear e Stranded devono imparare a convivere mentre ricostruiscono una parvenza di società, ma la pace viene spezzata dalla comparsa del Lambent, una minaccia ancora più devastante del Locust stesso. Flashback paralleli raccontano l'Assedio di Anvil Gate durante le Guerre del Pendulum, la battaglia che forgiò la reputazione del colonnello Hoffman come comandante spietato ma efficace.",
+              en: "On the island of Vectes, Gears and Stranded must learn to coexist as they rebuild a semblance of society, but the peace is shattered by the emergence of the Lambent, a threat even more devastating than the Locust themselves. Parallel flashbacks recount the Siege of Anvil Gate during the Pendulum Wars, the battle that forged Colonel Hoffman's reputation as a ruthless but effective commander."
+            }
+          },
+          { id: "coalitions-end", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Anvil Gate, ponte diretto a Gears of War 3", yearEn: "After Anvil Gate, a direct bridge to Gears of War 3", releaseYear: "2011", releaseYearEn: "2011",
+            noAvatar: true,
+            title: { it: "Gears of War: Coalition's End", en: "Gears of War: Coalition's End" },
+            synopsis: {
+              it: "Con la Regina Locust Myrrah che dà la caccia ai ricercatori COG nascosti sull'isola di Azura, nella speranza di trovare lì una cura contro il Lambent, la Coalizione dei Governi Ordinati collassa definitivamente come entità politica, lasciando Gear e Stranded a contare solo sulle proprie forze. Il romanzo chiude direttamente il cerchio che porta all'inizio di Gears of War 3.",
+              en: "As Locust Queen Myrrah hunts down the COG researchers hidden on Azura island, hoping to find a cure for the Lambent there, the Coalition of Ordered Governments collapses for good as a political entity, leaving Gears and Stranded to rely only on themselves. The novel directly closes the loop leading into the start of Gears of War 3."
+            }
+          },
+          { id: "dirty-little-secrets", type: "FUMETTO", typeEn: "COMIC", year: "Concomitante ad Anvil Gate e Coalition's End", yearEn: "Concurrent with Anvil Gate and Coalition's End", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
+            noAvatar: true,
+            title: { it: "Gears of War: Dirty Little Secrets", en: "Gears of War: Dirty Little Secrets" },
+            synopsis: {
+              it: "Nello stesso periodo raccontato da Anvil Gate e Coalition's End, Delta Squad si allea con gli ex nemici Gorasni per difendere i residenti di Vectes da bande di Stranded e sacche nascoste di Locust, mentre in segreto Adam Fenix e l'ex presidente Prescott cospirano per neutralizzare la minaccia Lambent prima che possa spazzare via ogni forma di vita su Sera.",
+              en: "In the same period recounted by Anvil Gate and Coalition's End, Delta Squad allies with their former Gorasni enemies to defend Vectes's residents from Stranded gangs and hidden pockets of Locust, while in secret Adam Fenix and former Chairman Prescott conspire to neutralise the Lambent threat before it can wipe out all life on Sera."
             }
           },
           { id: "gears-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo Gears 2", releaseYear: "2011", releaseYearEn: "2011",
@@ -2075,6 +2155,14 @@ const GAMES = {
               en: "With humanity reduced to a few thousand survivors, caught between the Locust and the Lambent, Delta Squad discovers that Marcus's father, Adam, had developed a countermeasure capable of eliminating both threats at the cost of the Imulsion fuel powering all of civilisation. Marcus kills Myrrah, ending the war but leaving Sera devastated and economically collapsed."
             }
           },
+          { id: "ephyra-rising", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Gears of War 3, prima di Gears of War 4", yearEn: "After Gears of War 3, before Gears of War 4", releaseYear: "2021", releaseYearEn: "2021",
+            noAvatar: true,
+            title: { it: "Gears of War: Ephyra Rising", en: "Gears of War: Ephyra Rising" },
+            synopsis: {
+              it: "Nel dopoguerra immediato, con la Guerra dei Locusti finalmente conclusa ma Sera ridotta in macerie e senza più Imulsion a disposizione, Marcus e Anya guidano i primi, difficili tentativi di ricostruzione attorno alle rovine della città di Ephyra, gettando le basi politiche e sociali della nuova Coalizione che porterà, una generazione dopo, agli eventi di Gears of War 4.",
+              en: "In the immediate aftermath, with the Locust War finally over but Sera in ruins and Imulsion no longer available, Marcus and Anya lead the first, difficult attempts at reconstruction around the ruins of the city of Ephyra, laying the political and social foundations of the new Coalition that will lead, a generation later, to the events of Gears of War 4."
+            }
+          },
           { id: "gears-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "39 A.E. (25 anni dopo Gears 3)", releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Gears of War 4", en: "Gears of War 4" },
             synopsis: {
@@ -2082,11 +2170,35 @@ const GAMES = {
               en: "Twenty-five years after the war's end, J.D. Fenix (Marcus's son), Kait Diaz, and Del Walker, rebels outside the new COG's control, discover the existence of the Swarm, the mutated evolution of the Locust born from exposure to Imulsion — and that Kait herself descends from the Locust Queen's bloodline."
             }
           },
+          { id: "ascendance", type: "ROMANZO", typeEn: "NOVEL", year: "Ponte diretto tra Gears of War 4 e Gears 5", yearEn: "A direct bridge between Gears of War 4 and Gears 5", releaseYear: "2019", releaseYearEn: "2019",
+            noAvatar: true,
+            title: { it: "Gears of War: Ascendance", en: "Gears of War: Ascendance" },
+            synopsis: {
+              it: "Subito dopo la morte di sua madre Reyna per mano dello Swarm, Kait giura vendetta mentre lei, JD, Del, Marcus, Cole e Baird si riorganizzano; quando la First Minister Jinn li richiama a servizio della Coalizione, Kait si ribella e va per conto proprio a salvare un gruppo di adolescenti sopravvissuti insieme a Marcus, mentre JD e Del restano intrappolati durante una missione di ricognizione contro lo Swarm. Ponte narrativo diretto verso l'inizio di Gears 5.",
+              en: "Right after her mother Reyna's death at the hands of the Swarm, Kait swears revenge as she, JD, Del, Marcus, Cole, and Baird regroup; when First Minister Jinn calls them back into the Coalition's service, Kait rebels and goes off on her own to rescue a group of surviving teenagers alongside Marcus, while JD and Del find themselves trapped during a reconnaissance mission against the Swarm. A direct narrative bridge into the start of Gears 5."
+            }
+          },
           { id: "gears-5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "42 A.E. (mesi dopo Gears 4)", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Gears 5", en: "Gears 5" },
             synopsis: {
-              it: "Kait, tormentata dalla propria discendenza Locust e da visioni sempre più intense, guida la ricerca di una risposta al mistero dello Swarm attraverso le distese ghiacciate di Sera, mentre la nuova First Minister Jinn muove pedine proprie contro l'umanità stessa che dovrebbe proteggere.",
-              en: "Kait, tormented by her Locust ancestry and increasingly intense visions, leads the search for answers to the mystery of the Swarm across Sera's icy wastes, while the new First Minister Jinn moves her own pieces against the very humanity she is meant to protect."
+              it: "Kait, tormentata dalla propria discendenza Locust e da visioni sempre più intense, guida la ricerca di una risposta al mistero dello Swarm attraverso le distese ghiacciate di Sera, mentre la nuova First Minister Jinn muove pedine proprie contro l'umanità stessa che dovrebbe proteggere. La campagna scaricabile Hivebusters, ambientata in parallelo, segue una squadra improvvisata di reietti della Coalizione (Lahni, Mac e KAI-9) inviata su un'isola tropicale a caccia di un letale nuovo tipo di Swarm.",
+              en: "Kait, tormented by her Locust ancestry and increasingly intense visions, leads the search for answers to the mystery of the Swarm across Sera's icy wastes, while the new First Minister Jinn moves her own pieces against the very humanity she is meant to protect. The downloadable campaign Hivebusters, set in parallel, follows a makeshift squad of Coalition outcasts (Lahni, Mac, and KAI-9) sent to a tropical island to hunt down a lethal new type of Swarm."
+            }
+          },
+          { id: "hivebusters", type: "FUMETTO", typeEn: "COMIC", year: "Concomitante alla campagna Hivebusters di Gears 5", yearEn: "Concurrent with the Hivebusters campaign in Gears 5", releaseYear: "2019", releaseYearEn: "2019",
+            noAvatar: true,
+            title: { it: "Gears of War: Hivebusters", en: "Gears of War: Hivebusters" },
+            synopsis: {
+              it: "Fumetto di accompagnamento alla campagna scaricabile omonima di Gears 5, che approfondisce il passato dei tre reietti della Coalizione, Lahni Kaliso, Mac e l'unità robotica KAI-9, spiegando come le loro strade si siano incrociate prima della missione che li porterà a dare la caccia a un nuovo, letale ceppo di Swarm su un'isola tropicale lontana dal fronte principale.",
+              en: "A companion comic to Gears 5's downloadable campaign of the same name, delving into the past of the three Coalition outcasts, Lahni Kaliso, Mac, and the robotic unit KAI-9, explaining how their paths crossed before the mission that leads them to hunt a lethal new strain of Swarm on a tropical island far from the main front."
+            }
+          },
+          { id: "bloodlines", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Gears 5", yearEn: "After Gears 5", releaseYear: "2020", releaseYearEn: "2020",
+            noAvatar: true,
+            title: { it: "Gears of War: Bloodlines", en: "Gears of War: Bloodlines" },
+            synopsis: {
+              it: "Kait Diaz ripercorre la storia della propria famiglia materna durante le Guerre del Pendulum, decenni prima della sua nascita, scoprendo ulteriori dettagli sul legame di sangue che la unisce alla stirpe della Regina Locust Myrrah e su come quel segreto sia stato nascosto per generazioni prima di riemergere negli eventi di Gears of War 4.",
+              en: "Kait Diaz retraces the history of her maternal family during the Pendulum Wars, decades before her birth, uncovering further details about the blood tie linking her to the lineage of Locust Queen Myrrah and how that secret was hidden for generations before resurfacing in the events of Gears of War 4."
             }
           }
         ]
