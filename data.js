@@ -1733,7 +1733,7 @@ const GAMES = {
         name: { it: "Ivalice Alliance", en: "Ivalice Alliance" },
         span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
         entries: [
-          { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006", releaseYearEn: "2006",
+          { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006 (Remaster: 2017)", releaseYearEn: "2006 (Remaster: 2017)",
             noAvatar: true,
             title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
             synopsis: {
@@ -2354,14 +2354,14 @@ const GAMES = {
               en: "Immediately after being tricked by Ares into killing his own wife and daughter, Kratos is chained by the Furies for breaking his blood oath to the god. He frees himself from their prison, killing the first of the three Furies and setting the course for his path of vengeance against the entire pantheon."
             }
           },
-          { id: "chains-of-olympus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "durante il servizio agli dei", releaseYear: "2008", releaseYearEn: "2008",
+          { id: "chains-of-olympus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "durante il servizio agli dei", releaseYear: "2008 (Remaster: 2011)", releaseYearEn: "2008 (Remaster: 2011)",
             title: { it: "Chains of Olympus", en: "Chains of Olympus" },
             synopsis: {
               it: "Durante i dieci anni di servizio agli dei olimpici come pagamento per la propria colpa, Kratos viene inviato a salvare il dio sole Helios, rapito e imprigionato negli Inferi da Persefone e Atlante, che progettano di liberare i Titani. Kratos li ferma, restituendo la luce al mondo.",
               en: "During the ten years of service to the Olympian gods paid as penance for his guilt, Kratos is sent to rescue the sun god Helios, kidnapped and imprisoned in the Underworld by Persephone and Atlas, who are plotting to free the Titans. Kratos stops them, restoring light to the world."
             }
           },
-          { id: "god-of-war-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "fine del servizio agli dei", releaseYear: "2005", releaseYearEn: "2005",
+          { id: "god-of-war-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "fine del servizio agli dei", releaseYear: "2005 (Remaster: 2009)", releaseYearEn: "2005 (Remaster: 2009)",
             title: { it: "God of War", en: "God of War" },
             synopsis: {
               it: "Ormai disperato dopo dieci anni di servizio senza pace, Kratos accetta la missione di recuperare il Vaso di Pandora, unica arma capace di ferire un dio, per uccidere Ares stesso, che lo ha manipolato fin dall'inizio. Sconfitto Ares, Kratos ne eredita il trono, diventando il nuovo Dio della Guerra.",
@@ -2376,7 +2376,7 @@ const GAMES = {
               en: "A dual narrative thread: in a past never shown in the games, a still-human Kratos seeks the Ambrosia of Asclepius to save his dying daughter Calliope; in the present, having become God of War after Ares's death, Kratos returns to the trail of that same Ambrosia with the opposite intent, to destroy it and prevent anyone from using it to resurrect Ares."
             }
           },
-          { id: "ghost-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo essere diventato Dio della Guerra", releaseYear: "2010", releaseYearEn: "2010",
+          { id: "ghost-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo essere diventato Dio della Guerra", releaseYear: "2010 (Remaster: 2011)", releaseYearEn: "2010 (Remaster: 2011)",
             title: { it: "Ghost of Sparta", en: "Ghost of Sparta" },
             synopsis: {
               it: "Tormentato da visioni della madre, Kratos viaggia fino ad Atlantide sommersa per scoprirne il destino, apprendendo che suo fratello Deimos, rapito da bambino dagli dei per una profezia che lo riguardava, è ancora vivo e prigioniero di Ares nelle Catene degli Inferi. Kratos lo libera, ma Deimos muore comunque poco dopo per mano di Thanatos.",
@@ -2391,14 +2391,14 @@ const GAMES = {
               en: "In the only chapter of the saga never released on console (a 2D side-scrolling mobile title), Kratos is framed for the murder of Argos, Hera's creature, and sets out to track down a mysterious hooded assassin to clear his name. The chase leads him to clash with Ceryx, messenger of Zeus, further straining his relationship with the gods of Olympus shortly before the events of God of War II."
             }
           },
-          { id: "god-of-war-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo God of War", releaseYear: "2007", releaseYearEn: "2007",
+          { id: "god-of-war-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo God of War", releaseYear: "2007 (Remaster: 2009)", releaseYearEn: "2007 (Remaster: 2009)",
             title: { it: "God of War II", en: "God of War II" },
             synopsis: {
               it: "Zeus, temendo che Kratos possa un giorno rovesciarlo, lo tradisce e lo uccide durante una battaglia. Salvato dalle Sorelle del Destino, Kratos si allea con i Titani sconfitti in epoche precedenti e viaggia indietro nel tempo per alterare il proprio destino, giurando vendetta contro Zeus stesso.",
               en: "Zeus, fearing Kratos might one day overthrow him, betrays and kills him during a battle. Rescued by the Sisters of Fate, Kratos allies with the Titans defeated in earlier ages and travels back in time to alter his own destiny, vowing revenge against Zeus himself."
             }
           },
-          { id: "god-of-war-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "conclusione della guerra contro l'Olimpo", releaseYear: "2010", releaseYearEn: "2010",
+          { id: "god-of-war-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "conclusione della guerra contro l'Olimpo", releaseYear: "2010 (Remaster: 2015)", releaseYearEn: "2010 (Remaster: 2015)",
             title: { it: "God of War III", en: "God of War III" },
             synopsis: {
               it: "In sella al Titano Gaia, Kratos assalta il Monte Olimpo insieme ai Titani superstiti per porre fine una volta per tutte al regno degli dei. Uccide uno dopo l'altro Poseidone, Ade, Ermes, Elio, Efesto ed Era, infine Zeus stesso, distruggendo di fatto l'intero pantheon greco e lasciando il mondo devastato dalla propria stessa vendetta.",
