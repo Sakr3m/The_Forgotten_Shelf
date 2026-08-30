@@ -2954,7 +2954,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Universo principale", en: "Main Universe" },
+        name: { it: "L'Eredità di Kain", en: "Kain's Legacy" },
         span: { it: "Nosgoth", en: "Nosgoth" },
         entries: [
           { id: "blood-omen", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "I Pilastri cadono", releaseYear: "1996", releaseYearEn: "1996",
