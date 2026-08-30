@@ -2078,11 +2078,11 @@ const GAMES = {
               en: "A prequel novel recounting Marcus Fenix's years in the Slab military prison, where he serves his sentence for disobeying orders during the rescue mission for his father Adam, lost in Locust territory. It follows his relationship with fellow inmates and guards up to the day when, with the war nearly lost, he is offered freedom in exchange for enlisting in Delta Squad."
             }
           },
-          { id: "gears-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "14 A.E.", releaseYear: "2006", releaseYearEn: "2006",
+          { id: "gears-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "14 A.E.", releaseYear: "2006 (Remaster: 2015)", releaseYearEn: "2006 (Remaster: 2015)",
             title: { it: "Gears of War", en: "Gears of War" },
             synopsis: {
-              it: "Quattordici anni dopo il Giorno dell'Emergenza, con la guerra ormai quasi persa, Marcus Fenix viene liberato dal carcere per unirsi alla Squadra Delta e lanciare l'Offensiva Lightmass, un bombardamento capace di distruggere le gallerie sotterranee del Locust Horde.",
-              en: "Fourteen years after Emergence Day, with the war nearly lost, Marcus Fenix is released from prison to join Delta Squad and launch the Lightmass Offensive, a bombardment capable of destroying the Locust Horde's underground tunnels."
+              it: "Quattordici anni dopo il Giorno dell'Emergenza, con la guerra ormai quasi persa, Marcus Fenix viene liberato dal carcere per unirsi alla Squadra Delta e lanciare l'Offensiva Lightmass, un bombardamento capace di distruggere le gallerie sotterranee del Locust Horde.\n\nNota — Remaster 2015 (Ultimate Edition): oltre alla veste grafica rifatta, ripristina cinque capitoli del quinto atto tagliati dalla versione Xbox 360 originale ma presenti nella versione PC (incluso uno scontro contro un Brumak), e mostra per la prima volta un'inquadratura della Regina Locust Myrrah nel finale, prima udibile solo a voce.",
+              en: "Fourteen years after Emergence Day, with the war nearly lost, Marcus Fenix is released from prison to join Delta Squad and launch the Lightmass Offensive, a bombardment capable of destroying the Locust Horde's underground tunnels.\n\nNote — 2015 Remaster (Ultimate Edition): beyond the graphical overhaul, it restores five chapters from the fifth act cut from the original Xbox 360 version but present in the PC version (including a fight against a Brumak), and shows an actual shot of Locust Queen Myrrah in the finale for the first time, previously heard only as a voice."
             }
           },
           { id: "aspho-fields", type: "ROMANZO", typeEn: "NOVEL", year: "Subito dopo Gears of War", yearEn: "Right after Gears of War", releaseYear: "2008", releaseYearEn: "2008",
@@ -2234,7 +2234,7 @@ const GAMES = {
               en: "Victor Vance, a soldier dishonourably discharged by corrupt Sergeant Martinez, builds a criminal empire in Vice City to pay for his brother Pete's medical bills and support his brother Lance. He enters into conflict with the powerful Mendez Brothers cartel, eliminates both of them along with Martinez, and decides to retire from criminal life. Two years later, having returned to the drug trade with Lance, he is killed in Ricardo Diaz's ambush — the scene that opens Vice City."
             }
           },
-          { id: "vc", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986", releaseYear: "2002", releaseYearEn: "2002",
+          { id: "vc", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1986", releaseYear: "2002 (Remaster: 2021)", releaseYearEn: "2002 (Remaster: 2021)",
             title: { it: "Vice City", en: "Vice City" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Vice%20City.jpg",
             synopsis: {
@@ -2250,7 +2250,7 @@ const GAMES = {
               en: "A 20-minute short film showing the events in the hours before San Andreas begins: the manoeuvres of corrupt officer Tenpenny, who recruits rookie Hernandez and begins orchestrating Big Smoke's betrayal; the decline of Ken Rosenberg, disbarred and in rehab in Las Venturas where he manages the tense relations between Salvatore Leone and the Sindaccos; and the movements of the San Fierro cartel. It closes with Sweet's phone call to CJ announcing their mother's death."
             }
           },
-          { id: "sa", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992", releaseYear: "2004", releaseYearEn: "2004",
+          { id: "sa", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992", releaseYear: "2004 (Remaster: 2021)", releaseYearEn: "2004 (Remaster: 2021)",
             title: { it: "San Andreas", en: "San Andreas" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20San%20Andreas.jpg",
             synopsis: {
@@ -2274,7 +2274,7 @@ const GAMES = {
               en: "Mike, a small-time criminal in Liberty City, watches his partner Vinnie apparently die in a car explosion just before the two can finally leave the city for good. As he investigates the murder, he uncovers the truth: Vinnie faked his own death to run off with all their savings. Mike tracks him down and kills him. A self-contained story set one year before GTA III."
             }
           },
-          { id: "gta3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2001", releaseYear: "2001", releaseYearEn: "2001",
+          { id: "gta3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2001", releaseYear: "2001 (Remaster: 2021)", releaseYearEn: "2001 (Remaster: 2021)",
             title: { it: "GTA III", en: "GTA III" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20III.jpg",
             synopsis: {
@@ -2519,11 +2519,11 @@ const GAMES = {
             }
           },
           { id: "halo-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
-            releaseYear: "2004", releaseYearEn: "2004",
+            releaseYear: "2004 (Remaster: 2014)", releaseYearEn: "2004 (Remaster: 2014)",
             title: { it: "Halo 2", en: "Halo 2" },
             synopsis: {
-              it: "Il Covenant, sopravvissuto alla distruzione del primo Halo, invade la Terra stessa in cerca di vendetta e di nuovi Anelli. Su due fronti paralleli, Master Chief difende la Terra e insegue la flotta Covenant fino ad Alta Opera, il loro mondo sacro, mentre l'Arbiter, un Elite caduto in disgrazia e costretto a espiare le proprie colpe, scopre che i Profeti al comando del Covenant conoscono da sempre la vera natura genocida degli Anelli e stanno comunque pianificando di attivarli tutti insieme. Il gioco termina con un violento cliffhanger: Master Chief, appena tornato sulla Terra, riparte immediatamente per fermare l'attivazione simultanea di tutti gli Anelli, lasciando la storia sospesa a metà.",
-              en: "The Covenant, having survived the destruction of the first Halo, invades Earth itself seeking revenge and new rings. Across two parallel fronts, Master Chief defends Earth and pursues the Covenant fleet to High Charity, their holy world, while the Arbiter, a disgraced Elite forced to atone for his failures, discovers that the Prophets leading the Covenant have always known the true genocidal nature of the rings and are nonetheless planning to activate them all together. The game ends on a violent cliffhanger: Master Chief, having just returned to Earth, immediately sets off again to stop the simultaneous activation of every ring, leaving the story hanging mid-plot."
+              it: "Il Covenant, sopravvissuto alla distruzione del primo Halo, invade la Terra stessa in cerca di vendetta e di nuovi Anelli. Su due fronti paralleli, Master Chief difende la Terra e insegue la flotta Covenant fino ad Alta Opera, il loro mondo sacro, mentre l'Arbiter, un Elite caduto in disgrazia e costretto a espiare le proprie colpe, scopre che i Profeti al comando del Covenant conoscono da sempre la vera natura genocida degli Anelli e stanno comunque pianificando di attivarli tutti insieme. Il gioco termina con un violento cliffhanger: Master Chief, appena tornato sulla Terra, riparte immediatamente per fermare l'attivazione simultanea di tutti gli Anelli, lasciando la storia sospesa a metà.\n\nNota — Remaster 2014 (Anniversary, dentro Halo: The Master Chief Collection): la storia della campagna resta identica, ma aggiunge dieci Terminal di lore e due cutscene inedite di prologo ed epilogo, che mostrano l'agente Locke sulle tracce di Master Chief e collegano direttamente la storia agli eventi di Halo 5: Guardians.",
+              en: "The Covenant, having survived the destruction of the first Halo, invades Earth itself seeking revenge and new rings. Across two parallel fronts, Master Chief defends Earth and pursues the Covenant fleet to High Charity, their holy world, while the Arbiter, a disgraced Elite forced to atone for his failures, discovers that the Prophets leading the Covenant have always known the true genocidal nature of the rings and are nonetheless planning to activate them all together. The game ends on a violent cliffhanger: Master Chief, having just returned to Earth, immediately sets off again to stop the simultaneous activation of every ring, leaving the story hanging mid-plot.\n\nNote — 2014 Remaster (Anniversary, part of Halo: The Master Chief Collection): the campaign's story remains identical, but adds ten lore Terminals and two brand-new prologue and epilogue cutscenes, showing Agent Locke on the hunt for Master Chief and directly linking the story to the events of Halo 5: Guardians."
             }
           },
           { id: "ghosts-of-onyx", type: "ROMANZO", typeEn: "NOVEL", year: "Concomitante alla seconda metà di Halo 2", yearEn: "Concurrent with the second half of Halo 2", releaseYear: "2006", releaseYearEn: "2006",
