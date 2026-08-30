@@ -3024,7 +3024,7 @@ const GAMES = {
               en: "The story explores Raziel in his human life as a Sarafan warrior, before Kain resurrected him as a vampire, reconstructing the origins of his wings and the events that led him to become the vampire king's favored lieutenant. It introduces the original character Elaleth, who later appears as a playable protagonist in Ascendance."
             }
           },
-          { id: "kains-empire", type: "LORE", typeEn: "LORE", year: "Secoli dopo i Pilastri",
+          { id: "kains-empire", type: "STORIA", typeEn: "STORY", year: "Secoli dopo i Pilastri",
             title: { it: "L'Impero di Kain", en: "Kain's Empire" },
             synopsis: {
               it: "Nei secoli successivi alla caduta dei Pilastri, Kain costruisce il suo impero resuscitando sei guerrieri Sarafan del passato come vampiri: Raziel, Turel, Dumah, Rahab, Zephon e Melchiah. Il mondo continua a morire lentamente, privo delle colonne che lo sostenevano, mentre i luogotenenti evolvono in forme sempre più mostruose nel corso dei secoli.",
@@ -3038,7 +3038,7 @@ const GAMES = {
               en: "A 2D action-platformer with pixel art and PS1-era inspired 3D sequences, set in the period preceding and contemporaneous with the events of Soul Reaver — an era never directly explored in previous games, before time travel complicated the narrative.\n\nThe game is played alternately across three protagonists. Kain, at the height of his empire, leads the conquest of Nosgoth with his vampiric powers and the Soul Reaver. Raziel appears first as a human Sarafan warrior fighting against the vampire clans, then transforms into his winged vampiric form. The third character — Elaleth, introduced in the canonical graphic novel \"The Dead Shall Rise\" — is a vampire with an aggressive, relentless combat style."
             }
           },
-          { id: "fall-of-raziel", type: "LORE", typeEn: "LORE", year: "~1000 anni dopo i Pilastri",
+          { id: "fall-of-raziel", type: "STORIA", typeEn: "STORY", year: "~1000 anni dopo i Pilastri",
             title: { it: "La Caduta di Raziel", en: "The Fall of Raziel" },
             synopsis: {
               it: "Circa mille anni dopo la caduta dei Pilastri, Raziel si presenta al cospetto di Kain e del Consiglio con una nuova evoluzione: ha sviluppato ali simili a quelle di un pipistrello, superando il suo stesso creatore. Kain risponde strappandogliele con le proprie mani e ordinando ai luogotenenti Turel e Dumah di gettare il fratello nell'Abisso, un vortice d'acqua usato come luogo di esecuzione per traditori. I motivi di Kain rimangono volutamente oscuri: in apparenza pura gelosia, ma Soul Reaver 2 rivelerà che Kain conosceva il destino di Raziel e agì in modo tutt'altro che irrazionale.",
