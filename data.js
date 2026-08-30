@@ -1676,7 +1676,7 @@ const GAMES = {
       },
       {
         id: "remake-trilogy",
-        name: { it: "Trilogia Remake", en: "Remake Trilogy" },
+        name: { it: "Riunione", en: "Reunion" },
         span: { it: "2020 – in corso", en: "2020 – ongoing" },
         entries: [
           { id: "ffvii-remake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte I", yearEn: "Part I", releaseYear: "2020", releaseYearEn: "2020",
@@ -1784,7 +1784,7 @@ const GAMES = {
       },
       {
         id: "final-fantasy-xv",
-        name: { it: "Universo di Final Fantasy XV", en: "Final Fantasy XV Universe" },
+        name: { it: "Eos", en: "Eos" },
         span: { it: "Infanzia di Noctis – Final Fantasy XV", en: "Noctis's childhood – Final Fantasy XV" },
         entries: [
           { id: "brotherhood", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Infanzia e adolescenza di Noctis", yearEn: "Noctis's childhood and teenage years", releaseYear: "2016", releaseYearEn: "2016",
