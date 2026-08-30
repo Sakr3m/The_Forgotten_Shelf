@@ -3147,7 +3147,7 @@ const GAMES = {
               en: "A mobile prequel centered on Gale Holden, Wayne's father, in the years before his death. Across an abandoned city and an Akrid hive, Gale fights his way through mission after mission trying to eliminate the alien threat and save the planet, having to contend with both the Akrid and the deadly cold of E.D.N. III through the same thermal energy bar mechanic as the main series. The game ends before the events that lead Gale to sacrifice himself to protect Wayne from the Green Eye, already told at the start of Lost Planet: Extreme Condition."
             }
           },
-          { id: "lp1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 1", releaseYear: "2006", releaseYearEn: "2006",
+          { id: "lp1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "A.T. 1", releaseYear: "2006 (Remaster: 2008)", releaseYearEn: "2006 (Remaster: 2008)",
             title: { it: "Lost Planet: Extreme Condition", en: "Lost Planet: Extreme Condition" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet.jpg",
             synopsis: {
