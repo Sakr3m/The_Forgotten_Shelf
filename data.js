@@ -2327,8 +2327,8 @@ const GAMES = {
       it: "Un guerriero perseguitato dal proprio passato si scontra ripetutamente con dèi, mostri e intere mitologie che si frappongono tra lui e la pace che non riesce a trovare. La sua rabbia è tanto un'arma quanto una condanna, capace di travolgere chiunque, mortale o divino. Dietro ogni battaglia si nasconde sempre.",
       en: "A warrior haunted by his own past repeatedly clashes with gods, monsters, and entire mythologies standing between him and the peace he cannot find. His rage is both his weapon and his curse, capable of overwhelming anyone, mortal or divine. Behind every battle lies a father in search of redemption."
     },
-    palette: ["#8b1a1a", "#2c2c2c", "#c9a961"],
-    accentColor: "#8b1a1a",
+    palette: ["#e8e6e0", "#e0651f", "#8b8b85"],
+    accentColor: "#8b8b85",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Banner.jpg",
