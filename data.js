@@ -1840,21 +1840,117 @@ const GAMES = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
     watermarkOpacity: 0.18,
-    noTimeline: true,
-    canonNote: {
-      intro: {
-        it: "Più sfumata di Final Fantasy: qui non tutto è indipendente. Esistono almeno due cluster di continuità confermata dagli stessi sviluppatori. Il primo, il più esteso, collega Shadow Dragon, Mystery of the Emblem (e il remake New Mystery of the Emblem), Gaiden/Echoes: Shadows of Valentia e infine Awakening, ambientato duemila anni dopo sugli stessi continenti di Archanea e Valentia, semplicemente rinominati Ylisse e Valm nel frattempo — Awakening cita esplicitamente Marth ed eroi del passato come figure storiche leggendarie. Il secondo cluster, più piccolo, collega Genealogy of the Holy War e Thracia 776 sul continente di Jugdral, e un terzo Path of Radiance e Radiant Dawn su Tellius. Fates, uscito dopo Awakening, contiene solo accenni non confermati a un possibile legame con Ylisse (un personaggio di Awakening compare in una missione bonus), mai chiarito ufficialmente. Tutti gli altri capitoli (Sacred Stones, Three Houses, Engage e le uscite mobile) restano mondi a sé, senza legami dichiarati con nessuno dei cluster precedenti.",
-        en: "More nuanced than Final Fantasy: not everything here is independent. At least two continuity clusters are confirmed by the developers themselves. The largest one links Shadow Dragon, Mystery of the Emblem (and its remake New Mystery of the Emblem), Gaiden/Echoes: Shadows of Valentia, and finally Awakening, set two thousand years later on the same continents of Archanea and Valentia, simply renamed Ylisse and Valm in the meantime — Awakening explicitly references Marth and past heroes as legendary historical figures. A second, smaller cluster links Genealogy of the Holy War and Thracia 776 on the continent of Jugdral, and a third links Path of Radiance and Radiant Dawn on Tellius. Fates, released after Awakening, contains only unconfirmed hints of a possible link to Ylisse (an Awakening character appears in a bonus mission), never officially clarified. Every other chapter (Sacred Stones, Three Houses, Engage, and the mobile releases) remains its own world, with no declared ties to any of the previous clusters."
+    universes: [
+      {
+        id: "naga",
+        name: { it: "Naga", en: "Naga" },
+        span: { it: "Genealogy of the Holy War – Fates", en: "Genealogy of the Holy War – Fates" },
+        entries: [
+          { id: "genealogy-holy-war", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1000 anni prima di Marth", yearEn: "1000 years before Marth", releaseYear: "1996", releaseYearEn: "1996",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Genealogy of the Holy War", en: "Fire Emblem: Genealogy of the Holy War" },
+            synopsis: {
+              it: "Sul continente di Jugdral, il cavaliere Sigurd di Chalphy viene tradito dai propri stessi alleati durante una guerra sobillata dai seguaci occulti del dio oscuro Loptous, infiltrati ai vertici della nobiltà per riportarlo in vita. Sigurd muore bruciato vivo insieme al proprio esercito, e la storia prosegue una generazione dopo con il figlio Seliph, cresciuto in esilio, che riunisce gli eredi dei caduti della prima guerra per rovesciare l'impero di Grannvale e porre fine al culto di Loptous.",
+              en: "On the continent of Jugdral, the knight Sigurd of Chalphy is betrayed by his own allies during a war stirred up by secret followers of the dark god Loptous, infiltrated at the top of the nobility to bring him back to life. Sigurd is burned alive along with his army, and the story continues a generation later with his son Seliph, raised in exile, who reunites the heirs of the first war's fallen to overthrow the empire of Grannvale and end the cult of Loptous."
+            }
+          },
+          { id: "thracia-776", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Concomitante alla seconda metà di Genealogy of the Holy War", yearEn: "Concurrent with the second half of Genealogy of the Holy War", releaseYear: "1999", releaseYearEn: "1999",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Thracia 776", en: "Fire Emblem: Thracia 776" },
+            synopsis: {
+              it: "Nello stesso periodo della guerra di liberazione condotta da Seliph, il principe Leif di Thracia, cugino di Seliph rifugiatosi a sua volta in esilio dopo l'invasione della propria terra natale da parte di Grannvale, guida una resistenza per riconquistare il proprio regno. Le vicende dei due eserciti si sfiorano più volte lungo il continente di Jugdral senza mai incontrarsi direttamente in scena, come due fronti paralleli della stessa guerra.",
+              en: "In the same period as the war of liberation led by Seliph, Prince Leif of Thracia, Seliph's cousin who also fled into exile after Grannvale's invasion of his homeland, leads a resistance to reclaim his kingdom. The two armies' stories brush against each other several times across the continent of Jugdral without ever directly meeting on screen, like two parallel fronts of the same war."
+            }
+          },
+          { id: "shadow-dragon", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1000 anni dopo Genealogy of the Holy War", yearEn: "1000 years after Genealogy of the Holy War", releaseYear: "1990 (Remake: 2008)", releaseYearEn: "1990 (Remake: 2008)",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Shadow Dragon and the Blade of Light", en: "Fire Emblem: Shadow Dragon and the Blade of Light" },
+            synopsis: {
+              it: "Mille anni dopo gli eventi di Jugdral, sul continente di Archanea il giovane principe Marth di Altea fugge in esilio dopo l'invasione del proprio regno da parte dell'impero draconico di Dolhr, guidato dal drago oscuro Medeus e dal suo stregone Gharnef. Radunando alleati in tutto il continente, Marth impugna la spada divina Falchion, forgiata dal Drago Divino Naga proprio per sconfiggere Medeus, e riconquista Altea ponendo fine alla guerra.",
+              en: "A thousand years after the events of Jugdral, on the continent of Archanea, young Prince Marth of Altea flees into exile after his kingdom is invaded by the draconic empire of Dolhr, led by the dark dragon Medeus and his sorcerer Gharnef. Rallying allies across the continent, Marth wields the divine sword Falchion, forged by the Divine Dragon Naga specifically to defeat Medeus, and reclaims Altea, ending the war."
+            }
+          },
+          { id: "mystery-of-emblem", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2 anni dopo Shadow Dragon", yearEn: "2 years after Shadow Dragon", releaseYear: "1994 (Remake: 2010, come New Mystery of the Emblem)", releaseYearEn: "1994 (Remake: 2010, as New Mystery of the Emblem)",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Mystery of the Emblem", en: "Fire Emblem: Mystery of the Emblem" },
+            synopsis: {
+              it: "Lo stregone Gharnef, sopravvissuto alla prima guerra, resuscita Medeus e scatena un secondo conflitto per conquistare Archanea. Marth, richiamato in battaglia, deve questa volta guadagnarsi l'alleanza del principe esiliato Hardin di Aurelis e riunire l'intero continente in un'unica lega per affrontare Medeus una volta per tutte, in quella che diventa la guerra che consacra Marth come eroe leggendario dei secoli successivi.",
+              en: "The sorcerer Gharnef, having survived the first war, resurrects Medeus and sparks a second conflict to conquer Archanea. Marth, called back to battle, must this time earn the alliance of the exiled Prince Hardin of Aurelis and unite the entire continent into a single league to face Medeus once and for all, in what becomes the war that cements Marth as a legendary hero for centuries to come."
+            }
+          },
+          { id: "echoes-valentia", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Concomitante a Shadow Dragon", yearEn: "Concurrent with Shadow Dragon", releaseYear: "1992 (Remake: 2017, come Echoes: Shadows of Valentia)", releaseYearEn: "1992 (Remake: 2017, as Echoes: Shadows of Valentia)",
+            noAvatar: true,
+            title: { it: "Fire Emblem Gaiden / Echoes: Shadows of Valentia", en: "Fire Emblem Gaiden / Echoes: Shadows of Valentia" },
+            synopsis: {
+              it: "Sul continente vicino di Valentia, gli amici d'infanzia Alm e Celica intraprendono percorsi opposti per porre fine a una guerra causata dalla frattura tra gli dei gemelli Duma e Mila: Alm guida un esercito ribelle contro l'impero di Rigel, mentre Celica cerca una soluzione pacifica in pellegrinaggio verso il tempio di Duma. I due scoprono infine di essere gli eredi delle due case reali di Valentia, e la Falchion che Alm porta con sé si rivela forgiata dallo stesso Naga che armò Marth, confermando il legame tra i due continenti.",
+              en: "On the neighbouring continent of Valentia, childhood friends Alm and Celica take opposite paths to end a war caused by the rift between the twin gods Duma and Mila: Alm leads a rebel army against the empire of Rigel, while Celica seeks a peaceful solution on a pilgrimage to Duma's temple. The two eventually discover they are the heirs of Valentia's two royal houses, and the Falchion Alm carries turns out to have been forged by the very same Naga who armed Marth, confirming the link between the two continents."
+            }
+          },
+          { id: "awakening", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2000 anni dopo Shadow Dragon", yearEn: "2000 years after Shadow Dragon", releaseYear: "2012", releaseYearEn: "2012",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Awakening", en: "Fire Emblem: Awakening" },
+            synopsis: {
+              it: "Duemila anni dopo, su Ylisse e Valm (gli stessi continenti di Archanea e Valentia, ormai ribattezzati), il principe Chrom e la tattica amnesiaca Robin affrontano il regno ostile di Plegia e infine il Drago Nefasto Grima, destinato a rinascere attraverso Robin stesso. Nel DLC Hidden Truths, ambientato subito dopo la guerra, tre compagni di Chrom (Owain, Inigo e Severa) vengono trasportati in un altro mondo dall'entità Anankos, che muta il loro aspetto e li rinomina rispettivamente Odin, Laslow e Selena: sono loro a comparire, con queste nuove identità, in Fire Emblem Fates.",
+              en: "Two thousand years later, on Ylisse and Valm (the same continents as Archanea and Valentia, now renamed), Prince Chrom and the amnesiac tactician Robin face the hostile kingdom of Plegia and finally the Fell Dragon Grima, destined to be reborn through Robin. In the DLC Hidden Truths, set shortly after the war, three of Chrom's companions (Owain, Inigo, and Severa) are transported to another world by the entity Anankos, who alters their appearance and renames them Odin, Laslow, and Selena respectively: it is them, under these new identities, who appear in Fire Emblem Fates."
+            }
+          },
+          { id: "fates", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Dopo Awakening, tramite il DLC Hidden Truths", yearEn: "After Awakening, via the Hidden Truths DLC", releaseYear: "2015", releaseYearEn: "2015",
+            noAvatar: true,
+            title: { it: "Fire Emblem Fates", en: "Fire Emblem Fates" },
+            synopsis: {
+              it: "Corrin, principe o principessa cresciuto a Nohr ma nato a Hoshido, deve scegliere da che parte schierarsi nella guerra tra le due nazioni, scoprendo infine che entrambe sono manipolate dall'antico e folle drago-dio Anankos, sovrano del regno nascosto di Valla, lo stesso essere che aveva portato Owain, Inigo e Severa da Ylisse a servire come ritenitori sotto nuove identità.",
+              en: "Corrin, a prince or princess raised in Nohr but born in Hoshido, must choose a side in the war between the two nations, eventually discovering that both are being manipulated by the ancient, mad dragon-god Anankos, ruler of the hidden kingdom of Valla, the same being who had brought Owain, Inigo, and Severa from Ylisse to serve as retainers under new identities."
+            }
+          }
+        ]
       },
-      titles: {
-        it: "Cluster Archanea-Valentia-Ylisse: Shadow Dragon → Mystery of the Emblem → Gaiden/Echoes: Shadows of Valentia → Awakening (2000 anni dopo). Cluster Jugdral: Genealogy of the Holy War → Thracia 776. Cluster Tellius: Path of Radiance → Radiant Dawn. Tutti gli altri capitoli: mondi indipendenti",
-        en: "Archanea-Valentia-Ylisse cluster: Shadow Dragon → Mystery of the Emblem → Gaiden/Echoes: Shadows of Valentia → Awakening (2000 years later). Jugdral cluster: Genealogy of the Holy War → Thracia 776. Tellius cluster: Path of Radiance → Radiant Dawn. Every other chapter: independent worlds"
+      {
+        id: "elibe",
+        name: { it: "Elibe", en: "Elibe" },
+        span: { it: "The Blazing Blade – The Binding Blade", en: "The Blazing Blade – The Binding Blade" },
+        entries: [
+          { id: "blazing-blade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni prima di The Binding Blade", yearEn: "20 years before The Binding Blade", releaseYear: "2003", releaseYearEn: "2003",
+            noAvatar: true,
+            title: { it: "Fire Emblem: The Blazing Blade", en: "Fire Emblem: The Blazing Blade" },
+            synopsis: {
+              it: "Lyn, giovane spadaccina delle pianure di Sacae, scopre la propria origine nobile lyciana e si unisce ai mercenari Eliwood ed Hector per indagare sulla scomparsa del padre di Eliwood, imbattendosi nel culto segreto del Zanna Nera. Il gruppo scopre che il vero burattinaio dietro il culto è il negromante Nergal, intenzionato ad aprire un varco verso il mondo dei draghi attraverso sacrifici umani per ottenere un potere illimitato.",
+              en: "Lyn, a young swordswoman from the plains of Sacae, discovers her noble Lycian heritage and joins mercenaries Eliwood and Hector to investigate the disappearance of Eliwood's father, stumbling upon the secret cult of the Black Fang. The group discovers the true mastermind behind the cult is the necromancer Nergal, intent on opening a gate to the dragons' world through human sacrifice to gain unlimited power."
+            }
+          },
+          { id: "binding-blade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni dopo The Blazing Blade", yearEn: "20 years after The Blazing Blade", releaseYear: "2002", releaseYearEn: "2002",
+            noAvatar: true,
+            title: { it: "Fire Emblem: The Binding Blade", en: "Fire Emblem: The Binding Blade" },
+            synopsis: {
+              it: "Vent'anni dopo, Roy, figlio di Eliwood, viene chiamato a guidare gli eserciti della Lycia contro il risorgente impero di Bern, il cui re intende resuscitare i veri draghi e dominare il continente impugnando la Spada Suggellante. Lungo il cammino Roy incrocia diversi vecchi alleati del padre, ormai invecchiati, chiudendo idealmente il cerchio aperto da The Blazing Blade.",
+              en: "Twenty years later, Roy, son of Eliwood, is called to lead the armies of Lycia against the resurgent empire of Bern, whose king intends to resurrect true dragons and dominate the continent by wielding the Binding Blade. Along the way Roy crosses paths with several of his father's old allies, now aged, bringing full circle the story opened by The Blazing Blade."
+            }
+          }
+        ]
       },
-      outro: {
-        it: "Anche dentro ai cluster confermati, i legami restano leggeri: nomi di divinità ricorrenti, un'eredità storica citata di sfuggita, mai un vero intreccio di trame come nelle saghe con una timeline unica vera e propria.",
-        en: "Even within the confirmed clusters, the ties remain light: recurring deity names, a historical legacy mentioned in passing, never a genuine plot intertwining like sagas with a true single timeline."
+      {
+        id: "tellius",
+        name: { it: "Tellius", en: "Tellius" },
+        span: { it: "Path of Radiance – Radiant Dawn", en: "Path of Radiance – Radiant Dawn" },
+        entries: [
+          { id: "path-of-radiance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Fire Emblem: Path of Radiance", yearEn: "Fire Emblem: Path of Radiance", releaseYear: "2005", releaseYearEn: "2005",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Path of Radiance", en: "Fire Emblem: Path of Radiance" },
+            synopsis: {
+              it: "Il mercenario Ike, figlio del defunto capitano Greil, viene coinvolto in una guerra tra Crimea e Daein dopo aver scortato in salvo la principessa crimeana Elincia, sopravvissuta all'invasione del proprio regno. Nel corso del conflitto Ike scopre la discriminazione subita dai laguz (esseri capaci di trasformarsi in animali) e dai loro discendenti marchiati, affrontando infine il folle re Ashnard di Daein e il giudizio incombente della dea Ashera sull'intero continente di Tellius.",
+              en: "The mercenary Ike, son of the late captain Greil, gets caught up in a war between Crimea and Daein after escorting to safety the Crimean princess Elincia, who survived the invasion of her kingdom. Over the course of the conflict Ike discovers the discrimination suffered by the laguz (beings able to transform into animals) and their branded descendants, ultimately confronting the mad King Ashnard of Daein and the looming judgment of the goddess Ashera over the entire continent of Tellius."
+            }
+          },
+          { id: "radiant-dawn", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "3 anni dopo Path of Radiance", yearEn: "3 years after Path of Radiance", releaseYear: "2007", releaseYearEn: "2007",
+            noAvatar: true,
+            title: { it: "Fire Emblem: Radiant Dawn", en: "Fire Emblem: Radiant Dawn" },
+            synopsis: {
+              it: "Tre anni dopo, una nuova resistenza di Daein guidata da Micaiah e la compagnia mercenaria di Ike, ormai divisi su fronti opposti, si ritrovano coinvolti in una cospirazione ben più ampia orchestrata dalla dea Ashera, che intende pietrificare l'intera umanità come punizione per la sua violenza. Solo risvegliando il dio del caos Yune, imprigionato nel corpo della stessa Micaiah, Ike e i suoi alleati riescono a fermare il giudizio divino.",
+              en: "Three years later, a new Daein resistance led by Micaiah and Ike's mercenary company, now split on opposing sides, find themselves caught up in a far larger conspiracy orchestrated by the goddess Ashera, who intends to turn all of humanity to stone as punishment for its violence. Only by awakening the chaos god Yune, imprisoned within Micaiah's own body, can Ike and his allies stop the divine judgment."
+            }
+          }
+        ]
       }
-    }
+    ]
   },
 
   "dying-light": {
