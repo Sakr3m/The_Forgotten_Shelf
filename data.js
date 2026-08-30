@@ -2470,7 +2470,7 @@ const GAMES = {
         span: { it: "2531 – 2552", en: "2531 – 2552" },
         entries: [
           { id: "halo-wars", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2531",
-            releaseYear: "2009", releaseYearEn: "2009",
+            releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
             title: { it: "Halo Wars", en: "Halo Wars" },
             synopsis: {
               it: "Ventun anni prima di Combat Evolved, l'equipaggio della corazzata UNSC Spirit of Fire, guidato dal capitano James Cutter, viene inviato sul pianeta coloniale Harvest per fermare il Covenant, che sta tentando di impossessarsi di un'antica flotta di navi Precursori nascosta sotto la superficie del pianeta. Nel corso della battaglia, la Spirit of Fire scopre e distrugge l'installazione, ma rimane intrappolata alla deriva in un campo di asteroidi mentre insegue la nave ammiraglia Covenant in fuga, ed è costretta a un lungo letargo criogenico che la porterà a risvegliarsi solo decenni più tardi, ben oltre gli eventi della trilogia originale. Primo titolo strategico in tempo reale della serie, sviluppato da Ensemble Studios.",
