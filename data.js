@@ -2066,7 +2066,7 @@ const GAMES = {
             noAvatar: true,
             title: { it: "Gears Tactics", en: "Gears Tactics" },
             synopsis: {
-              it: "Capitolo strategico a turni ambientato durante i primi, disperati anni della Guerra dei Locusti, poco più di un decennio prima degli eventi di Gears of War. Gabe Diaz, futuro padre di Kait, guida una squadra di sopravvissuti nella caccia a Ukkon, lo scienziato Locust responsabile della creazione dei mostruosi Bersaglieri, mentre la COG stessa collassa attorno a loro sotto il peso della guerra.",
+              it: "Capitolo strategico a turni ambientato durante i primi, disperati anni della Guerra dei Locusti, poco più di un decennio prima degli eventi di Gears of War. Gabe Diaz, futuro padre di Kait, guida una squadra di sopravvissuti nella caccia a Ukkon, lo scienziato Locust responsabile della creazione dei mostruosi Snatchers, mentre la COG stessa collassa attorno a loro sotto il peso della guerra.",
               en: "A turn-based strategy chapter set during the first, desperate years of the Locust War, just over a decade before the events of Gears of War. Gabe Diaz, Kait's future father, leads a squad of survivors in the hunt for Ukkon, the Locust scientist responsible for creating the monstrous Snatchers, while the COG itself collapses around them under the weight of the war."
             }
           },
