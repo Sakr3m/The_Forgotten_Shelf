@@ -2368,11 +2368,27 @@ const GAMES = {
               en: "Desperate after ten years of service without peace, Kratos accepts the mission to retrieve Pandora's Box, the only weapon capable of harming a god, in order to kill Ares himself, who had manipulated him from the start. Having defeated Ares, Kratos inherits his throne, becoming the new God of War."
             }
           },
+          { id: "dc-comics-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Dopo God of War, con flashback a prima", yearEn: "After God of War, with flashbacks to before", releaseYear: "2010", releaseYearEn: "2010",
+            noAvatar: true,
+            title: { it: "God of War (fumetto DC Comics)", en: "God of War (DC Comics)" },
+            synopsis: {
+              it: "Doppio filo narrativo: in un passato mai visto prima nei giochi, un Kratos ancora umano cerca l'Ambrosia di Asclepio per salvare la figlia Calliope morente; nel presente, ormai diventato Dio della Guerra dopo la morte di Ares, Kratos torna sulle tracce della stessa Ambrosia con l'intento opposto, distruggerla per impedire che qualcuno possa usarla per resuscitare Ares stesso.",
+              en: "A dual narrative thread: in a past never shown in the games, a still-human Kratos seeks the Ambrosia of Asclepius to save his dying daughter Calliope; in the present, having become God of War after Ares's death, Kratos returns to the trail of that same Ambrosia with the opposite intent, to destroy it and prevent anyone from using it to resurrect Ares."
+            }
+          },
           { id: "ghost-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo essere diventato Dio della Guerra", releaseYear: "2010", releaseYearEn: "2010",
             title: { it: "Ghost of Sparta", en: "Ghost of Sparta" },
             synopsis: {
               it: "Tormentato da visioni della madre, Kratos viaggia fino ad Atlantide sommersa per scoprirne il destino, apprendendo che suo fratello Deimos, rapito da bambino dagli dei per una profezia che lo riguardava, è ancora vivo e prigioniero di Ares nelle Catene degli Inferi. Kratos lo libera, ma Deimos muore comunque poco dopo per mano di Thanatos.",
               en: "Tormented by visions of his mother, Kratos travels to sunken Atlantis to learn her fate, discovering that his brother Deimos, taken as a child by the gods over a prophecy concerning him, is still alive and imprisoned by Ares in the Chains of the Underworld. Kratos frees him, but Deimos dies shortly after anyway at the hands of Thanatos."
+            }
+          },
+          { id: "betrayal", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Tra Ghost of Sparta e God of War II", yearEn: "Between Ghost of Sparta and God of War II", releaseYear: "2007", releaseYearEn: "2007",
+            noAvatar: true,
+            title: { it: "God of War: Betrayal", en: "God of War: Betrayal" },
+            synopsis: {
+              it: "Nell'unico capitolo della saga mai uscito su console (un titolo per cellulari a scorrimento 2D), Kratos viene incastrato per l'omicidio di Argo, la creatura di Era, e si mette sulle tracce di un misterioso assassino incappucciato per scagionarsi. L'inseguimento lo porta a scontrarsi con Ceryx, messaggero di Zeus, inasprendo ulteriormente il proprio rapporto con gli dei dell'Olimpo poco prima degli eventi di God of War II.",
+              en: "In the only chapter of the saga never released on console (a 2D side-scrolling mobile title), Kratos is framed for the murder of Argos, Hera's creature, and sets out to track down a mysterious hooded assassin to clear his name. The chase leads him to clash with Ceryx, messenger of Zeus, further straining his relationship with the gods of Olympus shortly before the events of God of War II."
             }
           },
           { id: "god-of-war-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo God of War", releaseYear: "2007", releaseYearEn: "2007",
@@ -2388,6 +2404,14 @@ const GAMES = {
               it: "In sella al Titano Gaia, Kratos assalta il Monte Olimpo insieme ai Titani superstiti per porre fine una volta per tutte al regno degli dei. Uccide uno dopo l'altro Poseidone, Ade, Ermes, Elio, Efesto ed Era, infine Zeus stesso, distruggendo di fatto l'intero pantheon greco e lasciando il mondo devastato dalla propria stessa vendetta.",
               en: "Riding the Titan Gaia, Kratos assaults Mount Olympus alongside the surviving Titans to end the gods' reign once and for all. He kills Poseidon, Hades, Hermes, Helios, Hephaestus, and Hera one after another, and finally Zeus himself, effectively destroying the entire Greek pantheon and leaving the world devastated by his own vengeance."
             }
+          },
+          { id: "fallen-god", type: "FUMETTO", typeEn: "COMIC", year: "Subito dopo God of War III", yearEn: "Right after God of War III", releaseYear: "2018 – 2019", releaseYearEn: "2018 – 2019",
+            noAvatar: true,
+            title: { it: "God of War: Fallen God", en: "God of War: Fallen God" },
+            synopsis: {
+              it: "Subito dopo aver raso al suolo l'Olimpo, un Kratos distrutto dal proprio stesso gesto vaga fino in Egitto nel disperato tentativo di disfarsi delle Lame del Caos, che continuano a tornare da lui non importa quante volte le getti via. Un dio egizio lo avverte che non può sfuggire al proprio destino in nessuna direzione, lasciandolo vagare senza meta verso nord, in cerca di un modo per lasciarsi alle spalle la furia che lo ha sempre definito.",
+              en: "Right after razing Olympus to the ground, a Kratos shattered by his own act wanders as far as Egypt in a desperate attempt to rid himself of the Blades of Chaos, which keep returning to him no matter how many times he throws them away. An Egyptian god warns him he cannot escape his fate in any direction, leaving him to wander aimlessly north, searching for a way to leave behind the rage that has always defined him."
+            }
           }
         ]
       },
@@ -2396,6 +2420,14 @@ const GAMES = {
         name: { it: "Saga Norrena", en: "Norse Saga" },
         span: { it: "Midgard, decenni dopo", en: "Midgard, decades later" },
         entries: [
+          { id: "dark-horse-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Prima di God of War (2018)", yearEn: "Before God of War (2018)", releaseYear: "2018 – 2021", releaseYearEn: "2018 – 2021",
+            noAvatar: true,
+            title: { it: "God of War (fumetto Dark Horse)", en: "God of War (Dark Horse)" },
+            synopsis: {
+              it: "Ormai stabilitosi nella nuova vita a Midgard con la moglie Faye e il piccolo Atreus, Kratos cerca di imparare a controllare la propria furia invece di reprimerla con la violenza. Un incontro fortuito con un orso ferito lo mette però in rotta di collisione con un culto di berserker che venera quello stesso animale, costringendolo infine a lasciare di nuovo affiorare la rabbia che aveva giurato di lasciarsi alle spalle.",
+              en: "Now settled into his new life in Midgard with his wife Faye and young Atreus, Kratos tries to learn to control his rage instead of suppressing it with violence. A chance encounter with a wounded bear puts him on a collision course with a berserker cult that worships that same animal, ultimately forcing him to let the rage he had sworn to leave behind resurface once again."
+            }
+          },
           { id: "god-of-war-2018", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decenni dopo la Saga Greca", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "God of War (2018)", en: "God of War (2018)" },
             synopsis: {
