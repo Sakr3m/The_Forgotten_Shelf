@@ -2305,7 +2305,7 @@ const GAMES = {
               en: "Huang Lee arrives in Liberty City to deliver the ancestral sword Yu Jian to his uncle Wu \"Kenny\" Lee as a symbol of succession to the leadership of the Triads. He is immediately ambushed, left for dead, and the sword stolen. As he investigates the internal corruption, he uncovers the truth: it was Kenny himself who orchestrated the theft and had Huang's father murdered in order to seize control of the Triads alone. Huang kills Kenny and is offered the position of new Triad boss by the outgoing leader Hsin."
             }
           },
-          { id: "gta5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013", releaseYear: "2013", releaseYearEn: "2013",
+          { id: "gta5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013", releaseYear: "2013 (Remaster: 2014, 2022)", releaseYearEn: "2013 (Remaster: 2014, 2022)",
             title: { it: "GTA V", en: "GTA V" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20V.jpg",
             synopsis: {
