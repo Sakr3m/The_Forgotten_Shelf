@@ -1656,6 +1656,14 @@ const GAMES = {
               en: "Cloud Strife, a former SOLDIER turned mercenary, joins the eco-terrorist group AVALANCHE to sabotage the Mako reactors of the Shinra Electric Power Company in Midgar. The mission leads him to cross paths again with Sephiroth, the legendary hero believed dead, now intent on merging with the alien entity Jenova to become a god and use a supreme meteor to drain the planet of its life force, the Lifestream. Cloud and his companions travel the world to stop him, discovering along the way the true nature of his own past and the connection between Sephiroth, Jenova, and the lost city of the Cetra."
             }
           },
+          { id: "on-the-way-to-a-smile", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Final Fantasy VII e Advent Children", yearEn: "Between Final Fantasy VII and Advent Children", releaseYear: "2005 – 2009", releaseYearEn: "2005 – 2009",
+            noAvatar: true,
+            title: { it: "Final Fantasy VII: On the Way to a Smile", en: "Final Fantasy VII: On the Way to a Smile" },
+            synopsis: {
+              it: "Una raccolta di racconti brevi, scritti dallo sceneggiatore Kazushige Nojima, che colma i due anni di salto temporale tra Final Fantasy VII e Advent Children seguendo il destino dei singoli membri del gruppo. Si scopre come Cloud e Tifa trovino e adottino l'orfano Denzel dopo il crollo del settore 7 di Midgar, la nascita della città di Edge sulle rovine della capitale, la comparsa della misteriosa epidemia Geostigma, la sopravvivenza di Rufus Shinra al Cratere Nord e il cammino di redenzione di Barret. Il primo racconto, incentrato su Denzel, è stato anche adattato in un OVA anime incluso nell'edizione Complete di Advent Children.",
+              en: "A collection of short stories, written by scriptwriter Kazushige Nojima, that bridges the two-year time skip between Final Fantasy VII and Advent Children by following the fates of each party member. It reveals how Cloud and Tifa find and adopt the orphan Denzel after the collapse of Midgar's Sector 7, the founding of the city of Edge on the capital's ruins, the emergence of the mysterious Geostigma epidemic, Rufus Shinra's survival at the North Crater, and Barret's path to redemption. The first story, centred on Denzel, was also adapted into an anime OVA included in the Advent Children Complete edition."
+            }
+          },
           { id: "advent-children", type: "FILM CGI", typeEn: "CGI FILM", year: "2 anni dopo Final Fantasy VII", yearEn: "2 years after Final Fantasy VII", releaseYear: "2005", releaseYearEn: "2005",
             noAvatar: true,
             title: { it: "Final Fantasy VII: Advent Children", en: "Final Fantasy VII: Advent Children" },
