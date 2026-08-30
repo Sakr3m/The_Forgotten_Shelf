@@ -2027,8 +2027,8 @@ const GAMES = {
       it: "Sul pianeta Sera, l'umanità combatte per la sopravvivenza contro l'Orda Locusta, un nemico emerso dalle profondità sotterranee per spazzare via ogni forma di vita in superficie. Soldati sempre più esausti si trascinano da una trincea all'altra in una guerra che sembra non avere fine. Ogni battaglia è una lotta per il.",
       en: "On the planet Sera, humanity fights for survival against the Locust Horde, an enemy that emerged from the depths below to wipe out every form of life on the surface. Soldiers, worn down but unbroken, drag themselves from one trench to the next in a war that seems endless. Every battle is a fight for the species' very."
     },
-    palette: ["#4a4a4a", "#8b0000", "#1a1a1a"],
-    accentColor: "#8b0000",
+    palette: ["#9aa0a6", "#8b0000", "#4a1620"],
+    accentColor: "#4a1620",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Banner.jpg",
