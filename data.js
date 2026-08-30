@@ -1913,7 +1913,7 @@ const GAMES = {
             noAvatar: true,
             title: { it: "Fire Emblem: The Blazing Blade", en: "Fire Emblem: The Blazing Blade" },
             synopsis: {
-              it: "Lyn, giovane spadaccina delle pianure di Sacae, scopre la propria origine nobile lyciana e si unisce ai mercenari Eliwood ed Hector per indagare sulla scomparsa del padre di Eliwood, imbattendosi nel culto segreto del Zanna Nera. Il gruppo scopre che il vero burattinaio dietro il culto è il negromante Nergal, intenzionato ad aprire un varco verso il mondo dei draghi attraverso sacrifici umani per ottenere un potere illimitato.",
+              it: "Lyn, giovane spadaccina delle pianure di Sacae, scopre la propria origine nobile lyciana e si unisce ai mercenari Eliwood ed Hector per indagare sulla scomparsa del padre di Eliwood, imbattendosi nel culto segreto del Black Fang. Il gruppo scopre che il vero burattinaio dietro il culto è il negromante Nergal, intenzionato ad aprire un varco verso il mondo dei draghi attraverso sacrifici umani per ottenere un potere illimitato.",
               en: "Lyn, a young swordswoman from the plains of Sacae, discovers her noble Lycian heritage and joins mercenaries Eliwood and Hector to investigate the disappearance of Eliwood's father, stumbling upon the secret cult of the Black Fang. The group discovers the true mastermind behind the cult is the necromancer Nergal, intent on opening a gate to the dragons' world through human sacrifice to gain unlimited power."
             }
           },
@@ -1921,7 +1921,7 @@ const GAMES = {
             noAvatar: true,
             title: { it: "Fire Emblem: The Binding Blade", en: "Fire Emblem: The Binding Blade" },
             synopsis: {
-              it: "Vent'anni dopo, Roy, figlio di Eliwood, viene chiamato a guidare gli eserciti della Lycia contro il risorgente impero di Bern, il cui re intende resuscitare i veri draghi e dominare il continente impugnando la Spada Suggellante. Lungo il cammino Roy incrocia diversi vecchi alleati del padre, ormai invecchiati, chiudendo idealmente il cerchio aperto da The Blazing Blade.",
+              it: "Vent'anni dopo, Roy, figlio di Eliwood, viene chiamato a guidare gli eserciti della Lycia contro il risorgente impero di Bern, il cui re intende resuscitare i veri draghi e dominare il continente impugnando la Binding Blade. Lungo il cammino Roy incrocia diversi vecchi alleati del padre, ormai invecchiati, chiudendo idealmente il cerchio aperto da The Blazing Blade.",
               en: "Twenty years later, Roy, son of Eliwood, is called to lead the armies of Lycia against the resurgent empire of Bern, whose king intends to resurrect true dragons and dominate the continent by wielding the Binding Blade. Along the way Roy crosses paths with several of his father's old allies, now aged, bringing full circle the story opened by The Blazing Blade."
             }
           }
