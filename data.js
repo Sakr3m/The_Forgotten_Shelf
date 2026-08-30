@@ -1616,8 +1616,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Final Fantasy", en: "Final Fantasy" },
     blurb: {
-      it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio naturale delle cose, spesso legato a un cristallo, una magia antica o una divinità corrotta. Il sacrificio personale è sempre il prezzo della salvezza collettiva. La.",
-      en: "Each chapter tells of a different world, but the heart stays the same: young heroes rise against an oppressive power threatening the natural balance of things, often tied to a crystal, an ancient magic, or a corrupted divinity. Personal sacrifice is always the price of collective salvation. Hope survives even when all."
+      it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio naturale delle cose, spesso legato a un cristallo, una magia antica o una divinità corrotta. Il sacrificio personale è sempre il prezzo della salvezza collettiva.",
+      en: "Each chapter tells of a different world, but the heart stays the same: young heroes rise against an oppressive power threatening the natural balance of things, often tied to a crystal, an ancient magic, or a corrupted divinity. Personal sacrifice is always the price of collective salvation."
     },
     palette: ["#1a3a5c", "#c9a227", "#c41e3a"],
     accentColor: "#c9a227",
@@ -1626,21 +1626,194 @@ const GAMES = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
     watermarkOpacity: 0.18,
-    noTimeline: true,
-    canonNote: {
-      intro: {
-        it: "A differenza di Doom, qui non c'è nemmeno un'ambiguità da risolvere: ogni capitolo numerato di Final Fantasy è, per scelta dichiarata degli sviluppatori fin dall'inizio, un mondo a sé, con propri personaggi, propria ambientazione e proprio sistema di combattimento, senza alcuna pretesa di continuità con gli altri numeri. I legami che si notano tra un capitolo e l'altro (il nome Cid dato a un personaggio diverso in ogni gioco, i Chocobo, i Moogle, i Cristalli come dispositivo narrativo ricorrente) sono firme stilistiche della saga, non indizi di un mondo condiviso. Le uniche vere continuità narrative esistono all'interno di un singolo numero: la Compilation of Final Fantasy VII (Crisis Core, Advent Children, Dirge of Cerberus, tutte ambientate nello stesso mondo di FFVII), il dittico X/X-2, la trilogia di Final Fantasy XIII (XIII, XIII-2, Lightning Returns) e l'universo espanso di Final Fantasy XV (il film Kingsglaive, la serie animata Brotherhood).",
-        en: "Unlike Doom, there isn't even an ambiguity to resolve here: every numbered Final Fantasy chapter is, by the developers' explicit choice from the very beginning, its own world, with its own characters, setting, and combat system, with no pretense of continuity with the other numbers. The threads that show up between one chapter and the next (the name Cid given to a different character in every game, Chocobos, Moogles, Crystals as a recurring narrative device) are stylistic signatures of the saga, not clues to a shared world. The only real narrative continuities exist within a single number: the Compilation of Final Fantasy VII (Crisis Core, Advent Children, Dirge of Cerberus, all set in FFVII's same world), the X/X-2 duology, the Final Fantasy XIII trilogy (XIII, XIII-2, Lightning Returns), and the expanded universe of Final Fantasy XV (the film Kingsglaive, the anime series Brotherhood)."
+    universes: [
+      {
+        id: "compilation-vii",
+        name: { it: "Compilation di Final Fantasy VII", en: "Compilation of Final Fantasy VII" },
+        span: { it: "Circa 6 anni prima – 1 anno dopo Final Fantasy VII", en: "About 6 years before – 1 year after Final Fantasy VII" },
+        entries: [
+          { id: "before-crisis", type: "VIDEOGIOCO MOBILE", typeEn: "MOBILE GAME", year: "Circa 6 anni prima di Final Fantasy VII", yearEn: "About 6 years before Final Fantasy VII", releaseYear: "2004 (solo Giappone)", releaseYearEn: "2004 (Japan only)",
+            noAvatar: true,
+            title: { it: "Before Crisis: Final Fantasy VII", en: "Before Crisis: Final Fantasy VII" },
+            synopsis: {
+              it: "Sei anni prima degli eventi di Final Fantasy VII, i Turks, la squadra di operativi speciali della Shinra Electric Power Company, danno la caccia alla prima incarnazione di AVALANCHE, un gruppo di eco-terroristi guidato da Elfé, mentre la compagnia estende il proprio dominio su Midgar attraverso il controllo dei reattori Mako. Il gioco segue le origini dei Turks visti nel titolo originale, tra cui Tseng, Reno, Rude e il loro comandante Veld, fino al punto in cui la vicenda si interseca con l'inizio di Final Fantasy VII.",
+              en: "Six years before the events of Final Fantasy VII, the Turks, the special operatives of the Shinra Electric Power Company, hunt down the first incarnation of AVALANCHE, an eco-terrorist group led by Elfé, as the company extends its grip over Midgar through control of the Mako reactors. The game follows the origins of the Turks seen in the original title, including Tseng, Reno, Rude, and their commander Veld, up to the point where events intersect with the start of Final Fantasy VII."
+            }
+          },
+          { id: "crisis-core", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco prima di Final Fantasy VII", yearEn: "Shortly before Final Fantasy VII", releaseYear: "2007", releaseYearEn: "2007",
+            noAvatar: true,
+            title: { it: "Crisis Core: Final Fantasy VII", en: "Crisis Core: Final Fantasy VII" },
+            synopsis: {
+              it: "Zack Fair, giovane SOLDIER di prima classe della Shinra, viene inviato a indagare sulla diserzione del proprio idolo e mentore Sephiroth, scoprendo la verità sugli esperimenti Jenova e sul passato oscuro dell'azienda a Nibelheim. Dopo essere stato imprigionato per anni insieme all'amico Cloud Strife, Zack tenta la fuga: nello scontro finale contro un intero esercito Shinra sacrifica la propria vita per proteggere Cloud, cedendogli la Buster Sword e l'eredità dei propri sogni pochi istanti prima dell'inizio di Final Fantasy VII.",
+              en: "Zack Fair, a young First Class SOLDIER for Shinra, is sent to investigate the desertion of his idol and mentor Sephiroth, uncovering the truth about the Jenova experiments and the company's dark past in Nibelheim. After being imprisoned for years alongside his friend Cloud Strife, Zack attempts to escape: in the final stand against an entire Shinra army, he sacrifices his life to protect Cloud, passing on the Buster Sword and the legacy of his dreams moments before the start of Final Fantasy VII."
+            }
+          },
+          { id: "ffvii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Anno base della Compilation", yearEn: "Base year of the Compilation", releaseYear: "1997", releaseYearEn: "1997",
+            noAvatar: true,
+            title: { it: "Final Fantasy VII", en: "Final Fantasy VII" },
+            synopsis: {
+              it: "Cloud Strife, ex membro SOLDIER ridotto a mercenario, si unisce al gruppo eco-terrorista AVALANCHE per sabotare i reattori Mako della Shinra Electric Power Company a Midgar. La missione lo porta a incrociare di nuovo Sephiroth, l'eroe leggendario creduto morto, ora intenzionato a fondersi con l'entità aliena Jenova per diventare un dio e usare una meteora suprema per prosciugare il pianeta della sua linfa vitale, il Lifestream. Cloud e i suoi compagni attraversano il mondo per fermarlo, scoprendo lungo il cammino la vera natura del proprio passato e il legame tra Sephiroth, Jenova e la città perduta dei Cetra.",
+              en: "Cloud Strife, a former SOLDIER turned mercenary, joins the eco-terrorist group AVALANCHE to sabotage the Mako reactors of the Shinra Electric Power Company in Midgar. The mission leads him to cross paths again with Sephiroth, the legendary hero believed dead, now intent on merging with the alien entity Jenova to become a god and use a supreme meteor to drain the planet of its life force, the Lifestream. Cloud and his companions travel the world to stop him, discovering along the way the true nature of his own past and the connection between Sephiroth, Jenova, and the lost city of the Cetra."
+            }
+          },
+          { id: "advent-children", type: "FILM CGI", typeEn: "CGI FILM", year: "2 anni dopo Final Fantasy VII", yearEn: "2 years after Final Fantasy VII", releaseYear: "2005", releaseYearEn: "2005",
+            noAvatar: true,
+            title: { it: "Final Fantasy VII: Advent Children", en: "Final Fantasy VII: Advent Children" },
+            synopsis: {
+              it: "Due anni dopo la sconfitta di Sephiroth, Midgar è afflitta da una nuova epidemia chiamata Geostigma. Cloud, tormentato dal senso di colpa per non essere riuscito a salvare tutti in passato, deve affrontare Kadaj, Loz e Yazoo, tre giovani che si considerano i \"resti\" di Sephiroth e cercano la testa recisa di Jenova per resuscitare la propria \"Madre\". Con l'aiuto dei vecchi compagni, Cloud trova finalmente la pace col proprio passato e sconfigge la minaccia di un nuovo, effimero ritorno di Sephiroth.",
+              en: "Two years after Sephiroth's defeat, Midgar is afflicted by a new epidemic called Geostigma. Cloud, tormented by guilt over failing to save everyone in the past, must face Kadaj, Loz, and Yazoo, three young men who consider themselves the \"remnants\" of Sephiroth and seek Jenova's severed head to resurrect their \"Mother.\" With the help of his old companions, Cloud finally makes peace with his past and defeats the threat of a new, fleeting return of Sephiroth."
+            }
+          },
+          { id: "dirge-of-cerberus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1 anno dopo Advent Children", yearEn: "1 year after Advent Children", releaseYear: "2006", releaseYearEn: "2006",
+            noAvatar: true,
+            title: { it: "Dirge of Cerberus: Final Fantasy VII", en: "Dirge of Cerberus: Final Fantasy VII" },
+            synopsis: {
+              it: "Un anno dopo gli eventi di Advent Children, Vincent Valentine si scontra con Deepground, un'unità segreta e spietata della Shinra creata per generare super-soldati attraverso esperimenti proibiti, ora guidata dai gemelli Weiss e Nero, intenzionati a risvegliare l'antica entità Omega per porre fine al ciclo di vita del pianeta e farlo rinascere altrove. Vincent è costretto a fare i conti col proprio passato di cavia umana e col proprio legame con Chaos e Omega per fermare Deepground, nell'ultimo capitolo cronologico della Compilation originale.",
+              en: "One year after the events of Advent Children, Vincent Valentine clashes with Deepground, a secret and ruthless Shinra unit created to produce super-soldiers through forbidden experiments, now led by the twins Weiss and Nero, intent on awakening the ancient entity Omega to end the planet's life cycle and let it be reborn elsewhere. Vincent is forced to reckon with his own past as a human test subject and his connection to Chaos and Omega to stop Deepground, in the chronologically final chapter of the original Compilation."
+            }
+          }
+        ]
       },
-      titles: {
-        it: "I, II, III, IV, V, VI, VII (+ Compilation), VIII, IX, X (+ X-2), XI (MMO), XII, XIII (+ XIII-2, Lightning Returns), XIV (MMO), XV (+ Kingsglaive, Brotherhood), XVI — mondi indipendenti, nessuna linea temporale tra un numero e l'altro",
-        en: "I, II, III, IV, V, VI, VII (+ Compilation), VIII, IX, X (+ X-2), XI (MMO), XII, XIII (+ XIII-2, Lightning Returns), XIV (MMO), XV (+ Kingsglaive, Brotherhood), XVI — independent worlds, no timeline between one number and the next"
+      {
+        id: "remake-trilogy",
+        name: { it: "Trilogia Remake", en: "Remake Trilogy" },
+        span: { it: "2020 – in corso", en: "2020 – ongoing" },
+        entries: [
+          { id: "ffvii-remake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte I", yearEn: "Part I", releaseYear: "2020", releaseYearEn: "2020",
+            noAvatar: true,
+            title: { it: "Final Fantasy VII Remake", en: "Final Fantasy VII Remake" },
+            synopsis: {
+              it: "Riscritta da zero pur ripercorrendo l'incipit della trama originale, questa prima parte della trilogia segue Cloud e AVALANCHE nella sola Midgar, dilatando enormemente gli eventi dei primi capitoli del gioco del 1997. Nel finale, l'irruzione di misteriose entità note come Sussurri del Destino, custodi del corso \"corretto\" della storia, e la comparsa di un'ambigua versione di Sephiroth introducono l'idea che il destino stesso della saga possa essere riscritto, aprendo la strada a una linea temporale distinta da quella della Compilation originale.",
+              en: "Rewritten from the ground up while retracing the original plot's opening, this first part of the trilogy follows Cloud and AVALANCHE within Midgar alone, hugely expanding the events of the 1997 game's opening chapters. In the finale, the intrusion of mysterious entities known as the Whispers of Fate, guardians of the \"correct\" course of history, and the appearance of an ambiguous version of Sephiroth introduce the idea that the saga's own destiny can be rewritten, paving the way for a timeline distinct from the original Compilation."
+            }
+          },
+          { id: "ffvii-rebirth", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte II", yearEn: "Part II", releaseYear: "2024", releaseYearEn: "2024",
+            noAvatar: true,
+            title: { it: "Final Fantasy VII Rebirth", en: "Final Fantasy VII Rebirth" },
+            synopsis: {
+              it: "Proseguimento diretto di Remake, segue Cloud e il gruppo fuori da Midgar, attraverso gran parte della mappa del mondo del gioco originale, fino alla città perduta dei Cetra e alla morte di Aerith per mano di Sephiroth, un evento che la nuova linea temporale lascia stranamente ambiguo, mostrando la sua anima dividersi tra più realtà parallele. Sephiroth rivela di voler manipolare il flusso stesso del destino per riscrivere la propria sconfitta già scritta nella Compilation originale, in attesa del terzo e conclusivo capitolo della trilogia, non ancora uscito.",
+              en: "A direct continuation of Remake, it follows Cloud and the party outside Midgar, across much of the original game's world map, up to the lost city of the Cetra and Aerith's death at Sephiroth's hands, an event the new timeline leaves oddly ambiguous, showing her soul splitting across multiple parallel realities. Sephiroth reveals his intent to manipulate the very flow of fate to rewrite his own defeat already written in the original Compilation, ahead of the trilogy's third and final chapter, not yet released."
+            }
+          }
+        ]
       },
-      outro: {
-        it: "Ogni capitolo, comprese le eventuali recensioni presenti altrove su questo sito, va quindi considerato e giudicato come un'opera a sé stante, non come un tassello di una storia più grande.",
-        en: "Each chapter, including any reviews found elsewhere on this site, should therefore be considered and judged as a standalone work, not as a piece of a larger story."
+      {
+        id: "spira",
+        name: { it: "Spira", en: "Spira" },
+        span: { it: "Final Fantasy X – X-2", en: "Final Fantasy X – X-2" },
+        entries: [
+          { id: "ffx", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy X", yearEn: "Final Fantasy X", releaseYear: "2001", releaseYearEn: "2001",
+            noAvatar: true,
+            title: { it: "Final Fantasy X", en: "Final Fantasy X" },
+            synopsis: {
+              it: "Tidus, un giocatore di blitzball nella futuristica Zanarkand, viene proiettato mille anni nel futuro dall'attacco del mostro Sin, ritrovandosi nel mondo di Spira, dove incontra l'invocatrice Yuna, in pellegrinaggio per ottenere l'Invocazione Suprema capace di sconfiggere temporaneamente Sin. Lungo il cammino Tidus scopre di essere un sogno generato dal Fayth della Zanarkand ormai distrutta da mille anni, mentre Yuna e i suoi guardiani scoprono che la tradizione millenaria dell'Invocazione Suprema nasconde in realtà un ciclo di morte perpetuo orchestrato dai sacerdoti di Yevon, e scelgono di spezzarlo per sempre distruggendo Sin senza sacrificare altre vite.",
+              en: "Tidus, a blitzball player from futuristic Zanarkand, is thrown a thousand years into the future by an attack from the monster Sin, finding himself in the world of Spira, where he meets the summoner Yuna, on a pilgrimage to obtain the Final Summoning capable of temporarily defeating Sin. Along the way Tidus discovers he is a dream generated by the Fayth of Zanarkand, destroyed a thousand years earlier, while Yuna and her guardians discover that the millennia-old tradition of the Final Summoning actually hides a perpetual cycle of death orchestrated by the priests of Yevon, and choose to break it for good by destroying Sin without sacrificing any more lives."
+            }
+          },
+          { id: "ffx-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2 anni dopo Final Fantasy X", yearEn: "2 years after Final Fantasy X", releaseYear: "2003", releaseYearEn: "2003",
+            noAvatar: true,
+            title: { it: "Final Fantasy X-2", en: "Final Fantasy X-2" },
+            synopsis: {
+              it: "Due anni dopo la sconfitta di Sin, Yuna, ormai ritiratasi a vita privata, si unisce alle Gundane insieme a Rikku e Paine dopo aver visto una sfera-filmato che sembra ritrarre Tidus ancora vivo. La ricerca la porta a scoprire i segreti della civiltà pre-Spira di Zanarkand e Bevelle, l'ascesa delle fazioni rivali Nuovo Yevon e Youth League, e infine a ricongiungersi realmente con Tidus, riportato in vita come essere reale del mondo di Spira grazie alla propria stessa Fayth.",
+              en: "Two years after Sin's defeat, Yuna, now retired to private life, joins the Gullwings alongside Rikku and Paine after seeing a sphere recording that seems to depict Tidus still alive. The search leads her to uncover the secrets of the pre-Spira civilisation of Zanarkand and Bevelle, the rise of the rival factions New Yevon and the Youth League, and finally to truly reunite with Tidus, brought back as a real being of the world of Spira through his own Fayth."
+            }
+          }
+        ]
+      },
+      {
+        id: "fabula-nova-crystallis-xiii",
+        name: { it: "Fabula Nova Crystallis – XIII", en: "Fabula Nova Crystallis – XIII" },
+        span: { it: "Final Fantasy XIII – Lightning Returns", en: "Final Fantasy XIII – Lightning Returns" },
+        entries: [
+          { id: "ffxiii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XIII", yearEn: "Final Fantasy XIII", releaseYear: "2009", releaseYearEn: "2009",
+            noAvatar: true,
+            title: { it: "Final Fantasy XIII", en: "Final Fantasy XIII" },
+            synopsis: {
+              it: "Sul mondo-anello di Cocoon, sospeso sopra il pianeta Pulse, un gruppo di sei persone, tra cui la soldatessa Lightning, viene marchiato come l'Chosen, agenti destinati a compiere una focalizzazione imposta dai fal'Cie, entità semi-divine che governano Cocoon e Pulse. Braccati dal proprio stesso governo, che li considera una minaccia da eliminare per paura di un'invasione da Pulse, i sei protagonisti si ribellano al destino loro imposto, risolvendo la focalizzazione a modo proprio e salvando Cocoon dalla distruzione, pur venendo pietrificati in cristallo nel processo.",
+              en: "On the ring-world of Cocoon, suspended above the planet Pulse, a group of six people, including the soldier Lightning, are branded as l'Cie, agents destined to carry out a Focus imposed by the fal'Cie, semi-divine entities that rule Cocoon and Pulse. Hunted by their own government, which considers them a threat to be eliminated for fear of an invasion from Pulse, the six protagonists rebel against the fate imposed on them, resolving the Focus their own way and saving Cocoon from destruction, though being petrified into crystal in the process."
+            }
+          },
+          { id: "ffxiii-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "300 anni dopo Final Fantasy XIII", yearEn: "300 years after Final Fantasy XIII", releaseYear: "2011", releaseYearEn: "2011",
+            noAvatar: true,
+            title: { it: "Final Fantasy XIII-2", en: "Final Fantasy XIII-2" },
+            synopsis: {
+              it: "Trecento anni dopo la fine di Final Fantasy XIII, Serah Farron, sorella di Lightning, viene reclutata dal misterioso viaggiatore temporale Noel Kreiss per attraversare epoche diverse e frammenti temporali alterati, nel tentativo di ritrovare Lightning, scomparsa nel Vuoto Storico dopo aver sconfitto la divinità Bhunivelze insieme al resto del gruppo. Il gioco introduce paradossi temporali e finali multipli, terminando con l'apparente morte di Serah e il crollo del tempo stesso, causato dal villain Caius Ballad nel tentativo di fermare per sempre il ciclo di morte e resurrezione della dea del tempo Etro.",
+              en: "Three hundred years after the end of Final Fantasy XIII, Serah Farron, Lightning's sister, is recruited by the mysterious time traveller Noel Kreiss to cross different eras and altered time fragments, trying to find Lightning, who vanished into the Historia Crux after defeating the deity Bhunivelze alongside the rest of the group. The game introduces time paradoxes and multiple endings, ending with Serah's apparent death and the collapse of time itself, caused by the villain Caius Ballad in his attempt to permanently stop the death-and-resurrection cycle of the time goddess Etro."
+            }
+          },
+          { id: "lightning-returns", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XIII: Lightning Returns", yearEn: "Lightning Returns: Final Fantasy XIII", releaseYear: "2013", releaseYearEn: "2013",
+            noAvatar: true,
+            title: { it: "Lightning Returns: Final Fantasy XIII", en: "Lightning Returns: Final Fantasy XIII" },
+            synopsis: {
+              it: "Con il mondo agli sgoccioli di un'apocalisse annunciata a tredici giorni dalla fine, la dea suprema Bhunivelze risveglia Lightning dal proprio sonno cristallino, incaricandola di salvare quante più anime possibile prima della fine, in cambio della resurrezione di Serah. Lightning scopre infine che Bhunivelze intende ricreare il mondo cancellando ogni memoria del passato, e sceglie di ribellarsi ancora una volta al volere divino per garantire a tutte le anime salvate, Serah compresa, un nuovo mondo con la propria memoria intatta.",
+              en: "With the world in the final thirteen days of a foretold apocalypse, the supreme goddess Bhunivelze awakens Lightning from her crystal sleep, tasking her with saving as many souls as possible before the end, in exchange for Serah's resurrection. Lightning eventually discovers that Bhunivelze intends to recreate the world by erasing all memory of the past, and chooses to rebel against divine will once more to guarantee all the saved souls, Serah included, a new world with their memories intact."
+            }
+          }
+        ]
+      },
+      {
+        id: "final-fantasy-xv",
+        name: { it: "Universo di Final Fantasy XV", en: "Final Fantasy XV Universe" },
+        span: { it: "Infanzia di Noctis – Final Fantasy XV", en: "Noctis's childhood – Final Fantasy XV" },
+        entries: [
+          { id: "brotherhood", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Infanzia e adolescenza di Noctis", yearEn: "Noctis's childhood and teenage years", releaseYear: "2016", releaseYearEn: "2016",
+            noAvatar: true,
+            title: { it: "Brotherhood: Final Fantasy XV", en: "Brotherhood: Final Fantasy XV" },
+            synopsis: {
+              it: "Cinque episodi che raccontano l'infanzia e l'adolescenza del principe Noctis Lucis Caelum, dal quasi-fatale attacco subito da bambino che lo costringe su una sedia a rotelle per anni, fino alla nascita della sua amicizia con Gladiolus, Ignis e Prompto, ciascuno destinato a diventare la sua guardia personale. La serie si chiude nei giorni precedenti alla partenza di Noctis per il viaggio verso Altissia narrato in Final Fantasy XV.",
+              en: "Five episodes chronicling the childhood and teenage years of Prince Noctis Lucis Caelum, from the near-fatal attack he suffers as a child that confines him to a wheelchair for years, to the birth of his friendship with Gladiolus, Ignis, and Prompto, each destined to become his personal guard. The series closes in the days before Noctis's departure on the journey to Altissia told in Final Fantasy XV."
+            }
+          },
+          { id: "kingsglaive", type: "FILM CGI", typeEn: "CGI FILM", year: "Concomitante all'inizio di Final Fantasy XV", yearEn: "Concurrent with the start of Final Fantasy XV", releaseYear: "2016", releaseYearEn: "2016",
+            noAvatar: true,
+            title: { it: "Kingsglaive: Final Fantasy XV", en: "Kingsglaive: Final Fantasy XV" },
+            synopsis: {
+              it: "Mentre re Regis di Lucis accetta un trattato di pace con l'impero di Niflheim che prevede il matrimonio tra suo figlio Noctis e la principessa Lunafreya, il capitano Nyx Ulric e i suoi compagni Kingsglaive, guerrieri capaci di attingere alla magia reale, scoprono che l'intero trattato è una trappola per rubare il Cristallo sacro di Lucis. Nell'invasione di Insomnia che ne segue, Regis muore e Nyx sacrifica la propria vita per portare in salvo l'Anello dei Lucii, l'artefatto che permetterà a Noctis di reclamare il proprio diritto al trono: eventi che Final Fantasy XV racconta dal punto di vista di Noctis, lontano dalla capitale al momento dell'attacco.",
+              en: "As King Regis of Lucis accepts a peace treaty with the empire of Niflheim that includes the marriage of his son Noctis to Princess Lunafreya, Captain Nyx Ulric and his fellow Kingsglaive, warriors able to draw on the king's magic, discover the entire treaty is a trap to steal Lucis's sacred Crystal. In the invasion of Insomnia that follows, Regis dies and Nyx sacrifices his life to carry the Ring of the Lucii to safety, the artifact that will allow Noctis to claim his right to the throne: events that Final Fantasy XV tells from Noctis's point of view, far from the capital at the time of the attack."
+            }
+          },
+          { id: "ffxv", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XV", yearEn: "Final Fantasy XV", releaseYear: "2016", releaseYearEn: "2016",
+            noAvatar: true,
+            title: { it: "Final Fantasy XV", en: "Final Fantasy XV" },
+            synopsis: {
+              it: "Il principe Noctis Lucis Caelum, in viaggio verso Altissia per il proprio matrimonio combinato con la principessa Lunafreya, riceve la notizia della caduta di Insomnia e della morte del padre per mano dell'impero di Niflheim. Insieme ai suoi tre compagni d'infanzia, Noctis intraprende un lungo viaggio attraverso il continente di Eos per reclamare il proprio diritto al trono e fermare il cancelliere Ardyn Izunia, scoprendosi infine legato a lui da un'antica maledizione millenaria condivisa dalla stessa stirpe reale dei Lucis Caelum.",
+              en: "Prince Noctis Lucis Caelum, travelling to Altissia for his arranged marriage to Princess Lunafreya, receives news of Insomnia's fall and his father's death at the hands of the empire of Niflheim. Alongside his three childhood companions, Noctis embarks on a long journey across the continent of Eos to claim his right to the throne and stop Chancellor Ardyn Izunia, eventually discovering he is bound to him by an ancient, millennia-old curse shared by the royal Lucis Caelum bloodline itself."
+            }
+          }
+        ]
+      },
+      {
+        id: "ivalice-alliance",
+        name: { it: "Ivalice Alliance", en: "Ivalice Alliance" },
+        span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
+        entries: [
+          { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006", releaseYearEn: "2006",
+            noAvatar: true,
+            title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
+            synopsis: {
+              it: "Nel continente di Ivalice, durante l'occupazione militare del piccolo regno di Dalmasca da parte del potente impero di Archadia, il giovane ladro Vaan si allea con la principessa Ashe, sopravvissuta in incognito alla presunta strage della propria famiglia reale, per liberare il proprio paese. Il gruppo si ritrova coinvolto in una guerra ben più ampia per il controllo dei Nethicite, pietre capaci di annullare la magia e alimentare armi di distruzione di massa, di cui Archadia intende servirsi per dominare l'intero continente.",
+              en: "On the continent of Ivalice, during the military occupation of the small kingdom of Dalmasca by the powerful Archadian empire, the young thief Vaan allies with Princess Ashe, who secretly survived the supposed massacre of her royal family, to free his country. The group finds itself caught up in a far larger war for control of the Nethicite, stones capable of nullifying magic and powering weapons of mass destruction, which Archadia intends to use to dominate the entire continent."
+            }
+          },
+          { id: "final-fantasy-tactics", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Generazioni dopo Final Fantasy XII, dopo una catastrofe", yearEn: "Generations after Final Fantasy XII, after a catastrophe", releaseYear: "1997", releaseYearEn: "1997",
+            noAvatar: true,
+            title: { it: "Final Fantasy Tactics", en: "Final Fantasy Tactics" },
+            synopsis: {
+              it: "Generazioni dopo la caduta dell'impero descritto in Final Fantasy XII, in seguito a una catastrofe non meglio specificata che ha riportato Ivalice a un'epoca di magia e caos, il giovane nobile Ramza Beoulve si ritrova coinvolto nella Guerra dei Leoni, un conflitto di successione al trono che nasconde in realtà una cospirazione religiosa orchestrata dai demoni Lucavi, infiltrati ai vertici della Chiesa di Glabados per resuscitare la propria specie attraverso la manipolazione dei nobili in lotta per il potere.",
+              en: "Generations after the fall of the empire described in Final Fantasy XII, following an unspecified catastrophe that returned Ivalice to an age of magic and chaos, the young noble Ramza Beoulve finds himself caught up in the Lion War, a succession conflict for the throne that actually conceals a religious conspiracy orchestrated by the Lucavi demons, infiltrated at the top of the Church of Glabados to resurrect their own species by manipulating the nobles fighting for power."
+            }
+          },
+          { id: "vagrant-story", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Secoli dopo Final Fantasy Tactics", yearEn: "Centuries after Final Fantasy Tactics", releaseYear: "2000", releaseYearEn: "2000",
+            noAvatar: true,
+            title: { it: "Vagrant Story", en: "Vagrant Story" },
+            synopsis: {
+              it: "Secoli dopo gli eventi di Final Fantasy Tactics, l'agente governativo Ashley Riot viene inviato nella città maledetta e abbandonata di Leá Monde per indagare su una setta ereticale, scoprendo al suo interno reliquie e leggende degli eroi della Guerra dei Leoni, ormai ridotti a mito, oltre a una cospirazione di manipolazione politica e magia oscura che coinvolge la Chiesa stessa. Considerato l'ultimo capitolo, per ora, della storia di Ivalice.",
+              en: "Centuries after the events of Final Fantasy Tactics, government agent Ashley Riot is sent to the cursed, abandoned city of Leá Monde to investigate a heretical sect, discovering within it relics and legends of the Lion War's heroes, by now reduced to myth, alongside a conspiracy of political manipulation and dark magic involving the Church itself. Considered the last chapter, for now, of Ivalice's story."
+            }
+          }
+        ]
       }
-    }
+    ]
   },
 
   "fire-emblem": {
