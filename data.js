@@ -2457,8 +2457,8 @@ const GAMES = {
       it: "L'umanità, dispersa tra le stelle, si trova coinvolta in una guerra contro un'alleanza aliena che venera antiche reliquie disseminate nella galassia. Al centro dello scontro, misteriosi anelli artificiali costruiti da una civiltà scomparsa nascondono un segreto capace di decidere il destino di ogni forma di vita.",
       en: "Humanity, scattered among the stars, finds itself drawn into a war against an alien alliance that worships ancient relics scattered across the galaxy. At the center of the conflict, mysterious artificial rings built by a vanished civilization hide a secret capable of deciding the fate of every known form of life. A soldier."
     },
-    palette: ["#1b3a5c", "#4a7fb5", "#c9c9c9"],
-    accentColor: "#4a7fb5",
+    palette: ["#4a5d3a", "#3d1a5c", "#e0651f"],
+    accentColor: "#e0651f",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Banner.jpg",
@@ -2612,12 +2612,12 @@ const GAMES = {
       it: "Innumerevoli mondi restano collegati da un filo invisibile fatto di cuori, minacciati costantemente dall'avanzata dell'oscurità che si nutre proprio di essi. Un ragazzo armato di una chiave capace di aprire e chiudere ogni serratura viaggia da un regno all'altro per proteggere l'equilibrio tra luce e tenebra.",
       en: "Countless worlds remain connected by an invisible thread made of hearts, constantly threatened by the advance of a darkness that feeds on them. A boy wielding a key capable of opening and locking any door travels from realm to realm to protect the balance between light and darkness. Friendship is the strongest."
     },
-    palette: ["#f4c430", "#3b5bdb", "#e63980"],
-    accentColor: "#f4c430",
+    palette: ["#f5deb3", "#2fd4c4", "#f2c94c"],
+    accentColor: "#2fd4c4",
     universes: [
       {
         id: "main",
-        name: { it: "Universo principale", en: "Main Universe" },
+        name: { it: "Custodi della Luce", en: "Guardians of Light" },
         span: { it: "2002 – 2020", en: "2002 – 2020" },
         entries: [
           { id: "kh-x", type: "VIDEOGIOCO MOBILE", typeEn: "MOBILE GAME", year: "L'era della Prima Guerra dei Keyblade", yearEn: "The age of the First Keyblade War", releaseYear: "2013", releaseYearEn: "2013",
