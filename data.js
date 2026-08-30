@@ -1619,8 +1619,8 @@ const GAMES = {
       it: "Ogni capitolo racconta un mondo diverso, ma il cuore resta lo stesso: giovani eroi si ribellano a un potere oppressivo che minaccia l'equilibrio naturale delle cose, spesso legato a un cristallo, una magia antica o una divinità corrotta. Il sacrificio personale è sempre il prezzo della salvezza collettiva.",
       en: "Each chapter tells of a different world, but the heart stays the same: young heroes rise against an oppressive power threatening the natural balance of things, often tied to a crystal, an ancient magic, or a corrupted divinity. Personal sacrifice is always the price of collective salvation."
     },
-    palette: ["#1a3a5c", "#c9a227", "#c41e3a"],
-    accentColor: "#c9a227",
+    palette: ["#1a3320", "#f2c94c", "#f0e6c8"],
+    accentColor: "#f2c94c",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Banner.jpg",
