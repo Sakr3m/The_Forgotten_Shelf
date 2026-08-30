@@ -2222,45 +2222,6 @@ const GAMES = {
     watermarkOpacity: 0.2,
     universes: [
       {
-        id: "2d-universe",
-        name: { it: "Universo 2D", en: "2D Universe" },
-        span: { it: "1961 – 1999", en: "1961 – 1999" },
-        entries: [
-          { id: "gta-london-1961", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1961", releaseYear: "1999", releaseYearEn: "1999",
-            noAvatar: true,
-            title: { it: "GTA: London 1961", en: "GTA: London 1961" },
-            synopsis: {
-              it: "Espansione gratuita del pacchetto London 1969, ambientata otto anni prima nella stessa città: un aspirante gangster senza nome scala la malavita londinese svolgendo lavori sporchi per boss diversi, con la stessa struttura a missioni indipendenti del gioco originale, solo trasportata nella Swinging London di inizio anni '60.",
-              en: "A free expansion to the London 1969 package, set eight years earlier in the same city: a nameless aspiring gangster climbs London's underworld by doing dirty jobs for various bosses, with the same structure of independent missions as the original game, simply transposed to the Swinging London of the early 1960s."
-            }
-          },
-          { id: "gta-london-1969", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1969", releaseYear: "1999", releaseYearEn: "1999",
-            noAvatar: true,
-            title: { it: "GTA: London 1969", en: "GTA: London 1969" },
-            synopsis: {
-              it: "Espansione del primo Grand Theft Auto, richiede il gioco originale per essere giocata: sposta l'azione dalle tre città americane a una Londra ricreata in scala, dove un gangster senza nome (a scelta fra più personaggi possibili) lavora per la malavita locale in una serie di missioni criminali indipendenti, senza una vera trama orizzontale.",
-              en: "An expansion to the original Grand Theft Auto, requiring the base game to play: it shifts the action from the three American cities to a scaled-down recreation of London, where a nameless gangster (chosen from several possible characters) works for the local underworld through a series of independent criminal missions, with no real overarching plot."
-            }
-          },
-          { id: "gta1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Anni '90, epoca contemporanea al gioco", yearEn: "1990s, contemporary to the game's release", releaseYear: "1997", releaseYearEn: "1997",
-            noAvatar: true,
-            title: { it: "Grand Theft Auto", en: "Grand Theft Auto" },
-            synopsis: {
-              it: "Il capostipite della serie: un criminale senza nome (a scelta fra più personaggi possibili) lavora per le gang di tre città reinventate in versione fittizia — Liberty City, San Andreas e Vice City, che pur condividendo il nome non sono le stesse città delle serie successive — completando missioni indipendenti su commissione per scalare la propria reputazione criminale. Una trama vera e propria, in questo primo capitolo, non esiste ancora.",
-              en: "The series' progenitor: a nameless criminal (chosen from several possible characters) works for the gangs of three fictionalised cities — Liberty City, San Andreas, and Vice City, which despite sharing the name are not the same cities as in later instalments — completing commissioned, independent missions to climb the criminal ranks. A real plot, in this first chapter, does not yet exist."
-            }
-          },
-          { id: "gta2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Un imprecisato futuro prossimo", yearEn: "An unspecified near future", releaseYear: "1999", releaseYearEn: "1999",
-            noAvatar: true,
-            title: { it: "Grand Theft Auto 2", en: "Grand Theft Auto 2" },
-            synopsis: {
-              it: "In un futuro prossimo non meglio definito, Claude Speed esce dal criosonno in cui era stato rinchiuso senza alcun ricordo del proprio passato e si ritrova nella distopica Anywhere City, contesa da gang, culti religiosi e la corporazione Zaibatsu. Lavorando segretamente per tutte le fazioni in conflitto, Claude ne fa fuori uno dopo l'altro i rispettivi leader, fuggendo infine dalla città con l'intero bottino accumulato.",
-              en: "In an unspecified near future, Claude Speed emerges from the cryo-sleep he had been held in with no memory of his past and finds himself in the dystopian Anywhere City, fought over by gangs, religious cults, and the Zaibatsu corporation. Secretly working for all the warring factions, Claude takes out their respective leaders one by one, finally fleeing the city with the entire fortune he has accumulated."
-            }
-          }
-        ]
-      },
-      {
         id: "3d-universe",
         name: { it: "Universo 3D", en: "3D Universe" },
         span: { it: "1984 – 2001", en: "1984 – 2001" },
