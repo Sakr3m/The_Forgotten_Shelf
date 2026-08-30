@@ -611,6 +611,23 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     // due turni gia' consumati dal gemello (che occupa sia sopra che
     // sotto sullo stesso pallino).
 
+  // Stato dell'arco ombrello attivo (PARTE 3 punto 3 del
+  // regolamento): null quando non siamo dentro nessun arco. Al primo
+  // incontro di un dato oggetto ombrello (il suo pallino sinistro) si
+  // calcola il lato normalmente e lo si "congela" qui; ogni voce
+  // successiva finche' non si richiude lo stesso ombrello (il suo
+  // pallino destro) viene forzata sul lato OPPOSTO; il pallino destro
+  // stesso viene forzato sullo STESSO lato del sinistro (cosi' il
+  // trattino che li collega, quando verra' disegnato, corre pulito
+  // su un solo lato senza mai attraversare le voci comprese, che
+  // stanno tutte compatte sull'altro). Non e' un lato fisso uguale
+  // per ogni ombrello (a differenza del gemello): dipende da dove
+  // capita il pallino sinistro nella normale alternanza - ma una
+  // volta deciso per QUESTO ombrello, resta identico per entrambi i
+  // suoi pallini e per tutto cio' che comprende in mezzo.
+  let activeUmbrellaObj = null;
+  let activeUmbrellaTileDown = null;
+
   // Genera il markup di copertina+titolo per meta' di un nodo
   // (usata sia per una voce normale sia per ciascuna delle due meta'
   // di un nodo gemello). "position" e' "top" o "bottom": decide
@@ -627,8 +644,31 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   expandedEntries.forEach((entry, i) => {
     const isTwin = !!entry.twin;
-    const tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
-      // serve un "lato": occupa entrambi, il valore non viene usato
+    const isUmbrella = (uni.umbrellas || []).includes(entry);
+
+    let tileDown;
+    if(isUmbrella){
+      if(activeUmbrellaObj !== entry){
+        // Pallino SINISTRO di questo ombrello (primo incontro): lato
+        // calcolato normalmente, poi congelato per tutto l'arco.
+        tileDown = (turn % 2 === 0);
+        activeUmbrellaObj = entry;
+        activeUmbrellaTileDown = tileDown;
+      } else {
+        // Pallino DESTRO (richiude lo stesso ombrello aperto sopra):
+        // stesso lato del sinistro, poi l'arco si chiude.
+        tileDown = activeUmbrellaTileDown;
+        activeUmbrellaObj = null;
+        activeUmbrellaTileDown = null;
+      }
+    } else if(activeUmbrellaObj !== null){
+      // Voce compresa dentro un arco ombrello attivo: forzata sul
+      // lato opposto ai due pallini dell'ombrello che la racchiudono.
+      tileDown = !activeUmbrellaTileDown;
+    } else {
+      tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
+        // serve un "lato": occupa entrambi, il valore non viene usato
+    }
 
     const t = total > 1 ? i / (total - 1) : 0;
     const color = gradientColorAt(t);
