@@ -1136,6 +1136,32 @@ body[data-state="landing"] .index-link{ display:flex; }
     0 0 20px 10px var(--dot-color, var(--cyan));
 }
 
+/* Voce "ombrello" (PARTE 3 punto 3 del regolamento) - parte
+   reattiva: quando il box (copertina+titolo) di UNA delle due
+   occorrenze deve restare nascosto (l'altra occorrenza mostra il
+   box in quel momento, secondo la priorita' sinistro>destro>nessuno
+   calcolata in JS), solo il contenuto sopra/sotto sparisce -
+   visibility, non display: none, cosi' lo spazio riservato resta
+   identico e i pallini vicini non si spostano. Il pallino
+   (.h-node__marker/.h-node__dot) NON e' toccato da questa regola:
+   resta sempre visibile su entrambe le occorrenze. */
+.h-node--umbrella-box-hidden .h-node__top,
+.h-node--umbrella-box-hidden .h-node__bottom{ visibility:hidden; }
+
+/* Trattino orizzontale che collega i due pallini di uno stesso
+   ombrello (PARTE 3 punto 3) - posizionato/dimensionato a runtime in
+   script.js (drawUmbrellaConnectors), parte dalla punta del trattino
+   verticale gia' esistente tra ciascun pallino e il proprio box, non
+   dal pallino stesso. Sempre visibile quanto i due pallini che
+   collega lo sono (nessuna logica di show/hide qui: la sua presenza
+   non dipende da quale dei due box e' mostrato in quel momento). */
+.h-node__umbrella-link{
+  position:absolute;
+  height:2px; border-radius:1px;
+  background:var(--dot-color, var(--cyan));
+  pointer-events:none; z-index:1;
+}
+
 .h-node__tile{
   width:calc(100px * var(--avatar-scale, 1)); height:calc(125px * var(--avatar-scale, 1));
   border-radius:var(--radius-sm);

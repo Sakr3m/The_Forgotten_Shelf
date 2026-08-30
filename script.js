@@ -718,6 +718,97 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   return track;
 }
+
+// Voci "ombrello" (PARTE 3 punto 3 del regolamento) - parte
+// reattiva allo scroll, aggiunta dopo la prima voce ombrello reale
+// (Legacy of Kain: Ascendance, 30/08): dei due pallini che
+// condividono lo stesso ombrello, il box (copertina+titolo) compare
+// su UNO SOLO alla volta, priorita' fissa sinistro > destro >
+// nessuno:
+// - pallino sinistro visibile -> box li' (default)
+// - sinistro fuori vista, destro visibile -> il box "salta" a destra
+// - entrambi visibili nella stessa schermata -> resta comunque SOLO
+//   sul sinistro, mai duplicato
+// - nessuno dei due visibile (scrollato in mezzo a un arco molto
+//   lungo) -> il box non compare da nessuna parte
+// Il pallino stesso (dot+marker) NON e' toccato da questa funzione:
+// resta sempre visibile su entrambe le occorrenze, solo il
+// contenuto sopra/sotto si nasconde (vedi .h-node--umbrella-box-hidden
+// in styles.css) - lo spazio riservato non cambia, i pallini vicini
+// non si spostano. "Visibile" qui e' inteso rispetto al contenitore
+// scrollabile vero (liveTimeline stesso, non l'intera finestra):
+// quando la riga non e' in modalita' scroll libero (freeScrollMode
+// spento, tutti i pallini stanno gia' comodi), entrambe le
+// occorrenze risultano sempre visibili e la regola "resta sul
+// sinistro" si applica costantemente, comportamento corretto anche
+// in quel caso.
+function updateUmbrellaBoxVisibility(liveTimeline){
+  if(!liveTimeline) return;
+  const byId = {};
+  liveTimeline.querySelectorAll(".h-node[data-entry-id]").forEach(node => {
+    (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
+  });
+  const viewportRect = liveTimeline.getBoundingClientRect();
+  const isVisible = node => {
+    const r = node.getBoundingClientRect();
+    return r.right > viewportRect.left && r.left < viewportRect.right;
+  };
+  Object.values(byId).forEach(pair => {
+    if(pair.length !== 2) return; // solo le voci ombrello ricorrono due volte sulla linea
+    const leftVisible = isVisible(pair[0]);
+    const rightVisible = isVisible(pair[1]);
+    pair[0].classList.toggle("h-node--umbrella-box-hidden", !leftVisible);
+    pair[1].classList.toggle("h-node--umbrella-box-hidden", leftVisible || !rightVisible);
+  });
+}
+
+// Trattino orizzontale che collega i due pallini di uno stesso
+// ombrello, attraversando tutto l'arco coperto (PARTE 3 punto 3):
+// parte dalla PUNTA del trattino verticale gia' esistente tra
+// ciascun pallino e il proprio box (stessa distanza dal pallino:
+// 5px di margine + 10px di lunghezza, identici ai valori CSS di
+// .h-node--down/up .h-node__marker::after/::before), non dal
+// pallino stesso - un ponte che passa sullo stesso lato dei due
+// pallini (sempre lo stesso lato tra loro, vedi buildUniverseTrack),
+// "saltando sopra" le voci comprese in mezzo che stanno tutte sul
+// lato opposto. Sempre visibile quanto i due pallini che collega lo
+// sono - la sua presenza NON dipende da quale dei due box e' mostrato
+// in quel momento (updateUmbrellaBoxVisibility sopra e' una funzione
+// del tutto separata).
+function drawUmbrellaConnectors(liveTimeline, uni){
+  if(!liveTimeline || !uni || !Array.isArray(uni.umbrellas) || !uni.umbrellas.length) return;
+  liveTimeline.querySelectorAll(".h-node__umbrella-link").forEach(el => el.remove());
+  const timelineRect = liveTimeline.getBoundingClientRect();
+  const byId = {};
+  liveTimeline.querySelectorAll(".h-node[data-entry-id]").forEach(node => {
+    (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
+  });
+  const DASH_REACH = 15; // 5px margine + 10px lunghezza del trattino verticale, vedi CSS
+  uni.umbrellas.forEach(umb => {
+    const pair = byId[umb.id];
+    if(!pair || pair.length !== 2) return;
+    const [nodeA, nodeB] = pair;
+    const markerA = nodeA.querySelector(".h-node__marker");
+    const markerB = nodeB.querySelector(".h-node__marker");
+    if(!markerA || !markerB) return;
+    const isDown = nodeA.classList.contains("h-node--down"); // stesso lato per forza su entrambi, vedi buildUniverseTrack
+    const rectA = markerA.getBoundingClientRect();
+    const rectB = markerB.getBoundingClientRect();
+    const y = isDown
+      ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH - timelineRect.top
+      : Math.min(rectA.top, rectB.top) - DASH_REACH - timelineRect.top;
+    const xLeft = Math.min(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left;
+    const xRight = Math.max(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left;
+    const link = document.createElement("span");
+    link.className = "h-node__umbrella-link";
+    link.style.left = xLeft.toFixed(2) + "px";
+    link.style.width = (xRight - xLeft).toFixed(2) + "px";
+    link.style.top = y.toFixed(2) + "px";
+    const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
+    if(color) link.style.setProperty("--dot-color", color);
+    liveTimeline.appendChild(link);
+  });
+}
 // Delega eventi (stesso schema di el.gameList/el.universesRow sopra)
 // per i nodi della linea temporale (.h-node, costruiti da
 // buildUniverseTrack qui sopra): due listener permanenti, uno per
@@ -1717,6 +1808,22 @@ function renderGamePanel(){
         updateDragHintsState();
         liveTimeline.addEventListener("scroll", updateDragHintsState);
       }
+
+      // Voci "ombrello" (PARTE 3 punto 3): calcolo iniziale +
+      // ricalcolo ad ogni scroll/trascinamento della riga, stesso
+      // schema di updateDragHintsState qui sopra. drawUmbrellaConnectors
+      // va rifatta da capo ad ogni scroll perche' la riga scorre con
+      // scrollLeft nativo (il layout dei nodi non si sposta, ma la
+      // loro posizione ASSOLUTA sullo schermo si', e con essa il
+      // trattino di collegamento che va ridisegnato alla nuova
+      // posizione) - updateUmbrellaBoxVisibility invece perche' quali
+      // pallini sono "dentro" al viewport visibile cambia scorrendo.
+      updateUmbrellaBoxVisibility(liveTimeline);
+      drawUmbrellaConnectors(liveTimeline, uni);
+      liveTimeline.addEventListener("scroll", () => {
+        updateUmbrellaBoxVisibility(liveTimeline);
+        drawUmbrellaConnectors(liveTimeline, uni);
+      });
     }
   }
 }
