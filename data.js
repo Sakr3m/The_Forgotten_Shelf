@@ -2487,7 +2487,7 @@ const GAMES = {
             }
           },
           { id: "halo-reach", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
-            releaseYear: "2010", releaseYearEn: "2010",
+            releaseYear: "2010 (Remaster: 2019)", releaseYearEn: "2010 (Remaster: 2019)",
             title: { it: "Halo: Reach", en: "Halo: Reach" },
             synopsis: {
               it: "Sul pianeta Reach, principale bastione militare dell'umanità al di fuori della Terra, la squadra Spartan Noble Team scopre che il Covenant ha individuato il pianeta e si prepara a invaderlo. Nel corso della disperata difesa, la maggior parte della squadra cade in battaglia uno dopo l'altro, mentre l'ultima sopravvissuta, Noble Six (il personaggio giocante), affida all'AI Cortana e allo Spartan John-117 il compito di portare in salvo dati cruciali sul primo Anello di Halo mai scoperto dall'umanità, prima di soccombere in un ultimo, solitario scontro contro le forze Covenant sul pianeta ormai perduto. L'evento che apre direttamente Combat Evolved: la fuga della Pillar of Autumn da Reach con Master Chief e Cortana a bordo.",
@@ -2536,7 +2536,7 @@ const GAMES = {
             }
           },
           { id: "halo-3-odst", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
-            releaseYear: "2009", releaseYearEn: "2009",
+            releaseYear: "2009 (Remaster: 2015)", releaseYearEn: "2009 (Remaster: 2015)",
             title: { it: "Halo 3: ODST", en: "Halo 3: ODST" },
             synopsis: {
               it: "Durante la Battaglia della Terra, contemporanea agli eventi di Halo 2, una squadra di soldati d'élite ODST (Orbital Drop Shock Trooper) viene paracadutata sulla città di Nuova Mombasa per intercettare una nave Covenant in fuga, ma finisce dispersa nel caos dell'atterraggio. Il Rookie, unico membro della squadra rimasto isolato, esplora da solo la città devastata nelle ore notturne successive, ricostruendo gradualmente, attraverso indizi lasciati sul campo, le vicende parallele vissute dai propri compagni, fino a ritrovarli e scoprire insieme a loro il ruolo cruciale di un'intelligenza artificiale Precursore chiamata Vergil per le sorti della guerra. Un capitolo più intimo e investigativo, ambientato ai margini della trilogia principale.",
@@ -2552,7 +2552,7 @@ const GAMES = {
             }
           },
           { id: "halo-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2552",
-            releaseYear: "2007", releaseYearEn: "2007",
+            releaseYear: "2007 (Remaster: 2014)", releaseYearEn: "2007 (Remaster: 2014)",
             title: { it: "Halo 3", en: "Halo 3" },
             synopsis: {
               it: "Master Chief, l'Arbiter e i loro alleati, umani ed Elite ormai riuniti in un'alleanza contro il Covenant fondamentalista, difendono la Terra dall'attacco finale dei Profeti e scoprono un ultimo Anello, mai attivato, sepolto sotto l'Africa. Inseguendoli fin sull'Arca, l'installazione dei Precursori che costruisce e ripara gli Anelli, gli eroi sconfiggono il Gerarca Profeta della Verità e affrontano il Flood in un ultimo, disperato scontro, prima che Master Chief attivi l'Anello incompleto per distruggere il parassita, sacrificandosi apparentemente insieme a Cortana alla deriva nello spazio profondo. Il capitolo conclusivo della trilogia originale, che chiude il conflitto tra umanità e Covenant.",
@@ -2567,7 +2567,7 @@ const GAMES = {
         span: { it: "2557 – 2560", en: "2557 – 2560" },
         entries: [
           { id: "halo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2557",
-            releaseYear: "2012", releaseYearEn: "2012",
+            releaseYear: "2012 (Remaster: 2014)", releaseYearEn: "2012 (Remaster: 2014)",
             title: { it: "Halo 4", en: "Halo 4" },
             synopsis: {
               it: "Quattro anni dopo il sacrificio alla fine di Halo 3, la nave alla deriva con Master Chief in criosonno viene attirata dal richiamo di Requiem, un pianeta artificiale dei Precursori. Risvegliato da Cortana, ormai vicina alla rampante follia che affligge le AI troppo longeve, Master Chief affronta il Didatta, un Precursore risvegliato con l'intento di sterminare l'umanità come minaccia alla sopravvivenza della galassia, e una fazione Covenant dissidente. Nel finale, Cortana si sacrifica per fermare il Didatta, lasciando Master Chief solo per la prima volta dall'inizio della serie. Primo capitolo sviluppato interamente da 343 Industries dopo il passaggio di consegne da Bungie.",
