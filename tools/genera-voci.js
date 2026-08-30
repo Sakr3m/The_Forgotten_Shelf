@@ -351,6 +351,14 @@ function generaTimeline(dati){
         // 2 del regolamento.
         if(entry.twin && generaPaginaVoce(entry.twin, sagaId, nomeSaga, outDir)) count++;
       });
+      // Voce "ombrello" (universo.umbrellas, PARTE 3 punto 3 del
+      // regolamento): copre l'arco di una o piu' voci gia' presenti
+      // ma non vive in universo.entries - ha una pagina propria
+      // generata qui, una sola volta (i suoi due pallini sulla linea
+      // puntano entrambi alla stessa pagina).
+      (universo.umbrellas || []).forEach(umbrella => {
+        if(generaPaginaVoce(umbrella, sagaId, nomeSaga, outDir)) count++;
+      });
     });
   });
   return count;

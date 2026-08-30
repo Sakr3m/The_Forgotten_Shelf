@@ -448,6 +448,37 @@ function currentUniverse(){
   if(!g) return null;
   return g.universes[state.universeIndex] || g.universes[0];
 }
+// Espande uni.entries inserendo, per ciascuna voce "ombrello"
+// dichiarata in uni.umbrellas (PARTE 3 punto 3 del regolamento), due
+// pseudo-voci identiche (stesso oggetto, stesso id, stessa pagina)
+// nei due punti dell'arco che copre: una subito prima della prima
+// voce coperta (umb.startsBeforeId), una subito prima della voce
+// che segue l'ultima coperta (umb.endsBeforeId). Essendo lo stesso
+// identico oggetto in entrambi i punti, i pallini generati da chi
+// consuma questa lista (linea orizzontale, tabella verticale)
+// ottengono automaticamente contenuto identico e stesso link, senza
+// bisogno di un caso speciale nel loro codice - si comportano come
+// due voci normali qualsiasi, ognuna con la propria alternanza
+// sopra/sotto in base alla propria posizione. Usata SOLO dove serve
+// il conteggio "visivo" dei pallini (uno per ciascuna voce COPERTA,
+// niente pallino nell'array di partenza per l'ombrello - i suoi due
+// pallini nascono qui) - il conteggio "editoriale" per tipo di media
+// (renderGameRailInfo) resta invece sulle voci reali, un ombrello
+// conta una volta sola lì.
+function expandEntriesWithUmbrellas(uni){
+  const items = uni.entries.slice();
+  (uni.umbrellas || []).forEach(umb => {
+    const startIdx = items.findIndex(e => e.id === umb.startsBeforeId);
+    const endIdx = items.findIndex(e => e.id === umb.endsBeforeId);
+    if(startIdx === -1 || endIdx === -1) return; // riferimento rotto: non inserire nulla piuttosto che sbagliare posto
+    // Inserire prima l'indice piu' alto (endIdx) evita che lo shift
+    // dell'inserimento successivo invalidi startIdx.
+    items.splice(endIdx, 0, umb);
+    items.splice(startIdx, 0, umb);
+  });
+  return items;
+}
+
 function findEntry(game, entryId){
   for(const u of game.universes){
     const found = u.entries.find(e => e.id === entryId);
@@ -458,6 +489,10 @@ function findEntry(game, entryId){
     // del regolamento.
     const twinHost = u.entries.find(e => e.twin && e.twin.id === entryId);
     if(twinHost) return { entry: twinHost.twin, universe: u };
+    // Voce "ombrello" (uni.umbrellas, PARTE 3 punto 3): idem, non
+    // vive in u.entries ma deve restare raggiungibile per id.
+    const umbrella = (u.umbrellas || []).find(e => e.id === entryId);
+    if(umbrella) return { entry: umbrella, universe: u };
   }
   return null;
 }
@@ -568,7 +603,8 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   const timeline = track.querySelector(".h-timeline");
 
-  const total = uni.entries.length;
+  const expandedEntries = expandEntriesWithUmbrellas(uni);
+  const total = expandedEntries.length;
   let turn = 0; // avanza di 1 per voce normale, di 2 per una voce
     // "gemella" (entry.twin) - cosi' l'alternanza sopra/sotto della
     // voce singola successiva riprende dal lato giusto, saltando i
@@ -589,7 +625,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     return position === "top" ? (tile + title) : (title + tile);
   }
 
-  uni.entries.forEach((entry, i) => {
+  expandedEntries.forEach((entry, i) => {
     const isTwin = !!entry.twin;
     const tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
       // serve un "lato": occupa entrambi, il valore non viene usato
@@ -921,6 +957,15 @@ function renderGameRailInfo(g){
     const counts = {};
     const order = [];
     u.entries.forEach(e => {
+      const raw = state.lang === "it" ? e.type : (e.typeEn || e.type);
+      if(!raw) return;
+      if(!(raw in counts)){ counts[raw] = 0; order.push(raw); }
+      counts[raw]++;
+    });
+    // Voci "ombrello" (u.umbrellas): non vivono in u.entries, ma
+    // vanno comunque contate qui - una volta sola ciascuna (hanno
+    // due pallini sulla linea, ma sono un solo titolo/media).
+    (u.umbrellas || []).forEach(e => {
       const raw = state.lang === "it" ? e.type : (e.typeEn || e.type);
       if(!raw) return;
       if(!(raw in counts)){ counts[raw] = 0; order.push(raw); }
@@ -1321,7 +1366,7 @@ function renderGamePanel(){
     }
   }
 
-  const isLargeUniverse = uni.entries.length > LARGE_UNIVERSE_THRESHOLD;
+  const isLargeUniverse = expandEntriesWithUmbrellas(uni).length > LARGE_UNIVERSE_THRESHOLD;
 
   // Le due freccette animate e non cliccabili (solo un promemoria visivo
   // che la riga si trascina) vivono fisse nell'HTML, non ricreate ad ogni
@@ -1939,7 +1984,7 @@ function renderRail(){
     `;
   }
 
-  u.entries.forEach(entry => {
+  expandEntriesWithUmbrellas(u).forEach(entry => {
     if(entry.twin){
       // Nodo "gemello" nella tabella: doppia altezza, spaccata in
       // due meta' (una per ciascun media), ognuna con la propria
@@ -2803,6 +2848,10 @@ function checkUpcomingReleases(){
           // controllata a parte, e' un titolo indipendente con il
           // suo id/data propri, non quelli dell'ospite
       });
+      // Voci "ombrello" (uni.umbrellas): non vivono in uni.entries,
+      // vanno controllate a parte - una volta sola ciascuna (stesso
+      // oggetto/id per entrambi i suoi due pallini).
+      (uni.umbrellas || []).forEach(entry => notifyIfDue(entry, gameId));
     });
   });
 }
