@@ -2503,7 +2503,6 @@ const GAMES = {
             twin: {
               id: "the-flood", type: "ROMANZO", typeEn: "NOVEL", year: "2552",
               releaseYear: "2003", releaseYearEn: "2003",
-              noAvatar: true,
               title: { it: "Halo: The Flood", en: "Halo: The Flood" },
               synopsis: {
                 it: "Novelization di Combat Evolved che segue passo passo gli stessi eventi del gioco, ma alternando il punto di vista di Master Chief a quello dei marines e degli ODST superstiti sull'anello, oltre a scene mai viste nel gioco: il destino del soldato Jenkins, infettato dal Flood e tenuto prigioniero dai commilitoni nella speranza di curarlo un giorno, e l'interrogatorio del capitano Keyes, catturato e torturato psichicamente dal Gravemind del Flood alla ricerca delle coordinate della Terra. Si conclude con la stessa distruzione dell'anello e la fuga di Master Chief narrate nel gioco.",
