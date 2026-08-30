@@ -1721,6 +1721,37 @@ const GAMES = {
         ]
       },
       {
+        id: "ivalice-alliance",
+        name: { it: "Ivalice Alliance", en: "Ivalice Alliance" },
+        span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
+        entries: [
+          { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006", releaseYearEn: "2006",
+            noAvatar: true,
+            title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
+            synopsis: {
+              it: "Nel continente di Ivalice, durante l'occupazione militare del piccolo regno di Dalmasca da parte del potente impero di Archadia, il giovane ladro Vaan si allea con la principessa Ashe, sopravvissuta in incognito alla presunta strage della propria famiglia reale, per liberare il proprio paese. Il gruppo si ritrova coinvolto in una guerra ben più ampia per il controllo dei Nethicite, pietre capaci di annullare la magia e alimentare armi di distruzione di massa, di cui Archadia intende servirsi per dominare l'intero continente.",
+              en: "On the continent of Ivalice, during the military occupation of the small kingdom of Dalmasca by the powerful Archadian empire, the young thief Vaan allies with Princess Ashe, who secretly survived the supposed massacre of her royal family, to free his country. The group finds itself caught up in a far larger war for control of the Nethicite, stones capable of nullifying magic and powering weapons of mass destruction, which Archadia intends to use to dominate the entire continent."
+            }
+          },
+          { id: "final-fantasy-tactics", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Generazioni dopo Final Fantasy XII, dopo una catastrofe", yearEn: "Generations after Final Fantasy XII, after a catastrophe", releaseYear: "1997", releaseYearEn: "1997",
+            noAvatar: true,
+            title: { it: "Final Fantasy Tactics", en: "Final Fantasy Tactics" },
+            synopsis: {
+              it: "Generazioni dopo la caduta dell'impero descritto in Final Fantasy XII, in seguito a una catastrofe non meglio specificata che ha riportato Ivalice a un'epoca di magia e caos, il giovane nobile Ramza Beoulve si ritrova coinvolto nella Guerra dei Leoni, un conflitto di successione al trono che nasconde in realtà una cospirazione religiosa orchestrata dai demoni Lucavi, infiltrati ai vertici della Chiesa di Glabados per resuscitare la propria specie attraverso la manipolazione dei nobili in lotta per il potere.",
+              en: "Generations after the fall of the empire described in Final Fantasy XII, following an unspecified catastrophe that returned Ivalice to an age of magic and chaos, the young noble Ramza Beoulve finds himself caught up in the Lion War, a succession conflict for the throne that actually conceals a religious conspiracy orchestrated by the Lucavi demons, infiltrated at the top of the Church of Glabados to resurrect their own species by manipulating the nobles fighting for power."
+            }
+          },
+          { id: "vagrant-story", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Secoli dopo Final Fantasy Tactics", yearEn: "Centuries after Final Fantasy Tactics", releaseYear: "2000", releaseYearEn: "2000",
+            noAvatar: true,
+            title: { it: "Vagrant Story", en: "Vagrant Story" },
+            synopsis: {
+              it: "Secoli dopo gli eventi di Final Fantasy Tactics, l'agente governativo Ashley Riot viene inviato nella città maledetta e abbandonata di Leá Monde per indagare su una setta ereticale, scoprendo al suo interno reliquie e leggende degli eroi della Guerra dei Leoni, ormai ridotti a mito, oltre a una cospirazione di manipolazione politica e magia oscura che coinvolge la Chiesa stessa. Considerato l'ultimo capitolo, per ora, della storia di Ivalice.",
+              en: "Centuries after the events of Final Fantasy Tactics, government agent Ashley Riot is sent to the cursed, abandoned city of Leá Monde to investigate a heretical sect, discovering within it relics and legends of the Lion War's heroes, by now reduced to myth, alongside a conspiracy of political manipulation and dark magic involving the Church itself. Considered the last chapter, for now, of Ivalice's story."
+            }
+          }
+        ]
+      },
+      {
         id: "fabula-nova-crystallis-xiii",
         name: { it: "Fabula Nova Crystallis – XIII", en: "Fabula Nova Crystallis – XIII" },
         span: { it: "Final Fantasy XIII – Lightning Returns", en: "Final Fantasy XIII – Lightning Returns" },
@@ -1778,37 +1809,6 @@ const GAMES = {
             synopsis: {
               it: "Il principe Noctis Lucis Caelum, in viaggio verso Altissia per il proprio matrimonio combinato con la principessa Lunafreya, riceve la notizia della caduta di Insomnia e della morte del padre per mano dell'impero di Niflheim. Insieme ai suoi tre compagni d'infanzia, Noctis intraprende un lungo viaggio attraverso il continente di Eos per reclamare il proprio diritto al trono e fermare il cancelliere Ardyn Izunia, scoprendosi infine legato a lui da un'antica maledizione millenaria condivisa dalla stessa stirpe reale dei Lucis Caelum.",
               en: "Prince Noctis Lucis Caelum, travelling to Altissia for his arranged marriage to Princess Lunafreya, receives news of Insomnia's fall and his father's death at the hands of the empire of Niflheim. Alongside his three childhood companions, Noctis embarks on a long journey across the continent of Eos to claim his right to the throne and stop Chancellor Ardyn Izunia, eventually discovering he is bound to him by an ancient, millennia-old curse shared by the royal Lucis Caelum bloodline itself."
-            }
-          }
-        ]
-      },
-      {
-        id: "ivalice-alliance",
-        name: { it: "Ivalice Alliance", en: "Ivalice Alliance" },
-        span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
-        entries: [
-          { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006", releaseYearEn: "2006",
-            noAvatar: true,
-            title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
-            synopsis: {
-              it: "Nel continente di Ivalice, durante l'occupazione militare del piccolo regno di Dalmasca da parte del potente impero di Archadia, il giovane ladro Vaan si allea con la principessa Ashe, sopravvissuta in incognito alla presunta strage della propria famiglia reale, per liberare il proprio paese. Il gruppo si ritrova coinvolto in una guerra ben più ampia per il controllo dei Nethicite, pietre capaci di annullare la magia e alimentare armi di distruzione di massa, di cui Archadia intende servirsi per dominare l'intero continente.",
-              en: "On the continent of Ivalice, during the military occupation of the small kingdom of Dalmasca by the powerful Archadian empire, the young thief Vaan allies with Princess Ashe, who secretly survived the supposed massacre of her royal family, to free his country. The group finds itself caught up in a far larger war for control of the Nethicite, stones capable of nullifying magic and powering weapons of mass destruction, which Archadia intends to use to dominate the entire continent."
-            }
-          },
-          { id: "final-fantasy-tactics", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Generazioni dopo Final Fantasy XII, dopo una catastrofe", yearEn: "Generations after Final Fantasy XII, after a catastrophe", releaseYear: "1997", releaseYearEn: "1997",
-            noAvatar: true,
-            title: { it: "Final Fantasy Tactics", en: "Final Fantasy Tactics" },
-            synopsis: {
-              it: "Generazioni dopo la caduta dell'impero descritto in Final Fantasy XII, in seguito a una catastrofe non meglio specificata che ha riportato Ivalice a un'epoca di magia e caos, il giovane nobile Ramza Beoulve si ritrova coinvolto nella Guerra dei Leoni, un conflitto di successione al trono che nasconde in realtà una cospirazione religiosa orchestrata dai demoni Lucavi, infiltrati ai vertici della Chiesa di Glabados per resuscitare la propria specie attraverso la manipolazione dei nobili in lotta per il potere.",
-              en: "Generations after the fall of the empire described in Final Fantasy XII, following an unspecified catastrophe that returned Ivalice to an age of magic and chaos, the young noble Ramza Beoulve finds himself caught up in the Lion War, a succession conflict for the throne that actually conceals a religious conspiracy orchestrated by the Lucavi demons, infiltrated at the top of the Church of Glabados to resurrect their own species by manipulating the nobles fighting for power."
-            }
-          },
-          { id: "vagrant-story", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Secoli dopo Final Fantasy Tactics", yearEn: "Centuries after Final Fantasy Tactics", releaseYear: "2000", releaseYearEn: "2000",
-            noAvatar: true,
-            title: { it: "Vagrant Story", en: "Vagrant Story" },
-            synopsis: {
-              it: "Secoli dopo gli eventi di Final Fantasy Tactics, l'agente governativo Ashley Riot viene inviato nella città maledetta e abbandonata di Leá Monde per indagare su una setta ereticale, scoprendo al suo interno reliquie e leggende degli eroi della Guerra dei Leoni, ormai ridotti a mito, oltre a una cospirazione di manipolazione politica e magia oscura che coinvolge la Chiesa stessa. Considerato l'ultimo capitolo, per ora, della storia di Ivalice.",
-              en: "Centuries after the events of Final Fantasy Tactics, government agent Ashley Riot is sent to the cursed, abandoned city of Leá Monde to investigate a heretical sect, discovering within it relics and legends of the Lion War's heroes, by now reduced to myth, alongside a conspiracy of political manipulation and dark magic involving the Church itself. Considered the last chapter, for now, of Ivalice's story."
             }
           }
         ]
