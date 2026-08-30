@@ -815,7 +815,7 @@ const GAMES = {
             }
           },
           { id: "the-adventure", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1576",
-            releaseYear: "1989", releaseYearEn: "1989",
+            releaseYear: "1989 (Remaster: 2019)", releaseYearEn: "1989 (Remaster: 2019)",
             title: { it: "The Adventure", en: "The Adventure" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20The%20Adventure.jpg",
             synopsis: {
@@ -824,7 +824,7 @@ const GAMES = {
             }
           },
           { id: "belmonts-revenge", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1591",
-            releaseYear: "1991", releaseYearEn: "1991",
+            releaseYear: "1991 (Remaster: 2019)", releaseYearEn: "1991 (Remaster: 2019)",
             title: { it: "Belmont's Revenge", en: "Belmont's Revenge" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20II%20Belmont%27s%20Revenge.jpg",
             synopsis: {
@@ -833,7 +833,7 @@ const GAMES = {
             }
           },
           { id: "castlevania-1691", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1691",
-            releaseYear: "1986", releaseYearEn: "1986",
+            releaseYear: "1986 (Remaster: 2019)", releaseYearEn: "1986 (Remaster: 2019)",
             title: { it: "Castlevania", en: "Castlevania" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania.jpg",
             synopsis: {
@@ -842,7 +842,7 @@ const GAMES = {
             }
           },
           { id: "simons-quest", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1698",
-            releaseYear: "1988", releaseYearEn: "1988",
+            releaseYear: "1988 (Remaster: 2019)", releaseYearEn: "1988 (Remaster: 2019)",
             title: { it: "Simon's Quest", en: "Simon's Quest" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20II%20Simon%27s%20Quest.jpg",
             synopsis: {
@@ -851,7 +851,7 @@ const GAMES = {
             }
           },
           { id: "harmony-of-dissonance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1748",
-            releaseYear: "2002", releaseYearEn: "2002",
+            releaseYear: "2002 (Remaster: 2021)", releaseYearEn: "2002 (Remaster: 2021)",
             title: { it: "Harmony of Dissonance", en: "Harmony of Dissonance" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Harmony%20of%20Dissonance.jpg",
             synopsis: {
@@ -879,7 +879,7 @@ const GAMES = {
             }
           },
           { id: "order-of-ecclesia", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "18XX",
-            releaseYear: "2008", releaseYearEn: "2008",
+            releaseYear: "2008 (Remaster: 2024)", releaseYearEn: "2008 (Remaster: 2024)",
             title: { it: "Order of Ecclesia", en: "Order of Ecclesia" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Order%20of%20Ecclesia.jpg",
             synopsis: {
@@ -888,7 +888,7 @@ const GAMES = {
             }
           },
           { id: "bloodlines", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1917",
-            releaseYear: "1994", releaseYearEn: "1994",
+            releaseYear: "1994 (Remaster: 2019)", releaseYearEn: "1994 (Remaster: 2019)",
             title: { it: "Bloodlines", en: "Bloodlines" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Bloodlines.jpg",
             note: { it: "Epilogo amaro: poiché John non è un Belmont puro, la Vampire Killer ha drenato la sua energia vitale durante il combattimento. Non si riprenderà mai completamente dalle ferite e morirà prima del 1944.", en: "Bitter epilogue: since John is not a pure Belmont, the Vampire Killer drained his life force during the battle. He never fully recovers from his wounds and dies before 1944." },
@@ -898,7 +898,7 @@ const GAMES = {
             }
           },
           { id: "portrait-of-ruin", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1944",
-            releaseYear: "2006", releaseYearEn: "2006",
+            releaseYear: "2006 (Remaster: 2024)", releaseYearEn: "2006 (Remaster: 2024)",
             title: { it: "Portrait of Ruin", en: "Portrait of Ruin" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Portrait%20of%20Ruin.jpg",
             synopsis: {
@@ -915,7 +915,7 @@ const GAMES = {
             }
           },
           { id: "aria-of-sorrow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2035",
-            releaseYear: "2003", releaseYearEn: "2003",
+            releaseYear: "2003 (Remaster: 2021)", releaseYearEn: "2003 (Remaster: 2021)",
             title: { it: "Aria of Sorrow", en: "Aria of Sorrow" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Aria%20of%20Sorrow.jpg",
             synopsis: {
@@ -924,7 +924,7 @@ const GAMES = {
             }
           },
           { id: "dawn-of-sorrow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2036",
-            releaseYear: "2005", releaseYearEn: "2005",
+            releaseYear: "2005 (Remaster: 2024)", releaseYearEn: "2005 (Remaster: 2024)",
             title: { it: "Dawn of Sorrow", en: "Dawn of Sorrow" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Dawn%20of%20Sorrow.jpg",
             synopsis: {
@@ -1058,7 +1058,7 @@ const GAMES = {
               en: "A light novel written under the direct supervision of Hideki Kamiya, the series' creator. It covers the death of Dante's mother Eva and his early years, introducing characters such as Nell Goldstein — the gunsmith who forged Ebony & Ivory on Dante's commission, while he was still operating under the alias Tony Redgrave. Following the release of DMC3 in 2005, certain elements of the novel were considered non-canonical, but DMC5: Before the Nightmare and DMC5 itself confirmed that the majority of its events are canon — including the reference to Nell Goldstein as Nico's grandmother."
             }
           },
-          { id: "dmc3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Un anno dopo il manga Code 1/2", yearEn: "One year after the Code 1/2 manga", releaseYear: "2005", releaseYearEn: "2005",
+          { id: "dmc3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Un anno dopo il manga Code 1/2", yearEn: "One year after the Code 1/2 manga", releaseYear: "2005 (Remaster: 2006, 2012)", releaseYearEn: "2005 (Remaster: 2006, 2012)",
             title: { it: "Devil May Cry 3: Dante's Awakening", en: "Devil May Cry 3: Dante's Awakening" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%203%20Dante%27s%20Awakening.jpg",
             synopsis: {
@@ -1066,7 +1066,7 @@ const GAMES = {
               en: "Vergil awakens the Temen-ni-gru tower by allying himself with the scholar Arkham — who is in reality using him as a pawn to seize Sparda's power. To remove the seals Sparda placed on the tower, represented by the seven deadly sins, Vergil also needs the half of the amulet inherited from their mother Eva that Dante carries, and so he lures his brother to the tower. Dante and Vergil clash repeatedly as he climbs. Dante also meets Lady, a demon hunter bent on killing her father Arkham to avenge her mother, whom he sacrificed in a demonic ritual years earlier. The final twist reveals that Arkham was the true antagonist all along: feigning loyalty to Vergil, he takes the completed amulet for himself, opens the portal, and absorbs Sparda's power from the Force Edge sword, mutating into a monstrous mass. He is defeated by the combined strength of both brothers, and his dying human form is found by Lady, who finishes him off with a shot mixed with remorse. After the victory, Dante and Vergil face each other one last time — Dante prevails, but Vergil refuses to return to the human world and lets himself fall into the depths of the Underworld. There he encounters Mundus, challenges him while still weakened from his clash with Dante, and is overpowered, becoming his servant Nelo Angelo."
             }
           },
-          { id: "dmc1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni dopo la morte di Eva", yearEn: "20 years after Eva's death", releaseYear: "2001", releaseYearEn: "2001",
+          { id: "dmc1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni dopo la morte di Eva", yearEn: "20 years after Eva's death", releaseYear: "2001 (Remaster: 2012)", releaseYearEn: "2001 (Remaster: 2012)",
             title: { it: "Devil May Cry", en: "Devil May Cry" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry.jpg",
             synopsis: {
@@ -1090,7 +1090,7 @@ const GAMES = {
               en: "The second novel in the series, set after DMC1 and before DMC2 in the current chronological order. Dante is hired to investigate a demonic idol known as the Beast Head — a mission that will bring him unwittingly closer to his eternal enemy. Unlike the first volume, which required certain retcons, the novel fits coherently into the timeline without contradicting the other games. Its ending connects directly to the opening of DMC2."
             }
           },
-          { id: "dmc2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Alcuni anni dopo DMC1", yearEn: "Several years after DMC1", releaseYear: "2003", releaseYearEn: "2003",
+          { id: "dmc2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Alcuni anni dopo DMC1", yearEn: "Several years after DMC1", releaseYear: "2003 (Remaster: 2012)", releaseYearEn: "2003 (Remaster: 2012)",
             title: { it: "Devil May Cry 2", en: "Devil May Cry 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%202.jpg",
             synopsis: {
