@@ -1833,7 +1833,7 @@ const GAMES = {
       it: "Regni e casati nobiliari si scontrano in guerre dove ogni singola vita persa in battaglia è per sempre. Al centro di ogni conflitto, giovani condottieri devono scegliere tra lealtà di sangue e ciò che ritengono giusto, spesso mentre draghi antichi e armi leggendarie riemergono dal passato. Ogni decisione pesa quanto una.",
       en: "Kingdoms and noble houses clash in wars where every single life lost in battle is gone forever. At the center of every conflict, young commanders must choose between blood loyalty and what they believe is right, often as ancient dragons and legendary weapons resurface from the past. Every decision weighs as."
     },
-    palette: ["#8b1a1a", "#1a3a5c", "#c9a227"],
+    palette: ["#7c3fc9", "#8b1a1a", "#1a3a5c"],
     accentColor: "#8b1a1a",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Avatar.jpg",
