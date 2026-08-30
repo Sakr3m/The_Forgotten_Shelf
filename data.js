@@ -3141,7 +3141,6 @@ const GAMES = {
           },
           { id: "trag-zero", type: "VIDEOGIOCO MOBILE", typeEn: "MOBILE VIDEOGAME", year: "Prima di Lost Planet: Extreme Condition", yearEn: "Before Lost Planet: Extreme Condition", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Lost Planet: Trag Zero", en: "Lost Planet: Trag Zero" },
-            noAvatar: true,
             synopsis: {
               it: "Prequel per cellulari incentrato su Gale Holden, il padre di Wayne, negli anni precedenti alla sua morte. Attraverso una città abbandonata e un alveare di Akrid, Gale affronta missione dopo missione nel tentativo di eliminare la minaccia aliena e salvare il pianeta, dovendo fare i conti sia con gli Akrid che con il gelo mortale di E.D.N. III attraverso la stessa barra dell'energia termica del gioco principale. Il titolo si conclude prima degli eventi che porteranno Gale a sacrificarsi per proteggere Wayne dal Green Eye, già raccontati all'inizio di Lost Planet: Extreme Condition.",
               en: "A mobile prequel centered on Gale Holden, Wayne's father, in the years before his death. Across an abandoned city and an Akrid hive, Gale fights his way through mission after mission trying to eliminate the alien threat and save the planet, having to contend with both the Akrid and the deadly cold of E.D.N. III through the same thermal energy bar mechanic as the main series. The game ends before the events that lead Gale to sacrifice himself to protect Wayne from the Green Eye, already told at the start of Lost Planet: Extreme Condition."
@@ -3157,7 +3156,6 @@ const GAMES = {
           },
           { id: "bound-raven", type: "MANGA", typeEn: "MANGA", year: "Tra Lost Planet: Extreme Condition e Lost Planet 2", yearEn: "Between Lost Planet: Extreme Condition and Lost Planet 2", releaseYear: "2010-2011", releaseYearEn: "2010-2011",
             title: { it: "Lost Planet: Bound Raven", en: "Lost Planet: Bound Raven" },
-            noAvatar: true,
             synopsis: {
               it: "Nina, giovane mercenaria di E.D.N. III, vive di lavori occasionali insieme ai compagni Kenzo e Haru. Mentre fanno ritorno a casa, il loro villaggio agricolo natale chiede il loro aiuto per sconfiggere i Sandraiders, un gruppo di predoni del deserto che ha appena attaccato l'insediamento. Nina, Kenzo e Haru accettano l'incarico in cambio di una ricompensa e si dirigono verso il villaggio assediato.",
               en: "Nina, a young mercenary on E.D.N. III, gets by on odd jobs alongside her companions Kenzo and Haru. On their way back home, their native farming village asks for their help to defeat the Sandraiders, a group of desert raiders who have just attacked the settlement. Nina, Kenzo, and Haru take on the job in exchange for a reward and head toward the besieged village."
