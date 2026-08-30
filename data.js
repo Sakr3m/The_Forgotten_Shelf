@@ -146,7 +146,8 @@ const GAMES = {
             // suo interno - promemoria visivo per tornarci ad ottobre
             // con sinossi vera E immagine.
             imagePending: true,
-            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" }
+            releaseDateShort: { it: "2 ottobre 2026", en: "October 2, 2026" },
+            releaseDateISO: "2026-10-02"
           },
           { id: "rise-of-the-megacorporations", type: "STORIA", typeEn: "STORY", year: "2020 – 2032", yearEn: "2020 – 2032",
             noAvatar: true,
