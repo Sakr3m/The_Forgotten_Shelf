@@ -656,10 +656,20 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
         activeUmbrellaTileDown = tileDown;
       } else {
         // Pallino DESTRO (richiude lo stesso ombrello aperto sopra):
-        // stesso lato del sinistro, poi l'arco si chiude.
+        // stesso lato del sinistro, poi l'arco si chiude. La voce
+        // SUCCESSIVA deve pero' riprendere l'alternanza pulita dal
+        // lato OPPOSTO a questo pallino di chiusura (mai due voci di
+        // fila sullo stesso lato al confine dell'arco) - la parita'
+        // "naturale" di turn a questo punto puo' pero' essere
+        // qualunque delle due, a seconda di quante voci erano
+        // comprese nell'arco (pari o dispari), quindi va forzata qui
+        // esplicitamente invece di lasciarla al caso: dopo il
+        // turn+=1 generale piu' sotto, (turn%2===0) deve dare
+        // esattamente !tileDown.
         tileDown = activeUmbrellaTileDown;
         activeUmbrellaObj = null;
         activeUmbrellaTileDown = null;
+        turn = tileDown ? 0 : 1;
       }
     } else if(activeUmbrellaObj !== null){
       // Voce compresa dentro un arco ombrello attivo: forzata sul
@@ -779,6 +789,18 @@ function drawUmbrellaConnectors(liveTimeline, uni){
   if(!liveTimeline || !uni || !Array.isArray(uni.umbrellas) || !uni.umbrellas.length) return;
   liveTimeline.querySelectorAll(".h-node__umbrella-link").forEach(el => el.remove());
   const timelineRect = liveTimeline.getBoundingClientRect();
+  // liveTimeline e' sia il contenitore posizionato (position:relative,
+  // il riferimento per left/top del link) SIA quello che scorre
+  // davvero (overflow-x:auto, scrollLeft nativo): getBoundingClientRect
+  // da' pero' sempre e solo la porzione VISIBILE in quel momento, non
+  // l'intero contenuto scrollabile. Sommare scrollLeft qui converte la
+  // differenza "rispetto al bordo visibile adesso" in una coordinata
+  // stabile "rispetto a tutto il contenuto", indipendente da quanto si
+  // e' scrollato in quel momento - impostata una volta, il link segue
+  // automaticamente lo scroll nativo insieme a tutto il resto, niente
+  // ricalcolo necessario ad ogni evento di scroll (che infatti non
+  // viene piu' fatto, vedi il punto di chiamata in renderGamePanel).
+  const scrollLeft = liveTimeline.scrollLeft;
   const byId = {};
   liveTimeline.querySelectorAll(".h-node[data-entry-id]").forEach(node => {
     (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
@@ -797,8 +819,8 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     const y = isDown
       ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH - timelineRect.top
       : Math.min(rectA.top, rectB.top) - DASH_REACH - timelineRect.top;
-    const xLeft = Math.min(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left;
-    const xRight = Math.max(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left;
+    const xLeft = Math.min(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left + scrollLeft;
+    const xRight = Math.max(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left + scrollLeft;
     const link = document.createElement("span");
     link.className = "h-node__umbrella-link";
     link.style.left = xLeft.toFixed(2) + "px";
@@ -1809,21 +1831,23 @@ function renderGamePanel(){
         liveTimeline.addEventListener("scroll", updateDragHintsState);
       }
 
-      // Voci "ombrello" (PARTE 3 punto 3): calcolo iniziale +
-      // ricalcolo ad ogni scroll/trascinamento della riga, stesso
-      // schema di updateDragHintsState qui sopra. drawUmbrellaConnectors
-      // va rifatta da capo ad ogni scroll perche' la riga scorre con
-      // scrollLeft nativo (il layout dei nodi non si sposta, ma la
-      // loro posizione ASSOLUTA sullo schermo si', e con essa il
-      // trattino di collegamento che va ridisegnato alla nuova
-      // posizione) - updateUmbrellaBoxVisibility invece perche' quali
-      // pallini sono "dentro" al viewport visibile cambia scorrendo.
+      // Voci "ombrello" (PARTE 3 punto 3): il trattino di collegamento
+      // (drawUmbrellaConnectors) va disegnato UNA SOLA VOLTA, in
+      // coordinate relative a tutto il contenuto scrollabile (non al
+      // solo viewport visibile) - una volta impostato cosi', lo
+      // scroll nativo della riga lo sposta gia' da solo insieme a
+      // tutto il resto, ricalcolarlo ad ogni evento di scroll era il
+      // bug che lo faceva muovere "a un tempo tutto suo" (ogni
+      // ricalcolo partiva dal viewport visibile in quel preciso
+      // istante, introducendo uno scarto rispetto al vero scroll
+      // nativo gia' avvenuto). updateUmbrellaBoxVisibility invece va
+      // ricalcolata davvero ad ogni scroll: quali pallini risultano
+      // "dentro" al viewport visibile cambia scorrendo, per
+      // costruzione (non e' un bug di sincronizzazione, e' proprio
+      // cosa deve rispondere in tempo reale).
       updateUmbrellaBoxVisibility(liveTimeline);
       drawUmbrellaConnectors(liveTimeline, uni);
-      liveTimeline.addEventListener("scroll", () => {
-        updateUmbrellaBoxVisibility(liveTimeline);
-        drawUmbrellaConnectors(liveTimeline, uni);
-      });
+      liveTimeline.addEventListener("scroll", () => updateUmbrellaBoxVisibility(liveTimeline));
     }
   }
 }
