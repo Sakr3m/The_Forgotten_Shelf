@@ -3068,7 +3068,7 @@ const GAMES = {
     universes: [
       {
         id: "main",
-        name: { it: "Universo E.D.N. III", en: "E.D.N. III Universe" },
+        name: { it: "E.D.N. III", en: "E.D.N. III" },
         span: { it: "A.T. -50 – A.T. 12", en: "A.T. -50 – A.T. 12" },
         entries: [
           { id: "first-colony", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "40 anni prima di Lost Planet 3", yearEn: "40 years before Lost Planet 3", releaseYear: "2013", releaseYearEn: "2013",
