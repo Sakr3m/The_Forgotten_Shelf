@@ -1197,21 +1197,21 @@ const GAMES = {
               en: "Centuries before the events of Diablo, the archangel Inarius and the demoness Lilith, both disillusioned with the Eternal Conflict between Heaven and Hell, steal a fragment of the Worldstone to create Sanctuary, a realm hidden from both factions. Their union produces the Nephalem, angel-demon hybrids more powerful than either angels or demons. Fearing a future rebellion, renegade angels and demons attempt to exterminate them; Lilith defends them by killing her own allies, but Inarius, unable to kill her, banishes her from Sanctuary and weakens the Nephalem bloodline, which over generations fades into the human race. When the Prime Evils Diablo, Mephisto, and Baal are in turn exiled to Sanctuary after a rebellion breaks out in Hell, the archangel Tyrael forms the order of the Horadrim and forges Soulstones, cut from the Worldstone itself, to hunt them down. The Horadrim imprison Mephisto beneath a temple in the jungles of Kehjistan and Baal through the sacrifice of Tal Rasha, who seals his essence within his own body; Diablo is finally captured by the warlord Jered Cain, and his Soulstone buried beneath the cathedral of Tristram. Centuries later, Archbishop Lazarus, corrupted by the cult of the Triune, unearths the stone and frees Diablo, setting in motion the events of the saga's first chapter."
             }
           },
-          { id: "sin-war-birthright", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2006", releaseYearEn: "2006", noAvatar: true,
+          { id: "sin-war-birthright", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "The Sin War: Birthright", en: "The Sin War: Birthright" },
             synopsis: {
               it: "Nell'epoca in cui la Chiesa della Luce di Inarius e il culto della Triuna, guidato da Lucion figlio di Mefisto, si contendono in segreto le anime dell'umanità, il contadino Uldyssian si scopre dotato di un potere sconosciuto dopo essere stato accusato ingiustamente dell'omicidio di un missionario della Triuna. In fuga dal proprio villaggio di Seram, comincia a scoprire la natura dei propri poteri e a raccogliere seguaci, mentre entrambe le fazioni, ostili tra loro ma ugualmente interessate a lui, cercano di volgerlo alla propria causa.",
               en: "In the age when Inarius's Cathedral of Light and the Triune cult, led by Lucion, son of Mephisto, secretly vie for humanity's souls, the farmer Uldyssian discovers he possesses an unknown power after being falsely accused of murdering a Triune missionary. Fleeing his home town of Seram, he begins to uncover the nature of his powers and gathers followers, while both factions, hostile to each other yet equally interested in him, seek to turn him to their cause."
             }
           },
-          { id: "sin-war-scales", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2007", releaseYearEn: "2007", noAvatar: true,
+          { id: "sin-war-scales", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "The Sin War: Scales of the Serpent", en: "The Sin War: Scales of the Serpent" },
             synopsis: {
               it: "Rifiutando sia la Chiesa della Luce che la Triuna, Uldyssian raduna attorno a sé un numero crescente di seguaci mentre affina poteri sempre più simili a quelli degli angeli e dei demoni che infestano Sanctuarium in segreto. Il suo movimento, pensato come una via indipendente dalle due fedi corrotte, attira l'attenzione ancora più ostile di entrambe le fazioni, decise a impedirgli di scoprire fino in fondo la verità sulla natura stessa di Sanctuarium.",
               en: "Rejecting both the Cathedral of Light and the Triune, Uldyssian gathers an ever-growing number of followers as he hones powers increasingly similar to those of the angels and demons secretly infesting Sanctuary. His movement, meant as a path independent of both corrupted faiths, draws the even more hostile attention of both factions, determined to stop him from uncovering the full truth about the nature of Sanctuary itself."
             }
           },
-          { id: "sin-war-veiled-prophet", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2007", releaseYearEn: "2007", noAvatar: true,
+          { id: "sin-war-veiled-prophet", type: "ROMANZO", typeEn: "NOVEL", year: "Guerra del Peccato, millenni prima di Diablo", yearEn: "Sin War, millennia before Diablo", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "The Sin War: The Veiled Prophet", en: "The Sin War: The Veiled Prophet" },
             synopsis: {
               it: "Nello scontro finale della Guerra del Peccato, Uldyssian scopre che il misterioso Veiled Prophet, che ha manipolato gli eventi fin dall'inizio, è in realtà Inarius stesso, l'arcangelo rinnegato co-fondatore di Sanctuarium. Nella battaglia decisiva contro Inarius e i seguaci della Triuna, Uldyssian sacrifica la propria umanità per salvare Sanctuarium, disperdendo la propria essenza e quella dei suoi compagni nel mondo.",
@@ -1246,14 +1246,14 @@ const GAMES = {
               en: "Five years after the destruction of the Worldstone, its corrupted fragments are scattered across Sanctuary, and demonic cults seek to gather them to bring Diablo back to life. A group of heroes confronts the sorcerer Skarn to prevent the fragments from being reunited, filling a fifteen-year narrative gap before the events of Diablo III."
             }
           },
-          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Circa 20 anni dopo Lord of Destruction", yearEn: "About 20 years after Lord of Destruction", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012", noAvatar: true,
+          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Circa 20 anni dopo Lord of Destruction", yearEn: "About 20 years after Lord of Destruction", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
             title: { it: "Sword of Justice", en: "Sword of Justice" },
             synopsis: {
               it: "Il giovane guerriero Jacob, in fuga da cacciatori di taglie della sua terra natale nelle terre del nord, trova la spada dell'arcangelo Tyrael, scomparso dopo aver distrutto la Worldstone alla fine di Lord of Destruction, e ne diventa involontario portatore. Insieme alla maga Shanar, Jacob affronta i Barbari del Monte Arreat, resi folli dalla distruzione della Worldstone stessa — lo stesso evento che innescherà una delle trame centrali di Diablo III — scoprendo lungo il cammino il proprio legame di sangue con quella tribù. Fumetto in cinque albi che colma il vuoto di vent'anni tra Diablo II e Diablo III, scritto in parallelo allo sviluppo della trama di quest'ultimo.",
               en: "Young warrior Jacob, fleeing bounty hunters from his homeland in the northlands, finds the sword of the archangel Tyrael, missing since he destroyed the Worldstone at the end of Lord of Destruction, and becomes its unwitting bearer. Alongside the mage Shanar, Jacob confronts the Barbarians of Mount Arreat, driven mad by the Worldstone's destruction itself — the same event that will trigger one of Diablo III's central plotlines — discovering along the way his own blood ties to that tribe. A five-issue comic bridging the twenty-year gap between Diablo II and Diablo III, written in parallel with the development of the latter's story."
             }
           },
-          { id: "the-order", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Diablo III", yearEn: "Before Diablo III", releaseYear: "2012", releaseYearEn: "2012", noAvatar: true,
+          { id: "the-order", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Diablo III", yearEn: "Before Diablo III", releaseYear: "2012", releaseYearEn: "2012",
             title: { it: "The Order", en: "The Order" },
             synopsis: {
               it: "Ormai anziano e ultimo Horadrim rimasto, Deckard Cain scopre che altri superstiti dell'ordine si nascondono sparsi per Sanctuarium, proprio mentre voci sempre più insistenti annunciano il risveglio di un male antico. Nel darne la caccia, Cain stringe un'alleanza inaspettata con Leah, un'orfana di appena otto anni dotata di poteri che nemmeno lei comprende, gettando le basi per il loro legame alla vigilia degli eventi di Diablo III.",
@@ -1267,7 +1267,7 @@ const GAMES = {
               en: "A falling star crashes into the cathedral of Tristram: it is Tyrael himself, cast down from Heaven for destroying the Worldstone without permission. A new group of heroes confronts the Lord of Lies Belial and the Lord of Sin Azmodan, ultimately unified into a single risen being, the Prime Evil Diablo, defeated in the final battle within Heaven itself."
             }
           },
-          { id: "storm-of-light", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Diablo III e Reaper of Souls", yearEn: "Between Diablo III and Reaper of Souls", releaseYear: "2014", releaseYearEn: "2014", noAvatar: true,
+          { id: "storm-of-light", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Diablo III e Reaper of Souls", yearEn: "Between Diablo III and Reaper of Souls", releaseYear: "2014", releaseYearEn: "2014",
             title: { it: "Storm of Light", en: "Storm of Light" },
             synopsis: {
               it: "Dopo la caduta del Prime Evil Diablo, l'Angiris Council custodisce la Pietra Nera dell'Anima nel cuore del Paradiso, ignaro che la sua influenza corrotta si stia già insinuando tra le mura della Città d'Argento. Tyrael, divenuto mortale e a disagio nel proprio nuovo ruolo di Aspetto della Saggezza, riforma l'ordine degli Horadrim con un gruppo di eroi umani — tra cui il negromante Zayl e Jacob, l'ex avatar della Giustizia — incaricandoli dell'impresa impossibile di sottrarre la pietra dal Paradiso stesso, prima che la corruzione dilaghi.",
@@ -1281,7 +1281,7 @@ const GAMES = {
               en: "Malthael, once the Angel of Wisdom and now the Angel of Death, steals the Black Soulstone containing Diablo's essence to use it against humanity itself, which he believes to be the true cause of the endless Eternal Conflict. The heroes confront him at Westmarch and ultimately defeat him, saving humanity from extermination."
             }
           },
-          { id: "the-lost-horadrim", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Reaper of Souls e Diablo IV", yearEn: "Between Reaper of Souls and Diablo IV", releaseYear: "2026", releaseYearEn: "2026", noAvatar: true,
+          { id: "the-lost-horadrim", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Reaper of Souls e Diablo IV", yearEn: "Between Reaper of Souls and Diablo IV", releaseYear: "2026", releaseYearEn: "2026",
             title: { it: "The Lost Horadrim", en: "The Lost Horadrim" },
             synopsis: {
               it: "Nel mondo decimato dalla Mietitura di Malthael, gli ultimi Horadrim rimasti — tra cui Lorath Nahr e Tyrael — salpano verso le remote Isole di Skovos per scoprire il destino di una spedizione inviata anni prima a stringere rapporti diplomatici con gli Askari e mai più tornata, oltre a recuperare un'antica cassaforte horadrica nascosta nel cuore delle isole. Scoprono che Skovos, apparentemente risparmiata dalla devastazione del resto di Sanctuarium, nasconde a sua volta i propri pericoli, costringendo Lorath e la comandante askara Adreona a un'alleanza forzata contro minacce che emergono anche dalle acque circostanti.",
@@ -1302,7 +1302,7 @@ const GAMES = {
               en: "Neyrelle, carrying the Soulstone containing Mephisto, flees into the jungles of Nahantu to prevent the Prime Evil from being freed again, but ends up manipulated by him regardless. The hero pursues her to stop Mephisto from finding a new host body, in a chapter that introduces the Spiritborn class and expands the game world southward."
             }
           },
-          { id: "dawn-of-hatred", type: "FUMETTO", typeEn: "COMIC", year: "Poco dopo Vessel of Hatred", yearEn: "Shortly after Vessel of Hatred", releaseYear: "2025", releaseYearEn: "2025", noAvatar: true,
+          { id: "dawn-of-hatred", type: "FUMETTO", typeEn: "COMIC", year: "Poco dopo Vessel of Hatred", yearEn: "Shortly after Vessel of Hatred", releaseYear: "2025", releaseYearEn: "2025",
             title: { it: "Dawn of Hatred", en: "Dawn of Hatred" },
             synopsis: {
               it: "All'alba dell'Età dell'Odio, subito dopo gli eventi di Vessel of Hatred, l'antico profeta Akarat, fondatore della fede zakarumita, torna inspiegabilmente dalla morte predicando un rinnovato messaggio di pace e radunando attorno a sé nuovi seguaci, tra cui membri della tribù barbara della Volpe. Mentre la Chiesa di Zakarum, memore della propria storia di corruzione, osserva con crescente diffidenza il ritorno del profeta, il guerriero barbaro Derris e i suoi compagni si mettono sulle tracce del mistero che avvolge Akarat.",
@@ -1634,7 +1634,6 @@ const GAMES = {
         span: { it: "Circa 6 anni prima – 1 anno dopo Final Fantasy VII", en: "About 6 years before – 1 year after Final Fantasy VII" },
         entries: [
           { id: "before-crisis", type: "VIDEOGIOCO MOBILE", typeEn: "MOBILE GAME", year: "Circa 6 anni prima di Final Fantasy VII", yearEn: "About 6 years before Final Fantasy VII", releaseYear: "2004 (solo Giappone)", releaseYearEn: "2004 (Japan only)",
-            noAvatar: true,
             title: { it: "Before Crisis: Final Fantasy VII", en: "Before Crisis: Final Fantasy VII" },
             synopsis: {
               it: "Sei anni prima degli eventi di Final Fantasy VII, i Turks, la squadra di operativi speciali della Shinra Electric Power Company, danno la caccia alla prima incarnazione di AVALANCHE, un gruppo di eco-terroristi guidato da Elfé, mentre la compagnia estende il proprio dominio su Midgar attraverso il controllo dei reattori Mako. Il gioco segue le origini dei Turks visti nel titolo originale, tra cui Tseng, Reno, Rude e il loro comandante Veld, fino al punto in cui la vicenda si interseca con l'inizio di Final Fantasy VII.",
@@ -1642,7 +1641,6 @@ const GAMES = {
             }
           },
           { id: "crisis-core", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco prima di Final Fantasy VII", yearEn: "Shortly before Final Fantasy VII", releaseYear: "2007", releaseYearEn: "2007",
-            noAvatar: true,
             title: { it: "Crisis Core: Final Fantasy VII", en: "Crisis Core: Final Fantasy VII" },
             synopsis: {
               it: "Zack Fair, giovane SOLDIER di prima classe della Shinra, viene inviato a indagare sulla diserzione del proprio idolo e mentore Sephiroth, scoprendo la verità sugli esperimenti Jenova e sul passato oscuro dell'azienda a Nibelheim. Dopo essere stato imprigionato per anni insieme all'amico Cloud Strife, Zack tenta la fuga: nello scontro finale contro un intero esercito Shinra sacrifica la propria vita per proteggere Cloud, cedendogli la Buster Sword e l'eredità dei propri sogni pochi istanti prima dell'inizio di Final Fantasy VII.",
@@ -1650,7 +1648,6 @@ const GAMES = {
             }
           },
           { id: "ffvii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Anno base della Compilation", yearEn: "Base year of the Compilation", releaseYear: "1997", releaseYearEn: "1997",
-            noAvatar: true,
             title: { it: "Final Fantasy VII", en: "Final Fantasy VII" },
             synopsis: {
               it: "Cloud Strife, ex membro SOLDIER ridotto a mercenario, si unisce al gruppo eco-terrorista AVALANCHE per sabotare i reattori Mako della Shinra Electric Power Company a Midgar. La missione lo porta a incrociare di nuovo Sephiroth, l'eroe leggendario creduto morto, ora intenzionato a fondersi con l'entità aliena Jenova per diventare un dio e usare una meteora suprema per prosciugare il pianeta della sua linfa vitale, il Lifestream. Cloud e i suoi compagni attraversano il mondo per fermarlo, scoprendo lungo il cammino la vera natura del proprio passato e il legame tra Sephiroth, Jenova e la città perduta dei Cetra.",
@@ -1658,7 +1655,6 @@ const GAMES = {
             }
           },
           { id: "on-the-way-to-a-smile", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Final Fantasy VII e Advent Children", yearEn: "Between Final Fantasy VII and Advent Children", releaseYear: "2005 – 2009", releaseYearEn: "2005 – 2009",
-            noAvatar: true,
             title: { it: "Final Fantasy VII: On the Way to a Smile", en: "Final Fantasy VII: On the Way to a Smile" },
             synopsis: {
               it: "Una raccolta di racconti brevi, scritti dallo sceneggiatore Kazushige Nojima, che colma i due anni di salto temporale tra Final Fantasy VII e Advent Children seguendo il destino dei singoli membri del gruppo. Si scopre come Cloud e Tifa trovino e adottino l'orfano Denzel dopo il crollo del settore 7 di Midgar, la nascita della città di Edge sulle rovine della capitale, la comparsa della misteriosa epidemia Geostigma, la sopravvivenza di Rufus Shinra al Cratere Nord e il cammino di redenzione di Barret. Il primo racconto, incentrato su Denzel, è stato anche adattato in un OVA anime incluso nell'edizione Complete di Advent Children.",
@@ -1666,7 +1662,6 @@ const GAMES = {
             }
           },
           { id: "advent-children", type: "FILM CGI", typeEn: "CGI FILM", year: "2 anni dopo Final Fantasy VII", yearEn: "2 years after Final Fantasy VII", releaseYear: "2005", releaseYearEn: "2005",
-            noAvatar: true,
             title: { it: "Final Fantasy VII: Advent Children", en: "Final Fantasy VII: Advent Children" },
             synopsis: {
               it: "Due anni dopo la sconfitta di Sephiroth, Midgar è afflitta da una nuova epidemia chiamata Geostigma. Cloud, tormentato dal senso di colpa per non essere riuscito a salvare tutti in passato, deve affrontare Kadaj, Loz e Yazoo, tre giovani che si considerano i \"resti\" di Sephiroth e cercano la testa recisa di Jenova per resuscitare la propria \"Madre\". Con l'aiuto dei vecchi compagni, Cloud trova finalmente la pace col proprio passato e sconfigge la minaccia di un nuovo, effimero ritorno di Sephiroth.",
@@ -1674,7 +1669,6 @@ const GAMES = {
             }
           },
           { id: "dirge-of-cerberus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1 anno dopo Advent Children", yearEn: "1 year after Advent Children", releaseYear: "2006", releaseYearEn: "2006",
-            noAvatar: true,
             title: { it: "Dirge of Cerberus: Final Fantasy VII", en: "Dirge of Cerberus: Final Fantasy VII" },
             synopsis: {
               it: "Un anno dopo gli eventi di Advent Children, Vincent Valentine si scontra con Deepground, un'unità segreta e spietata della Shinra creata per generare super-soldati attraverso esperimenti proibiti, ora guidata dai gemelli Weiss e Nero, intenzionati a risvegliare l'antica entità Omega per porre fine al ciclo di vita del pianeta e farlo rinascere altrove. Vincent è costretto a fare i conti col proprio passato di cavia umana e col proprio legame con Chaos e Omega per fermare Deepground, nell'ultimo capitolo cronologico della Compilation originale.",
@@ -1689,7 +1683,6 @@ const GAMES = {
         span: { it: "2020 – in corso", en: "2020 – ongoing" },
         entries: [
           { id: "ffvii-remake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte I", yearEn: "Part I", releaseYear: "2020", releaseYearEn: "2020",
-            noAvatar: true,
             title: { it: "Final Fantasy VII Remake", en: "Final Fantasy VII Remake" },
             synopsis: {
               it: "Riscritta da zero pur ripercorrendo l'incipit della trama originale, questa prima parte della trilogia segue Cloud e AVALANCHE nella sola Midgar, dilatando enormemente gli eventi dei primi capitoli del gioco del 1997. Nel finale, l'irruzione di misteriose entità note come Sussurri del Destino, custodi del corso \"corretto\" della storia, e la comparsa di un'ambigua versione di Sephiroth introducono l'idea che il destino stesso della saga possa essere riscritto, aprendo la strada a una linea temporale distinta da quella della Compilation originale.",
@@ -1697,7 +1690,6 @@ const GAMES = {
             }
           },
           { id: "ffvii-rebirth", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte II", yearEn: "Part II", releaseYear: "2024", releaseYearEn: "2024",
-            noAvatar: true,
             title: { it: "Final Fantasy VII Rebirth", en: "Final Fantasy VII Rebirth" },
             synopsis: {
               it: "Proseguimento diretto di Remake, segue Cloud e il gruppo fuori da Midgar, attraverso gran parte della mappa del mondo del gioco originale, fino alla città perduta dei Cetra e alla morte di Aerith per mano di Sephiroth, un evento che la nuova linea temporale lascia stranamente ambiguo, mostrando la sua anima dividersi tra più realtà parallele. Sephiroth rivela di voler manipolare il flusso stesso del destino per riscrivere la propria sconfitta già scritta nella Compilation originale, in attesa del terzo e conclusivo capitolo della trilogia, non ancora uscito.",
@@ -1712,7 +1704,6 @@ const GAMES = {
         span: { it: "Final Fantasy X – X-2", en: "Final Fantasy X – X-2" },
         entries: [
           { id: "ffx", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy X", yearEn: "Final Fantasy X", releaseYear: "2001 (Remaster: 2013)", releaseYearEn: "2001 (Remaster: 2013)",
-            noAvatar: true,
             title: { it: "Final Fantasy X", en: "Final Fantasy X" },
             synopsis: {
               it: "Tidus, un giocatore di blitzball nella futuristica Zanarkand, viene proiettato mille anni nel futuro dall'attacco del mostro Sin, ritrovandosi nel mondo di Spira, dove incontra l'invocatrice Yuna, in pellegrinaggio per ottenere l'Invocazione Suprema capace di sconfiggere temporaneamente Sin. Lungo il cammino Tidus scopre di essere un sogno generato dal Fayth della Zanarkand ormai distrutta da mille anni, mentre Yuna e i suoi guardiani scoprono che la tradizione millenaria dell'Invocazione Suprema nasconde in realtà un ciclo di morte perpetuo orchestrato dai sacerdoti di Yevon, e scelgono di spezzarlo per sempre distruggendo Sin senza sacrificare altre vite.\n\nNota — Remaster 2013: include per la prima volta fuori dal Giappone il cortometraggio Eternal Calm, un ponte narrativo di 14 minuti ambientato subito dopo la sconfitta di Sin che introduce direttamente gli eventi di Final Fantasy X-2.",
@@ -1720,7 +1711,6 @@ const GAMES = {
             }
           },
           { id: "ffx-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2 anni dopo Final Fantasy X", yearEn: "2 years after Final Fantasy X", releaseYear: "2003 (Remaster: 2013)", releaseYearEn: "2003 (Remaster: 2013)",
-            noAvatar: true,
             title: { it: "Final Fantasy X-2", en: "Final Fantasy X-2" },
             synopsis: {
               it: "Due anni dopo la sconfitta di Sin, Yuna, ormai ritiratasi a vita privata, si unisce alle Gullwings insieme a Rikku e Paine dopo aver visto una sfera-filmato che sembra ritrarre Tidus ancora vivo. La ricerca la porta a scoprire i segreti della civiltà pre-Spira di Zanarkand e Bevelle, l'ascesa delle fazioni rivali Nuovo Yevon e Youth League, e infine a ricongiungersi realmente con Tidus, riportato in vita come essere reale del mondo di Spira grazie alla propria stessa Fayth.\n\nNota — Remaster 2013: include per la prima volta fuori dal Giappone Last Mission, un epilogo giocabile ambientato tre mesi dopo il finale, in cui Yuna, Rikku e Paine esplorano un'antica torre appena scoperta.",
@@ -1735,7 +1725,6 @@ const GAMES = {
         span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
         entries: [
           { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006 (Remaster: 2017)", releaseYearEn: "2006 (Remaster: 2017)",
-            noAvatar: true,
             title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
             synopsis: {
               it: "Nel continente di Ivalice, durante l'occupazione militare del piccolo regno di Dalmasca da parte del potente impero di Archadia, il giovane ladro Vaan si allea con la principessa Ashe, sopravvissuta in incognito alla presunta strage della propria famiglia reale, per liberare il proprio paese. Il gruppo si ritrova coinvolto in una guerra ben più ampia per il controllo dei Nethicite, pietre capaci di annullare la magia e alimentare armi di distruzione di massa, di cui Archadia intende servirsi per dominare l'intero continente.",
@@ -1743,7 +1732,6 @@ const GAMES = {
             }
           },
           { id: "final-fantasy-tactics", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Generazioni dopo Final Fantasy XII, dopo una catastrofe", yearEn: "Generations after Final Fantasy XII, after a catastrophe", releaseYear: "1997", releaseYearEn: "1997",
-            noAvatar: true,
             title: { it: "Final Fantasy Tactics", en: "Final Fantasy Tactics" },
             synopsis: {
               it: "Generazioni dopo la caduta dell'impero descritto in Final Fantasy XII, in seguito a una catastrofe non meglio specificata che ha riportato Ivalice a un'epoca di magia e caos, il giovane nobile Ramza Beoulve si ritrova coinvolto nella Guerra dei Leoni, un conflitto di successione al trono che nasconde in realtà una cospirazione religiosa orchestrata dai demoni Lucavi, infiltrati ai vertici della Chiesa di Glabados per resuscitare la propria specie attraverso la manipolazione dei nobili in lotta per il potere.",
@@ -1751,7 +1739,6 @@ const GAMES = {
             }
           },
           { id: "vagrant-story", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Secoli dopo Final Fantasy Tactics", yearEn: "Centuries after Final Fantasy Tactics", releaseYear: "2000", releaseYearEn: "2000",
-            noAvatar: true,
             title: { it: "Vagrant Story", en: "Vagrant Story" },
             synopsis: {
               it: "Secoli dopo gli eventi di Final Fantasy Tactics, l'agente governativo Ashley Riot viene inviato nella città maledetta e abbandonata di Leá Monde per indagare su una setta ereticale, scoprendo al suo interno reliquie e leggende degli eroi della Guerra dei Leoni, ormai ridotti a mito, oltre a una cospirazione di manipolazione politica e magia oscura che coinvolge la Chiesa stessa. Considerato l'ultimo capitolo, per ora, della storia di Ivalice.",
@@ -1766,7 +1753,6 @@ const GAMES = {
         span: { it: "Final Fantasy XIII – Lightning Returns", en: "Final Fantasy XIII – Lightning Returns" },
         entries: [
           { id: "ffxiii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XIII", yearEn: "Final Fantasy XIII", releaseYear: "2009", releaseYearEn: "2009",
-            noAvatar: true,
             title: { it: "Final Fantasy XIII", en: "Final Fantasy XIII" },
             synopsis: {
               it: "Sul mondo-anello di Cocoon, sospeso sopra il pianeta Pulse, un gruppo di sei persone, tra cui la soldatessa Lightning, viene marchiato come l'Cie, agenti destinati a compiere una focalizzazione imposta dai fal'Cie, entità semi-divine che governano Cocoon e Pulse. Braccati dal proprio stesso governo, che li considera una minaccia da eliminare per paura di un'invasione da Pulse, i sei protagonisti si ribellano al destino loro imposto, risolvendo la focalizzazione a modo proprio e salvando Cocoon dalla distruzione, pur venendo pietrificati in cristallo nel processo.",
@@ -1774,7 +1760,6 @@ const GAMES = {
             }
           },
           { id: "ffxiii-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "300 anni dopo Final Fantasy XIII", yearEn: "300 years after Final Fantasy XIII", releaseYear: "2011", releaseYearEn: "2011",
-            noAvatar: true,
             title: { it: "Final Fantasy XIII-2", en: "Final Fantasy XIII-2" },
             synopsis: {
               it: "Trecento anni dopo la fine di Final Fantasy XIII, Serah Farron, sorella di Lightning, viene reclutata dal misterioso viaggiatore temporale Noel Kreiss per attraversare epoche diverse e frammenti temporali alterati, nel tentativo di ritrovare Lightning, scomparsa nel Vuoto Storico dopo aver sconfitto la divinità Bhunivelze insieme al resto del gruppo. Il gioco introduce paradossi temporali e finali multipli, terminando con l'apparente morte di Serah e il crollo del tempo stesso, causato dal villain Caius Ballad nel tentativo di fermare per sempre il ciclo di morte e resurrezione della dea del tempo Etro.",
@@ -1782,7 +1767,6 @@ const GAMES = {
             }
           },
           { id: "lightning-returns", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XIII: Lightning Returns", yearEn: "Lightning Returns: Final Fantasy XIII", releaseYear: "2013", releaseYearEn: "2013",
-            noAvatar: true,
             title: { it: "Lightning Returns: Final Fantasy XIII", en: "Lightning Returns: Final Fantasy XIII" },
             synopsis: {
               it: "Con il mondo agli sgoccioli di un'apocalisse annunciata a tredici giorni dalla fine, la dea suprema Bhunivelze risveglia Lightning dal proprio sonno cristallino, incaricandola di salvare quante più anime possibile prima della fine, in cambio della resurrezione di Serah. Lightning scopre infine che Bhunivelze intende ricreare il mondo cancellando ogni memoria del passato, e sceglie di ribellarsi ancora una volta al volere divino per garantire a tutte le anime salvate, Serah compresa, un nuovo mondo con la propria memoria intatta.",
@@ -1797,7 +1781,6 @@ const GAMES = {
         span: { it: "Infanzia di Noctis – Final Fantasy XV", en: "Noctis's childhood – Final Fantasy XV" },
         entries: [
           { id: "brotherhood", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Infanzia e adolescenza di Noctis", yearEn: "Noctis's childhood and teenage years", releaseYear: "2016", releaseYearEn: "2016",
-            noAvatar: true,
             title: { it: "Brotherhood: Final Fantasy XV", en: "Brotherhood: Final Fantasy XV" },
             synopsis: {
               it: "Cinque episodi che raccontano l'infanzia e l'adolescenza del principe Noctis Lucis Caelum, dal quasi-fatale attacco subito da bambino che lo costringe su una sedia a rotelle per anni, fino alla nascita della sua amicizia con Gladiolus, Ignis e Prompto, ciascuno destinato a diventare la sua guardia personale. La serie si chiude nei giorni precedenti alla partenza di Noctis per il viaggio verso Altissia narrato in Final Fantasy XV.",
@@ -1805,7 +1788,6 @@ const GAMES = {
             }
           },
           { id: "kingsglaive", type: "FILM CGI", typeEn: "CGI FILM", year: "Concomitante all'inizio di Final Fantasy XV", yearEn: "Concurrent with the start of Final Fantasy XV", releaseYear: "2016", releaseYearEn: "2016",
-            noAvatar: true,
             title: { it: "Kingsglaive: Final Fantasy XV", en: "Kingsglaive: Final Fantasy XV" },
             synopsis: {
               it: "Mentre re Regis di Lucis accetta un trattato di pace con l'impero di Niflheim che prevede il matrimonio tra suo figlio Noctis e la principessa Lunafreya, il capitano Nyx Ulric e i suoi compagni Kingsglaive, guerrieri capaci di attingere alla magia reale, scoprono che l'intero trattato è una trappola per rubare il Cristallo sacro di Lucis. Nell'invasione di Insomnia che ne segue, Regis muore e Nyx sacrifica la propria vita per portare in salvo l'Anello dei Lucii, l'artefatto che permetterà a Noctis di reclamare il proprio diritto al trono: eventi che Final Fantasy XV racconta dal punto di vista di Noctis, lontano dalla capitale al momento dell'attacco.",
@@ -1813,7 +1795,6 @@ const GAMES = {
             }
           },
           { id: "ffxv", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XV", yearEn: "Final Fantasy XV", releaseYear: "2016", releaseYearEn: "2016",
-            noAvatar: true,
             title: { it: "Final Fantasy XV", en: "Final Fantasy XV" },
             synopsis: {
               it: "Il principe Noctis Lucis Caelum, in viaggio verso Altissia per il proprio matrimonio combinato con la principessa Lunafreya, riceve la notizia della caduta di Insomnia e della morte del padre per mano dell'impero di Niflheim. Insieme ai suoi tre compagni d'infanzia, Noctis intraprende un lungo viaggio attraverso il continente di Eos per reclamare il proprio diritto al trono e fermare il cancelliere Ardyn Izunia, scoprendosi infine legato a lui da un'antica maledizione millenaria condivisa dalla stessa stirpe reale dei Lucis Caelum.",
@@ -1848,7 +1829,6 @@ const GAMES = {
         span: { it: "Genealogy of the Holy War – Fates", en: "Genealogy of the Holy War – Fates" },
         entries: [
           { id: "genealogy-holy-war", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1000 anni prima di Marth", yearEn: "1000 years before Marth", releaseYear: "1996", releaseYearEn: "1996",
-            noAvatar: true,
             title: { it: "Fire Emblem: Genealogy of the Holy War", en: "Fire Emblem: Genealogy of the Holy War" },
             synopsis: {
               it: "Sul continente di Jugdral, il cavaliere Sigurd di Chalphy viene tradito dai propri stessi alleati durante una guerra sobillata dai seguaci occulti del dio oscuro Loptous, infiltrati ai vertici della nobiltà per riportarlo in vita. Sigurd muore bruciato vivo insieme al proprio esercito, e la storia prosegue una generazione dopo con il figlio Seliph, cresciuto in esilio, che riunisce gli eredi dei caduti della prima guerra per rovesciare l'impero di Grannvale e porre fine al culto di Loptous.",
@@ -1856,7 +1836,6 @@ const GAMES = {
             }
           },
           { id: "thracia-776", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Concomitante alla seconda metà di Genealogy of the Holy War", yearEn: "Concurrent with the second half of Genealogy of the Holy War", releaseYear: "1999", releaseYearEn: "1999",
-            noAvatar: true,
             title: { it: "Fire Emblem: Thracia 776", en: "Fire Emblem: Thracia 776" },
             synopsis: {
               it: "Nello stesso periodo della guerra di liberazione condotta da Seliph, il principe Leif di Thracia, cugino di Seliph rifugiatosi a sua volta in esilio dopo l'invasione della propria terra natale da parte di Grannvale, guida una resistenza per riconquistare il proprio regno. Le vicende dei due eserciti si sfiorano più volte lungo il continente di Jugdral senza mai incontrarsi direttamente in scena, come due fronti paralleli della stessa guerra.",
@@ -1864,7 +1843,6 @@ const GAMES = {
             }
           },
           { id: "shadow-dragon", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1000 anni dopo Genealogy of the Holy War", yearEn: "1000 years after Genealogy of the Holy War", releaseYear: "1990 (Remake: 2008)", releaseYearEn: "1990 (Remake: 2008)",
-            noAvatar: true,
             title: { it: "Fire Emblem: Shadow Dragon and the Blade of Light", en: "Fire Emblem: Shadow Dragon and the Blade of Light" },
             synopsis: {
               it: "Mille anni dopo gli eventi di Jugdral, sul continente di Archanea il giovane principe Marth di Altea fugge in esilio dopo l'invasione del proprio regno da parte dell'impero draconico di Dolhr, guidato dal drago oscuro Medeus e dal suo stregone Gharnef. Radunando alleati in tutto il continente, Marth impugna la spada divina Falchion, forgiata dal Drago Divino Naga proprio per sconfiggere Medeus, e riconquista Altea ponendo fine alla guerra.",
@@ -1872,7 +1850,6 @@ const GAMES = {
             }
           },
           { id: "mystery-of-emblem", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2 anni dopo Shadow Dragon", yearEn: "2 years after Shadow Dragon", releaseYear: "1994 (Remake: 2010, come New Mystery of the Emblem)", releaseYearEn: "1994 (Remake: 2010, as New Mystery of the Emblem)",
-            noAvatar: true,
             title: { it: "Fire Emblem: Mystery of the Emblem", en: "Fire Emblem: Mystery of the Emblem" },
             synopsis: {
               it: "Due anni dopo la prima guerra, il principe Hardin di Aurelis, ormai sposo della regina Nyna e re di Archanea, viene segretamente corrotto dalla Darksphere donatagli da Gharnef, sopravvissuto alla disfatta di Medeus, e inizia una brutale occupazione militare dei regni vicini, arruolando lo stesso esercito di Marth nelle sue conquiste. Quando Marth scopre la verità viene bollato come traditore e costretto alla fuga: dovrà affrontare l'uomo che un tempo era suo alleato per liberarlo dalla corruzione della Darksphere con l'unica arma capace di contrastarla, la Lightsphere.",
@@ -1880,7 +1857,6 @@ const GAMES = {
             }
           },
           { id: "echoes-valentia", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Concomitante a Shadow Dragon", yearEn: "Concurrent with Shadow Dragon", releaseYear: "1992 (Remake: 2017, come Echoes: Shadows of Valentia)", releaseYearEn: "1992 (Remake: 2017, as Echoes: Shadows of Valentia)",
-            noAvatar: true,
             title: { it: "Fire Emblem Gaiden / Echoes: Shadows of Valentia", en: "Fire Emblem Gaiden / Echoes: Shadows of Valentia" },
             synopsis: {
               it: "Sul continente vicino di Valentia, gli amici d'infanzia Alm e Celica intraprendono percorsi opposti per porre fine a una guerra causata dalla frattura tra gli dei gemelli Duma e Mila: Alm guida un esercito ribelle contro l'impero di Rigel, mentre Celica cerca una soluzione pacifica in pellegrinaggio verso il tempio di Duma. I due scoprono infine di essere gli eredi delle due case reali di Valentia, e la Falchion che Alm porta con sé si rivela forgiata dallo stesso Naga che armò Marth, confermando il legame tra i due continenti.",
@@ -1888,7 +1864,6 @@ const GAMES = {
             }
           },
           { id: "awakening", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2000 anni dopo Shadow Dragon", yearEn: "2000 years after Shadow Dragon", releaseYear: "2012", releaseYearEn: "2012",
-            noAvatar: true,
             title: { it: "Fire Emblem: Awakening", en: "Fire Emblem: Awakening" },
             synopsis: {
               it: "Duemila anni dopo, su Ylisse e Valm (gli stessi continenti di Archanea e Valentia, ormai ribattezzati), il principe Chrom e la tattica amnesiaca Robin affrontano il regno ostile di Plegia e infine il Drago Nefasto Grima, destinato a rinascere attraverso Robin stesso. Nel DLC Hidden Truths, ambientato subito dopo la guerra, tre compagni di Chrom (Owain, Inigo e Severa) vengono trasportati in un altro mondo dall'entità Anankos, che muta il loro aspetto e li rinomina rispettivamente Odin, Laslow e Selena: sono loro a comparire, con queste nuove identità, in Fire Emblem Fates.",
@@ -1896,7 +1871,6 @@ const GAMES = {
             }
           },
           { id: "fates", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Dopo Awakening, tramite il DLC Hidden Truths", yearEn: "After Awakening, via the Hidden Truths DLC", releaseYear: "2015", releaseYearEn: "2015",
-            noAvatar: true,
             title: { it: "Fire Emblem Fates", en: "Fire Emblem Fates" },
             synopsis: {
               it: "Corrin, principe o principessa cresciuto a Nohr ma nato a Hoshido, deve scegliere da che parte schierarsi nella guerra tra le due nazioni, scoprendo infine che entrambe sono manipolate dall'antico e folle drago-dio Anankos, sovrano del regno nascosto di Valla, lo stesso essere che aveva portato Owain, Inigo e Severa da Ylisse a servire come ritenitori sotto nuove identità.",
@@ -1911,7 +1885,6 @@ const GAMES = {
         span: { it: "The Blazing Blade – The Binding Blade", en: "The Blazing Blade – The Binding Blade" },
         entries: [
           { id: "blazing-blade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni prima di The Binding Blade", yearEn: "20 years before The Binding Blade", releaseYear: "2003", releaseYearEn: "2003",
-            noAvatar: true,
             title: { it: "Fire Emblem: The Blazing Blade", en: "Fire Emblem: The Blazing Blade" },
             synopsis: {
               it: "Lyn, giovane spadaccina delle pianure di Sacae, scopre la propria origine nobile lyciana e si unisce ai mercenari Eliwood ed Hector per indagare sulla scomparsa del padre di Eliwood, imbattendosi nel culto segreto del Black Fang. Il gruppo scopre che il vero burattinaio dietro il culto è il negromante Nergal, intenzionato ad aprire un varco verso il mondo dei draghi attraverso sacrifici umani per ottenere un potere illimitato.",
@@ -1919,7 +1892,6 @@ const GAMES = {
             }
           },
           { id: "binding-blade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni dopo The Blazing Blade", yearEn: "20 years after The Blazing Blade", releaseYear: "2002", releaseYearEn: "2002",
-            noAvatar: true,
             title: { it: "Fire Emblem: The Binding Blade", en: "Fire Emblem: The Binding Blade" },
             synopsis: {
               it: "Vent'anni dopo, Roy, figlio di Eliwood, viene chiamato a guidare gli eserciti della Lycia contro il risorgente impero di Bern, il cui re intende resuscitare i veri draghi e dominare il continente impugnando la Binding Blade. Lungo il cammino Roy incrocia diversi vecchi alleati del padre, ormai invecchiati, chiudendo idealmente il cerchio aperto da The Blazing Blade.",
@@ -1934,7 +1906,6 @@ const GAMES = {
         span: { it: "Path of Radiance – Radiant Dawn", en: "Path of Radiance – Radiant Dawn" },
         entries: [
           { id: "path-of-radiance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Fire Emblem: Path of Radiance", yearEn: "Fire Emblem: Path of Radiance", releaseYear: "2005", releaseYearEn: "2005",
-            noAvatar: true,
             title: { it: "Fire Emblem: Path of Radiance", en: "Fire Emblem: Path of Radiance" },
             synopsis: {
               it: "Il mercenario Ike, figlio del defunto capitano Greil, viene coinvolto in una guerra tra Crimea e Daein dopo aver scortato in salvo la principessa crimeana Elincia, sopravvissuta all'invasione del proprio regno. Nel corso del conflitto Ike scopre la discriminazione subita dai laguz (esseri capaci di trasformarsi in animali) e dai loro discendenti marchiati, affrontando infine il folle re Ashnard di Daein e il giudizio incombente della dea Ashera sull'intero continente di Tellius.",
@@ -1942,7 +1913,6 @@ const GAMES = {
             }
           },
           { id: "radiant-dawn", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "3 anni dopo Path of Radiance", yearEn: "3 years after Path of Radiance", releaseYear: "2007", releaseYearEn: "2007",
-            noAvatar: true,
             title: { it: "Fire Emblem: Radiant Dawn", en: "Fire Emblem: Radiant Dawn" },
             synopsis: {
               it: "Tre anni dopo, una nuova resistenza di Daein guidata da Micaiah e la compagnia mercenaria di Ike, ormai divisi su fronti opposti, si ritrovano coinvolti in una cospirazione ben più ampia orchestrata dalla dea Ashera, che intende pietrificare l'intera umanità come punizione per la sua violenza. Solo risvegliando il dio del caos Yune, imprigionato nel corpo della stessa Micaiah, Ike e i suoi alleati riescono a fermare il giudizio divino.",
@@ -1992,7 +1962,6 @@ const GAMES = {
           },
           { id: "stories-dying-city", type: "FUMETTO", typeEn: "COMIC", year: "Poco prima di Dying Light 2", yearEn: "Shortly before Dying Light 2", releaseYear: "2022", releaseYearEn: "2022",
             title: { it: "Stories From The Dying City", en: "Stories From The Dying City" },
-            noAvatar: true,
             synopsis: {
               it: "Anni dopo l'epidemia di Harran, gli orfani Daud e Aisha, cresciuti senza conoscere altro che la piaga, vengono addestrati come Night Runner dal loro mentore Berg, che li sfrutta per rubare e mantenere la propria influenza tra i Sopravvissuti. Ormai adulti, i due pianificano di fuggire insieme verso Villedor, dove si conducono ricerche per una cura, ma quando Berg scopre il loro piano vende Aisha a una fazione rivale. Daud intraprende un viaggio disperato attraverso il territorio infestato dai Volatili per salvarla, raggiungendo infine Villedor poco prima dell'inizio degli eventi di Dying Light 2. Fumetto incluso nelle edizioni Deluxe e Ultimate di Stay Human, ponte narrativo tra DL1 e DL2 al pari di Banshee.",
               en: "Years after the Harran outbreak, orphans Daud and Aisha, having grown up knowing nothing but the plague, are trained as Night Runners by their mentor Berg, who exploits them to steal and maintain his influence among the Survivors. Now young adults, the two plan to escape together to Villedor, where cure research is underway, but when Berg discovers their plan he sells Aisha off to a rival faction. Daud embarks on a desperate journey through Volatile-infested territory to rescue her, finally reaching Villedor just before the events of Dying Light 2 begin. A comic included in the Deluxe and Ultimate editions of Stay Human, a narrative bridge between DL1 and DL2 alongside Banshee."
@@ -2042,7 +2011,6 @@ const GAMES = {
         span: { it: "0 A.E. – 42 A.E.", en: "0 A.E. – 42 A.E." },
         entries: [
           { id: "rise-of-raam", type: "FUMETTO", typeEn: "COMIC", year: "Prima del Giorno dell'Emergenza", yearEn: "Before Emergence Day", releaseYear: "2018", releaseYearEn: "2018",
-            noAvatar: true,
             title: { it: "Gears of War: The Rise of RAAM", en: "Gears of War: The Rise of RAAM" },
             synopsis: {
               it: "Fumetto in quattro albi che racconta le origini di RAAM, il generale che diventerà il più temuto comandante del Locust Horde: come nasce all'interno della rigida gerarchia sociale Locust e come si guadagna, spietatamente, il proprio posto al vertice ben prima che il suo popolo emerga in superficie il Giorno dell'Emergenza.",
@@ -2064,7 +2032,6 @@ const GAMES = {
             }
           },
           { id: "gears-tactics", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "12 A.E. circa, prima di Gears of War", yearEn: "Around 12 A.E., before Gears of War", releaseYear: "2020", releaseYearEn: "2020",
-            noAvatar: true,
             title: { it: "Gears Tactics", en: "Gears Tactics" },
             synopsis: {
               it: "Capitolo strategico a turni ambientato durante i primi, disperati anni della Guerra dei Locusti, poco più di un decennio prima degli eventi di Gears of War. Gabe Diaz, futuro padre di Kait, guida una squadra di sopravvissuti nella caccia a Ukkon, lo scienziato Locust responsabile della creazione dei mostruosi Snatchers, mentre la COG stessa collassa attorno a loro sotto il peso della guerra.",
@@ -2072,7 +2039,6 @@ const GAMES = {
             }
           },
           { id: "the-slab", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Gears of War", yearEn: "Before Gears of War", releaseYear: "2012", releaseYearEn: "2012",
-            noAvatar: true,
             title: { it: "Gears of War: The Slab", en: "Gears of War: The Slab" },
             synopsis: {
               it: "Romanzo prequel che racconta gli anni di Marcus Fenix nella prigione militare del Slab, dove sconta la condanna per aver disobbedito agli ordini durante la missione di soccorso al padre Adam, dispersa in territorio Locust. Segue il suo rapporto con gli altri detenuti e con le guardie fino al giorno in cui, con la guerra ormai quasi persa, gli viene offerta la libertà in cambio dell'arruolamento nella Squadra Delta.",
@@ -2087,7 +2053,6 @@ const GAMES = {
             }
           },
           { id: "aspho-fields", type: "ROMANZO", typeEn: "NOVEL", year: "Subito dopo Gears of War", yearEn: "Right after Gears of War", releaseYear: "2008", releaseYearEn: "2008",
-            noAvatar: true,
             title: { it: "Gears of War: Aspho Fields", en: "Gears of War: Aspho Fields" },
             synopsis: {
               it: "Una settimana dopo l'Offensiva Lightmass, mentre l'ultima roccaforte umana si prepara al prossimo assalto Locust, il ritorno di un vecchio commilitone riporta a galla per Marcus e Dom i fantasmi degli ultimi anni delle Guerre del Pendulum, raccontati in flashback: la battaglia di Aspho Fields che vide la morte di Carlos, fratello maggiore di Dom, e il segreto che da allora Marcus si porta dietro riguardo a quel giorno.",
@@ -2095,7 +2060,6 @@ const GAMES = {
             }
           },
           { id: "hollow", type: "FUMETTO", typeEn: "COMIC", year: "Tra Gears of War e Gears of War 2", yearEn: "Between Gears of War and Gears of War 2", releaseYear: "2008 – 2009", releaseYearEn: "2008 – 2009",
-            noAvatar: true,
             title: { it: "Gears of War: Hollow", en: "Gears of War: Hollow" },
             synopsis: {
               it: "Delta-One viene inviata a indagare su una misteriosa attività sismica nella città di Montevado, dove il gruppo incontra per la prima volta la giovane recluta Jace Stratton, appena uscita dall'addestramento base. La missione si conclude in tragedia quando il Gear Gil muore tra le braccia di Jace durante l'estrazione dei sopravvissuti, in un ritorno a Jacinto segnato da tensioni personali tra Dom, Anya e Marcus.",
@@ -2103,7 +2067,6 @@ const GAMES = {
             }
           },
           { id: "barren", type: "FUMETTO", typeEn: "COMIC", year: "Tra Hollow e Gears of War 2", yearEn: "Between Hollow and Gears of War 2", releaseYear: "2009 – 2010", releaseYearEn: "2009 – 2010",
-            noAvatar: true,
             title: { it: "Gears of War: Barren", en: "Gears of War: Barren" },
             synopsis: {
               it: "Dopo un segnale di soccorso dalla città sconvolta di Jilane, Delta Squad viene inviata a indagare con l'aiuto di Alex Brand, una guida che in quella stessa città era stata rinchiusa da bambina in una fattoria per la riproduzione forzata gestita dai Locust. Il gruppo trova un manipolo di sopravvissuti al massacro di Jilane e deve difenderli da un imminente attacco Locust in un vero e proprio assedio a oltranza.",
@@ -2118,7 +2081,6 @@ const GAMES = {
             }
           },
           { id: "jacintos-remnant", type: "ROMANZO", typeEn: "NOVEL", year: "Subito dopo Gears of War 2", yearEn: "Right after Gears of War 2", releaseYear: "2009", releaseYearEn: "2009",
-            noAvatar: true,
             title: { it: "Gears of War: Jacinto's Remnant", en: "Gears of War: Jacinto's Remnant" },
             synopsis: {
               it: "Subito dopo l'affondamento di Jacinto, ultima grande città umana, i sopravvissuti della COG si imbarcano alla ricerca di un nuovo rifugio, trovandolo infine sull'isola di Vectes, rimasta ai margini della guerra per quindici anni. Il romanzo alterna il presente della flotta alla deriva a flashback sui primi, disperati anni della Guerra dei Locusti e sugli attacchi Hammer of Dawn che segnarono la svolta del conflitto.",
@@ -2126,7 +2088,6 @@ const GAMES = {
             }
           },
           { id: "anvil-gate", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Jacinto's Remnant", yearEn: "After Jacinto's Remnant", releaseYear: "2010", releaseYearEn: "2010",
-            noAvatar: true,
             title: { it: "Gears of War: Anvil Gate", en: "Gears of War: Anvil Gate" },
             synopsis: {
               it: "Sull'isola di Vectes, Gear e Stranded devono imparare a convivere mentre ricostruiscono una parvenza di società, ma la pace viene spezzata dalla comparsa del Lambent, una minaccia ancora più devastante del Locust stesso. Flashback paralleli raccontano l'Assedio di Anvil Gate durante le Guerre del Pendulum, la battaglia che forgiò la reputazione del colonnello Hoffman come comandante spietato ma efficace.",
@@ -2134,7 +2095,6 @@ const GAMES = {
             }
           },
           { id: "coalitions-end", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Anvil Gate, ponte diretto a Gears of War 3", yearEn: "After Anvil Gate, a direct bridge to Gears of War 3", releaseYear: "2011", releaseYearEn: "2011",
-            noAvatar: true,
             title: { it: "Gears of War: Coalition's End", en: "Gears of War: Coalition's End" },
             synopsis: {
               it: "Con la Regina Locust Myrrah che dà la caccia ai ricercatori COG nascosti sull'isola di Azura, nella speranza di trovare lì una cura contro il Lambent, la Coalizione dei Governi Ordinati collassa definitivamente come entità politica, lasciando Gear e Stranded a contare solo sulle proprie forze. Il romanzo chiude direttamente il cerchio che porta all'inizio di Gears of War 3.",
@@ -2142,7 +2102,6 @@ const GAMES = {
             }
           },
           { id: "dirty-little-secrets", type: "FUMETTO", typeEn: "COMIC", year: "Concomitante ad Anvil Gate e Coalition's End", yearEn: "Concurrent with Anvil Gate and Coalition's End", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
-            noAvatar: true,
             title: { it: "Gears of War: Dirty Little Secrets", en: "Gears of War: Dirty Little Secrets" },
             synopsis: {
               it: "Nello stesso periodo raccontato da Anvil Gate e Coalition's End, Delta Squad si allea con gli ex nemici Gorasni per difendere i residenti di Vectes da bande di Stranded e sacche nascoste di Locust, mentre in segreto Adam Fenix e l'ex presidente Prescott cospirano per neutralizzare la minaccia Lambent prima che possa spazzare via ogni forma di vita su Sera.",
@@ -2157,7 +2116,6 @@ const GAMES = {
             }
           },
           { id: "ephyra-rising", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Gears of War 3, prima di Gears of War 4", yearEn: "After Gears of War 3, before Gears of War 4", releaseYear: "2021", releaseYearEn: "2021",
-            noAvatar: true,
             title: { it: "Gears of War: Ephyra Rising", en: "Gears of War: Ephyra Rising" },
             synopsis: {
               it: "Nel dopoguerra immediato, con la Guerra dei Locusti finalmente conclusa ma Sera ridotta in macerie e senza più Imulsion a disposizione, Marcus e Anya guidano i primi, difficili tentativi di ricostruzione attorno alle rovine della città di Ephyra, gettando le basi politiche e sociali della nuova Coalizione che porterà, una generazione dopo, agli eventi di Gears of War 4.",
@@ -2172,7 +2130,6 @@ const GAMES = {
             }
           },
           { id: "ascendance", type: "ROMANZO", typeEn: "NOVEL", year: "Ponte diretto tra Gears of War 4 e Gears 5", yearEn: "A direct bridge between Gears of War 4 and Gears 5", releaseYear: "2019", releaseYearEn: "2019",
-            noAvatar: true,
             title: { it: "Gears of War: Ascendance", en: "Gears of War: Ascendance" },
             synopsis: {
               it: "Subito dopo la morte di sua madre Reyna per mano dello Swarm, Kait giura vendetta mentre lei, JD, Del, Marcus, Cole e Baird si riorganizzano; quando la First Minister Jinn li richiama a servizio della Coalizione, Kait si ribella e va per conto proprio a salvare un gruppo di adolescenti sopravvissuti insieme a Marcus, mentre JD e Del restano intrappolati durante una missione di ricognizione contro lo Swarm. Ponte narrativo diretto verso l'inizio di Gears 5.",
@@ -2187,7 +2144,6 @@ const GAMES = {
             }
           },
           { id: "hivebusters", type: "FUMETTO", typeEn: "COMIC", year: "Concomitante alla campagna Hivebusters di Gears 5", yearEn: "Concurrent with the Hivebusters campaign in Gears 5", releaseYear: "2019", releaseYearEn: "2019",
-            noAvatar: true,
             title: { it: "Gears of War: Hivebusters", en: "Gears of War: Hivebusters" },
             synopsis: {
               it: "Fumetto di accompagnamento alla campagna scaricabile omonima di Gears 5, che approfondisce il passato dei tre reietti della Coalizione, Lahni Kaliso, Mac e l'unità robotica KAI-9, spiegando come le loro strade si siano incrociate prima della missione che li porterà a dare la caccia a un nuovo, letale ceppo di Swarm su un'isola tropicale lontana dal fronte principale.",
@@ -2195,7 +2151,6 @@ const GAMES = {
             }
           },
           { id: "bloodlines", type: "ROMANZO", typeEn: "NOVEL", year: "Dopo Gears 5", yearEn: "After Gears 5", releaseYear: "2020", releaseYearEn: "2020",
-            noAvatar: true,
             title: { it: "Gears of War: Bloodlines", en: "Gears of War: Bloodlines" },
             synopsis: {
               it: "Kait Diaz ripercorre la storia della propria famiglia materna durante le Guerre del Pendulum, decenni prima della sua nascita, scoprendo ulteriori dettagli sul legame di sangue che la unisce alla stirpe della Regina Locust Myrrah e su come quel segreto sia stato nascosto per generazioni prima di riemergere negli eventi di Gears of War 4.",
@@ -2370,7 +2325,6 @@ const GAMES = {
             }
           },
           { id: "dc-comics-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Dopo God of War, con flashback a prima", yearEn: "After God of War, with flashbacks to before", releaseYear: "2010", releaseYearEn: "2010",
-            noAvatar: true,
             title: { it: "God of War (fumetto DC Comics)", en: "God of War (DC Comics)" },
             synopsis: {
               it: "Doppio filo narrativo: in un passato mai visto prima nei giochi, un Kratos ancora umano cerca l'Ambrosia di Asclepio per salvare la figlia Calliope morente; nel presente, ormai diventato Dio della Guerra dopo la morte di Ares, Kratos torna sulle tracce della stessa Ambrosia con l'intento opposto, distruggerla per impedire che qualcuno possa usarla per resuscitare Ares stesso.",
@@ -2385,7 +2339,6 @@ const GAMES = {
             }
           },
           { id: "betrayal", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Tra Ghost of Sparta e God of War II", yearEn: "Between Ghost of Sparta and God of War II", releaseYear: "2007", releaseYearEn: "2007",
-            noAvatar: true,
             title: { it: "God of War: Betrayal", en: "God of War: Betrayal" },
             synopsis: {
               it: "Nell'unico capitolo della saga mai uscito su console (un titolo per cellulari a scorrimento 2D), Kratos viene incastrato per l'omicidio di Argo, la creatura di Era, e si mette sulle tracce di un misterioso assassino incappucciato per scagionarsi. L'inseguimento lo porta a scontrarsi con Ceryx, messaggero di Zeus, inasprendo ulteriormente il proprio rapporto con gli dei dell'Olimpo poco prima degli eventi di God of War II.",
@@ -2407,7 +2360,6 @@ const GAMES = {
             }
           },
           { id: "fallen-god", type: "FUMETTO", typeEn: "COMIC", year: "Subito dopo God of War III", yearEn: "Right after God of War III", releaseYear: "2018 – 2019", releaseYearEn: "2018 – 2019",
-            noAvatar: true,
             title: { it: "God of War: Fallen God", en: "God of War: Fallen God" },
             synopsis: {
               it: "Subito dopo aver raso al suolo l'Olimpo, un Kratos distrutto dal proprio stesso gesto vaga fino in Egitto nel disperato tentativo di disfarsi delle Lame del Caos, che continuano a tornare da lui non importa quante volte le getti via. Un dio egizio lo avverte che non può sfuggire al proprio destino in nessuna direzione, lasciandolo vagare senza meta verso nord, in cerca di un modo per lasciarsi alle spalle la furia che lo ha sempre definito.",
@@ -2422,7 +2374,6 @@ const GAMES = {
         span: { it: "Midgard, decenni dopo", en: "Midgard, decades later" },
         entries: [
           { id: "dark-horse-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Prima di God of War (2018)", yearEn: "Before God of War (2018)", releaseYear: "2018 – 2021", releaseYearEn: "2018 – 2021",
-            noAvatar: true,
             title: { it: "God of War (fumetto Dark Horse)", en: "God of War (Dark Horse)" },
             synopsis: {
               it: "Ormai stabilitosi nella nuova vita a Midgard con la moglie Faye e il piccolo Atreus, Kratos cerca di imparare a controllare la propria furia invece di reprimerla con la violenza. Un incontro fortuito con un orso ferito lo mette però in rotta di collisione con un culto di berserker che venera quello stesso animale, costringendolo infine a lasciare di nuovo affiorare la rabbia che aveva giurato di lasciarsi alle spalle.",
@@ -2479,7 +2430,6 @@ const GAMES = {
             }
           },
           { id: "fall-of-reach", type: "ROMANZO", typeEn: "NOVEL", year: "Prima e durante l'assedio di Reach", yearEn: "Before and during the siege of Reach", releaseYear: "2001", releaseYearEn: "2001",
-            noAvatar: true,
             title: { it: "Halo: The Fall of Reach", en: "Halo: The Fall of Reach" },
             synopsis: {
               it: "Romanzo prequel che racconta l'origine del programma SPARTAN-II, dal rapimento e addestramento brutale di John-117 da bambino fino alla sua trasformazione in Master Chief, seguendo poi la dottoressa Catherine Halsey e l'intero corpo Spartan attraverso l'assedio finale del pianeta Reach da parte del Covenant. A differenza del videogioco Halo: Reach (2010), che segue il Team Noble, questo romanzo segue Master Chief stesso e si conclude con la fuga della Pillar of Autumn che apre direttamente Combat Evolved.",
@@ -2512,7 +2462,6 @@ const GAMES = {
             }
           },
           { id: "first-strike", type: "ROMANZO", typeEn: "NOVEL", year: "Tra Combat Evolved e Halo 2", yearEn: "Between Combat Evolved and Halo 2", releaseYear: "2003", releaseYearEn: "2003",
-            noAvatar: true,
             title: { it: "Halo: First Strike", en: "Halo: First Strike" },
             synopsis: {
               it: "Colma il vuoto tra Combat Evolved e Halo 2: Master Chief e i superstiti dello schianto su Halo si impadroniscono di una nave ammiraglia Covenant per tornare a Reach, dove scoprono altri Spartan sopravvissuti all'assedio nascosti in un rifugio segreto della dottoressa Halsey. Nel finale, la scoperta di documenti Covenant rivela che l'intera flotta nemica è ormai diretta verso la Terra, aprendo direttamente la strada agli eventi di Halo 2.",
@@ -2528,7 +2477,6 @@ const GAMES = {
             }
           },
           { id: "ghosts-of-onyx", type: "ROMANZO", typeEn: "NOVEL", year: "Concomitante alla seconda metà di Halo 2", yearEn: "Concurrent with the second half of Halo 2", releaseYear: "2006", releaseYearEn: "2006",
-            noAvatar: true,
             title: { it: "Halo: Ghosts of Onyx", en: "Halo: Ghosts of Onyx" },
             synopsis: {
               it: "Mentre Master Chief affronta l'Alta Opera nella seconda metà di Halo 2, il Blue Team (mai comparso nei giochi fino a quel punto) e le origini del programma SPARTAN-III vengono raccontati in parallelo: le operazioni segrete dell'ONI sul pianeta scudo Onyx portano alla scoperta di un'antica installazione dei Precursori, proprio mentre lo Scisma divide il Covenant dall'interno, evento solo accennato nel gioco.",
@@ -2544,7 +2492,6 @@ const GAMES = {
             }
           },
           { id: "uprising", type: "FUMETTO", typeEn: "COMIC", year: "Tra Halo 2 e Halo 3", yearEn: "Between Halo 2 and Halo 3", releaseYear: "2007 – 2009", releaseYearEn: "2007 – 2009",
-            noAvatar: true,
             title: { it: "Halo: Uprising", en: "Halo: Uprising" },
             synopsis: {
               it: "A bordo del Dreadnought dei Precursori diretto verso la Terra, Master Chief tenta senza successo di assassinare il Profeta della Verità, per poi lanciarsi dalla nave in fuga verso il pianeta. In parallelo, a Cleveland invasa dal Covenant, il colonnello Ackerson viene torturato per rivelare l'ubicazione della Chiave di Osanalan, un dispositivo capace di distruggere gli Anelli, mentre un civile di nome Ruwan, legato ad Ackerson da un passato comune, ne custodisce il segreto. Il fumetto si conclude esattamente nel lancio col pod che apre il filmato iniziale di Halo 3.",
