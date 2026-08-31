@@ -2418,7 +2418,7 @@ const GAMES = {
     universes: [
       {
         id: "trilogia-originale",
-        name: { it: "Trilogia Originale (Bungie)", en: "Original Trilogy (Bungie)" },
+        name: { it: "Il Ciclo degli Anelli", en: "The Ring Cycle" },
         span: { it: "2531 – 2552", en: "2531 – 2552" },
         entries: [
           { id: "halo-wars", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2531",
