@@ -1,0 +1,756 @@
+REGOLE OPERATIVE — La Traccia del Tempo
+==========================================================
+
+
+PARTE 1 — RICERCA E COSTRUZIONE DEGLI UNIVERSI
+==================================================
+
+1) RICERCA COMPLETA, SENZA ESCLUSIONI DI PARTENZA
+------------------------------------------------------
+Prima di scartare qualsiasi cosa, devo conoscere TUTTI i media
+ufficiali "grandi" esistenti della saga, di qualunque tipo:
+videogiochi, fumetti, manga, film CGI, film d'animazione, anime, e
+qualunque altro media narrativo vero e proprio prodotto sotto
+licenza ufficiale, anche se rimasto uscito solo nel suo paese
+d'origine (es. un titolo mai localizzato fuori dal Giappone).
+
+Escludo già a monte, prima ancora di valutare collegamenti
+narrativi, il materiale collaterale minore: art book, libricini
+promozionali, gadget narrativi di poche pagine e simili contenuti
+non abbastanza sostanziosi da contare come media veri e propri.
+
+Solo dopo aver mappato l'intero elenco dei media "grandi" comincio
+a valutare cosa entra e cosa no.
+
+
+2) CRITERIO DI ESCLUSIONE
+-----------------------------
+Scarto solo ciò che non è narrativamente collegato agli altri
+media. Restano fuori sempre:
+- media non ufficiali (fan-made, non prodotti/autorizzati da chi
+  detiene la saga)
+- media dichiarati indipendenti dalla propria casa produttrice
+- media che non fanno avanzare in alcun modo la trama/storia
+  della continuità a cui potrebbero appartenere
+
+
+3) COS'È UN UNIVERSO
+------------------------
+Un universo è una linea temporale narrativa continuativa: un
+gruppo di media che si susseguono raccontando pezzi della stessa
+storia. Una saga può avere più universi, ognuno con la propria
+linea temporale indipendente dalle altre.
+
+CONDIZIONE MINIMA: un universo esiste solo se ci sono ALMENO DUE
+media (non-STORIA) collegati narrativamente tra loro. Un solo
+media isolato non forma un universo: è un racconto indipendente e
+va trattato come se non esistesse ai fini della Traccia del Tempo
+(non entra in pagina come voce singola fuori-universo). Esempio
+concreto: Assassin's Creed Shadows, isolato senza collegamenti,
+resta fuori dalla saga così come impostata sulla timeline.
+
+Le voci STORIA non contano MAI ai fini di questa soglia minima:
+un universo non può reggersi su un solo media più un numero
+qualsiasi di voci STORIA, che siano una o cento.
+
+
+4) VOCI "STORIA"
+--------------------
+Sono piccoli frammenti di storia UFFICIALE che collegano due media
+già esistenti nello stesso universo. Non vanno mai inventate da me
+per cucire artificialmente due titoli: devono corrispondere a un
+evento realmente narrato/dichiarato dalla fonte ufficiale.
+
+CAMPO "note" (esiste già nei dati, separato dalla sinossi): non ha
+bisogno di una regola propria, i suoi due usi storici sono già
+coperti altrove — spiegare un posizionamento temporale che
+sembrerebbe sbagliato (es. Resident Evil 3/2) è compito del titolo
+"ombrello" (punto 3 più sotto), mentre le semplici curiosità di
+chiusura sono già escluse dalla regola sulla sinossi (Parte 2, punto
+1: niente dettagli minori o aneddoti di contorno). Non serve quindi
+scriverci nulla di nuovo in `note` d'ora in avanti.
+
+TAG "PAGANTE" VS STORIA, AI FINI DEL BOX IMMAGINE SULLA LINEA
+ORIZZONTALE: tutti i tag diversi da STORIA identificano un media vero
+e proprio, quindi lungo la linea temporale hanno sia titolo che box
+immagine. STORIA invece è solo un ponte narrativo tra due media: ha
+solo il titolo, mai un box immagine. In entrambi i casi il titolo
+resta sempre alla stessa distanza dalla linea (dove starebbe il box
+immagine, presente o meno): implementato sul sito con uno spacer
+invisibile al posto del box mancante nelle voci STORIA.
+
+TABELLA VERTICALE A DESTRA (pagina del titolo): criterio opposto.
+Qui il box immagine per una voce STORIA va tolto del tutto, non
+sostituito da uno spacer: il titolo si sposta a sinistra fino a dove
+inizierebbe normalmente il box immagine, riempiendo lo spazio
+liberato invece di lasciarlo vuoto. Inoltre questa tabella non mostra
+mai le date: solo immagine e titolo, stesso criterio della linea
+temporale orizzontale ufficiale. Il titolo resta sempre centrato
+verticalmente rispetto all'immagine (o rispetto allo spazio che
+l'immagine occuperebbe, per le STORIA), indipendentemente da quante
+righe occupa il testo.
+
+STORIA CONSECUTIVE (due o più di fila, senza un media vero in mezzo):
+di norma non ha senso, un singolo STORIA dovrebbe bastare a coprire
+tutto quello che succede nell'intervallo tra due media. L'alternanza
+STORIA-media-STORIA-media (come in Ace Combat) resta invece normale
+e accettata. Se durante l'analisi penso che servano davvero due o
+più STORIA consecutive perché ci sono eventi distinti e importanti
+che non stanno bene in un'unica voce, lo segnalo prima a Sakrem
+invece di scriverle tutte di mia iniziativa. Se non trovo questo
+caso raro, procedo con il lavoro normale (una sola voce STORIA).
+
+
+5) REMAKE E REMASTER NELLA TIMELINE
+----------------------------------------
+Se un remake/remaster non si discosta abbastanza dall'originale da
+diventare di fatto un reboot, non genera una voce a parte: in
+timeline resta solo il titolo ORIGINALE, nello stesso identico
+punto della linea. Esempio di principio: Resident Evil 4 e
+Resident Evil 4 Remake occupano un'unica voce, quella del titolo
+originale.
+
+
+6) COSA SCRIVERE NEI TITOLI SULLA LINEA
+--------------------------------------------
+Nei titoli che compaiono lungo la linea temporale NON vanno mai
+inserite date, tranne nei rari casi in cui la data fa effettivamente
+parte del nome ufficiale del media.
+
+
+7) LINGUA DEI TITOLI
+------------------------
+Ogni titolo va distinto in italiano e in inglese. Se non esiste una
+localizzazione italiana ufficiale del titolo, uso sempre e comunque
+quello inglese (mai una mia traduzione di comodo).
+
+
+8) NOME DEGLI UNIVERSI
+---------------------------
+Per gli universi già esistenti in pagina, mostro prima a Sakrem il
+nome attuale: se gli piace così com'è, non propongo alternative.
+Solo se non gli piace, o per un universo nuovo che sto creando da
+zero, propongo 3 opzioni di nome (in italiano e in inglese, oppure
+uguali in entrambe le lingue se il nome lo giustifica) e ne discuto
+con lui prima di fissarlo.
+
+
+9) TABELLA/RAIL LATERALE
+-----------------------------
+La tabella laterale deve riportare il resoconto di tutte le voci di
+tutti gli universi (compresi gli universi stessi come intestazioni),
+con lo stesso criterio già visibile oggi sul sito.
+
+
+10) CASI DUBBI
+------------------
+Se durante la ricerca o l'analisi ho dubbi su un media (collegamento
+narrativo incerto, fonti contrastanti, canonicità non chiara), lo
+chiedo direttamente a Sakrem invece di decidere da solo.
+
+REGOLA GENERALE VALIDA PER TUTTO IL REGOLAMENTO (confermata
+esplicitamente il 29/08, dopo aver chiuso il lavoro sulla struttura
+della linea temporale): qualunque caso nuovo, mai incontrato prima e
+non coperto da nessuna regola scritta qui — in qualunque parte del
+lavoro, non solo nella ricerca — lo segnalo e lo chiedo a Sakrem
+prima di decidere da solo come trattarlo. Non è un'eccezione dei
+casi già elencati (gemello, ombrello, ecc.): è il criterio di
+default per tutto ciò che questo documento non prevede ancora.
+
+
+11) FONTI VALIDE PER UN COLLEGAMENTO NARRATIVO
+----------------------------------------------------
+Un collegamento narrativo conta solo se è dichiarato ufficialmente
+(intervista a sviluppatori/director, manuale di gioco, sito
+ufficiale, materiale editoriale del publisher). Una wiki, anche di
+settore e ben curata, non basta da sola come prova: va bene solo se
+riporta e cita davvero una di queste dichiarazioni ufficiali, mai
+come fonte a sé stante.
+
+
+12) SAGHE SENZA ALCUN UNIVERSO UFFICIALE
+----------------------------------------------
+Alcune saghe (poche, un'eccezione) non hanno alcun universo valido:
+gli sviluppatori stessi dichiarano che i titoli sono tutti
+indipendenti, o che eventuali somiglianze tra loro sono solo
+apparenti/finte. In questi casi non c'è alcuna linea temporale, non
+c'è alcun universo, non si applica nessuna delle regole di
+costruzione precedenti.
+
+Per queste saghe, la pagina della saga contiene solo un testo
+(equivalente al canonNote già presente per Doom) che spiega:
+- perché non esiste una linea temporale ufficiale
+- quali collegamenti "pseudo-validi" esistono e vengono spesso
+  scambiati per una vera continuità, o che potrebbero
+  aleatoriamente sembrare formarne una
+- di cosa parlano comunque questi titoli e in che modo cercano
+  (senza riuscirci davvero, narrativamente) di costruire quella
+  parvenza di continuità
+
+La scheda saga mantiene avatar, filigrana e tracklist musicale anche
+senza linea temporale, ma disposti in un layout diverso da quello
+delle saghe con timeline vera (non esistono più banner veri e propri
+in nessuna delle due versioni). Le immagini lungo la linea temporale
+(gli avatarini per singola voce) sono invece assenti per definizione,
+non essendoci alcuna linea temporale da illustrare.
+Il blurb in alto resta presente e obbligatorio come per ogni altra
+saga, canonNote o meno: non lo sostituisce, si aggiunge.
+
+
+13) SAGHE GIÀ ANALIZZATE COL METODO PRECEDENTE
+----------------------------------------------------
+Ace Combat, Alone in the Dark, Assassin's Creed, Castlevania, Devil
+May Cry, Diablo e Doom sono state riviste con un criterio simile ma
+non identico a questo (mancava la mappatura di partenza di TUTTI i
+media, non solo videogiochi). Vanno riverificate una per una con il
+metodo completo descritto qui, per controllare se emergono media non
+ancora considerati allora (fumetti, manga, anime, film).
+
+
+14) CORTOMETRAGGI E MATERIALE PROMOZIONALE
+-----------------------------------------------
+Un cortometraggio (es. bonus preordine) è ammesso come media a pieno
+titolo, con la sua voce in timeline (tag CORTOMETRAGGIO), se supera
+questo test: "aggiunge informazioni reali alla trama, anche poche?".
+Se sì, entra come voce propria, non viene assorbito nel riassunto di
+un altro titolo. Esempio: il cortometraggio di GTA San Andreas su
+Tenpenny, che mostra eventi veri accaduti poco prima del gioco.
+
+Trailer e materiale puramente promozionale, senza alcuna informazione
+narrativa reale (solo teaser, musica, immagini senza contenuto di
+trama), restano sempre esclusi.
+
+
+15) ORDINE TRA UNIVERSI DIVERSI DELLA STESSA SAGA
+----------------------------------------------------
+Non esiste un criterio fisso unico, ma una gerarchia di tentativi da
+provare in ordine, passando al successivo solo se il precedente non
+si applica in modo sensato:
+
+1. ESPEDIENTE NATURALE DELLA SAGA: se la saga si presta a un criterio
+   proprio e leggibile (es. Assassin's Creed, dove gli universi si
+   susseguono per epoca storica), lo uso.
+2. ANNO DI NASCITA DELL'UNIVERSO: se non c'è un espediente del
+   genere, ordino per anno di uscita del primo media di ciascun
+   universo (quello più vecchio va per primo). Es. un universo nato
+   nel 2000 precede uno nato nel 2010.
+3. QUANTITÀ DI MEDIA: solo quando nessuno dei due criteri sopra dà un
+   ordine sensato, ordino per numero di media contenuti in ciascun
+   universo, dal più numeroso al meno numeroso.
+
+
+16) TITOLO CHE POTREBBE APPARTENERE A DUE UNIVERSI DIVERSI
+----------------------------------------------------------------
+Se un titolo ha agganci narrativi verso due universi diversi della
+stessa saga, senza che uno dei due sia chiaramente più forte
+dell'altro, non decido da solo a quale assegnarlo: lo segnalo a
+Sakrem come caso dubbio.
+
+
+17) FONTI UFFICIALI CHE SI CONTRADDICONO NEL TEMPO
+--------------------------------------------------------
+Se una dichiarazione ufficiale più recente racconta un collegamento
+o un ordine narrativo in modo diverso da una dichiarazione ufficiale
+più vecchia, non decido da solo quale delle due seguire (anche se in
+teoria la più recente dovrebbe prevalere): lo segnalo a Sakrem come
+caso dubbio.
+
+
+18) TITOLI CANCELLATI
+--------------------------
+Un media cancellato, anche se la sua trama era stata dichiarata
+ufficialmente prima della cancellazione, conta come inesistente ai
+fini della Traccia del Tempo: non entra in nessuna forma, né come
+voce vera né come nota.
+
+
+PARTE 2 — SCRITTURA DELLA SCHEDA DI OGNI TITOLO
+====================================================
+
+1) IL RIASSUNTO CENTRALE
+-----------------------------
+La parte lunga della scheda deve essere un riassunto conciso ma
+completo di tutta la trama del media, corretto nei fatti e senza
+errori. I termini tecnici, nomi propri e terminologia vanno scritti
+nella versione ufficialmente tradotta in italiano (mai una
+traduzione mia). Se il titolo non ha una localizzazione italiana
+ufficiale, quei termini/nomi restano in inglese anche nella versione
+italiana della sinossi: non li traduco di mia iniziativa.
+
+Scrivo io entrambe le versioni (italiana e inglese) della sinossi:
+la inglese è una mia traduzione fedele di quella italiana, salvo
+appunto i termini/nomi già coperti dalla regola sopra.
+
+COSA COPRIRE: tutta la trama principale, dall'inizio alla fine
+(compreso il finale), senza saltare beat narrativi importanti.
+COSA NON FARE: non scendere nei dettagli minori, sottotrame
+secondarie, aneddoti o curiosità di contorno che non servono a
+seguire la trama principale. È un riassunto, non una guida completa
+al gioco: copre tutto ciò che conta per capire la storia, non ogni
+singolo dettaglio che il gioco racconta.
+
+SOLO LA TRAMA DI QUEL MEDIA: niente frasi di contorno tipo "l'horror
+che ha fatto la storia del genere", niente riferimenti ad altre
+saghe o media esterni buttati lì solo per arricchire la scrittura.
+Ogni riferimento a qualcos'altro (stessa saga/stesso universo più
+spesso, qualcosa di esterno molto più raramente, meglio se mai) deve
+essere motivato da un legame ufficiale reale, mai decorativo. Se non
+sono sicuro che un riferimento sia abbastanza giustificato, lo chiedo
+a Sakrem invece di includerlo o escluderlo di mia iniziativa.
+
+VERSIONI DIVERSE PER MERCATO (es. giapponese vs internazionale) DELLO
+STESSO IDENTICO TITOLO (non un remake): se una scena o un dialogo
+narrativo esiste solo in una delle due versioni, la differenza va
+scritta dentro la sinossi stessa, come parte del riassunto, non in
+una nota a parte o altrove.
+
+RETCON (un titolo successivo che rivela un dettaglio che cambia la
+comprensione di una voce già pubblicata): l'informazione nuova va
+aggiunta solo alla sinossi del titolo NUOVO, con un riferimento al
+titolo vecchio a cui la rivelazione si collega. La sinossi della
+voce vecchia già pubblicata resta com'è, non la tocco.
+
+
+2) DATI DA SPECIFICARE IN SCHEDA
+-------------------------------------
+Ogni scheda titolo deve specificare sempre:
+- il tipo di media (tramite tag, usando sempre i tag già esistenti
+  nello schema: VIDEOGIOCO, VIDEOGIOCO MOBILE, CABINATO ARCADE,
+  FUMETTO, GRAPHIC NOVEL, MANGA, ROMANZO, NOVEL, LIGHT NOVEL, FILM
+  CGI, SERIE ANIMATA, ANIME, CORTOMETRAGGIO, STORIA — mai inventarne
+  uno nuovo senza prima parlarne con Sakrem)
+- l'anno di uscita del media
+- l'anno in cui è ambientata la storia
+- se esistono remake/remaster: l'anno in cui sono usciti
+- se l'anno di ambientazione cambia (anche di poco) nella versione
+  remake/remaster rispetto all'originale
+
+ANNO NARRATIVO TRA PARENTESI (es. "1995 (Guerra di Belka)"): non va
+MAI aggiunto un nome di evento tra parentesi accanto all'anno. Il
+caso già presente su Ace Combat è un errore da correggere, non un
+precedente da seguire.
+
+DATAZIONE NARRATIVA INCERTA: se non trovo un anno preciso per un
+titolo (nemmeno una datazione relativa/approssimativa reale), non
+decido da solo: te lo segnalo e ne parliamo insieme su come gestire
+quella voce.
+
+
+3) DIFFERENZE REMAKE/REMASTER NEL RIASSUNTO
+------------------------------------------------
+Nel riassunto vanno sempre specificate le differenze concrete di
+contenuto/narrativa tra l'originale e il remake/remaster, quando
+esistono.
+
+
+4) TITOLO NUOVO NEL REMAKE/REMASTER (se cambia)
+----------------------------------------------------
+Se il remake/remaster cambia il nome del titolo rispetto
+all'originale (es. Assassin's Creed III: Liberation che nella
+Remaster diventa solo Assassin's Creed: Liberation), il nuovo
+titolo va scritto accanto alla rispettiva data della versione, non
+genericamente altrove.
+
+Se ci sono più remaster/remake in anni diversi:
+- il nuovo titolo va scritto solo accanto all'anno in cui è
+  effettivamente cambiato
+- se il titolo cambia in più di una di quelle versioni (con nomi
+  diversi tra loro), ogni nuovo titolo va scritto accanto al proprio
+  anno specifico
+- se una versione non cambia il titolo RISPETTO ALLA PRECEDENTE,
+  accanto a quell'anno non scrivo nulla in più oltre alla data
+- IMPORTANTE: il confronto è sempre con la versione immediatamente
+  precedente, non con l'originale. Se un secondo remake/remaster
+  torna a usare il titolo originale dopo che il primo l'aveva
+  cambiato, quel ritorno è comunque un cambiamento rispetto alla
+  versione precedente e va scritto accanto alla sua data, anche se
+  il nome coincide con quello di partenza. Non scrivo nulla solo
+  quando il titolo resta identico a quello della versione appena
+  prima (che sia l'originale o un remake/remaster precedente).
+
+Vale sia per i Remaster sia per i Remake (spesso, ma non sempre, il
+Remake aggiunge semplicemente "Remake" al titolo originale; a volte
+il nome cambia quasi del tutto).
+
+
+5) DLC ED ESPANSIONI NARRATIVE
+-----------------------------------
+DLC ed espansioni che ampliano davvero la trama di un titolo già
+presente in timeline vengono trascritti dentro il riassunto di
+quella stessa voce (fanno parte della trama, quindi fanno parte del
+riassunto).
+
+Non tutti i DLC di un gioco sono uguali tra loro: alcuni contengono
+vera espansione narrativa, altri sono solo contenuti di gameplay
+tipo minigioco, senza reale valore per la trama (come succede con
+alcune espansioni di Resident Evil 7, dove non tutte sono dello
+stesso tipo). Valuto ogni DLC singolarmente: se aggiunge narrativa
+vera, lo includo nel riassunto; se è solo un minigioco/contenuto di
+gameplay senza trama, lo ignoro.
+
+
+6) MEDIA DIVERSI CHE RACCONTANO LA STESSA IDENTICA STORIA
+----------------------------------------------------------------
+Se trovo un media diverso (es. un live action) che racconta
+esattamente la stessa storia di un titolo già in timeline, senza
+aggiungere nulla di nuovo, non decido da solo come trattarlo: te lo
+segnalo e decidiamo insieme, caso per caso.
+
+
+7) CROSSOVER TRA SAGHE DIVERSE
+-----------------------------------
+Se trovo un crossover tra saghe diverse (personaggi/mondi di
+franchise diversi uniti in un unico media), non decido da solo come
+trattarlo: te lo segnalo e ne parliamo insieme, caso per caso.
+
+
+8) TITOLO INGLESE CON PIÙ VERSIONI UFFICIALI PER MERCATO
+------------------------------------------------------------
+Se un titolo ha più nomi inglesi ufficiali diversi a seconda del
+mercato di uscita (es. USA vs PAL/UK), scelgo come titolo di
+riferimento quello più famoso/riconosciuto, senza bisogno di
+chiedere conferma ogni volta.
+
+
+9) SERIE CON PIÙ EPISODI/STAGIONI
+--------------------------------------
+Una serie con più episodi o stagioni (un anime, un fumetto a
+puntate) occupa di norma UNA sola voce sulla linea temporale, mai
+una voce per episodio.
+
+SALTO NARRATIVO NETTO TRA STAGIONI: se all'interno della serie c'è
+un salto narrativo netto tra una stagione e l'altra, non decido da
+solo se restare su una voce sola o separarle: te lo segnalo e ne
+parliamo insieme.
+
+
+10) IL BLURB DELLA SAGA
+----------------------------
+Il blurb (testo introduttivo in alto nella pagina saga) descrive il
+punto in comune tra i molteplici universi/titoli della saga intera,
+non un riassunto di uno specifico titolo o universo.
+
+LIMITE DI LUNGHEZZA: massimo 3 righe, tra 275 e 333 caratteri
+(fissato da Sakrem). Il tetto di 333 è un ALT invalicabile: 334
+caratteri o più rendono il blurb non idoneo, va sempre accorciato.
+
+
+11) NOMI DELLE VOCI "STORIA"
+---------------------------------
+Il titolo di una voce STORIA (es. "Il Collasso dell'Estovacchia") non
+lo invento da solo in autonomia: lo tratto come il nome di un
+universo, proponendo l'opzione (o alcune opzioni) a Sakrem prima di
+fissarlo.
+
+
+12) IMMAGINI E MUSICA DELLE VOCI
+-------------------------------------
+Non cerco né scelgo io le immagini (avatar, boxart, screenshot) né i
+brani musicali delle voci: se ne occupa Sakrem in un secondo momento,
+a lavoro di analisi/scrittura concluso.
+
+
+13) ORDINE TRA VOCI CON DATE MOLTO VICINE
+----------------------------------------------
+Due media o voci non hanno quasi mai la stessa identica collocazione
+temporale: anche una differenza minima (mesi, giorni, ore) permette
+di stabilire l'ordine giusto in base alla logica narrativa degli
+eventi, senza bisogno di chiedere conferma. Chiedo a Sakrem solo nel
+caso raro in cui due eventi risultano avvenire esattamente nello
+stesso istante, senza alcun modo di distinguerli.
+
+
+14) CONTENUTO NARRATIVO A STAGIONI (LIVE-SERVICE)
+------------------------------------------------------
+Un gioco live-service con aggiornamenti narrativi ricorrenti nel
+tempo (stagioni di una battle royale, espansioni narrative periodiche
+di un MMO) vale di norma come UNA SOLA voce sulla timeline,
+indipendentemente da quante stagioni/aggiornamenti abbia accumulato:
+stesso principio delle serie con più episodi/stagioni (punto 9).
+
+SALTO NARRATIVO NETTO TRA STAGIONI/AGGIORNAMENTI: come per le serie
+a episodi, se c'è un salto narrativo netto tra una stagione e
+l'altra, non decido da solo se restare su una voce sola o separarle:
+te lo segnalo e ne parliamo insieme.
+
+
+15) TITOLI CON PIÙ FINALI UFFICIALI SENZA UN CANONICO DICHIARATO
+--------------------------------------------------------------------
+Nella sinossi racconto solo il finale che risulta VERO/ufficiale ai
+fini della continuità: quello effettivamente proseguito o confermato
+dal titolo narrativamente successivo. Gli altri finali non li scrivo
+di mia iniziativa: li segnalo a Sakrem.
+
+
+PARTE 3 — LINEA TEMPORALE (STRUTTURA)
+==========================================
+
+1) SCELTA DEI COLORI DELLA SAGA (palette + accento)
+--------------------------------------------------------
+La pagina della saga e la linea temporale (se esiste) si costruiscono
+insieme alla scelta dei colori: sempre 3 colori per saga (la
+"palette", come già visibile ad es. su Castlevania), da cui si sceglie
+poi un solo colore come accento per l'interfaccia (non un quarto
+colore a parte: l'accento è sempre uno dei tre della palette).
+
+COME LAVORO: propongo sempre 3 combinazioni di colori (3 opzioni di
+palette), ognuna con:
+- un nome per la combinazione
+- un'anteprima visiva (non della pagina intera: una barra colorata,
+  simile alla linea temporale ma più larga). I tre colori sono
+  fusi in un gradiente lineare orizzontale, non tre blocchi netti
+  separati, esattamente come li usa il sito: colore 1 -> colore 2
+  (al 55% della barra) -> colore 3.
+- la spiegazione del perché ho scelto proprio quei tre colori per
+  quella combinazione
+- quale dei tre colori propongo come accento per l'interfaccia,
+  indicato chiaramente nella stessa anteprima
+
+Sakrem sceglie una delle 3 proposte (o ne inventa una sul momento) e
+indica quale dei tre colori usare come accento, se non è già
+d'accordo con quello che ho proposto io.
+
+
+2) VOCI "GEMELLE" SULLO STESSO PALLINO (sopra E sotto)
+------------------------------------------------------------
+Caso raro: due media diversi che occupano lo stesso identico punto
+della linea (stesso pallino), invece del solito uno sopra O uno
+sotto. Esempio tipico: una trasposizione live action di un titolo
+già presente, che va posizionata esattamente nello stesso punto
+narrativo, non prima né dopo.
+
+QUANDO SI ATTIVA: solo quando lo dico esplicitamente io per una voce
+precisa. Non è mai un'iniziativa autonoma: rientra nella stessa
+regola dei media che raccontano la stessa storia/casi dubbi, sempre
+da segnalare e decidere insieme (vedi Parte 1).
+
+IL TITOLO GEMELLO HA UNA PAGINA VERA COME OGNI ALTRO TITOLO: stessi
+campi di una voce qualunque (tipo, anno, releaseYear, sinossi
+completa, non solo titolo e immagine) — la sua pagina di dettaglio
+li usa tutti allo stesso identico modo. Ha come vicini (prev/next)
+gli stessi dell'ospite, dato che condivide il suo stesso punto.
+
+Ha anche la sua pagina statica indicizzabile in
+`voci/la-traccia-del-tempo/{saga}/{id-del-gemello}.html`, esattamente
+come ogni altra voce — generata in automatico dallo stesso script
+(`tools/genera-voci.js`) a ogni push, non da creare mai a mano.
+Questa regola vale in generale, non solo per il gemello: OGNI SINGOLA
+VOCE DI OGNI PAGINA del sito deve avere la propria versione statica,
+raggiungibile anche fuori dalla SPA (condivisione diretta del link,
+indicizzazione sui motori di ricerca).
+
+COME FUNZIONA UNA VOLTA ATTIVATA:
+- il nodo gemello mostra un contenuto sopra la riga E uno sotto,
+  condividendo lo stesso pallino centrale (non due pallini vicini)
+- nel conteggio della spaziatura (quanti nodi stanno comodi prima
+  dello scroll, oggi 8) il nodo gemello PESA COME DUE slot, non uno:
+  con 8 slot totali, un gemello lascia posto a 6 voci singole più
+  se stesso, per un totale di 7 punti visibili sulla linea
+  (contando due gemelli nella stessa finestra: 4 singole + 2 doppie
+  = 6 punti totali)
+- nell'alternanza sopra/sotto tra un nodo e il successivo, il nodo
+  gemello CONTA COME DUE TURNI, non uno: la voce singola successiva
+  riprende il lato che sarebbe toccato due passi dopo, non uno.
+  Esempio di sequenza corretta: sopra, sotto, sopra, [gemello:
+  sopra+sotto], sotto — non sopra, perché il gemello ha già
+  "consumato" sia il turno sopra sia quello sotto
+
+SU MOBILE (linea verticale): nessuna regola di peso aggiuntiva
+necessaria. Lì la spaziatura non è calcolata in anticipo con una
+formula ma misurata dal vero dopo il disegno (ogni pallino viene
+tenuto a una distanza fissa dal precedente, qualunque sia l'altezza
+reale del contenuto): un nodo gemello, essendo più "carico", viene
+già gestito automaticamente senza bisogno di dirgli in anticipo
+quanto pesa.
+
+NELLA TABELLA VERTICALE A DESTRA (rail, pagina del titolo): un nodo
+gemello occupa una riga a doppia altezza, spaccata in due metà —
+sopra l'immagine+titolo dell'ospite, sotto quella del gemello,
+ognuna cliccabile per conto proprio verso la propria pagina. Il
+pallino decorativo a sinistra resta unico, condiviso, centrato
+sull'intero blocco (stesso principio del pallino condiviso sulla
+linea orizzontale, non due pallini separati). Su mobile questa
+tabella sparisce del tutto nella vista titolo (già così per tutte
+le voci, non solo per il gemello): nessun lavoro aggiuntivo lì.
+
+
+3) TITOLO "OMBRELLO" CHE COPRE PIÙ PALLINI (es. Resident Evil 3 su
+   Resident Evil 2, o casi grandi come Legacy of Kain)
+------------------------------------------------------------------------
+Caso ancora più raro del gemello: un titolo la cui trama copre
+l'arco di tempo di uno o più titoli già presenti sulla linea, non un
+solo pallino. Esempio: Resident Evil 3 copre l'arco che va dal
+pallino a sinistra di Resident Evil 2 fino a quello alla sua destra.
+Un caso grande come Legacy of Kain può coprire molti più pallini.
+
+QUANDO SI ATTIVA: solo quando lo dico esplicitamente io per un
+titolo preciso, indicandoti i due estremi dell'arco che copre.
+Stessa regola di sempre: mai un'iniziativa autonoma.
+
+IL TITOLO OMBRELLO HA UNA SUA PAGINA VERA, come ogni altro titolo
+(sinossi, immagine, tag, date - non è un'eccezione).
+
+IMPORTANTE — NON È UN GEMELLAGGIO: le voci coperte dall'arco (es.
+Resident Evil 2, e qualunque altra voce compresa nel mezzo) NON
+vengono toccate in alcun modo: restano pallini del tutto normali,
+con la loro alternanza sopra/sotto invariata, il loro peso normale
+(1), la loro pagina come sempre. Il gemellaggio (punto 2) resta un
+meccanismo a parte, che si applica solo se un media diverso
+racconta esattamente la STESSA storia di una voce già presente
+(es. una trasposizione live action di RE3 stesso) — un caso
+indipendente da questo, che può eventualmente capitare insieme a
+questo ma non è la norma.
+
+COME SI VEDE VISIVAMENTE — IL TITOLO OMBRELLO OTTIENE DUE PALLINI
+PROPRI, uno esattamente all'inizio dell'arco (subito prima della
+prima voce coperta) e uno esattamente alla fine (subito dopo
+l'ultima voce coperta). Sono due pallini dedicati al titolo
+ombrello, non condivisi con nessun'altra voce. Il loro contenuto
+(immagine+titolo) è sempre lo stesso identico titolo ombrello,
+mostrato però in un solo posto alla volta, secondo questa regola:
+
+- se il pallino SINISTRO dell'ombrello è visibile a schermo, il box
+  compare lì (comportamento di default)
+- se scrollando il pallino sinistro esce dalla vista mentre quello
+  DESTRO è ancora visibile, il box "salta" e compare invece lì
+- se sono visibili ENTRAMBI i pallini dell'ombrello nella stessa
+  schermata, il box resta comunque SOLO su quello sinistro, mai
+  duplicato su tutti e due
+- se scrollando NESSUNO dei due pallini dell'ombrello è visibile
+  (es. si è scrollato fino a un punto nel mezzo di un arco molto
+  lungo, come Legacy of Kain), il box del titolo ombrello semplicemente
+  non compare da nessuna parte: non conta più niente finché uno dei
+  due estremi non torna visibile
+
+In ogni caso, i due pallini dell'ombrello restano collegati da una
+linea/trattino orizzontale che attraversa tutto l'arco coperto (lo
+stesso identico trattino che oggi collega già ogni voce al proprio
+pallino, solo più lungo) — quel collegamento resta sempre visibile,
+indipendentemente da dove si trovi in quel momento il box del
+titolo ombrello.
+
+CONSEGUENZA SULLA SPAZIATURA: i due pallini dell'ombrello sono due
+pallini aggiuntivi veri e propri (non gratuiti): contano nel
+conteggio di quanti pallini stanno comodi prima dello scroll come
+qualunque altro pallino normale (peso 1 ciascuno, visto che non
+tolgono l'alternanza a nessuno).
+
+LATO SOPRA/SOTTO: a differenza del gemello (dove serve una
+convenzione fissa, vedi punto 2), qui NON c'è nessun lato fisso. I
+due pallini dell'ombrello sono punti nuovi che si inseriscono
+normalmente nella sequenza della linea: seguono la normale
+alternanza sopra/sotto esattamente come qualunque altro pallino,
+qualunque lato capiti loro in base alla loro posizione.
+
+STATO DI QUESTA FUNZIONALITÀ (29/08): solo progettata e documentata
+qui, non ancora scritta nel codice. La parte "statica" (due pallini
+dedicati, stesso contenuto) è a basso rischio e verrà scritta
+appena confermata la struttura dati; la parte reattiva allo scroll
+(quale dei due pallini mostra il box in un dato momento, il
+trattino di collegamento che attraversa l'arco) è invece del tutto
+nuova e verrà costruita/tarata insieme alla comparsa del primo caso
+reale, guardandola dal vivo invece di indovinarla a occhio.
+
+
+4) PROMEMORIA AUTOMATICO PER I TITOLI "IN ARRIVO" (imagePending)
+------------------------------------------------------------------
+Un titolo non ancora uscito ma già annunciato (es. Ace Combat 8:
+Wings of Theve) resta in timeline con `imagePending:true` (il
+riquadro rosso al posto dell'immagine) finché non esce davvero,
+perché prima non si conoscono con certezza né la sinossi né a volte
+tutte le informazioni del titolo. Il problema: nessuno si ricorda da
+solo il giorno esatto in cui un titolo del genere esce, per tornare
+a scrivere sinossi e immagine vere.
+
+COME FUNZIONA (implementato e testato con successo il 29/08): ogni
+voce `imagePending` ha anche un campo `releaseDateISO` (es.
+"2026-10-02", leggibile solo dal codice, mai mostrato sul sito).
+Alla prima visita della Traccia del Tempo dopo che quella data è
+stata raggiunta o superata, il sito stesso (non un controllo lato
+server: leggere `data.js` da fuori sarebbe fragile, è un file
+JavaScript vero, non JSON) manda un avviso al Worker Cloudflare del
+sito, che lo gira su Discord come un messaggio di segnalazione — una
+volta sola per voce, PER SEMPRE, mai ripetuto anche se il sito
+continua a richiamarlo a ogni visita successiva (ci pensa il Worker
+a ricordarsi chi è già stato avvisato, in un database D1 dedicato:
+tabella `release_notifications`). Nessun promemoria ripetuto nel
+tempo se me lo dimentico: una volta sola e basta, per scelta.
+
+Il controllo copre anche le voci "gemelle" (`entry.twin`, vedi
+punto 2): se un titolo gemello fosse a sua volta `imagePending` con
+una `releaseDateISO`, riceve il proprio avviso indipendente, con il
+proprio id e titolo (mai confuso con quello dell'ospite).
+
+COSA DEVO FARE IO OGNI VOLTA CHE SEGNALO UN TITOLO `imagePending`
+(normale o gemello): aggiungere anche `releaseDateISO` con la data
+di uscita nel formato AAAA-MM-GG, oltre al normale
+`releaseDateShort` già leggibile a schermo. Senza quel campo il
+promemoria non parte mai per quella voce.
+
+PARTE SERVER (Worker Cloudflare + D1): non è nel repository GitHub
+del sito, va aggiornata a mano (dashboard Cloudflare o `wrangler
+deploy`) ogni volta che cambia — esattamente come gli altri Worker
+già in uso. Tabella D1 richiesta una tantum:
+  CREATE TABLE IF NOT EXISTS release_notifications (
+    entry_id TEXT PRIMARY KEY,
+    game_id TEXT,
+    notified_at TEXT
+  );
+Secret opzionale `RELEASE_WEBHOOK` per un canale Discord dedicato
+solo a questi avvisi (se assente, ricade su REPORT_WEBHOOK poi su
+DISCORD_WEBHOOK, stessa identica logica a cascata già usata per le
+segnalazioni bug).
+
+
+5) RANGE DI ANNI DI UN UNIVERSO (span)
+-------------------------------------------
+Il range mostrato accanto al nome di ogni universo (es. "1995 –
+2040") prende semplicemente l'anno del primo e dell'ultimo media
+della sequenza — è solo un'etichetta descrittiva, non incide
+sull'ordine in timeline: qui non è importante che ci sia per forza.
+
+PERCHÉ SOLO DATA PRECISA O NIENTE, MAI RELATIVA: la datazione
+relativa che uso normalmente è sempre "tot [tempo] DOPO l'evento
+precedente" (es. Dragon Quest: "secoli dopo Erdrick"), mai "prima di
+un evento successivo". Questo crea un'asimmetria vera tra i due
+estremi:
+- per la PRIMA voce dell'universo, questo tipo di datazione relativa
+  è proprio IMPOSSIBILE da scrivere: non esiste nessun evento
+  precedente nella sequenza a cui essere "dopo"
+- per l'ULTIMA voce invece resta possibile (l'evento precedente,
+  la penultima voce, esiste) — ma anche quando è possibile per la
+  voce in sé, non basta comunque a dare un numero preciso per lo
+  span, che vuole sempre una data assoluta
+
+In entrambi i casi, se l'estremo in questione non ha una data
+precisa e assoluta, lo span resta semplicemente vuoto/un trattino
+per quel lato: non è un problema da segnalare né da discutere, e non
+tutte le saghe devono avere per forza uno span compilato.
+
+
+problema da segnalare né da discutere, e non tutte le saghe devono
+avere per forza uno span compilato.
+
+
+6) MANUTENZIONE DI UNA SAGA GIÀ COMPLETATA
+-----------------------------------------------
+Quando esce un nuovo titolo ufficiale per una saga già chiusa con
+questo metodo, il problema di "accorgersi che è arrivato" è in larga
+parte già risolto dal promemoria automatico per i titoli `imagePending`
+(punto 4 qui sopra): se il titolo era già noto e annunciato, arriva
+già segnalato in automatico alla sua uscita. Resta un giudizio mio,
+caso per caso, se un nuovo titolo del tutto inatteso (mai annunciato
+prima, quindi mai stato `imagePending`) richieda di riverificare
+l'intera mappatura della saga o basti verificarlo da solo contro la
+struttura esistente — nel dubbio, vale comunque la regola generale
+dei casi dubbi (Parte 1, punto 10): lo segnalo e ne discutiamo.
+
+
+PARTE 4 — PROCESSO
+=======================
+(già confermato, invariato)
+1. Analisi completa presentata come riepilogo, inclusi eventuali
+   casi dubbi da decidere insieme
+2. Attendere conferma esplicita prima di procedere
+3. Solo dopo conferma: editare data.js, verificare con Playwright,
+   pubblicare
