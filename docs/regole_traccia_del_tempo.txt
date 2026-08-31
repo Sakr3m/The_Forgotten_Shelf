@@ -474,12 +474,19 @@ l'altra, non decido da solo se restare su una voce sola o separarle:
 te lo segnalo e ne parliamo insieme.
 
 
-15) TITOLI CON PIÙ FINALI UFFICIALI SENZA UN CANONICO DICHIARATO
+15) TITOLI CON PIÙ FINALI UFFICIALI (regola corretta il 31/08)
 --------------------------------------------------------------------
-Nella sinossi racconto solo il finale che risulta VERO/ufficiale ai
-fini della continuità: quello effettivamente proseguito o confermato
-dal titolo narrativamente successivo. Gli altri finali non li scrivo
-di mia iniziativa: li segnalo a Sakrem.
+Quando un media ha più finali ufficiali, li riporto tutti nella
+sinossi, indicando chiaramente quale dei due (o più) è quello
+canonico ai fini della continuità: quello effettivamente proseguito o
+confermato dal titolo narrativamente successivo (o, in assenza di un
+titolo successivo diretto, da qualunque altro materiale ufficiale che
+tratti gli eventi come storia realmente accaduta).
+
+Se invece nessuna fonte ufficiale dichiara quale dei finali sia
+canonico, non ne invento né ne scelgo uno di mia iniziativa: riporto
+comunque tutti i finali nella sinossi, specificando esplicitamente che
+ufficialmente non esiste un finale canonico dichiarato.
 
 
 PARTE 3 — LINEA TEMPORALE (STRUTTURA)
@@ -492,6 +499,18 @@ insieme alla scelta dei colori: sempre 3 colori per saga (la
 "palette", come già visibile ad es. su Castlevania), da cui si sceglie
 poi un solo colore come accento per l'interfaccia (non un quarto
 colore a parte: l'accento è sempre uno dei tre della palette).
+
+SAGA CON PIÙ DI UN UNIVERSO (regola aggiunta il 31/08, primo caso
+reale: Ace Combat): il colore accento per l'interfaccia (accentColor)
+resta UNICO per l'intera saga, scelto una sola volta. La palette a 3
+colori con gradiente, invece, si sceglie separatamente per CIASCUN
+universo della saga: ogni universo ha una propria palette dedicata,
+ispirata ai suoi elementi distintivi, e ciascuna di queste palette
+contiene sempre l'accentColor unico della saga come uno dei tre
+colori, in una posizione motivata caso per caso. Tecnicamente, il
+campo `palette` va quindi salvato dentro l'oggetto di ciascun
+universo (non più, o non solo, a livello di saga) quando la saga ne
+ha più di uno.
 
 COME LAVORO: propongo sempre 3 combinazioni di colori (3 opzioni di
 palette), ognuna con:
