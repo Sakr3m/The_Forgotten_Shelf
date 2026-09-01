@@ -427,7 +427,7 @@ const GAMES = {
       it: "Da secoli, la Confraternita degli Assassini e l'Ordine dei Templari si contendono in segreto il corso della storia umana, mascherando la loro guerra dietro gli eventi che tutti conoscono. Da una parte il libero arbitrio, dall'altra il controllo assoluto sull'umanità. Antichi manufatti di una civiltà scomparsa alimentano.",
       en: "For centuries, the Brotherhood of Assassins and the Order of Templars have secretly fought over the course of human history, hiding their war behind the events everyone knows. On one side stands free will, on the other absolute control over humanity. Ancient artifacts left by a vanished civilization fuel both."
     },
-    accentColor: "#913B49",
+    accentColor: "#8B1A2E",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
@@ -438,7 +438,7 @@ const GAMES = {
         id: "antichita",
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
-        palette: ["#3D1E4A", "#913B49", "#D4A017"],
+        palette: ["#3D1E4A", "#8B1A2E", "#D4A017"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
             releaseYear: "2018", releaseYearEn: "2018",
@@ -472,7 +472,7 @@ const GAMES = {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
         span: { it: "824 – 878", en: "824 – 878" },
-        palette: ["#4A5D6B", "#913B49", "#9CA3AF"],
+        palette: ["#4A5D6B", "#8B1A2E", "#9CA3AF"],
         entries: [
           { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
             releaseYear: "2023", releaseYearEn: "2023",
@@ -522,7 +522,7 @@ const GAMES = {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
         span: { it: "1191 – 1526", en: "1191 – 1526" },
-        palette: ["#C9B27C", "#913B49", "#A8552C"],
+        palette: ["#C9B27C", "#8B1A2E", "#A8552C"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -664,7 +664,7 @@ const GAMES = {
         id: "giappone-feudale",
         name: { it: "Giappone Feudale", en: "Feudal Japan" },
         span: { it: "1560 – 1581", en: "1560 – 1581" },
-        palette: ["#2E4A2E", "#913B49", "#1A1714"],
+        palette: ["#2E4A2E", "#8B1A2E", "#1A1714"],
         entries: [
           { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
             releaseYear: "2025 (in corso)", releaseYearEn: "2025 (ongoing)",
@@ -688,7 +688,7 @@ const GAMES = {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
-        palette: ["#1FA7A3", "#913B49", "#5C3A21"],
+        palette: ["#1FA7A3", "#8B1A2E", "#5C3A21"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
             releaseYear: "2013", releaseYearEn: "2013",
@@ -732,7 +732,7 @@ const GAMES = {
         id: "eta-rivoluzioni",
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1868", en: "1725 – 1868" },
-        palette: ["#1D3F73", "#913B49", "#E8DCC0"],
+        palette: ["#1D3F73", "#8B1A2E", "#E8DCC0"],
         entries: [
           { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
             releaseYear: "2012", releaseYearEn: "2012",
@@ -799,7 +799,7 @@ const GAMES = {
         id: "rivoluzione-russa",
         name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
         span: { it: "1888 – 1920", en: "1888 – 1920" },
-        palette: ["#D9E0E3", "#1A1A1A", "#913B49"],
+        palette: ["#D9E0E3", "#1A1A1A", "#8B1A2E"],
         entries: [
           { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
             releaseYear: "2010", releaseYearEn: "2010",
@@ -834,7 +834,7 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2018", en: "2015 – 2018" },
-        palette: ["#1A2B3D", "#7A7E82", "#913B49"],
+        palette: ["#1A2B3D", "#7A7E82", "#8B1A2E"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
             releaseYear: "2015 – 2017", releaseYearEn: "2015 – 2017",
