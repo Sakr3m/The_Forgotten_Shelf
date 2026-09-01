@@ -283,6 +283,69 @@ fini della Traccia del Tempo: non entra in nessuna forma, né come
 voce vera né come nota.
 
 
+19) COLLEGAMENTO TRA UNIVERSI (aggiunta il 01/09, primo caso reale:
+    BioShock, universi Rapture e Columbia)
+------------------------------------------------------------------------
+QUANDO SI APPLICA: due universi diversi della STESSA saga, ciascuno
+già valido di per sé secondo la condizione minima del punto 3
+(almeno due media collegati a testa), possono avere tra loro un
+aggancio narrativo causale diretto, dichiarato ufficialmente da una
+fonte del franchise stesso — non un semplice parallelismo tematico o
+"stesso tono", ma un vero legame di causa-effetto tra le due linee
+temporali. Va sempre segnalato e confermato con Sakrem caso per
+caso, indicando quale coppia di universi, in quale saga, con quale
+motivazione narrativa concreta: non è mai un'iniziativa autonoma di
+un sub-agente.
+
+COME SI VEDE VISIVAMENTE: alla fine (o all'inizio) della linea
+temporale dell'universo coinvolto, l'ULTIMO (o PRIMO) segmento della
+linea stessa cambia stile da solido a tratteggiato, mantenendo lo
+stesso colore e spessore della palette di quell'universo — non è un
+elemento separato sovrapposto sopra la linea, è la linea stessa che
+cambia stile nel suo tratto finale/iniziale. Questo segmento occupa
+uno slot a larghezza fissa nella sequenza, esattamente come farebbe
+una voce reale ai fini del posizionamento/spaziatura, ma NON è una
+voce reale: nessun titolo proprio, nessuna sinossi, nessun
+avatar/immagine, nessuna pagina dedicata generata da
+`tools/genera-voci.js`.
+
+L'ETICHETTA: il segmento tratteggiato porta un'etichetta testuale
+con la P maiuscola, in due formulazioni possibili a seconda della
+direzione del legame causale:
+- "Prosegue su [Nome Altro Universo]" quando la linea temporale
+  corrente è quella che GENERA l'evento che si ripercuote nell'altro
+  universo (l'aggancio parte da qui e arriva là) — va posizionato
+  alla FINE della linea temporale di partenza.
+- "Prosegue da [Nome Altro Universo]" quando la linea temporale
+  corrente è quella che RICEVE l'effetto causato dall'altro universo
+  (l'aggancio arriva qui da là) — va posizionato all'INIZIO della
+  linea temporale di arrivo.
+
+OGNI COMPARSA VA DECISA ESPLICITAMENTE CON SAKREM: quale coppia di
+universi, in quale saga, con quale motivazione narrativa concreta.
+Non è mai decidibile da un sub-agente di propria iniziativa, in
+nessun caso.
+
+PRIMO CASO APPLICATIVO REALE (saga BioShock, in corso, non ancora
+pubblicata): gli universi Rapture e Columbia sono collegati dal DLC
+narrativo "Burial at Sea Episode 2" (dentro BioShock Infinite,
+universo Columbia), in cui Elizabeth rivela ad Atlas/Fontaine la
+frase-trigger "Per cortesia" già impiantata in Jack, innescando gli
+eventi che apriranno il primo BioShock (universo Rapture) — un vero
+legame di causa-effetto tra le due linee temporali, con Rapture che
+riceve da Columbia. Applicazione concreta: nell'universo Columbia,
+dopo l'ultima voce (BioShock Infinite), un pallino/segmento
+tratteggiato dice "Prosegue su Rapture"; nell'universo Rapture,
+prima della prima voce, un pallino/segmento tratteggiato dice
+"Prosegue da Columbia".
+
+STATO DI QUESTA FUNZIONALITÀ: meccanismo validato visivamente da
+Sakrem tramite una bozza HTML di prova (non il codice reale del
+sito). Non ancora applicato in `data.js` per nessuna saga: la voce
+vera e propria per BioShock (Programmatore) arriverà solo dopo che
+l'intero lavoro sulla saga sarà concluso e confermato.
+
+
 PARTE 2 — SCRITTURA DELLA SCHEDA DI OGNI TITOLO
 ====================================================
 
