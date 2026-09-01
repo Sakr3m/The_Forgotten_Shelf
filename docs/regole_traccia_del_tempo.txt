@@ -577,10 +577,13 @@ PARTE 3 — LINEA TEMPORALE (STRUTTURA)
 1) SCELTA DEI COLORI DELLA SAGA (palette + accento)
 --------------------------------------------------------
 La pagina della saga e la linea temporale (se esiste) si costruiscono
-insieme alla scelta dei colori: sempre 3 colori per saga (la
-"palette", come già visibile ad es. su Castlevania), da cui si sceglie
-poi un solo colore come accento per l'interfaccia (non un quarto
-colore a parte: l'accento è sempre uno dei tre della palette).
+insieme alla scelta dei colori.
+
+COLORE ACCENTO DI SAGA (accentColor): resta unico per l'intera saga,
+scelto una sola volta, condiviso da tutti i suoi universi. L'Artista
+lo presenta sempre come 3 opzioni alternative tra cui Sakrem sceglie
+(o ne propone una diversa sul momento) — mai una proposta secca unica
+(regola aggiornata il 01/09).
 
 REGOLA FERREA, VALIDA SEMPRE, ANCHE SU SAGHE/UNIVERSI GIÀ PUBBLICATI
 (ribadita il 31/08 dopo tre errori di fila su Ace Combat, Alone in
@@ -594,34 +597,71 @@ TUTTI gli universi della saga, compresi quelli invariati nel
 contenuto. Non è una richiesta da ripetere ogni volta: vale come
 regola permanente.
 
-SAGA CON PIÙ DI UN UNIVERSO (regola aggiunta il 31/08, primo caso
-reale: Ace Combat): il colore accento per l'interfaccia (accentColor)
-resta UNICO per l'intera saga, scelto una sola volta. La palette a 3
-colori con gradiente, invece, si sceglie separatamente per CIASCUN
-universo della saga: ogni universo ha una propria palette dedicata,
-ispirata ai suoi elementi distintivi, e ciascuna di queste palette
-contiene sempre l'accentColor unico della saga come uno dei tre
-colori, in una posizione motivata caso per caso. Tecnicamente, il
-campo `palette` va quindi salvato dentro l'oggetto di ciascun
-universo (non più, o non solo, a livello di saga) quando la saga ne
-ha più di uno.
+PALETTE PER UNIVERSO — LOGICA A SOTTOGRUPPI NARRATIVI (sostituisce
+dal 01/09 la vecchia regola dei 3 colori fissi, primo caso reale:
+ridiscussa durante il lavoro su Castlevania/BioShock): la palette di
+ciascun universo non ha più un numero fisso di colori. L'Artista
+analizza per intero la linea temporale dell'universo e riconosce i
+sottogruppi narrativi reali che la compongono — blocchi di voci
+consecutive unite da un protagonista comune, un tema ricorrente, o
+una fase narrativa dominante, mai una suddivisione arbitraria o
+puramente decorativa — poi assegna un colore a CIASCUN sottogruppo
+effettivamente riconosciuto. Il numero di colori non è mai fissato a
+priori: dipende da quanti blocchi tematici l'Artista trova davvero,
+con un minimo di 1 (se l'universo non presenta sottogruppi distinti,
+resta un solo colore uniforme, quello dell'interfaccia stesso).
 
-COME LAVORO: propongo sempre 3 combinazioni di colori (3 opzioni di
-palette), ognuna con:
+Esempio guida, da prendere con le pinze e non come formula fissa da
+applicare altrove (Castlevania): oro per i tratti dominati dai
+Belmont, rosso (l'interfaccia, sangue/Dracula) per i capitoli dove
+Dracula resta il fulcro narrativo anche perdendo, bianco lunare per
+l'arco di Soma Cruz (Aria of Sorrow, Dawn of Sorrow). Il numero di
+sottogruppi, dove tracciare il confine tra un blocco e l'altro, e
+quale colore assegnare a ciascuno restano sempre un giudizio motivato
+dell'Artista, caso per caso — non una formula automatica da applicare
+meccanicamente.
+
+Il colore accento della saga deve comunque comparire sempre da
+qualche parte nella palette di ogni universo, agganciato al
+sottogruppo a cui si adatta meglio dal punto di vista tematico — non
+più in una posizione fissa per formula (primo colore, colore
+centrale, ultimo colore): la posizione dipende da quale blocco
+narrativo quel colore rappresenta meglio, motivata caso per caso.
+Tecnicamente, il campo `palette` va salvato dentro l'oggetto di
+ciascun universo (non più, o non solo, a livello di saga) quando la
+saga ne ha più di uno.
+
+COME LAVORO: per il colore accento propongo sempre 3 opzioni
+alternative. Per la palette di ogni universo propongo la mia analisi
+dei sottogruppi narrativi riconosciuti, poi 3 opzioni di colori
+costruite su quella stessa suddivisione (a meno che non veda una
+lettura alternativa della struttura narrativa altrettanto valida, nel
+qual caso la segnalo). Ogni opzione include:
 - un nome per la combinazione
 - un'anteprima visiva (non della pagina intera: una barra colorata,
-  simile alla linea temporale ma più larga). I tre colori sono
-  fusi in un gradiente lineare orizzontale, non tre blocchi netti
-  separati, esattamente come li usa il sito: colore 1 -> colore 2
-  (al 55% della barra) -> colore 3.
-- la spiegazione del perché ho scelto proprio quei tre colori per
-  quella combinazione
-- quale dei tre colori propongo come accento per l'interfaccia,
-  indicato chiaramente nella stessa anteprima
+  simile alla linea temporale ma più larga). I colori dei sottogruppi
+  sono fusi in un gradiente lineare orizzontale, non blocchi netti
+  separati, esattamente come li usa il sito, con tanti stop quanti
+  sono i sottogruppi riconosciuti.
+- la spiegazione del perché ho scelto proprio quei colori per quella
+  combinazione, e a quale sottogruppo narrativo corrisponde ciascuno
+- quale colore propongo come accento per l'interfaccia e a quale
+  sottogruppo l'ho agganciato, indicato chiaramente nella stessa
+  anteprima
 
-Sakrem sceglie una delle 3 proposte (o ne inventa una sul momento) e
-indica quale dei tre colori usare come accento, se non è già
-d'accordo con quello che ho proposto io.
+Sakrem sceglie una delle 3 proposte di accento (o ne inventa una sul
+momento) e una delle proposte di palette per ciascun universo (o
+propone una lettura diversa dei sottogruppi), indicando quale colore
+usare come accento se non è già d'accordo con quello proposto
+dall'Artista.
+
+STATO DI QUESTA REGOLA (aggiunta 01/09): il cambio di metodologia è
+stato deciso da Sakrem ma NON ancora applicato a nessuna saga già
+pubblicata — la ricolorazione di Ace Combat e di tutte le saghe
+successive con la nuova logica a sottogruppi avverrà in un secondo
+momento, su indicazione esplicita di Sakrem. Fino ad allora le
+palette già pubblicate restano quelle esistenti, anche se costruite
+con il vecchio criterio a 3 colori fissi.
 
 
 2) VOCI "GEMELLE" SULLO STESSO PALLINO (sopra E sotto)
