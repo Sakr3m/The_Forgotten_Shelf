@@ -427,8 +427,7 @@ const GAMES = {
       it: "Da secoli, la Confraternita degli Assassini e l'Ordine dei Templari si contendono in segreto il corso della storia umana, mascherando la loro guerra dietro gli eventi che tutti conoscono. Da una parte il libero arbitrio, dall'altra il controllo assoluto sull'umanità. Antichi manufatti di una civiltà scomparsa alimentano.",
       en: "For centuries, the Brotherhood of Assassins and the Order of Templars have secretly fought over the course of human history, hiding their war behind the events everyone knows. On one side stands free will, on the other absolute control over humanity. Ancient artifacts left by a vanished civilization fuel both."
     },
-    palette: ["#d9cba3", "#7a1f1f", "#3a332c"],
-    accentColor: "#d9cba3",
+    accentColor: "#8B1A2E",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
@@ -439,14 +438,15 @@ const GAMES = {
         id: "antichita",
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
+        palette: ["#3D1E4A", "#8B1A2E", "#D4A017"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
             releaseYear: "2018", releaseYearEn: "2018",
-            title: { it: "Assassin's Creed Odyssey", en: "Assassin's Creed Odyssey" },
+            title: { it: "Assassin's Creed Odyssey (+ Novelization)", en: "Assassin's Creed Odyssey (+ Novelization)" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Odyssey.jpg",
             synopsis: {
-              it: "Durante la Guerra del Peloponneso tra Atene e Sparta, il misthios (mercenario) Kassandra o Alexios, discendente di Leonida I di Sparta e portatore di una delle sue lance forgiate da un Frutto dell'Eden, viaggia per tutta la Grecia antica ricostruendo la propria famiglia dispersa e scontrandosi con il Culto di Kosmos, un'organizzazione segreta antenata dell'Ordine degli Antichi che manipola la guerra dall'ombra per il proprio profitto. Il gioco cronologicamente più antico della serie, ambientato secoli prima della fondazione ufficiale della Confraternita.\n\nNel DLC narrativo Legacy of the First Blade, ambientato subito dopo la vicenda principale, l'Eagle Bearer ha un figlio, Elpidios, che per proteggerlo dalla stessa minaccia templare affida al nonno Darius: i due si stabiliscono in Egitto, dove secoli dopo un discendente di Elpidios, Aya, diventerà la compagna di Bayek in Assassin's Creed Origins, gettando così un ponte di sangue diretto tra le due epoche della saga.",
-              en: "During the Peloponnesian War between Athens and Sparta, the misthios (mercenary) Kassandra or Alexios, descendant of Leonidas I of Sparta and bearer of one of his spears forged from a Piece of Eden, travels across ancient Greece piecing their scattered family back together and clashing with the Cult of Kosmos, a secret organisation and ancestor of the Order of the Ancients that manipulates the war from the shadows for its own profit. The chronologically oldest game in the series, set centuries before the Brotherhood's official founding.\n\nIn the narrative DLC Legacy of the First Blade, set shortly after the main story, the Eagle Bearer has a son, Elpidios, whom they entrust to grandfather Darius to protect him from the same Templar threat: the two settle in Egypt, where generations later a descendant of Elpidios, Aya, will become Bayek's partner in Assassin's Creed Origins, forging a direct blood bridge between the saga's two eras."
+              it: "Durante la Guerra del Peloponneso tra Atene e Sparta, il misthios (mercenario) Kassandra o Alexios, discendente di Leonida I di Sparta e portatore di una delle sue lance forgiate da un Frutto dell'Eden, viaggia per tutta la Grecia antica ricostruendo la propria famiglia dispersa e scontrandosi con il Culto di Kosmos, un'organizzazione segreta antenata dell'Ordine degli Antichi che manipola la guerra dall'ombra per il proprio profitto. Il gioco cronologicamente più antico della serie, ambientato secoli prima della fondazione ufficiale della Confraternita.\n\nNel DLC narrativo Legacy of the First Blade, ambientato subito dopo la vicenda principale, l'Eagle Bearer ha un figlio, Elpidios, che per proteggerlo dalla stessa minaccia templare affida al nonno Darius: i due si stabiliscono in Egitto, dove secoli dopo un discendente di Elpidios, Aya, diventerà la compagna di Bayek in Assassin's Creed Origins, gettando così un ponte di sangue diretto tra le due epoche della saga.\n\nNota — novelization: Assassin's Creed Odyssey: The Official Novelization (2018), di Gordon Doherty, segue esclusivamente il percorso narrativo di Kassandra, rendendola di fatto la protagonista di questa versione della storia (nel gioco, invece, il giocatore sceglie tra Kassandra e Alexios).",
+              en: "During the Peloponnesian War between Athens and Sparta, the misthios (mercenary) Kassandra or Alexios, descendant of Leonidas I of Sparta and bearer of one of his spears forged from a Piece of Eden, travels across ancient Greece piecing their scattered family back together and clashing with the Cult of Kosmos, a secret organisation and ancestor of the Order of the Ancients that manipulates the war from the shadows for its own profit. The chronologically oldest game in the series, set centuries before the Brotherhood's official founding.\n\nIn the narrative DLC Legacy of the First Blade, set shortly after the main story, the Eagle Bearer has a son, Elpidios, whom they entrust to grandfather Darius to protect him from the same Templar threat: the two settle in Egypt, where generations later a descendant of Elpidios, Aya, will become Bayek's partner in Assassin's Creed Origins, forging a direct blood bridge between the saga's two eras.\n\nNote — novelization: Assassin's Creed Odyssey: The Official Novelization (2018), by Gordon Doherty, follows exclusively Kassandra's narrative path, making her the de facto protagonist of this version of the story (in the game, by contrast, the player chooses between Kassandra and Alexios)."
             }
           },
           { id: "desert-oath", type: "ROMANZO", typeEn: "NOVEL", year: "70 a.C.", yearEn: "70 BC",
@@ -472,6 +472,7 @@ const GAMES = {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
         span: { it: "824 – 878", en: "824 – 878" },
+        palette: ["#4A5D6B", "#8B1A2E", "#9CA3AF"],
         entries: [
           { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
             releaseYear: "2023", releaseYearEn: "2023",
@@ -521,6 +522,7 @@ const GAMES = {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
         span: { it: "1191 – 1526", en: "1191 – 1526" },
+        palette: ["#C9B27C", "#8B1A2E", "#A8552C"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -548,6 +550,28 @@ const GAMES = {
               en: "By then an aging Mentor of the Brotherhood, Altaïr had long foreseen that Masyaf would eventually fall and had already begun scattering the Assassins into autonomous guilds around the world, building a secret library beneath the castle to safeguard a Piece of Eden and his own memories. In 1257 the Mongols, seeking revenge for the death of Genghis Khan years earlier at Altaïr's own hands, besiege the now nearly deserted fortress. Before the final assault, Altaïr entrusts his codex and the keys to the library to the Venetian merchants Niccolò and Maffeo Polo, guests of the Brotherhood, tasking them with carrying the Assassins' creed to Italy, where he himself had never managed to spread it. Having the last inhabitants evacuated, he seals himself inside the library with the Piece of Eden and dies there alone. The Brotherhood, now without a central seat, survives scattered over the following decades from the very seeds planted in Italy by the Polo brothers."
             }
           },
+          // STORIA "fall-of-paris-temple" adiacente a un'altra STORIA
+          // (fall-of-masyaf): caso ammesso dall'eccezione del regolamento
+          // (Parte 1, punto 4) perché fall-of-masyaf rientra nell'arco
+          // della voce ombrello "secret-crusade" (vedi array umbrellas
+          // più sotto) mentre fall-of-paris-temple resta fuori da
+          // quell'arco.
+          { id: "fall-of-paris-temple", type: "STORIA", typeEn: "STORY", year: "1307", yearEn: "1307",
+            noAvatar: true,
+            title: { it: "Venerdì 13", en: "Friday the 13th, 1307" },
+            synopsis: {
+              it: "Il 13 ottobre 1307, Thomas de Carneillon, Mentore della Confraternita francese e alleato della giovane Confraternita italiana nata dai semi piantati dai fratelli Polo cinquant'anni prima, orchestra insieme al consigliere reale Guillaume de Nogaret la persecuzione pubblica dell'Ordine dei Templari a Parigi: centinaia di Templari, incluso il Gran Maestro Jacques de Molay, vengono arrestati in un solo giorno per volere di Filippo IV di Francia. L'operazione costringe l'Ordine templare alla clandestinità per secoli e consolida al tempo stesso il potere della Confraternita francese — la stessa che sarà già pienamente operativa oltre un secolo dopo, al tempo di Giovanna d'Arco e di Gabriel Laxart.",
+              en: "On 13 October 1307, Thomas de Carneillon, Mentor of the French Brotherhood and ally of the young Italian Brotherhood born from the seeds planted by the Polo brothers fifty years earlier, orchestrates the public persecution of the Templar Order in Paris together with royal counsellor Guillaume de Nogaret: hundreds of Templars, including Grand Master Jacques de Molay, are arrested in a single day at the behest of Philip IV of France. The operation forces the Templar Order into secrecy for centuries while at the same time consolidating the power of the French Brotherhood — the same Brotherhood that will already be fully operational over a century later, at the time of Joan of Arc and Gabriel Laxart."
+            }
+          },
+          { id: "heresy", type: "ROMANZO", typeEn: "NOVEL", year: "1429 – 1431", yearEn: "1429 – 1431",
+            releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Assassin's Creed: Heresy", en: "Assassin's Creed: Heresy" },
+            synopsis: {
+              it: "Nel gennaio 1429, all'inizio della sua ascesa alla guida dell'esercito francese nella Guerra dei Cent'anni, il giovane Gabriel Laxart (nato nel 1411) diventa il protettore e la \"ombra\" della cugina Giovanna d'Arco. Il filo conduttore della vicenda è la spada di Giovanna, in realtà una Spada dell'Eden a cui manca una componente vitale, \"the Heart\", nascosta secoli prima dal Gran Maestro templare Jacques de Molay nelle celle della prigione di Coudray. Nel corso della guerra Gabriel viene avvicinato sia dai Templari sia dagli Assassini — questi ultimi tramite Jean de Metz, che gli impartisce un addestramento essenziale per proteggere Giovanna, pur senza mai riuscire a farlo aderire alla Confraternita. Quando Giovanna viene infine catturata, il processo per eresia intentato contro di lei a Rouen, conclusosi ufficialmente con la condanna al rogo nel 1431, si rivela un'orchestrazione templare per impossessarsi della Spada: sono in realtà gli Assassini a salvare Giovanna, sostituendola sul rogo con l'ancella Fleur, resa irriconoscibile dalle percosse, mentre lei viene condotta altrove priva di sensi — nel canone della saga, la Pulzella d'Orléans non muore arsa come vuole la storiografia ufficiale.\n\nNel presente, lo storico Simon Hathaway, appena entrato nell'Inner Sanctum templare, ha preso il posto di Isabelle Ardant (uccisa negli eventi presenti di Assassin's Creed Syndicate) alla guida della divisione di ricerca storica di Abstergo a Londra. Attraverso l'Animus, Simon rivive i ricordi del proprio antenato Gabriel per recuperare e riparare la Spada per conto di Alan Rikkin, CEO di Abstergo. Nel corso dell'indagine, la scoperta che Giovanna sia davvero sopravvissuta al rogo insieme a Gabriel getta un'ombra sulla presunta purezza del proprio lignaggio templare, facendo sorgere in Simon il dubbio di discendere anche dagli Assassini. Recuperata \"the Heart\" da Coudray, Simon completa la riparazione della Spada e la consegna a Rikkin davanti all'Inner Sanctum. Nell'epilogo, Rikkin parte per Madrid e telefona a una certa \"Sofia\" — il ponte diretto verso l'apertura del film Assassin's Creed (2016).",
+              en: "In January 1429, at the start of her rise to lead the French army during the Hundred Years' War, young Gabriel Laxart (born in 1411) becomes the protector and \"shadow\" of his cousin Joan of Arc. The narrative's central thread is Joan's sword, in truth a Sword of Eden missing a vital component, \"the Heart\", hidden centuries earlier by Templar Grand Master Jacques de Molay in the cells of Coudray prison. Over the course of the war, Gabriel is approached by both the Templars and the Assassins — the latter through Jean de Metz, who gives him essential training to protect Joan, though he never manages to bring him fully into the Brotherhood. When Joan is finally captured, the heresy trial brought against her in Rouen, which officially ends with her sentencing to be burned at the stake in 1431, turns out to be a Templar scheme to seize the Sword: it is in fact the Assassins who save Joan, substituting her at the stake with her maid Fleur, beaten beyond recognition, while Joan herself is spirited away unconscious — in the saga's canon, the Maid of Orléans does not die burned as official historiography claims.\n\nIn the present, historian Simon Hathaway, newly inducted into the Templar Inner Sanctum, has taken the place of Isabelle Ardant (killed in the present-day events of Assassin's Creed Syndicate) as head of Abstergo's historical research division in London. Through the Animus, Simon relives the memories of his ancestor Gabriel to recover and repair the Sword on behalf of Abstergo CEO Alan Rikkin. In the course of the investigation, the discovery that Joan truly survived the stake alongside Gabriel casts doubt on the supposed purity of his own Templar bloodline, raising in Simon the suspicion that he may also descend from the Assassins. Having recovered \"the Heart\" from Coudray, Simon completes the Sword's repair and delivers it to Rikkin before the Inner Sanctum. In the epilogue, Rikkin departs for Madrid and places a call to someone named \"Sofia\" — the direct bridge into the opening of the Assassin's Creed (2016) film."
+            }
+          },
           { id: "lineage", type: "CORTOMETRAGGIO", typeEn: "SHORT FILM", year: "1476",
             releaseYear: "2009", releaseYearEn: "2009",
             title: { it: "Assassin's Creed: Lineage", en: "Assassin's Creed: Lineage" },
@@ -566,13 +590,21 @@ const GAMES = {
               en: "In Renaissance Florence, the young nobleman Ezio Auditore da Firenze witnesses the unjust execution of his father and brothers, framed by the Templars on charges of treason. Trained in the art of assassination by his uncle Mario, Ezio hunts down the conspirators across Florence, Venice, and Rome, uncovering the involvement of the Borgia family and the Templars' pursuit of the Apple of Eden, an ancient Isu artefact. The game that made Ezio the series' most recognisable icon, the first chapter of a trilogy."
             }
           },
+          { id: "assassins-creed-film", type: "LIVE ACTION", typeEn: "LIVE ACTION", year: "1491 – 1492", yearEn: "1491 – 1492",
+            releaseYear: "2016", releaseYearEn: "2016",
+            title: { it: "Assassin's Creed (Film + Novelization)", en: "Assassin's Creed (Film + Novelization)" },
+            synopsis: {
+              it: "Tra la fine del 1491 e l'inizio del 1492, durante la Guerra di Granada, l'Assassino Aguilar de Nerha e la compagna María intervengono per salvare il principe Ahmed, figlio del sultano Muhammad XII, rapito dal Grande Inquisitore Tomás de Torquemada — segretamente Gran Maestro dei Templari spagnoli — per costringere il sultano ad arrendere sia Granada sia la Mela dell'Eden (un artefatto diverso da quello che compare in Assassin's Creed II). Catturati dal luogotenente di Torquemada, Ojeda, i due riescono comunque a intercettare un incontro tra il sultano e l'Inquisitore, uccidono gli uomini di Torquemada e recuperano la Mela; quando Ojeda cattura María, lei si toglie la vita sulla sua lama pur di proteggere l'artefatto, permettendo ad Aguilar di ucciderlo a sua volta e fuggire. Aguilar affida infine la Mela a Cristoforo Colombo, che giura di portarla con sé nella tomba — proprio lì, secoli dopo, Abstergo Industries ne localizza la posizione.\n\nNel presente, Callum Lynch, discendente di Aguilar, viene sottratto alla pena di morte da Abstergo Industries — guidata da Alan Rikkin e dalla figlia Sofia — per rivivere tramite un Animus di nuova generazione le memorie di Aguilar e la purga della Confraternita spagnola scatenata dall'Inquisizione. Scoperta la posizione della Mela, Callum guida una rivolta degli altri discendenti-cavia detenuti nella struttura di Abstergo a Madrid contro le guardie della compagnia, recuperandola insieme ai compagni superstiti Lin e Moussa. Nello scontro finale, Callum assassina Alan Rikkin, mentre Sofia, ormai disillusa dalle azioni del padre, non interviene per fermarlo: gli Assassini recuperano così la Mela dell'Eden, sottraendola definitivamente ai Templari.\n\nNota — novelization: l'adattamento ufficiale del film, scritto anch'esso da Christie Golden, include in appendice un'antologia di racconti brevi su altri discendenti-cavia della struttura di Madrid (Nathan, Emir, Moussa, Lin) e i rispettivi antenati, oltre a un estratto di apertura di Assassin's Creed: Heresy.",
+              en: "Between late 1491 and early 1492, during the Granada War, the Assassin Aguilar de Nerha and his companion María intervene to save Prince Ahmed, son of Sultan Muhammad XII, kidnapped by Grand Inquisitor Tomás de Torquemada — secretly the Grand Master of the Spanish Templars — to force the sultan to surrender both Granada and the Apple of Eden (a different artefact from the one that appears in Assassin's Creed II). Captured by Torquemada's enforcer Ojeda, the two nonetheless manage to intercept a meeting between the sultan and the Inquisitor, kill Torquemada's men and recover the Apple; when Ojeda captures María, she takes her own life on his blade to protect the artefact, allowing Aguilar to kill him in turn and escape. Aguilar finally entrusts the Apple to Christopher Columbus, who vows to take it to his grave — the very place where, centuries later, Abstergo Industries tracks it down.\n\nIn the present, Callum Lynch, a descendant of Aguilar, is spared from execution by Abstergo Industries — led by Alan Rikkin and his daughter Sofia — to relive Aguilar's memories and the Inquisition-driven purge of the Spanish Brotherhood through a new-generation Animus. Once the Apple's location is discovered, Callum leads an uprising of the other descendant test subjects held at Abstergo's Madrid facility against the company's guards, recovering it alongside fellow survivors Lin and Moussa. In the final confrontation, Callum assassinates Alan Rikkin, while Sofia, now disillusioned by her father's actions, does nothing to stop him: the Assassins thus recover the Apple of Eden, taking it from the Templars for good.\n\nNote — novelization: the official film adaptation, also written by Christie Golden, includes in its appendix an anthology of short stories about other descendant test subjects at the Madrid facility (Nathan, Emir, Moussa, Lin) and their respective ancestors, as well as an opening excerpt from Assassin's Creed: Heresy."
+            }
+          },
           { id: "brotherhood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1499 – 1507",
             releaseYear: "2010 (Remaster: 2016)", releaseYearEn: "2010 (Remaster: 2016)",
             title: { it: "Assassin's Creed: Brotherhood", en: "Assassin's Creed: Brotherhood" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Brotherhood.jpg",
             synopsis: {
-              it: "Dopo la caduta di Monteriggioni sotto l'attacco di Cesare Borgia, Ezio si trasferisce a Roma, dove ricostruisce la Confraternita degli Assassini italiana reclutando e addestrando nuovi membri tra i cittadini oppressi dal dominio dei Borgia. Nel corso della campagna per liberare Roma, Ezio uccide Cesare e sua sorella Lucrezia, recupera la Mela dell'Eden e scopre, in una camera segreta sotto il Vaticano, un messaggio lasciato da Minerva, un'Isu, che si rivolge direttamente a Desmond Miles attraverso i secoli, preannunciando un cataclisma imminente.",
-              en: "After the fall of Monteriggioni to Cesare Borgia's assault, Ezio relocates to Rome, where he rebuilds the Italian Brotherhood of Assassins by recruiting and training new members among citizens oppressed by Borgia rule. Over the course of the campaign to liberate Rome, Ezio kills Cesare and his sister Lucrezia, recovers the Apple of Eden, and discovers, in a hidden chamber beneath the Vatican, a message left by Minerva, an Isu, addressing Desmond Miles directly across the centuries, foretelling an imminent cataclysm."
+              it: "Dopo la caduta di Monteriggioni sotto l'attacco di Cesare Borgia, Ezio si trasferisce a Roma, dove ricostruisce la Confraternita degli Assassini italiana reclutando e addestrando nuovi membri tra i cittadini oppressi dal dominio dei Borgia. Nel corso della campagna per liberare Roma, Ezio uccide Cesare e sua sorella Lucrezia, recupera la Mela dell'Eden e scopre, in una camera segreta sotto il Vaticano, un messaggio lasciato da Minerva, un'Isu, che si rivolge direttamente a Desmond Miles attraverso i secoli, preannunciando un cataclisma imminente.\n\nNota — romanzi Rinascimento e Fratellanza: i romanzi di Oliver Bowden Assassin's Creed: Rinascimento (2010) e Assassin's Creed: Fratellanza (2010) aggiungono, dopo la sconfitta di Cesare Borgia, un epilogo storico ambientato tra il 1503 e il 1507 sulla sua caccia: fuggito di prigione, Cesare ripara fino in Spagna inseguito da Ezio, Leonardo da Vinci e Machiavelli, perdendo lungo il cammino il proprio braccio destro Micheletto, ucciso nello scontro, fino alla morte reale di Cesare in Spagna nel 1507 — un episodio assente dal gioco.",
+              en: "After the fall of Monteriggioni to Cesare Borgia's assault, Ezio relocates to Rome, where he rebuilds the Italian Brotherhood of Assassins by recruiting and training new members among citizens oppressed by Borgia rule. Over the course of the campaign to liberate Rome, Ezio kills Cesare and his sister Lucrezia, recovers the Apple of Eden, and discovers, in a hidden chamber beneath the Vatican, a message left by Minerva, an Isu, addressing Desmond Miles directly across the centuries, foretelling an imminent cataclysm.\n\nNote — the novels Renaissance and Brotherhood: Oliver Bowden's novels Assassin's Creed: Renaissance (2010) and Assassin's Creed: Brotherhood (2010) add, after Cesare Borgia's defeat, a historical epilogue set between 1503 and 1507 covering the hunt for him: having escaped prison, Cesare flees all the way to Spain pursued by Ezio, Leonardo da Vinci and Machiavelli, losing along the way his right-hand man Micheletto, killed in the chase, up to Cesare's real death in Spain in 1507 — an episode absent from the game."
             }
           },
           { id: "revelations", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1511 – 1512",
@@ -602,20 +634,69 @@ const GAMES = {
               en: "Having returned to China after training under Ezio Auditore in Tuscany, Shao Jun hunts down the Eight Tigers, the Templar faction of eunuchs who ordered the purge of the Chinese Brotherhood and manipulate the young Jiajing Emperor, as the Ming dynasty begins to crumble. In the course of her revenge she loses the chest given to her by Ezio, recovered by the Templars, but still manages to eliminate the faction's members one by one up to a final confrontation with their leader, Zhang Yong. The first chapter of the Chronicles trilogy, in 2.5D with a visual style inspired by traditional ink-brush painting."
             }
           }
+        ],
+        umbrellas: [
+          { id: "secret-crusade", type: "ROMANZO", typeEn: "NOVEL", year: "1176 circa – 1257", yearEn: "c. 1176 – 1257",
+            releaseYear: "2011", releaseYearEn: "2011",
+            title: { it: "Assassin's Creed: La crociata segreta", en: "Assassin's Creed: The Secret Crusade" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento): la sua
+            // trama copre l'intera vita di Altaïr, dall'infanzia fino
+            // alla morte a Masyaf nel 1257 - racconto in flashback fatto
+            // da Niccolò Polo a Maffeo proprio durante l'assedio narrato
+            // in "La Caduta di Masyaf". L'arco parte quindi PRIMA di
+            // "assassins-creed-1" (che copre solo il 1191, un episodio
+            // della vita di Altaïr già dentro il romanzo) e finisce
+            // subito DOPO "fall-of-masyaf", che resta l'ultima voce
+            // inclusa nell'arco: la STORIA successiva
+            // "fall-of-paris-temple" (1307, Parigi) non fa parte della
+            // vita di Altaïr e resta quindi fuori dall'arco. Confermato
+            // con Sakrem.
+            startsBeforeId: "assassins-creed-1",
+            endsBeforeId: "fall-of-paris-temple",
+            synopsis: {
+              it: "Nel 1257, ospiti alla fortezza di Masyaf poco prima del suo assedio finale, il mercante veneziano Niccolò Polo racconta al fratello Maffeo l'intera vita di Altaïr Ibn-La'Ahad: dall'infanzia, segnata dall'esecuzione pubblica del padre Umar durante un assedio quando Altaïr aveva undici anni, attraverso l'ascesa nei ranghi della Confraternita, il tradimento e l'uccisione del proprio mentore Al Mualim, gli eventi già narrati in Assassin's Creed (1191) e Assassin's Creed: Bloodlines (1191), il tradimento dell'amico Abbas Sofian e la tragedia che ne consegue per la sua famiglia, fino al lungo mandato di Altaïr come Mentore e alla sua morte solitaria a Masyaf nel 1257. Solo nell'ultima pagina si scopre che il \"lettore\" della cornice narrativa a cui Niccolò ha affidato il proprio racconto è in realtà Ezio Auditore, che chiude il diario e sbarca a Costantinopoli — l'apertura diretta di Assassin's Creed: Revelations.",
+              en: "In 1257, while guests at the fortress of Masyaf shortly before its final siege, Venetian merchant Niccolò Polo recounts to his brother Maffeo the entire life of Altaïr Ibn-La'Ahad: from his childhood, marked by the public execution of his father Umar during a siege when Altaïr was eleven, through his rise through the ranks of the Brotherhood, the betrayal and killing of his own mentor Al Mualim, the events already told in Assassin's Creed (1191) and Assassin's Creed: Bloodlines (1191), the betrayal of his friend Abbas Sofian and the tragedy that befalls his family as a result, up to Altaïr's long tenure as Mentor and his solitary death at Masyaf in 1257. Only on the final page is it revealed that the \"reader\" of the framing narrative, to whom Niccolò has entrusted his account, is in fact Ezio Auditore, who closes the journal and sails for Constantinople — the direct lead-in to the opening of Assassin's Creed: Revelations."
+            }
+          }
+        ]
+      },
+      {
+        id: "giappone-feudale",
+        name: { it: "Giappone Feudale", en: "Feudal Japan" },
+        span: { it: "1560 – 1581", en: "1560 – 1581" },
+        palette: ["#2E4A2E", "#8B1A2E", "#1A1714"],
+        entries: [
+          { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
+            releaseYear: "2025 (in corso)", releaseYearEn: "2025 (ongoing)",
+            title: { it: "Assassin's Creed: Shadows – Tales of Iga", en: "Assassin's Creed: Shadows – Tales of Iga" },
+            synopsis: {
+              it: "Attorno al 1560, nella provincia di Iga, lo shinobi Fujibayashi Nagato, la compagna Tsuyu e Hattori Hanzō si uniscono per fondare la Kakushiba ikki, il nucleo originario da cui nascerà il futuro clan ninja di Iga. Nagato e Tsuyu sono i genitori di Naoe, protagonista di Assassin's Creed Shadows. Manga prequel tuttora in corso di pubblicazione, ne racconta la formazione e i primi scontri contro la minaccia templare affacciatasi sul Giappone.",
+              en: "Around 1560, in Iga Province, the shinobi Fujibayashi Nagato, his companion Tsuyu, and Hattori Hanzō join forces to found the Kakushiba ikki, the original nucleus from which the future ninja clan of Iga will emerge. Nagato and Tsuyu are the parents of Naoe, the protagonist of Assassin's Creed Shadows. An ongoing prequel manga, it tells the story of the group's founding and its first clashes against the Templar threat surfacing in Japan."
+            }
+          },
+          { id: "shadows", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1579 – 1581",
+            releaseYear: "2025", releaseYearEn: "2025",
+            title: { it: "Assassin's Creed Shadows", en: "Assassin's Creed Shadows" },
+            synopsis: {
+              it: "Nel tardo periodo Sengoku, tra il 1579 e il 1581, durante la Guerra Tenshō di Iga, gli Shinbakufu — un gruppo di samurai mascherati segretamente alleato con i Templari giapponesi — assaltano la provincia di Iga: uccidono lo shinobi Fujibayashi Nagato e rubano un manufatto che questi aveva affidato alla giovane figlia Naoe. Poco dopo, Naoe incrocia Yasuke, samurai africano realmente esistito al servizio del daimyō Oda Nobunaga; quando Nobunaga viene tradito e ucciso dal proprio generale Akechi Mitsuhide durante l'incidente al tempio Honnō-ji, Naoe e Yasuke, dapprima su fronti opposti, uniscono le forze per dare la caccia agli Shinbakufu, responsabili rispettivamente della morte del padre di lei e del signore di lui. Nel corso della vendetta la coppia elimina uno dopo l'altro i membri della fazione fino allo stesso Akechi, la cui morte apre la strada verso l'ultimo shōgun Ashikaga Yoshiaki, in possesso del manufatto rubato a Nagato: Yoshiaki lo offre a Naoe in cambio della propria vita, convincendola a risparmiarlo. Nel finale, Naoe raggiunge Hattori Hanzō, che le rivela il proprio ruolo nella Kakushiba ikki — il ramo giapponese della Confraternita degli Assassini fondato da suo padre — e il legame con sua madre, la maestra Assassina Tsuyu, forse ancora viva: i due decidono di partire insieme alla sua ricerca.",
+              en: "In the late Sengoku period, between 1579 and 1581, during the Tenshō Iga War, the Shinbakufu — a group of masked samurai secretly allied with the Japanese Templars — attack Iga Province: they kill the shinobi Fujibayashi Nagato and steal an artefact he had entrusted to his young daughter Naoe. Shortly after, Naoe crosses paths with Yasuke, the real-life African samurai in the service of daimyō Oda Nobunaga; when Nobunaga is betrayed and killed by his own general Akechi Mitsuhide during the Honnō-ji Incident, Naoe and Yasuke, initially on opposing sides, join forces to hunt down the Shinbakufu, responsible respectively for the death of her father and his lord. In the course of their revenge the pair eliminate the faction's members one by one, up to Akechi himself, whose death opens the way to the last shōgun, Ashikaga Yoshiaki, who holds the artefact stolen from Nagato: Yoshiaki offers it to Naoe in exchange for his life, convincing her to spare him. In the end, Naoe reaches Hattori Hanzō, who reveals to her his role within the Kakushiba ikki — the Japanese branch of the Brotherhood of Assassins founded by her father — and his bond with her mother, the Master Assassin Tsuyu, perhaps still alive: the two decide to set off together in search of her."
+            }
+          }
         ]
       },
       {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
+        palette: ["#1FA7A3", "#8B1A2E", "#5C3A21"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
             releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Assassin's Creed IV: Black Flag", en: "Assassin's Creed IV: Black Flag" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20IV%20Black%20Flag.jpg",
             synopsis: {
-              it: "Durante l'Età dell'Oro della Pirateria nei Caraibi, il gallese Edward Kenway, nonno di Connor (protagonista di AC3) e futuro padre del Templare antagonista Haytham Kenway, diventa capitano della nave Jackdaw inseguendo ricchezza e libertà, restando invischiato senza volerlo nel conflitto segreto tra Assassini e Templari, che si contendono un Osservatorio Isu capace di sorvegliare chiunque sulla Terra. Per la maggior parte del gioco Edward resta un uomo qualunque in cerca di fortuna, solo gradualmente attratto verso la causa degli Assassini.",
-              en: "During the Golden Age of Piracy in the Caribbean, the Welshman Edward Kenway, grandfather of Connor (AC3's protagonist) and future father of the Templar antagonist Haytham Kenway, becomes captain of the ship Jackdaw in pursuit of wealth and freedom, becoming unwittingly entangled in the secret conflict between Assassins and Templars, who are vying for control of an Isu Observatory capable of surveilling anyone on Earth. For most of the game Edward remains an ordinary man chasing fortune, only gradually drawn toward the Assassins' cause."
+              it: "Durante l'Età dell'Oro della Pirateria nei Caraibi, il gallese Edward Kenway, nonno di Connor (protagonista di AC3) e futuro padre del Templare antagonista Haytham Kenway, diventa capitano della nave Jackdaw inseguendo ricchezza e libertà, restando invischiato senza volerlo nel conflitto segreto tra Assassini e Templari, che si contendono un Osservatorio Isu capace di sorvegliare chiunque sulla Terra. Per la maggior parte del gioco Edward resta un uomo qualunque in cerca di fortuna, solo gradualmente attratto verso la causa degli Assassini.\n\nNota — romanzo Black Flag: il romanzo omonimo di Oliver Bowden (2013) aggiunge il retroscena dell'infanzia di Edward Kenway, cresciuto in una famiglia agiata la cui fattoria viene data alle fiamme dai Templari prima degli eventi del gioco, e un epilogo dopo il finale: Edward accetta la grazia offerta dal governatore Robert Walpole in cambio di risparmiare alcuni Templari.",
+              en: "During the Golden Age of Piracy in the Caribbean, the Welshman Edward Kenway, grandfather of Connor (AC3's protagonist) and future father of the Templar antagonist Haytham Kenway, becomes captain of the ship Jackdaw in pursuit of wealth and freedom, becoming unwittingly entangled in the secret conflict between Assassins and Templars, who are vying for control of an Isu Observatory capable of surveilling anyone on Earth. For most of the game Edward remains an ordinary man chasing fortune, only gradually drawn toward the Assassins' cause.\n\nNote — Black Flag novel: Oliver Bowden's same-titled novel (2013) adds the backstory of Edward Kenway's childhood, raised in a well-off family whose farm is burned down by the Templars before the events of the game, along with an epilogue set after the ending: Edward accepts the pardon offered by governor Robert Walpole in exchange for sparing some of the Templars."
             }
           },
           { id: "freedom-cry", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1735 – 1737",
@@ -649,8 +730,9 @@ const GAMES = {
       },
       {
         id: "eta-rivoluzioni",
-        name: { it: "Età delle Rivoluzioni", en: "Age of Revolutions" },
+        name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1868", en: "1725 – 1868" },
+        palette: ["#1D3F73", "#8B1A2E", "#E8DCC0"],
         entries: [
           { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
             releaseYear: "2012", releaseYearEn: "2012",
@@ -674,8 +756,8 @@ const GAMES = {
             title: { it: "Assassin's Creed Unity", en: "Assassin's Creed Unity" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Unity.jpg",
             synopsis: {
-              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.",
-              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain."
+              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.\n\nNota — romanzo Unity: il romanzo omonimo di Oliver Bowden (2014) aggiunge il punto di vista di Élise de la Serre e un epilogo dopo la fine del gioco: Arno cade in depressione dopo la morte di Élise, prima di essere contattato dal Marchese de Sade per una missione a Saint-Denis; include inoltre un cameo di Jennifer Scott, figlia di Haytham Kenway, che consegna a Élise i diari del padre.",
+              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain.\n\nNote — Unity novel: Oliver Bowden's same-titled novel (2014) adds Élise de la Serre's point of view and an epilogue set after the game's ending: Arno falls into depression following Élise's death, before being contacted by the Marquis de Sade for a mission in Saint-Denis; it also features a cameo by Jennifer Scott, daughter of Haytham Kenway, who gives Élise her father's journals."
             }
           },
           { id: "brahman", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "1839 – 1841", yearEn: "1839 – 1841",
@@ -717,6 +799,7 @@ const GAMES = {
         id: "rivoluzione-russa",
         name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
         span: { it: "1888 – 1920", en: "1888 – 1920" },
+        palette: ["#D9E0E3", "#1A1A1A", "#8B1A2E"],
         entries: [
           { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
             releaseYear: "2010", releaseYearEn: "2010",
@@ -751,6 +834,7 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2018", en: "2015 – 2018" },
+        palette: ["#1A2B3D", "#7A7E82", "#8B1A2E"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
             releaseYear: "2015 – 2017", releaseYearEn: "2015 – 2017",
