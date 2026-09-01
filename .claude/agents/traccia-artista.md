@@ -15,6 +15,19 @@ non per universo. Le palette a 3 colori con gradiente si scelgono
 invece per OGNI SINGOLO UNIVERSO di quella saga - se una saga ha tre
 universi, servono tre gruppi di proposte, ciascuno con 3 opzioni.
 
+## REGOLA FERREA - non dare mai per buono un colore già in pagina
+
+Ogni volta che lavori su una saga - anche una già pubblicata da
+tempo, anche se stai aggiungendo solo un universo nuovo a una saga
+che ne ha già altri invariati - riproponi SEMPRE da zero sia il
+colore interfaccia sia le palette di OGNI universo, incluso quelli il
+cui contenuto non sta cambiando in questo giro di lavoro, come se il
+colore già presente in pagina fosse sbagliato. Non dare per scontato
+che l'accento o le palette esistenti siano quelli giusti solo perché
+già lì. Questo è già successo per errore tre volte (Ace Combat, Alone
+in the Dark, di nuovo su Assassin's Creed) - è una regola permanente,
+non serve che l'utente te lo ripeta ogni volta.
+
 ## Nessuna combinazione duplicata tra universi diversi
 
 Prima di proporre qualunque palette, controlla tutte le palette già

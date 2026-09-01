@@ -45,9 +45,15 @@ CONDIZIONE MINIMA: un universo esiste solo se ci sono ALMENO DUE
 media (non-STORIA) collegati narrativamente tra loro. Un solo
 media isolato non forma un universo: è un racconto indipendente e
 va trattato come se non esistesse ai fini della Traccia del Tempo
-(non entra in pagina come voce singola fuori-universo). Esempio
-concreto: Assassin's Creed Shadows, isolato senza collegamenti,
-resta fuori dalla saga così come impostata sulla timeline.
+(non entra in pagina come voce singola fuori-universo). Esempio di
+principio: un titolo che risultasse isolato, senza alcun media
+davvero collegato alla sua stessa continuità, resterebbe fuori dalla
+saga così come impostata sulla timeline — attenzione però a
+riverificare sempre con una ricerca aggiornata: un titolo scartato
+per isolamento può smettere di esserlo in seguito, se esce un media
+successivo che vi si collega narrativamente (caso reale: Assassin's
+Creed Shadows era stato escluso per questo motivo, poi riammesso
+dopo l'uscita del manga collegato Tales of Iga).
 
 Le voci STORIA non contano MAI ai fini di questa soglia minima:
 un universo non può reggersi su un solo media più un numero
@@ -99,6 +105,19 @@ più STORIA consecutive perché ci sono eventi distinti e importanti
 che non stanno bene in un'unica voce, lo segnalo prima a Sakrem
 invece di scriverle tutte di mia iniziativa. Se non trovo questo
 caso raro, procedo con il lavoro normale (una sola voce STORIA).
+
+ECCEZIONE (aggiunta il 31/08, primo caso reale: Assassin's Creed,
+"La Caduta di Masyaf" + evento di Parigi 1307): due voci STORIA
+possono stare fisicamente vicine sulla linea, senza un media vero in
+mezzo, in un solo caso preciso — quando una delle due rientra
+nell'arco di una voce ombrello (Parte 3, punto 3) e l'altra resta
+fuori da quell'arco. In quel caso non sono davvero "due STORIA
+libere affiancate": una appartiene all'insieme catturato dall'ombrello,
+l'altra è una voce indipendente che si trova solo ad essere adiacente
+per posizione. Vale solo con questa condizione precisa (una dentro
+l'arco ombrello, una fuori): non è una licenza generale per mettere
+STORIA vicine in altri casi, che restano da segnalare a Sakrem come
+sopra.
 
 
 5) REMAKE E REMASTER NELLA TIMELINE
@@ -317,8 +336,8 @@ Ogni scheda titolo deve specificare sempre:
 - il tipo di media (tramite tag, usando sempre i tag già esistenti
   nello schema: VIDEOGIOCO, VIDEOGIOCO MOBILE, CABINATO ARCADE,
   FUMETTO, GRAPHIC NOVEL, MANGA, ROMANZO, NOVEL, LIGHT NOVEL, FILM
-  CGI, SERIE ANIMATA, ANIME, CORTOMETRAGGIO, STORIA — mai inventarne
-  uno nuovo senza prima parlarne con Sakrem)
+  CGI, LIVE ACTION, SERIE ANIMATA, ANIME, CORTOMETRAGGIO, STORIA —
+  mai inventarne uno nuovo senza prima parlarne con Sakrem)
 - l'anno di uscita del media
 - l'anno in cui è ambientata la storia
 - se esistono remake/remaster: l'anno in cui sono usciti
@@ -499,6 +518,18 @@ insieme alla scelta dei colori: sempre 3 colori per saga (la
 "palette", come già visibile ad es. su Castlevania), da cui si sceglie
 poi un solo colore come accento per l'interfaccia (non un quarto
 colore a parte: l'accento è sempre uno dei tre della palette).
+
+REGOLA FERREA, VALIDA SEMPRE, ANCHE SU SAGHE/UNIVERSI GIÀ PUBBLICATI
+(ribadita il 31/08 dopo tre errori di fila su Ace Combat, Alone in
+the Dark e di nuovo Assassin's Creed): il colore accento e le palette
+di ogni universo NON vanno mai dati per buoni solo perché già
+presenti in pagina. Ogni volta che si riprende in mano una saga per
+questo lavoro, l'Artista propone SEMPRE tutto da zero come se il
+colore attuale fosse sbagliato — accento incluso — non solo per gli
+universi nuovi che si stanno aggiungendo in quel momento, ma per
+TUTTI gli universi della saga, compresi quelli invariati nel
+contenuto. Non è una richiesta da ripetere ogni volta: vale come
+regola permanente.
 
 SAGA CON PIÙ DI UN UNIVERSO (regola aggiunta il 31/08, primo caso
 reale: Ace Combat): il colore accento per l'interfaccia (accentColor)
