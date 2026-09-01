@@ -404,9 +404,19 @@ function hexToRgb(hex){
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-function currentGradientStops(){
+// Palette attiva: preferisce quella del singolo universo corrente
+// (regolamento PARTE 3 punto 1 - saga con più di un universo, ogni
+// universo ha la propria palette dedicata), con fallback su quella a
+// livello di saga (sempre presente per le saghe con un solo universo)
+// e infine sul default generico della linea temporale.
+function activePalette(){
+  const u = currentUniverse();
   const g = currentGame();
-  const palette = (g && g.palette) || DEFAULT_PALETTE;
+  return (u && u.palette) || (g && g.palette) || DEFAULT_PALETTE;
+}
+
+function currentGradientStops(){
+  const palette = activePalette();
   return [
     { p: 0,    c: hexToRgb(palette[0]) },
     { p: 0.55, c: hexToRgb(palette[1]) },
@@ -416,7 +426,7 @@ function currentGradientStops(){
 
 function applyPaletteToCSS(){
   const g = currentGame();
-  const palette = (g && g.palette) || DEFAULT_PALETTE;
+  const palette = activePalette();
   document.body.style.setProperty("--tl-1", palette[0]);
   document.body.style.setProperty("--tl-2", palette[1]);
   document.body.style.setProperty("--tl-3", palette[2]);
@@ -445,7 +455,12 @@ function gradientColorAt(t){
 function currentGame(){ return state.gameId ? GAMES[state.gameId] : null; }
 function currentUniverse(){
   const g = currentGame();
-  if(!g) return null;
+  // Alcune saghe (es. Doom, Pokémon: PARTE 1 punto 12 del regolamento,
+  // canonNote senza linea temporale) non hanno affatto un array
+  // "universes" - va gestito qui, non solo dove currentUniverse() era
+  // gia' chiamata prima, perche' ora la richiama anche activePalette()
+  // ad ogni normale passaggio alla vista "game".
+  if(!g || !g.universes || !g.universes.length) return null;
   return g.universes[state.universeIndex] || g.universes[0];
 }
 // Espande uni.entries inserendo, per ciascuna voce "ombrello"
@@ -568,6 +583,11 @@ function selectUniverse(idx){
     const u = g.universes[idx];
     if(u.entries.length) selectEntry(u.entries[0].id);
   } else {
+    // ogni universo puo' avere la propria palette dedicata (regolamento
+    // PARTE 3 punto 1): riapplicarla qui, non solo su renderGamePanel(),
+    // altrimenti passando da un universo all'altro senza mai toccare
+    // "title" i colori resterebbero quelli dell'universo precedente.
+    applyPaletteToCSS();
     renderGamePanel();
   }
 }
