@@ -1205,6 +1205,31 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node:hover .h-node__title{ color:var(--text); }
 
 /* ============================================================
+   Nodo "Collegamento tra Universi" (regolamento PARTE 1 punto 19,
+   primo caso reale: BioShock, Rapture <-> Columbia) - NON e' una voce
+   reale: nessun .h-node__dot (nessun pallino pieno), nessun box
+   immagine (ne' vero ne' spacer, a differenza di una voce STORIA),
+   solo l'etichetta testuale sotto la riga. Il tratteggio qui sotto e'
+   pensato per allinearsi esattamente alla fine/inizio della riga
+   solida (.h-timeline::before, ancorata via JS al centro del primo/
+   ultimo VERO pallino - che qui non c'e'): stesso "top", stesso
+   spessore, stesso colore, cosi' da leggersi come un unico tratto che
+   cambia stile, non un elemento separato appoggiato sopra. */
+.h-node--bridge{ pointer-events:none; }
+.h-node--bridge::before{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  top:calc(40.5px + 222px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1));
+  height:0;
+  border-top:7px dashed var(--dot-color, var(--cyan));
+  opacity:.95;
+}
+.h-node__title--bridge{
+  font-family:inherit; letter-spacing:.02em;
+}
+
+/* ============================================================
    Vertical rail timeline (title state)
    ============================================================ */
 .rail-track{ position:relative; padding-left:20px; }
@@ -1647,6 +1672,21 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
     top:50%; right:100%; bottom:auto; left:auto; transform:translateY(-50%);
     margin-bottom:0; margin-right:8px;
     width:7px; height:2px;
+  }
+
+  /* Nodo "Collegamento tra Universi" (vedi styles.css desktop sopra):
+     su mobile la riga corre verticale, quindi il tratteggio segue lo
+     stesso passaggio orizzontale->verticale gia' fatto per
+     .h-timeline::before poco sopra - stesso spessore (5px), stesso
+     centraggio, ma per l'intera altezza di questo singolo nodo invece
+     che per l'intero .h-timeline (qui non serve il calcolo JS
+     --tl-line-top/height, il nodo ha gia' la sua altezza naturale). */
+  .h-node--bridge::before{
+    left:50%; right:auto; top:0; bottom:0;
+    width:0; height:auto;
+    border-top:none;
+    border-left:5px dashed var(--dot-color, var(--cyan));
+    transform:translateX(-50%);
   }
 
   /* --- Title detail page --- */

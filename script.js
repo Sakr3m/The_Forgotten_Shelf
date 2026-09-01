@@ -592,6 +592,40 @@ function selectUniverse(idx){
   }
 }
 
+// Nodo "Collegamento tra Universi" (PARTE 1 punto 19 del regolamento,
+// primo caso reale: BioShock, Rapture <-> Columbia): NON e' una voce
+// reale (nessuna sinossi, nessun avatar, nessuna pagina generata da
+// tools/genera-voci.js - vive solo in uni.universeLink, mai in
+// uni.entries), ma occupa uno slot a larghezza fissa nella sequenza
+// esattamente come farebbe un .h-node normale, cosi' la spaziatura e
+// la lunghezza della riga si adattano da sole (vedi il calcolo dei
+// "weights" in renderGamePanel). Nessun .h-node__dot al suo interno:
+// e' proprio questa assenza a far si' che .h-timeline::before (la
+// riga solida, ancorata via JS al centro del primo/ultimo VERO
+// pallino - vedi piu' sotto, "const dots = ...") si fermi da sola
+// prima di questo slot, lasciando il tratteggio di .h-node--bridge
+// (styles.css) a coprire esattamente lo spazio restante, come se
+// fosse l'ultimo/primo tratto della riga stessa che cambia stile.
+function buildBridgeNode(uni){
+  const link = uni.universeLink;
+  if(!link) return null;
+  const node = document.createElement("div");
+  node.className = "h-node h-node--bridge";
+  // Stesso colore della palette dell'universo nell'estremo interessato
+  // (primo colore per un ponte in apertura, ultimo per uno in
+  // chiusura) - non un colore nuovo inventato qui.
+  const edgeColor = link.edge === "start" ? uni.palette[0] : uni.palette[uni.palette.length - 1];
+  node.style.setProperty("--dot-color", edgeColor);
+  node.innerHTML = `
+    <span class="h-node__top"></span>
+    <span class="h-node__marker"></span>
+    <span class="h-node__bottom">
+      <span class="h-node__title h-node__title--bottom h-node__title--bridge">${tf(link.label)}</span>
+    </span>
+  `;
+  return node;
+}
+
 function buildUniverseTrack(uni, prevBtn, nextBtn){
   const track = document.createElement("div");
   track.className = "u-track";
@@ -660,6 +694,14 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
       : `<span class="h-node__tile h-node__tile--spacer" aria-hidden="true"></span>`;
     const title = `<span class="h-node__title h-node__title--${position === "top" ? "top" : "bottom"}">${tf(data.title)}</span>`;
     return position === "top" ? (tile + title) : (title + tile);
+  }
+
+  // Collegamento tra Universi (PARTE 1 punto 19): se questo universo
+  // RICEVE l'aggancio da un altro ("start"), il nodo tratteggiato va
+  // per primo, prima di qualunque voce reale.
+  if(uni.universeLink && uni.universeLink.edge === "start"){
+    const bridgeNode = buildBridgeNode(uni);
+    if(bridgeNode) timeline.appendChild(bridgeNode);
   }
 
   expandedEntries.forEach((entry, i) => {
@@ -745,6 +787,14 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     timeline.appendChild(node);
     turn += isTwin ? 2 : 1;
   });
+
+  // Collegamento tra Universi: se questo universo GENERA l'aggancio
+  // verso un altro ("end"), il nodo tratteggiato va per ultimo, dopo
+  // tutte le voci reali.
+  if(uni.universeLink && uni.universeLink.edge === "end"){
+    const bridgeNode = buildBridgeNode(uni);
+    if(bridgeNode) timeline.appendChild(bridgeNode);
+  }
 
   return track;
 }
@@ -1539,7 +1589,11 @@ function renderGamePanel(){
     }
   }
 
-  const isLargeUniverse = expandEntriesWithUmbrellas(uni).length > LARGE_UNIVERSE_THRESHOLD;
+  // +1 se questo universo ha un nodo "Collegamento tra Universi"
+  // (uni.universeLink): occupa uno slot vero nella sequenza, vedi
+  // buildBridgeNode/buildUniverseTrack sopra.
+  const bridgeSlotCount = uni.universeLink ? 1 : 0;
+  const isLargeUniverse = (expandEntriesWithUmbrellas(uni).length + bridgeSlotCount) > LARGE_UNIVERSE_THRESHOLD;
 
   // Le due freccette animate e non cliccabili (solo un promemoria visivo
   // che la riga si trascina) vivono fisse nell'HTML, non ricreate ad ogni
