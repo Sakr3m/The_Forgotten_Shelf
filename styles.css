@@ -1230,21 +1230,51 @@ body[data-state="landing"] .index-link{ display:flex; }
    conteggio di quei 44px - la sottrazione esplicita qui sotto e'
    proprio quella correzione, non un valore indovinato a occhio. */
 .h-node--bridge{ pointer-events:none; }
-.h-node--bridge::before{
+/* Richiesta Sakrem 02/09: il tratto non e' piu' tutto tratteggiato,
+   ma diviso in due meta' - quella ADIACENTE al primo/ultimo pallino
+   vero resta LINEARE/SOLIDA (stesso spessore/colore della riga vera,
+   nessuna interruzione visibile nella giunzione), solo quella verso
+   l'etichetta "Prosegue da/su X" resta tratteggiata. Due
+   pseudo-elementi al posto di uno solo: ::before copre la meta'
+   SINISTRA del tratto, ::after la meta' DESTRA (verticale: TOP/
+   BOTTOM, vedi media query sotto), divise dal punto medio
+   --bridge-mid-x/--bridge-mid-y (calcolato via JS in
+   renderGamePanel/positionVerticalTimeline SULLA LARGHEZZA EFFETTIVA
+   slot+estensione, non sui soli 100px dello slot, altrimenti la meta'
+   lineare non arriverebbe a toccare esattamente la riga vera). Quale
+   delle due meta' (sinistra/destra o top/bottom) sia quella "vicina
+   alla riga vera" dipende dal lato del bridge (data-bridge-edge,
+   start/end): vedi le regole per attributo qui sotto. */
+.h-node--bridge::before, .h-node--bridge::after{
   content:"";
   position:absolute;
-  /* --bridge-left-extend/--bridge-right-extend (calcolati via JS in
-     renderGamePanel, valori negativi): allungano il tratto sul lato
-     rivolto verso la riga vera fino a toccarla esattamente, qualunque
-     sia lo spazio reale tra il proprio slot da 100px e il primo/ultimo
-     pallino - il lato "esterno" (dove non c'e' nient'altro) resta
-     invece fermo al bordo del proprio slot (0px, il default). */
-  left:var(--bridge-left-extend, 0px); right:var(--bridge-right-extend, 0px);
   top:calc(40.5px + 222px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1) - 44px);
   height:0;
-  border-top:7px dashed var(--dot-color, var(--cyan));
   opacity:.95;
 }
+/* --bridge-left-extend/--bridge-right-extend (calcolati via JS in
+   renderGamePanel, valori negativi): allungano il tratto sul lato
+   rivolto verso la riga vera fino a toccarla esattamente, qualunque
+   sia lo spazio reale tra il proprio slot da 100px e il primo/ultimo
+   pallino - il lato "esterno" (dove non c'e' nient'altro) resta
+   invece fermo al bordo del proprio slot (0px, il default). */
+.h-node--bridge::before{
+  left:var(--bridge-left-extend, 0px);
+  right:calc(100% - var(--bridge-mid-x, 50%));
+}
+.h-node--bridge::after{
+  left:var(--bridge-mid-x, 50%);
+  right:var(--bridge-right-extend, 0px);
+}
+/* edge "start" (bridge in apertura di riga, i pallini veri sono a
+   destra): la meta' vicina alla riga vera e' quella DESTRA (::after,
+   solida), quella verso l'etichetta a sinistra (::before) resta
+   tratteggiata. edge "end" (bridge in chiusura, pallini veri a
+   sinistra): speculare. */
+.h-node--bridge[data-bridge-edge="start"]::before{ border-top:7px dashed var(--dot-color, var(--cyan)); }
+.h-node--bridge[data-bridge-edge="start"]::after{ border-top:7px solid var(--dot-color, var(--cyan)); }
+.h-node--bridge[data-bridge-edge="end"]::before{ border-top:7px solid var(--dot-color, var(--cyan)); }
+.h-node--bridge[data-bridge-edge="end"]::after{ border-top:7px dashed var(--dot-color, var(--cyan)); }
 .h-node__title--bridge{
   font-family:inherit; letter-spacing:.02em;
 }
@@ -1703,14 +1733,32 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      desktop (--bridge-left-extend/--bridge-right-extend), ma
      sull'asse verticale - il lato rivolto verso il pallino vero si
      allunga fino a toccarlo, l'altro resta fermo al bordo del nodo. */
-  .h-node--bridge::before{
+  /* Stesso principio della bisezione desktop (styles.css sopra), sul
+     lato TOP/BOTTOM invece di SINISTRA/DESTRA: ::before copre la
+     meta' superiore del tratto, ::after la meta' inferiore, divise
+     dal punto medio --bridge-mid-y (calcolato via JS in
+     positionVerticalTimeline sull'altezza EFFETTIVA slot+estensione). */
+  .h-node--bridge::before, .h-node--bridge::after{
     left:50%; right:auto;
-    top:var(--bridge-top-extend, 0px); bottom:var(--bridge-bottom-extend, 0px);
     width:0; height:auto;
-    border-top:none;
-    border-left:5px dashed var(--dot-color, var(--cyan));
     transform:translateX(-50%);
   }
+  .h-node--bridge::before{
+    top:var(--bridge-top-extend, 0px);
+    bottom:calc(100% - var(--bridge-mid-y, 50%));
+  }
+  .h-node--bridge::after{
+    top:var(--bridge-mid-y, 50%);
+    bottom:var(--bridge-bottom-extend, 0px);
+  }
+  /* edge "start" (bridge sopra la prima voce reale, che sta in
+     basso): la meta' vicina alla riga vera e' quella INFERIORE
+     (::after, solida); edge "end" (bridge sotto l'ultima voce reale,
+     che sta in alto): speculare. */
+  .h-node--bridge[data-bridge-edge="start"]::before{ border-top:none; border-left:5px dashed var(--dot-color, var(--cyan)); }
+  .h-node--bridge[data-bridge-edge="start"]::after{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
+  .h-node--bridge[data-bridge-edge="end"]::before{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
+  .h-node--bridge[data-bridge-edge="end"]::after{ border-top:none; border-left:5px dashed var(--dot-color, var(--cyan)); }
 
   /* --- Title detail page --- */
   .title-panel{ margin-top:44px; }

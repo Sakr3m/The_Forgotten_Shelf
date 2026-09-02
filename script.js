@@ -1031,6 +1031,7 @@ function positionVerticalTimeline(liveTimeline){
   if(bridgeEl){
     bridgeEl.style.setProperty("--bridge-top-extend", "0px");
     bridgeEl.style.setProperty("--bridge-bottom-extend", "0px");
+    bridgeEl.style.setProperty("--bridge-mid-y", "50%");
     if(lineTopViewport !== null){
       const bridgeRect = bridgeEl.getBoundingClientRect();
       if(bridgeEl.dataset.bridgeEdge === "start"){
@@ -1038,11 +1039,16 @@ function positionVerticalTimeline(liveTimeline){
         // basso fino al punto dove inizia la riga vera.
         const gap = lineTopViewport - bridgeRect.bottom;
         bridgeEl.style.setProperty("--bridge-bottom-extend", (-gap).toFixed(2) + "px");
+        // Punto medio del tratto EFFETTIVO (slot + estensione): meta'
+        // inferiore (verso la riga vera) lineare, meta' superiore
+        // (verso l'etichetta) tratteggiata - vedi styles.css.
+        bridgeEl.style.setProperty("--bridge-mid-y", ((bridgeRect.height + gap) / 2).toFixed(2) + "px");
       } else if(bridgeEl.dataset.bridgeEdge === "end"){
         // il bridge segue l'ultima voce reale: si allunga verso l'alto
         // fino al punto dove finisce la riga vera.
         const gap = bridgeRect.top - lineBottomViewport;
         bridgeEl.style.setProperty("--bridge-top-extend", (-gap).toFixed(2) + "px");
+        bridgeEl.style.setProperty("--bridge-mid-y", ((bridgeRect.height - gap) / 2).toFixed(2) + "px");
       }
     }
   }
@@ -1858,15 +1864,23 @@ function renderGamePanel(){
       if(bridgeEl){
         bridgeEl.style.setProperty("--bridge-left-extend", "0px");
         bridgeEl.style.setProperty("--bridge-right-extend", "0px");
+        bridgeEl.style.setProperty("--bridge-mid-x", "50%");
         const bridgeRect = bridgeEl.getBoundingClientRect();
         if(bridgeEl.dataset.bridgeEdge === "start"){
           const bridgeRight = bridgeRect.right - timelineRect.left;
           const gap = lineLeft - bridgeRight;
           bridgeEl.style.setProperty("--bridge-right-extend", (-gap).toFixed(2) + "px");
+          // Punto medio del tratto EFFETTIVO (slot + estensione), non
+          // dei soli 100px dello slot: meta' destra (verso la riga
+          // vera) lineare, meta' sinistra (verso l'etichetta)
+          // tratteggiata - vedi styles.css, .h-node--bridge::before/
+          // ::after con [data-bridge-edge="start"].
+          bridgeEl.style.setProperty("--bridge-mid-x", ((bridgeRect.width + gap) / 2).toFixed(2) + "px");
         } else if(bridgeEl.dataset.bridgeEdge === "end"){
           const bridgeLeft = bridgeRect.left - timelineRect.left;
           const gap = bridgeLeft - lineRight;
           bridgeEl.style.setProperty("--bridge-left-extend", (-gap).toFixed(2) + "px");
+          bridgeEl.style.setProperty("--bridge-mid-x", ((bridgeRect.width - gap) / 2).toFixed(2) + "px");
         }
       }
 
