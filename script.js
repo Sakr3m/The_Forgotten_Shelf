@@ -112,7 +112,19 @@ const state = {
   universeIndex: 0,
   entryId: null,
   musicOn: true,
-  trackIndex: 0
+  trackIndex: 0,
+  // Scroll della vista "game"/"universe" nell'istante in cui si entra
+  // in una pagina di dettaglio (title), da ripristinare quando si
+  // torna indietro col pulsante in-app - vedi selectEntry() e il
+  // listener su ".title-back" in updateTitlePanelText(). Due valori
+  // perche' il contenitore che scorre davvero cambia con la vista:
+  // window su desktop (e su mobile nella vista "title" stessa), ma
+  // .stage (overflow-y:auto, altezza fissa al viewport) nelle viste
+  // "game"/"universe" su mobile - salvarli entrambi e riapplicarli
+  // entrambi e' innocuo, quello non pertinente alla vista corrente
+  // semplicemente non ha alcun effetto.
+  savedTimelineScrollY: 0,
+  savedTimelineStageScrollTop: 0
 };
 
 const LARGE_UNIVERSE_THRESHOLD = 10; // sopra questa soglia di voci per
@@ -2066,6 +2078,20 @@ function updateTitlePanelText(entryId){
     state.view = target;
     setState(target);
     scrollCarouselToStage(); // vedi nota storica sotto in setState
+    // Ripristina la posizione di scroll della timeline salvata in
+    // selectEntry() PRIMA di entrare in questa pagina di dettaglio -
+    // altrimenti restava quella (ben piu' in basso) del dettaglio
+    // appena chiuso, mai azzerata ne' ripristinata qui (bug
+    // segnalato: si torna alla timeline scrollata in fondo invece
+    // che al punto esatto in cui l'utente l'aveva lasciata). Va dopo
+    // scrollCarouselToStage(), non prima: quella e' un asse diverso
+    // (scroll ORIZZONTALE del carosello sidebar/stage, solo mobile)
+    // ma per sicurezza il ripristino verticale vero resta l'ultima
+    // parola su entrambi i possibili contenitori (vedi commento sui
+    // due valori salvati, dichiarazione di "state").
+    window.scrollTo(0, state.savedTimelineScrollY);
+    const stageForRestore = document.querySelector(".stage");
+    if(stageForRestore) stageForRestore.scrollTop = state.savedTimelineStageScrollTop;
   });
   const prevBtn = rec.panel.querySelector(".title-nav__side--prev");
   if(prevBtn) prevBtn.addEventListener("click", () => selectEntry(prevEntry.id));
@@ -2457,6 +2483,21 @@ function selectGame(id){
 function selectEntry(entryId){
   const found = findEntry(currentGame(), entryId);
   if(!found) return;
+  // Salva lo scroll della timeline SOLO quando si arriva da "game"/
+  // "universe" (prima volta che si entra in una pagina di dettaglio),
+  // non quando selectEntry e' richiamata da dentro "title" stessa
+  // (frecce voce precedente/successiva, vedi prevBtn/nextBtn in
+  // updateTitlePanelText): altrimenti verrebbe sovrascritto con lo
+  // scroll del titolo appena lasciato (sempre 0, vedi sotto) invece
+  // di restare quello vero della timeline da cui si era partiti -
+  // esattamente il bug segnalato, il tasto "indietro" riportava a una
+  // posizione derivata dal dettaglio appena chiuso invece che a quella
+  // reale della timeline.
+  if(state.view === "game" || state.view === "universe"){
+    state.savedTimelineScrollY = window.scrollY;
+    const stageForSave = document.querySelector(".stage");
+    state.savedTimelineStageScrollTop = stageForSave ? stageForSave.scrollTop : 0;
+  }
   state.entryId = entryId;
   state.universeIndex = currentGame().universes.indexOf(found.universe);
   // Scroll azzerato PRIMA di setState/renderTitlePanel, non dopo:
