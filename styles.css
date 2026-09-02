@@ -956,7 +956,7 @@ body[data-state="landing"] .index-link{ display:flex; }
      alla stessa altezza. */
   padding:0 0 36px;
 }
-.canon-note p{ margin-bottom:20px; }
+.canon-note p{ margin-bottom:20px; white-space:pre-line; }
 /* Calcata esattamente su .section-eyebrow di Diari di Gioco
    (recensioni.css, "Recensione veloce..."): stessa dimensione, peso,
    spaziatura lettere, maiuscolo, colore. Centrata nel box del testo
