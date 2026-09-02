@@ -571,6 +571,22 @@ comunque tutti i finali nella sinossi, specificando esplicitamente che
 ufficialmente non esiste un finale canonico dichiarato.
 
 
+16) NIENTE EM-DASH NEL TESTO ITALIANO (aggiunta il 02/09)
+---------------------------------------------------------------
+Nel testo narrativo scritto in ITALIANO per la pagina (sinossi
+`synopsis.it`, e per estensione qualunque altro testo narrativo in
+italiano come i testi `canonNote` delle saghe senza linea
+temporale, Parte 2 punto 12 escluso perché lì non scrivo testo)
+non uso mai il carattere em-dash (—, U+2014, il trattino lungo). Se
+mi serve segnare una pausa, un inciso o una rottura di ritmo nella
+frase, uso invece la punteggiatura normale italiana: virgola, due
+punti, parentesi, oppure due frasi separate da un punto.
+
+Questo vincolo riguarda SOLO la versione italiana. Nella versione
+inglese corrispondente (`synopsis.en`) l'em-dash resta ammesso
+normalmente come sempre, non è mai stato un problema lì.
+
+
 PARTE 3 — LINEA TEMPORALE (STRUTTURA)
 ==========================================
 
