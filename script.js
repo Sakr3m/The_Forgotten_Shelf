@@ -616,6 +616,13 @@ function buildBridgeNode(uni){
   // chiusura) - non un colore nuovo inventato qui.
   const edgeColor = link.edge === "start" ? uni.palette[0] : uni.palette[uni.palette.length - 1];
   node.style.setProperty("--dot-color", edgeColor);
+  node.dataset.bridgeEdge = link.edge; // letto piu' sotto (renderGamePanel/
+    // positionVerticalTimeline) per allungare il tratteggio fino a
+    // toccare esattamente il punto dove inizia/finisce la riga solida
+    // vera, invece di fermarsi al bordo del proprio slot da 100px -
+    // altrimenti resterebbe un vuoto visibile tra i due tratti ogni
+    // volta che, per via del numero di voci, lo spazio libero tra un
+    // pallino e il successivo e' piu' largo di 100px.
   node.innerHTML = `
     <span class="h-node__top"></span>
     <span class="h-node__marker"></span>
@@ -998,6 +1005,7 @@ function positionVerticalTimeline(liveTimeline){
   });
 
   const dots = liveTimeline.querySelectorAll(".h-node__dot");
+  let lineTopViewport = null, lineBottomViewport = null;
   if(dots.length){
     const timelineRect = liveTimeline.getBoundingClientRect();
     const firstDot = dots[0].getBoundingClientRect();
@@ -1006,6 +1014,37 @@ function positionVerticalTimeline(liveTimeline){
     const lineBottom = (lastDot.top + lastDot.bottom) / 2 - timelineRect.top;
     liveTimeline.style.setProperty("--tl-line-top", lineTop.toFixed(2) + "px");
     liveTimeline.style.setProperty("--tl-line-height", Math.max(0, lineBottom - lineTop).toFixed(2) + "px");
+    lineTopViewport = timelineRect.top + lineTop;
+    lineBottomViewport = timelineRect.top + lineBottom;
+  }
+
+  // Nodo "Collegamento tra Universi" (regolamento PARTE 1 punto 19),
+  // SOLO MOBILE: stesso principio dell'allungamento desktop (vedi
+  // renderGamePanel, --bridge-left-extend/--bridge-right-extend), ma
+  // sull'asse verticale - qui la riga corre dall'alto in basso, quindi
+  // il tratteggio del bridge si allunga sul lato TOP o BOTTOM (non
+  // destra/sinistra) fino a toccare esattamente il punto dove inizia/
+  // finisce la riga solida vera (--tl-line-top/--tl-line-height sopra),
+  // qualunque sia lo spazio reale tra il proprio slot naturale e il
+  // primo/ultimo pallino vero.
+  const bridgeEl = liveTimeline.querySelector(".h-node--bridge");
+  if(bridgeEl){
+    bridgeEl.style.setProperty("--bridge-top-extend", "0px");
+    bridgeEl.style.setProperty("--bridge-bottom-extend", "0px");
+    if(lineTopViewport !== null){
+      const bridgeRect = bridgeEl.getBoundingClientRect();
+      if(bridgeEl.dataset.bridgeEdge === "start"){
+        // il bridge precede la prima voce reale: si allunga verso il
+        // basso fino al punto dove inizia la riga vera.
+        const gap = lineTopViewport - bridgeRect.bottom;
+        bridgeEl.style.setProperty("--bridge-bottom-extend", (-gap).toFixed(2) + "px");
+      } else if(bridgeEl.dataset.bridgeEdge === "end"){
+        // il bridge segue l'ultima voce reale: si allunga verso l'alto
+        // fino al punto dove finisce la riga vera.
+        const gap = bridgeRect.top - lineBottomViewport;
+        bridgeEl.style.setProperty("--bridge-top-extend", (-gap).toFixed(2) + "px");
+      }
+    }
   }
 }
 
@@ -1803,6 +1842,33 @@ function renderGamePanel(){
       const lineRight = (lastDot.left + lastDot.right) / 2 - timelineRect.left;
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
+
+      // Nodo "Collegamento tra Universi" (regolamento PARTE 1 punto 19):
+      // il proprio tratteggio (.h-node--bridge::before, styles.css) vive
+      // dentro il proprio slot da 100px, ma quello slot puo' restare
+      // parecchio piu' stretto della distanza vera fino al primo/ultimo
+      // pallino reale (dipende da quante voci ha l'universo - con poche
+      // voci lo spazio libero tra un pallino e il successivo e' molto
+      // piu' largo di 100px). Qui si allunga il tratteggio, sul lato
+      // rivolto verso la riga vera, esattamente fino al punto dove
+      // lineLeft/lineRight iniziano - cosi' i due tratti si toccano
+      // sempre, qualunque sia la spaziatura reale, invece di lasciare un
+      // vuoto visibile in mezzo.
+      const bridgeEl = liveTimeline.querySelector(".h-node--bridge");
+      if(bridgeEl){
+        bridgeEl.style.setProperty("--bridge-left-extend", "0px");
+        bridgeEl.style.setProperty("--bridge-right-extend", "0px");
+        const bridgeRect = bridgeEl.getBoundingClientRect();
+        if(bridgeEl.dataset.bridgeEdge === "start"){
+          const bridgeRight = bridgeRect.right - timelineRect.left;
+          const gap = lineLeft - bridgeRight;
+          bridgeEl.style.setProperty("--bridge-right-extend", (-gap).toFixed(2) + "px");
+        } else if(bridgeEl.dataset.bridgeEdge === "end"){
+          const bridgeLeft = bridgeRect.left - timelineRect.left;
+          const gap = bridgeLeft - lineRight;
+          bridgeEl.style.setProperty("--bridge-left-extend", (-gap).toFixed(2) + "px");
+        }
+      }
 
       // --- Maschera sagomata (idea del cliente, 25/08): un solo
       // contenitore, ma due punti di sparizione diversi per voci e

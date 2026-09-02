@@ -1214,13 +1214,33 @@ body[data-state="landing"] .index-link{ display:flex; }
    solida (.h-timeline::before, ancorata via JS al centro del primo/
    ultimo VERO pallino - che qui non c'e'): stesso "top", stesso
    spessore, stesso colore, cosi' da leggersi come un unico tratto che
-   cambia stile, non un elemento separato appoggiato sopra. */
+   cambia stile, non un elemento separato appoggiato sopra.
+   IMPORTANTE - il "top" di .h-timeline::before e' relativo al
+   CONTAINING BLOCK di quella riga (.h-timeline stesso, con
+   position:relative), mentre il "top" di questa regola e' relativo al
+   containing block di .h-node--bridge (il nodo stesso, anch'esso
+   position:relative, ereditato da .h-node): i due containing block
+   NON condividono la stessa origine, sono sfalsati esattamente del
+   padding-top di .h-timeline (44px, fisso, non scalato da
+   --avatar-scale/--dot-scale) - un .h-node comincia 44px piu' in
+   basso del bordo superiore di .h-timeline. Riusare qui la STESSA
+   identica formula di .h-timeline::before (bug corretto il 01/09,
+   segnalato da Sakrem: il tratteggio compariva 44px piu' in basso
+   della riga vera, staccato) avrebbe quindi prodotto un doppio
+   conteggio di quei 44px - la sottrazione esplicita qui sotto e'
+   proprio quella correzione, non un valore indovinato a occhio. */
 .h-node--bridge{ pointer-events:none; }
 .h-node--bridge::before{
   content:"";
   position:absolute;
-  left:0; right:0;
-  top:calc(40.5px + 222px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1));
+  /* --bridge-left-extend/--bridge-right-extend (calcolati via JS in
+     renderGamePanel, valori negativi): allungano il tratto sul lato
+     rivolto verso la riga vera fino a toccarla esattamente, qualunque
+     sia lo spazio reale tra il proprio slot da 100px e il primo/ultimo
+     pallino - il lato "esterno" (dove non c'e' nient'altro) resta
+     invece fermo al bordo del proprio slot (0px, il default). */
+  left:var(--bridge-left-extend, 0px); right:var(--bridge-right-extend, 0px);
+  top:calc(40.5px + 222px * var(--avatar-scale, 1) + 11px * var(--dot-scale, 1) - 44px);
   height:0;
   border-top:7px dashed var(--dot-color, var(--cyan));
   opacity:.95;
@@ -1678,11 +1698,14 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      su mobile la riga corre verticale, quindi il tratteggio segue lo
      stesso passaggio orizzontale->verticale gia' fatto per
      .h-timeline::before poco sopra - stesso spessore (5px), stesso
-     centraggio, ma per l'intera altezza di questo singolo nodo invece
-     che per l'intero .h-timeline (qui non serve il calcolo JS
-     --tl-line-top/height, il nodo ha gia' la sua altezza naturale). */
+     centraggio. --bridge-top-extend/--bridge-bottom-extend (JS,
+     positionVerticalTimeline): stesso principio dell'allungamento
+     desktop (--bridge-left-extend/--bridge-right-extend), ma
+     sull'asse verticale - il lato rivolto verso il pallino vero si
+     allunga fino a toccarlo, l'altro resta fermo al bordo del nodo. */
   .h-node--bridge::before{
-    left:50%; right:auto; top:0; bottom:0;
+    left:50%; right:auto;
+    top:var(--bridge-top-extend, 0px); bottom:var(--bridge-bottom-extend, 0px);
     width:0; height:auto;
     border-top:none;
     border-left:5px dashed var(--dot-color, var(--cyan));
