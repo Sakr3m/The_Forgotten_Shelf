@@ -2042,8 +2042,22 @@ function formatReleaseLabel(releaseLabel){
   return { base: match[1], extra: match[2] };
 }
 
-function updateTitlePanelText(entryId){
-  const rec = titlePanels[entryId];
+// Chiave di lookup in titlePanels: "{gameId}::{entryId}", non il solo
+// entry.id "nudo" (vedi buildAllTitlePanels per il motivo: id come
+// "ascendance" sono riusati da saghe diverse - Gears of War e Legacy
+// of Kain - e findEntry() li distingue correttamente perche' e' gia'
+// vincolato al game corrente, ma titlePanels era un'unica mappa
+// piatta globale: con la sola chiave "nuda" la seconda saga
+// processata in GAME_ORDER sovrascriveva silenziosamente il pannello
+// della prima, mostrando la sinossi sbagliata - bug scoperto proprio
+// verificando dal vivo che "Legacy of Kain: Ascendance" avesse lo
+// stesso problema di "La crociata segreta" segnalato da Sakrem).
+function titlePanelKey(gameId, entryId){
+  return gameId + "::" + entryId;
+}
+
+function updateTitlePanelText(panelKey){
+  const rec = titlePanels[panelKey];
   if(!rec) return;
   const { entry, game: g, universe, prevEntry, nextEntry } = rec;
   const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
@@ -2109,30 +2123,54 @@ function buildAllTitlePanels(){
   GAME_ORDER.forEach(gameId => {
     const g = GAMES[gameId];
     (g.universes || []).forEach(universe => {
-      const entries = universe.entries || [];
+      // Uso la lista ESPANSA (uni.entries + le pseudo-voci delle voci
+      // "ombrello" in uni.umbrellas, vedi expandEntriesWithUmbrellas)
+      // e non il semplice universe.entries: un ombrello non vive in
+      // uni.entries, quindi con il solo universe.entries la sua pagina
+      // di dettaglio non veniva mai costruita qui (nessun record in
+      // titlePanels) - motivo per cui apriva una pagina vuota, senza
+      // sinossi ne' nient'altro (bug segnalato da Sakrem su
+      // "La crociata segreta").
+      const entries = expandEntriesWithUmbrellas(universe);
       entries.forEach((entry, idx) => {
         const prevEntry = idx > 0 ? entries[idx - 1] : null;
         const nextEntry = idx < entries.length - 1 ? entries[idx + 1] : null;
+        const key = titlePanelKey(g.id, entry.id);
+        if(titlePanels[key]){
+          // Una voce ombrello compare DUE volte nella lista espansa
+          // (una per ciascuno dei due pallini che genera sulla linea),
+          // ma ha una sola pagina di dettaglio reale (stesso id,
+          // stesso identico contenuto - vedi regolamento, PARTE 3
+          // punto 3): costruita alla prima occorrenza, non va
+          // ricreata/duplicata nel DOM alla seconda.
+          return;
+        }
         const panel = document.createElement("div");
         panel.className = "title-content-item";
-        panel.id = `titleItem-${entry.id}`;
+        // id DOM scoped per gioco (non il solo entry.id "nudo"): due
+        // saghe diverse possono riusare lo stesso id voce (es.
+        // "ascendance" in Gears of War e in Legacy of Kain) - senza lo
+        // scoping qui si otterrebbero due elementi con lo stesso id
+        // HTML, non valido e comunque ambiguo.
+        panel.id = `titleItem-${key}`;
         panel.hidden = true;
         el.titleContent.appendChild(panel);
-        titlePanels[entry.id] = { panel, entry, game: g, universe, prevEntry, nextEntry };
-        updateTitlePanelText(entry.id);
+        titlePanels[key] = { panel, entry, game: g, universe, prevEntry, nextEntry };
+        updateTitlePanelText(key);
 
         // Voce "gemella" (entry.twin): condivide lo stesso punto
         // sulla linea, quindi anche gli stessi vicini (prev/next) di
         // chi la ospita - la sua pagina va costruita qui accanto,
         // non e' un elemento a se' in "entries".
         if(entry.twin){
+          const twinKey = titlePanelKey(g.id, entry.twin.id);
           const twinPanel = document.createElement("div");
           twinPanel.className = "title-content-item";
-          twinPanel.id = `titleItem-${entry.twin.id}`;
+          twinPanel.id = `titleItem-${twinKey}`;
           twinPanel.hidden = true;
           el.titleContent.appendChild(twinPanel);
-          titlePanels[entry.twin.id] = { panel: twinPanel, entry: entry.twin, game: g, universe, prevEntry, nextEntry };
-          updateTitlePanelText(entry.twin.id);
+          titlePanels[twinKey] = { panel: twinPanel, entry: entry.twin, game: g, universe, prevEntry, nextEntry };
+          updateTitlePanelText(twinKey);
         }
       });
     });
@@ -2144,11 +2182,12 @@ function renderTitlePanel(){
   const found = findEntry(g, state.entryId);
   if(!found) return;
   const { entry, universe } = found;
+  const key = titlePanelKey(g.id, entry.id);
 
-  Object.entries(titlePanels).forEach(([id, rec]) => {
-    rec.panel.hidden = id !== entry.id;
+  Object.entries(titlePanels).forEach(([panelKey, rec]) => {
+    rec.panel.hidden = panelKey !== key;
   });
-  const activeRec = titlePanels[entry.id];
+  const activeRec = titlePanels[key];
   if(!activeRec) return;
 
   // Larghezza e posizione del box di testo (#titleContent, contiene
