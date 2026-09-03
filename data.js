@@ -91,28 +91,12 @@ const GAMES = {
               en: "Pilot Blaze and the Wardog Squadron fight in the Circum-Pacific War between Osea and Yuktobania, sparked by a surprise attack on Osean installations. Over the course of the conflict they discover the attack was orchestrated by a group of Belkan nationalist survivors, determined to plunge the two nations back into war to avenge their defeat years earlier. Together with pilots from both sides opposed to the conflict, Wardog exposes the conspiracy and defeats the plotters, bringing the hostilities to an end."
             }
           },
-          { id: "collasso-estovacchia", type: "STORIA", typeEn: "STORY", year: "1999 – 2015", yearEn: "1999 – 2015",
-            noAvatar: true,
-            title: { it: "Il Collasso dell'Estovakia", en: "The Collapse of Estovakia" },
-            synopsis: {
-              it: "Colpita duramente dall'impatto di Ulisse, l'Estovakia vede la propria economia crollare e le infrastrutture ridotte allo stremo, mentre la vicina Emmeria, investita dalla stessa crisi ma uscitane pressoché indenne, si rimette rapidamente in piedi. Il divario tra le due nazioni alimenta un risentimento profondo: in Estovakia scoppia una guerra civile da cui emerge una giunta militare, ribattezzata dalla popolazione 'I Generali', che consolida il potere promettendo di restituire al paese la forza perduta. Negli anni successivi la giunta riarma segretamente le forze armate, decisa a risolvere con la forza ciò che la diplomazia non può più permettersi.",
-              en: "Hit hard by the Ulysses impact, Estovakia sees its economy collapse and its infrastructure pushed to breaking point, while neighbouring Emmeria, struck by the same crisis but left largely unscathed, recovers quickly. The gap between the two nations fuels deep resentment: a civil war breaks out in Estovakia, from which a military junta emerges — nicknamed 'The Generals' by the population — consolidating power by promising to restore the country's lost strength. Over the following years the junta secretly rearms its military, determined to settle by force what diplomacy can no longer afford."
-            }
-          },
           { id: "ace-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "Ace Combat 6: Fires of Liberation", en: "Ace Combat 6: Fires of Liberation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%206%20Fires%20of%20Liberation.jpg",
             synopsis: {
               it: "Il pilota Talisman, a capo dello Squadrone Garuda, difende l'Emmeria da un'invasione a sorpresa dell'Estovakia, che occupa in poche ore la capitale Gracemeria costringendo l'esercito emmeriano alla ritirata. Insieme al gregario Shamrock, guida il riorganizzarsi delle forze superstiti sull'Isola di Khesed e la successiva controffensiva che libera il paese città dopo città, fino alla riconquista della capitale. La disfatta sul campo provoca il collasso del regime militare estovakiano, che firma la resa ponendo fine al conflitto.",
               en: "Pilot Talisman, leader of Garuda Team, defends Emmeria from a surprise invasion by Estovakia, which occupies the capital Gracemeria within hours and forces the Emmerian army to retreat. Together with his wingman Shamrock, he leads the regrouping of surviving forces on Khesed Island and the subsequent counteroffensive that liberates the country city by city, culminating in the recapture of the capital. The defeat on the battlefield triggers the collapse of Estovakia's military regime, which signs a surrender that brings the conflict to an end."
-            }
-          },
-          { id: "ascesa-erusea", type: "STORIA", typeEn: "STORY", year: "2005 – 2019", yearEn: "2005 – 2019",
-            noAvatar: true,
-            title: { it: "L'Ascesa di Erusea", en: "The Rise of Erusea" },
-            synopsis: {
-              it: "Nel dopoguerra seguito alla Guerra Continentale, Erusea si riprende con sorprendente rapidità dalla sconfitta, ampliando i propri confini fino a inglobare diversi piccoli stati vicini, tra cui un antico ducato la cui famiglia reale viene spodestata dall'espansione. All'interno del rinnovato apparato militare prende forma un ambizioso programma di ricerca, volto a sviluppare droni da combattimento autonomi capaci di sostituire i piloti umani in battaglia. Parallelamente la comunità internazionale completa un ascensore spaziale pensato per rispondere a future minacce dallo spazio. Le tensioni territoriali e la sfiducia reciproca accumulate in questi anni sfoceranno, nel 2019, in un nuovo conflitto su scala continentale.",
-              en: "In the aftermath of the Continental War, Erusea recovers from defeat with surprising speed, expanding its borders to absorb several small neighbouring states, including an ancient duchy whose royal family is deposed by the expansion. Within the renewed military apparatus, an ambitious research programme takes shape, aimed at developing autonomous combat drones capable of replacing human pilots in battle. Meanwhile the international community completes a space elevator designed to counter future threats from space. The territorial tensions and mutual distrust accumulated over these years will erupt, in 2019, into a new continent-wide conflict."
             }
           },
           { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019", releaseYear: "2019", releaseYearEn: "2019",
@@ -174,6 +158,59 @@ const GAMES = {
             synopsis: {
               it: "Nel continente useano, ormai governato da megacorporazioni al posto degli stati nazionali, il pilota Nemo presta servizio per l'organizzazione di pace UPEO mentre la rivalità tra Neucom (erede delle industrie belkane) e General Resource degenera nella Guerra Intercorporativa. Dietro il conflitto si cela Ouroboros, un movimento transumanista che agisce attraverso l'Electrosphere, la rete globale su cui è possibile caricare la propria coscienza, e che fa capo al leggendario asso di General Resource Abyssal Dision. A metà partita si scopre che Dision è in realtà una copia digitale del vero Dision, morto anni prima insieme alla neuroscienziata Yoko Martha Inoue in un attentato in realtà orchestrato da General Resource per insabbiare le sue ricerche sulla sublimazione della coscienza; la copia, sopravvissuta nell'Electrosphere, guida Ouroboros con l'obiettivo di costringere l'intera umanità a sublimarsi.\n\nLe scelte del giocatore ai bivi narrativi del gioco (i \"Turning Points\") determinano sia la fazione a cui Nemo resta legato (UPEO, Neucom, General Resource o la stessa Ouroboros) sia quale tra i piloti Erich, Fiona, Cynthia e Keith diventa suo compagno di volo, oppure se Nemo resta un lone wolf senza alleati: la combinazione produce cinque finali distinti, in ciascuno dei quali la guerra si chiude con la sconfitta di Dision e dell'Ouroboros, ma con esiti diversi per le fazioni coinvolte e per il destino dei compagni di Nemo.\n\nChi porta a termine tutti e cinque i finali sblocca una rivelazione comune a tutti: l'intera Guerra Intercorporativa altro non era che una simulazione condotta da Simon Orestes Cohen, ricercatore Neucom che incolpa Dision della morte di Yoko, all'interno del programma di intelligenza artificiale battezzato per l'appunto \"Nemo\", lo stesso Nemo pilotato dal giocatore. Cohen voleva verificare se, in ogni possibile andamento della guerra, la copia digitale di Dision sarebbe stata comunque eliminata: soddisfatto del risultato, ottenuto in tutti e cinque i percorsi, mette fine alla simulazione. Il destino ultimo di Nemo dopo questa \"purga\" cambia a seconda del finale raggiunto, e va dal rilascio nel mondo reale con esito ignoto alla condanna a restare imprigionato nel programma, costretto a ripetere la simulazione della guerra all'infinito, passando per altre varianti intermedie. Nessuna fonte ufficiale, né dell'epoca né successiva, ha mai dichiarato quale dei cinque finali sia quello canonico: tutti restano ufficialmente validi e nessuno è mai stato riconosciuto come l'esito \"vero\" della vicenda.",
               en: "On the Usean continent, now ruled by megacorporations in place of nation-states, pilot Nemo serves the peacekeeping organization UPEO as the rivalry between Neucom (heir to the Belkan industries) and General Resource escalates into the Intercorporate War. Behind the conflict lies Ouroboros, a transhumanist movement operating through the Electrosphere — the global network onto which one's consciousness can be uploaded — led by General Resource's legendary ace Abyssal Dision. Halfway through the story it is revealed that Dision is in fact a digital copy of the real Dision, who died years earlier together with neuroscientist Yoko Martha Inoue in a bombing actually orchestrated by General Resource to cover up her research into consciousness sublimation; the copy, having survived within the Electrosphere, now leads Ouroboros with the goal of forcing all of humanity to undergo sublimation.\n\nThe player's choices at the game's narrative branch points (the \"Turning Points\") determine both which faction Nemo ultimately sides with — UPEO, Neucom, General Resource, or Ouroboros itself — and which of the pilots Erich, Fiona, Cynthia and Keith becomes Nemo's wingman, or whether Nemo remains a lone wolf with no allies: the combination produces five distinct endings, each of which closes the war with the defeat of Dision and Ouroboros, but with different outcomes for the factions involved and for the fate of Nemo's companions.\n\nWhoever completes all five endings unlocks one final revelation common to all of them: the entire Intercorporate War was nothing more than a simulation run by Simon Orestes Cohen, a Neucom researcher who blames Dision for Yoko's death, inside the artificial intelligence program named — precisely — \"Nemo,\" the same Nemo controlled by the player. Cohen wanted to verify whether, in every possible course the war could take, the digital copy of Dision would end up eliminated regardless: satisfied with the result, achieved across all five paths, he brings the simulation to an end. Nemo's ultimate fate after this \"purge\" varies depending on which ending was reached, ranging from release into the real world with an unknown outcome to being condemned to remain trapped within the program, forced to replay the war simulation forever, with other intermediate variants in between. No official source, past or present, has ever declared which of the five endings is canonical: all of them remain officially valid, and none has ever been recognized as the story's \"true\" outcome."
+            }
+          }
+        ],
+        umbrellas: [
+          { id: "collasso-estovacchia", type: "STORIA", typeEn: "STORY", year: "1999 – 2015", yearEn: "1999 – 2015",
+            noAvatar: true,
+            title: { it: "Il Collasso dell'Estovakia", en: "The Collapse of Estovakia" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // doppia sottile): copre lo stesso arco di date delle voci
+            // che racchiude, ma racconta eventi ambientati altrove,
+            // scollegati, senza alcun punto di contatto narrativo con
+            // esse. L'arco comincia subito dopo "L'Impatto di Ulisse"
+            // (che ne è la causa scatenante) e subito prima di
+            // "Ace Combat 04" - da cui inizia infatti il racconto della
+            // crisi economica/rivolta estovakiana - e finisce subito
+            // prima di "Ace Combat 6", dove la guerra dei Generali
+            // esplode apertamente: comprende quindi "Ace Combat 04",
+            // "La Distensione di Osea e Yuktobania" e "Ace Combat 5".
+            // Arco e assenza di collegamento narrativo verificati
+            // rileggendo tutte le sinossi coinvolte, confermato da
+            // Sakrem.
+            lineStyle: "double",
+            startsBeforeId: "ace-04",
+            endsBeforeId: "ace-6",
+            synopsis: {
+              it: "Colpita duramente dall'impatto di Ulisse, l'Estovakia vede la propria economia crollare e le infrastrutture ridotte allo stremo, mentre la vicina Emmeria, investita dalla stessa crisi ma uscitane pressoché indenne, si rimette rapidamente in piedi. Il divario tra le due nazioni alimenta un risentimento profondo: in Estovakia scoppia una guerra civile da cui emerge una giunta militare, ribattezzata dalla popolazione 'I Generali', che consolida il potere promettendo di restituire al paese la forza perduta. Negli anni successivi la giunta riarma segretamente le forze armate, decisa a risolvere con la forza ciò che la diplomazia non può più permettersi.",
+              en: "Hit hard by the Ulysses impact, Estovakia sees its economy collapse and its infrastructure pushed to breaking point, while neighbouring Emmeria, struck by the same crisis but left largely unscathed, recovers quickly. The gap between the two nations fuels deep resentment: a civil war breaks out in Estovakia, from which a military junta emerges — nicknamed 'The Generals' by the population — consolidating power by promising to restore the country's lost strength. Over the following years the junta secretly rearms its military, determined to settle by force what diplomacy can no longer afford."
+            }
+          },
+          { id: "ascesa-erusea", type: "STORIA", typeEn: "STORY", year: "2005 – 2019", yearEn: "2005 – 2019",
+            noAvatar: true,
+            title: { it: "L'Ascesa di Erusea", en: "The Rise of Erusea" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // doppia sottile): stesso meccanismo di "Il Collasso
+            // dell'Estovakia" qui sopra, arco parzialmente sovrapposto
+            // al suo (entrambi racchiudono "La Distensione di Osea e
+            // Yuktobania" e "Ace Combat 5") - voluto, due fili narrativi
+            // scollegati che corrono in parallelo nello stesso periodo,
+            // non un errore. L'arco comincia subito dopo "Ace Combat 04"
+            // (il dopoguerra da cui parte l'ascesa di Erusea) e subito
+            // prima della STORIA "La Distensione di Osea e Yuktobania",
+            // e finisce subito prima di "Ace Combat 7", dove la nuova
+            // guerra continentale esplode apertamente: comprende quindi
+            // "La Distensione di Osea e Yuktobania", "Ace Combat 5" e
+            // "Ace Combat 6". Arco e assenza di collegamento narrativo
+            // verificati rileggendo tutte le sinossi coinvolte,
+            // confermato da Sakrem.
+            lineStyle: "double",
+            startsBeforeId: "distensione-osea-yuktobania",
+            endsBeforeId: "ace-7",
+            synopsis: {
+              it: "Nel dopoguerra seguito alla Guerra Continentale, Erusea si riprende con sorprendente rapidità dalla sconfitta, ampliando i propri confini fino a inglobare diversi piccoli stati vicini, tra cui un antico ducato la cui famiglia reale viene spodestata dall'espansione. All'interno del rinnovato apparato militare prende forma un ambizioso programma di ricerca, volto a sviluppare droni da combattimento autonomi capaci di sostituire i piloti umani in battaglia. Parallelamente la comunità internazionale completa un ascensore spaziale pensato per rispondere a future minacce dallo spazio. Le tensioni territoriali e la sfiducia reciproca accumulate in questi anni sfoceranno, nel 2019, in un nuovo conflitto su scala continentale.",
+              en: "In the aftermath of the Continental War, Erusea recovers from defeat with surprising speed, expanding its borders to absorb several small neighbouring states, including an ancient duchy whose royal family is deposed by the expansion. Within the renewed military apparatus, an ambitious research programme takes shape, aimed at developing autonomous combat drones capable of replacing human pilots in battle. Meanwhile the international community completes a space elevator designed to counter future threats from space. The territorial tensions and mutual distrust accumulated over these years will erupt, in 2019, into a new continent-wide conflict."
             }
           }
         ]

@@ -684,22 +684,36 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     // due turni gia' consumati dal gemello (che occupa sia sopra che
     // sotto sullo stesso pallino).
 
-  // Stato dell'arco ombrello attivo (PARTE 3 punto 3 del
-  // regolamento): null quando non siamo dentro nessun arco. Al primo
-  // incontro di un dato oggetto ombrello (il suo pallino sinistro) si
-  // calcola il lato normalmente e lo si "congela" qui; ogni voce
-  // successiva finche' non si richiude lo stesso ombrello (il suo
-  // pallino destro) viene forzata sul lato OPPOSTO; il pallino destro
-  // stesso viene forzato sullo STESSO lato del sinistro (cosi' il
-  // trattino che li collega, quando verra' disegnato, corre pulito
-  // su un solo lato senza mai attraversare le voci comprese, che
-  // stanno tutte compatte sull'altro). Non e' un lato fisso uguale
-  // per ogni ombrello (a differenza del gemello): dipende da dove
-  // capita il pallino sinistro nella normale alternanza - ma una
-  // volta deciso per QUESTO ombrello, resta identico per entrambi i
-  // suoi pallini e per tutto cio' che comprende in mezzo.
-  let activeUmbrellaObj = null;
-  let activeUmbrellaTileDown = null;
+  // Stack degli archi ombrello attualmente "aperti" (PARTE 3 punto 3
+  // del regolamento): vuoto quando non siamo dentro nessun arco. Al
+  // primo incontro di un dato oggetto ombrello (il suo pallino
+  // sinistro) si calcola il lato e lo si "congela" qui (push); al
+  // secondo incontro (il suo pallino destro, che richiude l'arco) lo
+  // stesso lato viene riletto e l'oggetto esce dallo stack (pop). Uno
+  // STACK e non una singola variabile perche' due archi ombrello
+  // possono sovrapporsi parzialmente (due filoni narrativi paralleli
+  // e scollegati fra loro sullo stesso periodo, vedi "Il Collasso
+  // dell'Estovakia" / "L'Ascesa di Erusea" in Ace Combat): quando un
+  // secondo arco si apre mentre il primo e' ancora attivo, eredita lo
+  // STESSO lato del primo (stack[0].tileDown) invece di ricalcolarlo
+  // da zero - se lo ricalcolasse potrebbe risultare sul lato opposto,
+  // lasciando le voci comprese in mezzo strette fra due lati diversi
+  // in conflitto, ed e' proprio questo che una singola variabile (non
+  // uno stack) causerebbe: il secondo arco che si apre sovrascrive lo
+  // stato del primo ancora aperto, che alla sua chiusura verrebbe
+  // scambiato per un arco mai aperto, corrompendo l'alternanza di
+  // TUTTA la linea da li' in avanti fino alla fine.
+  // Il pallino destro di ciascun arco viene sempre forzato sullo
+  // STESSO lato del proprio sinistro (cosi' il trattino che li
+  // collega, quando verra' disegnato, corre pulito su un solo lato
+  // senza mai attraversare le voci comprese, che stanno tutte
+  // compatte sull'altro). Non e' un lato fisso uguale per ogni
+  // ombrello (a differenza del gemello): dipende da dove capita il
+  // pallino sinistro nella normale alternanza (o dal lato ereditato
+  // se annidato in un altro arco gia' aperto) - ma una volta deciso
+  // per QUESTO ombrello, resta identico per entrambi i suoi pallini e
+  // per tutto cio' che comprende in mezzo.
+  let openUmbrellas = [];
 
   // Genera il markup di copertina+titolo per meta' di un nodo
   // (usata sia per una voce normale sia per ciascuna delle due meta'
@@ -729,33 +743,41 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
     let tileDown;
     if(isUmbrella){
-      if(activeUmbrellaObj !== entry){
-        // Pallino SINISTRO di questo ombrello (primo incontro): lato
-        // calcolato normalmente, poi congelato per tutto l'arco.
-        tileDown = (turn % 2 === 0);
-        activeUmbrellaObj = entry;
-        activeUmbrellaTileDown = tileDown;
+      const openIdx = openUmbrellas.findIndex(o => o.obj === entry);
+      if(openIdx === -1){
+        // Pallino SINISTRO di questo ombrello (primo incontro): se
+        // nessun altro arco e' gia' aperto, lato calcolato
+        // normalmente come qualunque voce; se invece si sovrappone ad
+        // almeno un arco gia' aperto, eredita lo STESSO lato di
+        // quello (openUmbrellas[0].tileDown, tutti gli archi aperti
+        // condividono sempre un unico lato, mai lati diversi tra
+        // loro) - poi congelato per tutto il proprio arco.
+        tileDown = openUmbrellas.length ? openUmbrellas[0].tileDown : (turn % 2 === 0);
+        openUmbrellas.push({ obj: entry, tileDown });
       } else {
         // Pallino DESTRO (richiude lo stesso ombrello aperto sopra):
-        // stesso lato del sinistro, poi l'arco si chiude. La voce
-        // SUCCESSIVA deve pero' riprendere l'alternanza pulita dal
-        // lato OPPOSTO a questo pallino di chiusura (mai due voci di
-        // fila sullo stesso lato al confine dell'arco) - la parita'
-        // "naturale" di turn a questo punto puo' pero' essere
-        // qualunque delle due, a seconda di quante voci erano
-        // comprese nell'arco (pari o dispari), quindi va forzata qui
-        // esplicitamente invece di lasciarla al caso: dopo il
-        // turn+=1 generale piu' sotto, (turn%2===0) deve dare
-        // esattamente !tileDown.
-        tileDown = activeUmbrellaTileDown;
-        activeUmbrellaObj = null;
-        activeUmbrellaTileDown = null;
-        turn = tileDown ? 0 : 1;
+        // stesso lato del proprio sinistro, poi esce dallo stack. Se
+        // era l'ULTIMO arco ancora aperto, la voce SUCCESSIVA deve
+        // riprendere l'alternanza pulita dal lato OPPOSTO a questo
+        // pallino di chiusura (mai due voci di fila sullo stesso lato
+        // al confine dell'arco) - la parita' "naturale" di turn a
+        // questo punto puo' pero' essere qualunque delle due, a
+        // seconda di quante voci erano comprese nell'arco (pari o
+        // dispari), quindi va forzata qui esplicitamente invece di
+        // lasciarla al caso: dopo il turn+=1 generale piu' sotto,
+        // (turn%2===0) deve dare esattamente !tileDown. Se invece
+        // resta almeno un altro arco ancora aperto (sovrapposizione),
+        // l'alternanza normale non riprende ancora: turn non va
+        // toccato.
+        tileDown = openUmbrellas[openIdx].tileDown;
+        openUmbrellas.splice(openIdx, 1);
+        if(!openUmbrellas.length) turn = tileDown ? 0 : 1;
       }
-    } else if(activeUmbrellaObj !== null){
-      // Voce compresa dentro un arco ombrello attivo: forzata sul
-      // lato opposto ai due pallini dell'ombrello che la racchiudono.
-      tileDown = !activeUmbrellaTileDown;
+    } else if(openUmbrellas.length){
+      // Voce compresa dentro uno o piu' archi ombrello attivi:
+      // forzata sul lato opposto ai pallini degli ombrelli che la
+      // racchiudono (tutti sullo stesso lato tra loro, vedi sopra).
+      tileDown = !openUmbrellas[0].tileDown;
     } else {
       tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
         // serve un "lato": occupa entrambi, il valore non viene usato
@@ -895,6 +917,23 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
   });
   const DASH_REACH = 15; // 5px margine + 10px lunghezza del trattino verticale, vedi CSS
+  // Due archi ombrello diversi possono coprire tratti di linea che si
+  // sovrappongono in orizzontale e finire sullo stesso lato (vedi lo
+  // stack in buildUniverseTrack qui sopra: e' proprio quello che
+  // succede quando si annidano/sovrappongono - stesso lato per
+  // costruzione, mai lati diversi). Senza correttivo i loro trattini
+  // finirebbero esattamente alla stessa altezza nel tratto condiviso,
+  // il secondo disegnato sopra al primo (stesso z-index, ultimo nel
+  // DOM vince) al punto da nascondere completamente il primo: non un
+  // errore di logica (il meccanismo ombrello resta lo stesso), solo
+  // un dettaglio grafico. placedBySide tiene traccia, per lato,
+  // dei trattini gia' piazzati con il loro intervallo [xLeft,xRight]:
+  // quando un nuovo trattino si sovrappone in x con uno o piu' gia'
+  // presenti sullo stesso lato, viene spostato un altro OFFSET_STEP
+  // piu' lontano dalla linea principale, cosi' i tratti condivisi
+  // restano entrambi leggibili invece di fondersi in uno solo.
+  const OFFSET_STEP = 7;
+  const placedBySide = { down: [], up: [] };
   uni.umbrellas.forEach(umb => {
     const pair = byId[umb.id];
     if(!pair || pair.length !== 2) return;
@@ -905,11 +944,18 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     const isDown = nodeA.classList.contains("h-node--down"); // stesso lato per forza su entrambi, vedi buildUniverseTrack
     const rectA = markerA.getBoundingClientRect();
     const rectB = markerB.getBoundingClientRect();
-    const y = isDown
-      ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH - timelineRect.top
-      : Math.min(rectA.top, rectB.top) - DASH_REACH - timelineRect.top;
     const xLeft = Math.min(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left + scrollLeft;
     const xRight = Math.max(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left + scrollLeft;
+
+    const sideKey = isDown ? "down" : "up";
+    const placed = placedBySide[sideKey];
+    const overlapCount = placed.filter(p => xLeft < p.xRight && xRight > p.xLeft).length;
+    placed.push({ xLeft, xRight });
+    const extraOffset = overlapCount * OFFSET_STEP;
+
+    const y = isDown
+      ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH + extraOffset - timelineRect.top
+      : Math.min(rectA.top, rectB.top) - DASH_REACH - extraOffset - timelineRect.top;
     const link = document.createElement("span");
     link.className = "h-node__umbrella-link";
     link.style.left = xLeft.toFixed(2) + "px";
