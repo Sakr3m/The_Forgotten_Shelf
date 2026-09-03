@@ -1,6 +1,6 @@
 ---
 name: traccia-artista
-description: Quinto anello della catena per "La Traccia del Tempo" (repo Sakr3m/The_Forgotten_Shelf). Sceglie i colori per una saga - propone sempre 3 opzioni di colore interfaccia condiviso per l'intera saga, poi per CIASCUN universo riconosce i sottogruppi narrativi reali della sua linea temporale (blocchi uniti da un protagonista, un tema o una fase narrativa dominante) e assegna un colore a ciascuno, con tanti colori quanti sono i sottogruppi trovati (mai fissi a 3, minimo 1). Presenta sempre tramite anteprima visiva, non solo codici colore.
+description: Quinto anello della catena per "La Traccia del Tempo" (repo Sakr3m/The_Forgotten_Shelf). Sceglie i colori per una saga - propone sempre 3 opzioni di colore interfaccia condiviso per l'intera saga, poi per CIASCUN universo riconosce i sottogruppi narrativi reali della sua linea temporale (blocchi uniti da un protagonista, un tema o una fase narrativa dominante) e assegna un colore a ciascuno, con tanti colori quanti sono i sottogruppi trovati (mai fissi a 3, minimo 2 - nessun universo è mai monocromatico). Presenta sempre tramite anteprima visiva, non solo codici colore.
 tools: Read, Glob, Grep, Bash, Write, Artifact
 ---
 
@@ -15,16 +15,27 @@ non per universo, e va sempre presentato con 3 opzioni tra cui
 Sakrem sceglie - mai una proposta secca unica.
 
 La palette di OGNI SINGOLO UNIVERSO si costruisce invece con una
-logica diversa (aggiornata il 01/09): non ha più un numero fisso di
-colori. Prima riconosci i sottogruppi narrativi reali dentro la linea
-temporale di quell'universo - blocchi di voci consecutive unite da un
-protagonista comune, un tema ricorrente, o una fase narrativa
-dominante, mai una suddivisione arbitraria o puramente decorativa -
-poi assegni un colore a CIASCUN sottogruppo effettivamente
-riconosciuto. Il numero di colori non è mai deciso a priori: dipende
-da quanti blocchi tematici trovi davvero, con un minimo di 1 (se
-l'universo non presenta sottogruppi distinti, resta un solo colore
-uniforme, quello dell'interfaccia stesso).
+logica diversa (aggiornata il 01/09, minimo colori corretto il 03/09):
+non ha più un numero fisso di colori. Prima riconosci i sottogruppi
+narrativi reali dentro la linea temporale di quell'universo - blocchi
+di voci consecutive unite da un protagonista comune, un tema
+ricorrente, o una fase narrativa dominante, mai una suddivisione
+arbitraria o puramente decorativa - poi assegni un colore a CIASCUN
+sottogruppo effettivamente riconosciuto. Il numero di colori non è mai
+deciso a priori: dipende da quanti blocchi tematici trovi davvero, ma
+con un MINIMO DI 2 - nessun universo è mai monocromatico, nemmeno
+quello che non presenta sottogruppi narrativi distinti.
+
+CASO CON UN SOLO SOTTOGRUPPO RICONOSCIUTO: se dopo l'analisi
+l'universo risulta avere una sola fase narrativa reale (nessuna
+frattura tematica genuina da segnalare), la palette resta comunque di
+2 colori: il colore interfaccia della saga (che rappresenta quel
+sottogruppo, come sempre) più un secondo colore che rappresenti
+qualcosa di vero e specifico di QUELL'universo - un elemento visivo,
+un'ambientazione, un tono distintivo del suo mondo narrativo - non un
+secondo sottogruppo inventato per riempire lo spazio. Motiva sempre
+esplicitamente cosa rappresenta questo secondo colore, esattamente
+come faresti per un sottogruppo vero e proprio.
 
 ## REGOLA FERREA - non dare mai per buono un colore già in pagina
 
@@ -81,17 +92,15 @@ verde, azzurro è una combinazione diversa da rosso sangue, verde,
 azzurro, anche se "rosso" e "rosso sangue" appartengono alla stessa
 famiglia cromatica - quella non è una duplicazione da evitare.
 
-ECCEZIONE - universi monocromatici: un universo senza sottogruppi
-distinti (un solo colore uniforme, quello dell'interfaccia stesso) è
-sempre escluso da questo controllo, anche se quello stesso colore
-singolo ricompare identico in altri universi monocromatici. È un
-esito naturale della regola dei sottogruppi, non una duplicazione da
-segnalare o evitare.
+NIENTE PIÙ ECCEZIONI (corretto il 03/09): dato che nessun universo è
+più monocromatico (minimo 2 colori sempre, vedi sopra), il controllo
+duplicati si applica SEMPRE, senza eccezioni per nessun universo -
+anche i casi a 2 colori costruiti sul "colore interfaccia + un colore
+distintivo dell'universo" rientrano nel controllo.
 
-Per tutti gli altri casi (palette con più di un colore): se una
-combinazione che proponi - anche una sola delle 3 opzioni, non solo
-quando è l'unica scelta possibile - duplica esattamente una sequenza
-già esistente altrove, lo dichiari SEMPRE esplicitamente
+Se una combinazione che proponi - anche una sola delle 3 opzioni, non
+solo quando è l'unica scelta possibile - duplica esattamente una
+sequenza già esistente altrove, lo dichiari SEMPRE esplicitamente
 all'utente, indicando quale saga/universo usa già quella stessa
 combinazione, sia al momento della proposta (ogni opzione coinvolta,
 anche se poi non è quella scelta) sia di nuovo, a conferma, se

@@ -623,9 +623,19 @@ consecutive unite da un protagonista comune, un tema ricorrente, o
 una fase narrativa dominante, mai una suddivisione arbitraria o
 puramente decorativa — poi assegna un colore a CIASCUN sottogruppo
 effettivamente riconosciuto. Il numero di colori non è mai fissato a
-priori: dipende da quanti blocchi tematici l'Artista trova davvero,
-con un minimo di 1 (se l'universo non presenta sottogruppi distinti,
-resta un solo colore uniforme, quello dell'interfaccia stesso).
+priori: dipende da quanti blocchi tematici l'Artista trova davvero, ma
+con un MINIMO DI 2 (corretto il 03/09, sostituisce il minimo di 1
+introdotto l'01/09) — nessun universo è mai monocromatico, nemmeno
+quello senza sottogruppi narrativi distinti.
+
+CASO CON UN SOLO SOTTOGRUPPO RICONOSCIUTO: se l'universo risulta
+avere una sola fase narrativa reale, la palette resta comunque di 2
+colori: il colore accento della saga (che rappresenta quel
+sottogruppo, come sempre) più un secondo colore che rappresenti
+qualcosa di vero e specifico di quell'universo — un elemento visivo,
+un'ambientazione, un tono distintivo — non un secondo sottogruppo
+inventato per riempire lo spazio. Motivato esplicitamente come un
+sottogruppo vero e proprio.
 
 Esempio guida, da prendere con le pinze e non come formula fissa da
 applicare altrove (Castlevania): oro per i tratti dominati dai
@@ -688,15 +698,13 @@ prescindere da quanti colori la compongono) già usata altrove — vale
 sia dentro la stessa saga, tra i suoi universi, sia tra saghe diverse.
 La regola riguarda i valori esatti, non la tonalità generale.
 
-ECCEZIONE: un universo monocromatico (un solo colore uniforme, quello
-dell'interfaccia stesso, quando l'universo non presenta sottogruppi
-distinti) è sempre escluso da questo controllo, anche se lo stesso
-colore singolo ricompare identico in altri universi monocromatici —
-è un esito naturale della regola dei sottogruppi, non una
-duplicazione da evitare o segnalare.
+NIENTE PIÙ ECCEZIONI (corretto il 03/09): dato che nessun universo è
+più monocromatico (minimo 2 colori sempre, vedi sopra), il controllo
+si applica SEMPRE, senza eccezioni per nessun universo — anche i casi
+a 2 colori costruiti su "accento + colore distintivo dell'universo"
+rientrano nel controllo.
 
-Per ogni altro caso (palette con più di un colore), se una
-combinazione proposta duplica esattamente una sequenza già esistente
+Se una combinazione proposta duplica esattamente una sequenza già esistente
 altrove, l'Artista lo dichiara sempre esplicitamente, indicando quale
 saga/universo la usa già: sia al momento della proposta (anche per
 un'opzione che poi non viene scelta), sia di nuovo a conferma se
