@@ -351,7 +351,7 @@ const GAMES = {
         id: "darkworks",
         name: { it: "Universo Darkworks", en: "Darkworks Universe" },
         span: { it: "2001", en: "2001" },
-        palette: ["#D1903D"],
+        palette: ["#D1903D", "#4E6B5A"],
         entries: [
           {
             id: "life-is-a-hideous-thing",
@@ -425,7 +425,7 @@ const GAMES = {
         id: "pieces-interactive",
         name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
         span: { it: "2024", en: "2024" },
-        palette: ["#D1903D"],
+        palette: ["#D1903D", "#9BAF9A"],
         entries: [
           {
             id: "grace-in-the-dark",
