@@ -462,11 +462,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://sakr3m.github.io/The_Forgotten_Shelf/voci/la-traccia-del-tempo/assassins-creed/forsaken.html</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://sakr3m.github.io/The_Forgotten_Shelf/voci/la-traccia-del-tempo/assassins-creed/assassins-creed-3.html</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -493,6 +488,11 @@
   </url>
   <url>
     <loc>https://sakr3m.github.io/The_Forgotten_Shelf/voci/la-traccia-del-tempo/assassins-creed/syndicate.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://sakr3m.github.io/The_Forgotten_Shelf/voci/la-traccia-del-tempo/assassins-creed/forsaken.html</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
   </url>
