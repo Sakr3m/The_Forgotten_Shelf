@@ -917,6 +917,7 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     link.style.top = y.toFixed(2) + "px";
     const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
     if(color) link.style.setProperty("--dot-color", color);
+    link.style.setProperty("--line-style", umb.lineStyle || "solid");
     liveTimeline.appendChild(link);
   });
 }

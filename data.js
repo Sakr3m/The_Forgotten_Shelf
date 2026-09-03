@@ -646,6 +646,10 @@ const GAMES = {
           { id: "secret-crusade", type: "ROMANZO", typeEn: "NOVEL", year: "1176 circa – 1257", yearEn: "c. 1176 – 1257",
             releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Assassin's Creed: La crociata segreta", en: "Assassin's Creed: The Secret Crusade" },
+            // Racconto/flashback (Niccolò Polo narra a voce la vita di
+            // Altaïr), non un'esperienza vissuta in prima persona da chi
+            // legge - lineStyle "dotted" (PARTE 3 punto 3, variante 3).
+            lineStyle: "dotted",
             // Voce "ombrello" (PARTE 3 punto 3 del regolamento): la sua
             // trama copre l'intera vita di Altaïr, dall'infanzia fino
             // alla morte a Masyaf nel 1257 - racconto in flashback fatto
@@ -741,14 +745,6 @@ const GAMES = {
         span: { it: "1725 – 1868", en: "1725 – 1868" },
         palette: ["#1D3F73", "#8B1A2E", "#E8DCC0"],
         entries: [
-          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
-            releaseYear: "2012", releaseYearEn: "2012",
-            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
-            synopsis: {
-              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
-              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
-            }
-          },
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
             releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",
             title: { it: "Assassin's Creed III", en: "Assassin's Creed III" },
@@ -798,6 +794,25 @@ const GAMES = {
             synopsis: {
               it: "Nella Londra vittoriana dominata dallo sfruttamento industriale, i gemelli Assassini Jacob ed Evie Frye giungono in città per strappare il controllo dei quartieri operai alla banda templare dei Blighters guidata da Pearl Attaway e Rupert Ferris, fondando una propria gang, i Rooks. Mentre Jacob si getta nel conflitto di strada con metodi diretti e talvolta imprudenti, Evie segue una pista più metodica che la porta a recuperare un antico Frutto dell'Eden custodito dai Templari, incrociando lungo il cammino figure storiche come Charles Dickens, Charles Darwin e Karl Marx.",
               en: "In Victorian London dominated by industrial exploitation, the Assassin twins Jacob and Evie Frye arrive in the city to wrest control of its working-class districts from the Templar gang known as the Blighters, led by Pearl Attaway and Rupert Ferris, founding their own gang, the Rooks. While Jacob throws himself into the street conflict with direct and sometimes reckless methods, Evie follows a more methodical trail that leads her to recover an ancient Piece of Eden held by the Templars, crossing paths along the way with historical figures such as Charles Dickens, Charles Darwin, and Karl Marx."
+            }
+          }
+        ],
+        umbrellas: [
+          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento): stessi
+            // eventi (la Rivoluzione Americana) di "assassins-creed-3",
+            // ma vissuti da un personaggio diverso (Haytham Kenway
+            // invece di Connor) - lineStyle "dashed" (variante 2).
+            // L'arco copre solo Assassin's Creed III, non si estende
+            // fino a Unity.
+            lineStyle: "dashed",
+            startsBeforeId: "assassins-creed-3",
+            endsBeforeId: "unity",
+            synopsis: {
+              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
+              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
             }
           }
         ]
