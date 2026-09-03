@@ -196,7 +196,7 @@ button, a{ touch-action:manipulation; }
   .game-rail-decor .rail-label{ margin-top:9px; } /* stesso allineamento verticale della sidebar */
   .game-rail-content{ display:flex; flex-direction:column; gap:20px; }
   .game-rail-content__universe-name{
-    font-size:.82rem; font-weight:700; color:var(--text);
+    font-size:15px; font-weight:700; color:var(--text);
     margin-bottom:6px;
   }
   .game-rail-content__counts{
