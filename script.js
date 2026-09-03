@@ -427,22 +427,35 @@ function activePalette(){
   return (u && u.palette) || (g && g.palette) || DEFAULT_PALETTE;
 }
 
+// Percentuali dei singoli stop lungo il gradiente, in funzione del
+// numero di colori della palette attiva. Il caso a 3 colori (il piu'
+// diffuso, praticamente tutte le saghe) resta 0/55/100 esattamente
+// come prima (non equidistante, scelto a suo tempo per dare piu'
+// respiro al colore centrale) - non va toccato per non alterare il
+// rendering di tutte le altre saghe. Palette con un numero diverso di
+// colori (es. i 4 stop di un universo con sotto-gruppi narrativi,
+// PARTE 3 punto 1 del regolamento) usano stop equidistanti.
+function paletteStopPercents(n){
+  if(n === 3) return [0, 55, 100];
+  if(n <= 1) return [0];
+  return Array.from({ length: n }, (_, i) => (i / (n - 1)) * 100);
+}
+
 function currentGradientStops(){
   const palette = activePalette();
-  return [
-    { p: 0,    c: hexToRgb(palette[0]) },
-    { p: 0.55, c: hexToRgb(palette[1]) },
-    { p: 1,    c: hexToRgb(palette[2]) }
-  ];
+  const percents = paletteStopPercents(palette.length);
+  return palette.map((hex, i) => ({ p: percents[i] / 100, c: hexToRgb(hex) }));
 }
 
 function applyPaletteToCSS(){
   const g = currentGame();
   const palette = activePalette();
+  const percents = paletteStopPercents(palette.length);
   document.body.style.setProperty("--tl-1", palette[0]);
-  document.body.style.setProperty("--tl-2", palette[1]);
-  document.body.style.setProperty("--tl-3", palette[2]);
-  document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`);
+  document.body.style.setProperty("--tl-2", palette[Math.min(1, palette.length - 1)]);
+  document.body.style.setProperty("--tl-3", palette[palette.length - 1]);
+  const gradientCss = "linear-gradient(90deg, " + palette.map((hex, i) => `${hex} ${percents[i]}%`).join(", ") + ")";
+  document.body.style.setProperty("--gradient", gradientCss);
   document.body.style.setProperty("--cyan", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
   const bannerOffset = (g && g.bannerOffset != null) ? g.bannerOffset : 125;
   document.body.style.setProperty("--banner-x-offset", bannerOffset + "px");

@@ -14,7 +14,7 @@ const GAMES = {
       en: "In the skies of a fictional world called Strangereal, fighter pilots fight for control of nations at war. Every conflict hides political ambition, betrayed alliances, and superweapons capable of reshaping the fate of entire continents. At the center of it all, a silent ace who flies for those who have no voice."
     },
     palette: ["#e0813f", "#98a2ab", "#4f8fc0"],
-    accentColor: "#4F7BA1",
+    accentColor: "#3E7CAE",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Linkage.mp3", title: "Linkage", game: "Ace Combat 3: Electrosphere" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20The%20Unsung%20War.mp3", title: "The Unsung War", game: "Ace Combat 5: The Unsung War" },
@@ -33,7 +33,7 @@ const GAMES = {
         id: "vera-strangereal",
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
         span: { it: "1995 – 2040", en: "1995 – 2040" },
-        palette: ["#F2C94C", "#4F7BA1", "#E8E2D0"],
+        palette: ["#3D2A1E", "#3E7CAE", "#C99A3E", "#1E8F94"],
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Air Combat", en: "Air Combat" },
@@ -219,7 +219,7 @@ const GAMES = {
         id: "cieli-terrestri",
         name: { it: "Cieli Terrestri", en: "Earthly Skies" },
         span: { it: "2002 – 2016", en: "2002 – 2016" },
-        palette: ["#E8825C", "#4F7BA1", "#2C3E50"],
+        palette: ["#C97830", "#661F30", "#3E7CAE"],
         entries: [
           { id: "ikaros-in-the-sky", type: "ROMANZO", typeEn: "NOVEL", year: "2002", yearEn: "2002", releaseYear: "2012", releaseYearEn: "2012",
             title: { it: "Ace Combat: Ikaros in the Sky", en: "Ace Combat: Ikaros in the Sky" },
