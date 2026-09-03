@@ -625,15 +625,6 @@ const GAMES = {
               en: "In Florence, the Assassin Giovanni Auditore, father of future protagonist Ezio, investigates a conspiracy orchestrated by Rodrigo Borgia against the Medici family, foiling an assassination attempt on the Duke of Milan, Galeazzo Maria Sforza, at the last moment. Giovanni's investigation uncovers the web of betrayals that will shortly cost him and two of his sons their lives, setting in motion the revenge told in Assassin's Creed II. A live-action short film trilogy produced by Ubisoft, made as a direct lead-in to the game."
             }
           },
-          { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
-            releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
-            title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20II.jpg",
-            synopsis: {
-              it: "Nella Firenze rinascimentale, il giovane nobile Ezio Auditore da Firenze assiste all'esecuzione ingiusta del padre e dei fratelli, incastrati dai Templari con l'accusa di tradimento. Addestrato all'arte dell'assassinio dallo zio Mario, Ezio dà la caccia ai cospiratori attraverso Firenze, Venezia e Roma, scoprendo il coinvolgimento dei Borgia e la ricerca templare della Mela dell'Eden, un antico artefatto degli Isu. Il gioco che ha reso Ezio l'icona più riconoscibile della serie, primo capitolo di una trilogia.",
-              en: "In Renaissance Florence, the young nobleman Ezio Auditore da Firenze witnesses the unjust execution of his father and brothers, framed by the Templars on charges of treason. Trained in the art of assassination by his uncle Mario, Ezio hunts down the conspirators across Florence, Venice, and Rome, uncovering the involvement of the Borgia family and the Templars' pursuit of the Apple of Eden, an ancient Isu artefact. The game that made Ezio the series' most recognisable icon, the first chapter of a trilogy."
-            }
-          },
           { id: "assassins-creed-film", type: "LIVE ACTION", typeEn: "LIVE ACTION", year: "1491 – 1492", yearEn: "1491 – 1492",
             releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Assassin's Creed (Film + Novelization)", en: "Assassin's Creed (Film + Novelization)" },
@@ -704,6 +695,28 @@ const GAMES = {
             synopsis: {
               it: "Nel 1257, ospiti alla fortezza di Masyaf poco prima del suo assedio finale, il mercante veneziano Niccolò Polo racconta al fratello Maffeo l'intera vita di Altaïr Ibn-La'Ahad: dall'infanzia, segnata dall'esecuzione pubblica del padre Umar durante un assedio quando Altaïr aveva undici anni, attraverso l'ascesa nei ranghi della Confraternita, il tradimento e l'uccisione del proprio mentore Al Mualim, gli eventi già narrati in Assassin's Creed (1191) e Assassin's Creed: Bloodlines (1191), il tradimento dell'amico Abbas Sofian e la tragedia che ne consegue per la sua famiglia, fino al lungo mandato di Altaïr come Mentore e alla sua morte solitaria a Masyaf nel 1257. Solo nell'ultima pagina si scopre che il \"lettore\" della cornice narrativa a cui Niccolò ha affidato il proprio racconto è in realtà Ezio Auditore, che chiude il diario e sbarca a Costantinopoli, l'apertura diretta di Assassin's Creed: Revelations.",
               en: "In 1257, while guests at the fortress of Masyaf shortly before its final siege, Venetian merchant Niccolò Polo recounts to his brother Maffeo the entire life of Altaïr Ibn-La'Ahad: from his childhood, marked by the public execution of his father Umar during a siege when Altaïr was eleven, through his rise through the ranks of the Brotherhood, the betrayal and killing of his own mentor Al Mualim, the events already told in Assassin's Creed (1191) and Assassin's Creed: Bloodlines (1191), the betrayal of his friend Abbas Sofian and the tragedy that befalls his family as a result, up to Altaïr's long tenure as Mentor and his solitary death at Masyaf in 1257. Only on the final page is it revealed that the \"reader\" of the framing narrative, to whom Niccolò has entrusted his account, is in fact Ezio Auditore, who closes the journal and sails for Constantinople — the direct lead-in to the opening of Assassin's Creed: Revelations."
+            }
+          },
+          { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
+            releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
+            title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20II.jpg",
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // doppia sottile): il gioco (1476-1499, Ezio a Firenze,
+            // Venezia e Roma) e il film Assassin's Creed (1491-1492,
+            // Aguilar in Spagna) si svolgono in parallelo nello stesso
+            // periodo, senza alcun punto di contatto narrativo
+            // (personaggi diversi, nazioni diverse, Mele dell'Eden
+            // esplicitamente diverse). L'arco comincia subito prima di
+            // "assassins-creed-film" e finisce subito prima di
+            // "brotherhood", racchiudendo il solo film. Confermato da
+            // Sakrem.
+            lineStyle: "double",
+            startsBeforeId: "assassins-creed-film",
+            endsBeforeId: "brotherhood",
+            synopsis: {
+              it: "Nella Firenze rinascimentale, il giovane nobile Ezio Auditore da Firenze assiste all'esecuzione ingiusta del padre e dei fratelli, incastrati dai Templari con l'accusa di tradimento. Addestrato all'arte dell'assassinio dallo zio Mario, Ezio dà la caccia ai cospiratori attraverso Firenze, Venezia e Roma, scoprendo il coinvolgimento dei Borgia e la ricerca templare della Mela dell'Eden, un antico artefatto degli Isu. Il gioco che ha reso Ezio l'icona più riconoscibile della serie, primo capitolo di una trilogia.",
+              en: "In Renaissance Florence, the young nobleman Ezio Auditore da Firenze witnesses the unjust execution of his father and brothers, framed by the Templars on charges of treason. Trained in the art of assassination by his uncle Mario, Ezio hunts down the conspirators across Florence, Venice, and Rome, uncovering the involvement of the Borgia family and the Templars' pursuit of the Apple of Eden, an ancient Isu artefact. The game that made Ezio the series' most recognisable icon, the first chapter of a trilogy."
             }
           }
         ]
