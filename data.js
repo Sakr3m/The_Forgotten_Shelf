@@ -37,7 +37,7 @@ const GAMES = {
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Air Combat", en: "Air Combat" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Air%20Combat.jpg",
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Air%20Combat%201.2.jpg",
             synopsis: {
               it: "Una squadriglia di piloti mercenari viene ingaggiata per liberare le Isole Skully, cadute nelle mani di un'organizzazione terroristica che ne ha preso il controllo. Capitolo che apre la serie, ambientato retroattivamente nella stessa Terra di Strangereal.",
               en: "A squadron of mercenary pilots is hired to liberate the Skully Islands, seized by a terrorist organization that has taken control of them. The game that opened the series, retroactively set on the same Strangereal Earth."
@@ -125,6 +125,7 @@ const GAMES = {
           },
           { id: "ace-xi", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2020", yearEn: "2020", releaseYear: "2009", releaseYearEn: "2009",
             title: { it: "Ace Combat Xi: Skies of Incursion", en: "Ace Combat Xi: Skies of Incursion" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Xi%20Skies%20of%20Incursion.jpg",
             synopsis: {
               it: "Lo Squadrone Falco, unità sperimentale della Federal Republic of Aurelia, affronta le prime fasi dell'invasione lanciata dalla Democratic Republic of Leasath, che nel giro di pochi giorni conquista gran parte del territorio aureliano grazie alla schiacciante potenza della fortezza volante Gleipnir, portando la guerra fino alle porte della capitale Grinswall.",
               en: "The Falco Squadron, an experimental unit of the Federal Republic of Aurelia, faces the opening phase of the invasion launched by the Democratic Republic of Leasath, which within days overruns most of Aurelian territory thanks to the overwhelming power of the flying fortress Gleipnir, pushing the war to the gates of the capital Grinswall."
@@ -132,6 +133,7 @@ const GAMES = {
           },
           { id: "ace-x", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2020", yearEn: "2020", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Ace Combat X: Skies of Deception", en: "Ace Combat X: Skies of Deception" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20X%20Skies%20of%20Deception.jpg",
             synopsis: {
               it: "Nella seconda fase della Guerra Aureliana, il pilota Gryphus 1 guida la controffensiva delle forze aureliane superstiti contro l'invasione della Democratic Republic of Leasath, mentre il giornalista Albert Genette scopre che dietro la falsa accusa che ha scatenato il conflitto si nasconde l'interesse personale del generale Diego Gaspar Navarro nel commercio di armi. Il conflitto si chiude con la sconfitta di Leasath e la liberazione del territorio aureliano.",
               en: "In the second phase of the Aurelian War, pilot Gryphus 1 leads the counteroffensive of the surviving Aurelian forces against the invasion of the Democratic Republic of Leasath, while journalist Albert Genette uncovers that behind the false accusation that sparked the conflict lies General Diego Gaspar Navarro's personal interest in arms dealing. The conflict ends with Leasath's defeat and the liberation of Aurelian territory."
@@ -160,6 +162,7 @@ const GAMES = {
           },
           { id: "ace-advance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2032", yearEn: "2032", releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Ace Combat Advance", en: "Ace Combat Advance" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Advance.jpg",
             synopsis: {
               it: "Otto anni prima della Guerra Intercorporativa, le megacorporazioni hanno ormai eroso il potere degli stati nazionali sul continente useano. Un pilota della United Air Defense, l'alleanza formata dalle ultime repubbliche indipendenti rimaste, affronta la Air Strike Force della General Resource, decisa a sottometterle con la forza per estendere il proprio controllo economico e territoriale.",
               en: "Eight years before the Intercorporate War, megacorporations have already eroded the power of nation-states across the Usean continent. A pilot of the United Air Defense, an alliance formed by the last remaining independent republics, fights General Resource's Air Strike Force, determined to subjugate them by force to expand its economic and territorial control."
