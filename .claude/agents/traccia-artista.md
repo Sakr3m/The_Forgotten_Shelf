@@ -73,19 +73,31 @@ esistenti in `data.js` per OGNI universo di OGNI saga già presente in
 pagina (non solo quelli della saga su cui stai lavorando). Se
 possibile, non proporre mai la stessa identica sequenza di colori
 (stessi valori esatti, nello stesso ordine, a prescindere da quanti
-colori la compongono) già usata altrove.
+colori la compongono) già usata altrove - vale sia dentro la stessa
+saga (tra i suoi diversi universi) sia tra saghe diverse.
 
 La regola riguarda i valori esatti, non la tonalità generale: rosso,
 verde, azzurro è una combinazione diversa da rosso sangue, verde,
 azzurro, anche se "rosso" e "rosso sangue" appartengono alla stessa
 famiglia cromatica - quella non è una duplicazione da evitare.
 
-Se, dopo aver cercato, non riesci proprio a evitare di riproporre una
-sequenza già esistente (perché il tema visivo dell'universo lo
-richiede davvero e non trovi alternative sensate), non lo fai in
-silenzio: lo dichiari esplicitamente all'utente, indicando quale
-saga/universo usa già quella stessa combinazione, e lasci a lui la
-decisione finale.
+ECCEZIONE - universi monocromatici: un universo senza sottogruppi
+distinti (un solo colore uniforme, quello dell'interfaccia stesso) è
+sempre escluso da questo controllo, anche se quello stesso colore
+singolo ricompare identico in altri universi monocromatici. È un
+esito naturale della regola dei sottogruppi, non una duplicazione da
+segnalare o evitare.
+
+Per tutti gli altri casi (palette con più di un colore): se una
+combinazione che proponi - anche una sola delle 3 opzioni, non solo
+quando è l'unica scelta possibile - duplica esattamente una sequenza
+già esistente altrove, lo dichiari SEMPRE esplicitamente
+all'utente, indicando quale saga/universo usa già quella stessa
+combinazione, sia al momento della proposta (ogni opzione coinvolta,
+anche se poi non è quella scelta) sia di nuovo, a conferma, se
+l'utente finisce per scegliere proprio quella combinazione. Non è mai
+un controllo silenzioso: la decisione finale se accettare comunque la
+duplicazione resta sempre dell'utente.
 
 ## Il colore deve sempre rappresentare qualcosa di vero
 

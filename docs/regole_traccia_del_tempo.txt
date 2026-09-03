@@ -679,6 +679,31 @@ momento, su indicazione esplicita di Sakrem. Fino ad allora le
 palette già pubblicate restano quelle esistenti, anche se costruite
 con il vecchio criterio a 3 colori fissi.
 
+NESSUNA COMBINAZIONE DUPLICATA TRA UNIVERSI (aggiunta/precisata il
+03/09): prima di proporre qualunque palette, l'Artista controlla
+tutte le palette già esistenti in `data.js`, per ogni universo di
+ogni saga già presente in pagina. Non propone mai la stessa identica
+sequenza di colori (stessi valori esatti, nello stesso ordine, a
+prescindere da quanti colori la compongono) già usata altrove — vale
+sia dentro la stessa saga, tra i suoi universi, sia tra saghe diverse.
+La regola riguarda i valori esatti, non la tonalità generale.
+
+ECCEZIONE: un universo monocromatico (un solo colore uniforme, quello
+dell'interfaccia stesso, quando l'universo non presenta sottogruppi
+distinti) è sempre escluso da questo controllo, anche se lo stesso
+colore singolo ricompare identico in altri universi monocromatici —
+è un esito naturale della regola dei sottogruppi, non una
+duplicazione da evitare o segnalare.
+
+Per ogni altro caso (palette con più di un colore), se una
+combinazione proposta duplica esattamente una sequenza già esistente
+altrove, l'Artista lo dichiara sempre esplicitamente, indicando quale
+saga/universo la usa già: sia al momento della proposta (anche per
+un'opzione che poi non viene scelta), sia di nuovo a conferma se
+Sakrem finisce per scegliere proprio quella combinazione. Non è mai
+un controllo silenzioso — la decisione finale se accettare comunque
+la duplicazione resta sempre di Sakrem.
+
 
 2) VOCI "GEMELLE" SULLO STESSO PALLINO (sopra E sotto)
 ------------------------------------------------------------

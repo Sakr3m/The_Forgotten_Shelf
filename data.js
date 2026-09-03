@@ -267,7 +267,7 @@ const GAMES = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Banner.jpg",
     watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
     watermarkOpacity: 0.2,
-    accentColor: "#d68a34",
+    accentColor: "#D1903D",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20In%20the%20Eye%20of%20the%20Storm.mp3", title: "In the Eye of the Storm", game: "Alone in the Dark (1992)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Welcome%20to%20Derceto.mp3", title: "Welcome to Derceto", game: "Alone in the Dark (2024)" },
@@ -286,7 +286,7 @@ const GAMES = {
         id: "infogrames",
         name: { it: "Universo Infogrames", en: "Infogrames Universe" },
         span: { it: "1924 – 1925", en: "1924 – 1925" },
-        palette: ["#2e1a3d", "#d68a34", "#6b4a2e"],
+        palette: ["#D1903D", "#2F6E6B", "#9C5A2E"],
         entries: [
           {
             id: "aitd-1",
@@ -351,7 +351,7 @@ const GAMES = {
         id: "darkworks",
         name: { it: "Universo Darkworks", en: "Darkworks Universe" },
         span: { it: "2001", en: "2001" },
-        palette: ["#d68a34", "#4a6b68", "#1a1410"],
+        palette: ["#D1903D"],
         entries: [
           {
             id: "life-is-a-hideous-thing",
@@ -388,7 +388,7 @@ const GAMES = {
         id: "eden-games",
         name: { it: "Universo Eden Games", en: "Eden Games Universe" },
         span: { it: "2008 – 2015", en: "2008 – 2015" },
-        palette: ["#1a1a1d", "#d68a34", "#7a1414"],
+        palette: ["#5B3A73", "#D1903D"],
         entries: [
           {
             id: "aitd-2008",
@@ -425,7 +425,7 @@ const GAMES = {
         id: "pieces-interactive",
         name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
         span: { it: "2024", en: "2024" },
-        palette: ["#2a2f28", "#d68a34", "#5c1f1f"],
+        palette: ["#D1903D"],
         entries: [
           {
             id: "grace-in-the-dark",
