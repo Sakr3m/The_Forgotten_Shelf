@@ -1113,6 +1113,81 @@ function positionVerticalTimeline(liveTimeline){
   }
 }
 
+// Trattino VERTICALE che collega i due pallini di uno stesso ombrello
+// (PARTE 3 punto 3), SOLO MOBILE: stesso identico meccanismo di
+// drawUmbrellaConnectors (desktop, riga orizzontale) ma ruotato di 90
+// gradi, dato che qui la linea temporale corre dall'alto in basso
+// invece che da sinistra a destra. Riusa lo stesso elemento
+// (.h-node__umbrella-link) e lo stesso stile via --dot-color/
+// --line-style (i 4 valori solid/dashed/dotted/double restano gestiti
+// unicamente da styles.css tramite border-style, qui si cambia solo
+// QUALE lato del border viene usato, vedi la media query mobile in
+// styles.css) - va chiamata DOPO positionVerticalTimeline, cosi' i
+// pallini sono gia' nella loro posizione verticale definitiva (con
+// margin-top/transform gia' applicati) prima di leggerne le
+// coordinate reali. Come sul desktop, il trattino parte dalla PUNTA
+// del trattino orizzontale gia' esistente tra ciascun pallino e il
+// proprio box (DASH_REACH sotto: 8px margine + 7px lunghezza,
+// identici ai valori CSS di .h-node--down/up .h-node__marker::after/
+// ::before nella media query mobile), non dal pallino stesso.
+function drawUmbrellaConnectorsVertical(liveTimeline, uni){
+  if(!liveTimeline || !uni || !Array.isArray(uni.umbrellas) || !uni.umbrellas.length) return;
+  liveTimeline.querySelectorAll(".h-node__umbrella-link").forEach(el => el.remove());
+  const timelineRect = liveTimeline.getBoundingClientRect();
+  // A differenza del desktop (riga orizzontale scrollabile, dove serve
+  // sommare scrollLeft per ottenere una coordinata stabile rispetto a
+  // TUTTO il contenuto), qui e' la PAGINA stessa a scorrere in
+  // verticale, non liveTimeline: timelineRect e i rect dei marker si
+  // spostano insieme ad ogni scroll, la loro DIFFERENZA resta
+  // costante - nessun equivalente di scrollLeft da sommare qui.
+  const byId = {};
+  liveTimeline.querySelectorAll(".h-node[data-entry-id]").forEach(node => {
+    (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
+  });
+  const DASH_REACH = 15; // 8px margine + 7px lunghezza del trattino orizzontale verso il box, vedi CSS mobile
+  const OFFSET_STEP = 7; // stesso principio/valore del desktop: archi che si sovrappongono in verticale si allontanano un altro passo dalla linea invece di sovrapporsi graficamente
+  const placedBySide = { down: [], up: [] };
+  uni.umbrellas.forEach(umb => {
+    const pair = byId[umb.id];
+    if(!pair || pair.length !== 2) return;
+    const [nodeA, nodeB] = pair;
+    const markerA = nodeA.querySelector(".h-node__marker");
+    const markerB = nodeB.querySelector(".h-node__marker");
+    if(!markerA || !markerB) return;
+    // "down" su mobile mostra il proprio box a DESTRA della linea
+    // (h-node__bottom, grid-column 3) - il trattino orizzontale del
+    // marker punta quindi a destra (.h-node--down .h-node__marker::after,
+    // vedi media query mobile); "up" mostra il box a sinistra e punta
+    // a sinistra. Stesso lato per costruzione su entrambi i pallini di
+    // uno stesso ombrello, vedi buildUniverseTrack.
+    const isDown = nodeA.classList.contains("h-node--down");
+    const rectA = markerA.getBoundingClientRect();
+    const rectB = markerB.getBoundingClientRect();
+    const yTop = Math.min(rectA.top + rectA.height / 2, rectB.top + rectB.height / 2) - timelineRect.top;
+    const yBottom = Math.max(rectA.top + rectA.height / 2, rectB.top + rectB.height / 2) - timelineRect.top;
+    const markerX = (rectA.left + rectA.width / 2 + rectB.left + rectB.width / 2) / 2 - timelineRect.left;
+
+    const sideKey = isDown ? "down" : "up";
+    const placed = placedBySide[sideKey];
+    const overlapCount = placed.filter(p => yTop < p.yBottom && yBottom > p.yTop).length;
+    placed.push({ yTop, yBottom });
+    const extraOffset = overlapCount * OFFSET_STEP;
+
+    const x = isDown
+      ? markerX + DASH_REACH + extraOffset
+      : markerX - DASH_REACH - extraOffset;
+    const link = document.createElement("span");
+    link.className = "h-node__umbrella-link";
+    link.style.top = yTop.toFixed(2) + "px";
+    link.style.height = (yBottom - yTop).toFixed(2) + "px";
+    link.style.left = x.toFixed(2) + "px";
+    const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
+    if(color) link.style.setProperty("--dot-color", color);
+    link.style.setProperty("--line-style", umb.lineStyle || "solid");
+    liveTimeline.appendChild(link);
+  });
+}
+
 // ---------------------------------------------------------
 // Screen C, SOLO MOBILE: apre la linea temporale di UN solo
 // universo (scelto dall'elenco di Screen B). Riusa buildUniverseTrack
@@ -1147,7 +1222,16 @@ function renderUniverseTimelinePanel(){
   el.universeTimelineTrack.appendChild(buildUniverseTrack(uni, null, null));
 
   const liveTimeline = el.universeTimelineTrack.querySelector(".h-timeline");
-  if(liveTimeline) positionVerticalTimeline(liveTimeline);
+  if(liveTimeline){
+    positionVerticalTimeline(liveTimeline);
+    // Voci "ombrello" (PARTE 3 punto 3), SOLO MOBILE: va disegnato
+    // DOPO positionVerticalTimeline (i pallini devono gia' avere la
+    // loro posizione verticale definitiva) - stesso principio del
+    // desktop (drawUmbrellaConnectors in renderGamePanel), qui pero'
+    // non serve nessun listener di scroll: la pagina scorre per
+    // intero insieme al trattino, niente da ricalcolare a runtime.
+    drawUmbrellaConnectorsVertical(liveTimeline, uni);
+  }
 }
 
 function arrowIcon(direction){

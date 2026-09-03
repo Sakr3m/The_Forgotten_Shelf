@@ -1771,6 +1771,24 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .h-node--bridge[data-bridge-edge="end"]::before{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
   .h-node--bridge[data-bridge-edge="end"]::after{ border-top:none; border-left:5px dashed var(--dot-color, var(--cyan)); }
 
+  /* Trattino di collegamento tra i due pallini di una voce "ombrello"
+     (PARTE 3 punto 3), SOLO MOBILE: stesso elemento .h-node__umbrella-link
+     del desktop (drawUmbrellaConnectors), stessa custom property
+     --line-style per i 4 stili (solid/dashed/dotted/double) e stesso
+     --dot-color - qui e' solo ruotato di 90 gradi, dato che la riga
+     temporale corre verticale invece che orizzontale: un bordo
+     SINISTRO invece che superiore, larghezza 0 invece di altezza 0.
+     Posizione (left/top/height) calcolata a runtime in
+     drawUmbrellaConnectorsVertical (script.js), stesso principio di
+     drawUmbrellaConnectors ma sugli assi scambiati. */
+  .h-node__umbrella-link{
+    height:auto; width:0;
+    border-top-width:0; border-top-style:none;
+    border-left-width:5px;
+    border-left-color:var(--dot-color, var(--cyan));
+    border-left-style:var(--line-style, solid);
+  }
+
   /* --- Title detail page --- */
   .title-panel{ margin-top:44px; }
   .title-content-item{ max-width:100%; }
