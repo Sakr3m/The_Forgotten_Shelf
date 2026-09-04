@@ -286,7 +286,7 @@ const GAMES = {
         id: "infogrames",
         name: { it: "Universo Infogrames", en: "Infogrames Universe" },
         span: { it: "1924 – 1925", en: "1924 – 1925" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Infogrames%20Filigrana.jpg",
         palette: ["#D1903D", "#2F6E6B", "#9C5A2E"],
         entries: [
           {
@@ -352,7 +352,7 @@ const GAMES = {
         id: "darkworks",
         name: { it: "Universo Darkworks", en: "Darkworks Universe" },
         span: { it: "2001", en: "2001" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Darkworks%20Filigrana.jpg",
         palette: ["#D1903D", "#4E6B5A"],
         entries: [
           {
@@ -390,7 +390,7 @@ const GAMES = {
         id: "eden-games",
         name: { it: "Universo Eden Games", en: "Eden Games Universe" },
         span: { it: "2008 – 2015", en: "2008 – 2015" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Eden%20Games%20Filigrana.jpg",
         palette: ["#5B3A73", "#D1903D"],
         entries: [
           {
@@ -428,7 +428,7 @@ const GAMES = {
         id: "pieces-interactive",
         name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
         span: { it: "2024", en: "2024" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Pieces%20Interactive%20Filigrana.jpg",
         palette: ["#D1903D", "#9BAF9A"],
         entries: [
           {
