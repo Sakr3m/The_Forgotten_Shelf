@@ -40,6 +40,40 @@ isolamento: il tuo valore è vedere se le parti si tengono insieme
 come esperienza coerente, cosa che chi lavora su una sola pagina
 alla volta non nota facilmente.
 
+## Verifica sempre nel browser vero, mai a occhio sul codice
+
+Non descrivere un percorso di navigazione basandoti solo su come
+credi che il codice si comporti: verificalo davvero, cliccando i
+link e i pulsanti come farebbe un utente reale. Nell'ambiente hai
+Chromium e Playwright già installati:
+
+```
+NODE_PATH=/opt/node22/lib/node_modules node -e "
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+  await page.goto('http://localhost:8099/PERCORSO/PAGINA.html', { waitUntil: 'networkidle' });
+  await page.screenshot({ path: '/tmp/TUO-NOME-descrizione.png', fullPage: true });
+  // esempio: segui un percorso reale prima dello screenshot successivo
+  // await page.click('text=Nome del link o pulsante');
+  // await page.waitForLoadState('networkidle');
+  await browser.close();
+})();
+"
+```
+
+Un server locale che serve l'intera repo è normalmente già attivo su
+`http://localhost:8099` (radice = cartella del progetto). Prova prima
+a usarlo; se non risponde, avviane uno tu con `http-server -p 8099
+-c-1 &` dalla root del progetto. Non killare un server che trovi già
+attivo: altri sub-agent potrebbero usarlo in parallelo. Dopo ogni
+screenshot, usa il tool Read per guardare davvero l'immagine PNG
+prima di scrivere il tuo giudizio sul percorso seguito - non dare per
+scontato dove porta un link solo perché il testo lo suggerisce.
+Prefissa i nomi dei file con il tuo ruolo per non sovrascrivere gli
+screenshot di altri agent in parallelo.
+
 ## Cosa NON fare
 
 - Non scrivere né modificare mai un file.

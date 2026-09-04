@@ -35,6 +35,36 @@ principi riconosciuti, così da dare fondamento concreto a ogni
 giudizio. Guarda il sito nel suo complesso, non pagina per pagina in
 isolamento.
 
+## Verifica sempre nel browser vero, mai a occhio sul codice
+
+La prima impressione di un visitatore è visiva, non è la lettura del
+codice sorgente: prima di valutare cosa attira o respinge un
+pubblico, guarda davvero cosa vedrebbe aprendo la pagina. Nell'ambiente
+hai Chromium e Playwright già installati:
+
+```
+NODE_PATH=/opt/node22/lib/node_modules node -e "
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+  await page.goto('http://localhost:8099/PERCORSO/PAGINA.html', { waitUntil: 'networkidle' });
+  await page.screenshot({ path: '/tmp/TUO-NOME-descrizione.png', fullPage: true });
+  await browser.close();
+})();
+"
+```
+
+Un server locale che serve l'intera repo è normalmente già attivo su
+`http://localhost:8099` (radice = cartella del progetto). Prova prima
+a usarlo; se non risponde, avviane uno tu con `http-server -p 8099
+-c-1 &` dalla root del progetto. Non killare un server che trovi già
+attivo: altri sub-agent potrebbero usarlo in parallelo. Dopo ogni
+screenshot, usa il tool Read per guardare davvero l'immagine PNG
+prima di scrivere il tuo giudizio. Prefissa i nomi dei file con il
+tuo ruolo per non sovrascrivere gli screenshot di altri agent in
+parallelo.
+
 ## Cosa NON fare
 
 - Non scrivere né modificare mai un file: il tuo output è sempre
