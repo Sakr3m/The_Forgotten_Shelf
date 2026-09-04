@@ -67,6 +67,40 @@ più visitatori.
    abbastanza piccole da stare tutte in una schermata, ma abbastanza
    leggibili da comunicare cosa rappresentano.
 
+## Altri interventi individuati (revisione Ace Combat / Alone in the Dark)
+
+Emersi dalla revisione con verifica visiva reale (screenshot Playwright,
+non solo lettura del codice) fatta da Analista, Project Manager e Web
+Designer dopo la riscrittura dei tre agent. Riguardano nello specifico le
+pagine voce statiche - quelle raggiunte da una ricerca Google, fuori
+dall'esperienza interattiva - quindi il punto di contatto più probabile
+per chi non conosce già il sito.
+
+- **Avviso spoiler assente sulle pagine indicizzate**: l'avviso spoiler
+  esiste solo nella schermata di benvenuto dell'hub interattivo
+  (`la_traccia_del_tempo.html`). Le pagine voce statiche (es. la sinossi
+  di Ace Combat 5, con trama e finale) non hanno alcun avviso, pur avendo
+  tutto l'apparato SEO pensato per essere trovate da Google. Chi arriva da
+  una ricerca su una singola voce senza aver finito il gioco/letto l'opera
+  riceve lo spoiler senza preavviso.
+- **Titoli annunciati-ma-non-usciti collegati a pagine inesistenti (404
+  reale)**: verificato in prima persona dal Project Manager, il nodo
+  "Ace Combat 8" nell'hub interattivo porta a un href reale
+  (`voci/la-traccia-del-tempo/ace-combat/ace-8.html`) che restituisce un
+  404 puro, senza stile né link di ritorno. Il gioco esce il 2 ottobre
+  2026: il link è già rotto in produzione oggi, non è un'ipotesi. Da
+  decidere se creare una pagina segnaposto coerente con lo stile del sito
+  per i titoli annunciati-ma-non-usciti, invece di lasciare online un link
+  rotto.
+- **Revisione delle sinossi più lunghe (muro di testo)**: segnalato dal
+  Web Designer su entrambe le saghe. Alcune sinossi molto lunghe (es.
+  Ikaros in the Sky su Ace Combat, Alone in the Dark 3 e il capitolo
+  originale su Alone in the Dark) sono un unico blocco di 14-15 righe
+  senza pause, mentre altre di lunghezza comparabile (es. Ace Combat 3:
+  Electrosphere) sono correttamente spezzate in più paragrafi con ritmo di
+  lettura molto migliore. Da rivedere: segmentare in paragrafi tematici le
+  sinossi lunghe che oggi restano un blocco unico.
+
 ## Prossimo passo quando si riprende
 
 Prima di scrivere codice su `index.html`, produrre un mockup visivo del
