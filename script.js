@@ -427,25 +427,36 @@ function activePalette(){
   return (u && u.palette) || (g && g.palette) || DEFAULT_PALETTE;
 }
 
+// Percentuali dei singoli stop lungo il gradiente, in funzione del
+// numero di colori della palette attiva. Il caso a 3 colori (il piu'
+// diffuso, praticamente tutte le saghe) resta 0/55/100 esattamente
+// come prima (non equidistante, scelto a suo tempo per dare piu'
+// respiro al colore centrale) - non va toccato per non alterare il
+// rendering di tutte le altre saghe. Palette con un numero diverso di
+// colori (es. i 4 stop di un universo con sotto-gruppi narrativi,
+// PARTE 3 punto 1 del regolamento) usano stop equidistanti.
+function paletteStopPercents(n){
+  if(n === 3) return [0, 55, 100];
+  if(n <= 1) return [0];
+  return Array.from({ length: n }, (_, i) => (i / (n - 1)) * 100);
+}
+
 function currentGradientStops(){
   const palette = activePalette();
-  return [
-    { p: 0,    c: hexToRgb(palette[0]) },
-    { p: 0.55, c: hexToRgb(palette[1]) },
-    { p: 1,    c: hexToRgb(palette[2]) }
-  ];
+  const percents = paletteStopPercents(palette.length);
+  return palette.map((hex, i) => ({ p: percents[i] / 100, c: hexToRgb(hex) }));
 }
 
 function applyPaletteToCSS(){
   const g = currentGame();
   const palette = activePalette();
+  const percents = paletteStopPercents(palette.length);
   document.body.style.setProperty("--tl-1", palette[0]);
-  document.body.style.setProperty("--tl-2", palette[1]);
-  document.body.style.setProperty("--tl-3", palette[2]);
-  document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`);
+  document.body.style.setProperty("--tl-2", palette[Math.min(1, palette.length - 1)]);
+  document.body.style.setProperty("--tl-3", palette[palette.length - 1]);
+  const gradientCss = "linear-gradient(90deg, " + palette.map((hex, i) => `${hex} ${percents[i]}%`).join(", ") + ")";
+  document.body.style.setProperty("--gradient", gradientCss);
   document.body.style.setProperty("--cyan", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
-  const bannerOffset = (g && g.bannerOffset != null) ? g.bannerOffset : 125;
-  document.body.style.setProperty("--banner-x-offset", bannerOffset + "px");
 }
 
 function gradientColorAt(t){
@@ -480,7 +491,8 @@ function currentUniverse(){
 // pseudo-voci identiche (stesso oggetto, stesso id, stessa pagina)
 // nei due punti dell'arco che copre: una subito prima della prima
 // voce coperta (umb.startsBeforeId), una subito prima della voce
-// che segue l'ultima coperta (umb.endsBeforeId). Essendo lo stesso
+// che segue l'ultima coperta (umb.endsBeforeId, opzionale: se assente
+// l'arco arriva fino alla fine naturale dell'universo). Essendo lo stesso
 // identico oggetto in entrambi i punti, i pallini generati da chi
 // consuma questa lista (linea orizzontale, tabella verticale)
 // ottengono automaticamente contenuto identico e stesso link, senza
@@ -496,7 +508,13 @@ function expandEntriesWithUmbrellas(uni){
   const items = uni.entries.slice();
   (uni.umbrellas || []).forEach(umb => {
     const startIdx = items.findIndex(e => e.id === umb.startsBeforeId);
-    const endIdx = items.findIndex(e => e.id === umb.endsBeforeId);
+    // umb.endsBeforeId e' opzionale: se assente, l'arco arriva fino
+    // alla fine naturale dell'universo, senza una voce successiva a
+    // cui agganciare il secondo pallino (es. Legacy of Darkness /
+    // Castlevania 64, dove Castlevania 64 e' l'ultima voce
+    // dell'intero universo) - il secondo pallino diventa di fatto
+    // l'ultimo della linea.
+    const endIdx = umb.endsBeforeId ? items.findIndex(e => e.id === umb.endsBeforeId) : items.length;
     if(startIdx === -1 || endIdx === -1) return; // riferimento rotto: non inserire nulla piuttosto che sbagliare posto
     // Inserire prima l'indice piu' alto (endIdx) evita che lo shift
     // dell'inserimento successivo invalidi startIdx.
@@ -684,22 +702,36 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     // due turni gia' consumati dal gemello (che occupa sia sopra che
     // sotto sullo stesso pallino).
 
-  // Stato dell'arco ombrello attivo (PARTE 3 punto 3 del
-  // regolamento): null quando non siamo dentro nessun arco. Al primo
-  // incontro di un dato oggetto ombrello (il suo pallino sinistro) si
-  // calcola il lato normalmente e lo si "congela" qui; ogni voce
-  // successiva finche' non si richiude lo stesso ombrello (il suo
-  // pallino destro) viene forzata sul lato OPPOSTO; il pallino destro
-  // stesso viene forzato sullo STESSO lato del sinistro (cosi' il
-  // trattino che li collega, quando verra' disegnato, corre pulito
-  // su un solo lato senza mai attraversare le voci comprese, che
-  // stanno tutte compatte sull'altro). Non e' un lato fisso uguale
-  // per ogni ombrello (a differenza del gemello): dipende da dove
-  // capita il pallino sinistro nella normale alternanza - ma una
-  // volta deciso per QUESTO ombrello, resta identico per entrambi i
-  // suoi pallini e per tutto cio' che comprende in mezzo.
-  let activeUmbrellaObj = null;
-  let activeUmbrellaTileDown = null;
+  // Stack degli archi ombrello attualmente "aperti" (PARTE 3 punto 3
+  // del regolamento): vuoto quando non siamo dentro nessun arco. Al
+  // primo incontro di un dato oggetto ombrello (il suo pallino
+  // sinistro) si calcola il lato e lo si "congela" qui (push); al
+  // secondo incontro (il suo pallino destro, che richiude l'arco) lo
+  // stesso lato viene riletto e l'oggetto esce dallo stack (pop). Uno
+  // STACK e non una singola variabile perche' due archi ombrello
+  // possono sovrapporsi parzialmente (due filoni narrativi paralleli
+  // e scollegati fra loro sullo stesso periodo, vedi "Il Collasso
+  // dell'Estovakia" / "L'Ascesa di Erusea" in Ace Combat): quando un
+  // secondo arco si apre mentre il primo e' ancora attivo, eredita lo
+  // STESSO lato del primo (stack[0].tileDown) invece di ricalcolarlo
+  // da zero - se lo ricalcolasse potrebbe risultare sul lato opposto,
+  // lasciando le voci comprese in mezzo strette fra due lati diversi
+  // in conflitto, ed e' proprio questo che una singola variabile (non
+  // uno stack) causerebbe: il secondo arco che si apre sovrascrive lo
+  // stato del primo ancora aperto, che alla sua chiusura verrebbe
+  // scambiato per un arco mai aperto, corrompendo l'alternanza di
+  // TUTTA la linea da li' in avanti fino alla fine.
+  // Il pallino destro di ciascun arco viene sempre forzato sullo
+  // STESSO lato del proprio sinistro (cosi' il trattino che li
+  // collega, quando verra' disegnato, corre pulito su un solo lato
+  // senza mai attraversare le voci comprese, che stanno tutte
+  // compatte sull'altro). Non e' un lato fisso uguale per ogni
+  // ombrello (a differenza del gemello): dipende da dove capita il
+  // pallino sinistro nella normale alternanza (o dal lato ereditato
+  // se annidato in un altro arco gia' aperto) - ma una volta deciso
+  // per QUESTO ombrello, resta identico per entrambi i suoi pallini e
+  // per tutto cio' che comprende in mezzo.
+  let openUmbrellas = [];
 
   // Genera il markup di copertina+titolo per meta' di un nodo
   // (usata sia per una voce normale sia per ciascuna delle due meta'
@@ -729,33 +761,41 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
     let tileDown;
     if(isUmbrella){
-      if(activeUmbrellaObj !== entry){
-        // Pallino SINISTRO di questo ombrello (primo incontro): lato
-        // calcolato normalmente, poi congelato per tutto l'arco.
-        tileDown = (turn % 2 === 0);
-        activeUmbrellaObj = entry;
-        activeUmbrellaTileDown = tileDown;
+      const openIdx = openUmbrellas.findIndex(o => o.obj === entry);
+      if(openIdx === -1){
+        // Pallino SINISTRO di questo ombrello (primo incontro): se
+        // nessun altro arco e' gia' aperto, lato calcolato
+        // normalmente come qualunque voce; se invece si sovrappone ad
+        // almeno un arco gia' aperto, eredita lo STESSO lato di
+        // quello (openUmbrellas[0].tileDown, tutti gli archi aperti
+        // condividono sempre un unico lato, mai lati diversi tra
+        // loro) - poi congelato per tutto il proprio arco.
+        tileDown = openUmbrellas.length ? openUmbrellas[0].tileDown : (turn % 2 === 0);
+        openUmbrellas.push({ obj: entry, tileDown });
       } else {
         // Pallino DESTRO (richiude lo stesso ombrello aperto sopra):
-        // stesso lato del sinistro, poi l'arco si chiude. La voce
-        // SUCCESSIVA deve pero' riprendere l'alternanza pulita dal
-        // lato OPPOSTO a questo pallino di chiusura (mai due voci di
-        // fila sullo stesso lato al confine dell'arco) - la parita'
-        // "naturale" di turn a questo punto puo' pero' essere
-        // qualunque delle due, a seconda di quante voci erano
-        // comprese nell'arco (pari o dispari), quindi va forzata qui
-        // esplicitamente invece di lasciarla al caso: dopo il
-        // turn+=1 generale piu' sotto, (turn%2===0) deve dare
-        // esattamente !tileDown.
-        tileDown = activeUmbrellaTileDown;
-        activeUmbrellaObj = null;
-        activeUmbrellaTileDown = null;
-        turn = tileDown ? 0 : 1;
+        // stesso lato del proprio sinistro, poi esce dallo stack. Se
+        // era l'ULTIMO arco ancora aperto, la voce SUCCESSIVA deve
+        // riprendere l'alternanza pulita dal lato OPPOSTO a questo
+        // pallino di chiusura (mai due voci di fila sullo stesso lato
+        // al confine dell'arco) - la parita' "naturale" di turn a
+        // questo punto puo' pero' essere qualunque delle due, a
+        // seconda di quante voci erano comprese nell'arco (pari o
+        // dispari), quindi va forzata qui esplicitamente invece di
+        // lasciarla al caso: dopo il turn+=1 generale piu' sotto,
+        // (turn%2===0) deve dare esattamente !tileDown. Se invece
+        // resta almeno un altro arco ancora aperto (sovrapposizione),
+        // l'alternanza normale non riprende ancora: turn non va
+        // toccato.
+        tileDown = openUmbrellas[openIdx].tileDown;
+        openUmbrellas.splice(openIdx, 1);
+        if(!openUmbrellas.length) turn = tileDown ? 0 : 1;
       }
-    } else if(activeUmbrellaObj !== null){
-      // Voce compresa dentro un arco ombrello attivo: forzata sul
-      // lato opposto ai due pallini dell'ombrello che la racchiudono.
-      tileDown = !activeUmbrellaTileDown;
+    } else if(openUmbrellas.length){
+      // Voce compresa dentro uno o piu' archi ombrello attivi:
+      // forzata sul lato opposto ai pallini degli ombrelli che la
+      // racchiudono (tutti sullo stesso lato tra loro, vedi sopra).
+      tileDown = !openUmbrellas[0].tileDown;
     } else {
       tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
         // serve un "lato": occupa entrambi, il valore non viene usato
@@ -895,6 +935,23 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
   });
   const DASH_REACH = 15; // 5px margine + 10px lunghezza del trattino verticale, vedi CSS
+  // Due archi ombrello diversi possono coprire tratti di linea che si
+  // sovrappongono in orizzontale e finire sullo stesso lato (vedi lo
+  // stack in buildUniverseTrack qui sopra: e' proprio quello che
+  // succede quando si annidano/sovrappongono - stesso lato per
+  // costruzione, mai lati diversi). Senza correttivo i loro trattini
+  // finirebbero esattamente alla stessa altezza nel tratto condiviso,
+  // il secondo disegnato sopra al primo (stesso z-index, ultimo nel
+  // DOM vince) al punto da nascondere completamente il primo: non un
+  // errore di logica (il meccanismo ombrello resta lo stesso), solo
+  // un dettaglio grafico. placedBySide tiene traccia, per lato,
+  // dei trattini gia' piazzati con il loro intervallo [xLeft,xRight]:
+  // quando un nuovo trattino si sovrappone in x con uno o piu' gia'
+  // presenti sullo stesso lato, viene spostato un altro OFFSET_STEP
+  // piu' lontano dalla linea principale, cosi' i tratti condivisi
+  // restano entrambi leggibili invece di fondersi in uno solo.
+  const OFFSET_STEP = 7;
+  const placedBySide = { down: [], up: [] };
   uni.umbrellas.forEach(umb => {
     const pair = byId[umb.id];
     if(!pair || pair.length !== 2) return;
@@ -905,11 +962,18 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     const isDown = nodeA.classList.contains("h-node--down"); // stesso lato per forza su entrambi, vedi buildUniverseTrack
     const rectA = markerA.getBoundingClientRect();
     const rectB = markerB.getBoundingClientRect();
-    const y = isDown
-      ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH - timelineRect.top
-      : Math.min(rectA.top, rectB.top) - DASH_REACH - timelineRect.top;
     const xLeft = Math.min(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left + scrollLeft;
     const xRight = Math.max(rectA.left + rectA.width / 2, rectB.left + rectB.width / 2) - timelineRect.left + scrollLeft;
+
+    const sideKey = isDown ? "down" : "up";
+    const placed = placedBySide[sideKey];
+    const overlapCount = placed.filter(p => xLeft < p.xRight && xRight > p.xLeft).length;
+    placed.push({ xLeft, xRight });
+    const extraOffset = overlapCount * OFFSET_STEP;
+
+    const y = isDown
+      ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH + extraOffset - timelineRect.top
+      : Math.min(rectA.top, rectB.top) - DASH_REACH - extraOffset - timelineRect.top;
     const link = document.createElement("span");
     link.className = "h-node__umbrella-link";
     link.style.left = xLeft.toFixed(2) + "px";
@@ -917,6 +981,7 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     link.style.top = y.toFixed(2) + "px";
     const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
     if(color) link.style.setProperty("--dot-color", color);
+    link.style.setProperty("--line-style", umb.lineStyle || "solid");
     liveTimeline.appendChild(link);
   });
 }
@@ -1066,6 +1131,81 @@ function positionVerticalTimeline(liveTimeline){
   }
 }
 
+// Trattino VERTICALE che collega i due pallini di uno stesso ombrello
+// (PARTE 3 punto 3), SOLO MOBILE: stesso identico meccanismo di
+// drawUmbrellaConnectors (desktop, riga orizzontale) ma ruotato di 90
+// gradi, dato che qui la linea temporale corre dall'alto in basso
+// invece che da sinistra a destra. Riusa lo stesso elemento
+// (.h-node__umbrella-link) e lo stesso stile via --dot-color/
+// --line-style (i 4 valori solid/dashed/dotted/double restano gestiti
+// unicamente da styles.css tramite border-style, qui si cambia solo
+// QUALE lato del border viene usato, vedi la media query mobile in
+// styles.css) - va chiamata DOPO positionVerticalTimeline, cosi' i
+// pallini sono gia' nella loro posizione verticale definitiva (con
+// margin-top/transform gia' applicati) prima di leggerne le
+// coordinate reali. Come sul desktop, il trattino parte dalla PUNTA
+// del trattino orizzontale gia' esistente tra ciascun pallino e il
+// proprio box (DASH_REACH sotto: 8px margine + 7px lunghezza,
+// identici ai valori CSS di .h-node--down/up .h-node__marker::after/
+// ::before nella media query mobile), non dal pallino stesso.
+function drawUmbrellaConnectorsVertical(liveTimeline, uni){
+  if(!liveTimeline || !uni || !Array.isArray(uni.umbrellas) || !uni.umbrellas.length) return;
+  liveTimeline.querySelectorAll(".h-node__umbrella-link").forEach(el => el.remove());
+  const timelineRect = liveTimeline.getBoundingClientRect();
+  // A differenza del desktop (riga orizzontale scrollabile, dove serve
+  // sommare scrollLeft per ottenere una coordinata stabile rispetto a
+  // TUTTO il contenuto), qui e' la PAGINA stessa a scorrere in
+  // verticale, non liveTimeline: timelineRect e i rect dei marker si
+  // spostano insieme ad ogni scroll, la loro DIFFERENZA resta
+  // costante - nessun equivalente di scrollLeft da sommare qui.
+  const byId = {};
+  liveTimeline.querySelectorAll(".h-node[data-entry-id]").forEach(node => {
+    (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
+  });
+  const DASH_REACH = 15; // 8px margine + 7px lunghezza del trattino orizzontale verso il box, vedi CSS mobile
+  const OFFSET_STEP = 7; // stesso principio/valore del desktop: archi che si sovrappongono in verticale si allontanano un altro passo dalla linea invece di sovrapporsi graficamente
+  const placedBySide = { down: [], up: [] };
+  uni.umbrellas.forEach(umb => {
+    const pair = byId[umb.id];
+    if(!pair || pair.length !== 2) return;
+    const [nodeA, nodeB] = pair;
+    const markerA = nodeA.querySelector(".h-node__marker");
+    const markerB = nodeB.querySelector(".h-node__marker");
+    if(!markerA || !markerB) return;
+    // "down" su mobile mostra il proprio box a DESTRA della linea
+    // (h-node__bottom, grid-column 3) - il trattino orizzontale del
+    // marker punta quindi a destra (.h-node--down .h-node__marker::after,
+    // vedi media query mobile); "up" mostra il box a sinistra e punta
+    // a sinistra. Stesso lato per costruzione su entrambi i pallini di
+    // uno stesso ombrello, vedi buildUniverseTrack.
+    const isDown = nodeA.classList.contains("h-node--down");
+    const rectA = markerA.getBoundingClientRect();
+    const rectB = markerB.getBoundingClientRect();
+    const yTop = Math.min(rectA.top + rectA.height / 2, rectB.top + rectB.height / 2) - timelineRect.top;
+    const yBottom = Math.max(rectA.top + rectA.height / 2, rectB.top + rectB.height / 2) - timelineRect.top;
+    const markerX = (rectA.left + rectA.width / 2 + rectB.left + rectB.width / 2) / 2 - timelineRect.left;
+
+    const sideKey = isDown ? "down" : "up";
+    const placed = placedBySide[sideKey];
+    const overlapCount = placed.filter(p => yTop < p.yBottom && yBottom > p.yTop).length;
+    placed.push({ yTop, yBottom });
+    const extraOffset = overlapCount * OFFSET_STEP;
+
+    const x = isDown
+      ? markerX + DASH_REACH + extraOffset
+      : markerX - DASH_REACH - extraOffset;
+    const link = document.createElement("span");
+    link.className = "h-node__umbrella-link";
+    link.style.top = yTop.toFixed(2) + "px";
+    link.style.height = (yBottom - yTop).toFixed(2) + "px";
+    link.style.left = x.toFixed(2) + "px";
+    const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
+    if(color) link.style.setProperty("--dot-color", color);
+    link.style.setProperty("--line-style", umb.lineStyle || "solid");
+    liveTimeline.appendChild(link);
+  });
+}
+
 // ---------------------------------------------------------
 // Screen C, SOLO MOBILE: apre la linea temporale di UN solo
 // universo (scelto dall'elenco di Screen B). Riusa buildUniverseTrack
@@ -1100,7 +1240,16 @@ function renderUniverseTimelinePanel(){
   el.universeTimelineTrack.appendChild(buildUniverseTrack(uni, null, null));
 
   const liveTimeline = el.universeTimelineTrack.querySelector(".h-timeline");
-  if(liveTimeline) positionVerticalTimeline(liveTimeline);
+  if(liveTimeline){
+    positionVerticalTimeline(liveTimeline);
+    // Voci "ombrello" (PARTE 3 punto 3), SOLO MOBILE: va disegnato
+    // DOPO positionVerticalTimeline (i pallini devono gia' avere la
+    // loro posizione verticale definitiva) - stesso principio del
+    // desktop (drawUmbrellaConnectors in renderGamePanel), qui pero'
+    // non serve nessun listener di scroll: la pagina scorre per
+    // intero insieme al trattino, niente da ricalcolare a runtime.
+    drawUmbrellaConnectorsVertical(liveTimeline, uni);
+  }
 }
 
 function arrowIcon(direction){
@@ -1129,7 +1278,6 @@ function updateGameHeaderPanelText(gameId){
   if(!panel) return;
   const g = GAMES[gameId];
   panel.innerHTML = `
-    ${g.banner ? `<div class="game-header__banner" style="background-image:url('${g.banner}')"></div><div class="game-header__banner-overlay"></div>` : ""}
     <div class="game-header__top-row">
       <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
     </div>
@@ -1784,6 +1932,23 @@ function renderGamePanel(){
           node.style.marginLeft = (step - 100).toFixed(2) + "px";
         }
       });
+      // Riquadro (copertina/monogramma) del primo e dell'ultimo nodo
+      // (segnalato con screenshot: il monogramma del primo nodo
+      // risultava tagliato dalla maschera dello scroll libero) - il
+      // pallino riposa a soli DOT_RADIUS px dal bordo scorrevole
+      // (requisito fermo: deve toccarlo esattamente, mai un pixel
+      // oltre, vedi marginLeft qui sopra), ma il riquadro e' molto
+      // piu' largo di lui (100px) e sporge subito fuori dalla
+      // maschera al minimo scroll. Sposto SOLO il riquadro (non
+      // .h-node, che porterebbe con se' anche il pallino) di qualche
+      // pixel verso l'interno via transform: il pallino/la riga
+      // restano esattamente dove sono sempre stati, il riquadro
+      // guadagna un po' di margine di sicurezza dalla maschera.
+      const TILE_EDGE_SAFETY = 2;
+      const firstTile = nodes[0] && nodes[0].querySelector(".h-node__tile");
+      if(firstTile) firstTile.style.transform = `translateX(${TILE_EDGE_SAFETY}px)`;
+      const lastTile = nodes[nodes.length - 1] && nodes[nodes.length - 1].querySelector(".h-node__tile");
+      if(lastTile && lastTile !== firstTile) lastTile.style.transform = `translateX(-${TILE_EDGE_SAFETY}px)`;
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
@@ -2042,8 +2207,22 @@ function formatReleaseLabel(releaseLabel){
   return { base: match[1], extra: match[2] };
 }
 
-function updateTitlePanelText(entryId){
-  const rec = titlePanels[entryId];
+// Chiave di lookup in titlePanels: "{gameId}::{entryId}", non il solo
+// entry.id "nudo" (vedi buildAllTitlePanels per il motivo: id come
+// "ascendance" sono riusati da saghe diverse - Gears of War e Legacy
+// of Kain - e findEntry() li distingue correttamente perche' e' gia'
+// vincolato al game corrente, ma titlePanels era un'unica mappa
+// piatta globale: con la sola chiave "nuda" la seconda saga
+// processata in GAME_ORDER sovrascriveva silenziosamente il pannello
+// della prima, mostrando la sinossi sbagliata - bug scoperto proprio
+// verificando dal vivo che "Legacy of Kain: Ascendance" avesse lo
+// stesso problema di "La crociata segreta" segnalato da Sakrem).
+function titlePanelKey(gameId, entryId){
+  return gameId + "::" + entryId;
+}
+
+function updateTitlePanelText(panelKey){
+  const rec = titlePanels[panelKey];
   if(!rec) return;
   const { entry, game: g, universe, prevEntry, nextEntry } = rec;
   const yearLabel = state.lang === "it" ? entry.year : (entry.yearEn || entry.year);
@@ -2109,30 +2288,54 @@ function buildAllTitlePanels(){
   GAME_ORDER.forEach(gameId => {
     const g = GAMES[gameId];
     (g.universes || []).forEach(universe => {
-      const entries = universe.entries || [];
+      // Uso la lista ESPANSA (uni.entries + le pseudo-voci delle voci
+      // "ombrello" in uni.umbrellas, vedi expandEntriesWithUmbrellas)
+      // e non il semplice universe.entries: un ombrello non vive in
+      // uni.entries, quindi con il solo universe.entries la sua pagina
+      // di dettaglio non veniva mai costruita qui (nessun record in
+      // titlePanels) - motivo per cui apriva una pagina vuota, senza
+      // sinossi ne' nient'altro (bug segnalato da Sakrem su
+      // "La crociata segreta").
+      const entries = expandEntriesWithUmbrellas(universe);
       entries.forEach((entry, idx) => {
         const prevEntry = idx > 0 ? entries[idx - 1] : null;
         const nextEntry = idx < entries.length - 1 ? entries[idx + 1] : null;
+        const key = titlePanelKey(g.id, entry.id);
+        if(titlePanels[key]){
+          // Una voce ombrello compare DUE volte nella lista espansa
+          // (una per ciascuno dei due pallini che genera sulla linea),
+          // ma ha una sola pagina di dettaglio reale (stesso id,
+          // stesso identico contenuto - vedi regolamento, PARTE 3
+          // punto 3): costruita alla prima occorrenza, non va
+          // ricreata/duplicata nel DOM alla seconda.
+          return;
+        }
         const panel = document.createElement("div");
         panel.className = "title-content-item";
-        panel.id = `titleItem-${entry.id}`;
+        // id DOM scoped per gioco (non il solo entry.id "nudo"): due
+        // saghe diverse possono riusare lo stesso id voce (es.
+        // "ascendance" in Gears of War e in Legacy of Kain) - senza lo
+        // scoping qui si otterrebbero due elementi con lo stesso id
+        // HTML, non valido e comunque ambiguo.
+        panel.id = `titleItem-${key}`;
         panel.hidden = true;
         el.titleContent.appendChild(panel);
-        titlePanels[entry.id] = { panel, entry, game: g, universe, prevEntry, nextEntry };
-        updateTitlePanelText(entry.id);
+        titlePanels[key] = { panel, entry, game: g, universe, prevEntry, nextEntry };
+        updateTitlePanelText(key);
 
         // Voce "gemella" (entry.twin): condivide lo stesso punto
         // sulla linea, quindi anche gli stessi vicini (prev/next) di
         // chi la ospita - la sua pagina va costruita qui accanto,
         // non e' un elemento a se' in "entries".
         if(entry.twin){
+          const twinKey = titlePanelKey(g.id, entry.twin.id);
           const twinPanel = document.createElement("div");
           twinPanel.className = "title-content-item";
-          twinPanel.id = `titleItem-${entry.twin.id}`;
+          twinPanel.id = `titleItem-${twinKey}`;
           twinPanel.hidden = true;
           el.titleContent.appendChild(twinPanel);
-          titlePanels[entry.twin.id] = { panel: twinPanel, entry: entry.twin, game: g, universe, prevEntry, nextEntry };
-          updateTitlePanelText(entry.twin.id);
+          titlePanels[twinKey] = { panel: twinPanel, entry: entry.twin, game: g, universe, prevEntry, nextEntry };
+          updateTitlePanelText(twinKey);
         }
       });
     });
@@ -2144,11 +2347,12 @@ function renderTitlePanel(){
   const found = findEntry(g, state.entryId);
   if(!found) return;
   const { entry, universe } = found;
+  const key = titlePanelKey(g.id, entry.id);
 
-  Object.entries(titlePanels).forEach(([id, rec]) => {
-    rec.panel.hidden = id !== entry.id;
+  Object.entries(titlePanels).forEach(([panelKey, rec]) => {
+    rec.panel.hidden = panelKey !== key;
   });
-  const activeRec = titlePanels[entry.id];
+  const activeRec = titlePanels[key];
   if(!activeRec) return;
 
   // Larghezza e posizione del box di testo (#titleContent, contiene
@@ -2241,7 +2445,7 @@ function renderTitlePanel(){
   }
 
   let watermark = el.titlePanel.querySelector(".title-watermark");
-  const watermarkSrc = g.watermark || entry.image;
+  const watermarkSrc = universe.watermark || entry.image;
   if(watermarkSrc){
     if(!watermark){
       watermark = document.createElement("div");
@@ -2249,10 +2453,10 @@ function renderTitlePanel(){
       el.titlePanel.insertBefore(watermark, el.titleContent);
     }
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
-    watermark.style.backgroundSize = g.watermarkSize || "";
-    watermark.style.backgroundPosition = g.watermarkPosition || "";
-    loadWatermarkForId(g.id);
-    if(g.watermarkBottomFade){
+    watermark.style.backgroundSize = universe.watermarkSize || "";
+    watermark.style.backgroundPosition = universe.watermarkPosition || "";
+    loadWatermarkForId(g.id + ":" + universe.id);
+    if(universe.watermarkBottomFade){
       // Combina la sfumatura orizzontale di sempre con una verticale
       // in più, verso il basso: ammorbidisce il taglio netto in
       // fondo all'immagine invece di lasciarlo di scatto.
@@ -2426,6 +2630,17 @@ function setState(view){
     document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
     document.body.style.setProperty("--cyan", LANDING_COLOR);
+    // Barra di luminosita' della filigrana (segnalata con screenshot):
+    // resa visibile e posizionata solo dalle viste "game" (Doom-like)
+    // e "title", mai piu' nascosta al ritorno su "landing" - restava
+    // incollata in cima alla home con la sua ultima posizione/stato,
+    // una barra "fantasma" senza alcuna filigrana a giustificarla.
+    if(el.watermarkBrightness){
+      el.watermarkBrightness.hidden = true;
+      el.watermarkBrightness.style.top = "";
+      el.watermarkBrightness.style.left = "";
+      el.watermarkBrightness.style.right = "";
+    }
     renderSidebar();
   } else if(view === "game"){
     state.entryId = null;

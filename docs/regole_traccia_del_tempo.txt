@@ -623,9 +623,19 @@ consecutive unite da un protagonista comune, un tema ricorrente, o
 una fase narrativa dominante, mai una suddivisione arbitraria o
 puramente decorativa — poi assegna un colore a CIASCUN sottogruppo
 effettivamente riconosciuto. Il numero di colori non è mai fissato a
-priori: dipende da quanti blocchi tematici l'Artista trova davvero,
-con un minimo di 1 (se l'universo non presenta sottogruppi distinti,
-resta un solo colore uniforme, quello dell'interfaccia stesso).
+priori: dipende da quanti blocchi tematici l'Artista trova davvero, ma
+con un MINIMO DI 2 (corretto il 03/09, sostituisce il minimo di 1
+introdotto l'01/09) — nessun universo è mai monocromatico, nemmeno
+quello senza sottogruppi narrativi distinti.
+
+CASO CON UN SOLO SOTTOGRUPPO RICONOSCIUTO: se l'universo risulta
+avere una sola fase narrativa reale, la palette resta comunque di 2
+colori: il colore accento della saga (che rappresenta quel
+sottogruppo, come sempre) più un secondo colore che rappresenti
+qualcosa di vero e specifico di quell'universo — un elemento visivo,
+un'ambientazione, un tono distintivo — non un secondo sottogruppo
+inventato per riempire lo spazio. Motivato esplicitamente come un
+sottogruppo vero e proprio.
 
 Esempio guida, da prendere con le pinze e non come formula fissa da
 applicare altrove (Castlevania): oro per i tratti dominati dai
@@ -678,6 +688,29 @@ successive con la nuova logica a sottogruppi avverrà in un secondo
 momento, su indicazione esplicita di Sakrem. Fino ad allora le
 palette già pubblicate restano quelle esistenti, anche se costruite
 con il vecchio criterio a 3 colori fissi.
+
+NESSUNA COMBINAZIONE DUPLICATA TRA UNIVERSI (aggiunta/precisata il
+03/09): prima di proporre qualunque palette, l'Artista controlla
+tutte le palette già esistenti in `data.js`, per ogni universo di
+ogni saga già presente in pagina. Non propone mai la stessa identica
+sequenza di colori (stessi valori esatti, nello stesso ordine, a
+prescindere da quanti colori la compongono) già usata altrove — vale
+sia dentro la stessa saga, tra i suoi universi, sia tra saghe diverse.
+La regola riguarda i valori esatti, non la tonalità generale.
+
+NIENTE PIÙ ECCEZIONI (corretto il 03/09): dato che nessun universo è
+più monocromatico (minimo 2 colori sempre, vedi sopra), il controllo
+si applica SEMPRE, senza eccezioni per nessun universo — anche i casi
+a 2 colori costruiti su "accento + colore distintivo dell'universo"
+rientrano nel controllo.
+
+Se una combinazione proposta duplica esattamente una sequenza già esistente
+altrove, l'Artista lo dichiara sempre esplicitamente, indicando quale
+saga/universo la usa già: sia al momento della proposta (anche per
+un'opzione che poi non viene scelta), sia di nuovo a conferma se
+Sakrem finisce per scegliere proprio quella combinazione. Non è mai
+un controllo silenzioso — la decisione finale se accettare comunque
+la duplicazione resta sempre di Sakrem.
 
 
 2) VOCI "GEMELLE" SULLO STESSO PALLINO (sopra E sotto)
@@ -819,6 +852,29 @@ appena confermata la struttura dati; la parte reattiva allo scroll
 trattino di collegamento che attraversa l'arco) è invece del tutto
 nuova e verrà costruita/tarata insieme alla comparsa del primo caso
 reale, guardandola dal vivo invece di indovinarla a occhio.
+
+VARIANTI DI LINEA GIÀ IN USO (nate coi primi casi reali, Ace Combat
+e Assassin's Creed): `lineStyle` sul titolo ombrello cambia solo
+l'aspetto del trattino, mai la logica dei due pallini. Nessun valore
+(quindi trattino diretto/solido) è il caso base: la trama del titolo
+ombrello è la STESSA storia, vissuta in prima persona, delle voci
+che racchiude (es. Legacy of Kain: Ascendance). `"dashed"` è per gli
+stessi eventi vissuti da un personaggio diverso, non chi li vive già
+in una voce coperta (es. Assassin's Creed: Forsaken, la Rivoluzione
+Americana dal punto di vista di Haytham invece che di Connor).
+`"dotted"` è per un racconto in cornice/flashback, non vissuto in
+prima persona da chi legge (es. La Crociata Segreta, raccontato da
+Niccolò Polo). `"double"` è per un arco che corre in parallelo alle
+voci racchiuse ma senza alcun punto di contatto narrativo con esse
+(es. Il Collasso dell'Estovakia).
+
+`endsBeforeId` OPZIONALE (aggiunto 04/09, primo caso reale:
+Castlevania, Legacy of Darkness/Castlevania 64): se l'ultima voce
+coperta dall'arco è anche l'ultima voce reale dell'intero universo,
+non esiste nessuna voce successiva a cui agganciare il secondo
+pallino. In quel caso `endsBeforeId` va omesso: il secondo pallino
+dell'ombrello diventa di fatto l'ultimo pallino della linea di quel
+universo, invece di dover puntare a una voce inesistente.
 
 
 4) PROMEMORIA AUTOMATICO PER I TITOLI "IN ARRIVO" (imagePending)

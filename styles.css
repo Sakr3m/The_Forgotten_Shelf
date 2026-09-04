@@ -1154,11 +1154,22 @@ body[data-state="landing"] .index-link{ display:flex; }
    verticale gia' esistente tra ciascun pallino e il proprio box, non
    dal pallino stesso. Sempre visibile quanto i due pallini che
    collega lo sono (nessuna logica di show/hide qui: la sua presenza
-   non dipende da quale dei due box e' mostrato in quel momento). */
+   non dipende da quale dei due box e' mostrato in quel momento).
+   Lo stile della linea (solid/dashed/dotted/double, campo lineStyle
+   in data.js) e' impostato a runtime via la custom property
+   --line-style sull'elemento stesso (drawUmbrellaConnectors) - un
+   bordo invece di un semplice sfondo perche' border-style e' l'unica
+   proprieta' CSS in grado di renderizzare le 4 varianti (il valore
+   "double" in particolare disegna gia' da solo due righe parallele
+   con un solo bordo, non va costruito a mano). Spessore maggiorato
+   rispetto alla vecchia versione a background pieno (2px) perche' a
+   3px "double" risultava poco leggibile. */
 .h-node__umbrella-link{
   position:absolute;
-  height:2px; border-radius:1px;
-  background:var(--dot-color, var(--cyan));
+  height:0;
+  border-top-width:5px;
+  border-top-color:var(--dot-color, var(--cyan));
+  border-top-style:var(--line-style, solid);
   pointer-events:none; z-index:1;
 }
 
@@ -1759,6 +1770,24 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .h-node--bridge[data-bridge-edge="start"]::after{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
   .h-node--bridge[data-bridge-edge="end"]::before{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
   .h-node--bridge[data-bridge-edge="end"]::after{ border-top:none; border-left:5px dashed var(--dot-color, var(--cyan)); }
+
+  /* Trattino di collegamento tra i due pallini di una voce "ombrello"
+     (PARTE 3 punto 3), SOLO MOBILE: stesso elemento .h-node__umbrella-link
+     del desktop (drawUmbrellaConnectors), stessa custom property
+     --line-style per i 4 stili (solid/dashed/dotted/double) e stesso
+     --dot-color - qui e' solo ruotato di 90 gradi, dato che la riga
+     temporale corre verticale invece che orizzontale: un bordo
+     SINISTRO invece che superiore, larghezza 0 invece di altezza 0.
+     Posizione (left/top/height) calcolata a runtime in
+     drawUmbrellaConnectorsVertical (script.js), stesso principio di
+     drawUmbrellaConnectors ma sugli assi scambiati. */
+  .h-node__umbrella-link{
+    height:auto; width:0;
+    border-top-width:0; border-top-style:none;
+    border-left-width:5px;
+    border-left-color:var(--dot-color, var(--cyan));
+    border-left-style:var(--line-style, solid);
+  }
 
   /* --- Title detail page --- */
   .title-panel{ margin-top:44px; }

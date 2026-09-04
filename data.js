@@ -14,7 +14,7 @@ const GAMES = {
       en: "In the skies of a fictional world called Strangereal, fighter pilots fight for control of nations at war. Every conflict hides political ambition, betrayed alliances, and superweapons capable of reshaping the fate of entire continents. At the center of it all, a silent ace who flies for those who have no voice."
     },
     palette: ["#e0813f", "#98a2ab", "#4f8fc0"],
-    accentColor: "#4F7BA1",
+    accentColor: "#3E7CAE",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Linkage.mp3", title: "Linkage", game: "Ace Combat 3: Electrosphere" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20The%20Unsung%20War.mp3", title: "The Unsung War", game: "Ace Combat 5: The Unsung War" },
@@ -26,14 +26,14 @@ const GAMES = {
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "vera-strangereal",
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
         span: { it: "1995 – 2040", en: "1995 – 2040" },
-        palette: ["#F2C94C", "#4F7BA1", "#E8E2D0"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20La%20Vera%20Strangereal%20Filigrana.jpg",
+        palette: ["#3D2A1E", "#3E7CAE", "#C99A3E", "#1E8F94"],
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Air Combat", en: "Air Combat" },
@@ -91,28 +91,12 @@ const GAMES = {
               en: "Pilot Blaze and the Wardog Squadron fight in the Circum-Pacific War between Osea and Yuktobania, sparked by a surprise attack on Osean installations. Over the course of the conflict they discover the attack was orchestrated by a group of Belkan nationalist survivors, determined to plunge the two nations back into war to avenge their defeat years earlier. Together with pilots from both sides opposed to the conflict, Wardog exposes the conspiracy and defeats the plotters, bringing the hostilities to an end."
             }
           },
-          { id: "collasso-estovacchia", type: "STORIA", typeEn: "STORY", year: "1999 – 2015", yearEn: "1999 – 2015",
-            noAvatar: true,
-            title: { it: "Il Collasso dell'Estovakia", en: "The Collapse of Estovakia" },
-            synopsis: {
-              it: "Colpita duramente dall'impatto di Ulisse, l'Estovakia vede la propria economia crollare e le infrastrutture ridotte allo stremo, mentre la vicina Emmeria, investita dalla stessa crisi ma uscitane pressoché indenne, si rimette rapidamente in piedi. Il divario tra le due nazioni alimenta un risentimento profondo: in Estovakia scoppia una guerra civile da cui emerge una giunta militare, ribattezzata dalla popolazione 'I Generali', che consolida il potere promettendo di restituire al paese la forza perduta. Negli anni successivi la giunta riarma segretamente le forze armate, decisa a risolvere con la forza ciò che la diplomazia non può più permettersi.",
-              en: "Hit hard by the Ulysses impact, Estovakia sees its economy collapse and its infrastructure pushed to breaking point, while neighbouring Emmeria, struck by the same crisis but left largely unscathed, recovers quickly. The gap between the two nations fuels deep resentment: a civil war breaks out in Estovakia, from which a military junta emerges — nicknamed 'The Generals' by the population — consolidating power by promising to restore the country's lost strength. Over the following years the junta secretly rearms its military, determined to settle by force what diplomacy can no longer afford."
-            }
-          },
           { id: "ace-6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "Ace Combat 6: Fires of Liberation", en: "Ace Combat 6: Fires of Liberation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%206%20Fires%20of%20Liberation.jpg",
             synopsis: {
               it: "Il pilota Talisman, a capo dello Squadrone Garuda, difende l'Emmeria da un'invasione a sorpresa dell'Estovakia, che occupa in poche ore la capitale Gracemeria costringendo l'esercito emmeriano alla ritirata. Insieme al gregario Shamrock, guida il riorganizzarsi delle forze superstiti sull'Isola di Khesed e la successiva controffensiva che libera il paese città dopo città, fino alla riconquista della capitale. La disfatta sul campo provoca il collasso del regime militare estovakiano, che firma la resa ponendo fine al conflitto.",
               en: "Pilot Talisman, leader of Garuda Team, defends Emmeria from a surprise invasion by Estovakia, which occupies the capital Gracemeria within hours and forces the Emmerian army to retreat. Together with his wingman Shamrock, he leads the regrouping of surviving forces on Khesed Island and the subsequent counteroffensive that liberates the country city by city, culminating in the recapture of the capital. The defeat on the battlefield triggers the collapse of Estovakia's military regime, which signs a surrender that brings the conflict to an end."
-            }
-          },
-          { id: "ascesa-erusea", type: "STORIA", typeEn: "STORY", year: "2005 – 2019", yearEn: "2005 – 2019",
-            noAvatar: true,
-            title: { it: "L'Ascesa di Erusea", en: "The Rise of Erusea" },
-            synopsis: {
-              it: "Nel dopoguerra seguito alla Guerra Continentale, Erusea si riprende con sorprendente rapidità dalla sconfitta, ampliando i propri confini fino a inglobare diversi piccoli stati vicini, tra cui un antico ducato la cui famiglia reale viene spodestata dall'espansione. All'interno del rinnovato apparato militare prende forma un ambizioso programma di ricerca, volto a sviluppare droni da combattimento autonomi capaci di sostituire i piloti umani in battaglia. Parallelamente la comunità internazionale completa un ascensore spaziale pensato per rispondere a future minacce dallo spazio. Le tensioni territoriali e la sfiducia reciproca accumulate in questi anni sfoceranno, nel 2019, in un nuovo conflitto su scala continentale.",
-              en: "In the aftermath of the Continental War, Erusea recovers from defeat with surprising speed, expanding its borders to absorb several small neighbouring states, including an ancient duchy whose royal family is deposed by the expansion. Within the renewed military apparatus, an ambitious research programme takes shape, aimed at developing autonomous combat drones capable of replacing human pilots in battle. Meanwhile the international community completes a space elevator designed to counter future threats from space. The territorial tensions and mutual distrust accumulated over these years will erupt, in 2019, into a new continent-wide conflict."
             }
           },
           { id: "ace-7", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2019", releaseYear: "2019", releaseYearEn: "2019",
@@ -176,13 +160,67 @@ const GAMES = {
               en: "On the Usean continent, now ruled by megacorporations in place of nation-states, pilot Nemo serves the peacekeeping organization UPEO as the rivalry between Neucom (heir to the Belkan industries) and General Resource escalates into the Intercorporate War. Behind the conflict lies Ouroboros, a transhumanist movement operating through the Electrosphere — the global network onto which one's consciousness can be uploaded — led by General Resource's legendary ace Abyssal Dision. Halfway through the story it is revealed that Dision is in fact a digital copy of the real Dision, who died years earlier together with neuroscientist Yoko Martha Inoue in a bombing actually orchestrated by General Resource to cover up her research into consciousness sublimation; the copy, having survived within the Electrosphere, now leads Ouroboros with the goal of forcing all of humanity to undergo sublimation.\n\nThe player's choices at the game's narrative branch points (the \"Turning Points\") determine both which faction Nemo ultimately sides with — UPEO, Neucom, General Resource, or Ouroboros itself — and which of the pilots Erich, Fiona, Cynthia and Keith becomes Nemo's wingman, or whether Nemo remains a lone wolf with no allies: the combination produces five distinct endings, each of which closes the war with the defeat of Dision and Ouroboros, but with different outcomes for the factions involved and for the fate of Nemo's companions.\n\nWhoever completes all five endings unlocks one final revelation common to all of them: the entire Intercorporate War was nothing more than a simulation run by Simon Orestes Cohen, a Neucom researcher who blames Dision for Yoko's death, inside the artificial intelligence program named — precisely — \"Nemo,\" the same Nemo controlled by the player. Cohen wanted to verify whether, in every possible course the war could take, the digital copy of Dision would end up eliminated regardless: satisfied with the result, achieved across all five paths, he brings the simulation to an end. Nemo's ultimate fate after this \"purge\" varies depending on which ending was reached, ranging from release into the real world with an unknown outcome to being condemned to remain trapped within the program, forced to replay the war simulation forever, with other intermediate variants in between. No official source, past or present, has ever declared which of the five endings is canonical: all of them remain officially valid, and none has ever been recognized as the story's \"true\" outcome."
             }
           }
+        ],
+        umbrellas: [
+          { id: "collasso-estovacchia", type: "STORIA", typeEn: "STORY", year: "1999 – 2015", yearEn: "1999 – 2015",
+            noAvatar: true,
+            title: { it: "Il Collasso dell'Estovakia", en: "The Collapse of Estovakia" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // doppia sottile): copre lo stesso arco di date delle voci
+            // che racchiude, ma racconta eventi ambientati altrove,
+            // scollegati, senza alcun punto di contatto narrativo con
+            // esse. L'arco comincia subito dopo "L'Impatto di Ulisse"
+            // (che ne è la causa scatenante) e subito prima di
+            // "Ace Combat 04" - da cui inizia infatti il racconto della
+            // crisi economica/rivolta estovakiana - e finisce subito
+            // prima di "Ace Combat 6", dove la guerra dei Generali
+            // esplode apertamente: comprende quindi "Ace Combat 04",
+            // "La Distensione di Osea e Yuktobania" e "Ace Combat 5".
+            // Arco e assenza di collegamento narrativo verificati
+            // rileggendo tutte le sinossi coinvolte, confermato da
+            // Sakrem.
+            lineStyle: "double",
+            startsBeforeId: "ace-04",
+            endsBeforeId: "ace-6",
+            synopsis: {
+              it: "Colpita duramente dall'impatto di Ulisse, l'Estovakia vede la propria economia crollare e le infrastrutture ridotte allo stremo, mentre la vicina Emmeria, investita dalla stessa crisi ma uscitane pressoché indenne, si rimette rapidamente in piedi. Il divario tra le due nazioni alimenta un risentimento profondo: in Estovakia scoppia una guerra civile da cui emerge una giunta militare, ribattezzata dalla popolazione 'I Generali', che consolida il potere promettendo di restituire al paese la forza perduta. Negli anni successivi la giunta riarma segretamente le forze armate, decisa a risolvere con la forza ciò che la diplomazia non può più permettersi.",
+              en: "Hit hard by the Ulysses impact, Estovakia sees its economy collapse and its infrastructure pushed to breaking point, while neighbouring Emmeria, struck by the same crisis but left largely unscathed, recovers quickly. The gap between the two nations fuels deep resentment: a civil war breaks out in Estovakia, from which a military junta emerges — nicknamed 'The Generals' by the population — consolidating power by promising to restore the country's lost strength. Over the following years the junta secretly rearms its military, determined to settle by force what diplomacy can no longer afford."
+            }
+          },
+          { id: "ascesa-erusea", type: "STORIA", typeEn: "STORY", year: "2005 – 2019", yearEn: "2005 – 2019",
+            noAvatar: true,
+            title: { it: "L'Ascesa di Erusea", en: "The Rise of Erusea" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // doppia sottile): stesso meccanismo di "Il Collasso
+            // dell'Estovakia" qui sopra, arco parzialmente sovrapposto
+            // al suo (entrambi racchiudono "La Distensione di Osea e
+            // Yuktobania" e "Ace Combat 5") - voluto, due fili narrativi
+            // scollegati che corrono in parallelo nello stesso periodo,
+            // non un errore. L'arco comincia subito dopo "Ace Combat 04"
+            // (il dopoguerra da cui parte l'ascesa di Erusea) e subito
+            // prima della STORIA "La Distensione di Osea e Yuktobania",
+            // e finisce subito prima di "Ace Combat 7", dove la nuova
+            // guerra continentale esplode apertamente: comprende quindi
+            // "La Distensione di Osea e Yuktobania", "Ace Combat 5" e
+            // "Ace Combat 6". Arco e assenza di collegamento narrativo
+            // verificati rileggendo tutte le sinossi coinvolte,
+            // confermato da Sakrem.
+            lineStyle: "double",
+            startsBeforeId: "distensione-osea-yuktobania",
+            endsBeforeId: "ace-7",
+            synopsis: {
+              it: "Nel dopoguerra seguito alla Guerra Continentale, Erusea si riprende con sorprendente rapidità dalla sconfitta, ampliando i propri confini fino a inglobare diversi piccoli stati vicini, tra cui un antico ducato la cui famiglia reale viene spodestata dall'espansione. All'interno del rinnovato apparato militare prende forma un ambizioso programma di ricerca, volto a sviluppare droni da combattimento autonomi capaci di sostituire i piloti umani in battaglia. Parallelamente la comunità internazionale completa un ascensore spaziale pensato per rispondere a future minacce dallo spazio. Le tensioni territoriali e la sfiducia reciproca accumulate in questi anni sfoceranno, nel 2019, in un nuovo conflitto su scala continentale.",
+              en: "In the aftermath of the Continental War, Erusea recovers from defeat with surprising speed, expanding its borders to absorb several small neighbouring states, including an ancient duchy whose royal family is deposed by the expansion. Within the renewed military apparatus, an ambitious research programme takes shape, aimed at developing autonomous combat drones capable of replacing human pilots in battle. Meanwhile the international community completes a space elevator designed to counter future threats from space. The territorial tensions and mutual distrust accumulated over these years will erupt, in 2019, into a new continent-wide conflict."
+            }
+          }
         ]
       },
       {
         id: "cieli-terrestri",
         name: { it: "Cieli Terrestri", en: "Earthly Skies" },
         span: { it: "2002 – 2016", en: "2002 – 2016" },
-        palette: ["#E8825C", "#4F7BA1", "#2C3E50"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Cieli%20Terrestri%20Filigrana.jpg",
+        palette: ["#C97830", "#661F30", "#3E7CAE"],
         entries: [
           { id: "ikaros-in-the-sky", type: "ROMANZO", typeEn: "NOVEL", year: "2002", yearEn: "2002", releaseYear: "2012", releaseYearEn: "2012",
             title: { it: "Ace Combat: Ikaros in the Sky", en: "Ace Combat: Ikaros in the Sky" },
@@ -228,14 +266,13 @@ const GAMES = {
     title: { it: "Alone in the Dark", en: "Alone in the Dark" },
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
     watermarkOpacity: 0.2,
-    accentColor: "#d68a34",
+    accentColor: "#D1903D",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20In%20the%20Eye%20of%20the%20Storm.mp3", title: "In the Eye of the Storm", game: "Alone in the Dark (1992)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Welcome%20to%20Derceto.mp3", title: "Welcome to Derceto", game: "Alone in the Dark (2024)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20I%27m%20Not%20Afraid...%20I%20Think.mp3", title: "I'm Not Afraid... I Think", game: "Alone in the Dark (1992)" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Credits%20Song.mp3", title: "Alone in the Dark (Theme/Credits Song)", game: "Alone in the Dark: The New Nightmare" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Credits%20Song.mp3", title: "Alone in the Dark", game: "Alone in the Dark: The New Nightmare" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Fa%C3%A7ade.mp3", title: "The Façade", game: "Alone in the Dark (2008)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20New%20Orleans%20Doom%20Shuffle.mp3", title: "The New Orleans Doom Shuffle", game: "Alone in the Dark (2024)" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
@@ -249,7 +286,8 @@ const GAMES = {
         id: "infogrames",
         name: { it: "Universo Infogrames", en: "Infogrames Universe" },
         span: { it: "1924 – 1925", en: "1924 – 1925" },
-        palette: ["#2e1a3d", "#d68a34", "#6b4a2e"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Infogrames%20Filigrana.jpg",
+        palette: ["#D1903D", "#2F6E6B", "#9C5A2E"],
         entries: [
           {
             id: "aitd-1",
@@ -314,7 +352,8 @@ const GAMES = {
         id: "darkworks",
         name: { it: "Universo Darkworks", en: "Darkworks Universe" },
         span: { it: "2001", en: "2001" },
-        palette: ["#d68a34", "#4a6b68", "#1a1410"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Darkworks%20Filigrana.jpg",
+        palette: ["#D1903D", "#4E6B5A"],
         entries: [
           {
             id: "life-is-a-hideous-thing",
@@ -351,7 +390,8 @@ const GAMES = {
         id: "eden-games",
         name: { it: "Universo Eden Games", en: "Eden Games Universe" },
         span: { it: "2008 – 2015", en: "2008 – 2015" },
-        palette: ["#1a1a1d", "#d68a34", "#7a1414"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Eden%20Games%20Filigrana.jpg",
+        palette: ["#5B3A73", "#D1903D"],
         entries: [
           {
             id: "aitd-2008",
@@ -388,7 +428,8 @@ const GAMES = {
         id: "pieces-interactive",
         name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
         span: { it: "2024", en: "2024" },
-        palette: ["#2a2f28", "#d68a34", "#5c1f1f"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Pieces%20Interactive%20Filigrana.jpg",
+        palette: ["#D1903D", "#9BAF9A"],
         entries: [
           {
             id: "grace-in-the-dark",
@@ -434,18 +475,18 @@ const GAMES = {
       it: "Da secoli, la Confraternita degli Assassini e l'Ordine dei Templari si contendono in segreto il corso della storia umana, mascherando la loro guerra dietro gli eventi che tutti conoscono. Da una parte il libero arbitrio, dall'altra il controllo assoluto sull'umanità. Antichi manufatti di una civiltà scomparsa alimentano.",
       en: "For centuries, the Brotherhood of Assassins and the Order of Templars have secretly fought over the course of human history, hiding their war behind the events everyone knows. On one side stands free will, on the other absolute control over humanity. Ancient artifacts left by a vanished civilization fuel both."
     },
-    accentColor: "#8B1A2E",
+    accentColor: "#8E1B2E",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "antichita",
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
-        palette: ["#3D1E4A", "#8B1A2E", "#D4A017"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#7C6A2E", "#8E1B2E"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
             releaseYear: "2018", releaseYearEn: "2018",
@@ -459,6 +500,7 @@ const GAMES = {
           { id: "desert-oath", type: "ROMANZO", typeEn: "NOVEL", year: "70 a.C.", yearEn: "70 BC",
             releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Assassin's Creed: Origins – Desert Oath", en: "Assassin's Creed: Origins – Desert Oath" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Origins%20%E2%80%93%20Desert%20Oath.jpg",
             synopsis: {
               it: "Nel 70 a.C., anni prima di diventare l'ultimo Medjay d'Egitto, il giovane Bayek lascia il villaggio di Siwa per seguire le tracce del padre Sabu, protettore della città, partito senza spiegazioni per dare la caccia a un sicario che sta sterminando sistematicamente gli ultimi membri dell'antico ordine dei Medjay. Il viaggio lungo il Nilo porta Bayek a scoprire il complotto dietro la purga e a stringere un legame sempre più profondo con la futura moglie Aya, gettando le basi del suo destino di protettore dell'Egitto.",
               en: "In 70 BC, years before becoming Egypt's last Medjay, young Bayek leaves the village of Siwa to follow the trail of his father Sabu, the town's protector, who has departed without explanation to hunt down an assassin systematically wiping out the last members of the ancient Medjay order. The journey along the Nile leads Bayek to uncover the conspiracy behind the purge and to forge an ever-deeper bond with his future wife Aya, laying the foundations of his destiny as Egypt's protector."
@@ -479,11 +521,13 @@ const GAMES = {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
         span: { it: "824 – 878", en: "824 – 878" },
-        palette: ["#4A5D6B", "#8B1A2E", "#9CA3AF"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#B8860B", "#8E1B2E"],
         entries: [
           { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
             releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Assassin's Creed: Mirage – Daughter of No One", en: "Assassin's Creed: Mirage – Daughter of No One" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Mirage%20%E2%80%93%20Daughter%20of%20No%20One.jpg",
             synopsis: {
               it: "Nell'824, decenni prima di diventare la mentore di Basim Ibn Ishaq, la giovane Roshan viene liberata dal carcere del Cairo da uno sconosciuto incappucciato e arruolata in una banda di ladri assemblata per rubare un misterioso manufatto in transito sulla Via della Seta verso la Persia. Nel corso del colpo, tra tradimenti e rivelazioni sul proprio passato, Roshan scopre per la prima volta l'esistenza dei Nascosti e il destino che la attende.",
               en: "In 824, decades before becoming Basim Ibn Ishaq's mentor, young Roshan is freed from a Cairo prison by a hooded stranger and recruited into a crew of thieves assembled to steal a mysterious artefact being transported along the Silk Road toward Persia. In the course of the heist, amid betrayals and revelations about her own past, Roshan discovers for the first time the existence of the Hidden Ones and the destiny awaiting her."
@@ -501,6 +545,7 @@ const GAMES = {
           { id: "golden-city", type: "ROMANZO", typeEn: "NOVEL", year: "867", yearEn: "867",
             releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Assassin's Creed: The Golden City", en: "Assassin's Creed: The Golden City" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20The%20Golden%20City.jpg",
             synopsis: {
               it: "Nell'867, l'allievo Hytham raggiunge il proprio mentore Basim Ibn Ishaq a Costantinopoli per sventare un complotto dell'Ordine degli Antichi: l'imperatore Basilio I progetta di far uccidere il proprio giovane co-imperatore e figlio Leone per consolidare il potere. Mentre indaga la cospirazione insieme all'imperatrice Eudocia Ingerina, Hytham riceve dalla Confraternita l'incarico segreto di valutare se le ossessioni personali di Basim lo stiano allontanando dal credo dei Nascosti: dubbi che risuoneranno anni dopo in Assassin's Creed Valhalla. Colma il decennio che separa Mirage da Valhalla.",
               en: "In 867, the acolyte Hytham joins his mentor Basim Ibn Ishaq in Constantinople to foil a plot by the Order of the Ancients: Emperor Basil I plans to have his young co-emperor and son Leo killed to consolidate power. While investigating the conspiracy alongside Empress Eudocia Ingerina, Hytham is given a secret task by the Brotherhood: to assess whether Basim's personal obsessions are pulling him away from the Hidden Ones' creed — doubts that will echo years later in Assassin's Creed Valhalla. It bridges the decade separating Mirage from Valhalla."
@@ -518,6 +563,7 @@ const GAMES = {
           { id: "sword-of-the-white-horse", type: "ROMANZO", typeEn: "NOVEL", year: "878", yearEn: "878",
             releaseYear: "2022", releaseYearEn: "2022",
             title: { it: "Assassin's Creed: Valhalla – Sword of the White Horse", en: "Assassin's Creed: Valhalla – Sword of the White Horse" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Valhalla%20%E2%80%93%20Sword%20of%20the%20White%20Horse.jpg",
             synopsis: {
               it: "Nell'878, la strega guerriera Niamh di Argyll si infiltra tra i Nascosti in Inghilterra per scoprirne le reali intenzioni e recuperare Excalibur, la spada leggendaria sacra al suo popolo, custodita dal Clan del Corvo. Nel corso della missione Niamh si scontra con lealtà divise e patti antichi quanto gli dei stessi, in un seguito diretto agli eventi di Assassin's Creed Valhalla.",
               en: "In 878, the witch-warrior Niamh of Argyll infiltrates the Hidden Ones in England to learn their true intentions and recover Excalibur, the legendary sword sacred to her people, held by the Raven Clan. In the course of her mission Niamh runs into divided loyalties and pacts as old as the gods themselves, in a direct sequel to the events of Assassin's Creed Valhalla."
@@ -529,7 +575,8 @@ const GAMES = {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
         span: { it: "1191 – 1526", en: "1191 – 1526" },
-        palette: ["#C9B27C", "#8B1A2E", "#A8552C"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#B8935A", "#2E2A4A", "#8E1B2E"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -574,6 +621,7 @@ const GAMES = {
           { id: "heresy", type: "ROMANZO", typeEn: "NOVEL", year: "1429 – 1431", yearEn: "1429 – 1431",
             releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Assassin's Creed: Heresy", en: "Assassin's Creed: Heresy" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Heresy.jpg",
             synopsis: {
               it: "Nel gennaio 1429, all'inizio della sua ascesa alla guida dell'esercito francese nella Guerra dei Cent'anni, il giovane Gabriel Laxart (nato nel 1411) diventa il protettore e la \"ombra\" della cugina Giovanna d'Arco. Il filo conduttore della vicenda è la spada di Giovanna, in realtà una Spada dell'Eden a cui manca una componente vitale, \"the Heart\", nascosta secoli prima dal Gran Maestro templare Jacques de Molay nelle celle della prigione di Coudray. Nel corso della guerra Gabriel viene avvicinato sia dai Templari sia dagli Assassini: questi ultimi tramite Jean de Metz, che gli impartisce un addestramento essenziale per proteggere Giovanna, pur senza mai riuscire a farlo aderire alla Confraternita. Quando Giovanna viene infine catturata, il processo per eresia intentato contro di lei a Rouen, conclusosi ufficialmente con la condanna al rogo nel 1431, si rivela un'orchestrazione templare per impossessarsi della Spada: sono in realtà gli Assassini a salvare Giovanna, sostituendola sul rogo con l'ancella Fleur, resa irriconoscibile dalle percosse, mentre lei viene condotta altrove priva di sensi: nel canone della saga, la Pulzella d'Orléans non muore arsa come vuole la storiografia ufficiale.\n\nNel presente, lo storico Simon Hathaway, appena entrato nell'Inner Sanctum templare, ha preso il posto di Isabelle Ardant (uccisa negli eventi presenti di Assassin's Creed Syndicate) alla guida della divisione di ricerca storica di Abstergo a Londra. Attraverso l'Animus, Simon rivive i ricordi del proprio antenato Gabriel per recuperare e riparare la Spada per conto di Alan Rikkin, CEO di Abstergo. Nel corso dell'indagine, la scoperta che Giovanna sia davvero sopravvissuta al rogo insieme a Gabriel getta un'ombra sulla presunta purezza del proprio lignaggio templare, facendo sorgere in Simon il dubbio di discendere anche dagli Assassini. Recuperata \"the Heart\" da Coudray, Simon completa la riparazione della Spada e la consegna a Rikkin davanti all'Inner Sanctum. Nell'epilogo, Rikkin parte per Madrid e telefona a una certa \"Sofia\", il ponte diretto verso l'apertura del film Assassin's Creed (2016).",
               en: "In January 1429, at the start of her rise to lead the French army during the Hundred Years' War, young Gabriel Laxart (born in 1411) becomes the protector and \"shadow\" of his cousin Joan of Arc. The narrative's central thread is Joan's sword, in truth a Sword of Eden missing a vital component, \"the Heart\", hidden centuries earlier by Templar Grand Master Jacques de Molay in the cells of Coudray prison. Over the course of the war, Gabriel is approached by both the Templars and the Assassins — the latter through Jean de Metz, who gives him essential training to protect Joan, though he never manages to bring him fully into the Brotherhood. When Joan is finally captured, the heresy trial brought against her in Rouen, which officially ends with her sentencing to be burned at the stake in 1431, turns out to be a Templar scheme to seize the Sword: it is in fact the Assassins who save Joan, substituting her at the stake with her maid Fleur, beaten beyond recognition, while Joan herself is spirited away unconscious — in the saga's canon, the Maid of Orléans does not die burned as official historiography claims.\n\nIn the present, historian Simon Hathaway, newly inducted into the Templar Inner Sanctum, has taken the place of Isabelle Ardant (killed in the present-day events of Assassin's Creed Syndicate) as head of Abstergo's historical research division in London. Through the Animus, Simon relives the memories of his ancestor Gabriel to recover and repair the Sword on behalf of Abstergo CEO Alan Rikkin. In the course of the investigation, the discovery that Joan truly survived the stake alongside Gabriel casts doubt on the supposed purity of his own Templar bloodline, raising in Simon the suspicion that he may also descend from the Assassins. Having recovered \"the Heart\" from Coudray, Simon completes the Sword's repair and delivers it to Rikkin before the Inner Sanctum. In the epilogue, Rikkin departs for Madrid and places a call to someone named \"Sofia\" — the direct bridge into the opening of the Assassin's Creed (2016) film."
@@ -588,18 +636,10 @@ const GAMES = {
               en: "In Florence, the Assassin Giovanni Auditore, father of future protagonist Ezio, investigates a conspiracy orchestrated by Rodrigo Borgia against the Medici family, foiling an assassination attempt on the Duke of Milan, Galeazzo Maria Sforza, at the last moment. Giovanni's investigation uncovers the web of betrayals that will shortly cost him and two of his sons their lives, setting in motion the revenge told in Assassin's Creed II. A live-action short film trilogy produced by Ubisoft, made as a direct lead-in to the game."
             }
           },
-          { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
-            releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
-            title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20II.jpg",
-            synopsis: {
-              it: "Nella Firenze rinascimentale, il giovane nobile Ezio Auditore da Firenze assiste all'esecuzione ingiusta del padre e dei fratelli, incastrati dai Templari con l'accusa di tradimento. Addestrato all'arte dell'assassinio dallo zio Mario, Ezio dà la caccia ai cospiratori attraverso Firenze, Venezia e Roma, scoprendo il coinvolgimento dei Borgia e la ricerca templare della Mela dell'Eden, un antico artefatto degli Isu. Il gioco che ha reso Ezio l'icona più riconoscibile della serie, primo capitolo di una trilogia.",
-              en: "In Renaissance Florence, the young nobleman Ezio Auditore da Firenze witnesses the unjust execution of his father and brothers, framed by the Templars on charges of treason. Trained in the art of assassination by his uncle Mario, Ezio hunts down the conspirators across Florence, Venice, and Rome, uncovering the involvement of the Borgia family and the Templars' pursuit of the Apple of Eden, an ancient Isu artefact. The game that made Ezio the series' most recognisable icon, the first chapter of a trilogy."
-            }
-          },
           { id: "assassins-creed-film", type: "LIVE ACTION", typeEn: "LIVE ACTION", year: "1491 – 1492", yearEn: "1491 – 1492",
             releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Assassin's Creed (Film + Novelization)", en: "Assassin's Creed (Film + Novelization)" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Il%20Film.jpg",
             synopsis: {
               it: "Tra la fine del 1491 e l'inizio del 1492, durante la Guerra di Granada, l'Assassino Aguilar de Nerha e la compagna María intervengono per salvare il principe Ahmed, figlio del sultano Muhammad XII, rapito dal Grande Inquisitore Tomás de Torquemada (segretamente Gran Maestro dei Templari spagnoli) per costringere il sultano ad arrendere sia Granada sia la Mela dell'Eden (un artefatto diverso da quello che compare in Assassin's Creed II). Catturati dal luogotenente di Torquemada, Ojeda, i due riescono comunque a intercettare un incontro tra il sultano e l'Inquisitore, uccidono gli uomini di Torquemada e recuperano la Mela; quando Ojeda cattura María, lei si toglie la vita sulla sua lama pur di proteggere l'artefatto, permettendo ad Aguilar di ucciderlo a sua volta e fuggire. Aguilar affida infine la Mela a Cristoforo Colombo, che giura di portarla con sé nella tomba: proprio lì, secoli dopo, Abstergo Industries ne localizza la posizione.\n\nNel presente, Callum Lynch, discendente di Aguilar, viene sottratto alla pena di morte da Abstergo Industries (guidata da Alan Rikkin e dalla figlia Sofia) per rivivere tramite un Animus di nuova generazione le memorie di Aguilar e la purga della Confraternita spagnola scatenata dall'Inquisizione. Scoperta la posizione della Mela, Callum guida una rivolta degli altri discendenti-cavia detenuti nella struttura di Abstergo a Madrid contro le guardie della compagnia, recuperandola insieme ai compagni superstiti Lin e Moussa. Nello scontro finale, Callum assassina Alan Rikkin, mentre Sofia, ormai disillusa dalle azioni del padre, non interviene per fermarlo: gli Assassini recuperano così la Mela dell'Eden, sottraendola definitivamente ai Templari.\n\nNota sulla novelization: l'adattamento ufficiale del film, scritto anch'esso da Christie Golden, include in appendice un'antologia di racconti brevi su altri discendenti-cavia della struttura di Madrid (Nathan, Emir, Moussa, Lin) e i rispettivi antenati, oltre a un estratto di apertura di Assassin's Creed: Heresy.",
               en: "Between late 1491 and early 1492, during the Granada War, the Assassin Aguilar de Nerha and his companion María intervene to save Prince Ahmed, son of Sultan Muhammad XII, kidnapped by Grand Inquisitor Tomás de Torquemada — secretly the Grand Master of the Spanish Templars — to force the sultan to surrender both Granada and the Apple of Eden (a different artefact from the one that appears in Assassin's Creed II). Captured by Torquemada's enforcer Ojeda, the two nonetheless manage to intercept a meeting between the sultan and the Inquisitor, kill Torquemada's men and recover the Apple; when Ojeda captures María, she takes her own life on his blade to protect the artefact, allowing Aguilar to kill him in turn and escape. Aguilar finally entrusts the Apple to Christopher Columbus, who vows to take it to his grave — the very place where, centuries later, Abstergo Industries tracks it down.\n\nIn the present, Callum Lynch, a descendant of Aguilar, is spared from execution by Abstergo Industries — led by Alan Rikkin and his daughter Sofia — to relive Aguilar's memories and the Inquisition-driven purge of the Spanish Brotherhood through a new-generation Animus. Once the Apple's location is discovered, Callum leads an uprising of the other descendant test subjects held at Abstergo's Madrid facility against the company's guards, recovering it alongside fellow survivors Lin and Moussa. In the final confrontation, Callum assassinates Alan Rikkin, while Sofia, now disillusioned by her father's actions, does nothing to stop him: the Assassins thus recover the Apple of Eden, taking it from the Templars for good.\n\nNote — novelization: the official film adaptation, also written by Christie Golden, includes in its appendix an anthology of short stories about other descendant test subjects at the Madrid facility (Nathan, Emir, Moussa, Lin) and their respective ancestors, as well as an opening excerpt from Assassin's Creed: Heresy."
@@ -646,6 +686,11 @@ const GAMES = {
           { id: "secret-crusade", type: "ROMANZO", typeEn: "NOVEL", year: "1176 circa – 1257", yearEn: "c. 1176 – 1257",
             releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Assassin's Creed: La crociata segreta", en: "Assassin's Creed: The Secret Crusade" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20La%20Crociata%20Segreta.jpg",
+            // Racconto/flashback (Niccolò Polo narra a voce la vita di
+            // Altaïr), non un'esperienza vissuta in prima persona da chi
+            // legge - lineStyle "dotted" (PARTE 3 punto 3, variante 3).
+            lineStyle: "dotted",
             // Voce "ombrello" (PARTE 3 punto 3 del regolamento): la sua
             // trama copre l'intera vita di Altaïr, dall'infanzia fino
             // alla morte a Masyaf nel 1257 - racconto in flashback fatto
@@ -664,6 +709,28 @@ const GAMES = {
               it: "Nel 1257, ospiti alla fortezza di Masyaf poco prima del suo assedio finale, il mercante veneziano Niccolò Polo racconta al fratello Maffeo l'intera vita di Altaïr Ibn-La'Ahad: dall'infanzia, segnata dall'esecuzione pubblica del padre Umar durante un assedio quando Altaïr aveva undici anni, attraverso l'ascesa nei ranghi della Confraternita, il tradimento e l'uccisione del proprio mentore Al Mualim, gli eventi già narrati in Assassin's Creed (1191) e Assassin's Creed: Bloodlines (1191), il tradimento dell'amico Abbas Sofian e la tragedia che ne consegue per la sua famiglia, fino al lungo mandato di Altaïr come Mentore e alla sua morte solitaria a Masyaf nel 1257. Solo nell'ultima pagina si scopre che il \"lettore\" della cornice narrativa a cui Niccolò ha affidato il proprio racconto è in realtà Ezio Auditore, che chiude il diario e sbarca a Costantinopoli, l'apertura diretta di Assassin's Creed: Revelations.",
               en: "In 1257, while guests at the fortress of Masyaf shortly before its final siege, Venetian merchant Niccolò Polo recounts to his brother Maffeo the entire life of Altaïr Ibn-La'Ahad: from his childhood, marked by the public execution of his father Umar during a siege when Altaïr was eleven, through his rise through the ranks of the Brotherhood, the betrayal and killing of his own mentor Al Mualim, the events already told in Assassin's Creed (1191) and Assassin's Creed: Bloodlines (1191), the betrayal of his friend Abbas Sofian and the tragedy that befalls his family as a result, up to Altaïr's long tenure as Mentor and his solitary death at Masyaf in 1257. Only on the final page is it revealed that the \"reader\" of the framing narrative, to whom Niccolò has entrusted his account, is in fact Ezio Auditore, who closes the journal and sails for Constantinople — the direct lead-in to the opening of Assassin's Creed: Revelations."
             }
+          },
+          { id: "assassins-creed-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1476 – 1499",
+            releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
+            title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20II.jpg",
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // doppia sottile): il gioco (1476-1499, Ezio a Firenze,
+            // Venezia e Roma) e il film Assassin's Creed (1491-1492,
+            // Aguilar in Spagna) si svolgono in parallelo nello stesso
+            // periodo, senza alcun punto di contatto narrativo
+            // (personaggi diversi, nazioni diverse, Mele dell'Eden
+            // esplicitamente diverse). L'arco comincia subito prima di
+            // "assassins-creed-film" e finisce subito prima di
+            // "brotherhood", racchiudendo il solo film. Confermato da
+            // Sakrem.
+            lineStyle: "double",
+            startsBeforeId: "assassins-creed-film",
+            endsBeforeId: "brotherhood",
+            synopsis: {
+              it: "Nella Firenze rinascimentale, il giovane nobile Ezio Auditore da Firenze assiste all'esecuzione ingiusta del padre e dei fratelli, incastrati dai Templari con l'accusa di tradimento. Addestrato all'arte dell'assassinio dallo zio Mario, Ezio dà la caccia ai cospiratori attraverso Firenze, Venezia e Roma, scoprendo il coinvolgimento dei Borgia e la ricerca templare della Mela dell'Eden, un antico artefatto degli Isu. Il gioco che ha reso Ezio l'icona più riconoscibile della serie, primo capitolo di una trilogia.",
+              en: "In Renaissance Florence, the young nobleman Ezio Auditore da Firenze witnesses the unjust execution of his father and brothers, framed by the Templars on charges of treason. Trained in the art of assassination by his uncle Mario, Ezio hunts down the conspirators across Florence, Venice, and Rome, uncovering the involvement of the Borgia family and the Templars' pursuit of the Apple of Eden, an ancient Isu artefact. The game that made Ezio the series' most recognisable icon, the first chapter of a trilogy."
+            }
           }
         ]
       },
@@ -671,11 +738,13 @@ const GAMES = {
         id: "giappone-feudale",
         name: { it: "Giappone Feudale", en: "Feudal Japan" },
         span: { it: "1560 – 1581", en: "1560 – 1581" },
-        palette: ["#2E4A2E", "#8B1A2E", "#1A1714"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#1F3B4D", "#8E1B2E"],
         entries: [
           { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
             releaseYear: "2025 (in corso)", releaseYearEn: "2025 (ongoing)",
             title: { it: "Assassin's Creed: Shadows – Tales of Iga", en: "Assassin's Creed: Shadows – Tales of Iga" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Shadows%20%E2%80%93%20Tales%20of%20Iga.jpg",
             synopsis: {
               it: "Attorno al 1560, nella provincia di Iga, lo shinobi Fujibayashi Nagato, la compagna Tsuyu e Hattori Hanzō si uniscono per fondare la Kakushiba ikki, il nucleo originario da cui nascerà il futuro clan ninja di Iga. Nagato e Tsuyu sono i genitori di Naoe, protagonista di Assassin's Creed Shadows. Manga prequel tuttora in corso di pubblicazione, ne racconta la formazione e i primi scontri contro la minaccia templare affacciatasi sul Giappone.",
               en: "Around 1560, in Iga Province, the shinobi Fujibayashi Nagato, his companion Tsuyu, and Hattori Hanzō join forces to found the Kakushiba ikki, the original nucleus from which the future ninja clan of Iga will emerge. Nagato and Tsuyu are the parents of Naoe, the protagonist of Assassin's Creed Shadows. An ongoing prequel manga, it tells the story of the group's founding and its first clashes against the Templar threat surfacing in Japan."
@@ -684,6 +753,7 @@ const GAMES = {
           { id: "shadows", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1579 – 1581",
             releaseYear: "2025", releaseYearEn: "2025",
             title: { it: "Assassin's Creed Shadows", en: "Assassin's Creed Shadows" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Shadows.jpg",
             synopsis: {
               it: "Nel tardo periodo Sengoku, tra il 1579 e il 1581, durante la Guerra Tenshō di Iga, gli Shinbakufu (un gruppo di samurai mascherati segretamente alleato con i Templari giapponesi) assaltano la provincia di Iga: uccidono lo shinobi Fujibayashi Nagato e rubano un manufatto che questi aveva affidato alla giovane figlia Naoe. Poco dopo, Naoe incrocia Yasuke, samurai africano realmente esistito al servizio del daimyō Oda Nobunaga; quando Nobunaga viene tradito e ucciso dal proprio generale Akechi Mitsuhide durante l'incidente al tempio Honnō-ji, Naoe e Yasuke, dapprima su fronti opposti, uniscono le forze per dare la caccia agli Shinbakufu, responsabili rispettivamente della morte del padre di lei e del signore di lui. Nel corso della vendetta la coppia elimina uno dopo l'altro i membri della fazione fino allo stesso Akechi, la cui morte apre la strada verso l'ultimo shōgun Ashikaga Yoshiaki, in possesso del manufatto rubato a Nagato: Yoshiaki lo offre a Naoe in cambio della propria vita, convincendola a risparmiarlo. Nel finale, Naoe raggiunge Hattori Hanzō, che le rivela il proprio ruolo nella Kakushiba ikki (il ramo giapponese della Confraternita degli Assassini fondato da suo padre) e il legame con sua madre, la maestra Assassina Tsuyu, forse ancora viva: i due decidono di partire insieme alla sua ricerca.",
               en: "In the late Sengoku period, between 1579 and 1581, during the Tenshō Iga War, the Shinbakufu — a group of masked samurai secretly allied with the Japanese Templars — attack Iga Province: they kill the shinobi Fujibayashi Nagato and steal an artefact he had entrusted to his young daughter Naoe. Shortly after, Naoe crosses paths with Yasuke, the real-life African samurai in the service of daimyō Oda Nobunaga; when Nobunaga is betrayed and killed by his own general Akechi Mitsuhide during the Honnō-ji Incident, Naoe and Yasuke, initially on opposing sides, join forces to hunt down the Shinbakufu, responsible respectively for the death of her father and his lord. In the course of their revenge the pair eliminate the faction's members one by one, up to Akechi himself, whose death opens the way to the last shōgun, Ashikaga Yoshiaki, who holds the artefact stolen from Nagato: Yoshiaki offers it to Naoe in exchange for his life, convincing her to spare him. In the end, Naoe reaches Hattori Hanzō, who reveals to her his role within the Kakushiba ikki — the Japanese branch of the Brotherhood of Assassins founded by her father — and his bond with her mother, the Master Assassin Tsuyu, perhaps still alive: the two decide to set off together in search of her."
@@ -695,7 +765,8 @@ const GAMES = {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
-        palette: ["#1FA7A3", "#8B1A2E", "#5C3A21"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#1B7A72", "#8E1B2E", "#8A6A2E"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
             releaseYear: "2013", releaseYearEn: "2013",
@@ -739,16 +810,9 @@ const GAMES = {
         id: "eta-rivoluzioni",
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1868", en: "1725 – 1868" },
-        palette: ["#1D3F73", "#8B1A2E", "#E8DCC0"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#8E1B2E", "#242A3D", "#C4802E", "#4E5449"],
         entries: [
-          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
-            releaseYear: "2012", releaseYearEn: "2012",
-            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
-            synopsis: {
-              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
-              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
-            }
-          },
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
             releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",
             title: { it: "Assassin's Creed III", en: "Assassin's Creed III" },
@@ -763,13 +827,14 @@ const GAMES = {
             title: { it: "Assassin's Creed Unity", en: "Assassin's Creed Unity" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Unity.jpg",
             synopsis: {
-              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.\n\nNota sul romanzo Unity: il romanzo omonimo di Oliver Bowden (2014) aggiunge il punto di vista di Élise de la Serre e un epilogo dopo la fine del gioco: Arno cade in depressione dopo la morte di Élise, prima di essere contattato dal Marchese de Sade per una missione a Saint-Denis; include inoltre un cameo di Jennifer Scott, figlia di Haytham Kenway, che consegna a Élise i diari del padre.",
-              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain.\n\nNote — Unity novel: Oliver Bowden's same-titled novel (2014) adds Élise de la Serre's point of view and an epilogue set after the game's ending: Arno falls into depression following Élise's death, before being contacted by the Marquis de Sade for a mission in Saint-Denis; it also features a cameo by Jennifer Scott, daughter of Haytham Kenway, who gives Élise her father's journals."
+              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.\n\nNota sul romanzo Unity: il romanzo omonimo di Oliver Bowden (2014) aggiunge il punto di vista di Élise de la Serre e un epilogo dopo la fine del gioco: Arno cade in depressione dopo la morte di Élise, prima di essere contattato dal Marchese de Sade per una missione a Saint-Denis; include inoltre un cameo di Jennifer Scott, figlia di Haytham Kenway, che consegna a Élise i diari del padre.\n\nNota su Dead Kings (DLC narrativo): proprio la missione a Saint-Denis anticipata nel romanzo è al centro di questo capitolo, ambientato subito dopo la fine del gioco. Nella necropoli sotterranea della basilica, dove riposano da secoli i re di Francia, Arno si scontra con una banda di predoni intenzionati a profanare le tombe reali per saccheggiarne i tesori, tra nuovi intrighi legati ai predoni e alle rovine della città sepolta di Franciade.",
+              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain.\n\nNote — Unity novel: Oliver Bowden's same-titled novel (2014) adds Élise de la Serre's point of view and an epilogue set after the game's ending: Arno falls into depression following Élise's death, before being contacted by the Marquis de Sade for a mission in Saint-Denis; it also features a cameo by Jennifer Scott, daughter of Haytham Kenway, who gives Élise her father's journals.\n\nNote — Dead Kings (narrative DLC): the very mission to Saint-Denis foreshadowed in the novel is at the center of this chapter, set right after the end of the game. In the basilica's underground necropolis, where the kings of France have rested for centuries, Arno clashes with a band of raiders bent on defiling the royal tombs to loot their treasures, amid new intrigue tied to the raiders and the buried ruins of the city of Franciade."
             }
           },
           { id: "brahman", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "1839 – 1841", yearEn: "1839 – 1841",
             releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Assassin's Creed: Brahman", en: "Assassin's Creed: Brahman" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Brahman.jpg",
             synopsis: {
               it: "Nel 1839, l'Assassino kashmiro Arbaaz Mir recupera un documento che rivela l'esistenza del Koh-i-Noor, un potente Frutto dell'Eden custodito dal Maharaja Ranjit Singh dell'Impero Sikh. Dopo la morte di Singh, avvelenato dai britannici, Arbaaz viene incastrato per l'omicidio e costretto alla fuga, mentre la nipote del sovrano, la principessa Pyara Kaur, eredita il compito di proteggere il manufatto dai Templari inglesi. Una cornice narrativa ambientata nel 2013 segue il programmatore Jot Soora, coinvolto nel conflitto quando la fidanzata Monima Das si scopre discendente di Arbaaz e portatrice delle sue memorie genetiche.",
               en: "In 1839, the Kashmiri Assassin Arbaaz Mir recovers a document revealing the existence of the Koh-i-Noor, a powerful Piece of Eden held by Maharaja Ranjit Singh of the Sikh Empire. After Singh is poisoned by the British, Arbaaz is framed for his murder and forced to flee, while the ruler's granddaughter, Princess Pyara Kaur, inherits the task of protecting the artefact from the British Templars. A framing story set in 2013 follows programmer Jot Soora, drawn into the conflict when his fiancée Monima Das is revealed to be a descendant of Arbaaz and a carrier of his genetic memories."
@@ -778,6 +843,7 @@ const GAMES = {
           { id: "chronicles-india", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1841", yearEn: "1841",
             releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Assassin's Creed Chronicles: India", en: "Assassin's Creed Chronicles: India" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Chronicles%20India.jpg",
             synopsis: {
               it: "Due anni dopo gli eventi di Brahman, nel 1841, Arbaaz Mir viene incaricato dal proprio mentore Hamid di recuperare il Koh-i-Noor, ormai caduto nelle mani del nuovo Gran Maestro templare William Sleeman, mentre le tensioni tra l'Impero Sikh morente e la Compagnia delle Indie Orientali raggiungono il culmine. Nel corso della missione Arbaaz protegge anche il proprio mentore e il legame nascente con la principessa Pyara Kaur, dalla quale avrà in seguito il figlio Jayadeep. Secondo capitolo della trilogia Chronicles, in 2.5D.",
               en: "Two years after the events of Brahman, in 1841, Arbaaz Mir is tasked by his mentor Hamid with recovering the Koh-i-Noor, now in the hands of the new Templar Grand Master William Sleeman, as tensions between the dying Sikh Empire and the East India Company reach their peak. In the course of the mission Arbaaz also protects his mentor and his budding bond with Princess Pyara Kaur, with whom he will later have a son, Jayadeep. The second chapter of the Chronicles trilogy, in 2.5D."
@@ -786,6 +852,7 @@ const GAMES = {
           { id: "underworld", type: "ROMANZO", typeEn: "NOVEL", year: "1862 – 1868", yearEn: "1862 – 1868",
             releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Assassin's Creed: Underworld", en: "Assassin's Creed: Underworld" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Underworld.jpg",
             synopsis: {
               it: "Nel 1862, sei anni prima degli eventi di Syndicate, il giovane Jayadeep Mir, figlio di Arbaaz Mir cresciuto a Londra sotto la guida del mentore Ethan Frye, fatica a conciliare la propria natura riflessiva con l'addestramento da Assassino, fino a quando assume l'identità di Henry Green per costruire una rete di informatori essenziale alla Confraternita britannica. Il romanzo segue la sua formazione e il suo isolamento negli anni successivi, per poi ricongiungersi, nell'ultima parte, agli eventi già narrati in Assassin's Creed Syndicate dal punto di vista di Henry ed Evie Frye.",
               en: "In 1862, six years before the events of Syndicate, young Jayadeep Mir, son of Arbaaz Mir raised in London under the guidance of mentor Ethan Frye, struggles to reconcile his reflective nature with his training as an Assassin, until he adopts the identity of Henry Green to build an informant network essential to the British Brotherhood. The novel follows his formation and isolation over the following years, before converging, in its final part, with the events already told in Assassin's Creed Syndicate from the perspective of Henry and Evie Frye."
@@ -800,13 +867,34 @@ const GAMES = {
               en: "In Victorian London dominated by industrial exploitation, the Assassin twins Jacob and Evie Frye arrive in the city to wrest control of its working-class districts from the Templar gang known as the Blighters, led by Pearl Attaway and Rupert Ferris, founding their own gang, the Rooks. While Jacob throws himself into the street conflict with direct and sometimes reckless methods, Evie follows a more methodical trail that leads her to recover an ancient Piece of Eden held by the Templars, crossing paths along the way with historical figures such as Charles Dickens, Charles Darwin, and Karl Marx."
             }
           }
+        ],
+        umbrellas: [
+          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Forsaken.jpg",
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento): stessi
+            // eventi (la Rivoluzione Americana) di "assassins-creed-3",
+            // ma vissuti da un personaggio diverso (Haytham Kenway
+            // invece di Connor) - lineStyle "dashed" (variante 2).
+            // L'arco copre solo Assassin's Creed III, non si estende
+            // fino a Unity.
+            lineStyle: "dashed",
+            startsBeforeId: "assassins-creed-3",
+            endsBeforeId: "unity",
+            synopsis: {
+              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
+              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
+            }
+          }
         ]
       },
       {
         id: "rivoluzione-russa",
         name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
         span: { it: "1888 – 1920", en: "1888 – 1920" },
-        palette: ["#D9E0E3", "#1A1A1A", "#8B1A2E"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#8E1B2E", "#4A5560"],
         entries: [
           { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
             releaseYear: "2010", releaseYearEn: "2010",
@@ -841,11 +929,13 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2018", en: "2015 – 2018" },
-        palette: ["#1A2B3D", "#7A7E82", "#8B1A2E"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        palette: ["#8E1B2E", "#A67F3E"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
             releaseYear: "2015 – 2017", releaseYearEn: "2015 – 2017",
             title: { it: "Assassin's Creed: Assassins / Templars", en: "Assassin's Creed: Assassins / Templars" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Assassin%27s%20%26%20Templats.jpg",
             synopsis: {
               it: "\"Assassins\": la banchiera Charlotte de la Cruz viene reclutata dagli Assassini dopo essere stata scoperta a giocare con un Animus casalingo che le dà accesso ai ricordi genetici dell'antenato Tom Stoddard, coinvolto a Salem nel 1692. Charlotte entra così nel conflitto contro i Templari e nella caccia a un Assassino sospettato di tradimento in cerca di un Frutto dell'Eden. \\n\\n\"Templars\": in parallelo, il Templare Juhani Otso Berg indaga una cellula corrotta all'interno del proprio Ordine, rivivendo tramite l'Animus i ricordi dell'agente Black Cross nella Shanghai del 1927 e quelli di Albert Bolden nel 1805, alla ricerca della verità dietro un complotto interno che minaccia gli equilibri dei Templari stessi.",
               en: "\"Assassins\": banker Charlotte de la Cruz is recruited by the Assassins after being caught using a homemade Animus that grants her access to the genetic memories of her ancestor Tom Stoddard, caught up in Salem in 1692. Charlotte is drawn into the conflict against the Templars and the hunt for an Assassin suspected of treason in search of a Piece of Eden. \\n\\n\"Templars\": in parallel, the Templar Juhani Otso Berg investigates a corrupted cell within his own Order, reliving through the Animus the memories of agent Black Cross in 1927 Shanghai and those of Albert Bolden in 1805, in search of the truth behind an internal conspiracy threatening the Templars' own balance of power."
@@ -854,6 +944,7 @@ const GAMES = {
           { id: "reflections", type: "FUMETTO", typeEn: "COMIC", year: "2017", yearEn: "2017",
             releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Assassin's Creed: Reflections", en: "Assassin's Creed: Reflections" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Reflections.jpg",
             synopsis: {
               it: "Per il decimo anniversario della serie, il Templare Otso Berg consulta gli archivi segreti dell'Ordine per ripercorrere le vite di alcuni tra gli Assassini più celebri della storia (Altaïr, Ezio, Connor e Arno), riflettendo sul significato della guerra secolare contro la Confraternita. Miniserie di raccordo tra Assassins/Templars e Uprising.",
               en: "For the series' tenth anniversary, the Templar Otso Berg consults the Order's secret archives to revisit the lives of some of history's most celebrated Assassins — Altaïr, Ezio, Connor and Arno — reflecting on the meaning of the centuries-old war against the Brotherhood. A bridging miniseries between Assassins/Templars and Uprising."
@@ -862,6 +953,7 @@ const GAMES = {
           { id: "uprising", type: "FUMETTO", typeEn: "COMIC", year: "2017 – 2018", yearEn: "2017 – 2018",
             releaseYear: "2017 – 2018", releaseYearEn: "2017 – 2018",
             title: { it: "Assassin's Creed: Uprising", en: "Assassin's Creed: Uprising" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Uprising.jpg",
             synopsis: {
               it: "Le squadre di Assassini e Templari, ormai unite dalla necessità comune, si confrontano con gli Instruments of the First Will, una fazione decisa a riportare in vita la Isu Juno per sottomettere l'umanità. Charlotte de la Cruz guida la squadra finale contro la minaccia, rivivendo ulteriori ricordi genetici per individuare la posizione del Koh-i-Noor, mentre il Progetto Fenice, avviato negli eventi di Assassin's Creed Unity, giunge alla propria conclusione.",
               en: "The Assassin and Templar teams, now united by shared necessity, face the Instruments of the First Will, a faction determined to bring the Isu Juno back to life to subjugate humanity. Charlotte de la Cruz leads the final team against the threat, reliving further genetic memories to locate the Koh-i-Noor, as the Phoenix Project, set in motion in the events of Assassin's Creed Unity, reaches its conclusion."
@@ -881,17 +973,15 @@ const GAMES = {
       it: "Nelle profondità dell'Oceano Atlantico e tra le nuvole sopra il Midwest americano, due città nate dallo stesso sogno di libertà assoluta (una fondata sul culto dell'individuo, l'altra su quello della nazione e della fede) franano sotto il peso delle proprie stesse ideologie. Ogni utopia porta in sé i semi della propria rovina.",
       en: "In the depths of the Atlantic Ocean and among the clouds above the American Midwest, two cities born from the same dream of absolute freedom — one built on the cult of the individual, the other on nation and faith — collapse under the weight of their own ideologies. Every utopia carries the seeds of its own ruin."
     },
-    // PLACEHOLDER - fase Artista saltata su richiesta di Sakrem, da rivedere
-    // in un secondo momento.
-    accentColor: "#7a7a7a",
+    accentColor: "#2E9E86",
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Avatar.jpg",
     universes: [
       {
         id: "rapture",
         name: { it: "Rapture", en: "Rapture" },
         span: { it: "Anni '40 – 1968", en: "1940s – 1968" },
-        // PLACEHOLDER - fase Artista saltata su richiesta di Sakrem, da
-        // rivedere in un secondo momento.
-        palette: ["#7a7a7a", "#7a7a7a", "#7a7a7a"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Rapture%20Filigrana.jpg",
+        palette: ["#C2A233", "#6B7A3D", "#2E9E86"],
         // Collegamento tra Universi (PARTE 1 punto 19 del regolamento,
         // primo caso reale, confermato da Sakrem): Rapture RICEVE
         // l'aggancio causale da Columbia, tramite BioShock Infinite:
@@ -909,6 +999,7 @@ const GAMES = {
           { id: "bioshock-rapture-novel", type: "ROMANZO", typeEn: "NOVEL", year: "Anni '40 – dicembre 1960", yearEn: "1940s – December 1960",
             releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "BioShock: Rapture", en: "BioShock: Rapture" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Rapture.jpg",
             synopsis: {
               it: "Nel secondo dopoguerra, disgustato da quello che considera il collettivismo dilagante nelle società di superficie (dal New Deal al comunismo), l'imprenditore Andrew Ryan decide di fondare una città indipendente sul fondo dell'Oceano Atlantico, libera da governo, religione e morale imposta dall'esterno: nasce così Rapture. Ryan raccoglie attorno a sé scienziati, artisti e imprenditori d'eccellenza (tra cui l'ex idraulico Bill McDonagh, elevato a capo ingegnere della città, l'artista Sander Cohen e la ricercatrice Brigid Tenenbaum), dando vita a una metropoli sottomarina fiorente, retta dal libero mercato. La rapida crescita della popolazione porta però anche manodopera meno qualificata, relegata in un sottoproletariato scontento e privo di reali tutele. Parallelamente emerge Frank Fontaine, contrabbandiere ed ex criminale di New York che, sfruttando le crepe del sistema di Ryan, costruisce un impero sommerso di mercato nero, tabacco, alcolici e beni di superficie proibiti, ponendosi come suo rivale in ombra. La svolta arriva quando Tenenbaum scopre le eccezionali proprietà rigenerative delle lumache di mare che popolano i fondali attorno a Rapture: dalla loro secrezione si ricava l'ADAM, una sostanza capace di riscrivere il DNA umano e concedere poteri straordinari attraverso i Plasmidi. Fontaine ne intuisce subito il potenziale commerciale e finanzia in segreto la ricerca di Tenenbaum, arrivando a impiantare le lumache in bambine orfane per aumentarne la resa: nascono così le Sorelline, capaci di raccogliere ADAM dai cadaveri, e i Big Daddy, uomini sottoposti a condizionamento genetico e rinchiusi in corazze da palombaro per proteggerle. Con la diffusione dell'ADAM tra la popolazione, la società di Rapture inizia a corrompersi: la dipendenza dilaga, compaiono le prime mutazioni fisiche e mentali, e il divario tra l'élite di Ryan e i lavoratori sfruttati si allarga, mentre Ryan diventa progressivamente più autoritario e paranoico, vietando le assemblee pubbliche e istituendo la pena capitale. Quando Ryan scopre il ruolo di Fontaine nel contrabbando e nella nascita del mercato nero dell'ADAM, ordina un raid sulle sue attività: Fontaine viene dato per morto, ma in realtà sopravvive in incognito e torna sotto una nuova identità, quella del rivoluzionario Atlas, iniziando a raccogliere attorno a sé il malcontento popolare contro il regime di Ryan. Il romanzo si chiude con Rapture ormai sull'orlo del collasso sociale e la Guerra Civile alle porte, in un punto immediatamente precedente all'arrivo di Jack, nel dicembre del 1960.",
               en: "In the years after World War II, disgusted by what he considers the spreading collectivism of surface societies (from the New Deal to communism), the entrepreneur Andrew Ryan decides to found an independent city on the floor of the Atlantic Ocean, free from government, religion and externally imposed morality: thus Rapture is born. Ryan gathers around himself scientists, artists and outstanding entrepreneurs — among them the former plumber Bill McDonagh, elevated to the city's chief engineer, the artist Sander Cohen, and the researcher Brigid Tenenbaum — giving rise to a thriving underwater metropolis governed by the free market. The rapid growth of the population, however, also brings in less skilled labor, relegated to a discontented underclass with no real protections. At the same time, Frank Fontaine emerges: a smuggler and former New York criminal who, exploiting the cracks in Ryan's system, builds an underwater empire of black-market goods, tobacco, liquor and forbidden surface products, positioning himself as Ryan's shadow rival. The turning point comes when Tenenbaum discovers the extraordinary regenerative properties of the sea slugs living in the waters around Rapture: their secretion yields ADAM, a substance capable of rewriting human DNA and granting extraordinary powers through Plasmids. Fontaine immediately grasps its commercial potential and secretly funds Tenenbaum's research, going so far as to implant the slugs in orphaned girls to increase the yield: this is how the Little Sisters are born, able to harvest ADAM from corpses, and the Big Daddies, men subjected to genetic conditioning and sealed inside diving suits to protect them. As ADAM spreads among the population, Rapture's society begins to corrode: addiction runs rampant, the first physical and mental mutations appear, and the gap between Ryan's elite and the exploited workers widens, while Ryan grows increasingly authoritarian and paranoid, banning public assemblies and instituting capital punishment. When Ryan discovers Fontaine's role in the smuggling and in the birth of the ADAM black market, he orders a raid on his operations: Fontaine is presumed dead, but in fact survives in hiding and returns under a new identity, that of the revolutionary Atlas, beginning to gather popular discontent against Ryan's regime around himself. The novel ends with Rapture on the verge of social collapse and the Civil War imminent, at a point immediately preceding Jack's arrival in December 1960."
@@ -917,6 +1008,7 @@ const GAMES = {
           { id: "bioshock", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Dicembre 1960", yearEn: "December 1960",
             releaseYear: "2007 (Remaster: 2016)", releaseYearEn: "2007 (Remaster: 2016)",
             title: { it: "BioShock", en: "BioShock" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock.jpg",
             synopsis: {
               it: "Nel dicembre del 1960, Jack, unico sopravvissuto a un incidente aereo nell'Oceano Atlantico, scopre un faro solitario che nasconde un batiscafo diretto verso Rapture, la città sottomarina fondata da Andrew Ryan. Guidato via radio da un uomo che si presenta come Atlas, Jack esplora una Rapture ormai dilaniata dalla Guerra Civile e dalla dipendenza dall'ADAM: le sue strade sono infestate dai Ricombinanti, ex cittadini mutati e deformati dall'abuso di Plasmidi, mentre le Sorelline (bambine geneticamente modificate per raccogliere ADAM dai cadaveri) vengono scortate dai Big Daddy, sorveglianti in corazza da palombaro geneticamente condizionati a proteggerle. Atlas guida Jack attraverso la città chiedendogli aiuto per salvare la propria famiglia, rimasta intrappolata dall'altra parte di Rapture, e per fermare Andrew Ryan. Nel corso del viaggio, il giocatore può scegliere se raccogliere l'ADAM dalle Sorelline uccidendole dopo aver eliminato il loro Big Daddy, oppure liberarle dal condizionamento con l'aiuto della scienziata Brigid Tenenbaum, che vive nascosta a Rapture e cerca di rimediare ai propri esperimenti. Con l'avanzare della trama emerge che Jack obbedisce inconsapevolmente a ogni richiesta di Atlas preceduta dalla frase \"Per cortesia\": un colpo di scena rivela che Jack è in realtà figlio segreto di Andrew Ryan, cresciuto e geneticamente condizionato fin dall'infanzia perché obbedisca a chi pronuncia quella frase, e che \"Atlas\" altri non è che Frank Fontaine, il vecchio rivale di Ryan, che lo ha manipolato fin dal principio per usarlo come arma contro il padre. Costretto dallo stesso condizionamento, Jack raggiunge Ryan nel suo ufficio: quest'ultimo, ormai rassegnato, gli ordina lui stesso (con la formula \"Per cortesia, uccidimi\") di finirlo a colpi di mazza da golf, un ultimo atto di sfida contro Fontaine, che si ritrova così un cadavere al posto della sua arma di ricatto. Con l'aiuto di Tenenbaum, Jack si libera del condizionamento residuo e, con il sostegno delle Sorelline liberate, affronta Fontaine (ormai mutato dall'abuso di ADAM in una creatura mostruosa), sconfiggendolo definitivamente.\n\nIl finale cambia in base al comportamento tenuto dal giocatore verso le Sorelline lungo tutta l'avventura. Se Jack le ha sempre salvate (al massimo una raccolta), ottiene il finale positivo: porta con sé le cinque Sorelline liberate in superficie, le cresce come proprie figlie e, narrato dalla voce di Tenenbaum, muore in tarda età circondato dal loro affetto: questo è il finale dichiarato canonico dal seguito narrativo della saga (BioShock Infinite: Burial at Sea Episode 2, che ne mostra gli eventi come storia realmente accaduta). Se invece ne ha raccolta l'ADAM in più occasioni, ottiene uno dei finali negativi: uno intermedio, se ha risparmiato comunque alcune Sorelline; uno peggiore, se le ha raccolte tutte, in cui Jack usa il potere accumulato con l'ADAM per soggiogare il mondo di superficie, diventandone il tiranno.",
               en: "In December 1960, Jack, the sole survivor of a plane crash in the Atlantic Ocean, discovers a lone lighthouse concealing a bathysphere bound for Rapture, the underwater city founded by Andrew Ryan. Guided by radio by a man calling himself Atlas, Jack explores a Rapture torn apart by civil war and ADAM addiction: its streets are infested by Splicers, former citizens mutated and deformed by Plasmid abuse, while Little Sisters — girls genetically modified to harvest ADAM from corpses — are escorted by Big Daddies, genetically conditioned guardians sealed in diving suits to protect them. Atlas guides Jack through the city, asking for his help to save his own family, trapped on the other side of Rapture, and to stop Andrew Ryan. Along the way, the player can choose to harvest ADAM from the Little Sisters by killing them after defeating their Big Daddy, or free them from their conditioning with the help of the scientist Brigid Tenenbaum, who lives in hiding in Rapture trying to atone for her own experiments. As the story progresses, it emerges that Jack unknowingly obeys every request from Atlas preceded by the phrase \"Would you kindly\": a twist reveals that Jack is in fact Andrew Ryan's secret son, raised and genetically conditioned since childhood to obey whoever speaks that phrase, and that \"Atlas\" is none other than Frank Fontaine, Ryan's old rival, who has manipulated him from the start to use him as a weapon against his father. Compelled by the same conditioning, Jack reaches Ryan in his office: Ryan, now resigned, orders Jack himself — with the phrase \"Would you kindly... die\" — to beat him to death with a golf club, a final act of defiance against Fontaine, who is left with a corpse instead of his blackmail weapon. With Tenenbaum's help, Jack frees himself of the remaining conditioning and, with the support of the freed Little Sisters, confronts Fontaine — by now mutated by ADAM abuse into a monstrous creature — defeating him for good.\n\nThe ending changes depending on the player's behavior toward the Little Sisters throughout the game. If Jack always saved them (harvesting at most one), he gets the good ending: he takes the five freed Little Sisters to the surface, raises them as his own daughters and, narrated by Tenenbaum's voice, dies in old age surrounded by their love — this is the ending declared canonical by the saga's later narrative installment (BioShock Infinite: Burial at Sea Episode 2, which depicts its events as having truly happened). If instead he harvested ADAM on more than one occasion, he gets one of the negative endings: an intermediate one, if he still spared some Little Sisters; and a worse one, if he harvested all of them, in which Jack uses the power accumulated through ADAM to subjugate the surface world, becoming its tyrant."
@@ -925,6 +1017,7 @@ const GAMES = {
           { id: "bioshock-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1968",
             releaseYear: "2010 (Remaster: 2016)", releaseYearEn: "2010 (Remaster: 2016)",
             title: { it: "BioShock 2", en: "BioShock 2" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%202.jpg",
             synopsis: {
               it: "Nel 1968, otto anni dopo la caduta di Andrew Ryan e Frank Fontaine, Rapture è ormai sotto il controllo di Sofia Lamb, psichiatra e rivale ideologica di Ryan che, salita al potere nel vuoto lasciato dai due rivali, ha fondato un culto collettivista noto come la Famiglia, radicalmente opposto all'individualismo su cui la città era stata fondata. Il protagonista è il Soggetto Delta, il primo prototipo di Big Daddy mai creato, legato geneticamente a Eleanor Lamb, figlia di Sofia e la prima Sorellina mai legata con successo a un Big Daddy. Dieci anni prima degli eventi del gioco, Sofia aveva costretto Delta, tramite un Plasmide di controllo mentale, a togliersi la vita per separarlo da Eleanor; Delta si risveglia però nel presente, riportato in vita dal legame genetico che lo unisce alla ragazza, ormai cresciuta e prigioniera della madre, che lo richiama attraverso Rapture per riunirsi a lui. Guidato inizialmente da Augustus Sinclair, un imprenditore che un tempo aveva fatto affari sia con Ryan sia con Fontaine, Delta attraversa vari distretti della città alla ricerca di Eleanor, scontrandosi con i seguaci della Famiglia, incrociando nuove Sorelline da salvare o sfruttare e affrontando alcuni dei membri più influenti del culto, tra cui l'artista Grace Holloway, il politico Stanley Poole e lo scienziato Gilbert Alexander. Sofia Lamb, che vede in Eleanor lo strumento perfetto per diffondere la propria ideologia collettivista al mondo di superficie, tenta ripetutamente di fermare Delta, fino allo scontro finale tra i due.\n\nIl finale dipende da due fattori: il comportamento di Delta verso le Sorelline incontrate (salvarle o raccoglierne l'ADAM) e le sue scelte nei confronti dei personaggi secondari legati a Eleanor. Se Delta si è comportato con compassione, ottiene il finale positivo: dopo la sconfitta di Sofia Lamb, Eleanor (cresciuta libera dall'influenza della madre) riporta Delta in superficie, dove questi muore tra le sue braccia, lasciandole in eredità il proprio ADAM. Se il giocatore ha raccolto l'ADAM da alcune Sorelline senza raccoglierle tutte, o ha compiuto scelte moralmente miste, ottiene uno dei finali intermedi, in cui Eleanor sopravvive a Delta in condizioni più ambigue. Se infine Delta ha raccolto l'ADAM da ogni Sorellina incontrata, ottiene il finale peggiore: Eleanor, plasmata dalla stessa crudeltà della madre, sottrae l'ADAM di Delta per il proprio tornaconto e parte per il mondo di superficie con l'intento di diffondervi la propria dottrina. Nessuna fonte ufficiale dichiara quale di questi finali sia canonico: a differenza del primo BioShock, per BioShock 2 non esiste un epilogo indicato come storia effettivamente accaduta.\n\nNota su Fall of Rapture (multigiocatore incluso nel disco base): il disco base di BioShock 2 include anche una modalità multigiocatore, Fall of Rapture, ambientata durante la Guerra Civile di Rapture, tra la fine del 1958 e l'inizio del 1959. Il giocatore veste i panni di uno dei cittadini reclutati dalla società Sinclair Solutions nell'ambito del proprio Home Consumer Reward Program, un'iniziativa che offre appartamenti di lusso e prodotti sperimentali (armi, Gene Tonic e Plasmidi) in cambio della disponibilità dei cittadini a testarli sul campo, trasformandoli di fatto in combattenti/forze di sicurezza improvvisate per l'una o l'altra fazione del conflitto tra Andrew Ryan e Atlas. La modalità include scene di prologo ed epilogo che ne inquadrano la trama, mostrando come questi civili, tra un test e l'altro, finiscano essi stessi vittime della dipendenza da ADAM, riducendosi a Ricombinanti.\n\nNota su Minerva's Den (DLC narrativo): ambientato nel 1968, in parallelo alla trama principale di BioShock 2, questo capitolo segue il Soggetto Sigma, un altro Big Daddy, mentre si fa strada nel distretto di Minerva's Den per recuperare, su indicazione di Charles Milton Porter, il codice sorgente di The Thinker, un supercomputer alimentato ad ADAM che Porter aveva progettato insieme al collega Reed Wahl, ormai ossessionato dal controllo della macchina e disposto a tutto per mantenerne il possesso. Nel corso della missione, Sigma scopre gradualmente il proprio passato: analizzando il suo DNA, The Thinker rivela che Sigma è in realtà lo stesso Porter, consegnato dai propri avversari politici alle autorità di Rapture e trasformato a sua volta in un Big Daddy, mentre le istruzioni ricevute per tutto il capitolo provenivano dal computer stesso, che imitava la voce del proprio creatore. Sigma raggiunge infine il nucleo di The Thinker, sconfigge Wahl e, dopo aver attraversato gli alloggi dello stesso Porter (ossessionato dal tentativo di ricreare digitalmente la propria defunta moglie), torna in superficie in batisfera insieme a Brigid Tenenbaum, che riesce ad annullare il condizionamento imposto a Sigma e a restituirgli il proprio corpo umano originale.",
               en: "In 1968, eight years after the fall of Andrew Ryan and Frank Fontaine, Rapture is now under the control of Sofia Lamb, a psychiatrist and Ryan's ideological rival who, rising to power in the vacuum left by the two men, has founded a collectivist cult known as the Family, radically opposed to the individualism on which the city was founded. The protagonist is Subject Delta, the first Big Daddy prototype ever created, genetically bonded to Eleanor Lamb, Sofia's daughter and the first Little Sister ever successfully bonded to a Big Daddy. Ten years before the events of the game, Sofia forced Delta, through a mind-control Plasmid, to take his own life in order to separate him from Eleanor; Delta awakens in the present, brought back to life by the genetic bond that ties him to the girl, now grown and held prisoner by her mother, who summons him across Rapture to be reunited with him. Initially guided by Augustus Sinclair, a businessman who once dealt with both Ryan and Fontaine, Delta crosses several districts of the city in search of Eleanor, clashing with the Family's followers, encountering new Little Sisters to save or exploit, and facing some of the cult's most influential members, including the artist Grace Holloway, the politician Stanley Poole and the scientist Gilbert Alexander. Sofia Lamb, who sees Eleanor as the perfect instrument to spread her collectivist ideology to the surface world, repeatedly tries to stop Delta, leading to a final confrontation between the two.\n\nThe ending depends on two factors: Delta's behavior toward the Little Sisters he encounters (saving them or harvesting their ADAM) and his choices regarding the secondary characters connected to Eleanor. If Delta acted with compassion, he gets the good ending: after Sofia Lamb's defeat, Eleanor — raised free of her mother's influence — brings Delta to the surface, where he dies in her arms, leaving her his ADAM as a legacy. If the player harvested ADAM from some Little Sisters without harvesting them all, or made morally mixed choices, he gets one of the intermediate endings, in which Eleanor survives Delta under more ambiguous circumstances. If, finally, Delta harvested ADAM from every Little Sister he met, he gets the worst ending: Eleanor, shaped by the same cruelty as her mother, steals Delta's ADAM for her own benefit and departs for the surface world intending to spread her own doctrine there. No official source declares which of these endings is canonical: unlike the first BioShock, BioShock 2 has no epilogue presented as history that actually happened.\n\nNote — Fall of Rapture (multiplayer included on the base disc): the base disc of BioShock 2 also includes a multiplayer mode, Fall of Rapture, set during the Rapture Civil War, between late 1958 and early 1959. The player takes on the role of one of the citizens recruited by the Sinclair Solutions company as part of its Home Consumer Reward Program, an initiative offering luxury apartments and experimental products — weapons, Gene Tonics and Plasmids — in exchange for citizens' willingness to field-test them, effectively turning them into makeshift combatants/security forces for one side or the other of the conflict between Andrew Ryan and Atlas. The mode includes prologue and epilogue scenes framing its plot, showing how these civilians, between tests, end up becoming victims of ADAM addiction themselves, reduced to Splicers.\n\nNote — Minerva's Den (narrative DLC): set in 1968, in parallel with BioShock 2's main story, this chapter follows Subject Sigma, another Big Daddy, as he makes his way through the Minerva's Den district to retrieve, on the instructions of Charles Milton Porter, the source code of The Thinker, an ADAM-powered supercomputer that Porter had designed together with his colleague Reed Wahl, now obsessed with controlling the machine and willing to do anything to keep it. Over the course of the mission, Sigma gradually uncovers his own past: analyzing his DNA, The Thinker reveals that Sigma is in fact Porter himself, handed over to Rapture's authorities by his political rivals and turned into a Big Daddy in turn, while the instructions received throughout the chapter actually came from the computer itself, imitating the voice of its own creator. Sigma finally reaches The Thinker's core, defeats Wahl and, after passing through Porter's own living quarters — where he obsessed over digitally recreating his late wife — returns to the surface by bathysphere together with Brigid Tenenbaum, who manages to undo Sigma's conditioning and restore his original human body."
@@ -936,9 +1029,9 @@ const GAMES = {
         id: "columbia",
         name: { it: "Columbia", en: "Columbia" },
         span: { it: "1909 – 1912", en: "1909 – 1912" },
-        // PLACEHOLDER - fase Artista saltata su richiesta di Sakrem, da
-        // rivedere in un secondo momento.
-        palette: ["#7a7a7a", "#7a7a7a", "#7a7a7a"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Infinite%20Filigrana.jpg",
+        watermarkPosition: "right",
+        palette: ["#9C7A2E", "#2E9E86"],
         // Collegamento tra Universi: Columbia GENERA l'aggancio causale
         // verso Rapture (vedi nota sull'universo Rapture qui sopra) - va
         // mostrato alla FINE della sua linea.
@@ -952,6 +1045,7 @@ const GAMES = {
           { id: "mind-in-revolt", type: "ROMANZO", typeEn: "NOVEL", year: "1909",
             releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "BioShock Infinite: Mind in Revolt", en: "BioShock Infinite: Mind in Revolt" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/BioShock%20Infinite%20Mind%20in%20Revolt.jpg",
             synopsis: {
               it: "Il romanzo è ambientato nel 1909 e assume la forma dei taccuini/registrazioni vocali del dottor Francis Pinchot, psichiatra della città volante di Columbia. Pinchot viene incaricato di osservare e valutare Daisy Fitzroy, allora domestica e artista, arrestata e detenuta presso la Comstock House dopo essere stata sorpresa a diffondere un proprio manifesto rivoluzionario, The People's Voice. Inizialmente sprezzante nei confronti della donna e convinto della superiorità del sistema di Columbia, Pinchot la sottopone a una serie di colloqui e test psicologici, inclusi test di intelligenza che Fitzroy supera con risultati eccezionali, mettendo in crisi i pregiudizi dello psichiatra. Attraverso le conversazioni con lei, Pinchot viene progressivamente esposto alla corruzione e all'ipocrisia della classe dirigente di Columbia, finendo per radicalizzarsi lui stesso nelle proprie convinzioni, pur restando inizialmente incapace di ammetterlo apertamente. Quando i suoi superiori decidono di sottoporre Fitzroy a un intervento chirurgico per renderla docile, Pinchot, ormai convinto delle sue ragioni, decide di aiutarla a evadere. Il piano riesce, ma nel momento della fuga Fitzroy, che continua a considerare Pinchot un uomo debole e opportunista nonostante il suo gesto, lo uccide con un colpo di pistola prima di allontanarsi con gli altri rivoluzionari venuti a liberarla, segnando l'inizio della sua ascesa a leader dei Vox Populi, il movimento di resistenza contro il regime di Zachary Comstock.",
               en: "The novel is set in 1909 and takes the form of the notebooks/voice recordings of Dr. Francis Pinchot, a psychiatrist in the flying city of Columbia. Pinchot is assigned to observe and evaluate Daisy Fitzroy, then a housemaid and artist, arrested and held at Comstock House after being caught distributing her own revolutionary manifesto, The People's Voice. Initially contemptuous of the woman and convinced of the superiority of Columbia's system, Pinchot subjects her to a series of interviews and psychological tests, including intelligence tests that Fitzroy passes with exceptional results, shaking the psychiatrist's prejudices. Through his conversations with her, Pinchot is gradually exposed to the corruption and hypocrisy of Columbia's ruling class, eventually becoming radicalized in his own convictions, though at first unable to openly admit it. When his superiors decide to subject Fitzroy to surgery to make her docile, Pinchot, now convinced of her cause, decides to help her escape. The plan succeeds, but at the moment of the escape, Fitzroy — who still considers Pinchot a weak, opportunistic man despite his act — shoots and kills him before leaving with the other revolutionaries who came to free her, marking the beginning of her rise as leader of the Vox Populi, the resistance movement against Zachary Comstock's regime."
@@ -960,6 +1054,7 @@ const GAMES = {
           { id: "bioshock-infinite", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1912",
             releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "BioShock Infinite", en: "BioShock Infinite" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/BioShock%20Infinite.jpg",
             synopsis: {
               it: "Nel 1912, l'ex agente Pinkerton Booker DeWitt viene inviato nella città volante di Columbia, una teocrazia nazionalista fondata dal profeta Zachary Comstock, con l'incarico di recuperare \"la ragazza\" e saldare così un debito di gioco. La ragazza è Elizabeth, tenuta prigioniera fin da bambina in un'alta torre per i suoi misteriosi poteri di aprire squarci tra realtà parallele. Dopo averla liberata, Booker si trova coinvolto nella fuga di Elizabeth attraverso Columbia, scontrandosi sia con le forze di Comstock sia, in seguito, con i Vox Populi guidati da Daisy Fitzroy, il movimento di resistenza dei cittadini oppressi della città. Nel corso del viaggio, Elizabeth apprende gradualmente a controllare i propri poteri, mentre Booker inizia ad avere visioni sempre più inquietanti di realtà alternative e a scoprire, tramite registrazioni vocali dei coniugi Lutece (gli stessi scienziati che lo hanno condotto a Columbia), la vera natura del legame che lo unisce a Comstock.\n\nIl colpo di scena finale rivela che Booker e Comstock sono in realtà la stessa persona, sdoppiata in due linee temporali diverse a partire da un unico momento di svolta: dopo la battaglia di Wounded Knee, un Booker distrutto dal senso di colpa per le atrocità commesse rifiutò il battesimo offertogli come rito di purificazione e ricominciò la propria vita restando Booker DeWitt, mentre in un'altra realtà lo stesso uomo accettò il battesimo, \"morendo\" simbolicamente e rinascendo come Zachary Comstock, fondatore di Columbia. L'esposizione ripetuta agli squarci tra le realtà rese però Comstock sterile, impedendogli di avere una discendenza propria: per questo, con l'aiuto dei Lutece, offrì a Booker DeWitt di saldare i suoi debiti di gioco in cambio della figlia neonata di quest'ultimo, Anna, che portò con sé a Columbia ribattezzandola Elizabeth. Compreso l'orrore di ciò che diventerà, Booker si lascia infine condurre da Elizabeth (e da molteplici altre Elizabeth provenienti da realtà parallele, convocate proprio per questo scopo) al fonte battesimale dove un tempo fu battezzato Comstock: lì viene annegato insieme a tutte le sue varianti, impedendo che l'evento possa mai generare Comstock in nessuna delle realtà coinvolte, e cancellando così l'intera linea di eventi che aveva portato alla fondazione di Columbia.\n\nNota su Burial at Sea Episode 1: ambientato in una realtà alternativa in cui Booker ed Elizabeth non si sono mai incontrati a Columbia, questo capitolo li vede invece incontrarsi a Rapture nel 1958, poco prima dello scoppio della Guerra Civile, con Booker nei panni di un investigatore privato in stile noir assunto da Elizabeth come cliente. Nel corso dell'indagine, che li conduce ad attraversare vari distretti della città, Elizabeth assume gradualmente il controllo della narrazione, con improvvisi cambi di prospettiva che lasciano intuire frammenti della sua vera natura di viaggiatrice tra realtà parallele. L'episodio si conclude con Elizabeth che assiste, indifesa, al rapimento di una giovane Sorellina di nome Sally da parte di un Ricombinante al soldo di Fontaine, ponendo le basi per l'episodio successivo.\n\nNota su Burial at Sea Episode 2: giocato nei panni della stessa Elizabeth, questo secondo episodio la vede infiltrarsi a Rapture per salvare Sally dalle mani del dottor Suchong e di Frank Fontaine, scoprendo però di aver perso, tornando nella città, gran parte dei propri poteri di viaggiare tra le realtà. Nel corso della missione, condotta con la riluttante collaborazione di Atlas (Fontaine) e dello stesso Suchong, Elizabeth rintraccia nei documenti del dottore la frase in codice \"Per cortesia\": lo stesso condizionamento psicologico che Suchong e Brigid Tenenbaum avevano impiantato anni prima nella mente di un bambino cresciuto in laboratorio per conto di Fontaine (il futuro Jack), per renderlo obbediente a chi la pronunci. Comprendendo di trovarsi di fronte al meccanismo che innescherà gli eventi del primo BioShock, Elizabeth rivela ad Atlas il significato della frase, permettendogli di mettere in moto il proprio piano per attirare Jack a Rapture e usarlo contro Andrew Ryan: un aggancio causale diretto, dichiarato ufficialmente dal gioco stesso, tra gli eventi di Columbia/Rapture raccontati in Burial at Sea e l'inizio della vicenda narrata in BioShock. Subito dopo aver consegnato questa informazione, però, Atlas colpisce a morte Elizabeth con una chiave inglese; morente, la donna ha un'ultima visione degli eventi a venire (l'arrivo di Jack a Rapture, la sua ribellione contro Fontaine, la liberazione delle Sorelline, Sally compresa), trovando conforto nella certezza che quel ciclo di violenza troverà infine una fine. Una scena dopo i titoli di coda mostra la coda dell'aereo di linea di Jack, l'Apollo Airways Flight DF-0301, inabissarsi verso Rapture, a preannunciare l'inizio degli eventi di BioShock.",
               en: "In 1912, the former Pinkerton agent Booker DeWitt is sent to the flying city of Columbia, a nationalist theocracy founded by the prophet Zachary Comstock, tasked with retrieving \"the girl\" in order to settle a gambling debt. The girl is Elizabeth, held prisoner since childhood in a tall tower for her mysterious power to open tears between parallel realities. After freeing her, Booker becomes caught up in Elizabeth's escape across Columbia, clashing both with Comstock's forces and, later, with the Vox Populi led by Daisy Fitzroy, the resistance movement of the city's oppressed citizens. Over the course of the journey, Elizabeth gradually learns to control her powers, while Booker begins having increasingly unsettling visions of alternate realities and discovers, through voice recordings by the Lutece twins (the same scientists who brought him to Columbia), the true nature of the bond that ties him to Comstock.\n\nThe final twist reveals that Booker and Comstock are in fact the same person, split into two different timelines from a single turning point: after the Battle of Wounded Knee, a Booker destroyed by guilt over the atrocities committed refused the baptism offered to him as a purification rite and continued his life remaining Booker DeWitt, while in another reality the same man accepted the baptism, symbolically \"dying\" and being reborn as Zachary Comstock, founder of Columbia. Repeated exposure to the tears between realities, however, left Comstock sterile, preventing him from having a bloodline of his own: for this reason, with the Luteces' help, he offered to settle Booker DeWitt's gambling debts in exchange for Booker's infant daughter, Anna, whom he brought to Columbia and renamed Elizabeth. Having grasped the horror of what he will become, Booker ultimately allows himself to be led by Elizabeth — and by multiple other Elizabeths from parallel realities, summoned for exactly this purpose — to the baptismal font where Comstock was once baptized: there he is drowned along with all his variants, preventing the event from ever producing Comstock in any of the realities involved, thereby erasing the entire chain of events that had led to Columbia's founding.\n\nNote — Burial at Sea Episode 1: set in an alternate reality where Booker and Elizabeth never met in Columbia, this chapter instead has them meet in Rapture in 1958, shortly before the outbreak of the Civil War, with Booker as a noir-style private investigator hired by Elizabeth as his client. Over the course of the investigation, which takes them through various districts of the city, Elizabeth gradually takes control of the narration, with sudden shifts in perspective hinting at fragments of her true nature as a traveler between parallel realities. The episode ends with Elizabeth helplessly watching a young Little Sister named Sally get kidnapped by a Splicer working for Fontaine, setting up the next episode.\n\nNote — Burial at Sea Episode 2: played as Elizabeth herself, this second episode sees her infiltrate Rapture to save Sally from Dr. Suchong and Frank Fontaine, only to discover that returning to the city has cost her most of her power to travel between realities. During the mission, carried out with the reluctant cooperation of Atlas (Fontaine) and Suchong himself, Elizabeth traces, in the doctor's documents, the coded phrase \"Would you kindly\": the same psychological conditioning that Suchong and Brigid Tenenbaum had implanted years earlier in the mind of a child raised in a lab on Fontaine's behalf — the future Jack — to make him obedient to whoever speaks it. Realizing she is facing the very mechanism that will trigger the events of the first BioShock, Elizabeth reveals the phrase's meaning to Atlas, allowing him to set his plan in motion to lure Jack to Rapture and use him against Andrew Ryan: a direct causal link, officially stated by the game itself, between the Columbia/Rapture events told in Burial at Sea and the beginning of the story told in BioShock. Immediately after handing over this information, however, Atlas beats Elizabeth to death with a wrench; dying, she has one last vision of the events to come — Jack's arrival in Rapture, his rebellion against Fontaine, the freeing of the Little Sisters, Sally included — finding comfort in the certainty that this cycle of violence will finally come to an end. A post-credits scene shows the tail of Jack's airliner, Apollo Airways Flight DF-0301, sinking toward Rapture, heralding the beginning of BioShock's events."
@@ -992,14 +1087,14 @@ const GAMES = {
     bannerOffset: 265,
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "iga",
         name: { it: "Universo IGA (Koji Igarashi)", en: "IGA Universe (Koji Igarashi)" },
         span: { it: "1094 – 2037", en: "1094 – 2037" },
-        palette: ["#1C1C22", "#5C120A", "#C9A227"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        palette: ["#C9A227", "#5C120A", "#E8E4D8"],
         entries: [
           { id: "lament-of-innocence", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1094",
             releaseYear: "2003", releaseYearEn: "2003",
@@ -1105,8 +1200,8 @@ const GAMES = {
             title: { it: "Rondo of Blood", en: "Rondo of Blood" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Rondo%20of%20Blood.jpg",
             synopsis: {
-              it: "Il sacerdote oscuro Shaft resuscita Dracula, che attacca il villaggio di Richter Belmont rapendo quattro donne: la fidanzata Annette, scelta deliberatamente come esca per attirare il Belmont nel castello, la giovane Maria Renard, lontana parente del clan con poteri magici, e altre due abitanti del luogo. Richter si fa strada attraverso il castello, libera le prigioniere e affronta Dracula in duello sconfiggendolo. Maria, lungi dall'essere un semplice ostaggio, combatte al suo fianco. Nel finale Dracula riconosce che il sangue dei Belmont lo ha ancora una volta sconfitto.\n\nNel 2007 Castlevania: The Dracula X Chronicles (PSP) ne è un remake 2.5D, distinto dal remaster Castlevania Requiem (PS4, 2018) già citato: include come contenuti sbloccabili sia il Rondo of Blood originale sia Symphony of the Night.",
-              en: "The dark priest Shaft resurrects Dracula, who attacks Richter Belmont's village and kidnaps four women: his girlfriend Annette, deliberately chosen as bait to lure the Belmont to the castle, the young Maria Renard, a distant relative of the clan gifted with magical powers, and two other villagers. Richter fights his way through the castle, frees the captives, and defeats Dracula in a final duel. Maria, far from being a mere hostage, fights alongside him. In the ending, Dracula acknowledges that the blood of the Belmonts has defeated him once again.\n\nIn 2007, Castlevania: The Dracula X Chronicles (PSP) is a 2.5D remake, distinct from the Castlevania Requiem remaster (PS4, 2018) mentioned above: it includes both the original Rondo of Blood and Symphony of the Night as unlockable content."
+              it: "Il sacerdote oscuro Shaft resuscita Dracula, che attacca il villaggio di Richter Belmont rapendo quattro donne: la fidanzata Annette, scelta deliberatamente come esca per attirare il Belmont nel castello, la giovane Maria Renard, lontana parente del clan con poteri magici, e altre due abitanti del luogo. Richter si fa strada attraverso il castello, libera le prigioniere e affronta Dracula in duello sconfiggendolo. Maria, lungi dall'essere un semplice ostaggio, combatte al suo fianco. Nel finale Dracula riconosce che il sangue dei Belmont lo ha ancora una volta sconfitto.\n\nNel 2007 Castlevania: The Dracula X Chronicles (PSP) ne è un remake 2.5D, distinto dal remaster Castlevania Requiem (PS4, 2018) già citato: include come contenuti sbloccabili sia il Rondo of Blood originale sia Symphony of the Night.\n\nNota su Dracula X/Vampire's Kiss (SNES): nel 1995 Konami pubblica anche una reinterpretazione per SNES, Akumajō Dracula XX in Giappone (21 luglio 1995), Castlevania: Dracula X in Nord America (settembre 1995), Castlevania: Vampire's Kiss in Europa (22 febbraio 1996). Riprende la stessa premessa e gli stessi protagonisti di Rondo of Blood, Richter Belmont libera Annette dal sacerdote Shaft, ma con un level design quasi interamente diverso, senza le sequenze animate dell'originale e con Maria Renard non giocabile (solo liberabile). Le fonti ufficiali la trattano come una variante narrativa a sé, non come parte della stessa continuità di Rondo of Blood.",
+              en: "The dark priest Shaft resurrects Dracula, who attacks Richter Belmont's village and kidnaps four women: his girlfriend Annette, deliberately chosen as bait to lure the Belmont to the castle, the young Maria Renard, a distant relative of the clan gifted with magical powers, and two other villagers. Richter fights his way through the castle, frees the captives, and defeats Dracula in a final duel. Maria, far from being a mere hostage, fights alongside him. In the ending, Dracula acknowledges that the blood of the Belmonts has defeated him once again.\n\nIn 2007, Castlevania: The Dracula X Chronicles (PSP) is a 2.5D remake, distinct from the Castlevania Requiem remaster (PS4, 2018) mentioned above: it includes both the original Rondo of Blood and Symphony of the Night as unlockable content.\n\nNote on Dracula X/Vampire's Kiss (SNES): in 1995 Konami also released a SNES reinterpretation — Akumajō Dracula XX in Japan (July 21, 1995), Castlevania: Dracula X in North America (September 1995), Castlevania: Vampire's Kiss in Europe (February 22, 1996). It reprises the same premise and protagonists as Rondo of Blood — Richter Belmont freeing Annette from the priest Shaft — but with almost entirely different level design, no animated cutscenes, and Maria Renard unplayable (rescuable only). Official sources treat it as a separate narrative variant, not part of the same continuity as Rondo of Blood."
             }
           },
           { id: "symphony-of-the-night", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1797",
@@ -1195,16 +1290,9 @@ const GAMES = {
         id: "secondo-universo-iga",
         name: { it: "Secondo Universo IGA (Koji Igarashi)", en: "Second IGA Universe (Koji Igarashi)" },
         span: { it: "1844 – 1852", en: "1844 – 1852" },
-        palette: ["#2A1F42", "#4A6B6B", "#5C120A"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        palette: ["#5C120A", "#2E4A2E"],
         entries: [
-          { id: "legacy-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1844",
-            releaseYear: "1999", releaseYearEn: "1999",
-            title: { it: "Castlevania: Legacy of Darkness", en: "Castlevania: Legacy of Darkness" },
-            synopsis: {
-              it: "Nel 1844, il licantropo Cornell torna al proprio villaggio natio e lo trova ridotto in cenere dai servitori di Dracula. Seguendo la traccia lasciata da un ciondolo della sorella adottiva Ada, scopre che gli abitanti del villaggio sono stati rapiti per essere sacrificati in un rituale di resurrezione del Conte, e si dirige verso il castello per salvarla. Lungo il cammino affronta il rivale Ortega, un altro licantropo un tempo suo amico, che ha stretto un patto con le forze oscure per riuscire finalmente a sconfiggerlo in combattimento; nel corso dell'avventura Cornell libera anche un ragazzo di nome Henry Oldrey, tenuto prigioniero nel castello insieme ad altri bambini. Dopo aver sconfitto Ortega, Cornell raggiunge Ada e sconfigge Dracula, ma per salvare la sorella è costretto a rinunciare ai propri poteri di licantropo: solo allora scopre che il vero obiettivo del rituale non era Ada, bensì proprio quel potere, l'offerta perfetta per resuscitare Dracula alla sua piena forza. Sopraffatto dal senso di colpa per aver sempre nascosto ad Ada la propria natura, Cornell tenta di rivelarle la verità, ma lei lo interrompe rassicurandolo che va tutto bene. Il gioco include inoltre, come scenario sbloccabile dopo il completamento dell'avventura di Cornell, la missione parallela di un Henry Oldrey ormai adulto, cresciuto fino a diventare un Holy Knight della Chiesa: ambientata otto anni più tardi, nel 1852, in concomitanza con gli eventi di Castlevania 64, lo vede tornare al castello per salvare sei bambini rapiti, esplorando liberamente le sue sei aree senza dover affrontare l'intero percorso verso Dracula.",
-              en: "In 1844, the werewolf Cornell returns to his home village and finds it burned to the ground by Dracula's servants. Following the trail left by a pendant belonging to his adoptive sister Ada, he discovers that the village's inhabitants have been abducted to be sacrificed in a ritual to resurrect the Count, and heads for the castle to save her. Along the way he faces his rival Ortega, another werewolf and former friend, who has struck a pact with the dark forces in order to finally defeat him in combat; during the adventure Cornell also frees a boy named Henry Oldrey, held captive in the castle along with other children. After defeating Ortega, Cornell reaches Ada and defeats Dracula, but saving his sister forces him to give up his werewolf powers: only then does he discover that the ritual's true target was never Ada, but that very power, the perfect offering to resurrect Dracula at full strength. Overwhelmed by guilt for having always hidden his true nature from Ada, Cornell tries to tell her the truth, but she cuts him off, reassuring him that everything is fine. The game also includes, as a scenario unlocked after completing Cornell's adventure, the parallel mission of an adult Henry Oldrey, now grown into a Holy Knight of the Church: set eight years later, in 1852, concurrent with the events of Castlevania 64, it follows him as he returns to the castle to save six kidnapped children, freely exploring its six areas without having to fight his way through the whole path to Dracula."
-            }
-          },
           { id: "castlevania-64", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1852",
             releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Castlevania 64", en: "Castlevania 64" },
@@ -1213,13 +1301,40 @@ const GAMES = {
               en: "Eight years after the events of Legacy of Darkness, in 1852, Dracula awakens after nearly sixty years of enforced sealing, a consequence of humanity's growing corruption. The first to sense it are Reinhardt Schneider, heir to a cadet branch of the Belmont clan and wielder of the Vampire Killer, and Carrie Fernandez, a young descendant of the Belnades clan gifted with magical powers: the two head for the Count's castle in Transylvania to stop him, crossing paths along the way with the old hunter Charles Vincent, the reluctant vampire Rosa, the demonic merchant Renon, and a strange boy named Malus, who claims to have been kidnapped from a nearby village. Beneath the castle's maze garden, Dracula's servants Actrise and Death try to stop the hero of the moment by forcing them to fight loved ones turned into vampires, before confronting them again atop the Room of Clocks. There, Death attempts to strike the hero down, but Rosa throws herself between them, sacrificing herself in their place. Reaching the top of the castle, the hero discovers that Malus was not possessed, as it seemed, but was Dracula himself, reincarnated in a new body from birth: they face first his adult form and then the Count's true form, defeating him. The game offers two parallel playable paths, Reinhardt's and Carrie's, with partly different bosses and areas; each of the two has a good ending, achieved by completing the adventure within a limited amount of in-game time that allows Charles Vincent to reach the castle in time to reveal Malus's true identity, and a bad ending if the player takes too long. In Reinhardt's good ending, Rosa is brought back to life and freed from her curse; in Carrie's, she pays tribute at her stepmother's grave."
             }
           }
+        ],
+        umbrellas: [
+          { id: "legacy-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1844 – 1852",
+            releaseYear: "1999", releaseYearEn: "1999",
+            title: { it: "Castlevania: Legacy of Darkness", en: "Castlevania: Legacy of Darkness" },
+            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // diretta/solida, nessun lineStyle): la sinossi del gioco
+            // stesso dichiara che il suo scenario sbloccabile (Henry
+            // Oldrey adulto) e' ambientato "in concomitanza con gli
+            // eventi di Castlevania 64" - non due fasi narrative
+            // separate ma lo stesso momento storico vissuto in prima
+            // persona anche da Legacy of Darkness stesso, non da un
+            // personaggio diverso ne' un racconto in cornice (da qui
+            // la linea diretta, non "dashed" ne' "dotted"). L'arco
+            // comincia dal proprio punto (1844, l'arrivo di Cornell)
+            // e finisce dopo "castlevania-64" - che e' anche l'ultima
+            // voce reale dell'intero universo: nessuna voce successiva
+            // a cui agganciare il secondo pallino, che diventa quindi
+            // l'ultimo della linea (endsBeforeId omesso apposta).
+            // Confermato con Sakrem il 04/09.
+            startsBeforeId: "castlevania-64",
+            synopsis: {
+              it: "Nel 1844, il licantropo Cornell torna al proprio villaggio natio e lo trova ridotto in cenere dai servitori di Dracula. Seguendo la traccia lasciata da un ciondolo della sorella adottiva Ada, scopre che gli abitanti del villaggio sono stati rapiti per essere sacrificati in un rituale di resurrezione del Conte, e si dirige verso il castello per salvarla. Lungo il cammino affronta il rivale Ortega, un altro licantropo un tempo suo amico, che ha stretto un patto con le forze oscure per riuscire finalmente a sconfiggerlo in combattimento; nel corso dell'avventura Cornell libera anche un ragazzo di nome Henry Oldrey, tenuto prigioniero nel castello insieme ad altri bambini. Dopo aver sconfitto Ortega, Cornell raggiunge Ada e sconfigge Dracula, ma per salvare la sorella è costretto a rinunciare ai propri poteri di licantropo: solo allora scopre che il vero obiettivo del rituale non era Ada, bensì proprio quel potere, l'offerta perfetta per resuscitare Dracula alla sua piena forza. Sopraffatto dal senso di colpa per aver sempre nascosto ad Ada la propria natura, Cornell tenta di rivelarle la verità, ma lei lo interrompe rassicurandolo che va tutto bene. Il gioco include inoltre, come scenario sbloccabile dopo il completamento dell'avventura di Cornell, la missione parallela di un Henry Oldrey ormai adulto, cresciuto fino a diventare un Holy Knight della Chiesa: ambientata otto anni più tardi, nel 1852, in concomitanza con gli eventi di Castlevania 64, lo vede tornare al castello per salvare sei bambini rapiti, esplorando liberamente le sue sei aree senza dover affrontare l'intero percorso verso Dracula.",
+              en: "In 1844, the werewolf Cornell returns to his home village and finds it burned to the ground by Dracula's servants. Following the trail left by a pendant belonging to his adoptive sister Ada, he discovers that the village's inhabitants have been abducted to be sacrificed in a ritual to resurrect the Count, and heads for the castle to save her. Along the way he faces his rival Ortega, another werewolf and former friend, who has struck a pact with the dark forces in order to finally defeat him in combat; during the adventure Cornell also frees a boy named Henry Oldrey, held captive in the castle along with other children. After defeating Ortega, Cornell reaches Ada and defeats Dracula, but saving his sister forces him to give up his werewolf powers: only then does he discover that the ritual's true target was never Ada, but that very power, the perfect offering to resurrect Dracula at full strength. Overwhelmed by guilt for having always hidden his true nature from Ada, Cornell tries to tell her the truth, but she cuts him off, reassuring him that everything is fine. The game also includes, as a scenario unlocked after completing Cornell's adventure, the parallel mission of an adult Henry Oldrey, now grown into a Holy Knight of the Church: set eight years later, in 1852, concurrent with the events of Castlevania 64, it follows him as he returns to the castle to save six kidnapped children, freely exploring its six areas without having to fight his way through the whole path to Dracula."
+            }
+          }
         ]
       },
       {
         id: "mercurysteam",
         name: { it: "Universo MercurySteam", en: "MercurySteam Universe" },
         span: { it: "1047 – Epoca Moderna", en: "1047 – Modern Era" },
-        palette: ["#6B6B73", "#4A1030", "#5C120A"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        palette: ["#5C6773", "#4A1030", "#5C120A"],
         entries: [
           { id: "lords-of-shadow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1047",
             releaseYear: "2010", releaseYearEn: "2010",
@@ -1254,7 +1369,8 @@ const GAMES = {
         id: "netflix",
         name: { it: "Universo Netflix", en: "Netflix Universe" },
         span: { it: "Fine XV secolo – 1792", en: "Late 15th century – 1792" },
-        palette: ["#4A4A4D", "#5C120A", "#152238"],
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        palette: ["#5C120A", "#333F82"],
         entries: [
           { id: "netflix-castlevania", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Fine del XV secolo", yearEn: "Late 15th century",
             releaseYear: "2017 – 2021", releaseYearEn: "2017 – 2021",
@@ -1291,7 +1407,6 @@ const GAMES = {
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#E4291B",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
     watermarkOpacity: 0.16,
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Banner.jpg",
     bannerOffset: 265,
@@ -1309,6 +1424,7 @@ const GAMES = {
         id: "main",
         name: { it: "Limbo City", en: "Limbo City" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
         entries: [
           { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "2000 anni fa", yearEn: "2,000 years ago", noAvatar: true,
             title: { it: "La Leggenda di Sparda", en: "The Legend of Sparda" },
@@ -1419,6 +1535,7 @@ const GAMES = {
         id: "ninja-theory",
         name: { it: "Universo Ninja Theory", en: "Ninja Theory Universe" },
         span: { it: "Epoca contemporanea", en: "Contemporary era" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
         entries: [
           { id: "chronicles-of-vergil", type: "FUMETTO", typeEn: "COMIC", year: "Un anno prima di DmC", yearEn: "One year before DmC", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "The Chronicles of Vergil", en: "The Chronicles of Vergil" },
@@ -1456,13 +1573,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Sanctuarium", en: "Sanctuary" },
         span: { it: "Origini di Sanctuarium – 1336 circa", en: "The Birth of Sanctuary – c. 1336" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Filigrana.jpg",
         entries: [
           { id: "birth-of-sanctuary", type: "STORIA", typeEn: "STORY", year: "Secoli prima di Diablo", yearEn: "Centuries before Diablo", noAvatar: true,
             title: { it: "La Nascita di Sanctuarium e l'Esilio dei Primi Maligni", en: "The Birth of Sanctuary and the Exile of the Prime Evils" },
@@ -1711,15 +1828,15 @@ const GAMES = {
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
     watermarkOpacity: 0.156,
-    watermarkBottomFade: true,
     bannerOffset: 195,
     universes: [
       {
         id: "erdrick",
         name: { it: "Universo Erdrick", en: "Erdrick Universe" },
         span: { it: "1986 – 2017", en: "1986 – 2017" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+        watermarkBottomFade: true,
         entries: [
           { id: "dq11", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Le origini della leggenda, prima di Dragon Quest III", yearEn: "The origins of the legend, before Dragon Quest III", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Dragon Quest XI: Echi di un'era perduta", en: "Dragon Quest XI: Echoes of an Elusive Age" },
@@ -1759,6 +1876,8 @@ const GAMES = {
         id: "zenithia",
         name: { it: "Universo Zenithia", en: "Zenithia Universe" },
         span: { it: "1990 – 1995", en: "1990 – 1995" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+        watermarkBottomFade: true,
         entries: [
           { id: "dq6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "La più antica delle tre epoche, separata da millenni dalle altre", yearEn: "The earliest of the three eras, separated by millennia from the others", releaseYear: "1995 (Remake: 2010)", releaseYearEn: "1995 (Remake: 2010)",
             title: { it: "Dragon Quest VI: Nel regno dei sogni", en: "Dragon Quest VI: Realms of Revelation" },
@@ -1803,13 +1922,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Tamriel", en: "Tamriel" },
         span: { it: "Seconda Era 582 – Quarta Era 201", en: "Second Era 582 – Fourth Era 201" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Filigrana.jpg",
         entries: [
           { id: "eso", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2E 582", releaseYear: "2014", releaseYearEn: "2014",
             title: { it: "The Elder Scrolls Online", en: "The Elder Scrolls Online" },
@@ -1872,13 +1991,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Wasteland Americano", en: "American Wasteland" },
         span: { it: "2102 – 2296", en: "2102 – 2296" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Filigrana.jpg",
         entries: [
           { id: "fallout-76", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2102", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "Fallout 76", en: "Fallout 76" },
@@ -1948,13 +2067,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "compilation-vii",
         name: { it: "Compilation di Final Fantasy VII", en: "Compilation of Final Fantasy VII" },
         span: { it: "Circa 6 anni prima – 1 anno dopo Final Fantasy VII", en: "About 6 years before – 1 year after Final Fantasy VII" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "before-crisis", type: "VIDEOGIOCO MOBILE", typeEn: "MOBILE GAME", year: "Circa 6 anni prima di Final Fantasy VII", yearEn: "About 6 years before Final Fantasy VII", releaseYear: "2004 (solo Giappone)", releaseYearEn: "2004 (Japan only)",
             title: { it: "Before Crisis: Final Fantasy VII", en: "Before Crisis: Final Fantasy VII" },
@@ -2004,6 +2123,7 @@ const GAMES = {
         id: "remake-trilogy",
         name: { it: "Riunione", en: "Reunion" },
         span: { it: "2020 – in corso", en: "2020 – ongoing" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffvii-remake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte I", yearEn: "Part I", releaseYear: "2020", releaseYearEn: "2020",
             title: { it: "Final Fantasy VII Remake", en: "Final Fantasy VII Remake" },
@@ -2025,6 +2145,7 @@ const GAMES = {
         id: "spira",
         name: { it: "Spira", en: "Spira" },
         span: { it: "Final Fantasy X – X-2", en: "Final Fantasy X – X-2" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffx", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy X", yearEn: "Final Fantasy X", releaseYear: "2001 (Remaster: 2013)", releaseYearEn: "2001 (Remaster: 2013)",
             title: { it: "Final Fantasy X", en: "Final Fantasy X" },
@@ -2046,6 +2167,7 @@ const GAMES = {
         id: "ivalice-alliance",
         name: { it: "Ivalice Alliance", en: "Ivalice Alliance" },
         span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006 (Remaster: 2017)", releaseYearEn: "2006 (Remaster: 2017)",
             title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
@@ -2074,6 +2196,7 @@ const GAMES = {
         id: "fabula-nova-crystallis-xiii",
         name: { it: "Fabula Nova Crystallis – XIII", en: "Fabula Nova Crystallis – XIII" },
         span: { it: "Final Fantasy XIII – Lightning Returns", en: "Final Fantasy XIII – Lightning Returns" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffxiii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XIII", yearEn: "Final Fantasy XIII", releaseYear: "2009", releaseYearEn: "2009",
             title: { it: "Final Fantasy XIII", en: "Final Fantasy XIII" },
@@ -2102,6 +2225,7 @@ const GAMES = {
         id: "final-fantasy-xv",
         name: { it: "Eos", en: "Eos" },
         span: { it: "Infanzia di Noctis – Final Fantasy XV", en: "Noctis's childhood – Final Fantasy XV" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "brotherhood", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Infanzia e adolescenza di Noctis", yearEn: "Noctis's childhood and teenage years", releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Brotherhood: Final Fantasy XV", en: "Brotherhood: Final Fantasy XV" },
@@ -2143,13 +2267,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "naga",
         name: { it: "Naga", en: "Naga" },
         span: { it: "Genealogy of the Holy War – Fates", en: "Genealogy of the Holy War – Fates" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
         entries: [
           { id: "genealogy-holy-war", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1000 anni prima di Marth", yearEn: "1000 years before Marth", releaseYear: "1996", releaseYearEn: "1996",
             title: { it: "Fire Emblem: Genealogy of the Holy War", en: "Fire Emblem: Genealogy of the Holy War" },
@@ -2206,6 +2330,7 @@ const GAMES = {
         id: "elibe",
         name: { it: "Elibe", en: "Elibe" },
         span: { it: "The Blazing Blade – The Binding Blade", en: "The Blazing Blade – The Binding Blade" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
         entries: [
           { id: "blazing-blade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni prima di The Binding Blade", yearEn: "20 years before The Binding Blade", releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Fire Emblem: The Blazing Blade", en: "Fire Emblem: The Blazing Blade" },
@@ -2227,6 +2352,7 @@ const GAMES = {
         id: "tellius",
         name: { it: "Tellius", en: "Tellius" },
         span: { it: "Path of Radiance – Radiant Dawn", en: "Path of Radiance – Radiant Dawn" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
         entries: [
           { id: "path-of-radiance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Fire Emblem: Path of Radiance", yearEn: "Fire Emblem: Path of Radiance", releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Fire Emblem: Path of Radiance", en: "Fire Emblem: Path of Radiance" },
@@ -2253,7 +2379,6 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dying Light", en: "Dying Light" },
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     blurb: {
       it: "In città ridotte al collasso da un'epidemia che trasforma gli infetti in creature aggressive, i sopravvissuti si muovono tra i tetti per restare fuori dalla portata di ciò che si muove per le strade. Il giorno offre una tregua fragile, la notte appartiene a chi ha smesso di essere umano. Ogni salto, ogni corsa, è una scelta tra la vita.",
@@ -2266,6 +2391,7 @@ const GAMES = {
         id: "main",
         name: { it: "GRE", en: "GRE" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
         entries: [
           { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Dying Light", en: "Dying Light" },
@@ -2325,13 +2451,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Sera", en: "Sera" },
         span: { it: "0 A.E. – 42 A.E.", en: "0 A.E. – 42 A.E." },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Filigrana.jpg",
         entries: [
           { id: "rise-of-raam", type: "FUMETTO", typeEn: "COMIC", year: "Prima del Giorno dell'Emergenza", yearEn: "Before Emergence Day", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "Gears of War: The Rise of RAAM", en: "Gears of War: The Rise of RAAM" },
@@ -2497,13 +2623,13 @@ const GAMES = {
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     universes: [
       {
         id: "3d-universe",
         name: { it: "Universo 3D", en: "3D Universe" },
         span: { it: "1984 – 2001", en: "1984 – 2001" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
         entries: [
           { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Vice City Stories", en: "Vice City Stories" },
@@ -2567,6 +2693,7 @@ const GAMES = {
         id: "hd-universe",
         name: { it: "Universo HD", en: "HD Universe" },
         span: { it: "dal 2008", en: "since 2008" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
         entries: [
           { id: "gta4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2008", releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "GTA IV", en: "GTA IV" },
@@ -2611,13 +2738,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "saga-greca",
         name: { it: "Saga Greca", en: "Greek Saga" },
         span: { it: "Sparta, XIII secolo a.C. circa", en: "Sparta, c. 13th century BC" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
         entries: [
           { id: "sons-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "infanzia di Kratos", releaseYear: "2026", releaseYearEn: "2026",
             title: { it: "Sons of Sparta", en: "Sons of Sparta" },
@@ -2695,6 +2822,7 @@ const GAMES = {
         id: "saga-norrena",
         name: { it: "Saga Norrena", en: "Norse Saga" },
         span: { it: "Midgard, decenni dopo", en: "Midgard, decades later" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
         entries: [
           { id: "dark-horse-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Prima di God of War (2018)", yearEn: "Before God of War (2018)", releaseYear: "2018 – 2021", releaseYearEn: "2018 – 2021",
             title: { it: "God of War (fumetto Dark Horse)", en: "God of War (Dark Horse)" },
@@ -2736,13 +2864,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "trilogia-originale",
         name: { it: "Il Ciclo degli Anelli", en: "The Ring Cycle" },
         span: { it: "2531 – 2552", en: "2531 – 2552" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
         entries: [
           { id: "halo-wars", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2531",
             releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
@@ -2835,6 +2963,7 @@ const GAMES = {
         id: "saga-reclamatore",
         name: { it: "La Saga del Reclamatore (343 Industries)", en: "The Reclaimer Saga (343 Industries)" },
         span: { it: "2557 – 2560", en: "2557 – 2560" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
         entries: [
           { id: "halo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2557",
             releaseYear: "2012 (Remaster: 2014)", releaseYearEn: "2012 (Remaster: 2014)",
@@ -3062,13 +3191,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "era-condivisa",
         name: { it: "Era Condivisa (prima della scissione)", en: "Shared Era (before the split)" },
         span: { it: "Era del Cielo – Era di Ocarina of Time", en: "Era of the Sky – Era of Ocarina of Time" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "skyward-sword", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Cielo",
             releaseYear: "2011", releaseYearEn: "2011",
@@ -3108,6 +3237,7 @@ const GAMES = {
         id: "ramo-decadenza",
         name: { it: "Ramo della Decadenza (Link sconfitto)", en: "Downfall Branch (Link defeated)" },
         span: { it: "Era della Decadenza", en: "Era of Decline" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "zelda-1986", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
             releaseYear: "1986", releaseYearEn: "1986",
@@ -3187,6 +3317,7 @@ const GAMES = {
         id: "ramo-bambino",
         name: { it: "Ramo del Bambino (Link avverte Zelda)", en: "Child Branch (Link warns Zelda)" },
         span: { it: "Era del Grande Mare", en: "Era of the Great Sea" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "four-swords-adventures", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco dopo Ocarina of Time",
             releaseYear: "2004", releaseYearEn: "2004",
@@ -3226,6 +3357,7 @@ const GAMES = {
         id: "ramo-adulto",
         name: { it: "Ramo dell'Adulto (Link scompare)", en: "Adult Branch (Link vanishes)" },
         span: { it: "Era del Crepuscolo", en: "Era of Twilight" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "twilight-princess", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Crepuscolo",
             releaseYear: "2006", releaseYearEn: "2006",
@@ -3241,6 +3373,7 @@ const GAMES = {
         id: "era-selvaggi",
         name: { it: "Era dei Selvaggi (tutti i rami convergono)", en: "Era of the Wilds (all branches converge)" },
         span: { it: "Migliaia di anni dopo", en: "Thousands of years later" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "breath-of-the-wild", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era dei Selvaggi",
             releaseYear: "2017", releaseYearEn: "2017",
@@ -3386,13 +3519,13 @@ const GAMES = {
     palette: ["#b3e5fc", "#f97316", "#1e3a5f"],
     accentColor: "#b3e5fc",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     universes: [
       {
         id: "main",
         name: { it: "E.D.N. III", en: "E.D.N. III" },
         span: { it: "A.T. -50 – A.T. 12", en: "A.T. -50 – A.T. 12" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Filigrana.jpg",
         entries: [
           { id: "first-colony", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "40 anni prima di Lost Planet 3", yearEn: "40 years before Lost Planet 3", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Lost Planet: First Colony", en: "Lost Planet: First Colony" },
@@ -3458,13 +3591,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "trilogia-shepard",
         name: { it: "Trilogia di Shepard", en: "Shepard Trilogy" },
         span: { it: "2183 – 2186", en: "2183 – 2186" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
         entries: [
           { id: "evolution", type: "FUMETTO", typeEn: "COMIC", year: "Guerra del Primo Contatto", yearEn: "First Contact War", releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Mass Effect: Evolution", en: "Mass Effect: Evolution" },
@@ -3591,6 +3724,7 @@ const GAMES = {
         id: "andromeda",
         name: { it: "Iniziativa Andromeda", en: "Andromeda Initiative" },
         span: { it: "2785 (600 anni dopo)", en: "2785 (600 years later)" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
         entries: [
           { id: "initiation", type: "ROMANZO", typeEn: "NOVEL", year: "Prima della partenza dell'Iniziativa Andromeda (2185)", yearEn: "Before the Andromeda Initiative's departure (2185)", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Mass Effect: Andromeda – Initiation", en: "Mass Effect: Andromeda – Initiation" },
@@ -3639,13 +3773,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "timeline-originale",
         name: { it: "Timeline Originale", en: "Original Timeline" },
         span: { it: "1992 – 2006", en: "1992 – 2006" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
         entries: [
           { id: "mk1-1992", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992", releaseYear: "1992", releaseYearEn: "1992",
             title: { it: "Mortal Kombat", en: "Mortal Kombat" },
@@ -3702,6 +3836,7 @@ const GAMES = {
         id: "timeline-rebooted",
         name: { it: "Timeline Rebooted (reset di Raiden)", en: "Rebooted Timeline (Raiden's reset)" },
         span: { it: "2011 – 2019", en: "2011 – 2019" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
         entries: [
           { id: "mk9-2011", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2011 (retelling di MK1-3)", releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Mortal Kombat (2011)", en: "Mortal Kombat (2011)" },
@@ -3730,6 +3865,7 @@ const GAMES = {
         id: "timeline-reborn",
         name: { it: "Nuova Era (reset di Liu Kang)", en: "New Era (Liu Kang's reset)" },
         span: { it: "dal 2023", en: "from 2023" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
         entries: [
           { id: "mk1-2023", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2023", releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Mortal Kombat 1 (2023)", en: "Mortal Kombat 1 (2023)" },
@@ -3863,13 +3999,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "continuita-originale",
         name: { it: "Continuità Originale", en: "Original Continuity" },
         span: { it: "1989 – 1999", en: "1989 – 1999" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "pop-1989", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1989", releaseYear: "1989", releaseYearEn: "1989",
             title: { it: "Prince of Persia", en: "Prince of Persia" },
@@ -3898,6 +4034,7 @@ const GAMES = {
         id: "sabbie-del-tempo",
         name: { it: "Le Sabbie del Tempo", en: "The Sands of Time" },
         span: { it: "Persia leggendaria", en: "Legendary Persia" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "sands-of-time", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "primo della saga",
             releaseYear: "2003", releaseYearEn: "2003",
@@ -3937,6 +4074,7 @@ const GAMES = {
         id: "reboot-2008",
         name: { it: "Reboot 2008", en: "2008 Reboot" },
         span: { it: "Continuità indipendente", en: "Independent continuity" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "pop-2008", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "continuità propria",
             releaseYear: "2008", releaseYearEn: "2008",
@@ -3952,6 +4090,7 @@ const GAMES = {
         id: "lost-crown",
         name: { it: "The Lost Crown (continuità propria, non dichiarata)", en: "The Lost Crown (own, undeclared continuity)" },
         span: { it: "Persia mitologica", en: "Mythological Persia" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "lost-crown", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "non collegato alle precedenti",
             releaseYear: "2024", releaseYearEn: "2024",
@@ -4379,13 +4518,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "continuita-classica",
         name: { it: "Continuità Classica (Core Design)", en: "Classic Continuity (Core Design)" },
         span: { it: "1996 – 2003", en: "1996 – 2003" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
         entries: [
           { id: "tr1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996",
             releaseYear: "1996", releaseYearEn: "1996",
@@ -4441,6 +4580,7 @@ const GAMES = {
         id: "continuita-legend",
         name: { it: "Continuità Legend (Crystal Dynamics, prima trilogia)", en: "Legend Continuity (Crystal Dynamics, first trilogy)" },
         span: { it: "2006 – 2008", en: "2006 – 2008" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
         entries: [
           { id: "anniversary", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "cronologicamente il primo di questa continuità",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -4472,6 +4612,7 @@ const GAMES = {
         id: "continuita-survivor",
         name: { it: "Continuità Survivor (Crystal Dynamics, seconda trilogia)", en: "Survivor Continuity (Crystal Dynamics, second trilogy)" },
         span: { it: "2013 – 2018", en: "2013 – 2018" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
         entries: [
           { id: "tr2013", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
             releaseYear: "2013", releaseYearEn: "2013",
@@ -4516,13 +4657,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "trilogia-rts",
         name: { it: "Trilogia RTS", en: "RTS Trilogy" },
         span: { it: "Prima Guerra – Terza Guerra", en: "First War – Third War" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
         entries: [
           { id: "warcraft-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Prima Guerra", releaseYear: "1994", releaseYearEn: "1994",
             title: { it: "Warcraft: Orcs & Humans", en: "Warcraft: Orcs & Humans" },
@@ -4565,6 +4706,7 @@ const GAMES = {
         id: "world-of-warcraft",
         name: { it: "World of Warcraft", en: "World of Warcraft" },
         span: { it: "2004 – oggi", en: "2004 – present" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
         entries: [
           { id: "wow-vanilla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo la Terza Guerra", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "World of Warcraft", en: "World of Warcraft" },
@@ -4797,13 +4939,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Continuità Principale", en: "Main Continuity" },
         span: { it: "1988 – 2024", en: "1988 – 2024" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Filigrana.jpg",
         entries: [
           { id: "yakuza-0", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1988", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Yakuza 0", en: "Yakuza 0" },
