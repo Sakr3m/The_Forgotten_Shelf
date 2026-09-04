@@ -476,7 +476,15 @@ const GAMES = {
       en: "For centuries, the Brotherhood of Assassins and the Order of Templars have secretly fought over the course of human history, hiding their war behind the events everyone knows. On one side stands free will, on the other absolute control over humanity. Ancient artifacts left by a vanished civilization fuel both."
     },
     accentColor: "#8E1B2E",
-    tracks: [],
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Ezio%27s%20Family.mp3", title: "Ezio's Family", game: "Assassin's Creed II" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Surtr.mp3", title: "Surtr", game: "Valhalla: Dawn of Ragnarök" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Byzantium.mp3", title: "Byzantium", game: "Revelations" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Meditation%20of%20the%20Assassin.mp3", title: "Meditation of the Assassin", game: "Assassin's Creed (2007)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Bloodlines.mp3", title: "Bloodlines", game: "Syndicate" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20City%20of%20Rome.mp3", title: "City of Rome", game: "Brotherhood" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20In%20This%20World%20or%20the%20One%20Below.mp3", title: "In This World or the One Below", game: "Black Flag" }
+    ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
     watermarkOpacity: 0.18,
@@ -974,6 +982,15 @@ const GAMES = {
       en: "In the depths of the Atlantic Ocean and among the clouds above the American Midwest, two cities born from the same dream of absolute freedom — one built on the cult of the individual, the other on nation and faith — collapse under the weight of their own ideologies. Every utopia carries the seeds of its own ruin."
     },
     accentColor: "#2E9E86",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20The%20Ocean%20on%20His%20Shoulders.mp3", title: "The Ocean on His Shoulders", game: "BioShock" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Dr.%20Steinman.mp3", title: "Dr. Steinman", game: "BioShock" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Cohen%27s%20Masterpiece.mp3", title: "Cohen's Masterpiece", game: "BioShock" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Empty%20Houses.mp3", title: "Empty Houses", game: "BioShock 2" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Songbird.mp3", title: "Songbird", game: "BioShock Infinite" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Lighter%20Than%20Air.mp3", title: "Lighter Than Air", game: "BioShock Infinite" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Will%20the%20Circle%20Be%20Unbroken.mp3", title: "Will the Circle Be Unbroken?", game: "BioShock Infinite" }
+    ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Avatar.jpg",
     universes: [
       {

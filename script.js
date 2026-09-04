@@ -2235,8 +2235,11 @@ function updateTitlePanelText(panelKey){
     ${releaseBase ? `<p class="title-date title-date--release">${t("factReleaseDate")}: ${releaseBase}</p>` : ""}
     ${releaseExtra ? `<p class="title-date title-date--remake">${releaseExtra}</p>` : ""}
     ${yearLabel ? `<p class="title-date title-date--story">${t("titleDateSetting")}: ${yearLabel}</p>` : ""}
-    ${entry.synopsis ? `<p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>` : ""}
-    ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
+    <div class="title-body">
+      ${entry.synopsis ? `<p class="title-synopsis"><span class="text-highlight">${tf(entry.synopsis)}</span></p>` : ""}
+      ${entry.note ? `<p class="title-note">${tf(entry.note)}</p>` : ""}
+    </div>
+    <div class="title-body-scrollbar" aria-hidden="true"><div class="title-body-scrollbar__thumb"></div></div>
     <div class="title-nav">
       ${prevEntry ? `<button type="button" class="title-nav__side title-nav__side--prev">${arrowIcon("left")}<span>${tf(prevEntry.title)}</span></button>` : `<span class="title-nav__spacer"></span>`}
       <button type="button" class="title-back">${t("backToTimeline")}</button>
@@ -2277,12 +2280,109 @@ function updateTitlePanelText(panelKey){
   const nextBtn = rec.panel.querySelector(".title-nav__side--next");
   if(nextBtn) nextBtn.addEventListener("click", () => selectEntry(nextEntry.id));
 
-  appendLikeWidget(rec.panel, entry.id);
+  // Il cuoricino va DENTRO .title-body (non piu' su rec.panel, il
+  // pannello intero): su desktop .title-body e' ora l'unica area
+  // scorrevole della voce (titolo/tag/date/nav restano fermi, vedi
+  // setupTitleScrollbar piu' sotto) - se il like restasse fuori da
+  // li' finirebbe tagliato sotto il bordo bloccato della pagina, mai
+  // raggiungibile. Dentro .title-body invece scorre insieme al testo,
+  // stesso trattamento gia' applicato a Storie Senza Cornice
+  // (script-racconti.js, appendLikeWidget su .entry-body).
+  const bodyEl = rec.panel.querySelector(".title-body");
+  appendLikeWidget(bodyEl || rec.panel, entry.id);
+  if(bodyEl) setupTitleScrollbar(bodyEl);
 }
 
 function updateAllTitlePanelsText(){
   Object.keys(titlePanels).forEach(updateTitlePanelText);
 }
+
+// Scrollbar finta per .title-body (04/09, stessa architettura gia' in
+// uso su Storie Senza Cornice per .entry-body - vedi il commento esteso
+// in racconti.css sopra .entry-body per il motivo di fondo: sia
+// direction:rtl sia transform:scaleX(-1) rompono la selezione del testo
+// col mouse vicino al margine sinistro, verificato con Playwright.
+// Qui .title-body resta un box di testo del tutto normale (nessuna
+// manipolazione di direzione/trasformazione), la scrollbar nativa e'
+// nascosta via CSS e sostituita da questo elemento finto
+// (.title-body-scrollbar), sincronizzato via JS con lo scroll reale.
+// Stato di drag CONDIVISO tra tutte le voci (titleScrollDragState), non
+// uno per pannello: updateTitlePanelText viene richiamata per OGNI voce
+// ad ogni cambio lingua, quindi i listener su window vanno registrati
+// una volta sola qui fuori, non dentro setupTitleScrollbar (altrimenti
+// si accumulerebbero ad ogni switch).
+let titleScrollDragState = null;
+
+function setupTitleScrollbar(bodyEl){
+  const bar = bodyEl.nextElementSibling;
+  if(!bar || !bar.classList.contains("title-body-scrollbar")) return;
+  const thumb = bar.querySelector(".title-body-scrollbar__thumb");
+  const wrap = bodyEl.closest(".title-content-item");
+  if(!thumb || !wrap) return;
+
+  function layout(){
+    const wrapRect = wrap.getBoundingClientRect();
+    const bodyRect = bodyEl.getBoundingClientRect();
+    bar.style.left = (bodyRect.left - wrapRect.left) + "px";
+    bar.style.top = (bodyRect.top - wrapRect.top) + "px";
+    bar.style.height = bodyRect.height + "px";
+    updateThumb();
+  }
+  function updateThumb(){
+    const sh = bodyEl.scrollHeight, ch = bodyEl.clientHeight, st = bodyEl.scrollTop;
+    if(sh <= ch + 1){ bar.style.display = "none"; return; }
+    bar.style.display = "block";
+    const thumbH = Math.max(30, ch * (ch / sh));
+    const maxTop = ch - thumbH;
+    const top = maxTop * (st / (sh - ch));
+    thumb.style.height = thumbH + "px";
+    thumb.style.transform = `translateY(${top}px)`;
+  }
+
+  bodyEl.addEventListener("scroll", updateThumb);
+  bodyEl.addEventListener("mouseenter", () => bar.classList.add("is-hover"));
+  bodyEl.addEventListener("mouseleave", () => {
+    if(!titleScrollDragState || titleScrollDragState.bar !== bar) bar.classList.remove("is-hover");
+  });
+
+  thumb.addEventListener("mousedown", (e) => {
+    titleScrollDragState = {
+      bodyEl, bar,
+      startY: e.clientY,
+      startScrollTop: bodyEl.scrollTop,
+      trackHeight: bodyEl.clientHeight,
+      thumbHeight: thumb.offsetHeight
+    };
+    bar.classList.add("is-hover", "is-dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  new ResizeObserver(layout).observe(bodyEl);
+  new ResizeObserver(layout).observe(wrap);
+  bodyEl._scrollbarLayout = layout;
+  layout();
+}
+
+window.addEventListener("mousemove", (e) => {
+  if(!titleScrollDragState) return;
+  const { bodyEl, startY, startScrollTop, trackHeight, thumbHeight } = titleScrollDragState;
+  const maxTop = trackHeight - thumbHeight;
+  if(maxTop <= 0) return;
+  const deltaScroll = ((e.clientY - startY) / maxTop) * (bodyEl.scrollHeight - bodyEl.clientHeight);
+  bodyEl.scrollTop = startScrollTop + deltaScroll;
+});
+window.addEventListener("mouseup", () => {
+  if(!titleScrollDragState) return;
+  const { bar, bodyEl } = titleScrollDragState;
+  bar.classList.remove("is-dragging");
+  if(!bodyEl.matches(":hover")) bar.classList.remove("is-hover");
+  document.body.style.userSelect = "";
+  titleScrollDragState = null;
+});
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".title-body").forEach(b => { if(b._scrollbarLayout) b._scrollbarLayout(); });
+});
 
 function buildAllTitlePanels(){
   GAME_ORDER.forEach(gameId => {
