@@ -979,6 +979,7 @@ const GAMES = {
         id: "rapture",
         name: { it: "Rapture", en: "Rapture" },
         span: { it: "Anni '40 – 1968", en: "1940s – 1968" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Rapture%20Filigrana.jpg",
         palette: ["#C2A233", "#6B7A3D", "#2E9E86"],
         // Collegamento tra Universi (PARTE 1 punto 19 del regolamento,
         // primo caso reale, confermato da Sakrem): Rapture RICEVE
