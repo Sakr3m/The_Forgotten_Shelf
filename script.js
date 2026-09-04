@@ -2609,6 +2609,17 @@ function setState(view){
     document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
     document.body.style.setProperty("--cyan", LANDING_COLOR);
+    // Barra di luminosita' della filigrana (segnalata con screenshot):
+    // resa visibile e posizionata solo dalle viste "game" (Doom-like)
+    // e "title", mai piu' nascosta al ritorno su "landing" - restava
+    // incollata in cima alla home con la sua ultima posizione/stato,
+    // una barra "fantasma" senza alcuna filigrana a giustificarla.
+    if(el.watermarkBrightness){
+      el.watermarkBrightness.hidden = true;
+      el.watermarkBrightness.style.top = "";
+      el.watermarkBrightness.style.left = "";
+      el.watermarkBrightness.style.right = "";
+    }
     renderSidebar();
   } else if(view === "game"){
     state.entryId = null;
