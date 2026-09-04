@@ -974,6 +974,7 @@ const GAMES = {
       en: "In the depths of the Atlantic Ocean and among the clouds above the American Midwest, two cities born from the same dream of absolute freedom — one built on the cult of the individual, the other on nation and faith — collapse under the weight of their own ideologies. Every utopia carries the seeds of its own ruin."
     },
     accentColor: "#2E9E86",
+    avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Avatar.jpg",
     universes: [
       {
         id: "rapture",
