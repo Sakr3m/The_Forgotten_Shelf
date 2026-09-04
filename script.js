@@ -491,7 +491,8 @@ function currentUniverse(){
 // pseudo-voci identiche (stesso oggetto, stesso id, stessa pagina)
 // nei due punti dell'arco che copre: una subito prima della prima
 // voce coperta (umb.startsBeforeId), una subito prima della voce
-// che segue l'ultima coperta (umb.endsBeforeId). Essendo lo stesso
+// che segue l'ultima coperta (umb.endsBeforeId, opzionale: se assente
+// l'arco arriva fino alla fine naturale dell'universo). Essendo lo stesso
 // identico oggetto in entrambi i punti, i pallini generati da chi
 // consuma questa lista (linea orizzontale, tabella verticale)
 // ottengono automaticamente contenuto identico e stesso link, senza
@@ -507,7 +508,13 @@ function expandEntriesWithUmbrellas(uni){
   const items = uni.entries.slice();
   (uni.umbrellas || []).forEach(umb => {
     const startIdx = items.findIndex(e => e.id === umb.startsBeforeId);
-    const endIdx = items.findIndex(e => e.id === umb.endsBeforeId);
+    // umb.endsBeforeId e' opzionale: se assente, l'arco arriva fino
+    // alla fine naturale dell'universo, senza una voce successiva a
+    // cui agganciare il secondo pallino (es. Legacy of Darkness /
+    // Castlevania 64, dove Castlevania 64 e' l'ultima voce
+    // dell'intero universo) - il secondo pallino diventa di fatto
+    // l'ultimo della linea.
+    const endIdx = umb.endsBeforeId ? items.findIndex(e => e.id === umb.endsBeforeId) : items.length;
     if(startIdx === -1 || endIdx === -1) return; // riferimento rotto: non inserire nulla piuttosto che sbagliare posto
     // Inserire prima l'indice piu' alto (endIdx) evita che lo shift
     // dell'inserimento successivo invalidi startIdx.

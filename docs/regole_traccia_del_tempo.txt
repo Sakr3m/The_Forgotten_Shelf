@@ -853,6 +853,29 @@ trattino di collegamento che attraversa l'arco) è invece del tutto
 nuova e verrà costruita/tarata insieme alla comparsa del primo caso
 reale, guardandola dal vivo invece di indovinarla a occhio.
 
+VARIANTI DI LINEA GIÀ IN USO (nate coi primi casi reali, Ace Combat
+e Assassin's Creed): `lineStyle` sul titolo ombrello cambia solo
+l'aspetto del trattino, mai la logica dei due pallini. Nessun valore
+(quindi trattino diretto/solido) è il caso base: la trama del titolo
+ombrello è la STESSA storia, vissuta in prima persona, delle voci
+che racchiude (es. Legacy of Kain: Ascendance). `"dashed"` è per gli
+stessi eventi vissuti da un personaggio diverso, non chi li vive già
+in una voce coperta (es. Assassin's Creed: Forsaken, la Rivoluzione
+Americana dal punto di vista di Haytham invece che di Connor).
+`"dotted"` è per un racconto in cornice/flashback, non vissuto in
+prima persona da chi legge (es. La Crociata Segreta, raccontato da
+Niccolò Polo). `"double"` è per un arco che corre in parallelo alle
+voci racchiuse ma senza alcun punto di contatto narrativo con esse
+(es. Il Collasso dell'Estovakia).
+
+`endsBeforeId` OPZIONALE (aggiunto 04/09, primo caso reale:
+Castlevania, Legacy of Darkness/Castlevania 64): se l'ultima voce
+coperta dall'arco è anche l'ultima voce reale dell'intero universo,
+non esiste nessuna voce successiva a cui agganciare il secondo
+pallino. In quel caso `endsBeforeId` va omesso: il secondo pallino
+dell'ombrello diventa di fatto l'ultimo pallino della linea di quel
+universo, invece di dover puntare a una voce inesistente.
+
 
 4) PROMEMORIA AUTOMATICO PER I TITOLI "IN ARRIVO" (imagePending)
 ------------------------------------------------------------------
