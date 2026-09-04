@@ -1028,6 +1028,7 @@ const GAMES = {
         name: { it: "Columbia", en: "Columbia" },
         span: { it: "1909 – 1912", en: "1909 – 1912" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Infinite%20Filigrana.jpg",
+        watermarkPosition: "right",
         palette: ["#9C7A2E", "#2E9E86"],
         // Collegamento tra Universi: Columbia GENERA l'aggancio causale
         // verso Rapture (vedi nota sull'universo Rapture qui sopra) - va
