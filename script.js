@@ -1928,6 +1928,23 @@ function renderGamePanel(){
           node.style.marginLeft = (step - 100).toFixed(2) + "px";
         }
       });
+      // Riquadro (copertina/monogramma) del primo e dell'ultimo nodo
+      // (segnalato con screenshot: il monogramma del primo nodo
+      // risultava tagliato dalla maschera dello scroll libero) - il
+      // pallino riposa a soli DOT_RADIUS px dal bordo scorrevole
+      // (requisito fermo: deve toccarlo esattamente, mai un pixel
+      // oltre, vedi marginLeft qui sopra), ma il riquadro e' molto
+      // piu' largo di lui (100px) e sporge subito fuori dalla
+      // maschera al minimo scroll. Sposto SOLO il riquadro (non
+      // .h-node, che porterebbe con se' anche il pallino) di qualche
+      // pixel verso l'interno via transform: il pallino/la riga
+      // restano esattamente dove sono sempre stati, il riquadro
+      // guadagna un po' di margine di sicurezza dalla maschera.
+      const TILE_EDGE_SAFETY = 2;
+      const firstTile = nodes[0] && nodes[0].querySelector(".h-node__tile");
+      if(firstTile) firstTile.style.transform = `translateX(${TILE_EDGE_SAFETY}px)`;
+      const lastTile = nodes[nodes.length - 1] && nodes[nodes.length - 1].querySelector(".h-node__tile");
+      if(lastTile && lastTile !== firstTile) lastTile.style.transform = `translateX(-${TILE_EDGE_SAFETY}px)`;
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
