@@ -1515,6 +1515,128 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   }
   .title-nav__spacer{ display:none; }
 
+  /* ============================================================
+     Scroll isolato nella pagina voce (04/09, richiesto esplicitamente
+     da Sakrem): stessa architettura gia' in uso su Storie Senza
+     Cornice per .entry-body/.entry-content-text (vedi racconti.css,
+     il commento esteso sopra .entry-body spiega perche' la barra e'
+     finta invece del solito direction:rtl - stesso motivo qui, mai
+     applicato a .title-body). Titolo/tag/date restano fermi in vista,
+     .title-nav (i tre pulsanti) resta fermo IN FONDO - qui Racconti
+     non ha un equivalente diretto (nessuna navigazione prev/next tra
+     voci), ma tenerlo sempre visibile invece di farlo scorrere via e'
+     la scelta piu' usabile, coerente con "il resto fisso, solo il
+     testo scorre". Solo .title-body (il nuovo contenitore che avvolge
+     sinossi+nota) scorre, con una barra finta a sinistra sincronizzata
+     via JS (setupTitleScrollbar in script.js). Applicato SOLO qui
+     dentro (min-width:901px): su mobile la pagina continua a scorrere
+     come sempre, nessuna modifica li'.
+
+     Blocco lo scroll della PAGINA stessa (non basta fissare l'altezza
+     del pannello: se la pagina puo' ancora scorrere, l'intero blocco -
+     titolo compreso - si sposta comunque insieme al resto). Stesso
+     schema di body[data-state="entry"] in racconti.css. --- */
+  body[data-state="title"]{ overflow:hidden; height:100vh; }
+  html:has(body[data-state="title"]){ overflow:hidden; height:100vh; }
+
+  /* Altezza del pannello = tutto lo spazio verticale sotto la barra
+     header, verificato con getBoundingClientRect (non un valore
+     assunto): 15px di .stage-topbar (altezza reale in-flow, vedi
+     styles.css) + 65px di #titleHeaderBar = 80px. display:flex qui
+     e' voluto anche per un secondo motivo, oltre a permettere
+     flex:1 su .title-body: essendo un flex container impedisce il
+     margin-top:50px di .title-name (qui sopra) di "scappare" per
+     collapsing fuori dal pannello - senza questo, il margine finiva
+     PRIMA di #titleContent invece che dentro il pannello stesso,
+     sfalsando di 50px il calcolo dell'altezza (verificato dal vivo:
+     con display:block il pannello iniziava a 130px dalla cima invece
+     che a 80px).
+     :not([hidden]) e' OBBLIGATORIO qui, non decorativo: senza,
+     display:flex vince per specificita' sulla regola predefinita del
+     browser [hidden]{display:none} (due classi/attributi contro uno),
+     quindi TUTTI i 59 pannelli (una per voce di ogni saga, non solo
+     quello attivo) diventerebbero flex box impilati invece di restare
+     nascosti - bug reale riprodotto: #titleContent arrivava a oltre
+     380.000px di altezza, il pannello attivo finiva a decine di
+     migliaia di px dalla cima. Stesso identico bug gia' preso in
+     passato con la barra della filigrana su questa pagina, e
+     documentato in racconti.css sopra .entry-content-item. */
+  body[data-state="title"] .title-content-item:not([hidden]){
+    display:flex; flex-direction:column;
+    height:calc(100vh - 80px);
+    /* NIENTE overflow:hidden qui (a differenza di .entry-content-text
+       in racconti.css): la barra finta (.title-body-scrollbar piu'
+       sotto) sporge volutamente a sinistra del bordo di .title-body,
+       FUORI dal box di .title-body stesso ma ancora dentro questo
+       pannello - un overflow-y:hidden qui costringerebbe pero'
+       overflow-x a calcolarsi "auto" invece di restare "visible" (le
+       due proprieta' sono accoppiate dalla spec CSS quando una delle
+       due non e' "visible": impostare esplicitamente overflow-x:visible
+       non basta a evitarlo), tagliando via proprio la barra - bug
+       reale riprodotto con Playwright (elementFromPoint sul thumb
+       restituiva .title-panel invece del thumb stesso, il drag non
+       funzionava). Non serve comunque come rete di sicurezza verticale:
+       il body[data-state="title"]{overflow:hidden;height:100vh} qui
+       sopra taglia gia' tutto cio' che eccede 100vh a livello di
+       intera pagina, un secondo taglio qui sarebbe ridondante. */
+  }
+  body[data-state="title"] .title-name,
+  body[data-state="title"] .title-meta,
+  body[data-state="title"] .title-date,
+  body[data-state="title"] .title-nav{
+    flex:0 0 auto;
+  }
+  body[data-state="title"] .title-body{
+    flex:1 1 auto; min-height:0;
+    overflow-y:auto;
+    scrollbar-width:none; /* scrollbar nativa nascosta, sostituita
+      dalla finta qui sotto - stesso motivo di .entry-body, vedi
+      racconti.css */
+    /* Riserva uno spazio vuoto a sinistra per la barra finta SENZA
+       spostare il testo (che deve restare allineato a filo con
+       titolo/date/nav, tutti flush a sinistra su questa pagina - a
+       differenza di Storie Senza Cornice, dove il titolo e' centrato
+       e questo problema non esiste). Trucco: margin-left negativo che
+       sposta l'intero box (bordo compreso, quello che JS legge per
+       posizionare la barra) di 20px a sinistra, compensato da un
+       padding-left della stessa entita' che rimette il TESTO esattamente
+       dove sarebbe stato senza nessuno dei due - stesso trucco gia'
+       usato su .title-synopsis/.canon-note__body per il padding di
+       .text-highlight, qui applicato al contenitore invece che al
+       singolo paragrafo. Il pannello (.title-content-item) ha gia'
+       ~50px di spazio vuoto a sinistra di suo (differenza tra il
+       padding-left:25px di .title-panel e il marginLeft dinamico di
+       #titleContent, allineato a Discord - verificato con Playwright),
+       20px ci stanno larghi senza mai avvicinarsi alla sidebar. */
+    margin-left:-20px; padding-left:20px;
+  }
+  body[data-state="title"] .title-body::-webkit-scrollbar{ display:none; }
+  .title-body-scrollbar{
+    position:absolute; width:5px;
+    pointer-events:none;
+    display:none; /* mostrata via JS solo se il contenuto scrolla
+      davvero (scrollHeight>clientHeight) */
+  }
+  .title-body-scrollbar__thumb{
+    position:absolute; left:0; width:100%;
+    border-radius:999px;
+    background:transparent;
+    pointer-events:auto;
+    cursor:pointer;
+  }
+  .title-body-scrollbar.is-hover .title-body-scrollbar__thumb,
+  .title-body-scrollbar.is-dragging .title-body-scrollbar__thumb{
+    background:var(--line);
+  }
+  .title-body-scrollbar__thumb:hover{ background:var(--cyan); }
+  /* Respiro sotto ai pulsanti (.title-nav, ora fermo in fondo al
+     pannello): senza questo toccherebbero il bordo esatto della
+     finestra, dato che il pannello ora occupa tutta l'altezza
+     residua fino a 100vh - prima questo spazio lo dava semplicemente
+     lo scroll libero della pagina (il contenuto continuava sotto,
+     mai visibile tutto insieme). */
+  body[data-state="title"] .title-nav{ margin-bottom:25px; }
+
   /* #gameHeaderBar (vista "game") non ha bisogno del margin-bottom:
      15px ereditato dalla riga sopra - li' serviva per staccare la
      barra dal contenuto che segue subito dopo in flusso normale, ma
