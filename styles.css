@@ -291,7 +291,7 @@ body[data-state="landing"] .brand{ display:none; }
 .track-info__row{ display:flex; align-items:center; gap:8px; }
 .track-info__text{ display:flex; flex-direction:column; line-height:1.25; overflow:hidden; }
 .track-info__title{ font-size:.74rem; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.track-info__game{ font-size:.66rem; font-style:italic; color:var(--text-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.track-info__game{ font-size:.66rem; font-style:italic; color:var(--text-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:3px; }
 .track-skip{
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
   width:26px; height:26px; border-radius:50%;
