@@ -32,7 +32,7 @@ const GAMES = {
         id: "vera-strangereal",
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
         span: { it: "1995 – 2040", en: "1995 – 2040" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20La%20Vera%20Strangereal%20Filigrana.jpg",
         palette: ["#3D2A1E", "#3E7CAE", "#C99A3E", "#1E8F94"],
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
@@ -219,7 +219,7 @@ const GAMES = {
         id: "cieli-terrestri",
         name: { it: "Cieli Terrestri", en: "Earthly Skies" },
         span: { it: "2002 – 2016", en: "2002 – 2016" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Cieli%20Terrestri%20Filigrana.jpg",
         palette: ["#C97830", "#661F30", "#3E7CAE"],
         entries: [
           { id: "ikaros-in-the-sky", type: "ROMANZO", typeEn: "NOVEL", year: "2002", yearEn: "2002", releaseYear: "2012", releaseYearEn: "2012",
