@@ -2438,7 +2438,7 @@ function renderTitlePanel(){
   }
 
   let watermark = el.titlePanel.querySelector(".title-watermark");
-  const watermarkSrc = g.watermark || entry.image;
+  const watermarkSrc = universe.watermark || entry.image;
   if(watermarkSrc){
     if(!watermark){
       watermark = document.createElement("div");
@@ -2446,10 +2446,10 @@ function renderTitlePanel(){
       el.titlePanel.insertBefore(watermark, el.titleContent);
     }
     watermark.style.backgroundImage = `url('${watermarkSrc}')`;
-    watermark.style.backgroundSize = g.watermarkSize || "";
-    watermark.style.backgroundPosition = g.watermarkPosition || "";
-    loadWatermarkForId(g.id);
-    if(g.watermarkBottomFade){
+    watermark.style.backgroundSize = universe.watermarkSize || "";
+    watermark.style.backgroundPosition = universe.watermarkPosition || "";
+    loadWatermarkForId(g.id + ":" + universe.id);
+    if(universe.watermarkBottomFade){
       // Combina la sfumatura orizzontale di sempre con una verticale
       // in più, verso il basso: ammorbidisce il taglio netto in
       // fondo all'immagine invece di lasciarlo di scatto.

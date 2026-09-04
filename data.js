@@ -26,13 +26,13 @@ const GAMES = {
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "vera-strangereal",
         name: { it: "La Vera Strangereal", en: "True Strangereal" },
         span: { it: "1995 – 2040", en: "1995 – 2040" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
         palette: ["#3D2A1E", "#3E7CAE", "#C99A3E", "#1E8F94"],
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
@@ -219,6 +219,7 @@ const GAMES = {
         id: "cieli-terrestri",
         name: { it: "Cieli Terrestri", en: "Earthly Skies" },
         span: { it: "2002 – 2016", en: "2002 – 2016" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Filigrana.jpg",
         palette: ["#C97830", "#661F30", "#3E7CAE"],
         entries: [
           { id: "ikaros-in-the-sky", type: "ROMANZO", typeEn: "NOVEL", year: "2002", yearEn: "2002", releaseYear: "2012", releaseYearEn: "2012",
@@ -265,7 +266,6 @@ const GAMES = {
     title: { it: "Alone in the Dark", en: "Alone in the Dark" },
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     accentColor: "#D1903D",
     tracks: [
@@ -286,6 +286,7 @@ const GAMES = {
         id: "infogrames",
         name: { it: "Universo Infogrames", en: "Infogrames Universe" },
         span: { it: "1924 – 1925", en: "1924 – 1925" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
         palette: ["#D1903D", "#2F6E6B", "#9C5A2E"],
         entries: [
           {
@@ -351,6 +352,7 @@ const GAMES = {
         id: "darkworks",
         name: { it: "Universo Darkworks", en: "Darkworks Universe" },
         span: { it: "2001", en: "2001" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
         palette: ["#D1903D", "#4E6B5A"],
         entries: [
           {
@@ -388,6 +390,7 @@ const GAMES = {
         id: "eden-games",
         name: { it: "Universo Eden Games", en: "Eden Games Universe" },
         span: { it: "2008 – 2015", en: "2008 – 2015" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
         palette: ["#5B3A73", "#D1903D"],
         entries: [
           {
@@ -425,6 +428,7 @@ const GAMES = {
         id: "pieces-interactive",
         name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
         span: { it: "2024", en: "2024" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Filigrana.jpg",
         palette: ["#D1903D", "#9BAF9A"],
         entries: [
           {
@@ -475,13 +479,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "antichita",
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#7C6A2E", "#8E1B2E"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
@@ -517,6 +521,7 @@ const GAMES = {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
         span: { it: "824 – 878", en: "824 – 878" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#B8860B", "#8E1B2E"],
         entries: [
           { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
@@ -570,6 +575,7 @@ const GAMES = {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
         span: { it: "1191 – 1526", en: "1191 – 1526" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#B8935A", "#2E2A4A", "#8E1B2E"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
@@ -732,6 +738,7 @@ const GAMES = {
         id: "giappone-feudale",
         name: { it: "Giappone Feudale", en: "Feudal Japan" },
         span: { it: "1560 – 1581", en: "1560 – 1581" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#1F3B4D", "#8E1B2E"],
         entries: [
           { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
@@ -758,6 +765,7 @@ const GAMES = {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#1B7A72", "#8E1B2E", "#8A6A2E"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
@@ -802,6 +810,7 @@ const GAMES = {
         id: "eta-rivoluzioni",
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1868", en: "1725 – 1868" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#8E1B2E", "#242A3D", "#C4802E", "#4E5449"],
         entries: [
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
@@ -884,6 +893,7 @@ const GAMES = {
         id: "rivoluzione-russa",
         name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
         span: { it: "1888 – 1920", en: "1888 – 1920" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#8E1B2E", "#4A5560"],
         entries: [
           { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
@@ -919,6 +929,7 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2018", en: "2015 – 2018" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
         palette: ["#8E1B2E", "#A67F3E"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
@@ -1072,13 +1083,13 @@ const GAMES = {
     bannerOffset: 265,
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "iga",
         name: { it: "Universo IGA (Koji Igarashi)", en: "IGA Universe (Koji Igarashi)" },
         span: { it: "1094 – 2037", en: "1094 – 2037" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
         palette: ["#1C1C22", "#5C120A", "#C9A227"],
         entries: [
           { id: "lament-of-innocence", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1094",
@@ -1275,6 +1286,7 @@ const GAMES = {
         id: "secondo-universo-iga",
         name: { it: "Secondo Universo IGA (Koji Igarashi)", en: "Second IGA Universe (Koji Igarashi)" },
         span: { it: "1844 – 1852", en: "1844 – 1852" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
         palette: ["#2A1F42", "#4A6B6B", "#5C120A"],
         entries: [
           { id: "legacy-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1844",
@@ -1299,6 +1311,7 @@ const GAMES = {
         id: "mercurysteam",
         name: { it: "Universo MercurySteam", en: "MercurySteam Universe" },
         span: { it: "1047 – Epoca Moderna", en: "1047 – Modern Era" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
         palette: ["#6B6B73", "#4A1030", "#5C120A"],
         entries: [
           { id: "lords-of-shadow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1047",
@@ -1334,6 +1347,7 @@ const GAMES = {
         id: "netflix",
         name: { it: "Universo Netflix", en: "Netflix Universe" },
         span: { it: "Fine XV secolo – 1792", en: "Late 15th century – 1792" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
         palette: ["#4A4A4D", "#5C120A", "#152238"],
         entries: [
           { id: "netflix-castlevania", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Fine del XV secolo", yearEn: "Late 15th century",
@@ -1371,7 +1385,6 @@ const GAMES = {
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#E4291B",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
     watermarkOpacity: 0.16,
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Banner.jpg",
     bannerOffset: 265,
@@ -1389,6 +1402,7 @@ const GAMES = {
         id: "main",
         name: { it: "Limbo City", en: "Limbo City" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
         entries: [
           { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "2000 anni fa", yearEn: "2,000 years ago", noAvatar: true,
             title: { it: "La Leggenda di Sparda", en: "The Legend of Sparda" },
@@ -1499,6 +1513,7 @@ const GAMES = {
         id: "ninja-theory",
         name: { it: "Universo Ninja Theory", en: "Ninja Theory Universe" },
         span: { it: "Epoca contemporanea", en: "Contemporary era" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
         entries: [
           { id: "chronicles-of-vergil", type: "FUMETTO", typeEn: "COMIC", year: "Un anno prima di DmC", yearEn: "One year before DmC", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "The Chronicles of Vergil", en: "The Chronicles of Vergil" },
@@ -1536,13 +1551,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Sanctuarium", en: "Sanctuary" },
         span: { it: "Origini di Sanctuarium – 1336 circa", en: "The Birth of Sanctuary – c. 1336" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Filigrana.jpg",
         entries: [
           { id: "birth-of-sanctuary", type: "STORIA", typeEn: "STORY", year: "Secoli prima di Diablo", yearEn: "Centuries before Diablo", noAvatar: true,
             title: { it: "La Nascita di Sanctuarium e l'Esilio dei Primi Maligni", en: "The Birth of Sanctuary and the Exile of the Prime Evils" },
@@ -1791,15 +1806,15 @@ const GAMES = {
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
     watermarkOpacity: 0.156,
-    watermarkBottomFade: true,
     bannerOffset: 195,
     universes: [
       {
         id: "erdrick",
         name: { it: "Universo Erdrick", en: "Erdrick Universe" },
         span: { it: "1986 – 2017", en: "1986 – 2017" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+        watermarkBottomFade: true,
         entries: [
           { id: "dq11", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Le origini della leggenda, prima di Dragon Quest III", yearEn: "The origins of the legend, before Dragon Quest III", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Dragon Quest XI: Echi di un'era perduta", en: "Dragon Quest XI: Echoes of an Elusive Age" },
@@ -1839,6 +1854,8 @@ const GAMES = {
         id: "zenithia",
         name: { it: "Universo Zenithia", en: "Zenithia Universe" },
         span: { it: "1990 – 1995", en: "1990 – 1995" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+        watermarkBottomFade: true,
         entries: [
           { id: "dq6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "La più antica delle tre epoche, separata da millenni dalle altre", yearEn: "The earliest of the three eras, separated by millennia from the others", releaseYear: "1995 (Remake: 2010)", releaseYearEn: "1995 (Remake: 2010)",
             title: { it: "Dragon Quest VI: Nel regno dei sogni", en: "Dragon Quest VI: Realms of Revelation" },
@@ -1883,13 +1900,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Tamriel", en: "Tamriel" },
         span: { it: "Seconda Era 582 – Quarta Era 201", en: "Second Era 582 – Fourth Era 201" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/The%20Elder%20Scrolls%20Filigrana.jpg",
         entries: [
           { id: "eso", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2E 582", releaseYear: "2014", releaseYearEn: "2014",
             title: { it: "The Elder Scrolls Online", en: "The Elder Scrolls Online" },
@@ -1952,13 +1969,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Wasteland Americano", en: "American Wasteland" },
         span: { it: "2102 – 2296", en: "2102 – 2296" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fallout%20Filigrana.jpg",
         entries: [
           { id: "fallout-76", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2102", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "Fallout 76", en: "Fallout 76" },
@@ -2028,13 +2045,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "compilation-vii",
         name: { it: "Compilation di Final Fantasy VII", en: "Compilation of Final Fantasy VII" },
         span: { it: "Circa 6 anni prima – 1 anno dopo Final Fantasy VII", en: "About 6 years before – 1 year after Final Fantasy VII" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "before-crisis", type: "VIDEOGIOCO MOBILE", typeEn: "MOBILE GAME", year: "Circa 6 anni prima di Final Fantasy VII", yearEn: "About 6 years before Final Fantasy VII", releaseYear: "2004 (solo Giappone)", releaseYearEn: "2004 (Japan only)",
             title: { it: "Before Crisis: Final Fantasy VII", en: "Before Crisis: Final Fantasy VII" },
@@ -2084,6 +2101,7 @@ const GAMES = {
         id: "remake-trilogy",
         name: { it: "Riunione", en: "Reunion" },
         span: { it: "2020 – in corso", en: "2020 – ongoing" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffvii-remake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Parte I", yearEn: "Part I", releaseYear: "2020", releaseYearEn: "2020",
             title: { it: "Final Fantasy VII Remake", en: "Final Fantasy VII Remake" },
@@ -2105,6 +2123,7 @@ const GAMES = {
         id: "spira",
         name: { it: "Spira", en: "Spira" },
         span: { it: "Final Fantasy X – X-2", en: "Final Fantasy X – X-2" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffx", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy X", yearEn: "Final Fantasy X", releaseYear: "2001 (Remaster: 2013)", releaseYearEn: "2001 (Remaster: 2013)",
             title: { it: "Final Fantasy X", en: "Final Fantasy X" },
@@ -2126,6 +2145,7 @@ const GAMES = {
         id: "ivalice-alliance",
         name: { it: "Ivalice Alliance", en: "Ivalice Alliance" },
         span: { it: "Final Fantasy XII – Vagrant Story", en: "Final Fantasy XII – Vagrant Story" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffxii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca d'oro di Ivalice", yearEn: "Golden Age of Ivalice", releaseYear: "2006 (Remaster: 2017)", releaseYearEn: "2006 (Remaster: 2017)",
             title: { it: "Final Fantasy XII", en: "Final Fantasy XII" },
@@ -2154,6 +2174,7 @@ const GAMES = {
         id: "fabula-nova-crystallis-xiii",
         name: { it: "Fabula Nova Crystallis – XIII", en: "Fabula Nova Crystallis – XIII" },
         span: { it: "Final Fantasy XIII – Lightning Returns", en: "Final Fantasy XIII – Lightning Returns" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "ffxiii", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Final Fantasy XIII", yearEn: "Final Fantasy XIII", releaseYear: "2009", releaseYearEn: "2009",
             title: { it: "Final Fantasy XIII", en: "Final Fantasy XIII" },
@@ -2182,6 +2203,7 @@ const GAMES = {
         id: "final-fantasy-xv",
         name: { it: "Eos", en: "Eos" },
         span: { it: "Infanzia di Noctis – Final Fantasy XV", en: "Noctis's childhood – Final Fantasy XV" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20Filigrana.jpg",
         entries: [
           { id: "brotherhood", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Infanzia e adolescenza di Noctis", yearEn: "Noctis's childhood and teenage years", releaseYear: "2016", releaseYearEn: "2016",
             title: { it: "Brotherhood: Final Fantasy XV", en: "Brotherhood: Final Fantasy XV" },
@@ -2223,13 +2245,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "naga",
         name: { it: "Naga", en: "Naga" },
         span: { it: "Genealogy of the Holy War – Fates", en: "Genealogy of the Holy War – Fates" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
         entries: [
           { id: "genealogy-holy-war", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1000 anni prima di Marth", yearEn: "1000 years before Marth", releaseYear: "1996", releaseYearEn: "1996",
             title: { it: "Fire Emblem: Genealogy of the Holy War", en: "Fire Emblem: Genealogy of the Holy War" },
@@ -2286,6 +2308,7 @@ const GAMES = {
         id: "elibe",
         name: { it: "Elibe", en: "Elibe" },
         span: { it: "The Blazing Blade – The Binding Blade", en: "The Blazing Blade – The Binding Blade" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
         entries: [
           { id: "blazing-blade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "20 anni prima di The Binding Blade", yearEn: "20 years before The Binding Blade", releaseYear: "2003", releaseYearEn: "2003",
             title: { it: "Fire Emblem: The Blazing Blade", en: "Fire Emblem: The Blazing Blade" },
@@ -2307,6 +2330,7 @@ const GAMES = {
         id: "tellius",
         name: { it: "Tellius", en: "Tellius" },
         span: { it: "Path of Radiance – Radiant Dawn", en: "Path of Radiance – Radiant Dawn" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Fire%20Emblem%20Filigrana.jpg",
         entries: [
           { id: "path-of-radiance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Fire Emblem: Path of Radiance", yearEn: "Fire Emblem: Path of Radiance", releaseYear: "2005", releaseYearEn: "2005",
             title: { it: "Fire Emblem: Path of Radiance", en: "Fire Emblem: Path of Radiance" },
@@ -2333,7 +2357,6 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Dying Light", en: "Dying Light" },
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     blurb: {
       it: "In città ridotte al collasso da un'epidemia che trasforma gli infetti in creature aggressive, i sopravvissuti si muovono tra i tetti per restare fuori dalla portata di ciò che si muove per le strade. Il giorno offre una tregua fragile, la notte appartiene a chi ha smesso di essere umano. Ogni salto, ogni corsa, è una scelta tra la vita.",
@@ -2346,6 +2369,7 @@ const GAMES = {
         id: "main",
         name: { it: "GRE", en: "GRE" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
         entries: [
           { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Dying Light", en: "Dying Light" },
@@ -2405,13 +2429,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Sera", en: "Sera" },
         span: { it: "0 A.E. – 42 A.E.", en: "0 A.E. – 42 A.E." },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Filigrana.jpg",
         entries: [
           { id: "rise-of-raam", type: "FUMETTO", typeEn: "COMIC", year: "Prima del Giorno dell'Emergenza", yearEn: "Before Emergence Day", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "Gears of War: The Rise of RAAM", en: "Gears of War: The Rise of RAAM" },
@@ -2577,13 +2601,13 @@ const GAMES = {
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     universes: [
       {
         id: "3d-universe",
         name: { it: "Universo 3D", en: "3D Universe" },
         span: { it: "1984 – 2001", en: "1984 – 2001" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
         entries: [
           { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Vice City Stories", en: "Vice City Stories" },
@@ -2647,6 +2671,7 @@ const GAMES = {
         id: "hd-universe",
         name: { it: "Universo HD", en: "HD Universe" },
         span: { it: "dal 2008", en: "since 2008" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
         entries: [
           { id: "gta4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2008", releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "GTA IV", en: "GTA IV" },
@@ -2691,13 +2716,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "saga-greca",
         name: { it: "Saga Greca", en: "Greek Saga" },
         span: { it: "Sparta, XIII secolo a.C. circa", en: "Sparta, c. 13th century BC" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
         entries: [
           { id: "sons-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "infanzia di Kratos", releaseYear: "2026", releaseYearEn: "2026",
             title: { it: "Sons of Sparta", en: "Sons of Sparta" },
@@ -2775,6 +2800,7 @@ const GAMES = {
         id: "saga-norrena",
         name: { it: "Saga Norrena", en: "Norse Saga" },
         span: { it: "Midgard, decenni dopo", en: "Midgard, decades later" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
         entries: [
           { id: "dark-horse-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Prima di God of War (2018)", yearEn: "Before God of War (2018)", releaseYear: "2018 – 2021", releaseYearEn: "2018 – 2021",
             title: { it: "God of War (fumetto Dark Horse)", en: "God of War (Dark Horse)" },
@@ -2816,13 +2842,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "trilogia-originale",
         name: { it: "Il Ciclo degli Anelli", en: "The Ring Cycle" },
         span: { it: "2531 – 2552", en: "2531 – 2552" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
         entries: [
           { id: "halo-wars", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2531",
             releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
@@ -2915,6 +2941,7 @@ const GAMES = {
         id: "saga-reclamatore",
         name: { it: "La Saga del Reclamatore (343 Industries)", en: "The Reclaimer Saga (343 Industries)" },
         span: { it: "2557 – 2560", en: "2557 – 2560" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Halo%20Filigrana.jpg",
         entries: [
           { id: "halo-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2557",
             releaseYear: "2012 (Remaster: 2014)", releaseYearEn: "2012 (Remaster: 2014)",
@@ -3142,13 +3169,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "era-condivisa",
         name: { it: "Era Condivisa (prima della scissione)", en: "Shared Era (before the split)" },
         span: { it: "Era del Cielo – Era di Ocarina of Time", en: "Era of the Sky – Era of Ocarina of Time" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "skyward-sword", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Cielo",
             releaseYear: "2011", releaseYearEn: "2011",
@@ -3188,6 +3215,7 @@ const GAMES = {
         id: "ramo-decadenza",
         name: { it: "Ramo della Decadenza (Link sconfitto)", en: "Downfall Branch (Link defeated)" },
         span: { it: "Era della Decadenza", en: "Era of Decline" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "zelda-1986", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era della Decadenza",
             releaseYear: "1986", releaseYearEn: "1986",
@@ -3267,6 +3295,7 @@ const GAMES = {
         id: "ramo-bambino",
         name: { it: "Ramo del Bambino (Link avverte Zelda)", en: "Child Branch (Link warns Zelda)" },
         span: { it: "Era del Grande Mare", en: "Era of the Great Sea" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "four-swords-adventures", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Poco dopo Ocarina of Time",
             releaseYear: "2004", releaseYearEn: "2004",
@@ -3306,6 +3335,7 @@ const GAMES = {
         id: "ramo-adulto",
         name: { it: "Ramo dell'Adulto (Link scompare)", en: "Adult Branch (Link vanishes)" },
         span: { it: "Era del Crepuscolo", en: "Era of Twilight" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "twilight-princess", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era del Crepuscolo",
             releaseYear: "2006", releaseYearEn: "2006",
@@ -3321,6 +3351,7 @@ const GAMES = {
         id: "era-selvaggi",
         name: { it: "Era dei Selvaggi (tutti i rami convergono)", en: "Era of the Wilds (all branches converge)" },
         span: { it: "Migliaia di anni dopo", en: "Thousands of years later" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Zelda%20Filigrana.jpg",
         entries: [
           { id: "breath-of-the-wild", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Era dei Selvaggi",
             releaseYear: "2017", releaseYearEn: "2017",
@@ -3466,13 +3497,13 @@ const GAMES = {
     palette: ["#b3e5fc", "#f97316", "#1e3a5f"],
     accentColor: "#b3e5fc",
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Avatar.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Filigrana.jpg",
     watermarkOpacity: 0.2,
     universes: [
       {
         id: "main",
         name: { it: "E.D.N. III", en: "E.D.N. III" },
         span: { it: "A.T. -50 – A.T. 12", en: "A.T. -50 – A.T. 12" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Lost%20Planet%20Filigrana.jpg",
         entries: [
           { id: "first-colony", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "40 anni prima di Lost Planet 3", yearEn: "40 years before Lost Planet 3", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Lost Planet: First Colony", en: "Lost Planet: First Colony" },
@@ -3538,13 +3569,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "trilogia-shepard",
         name: { it: "Trilogia di Shepard", en: "Shepard Trilogy" },
         span: { it: "2183 – 2186", en: "2183 – 2186" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
         entries: [
           { id: "evolution", type: "FUMETTO", typeEn: "COMIC", year: "Guerra del Primo Contatto", yearEn: "First Contact War", releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Mass Effect: Evolution", en: "Mass Effect: Evolution" },
@@ -3671,6 +3702,7 @@ const GAMES = {
         id: "andromeda",
         name: { it: "Iniziativa Andromeda", en: "Andromeda Initiative" },
         span: { it: "2785 (600 anni dopo)", en: "2785 (600 years later)" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
         entries: [
           { id: "initiation", type: "ROMANZO", typeEn: "NOVEL", year: "Prima della partenza dell'Iniziativa Andromeda (2185)", yearEn: "Before the Andromeda Initiative's departure (2185)", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Mass Effect: Andromeda – Initiation", en: "Mass Effect: Andromeda – Initiation" },
@@ -3719,13 +3751,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "timeline-originale",
         name: { it: "Timeline Originale", en: "Original Timeline" },
         span: { it: "1992 – 2006", en: "1992 – 2006" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
         entries: [
           { id: "mk1-1992", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1992", releaseYear: "1992", releaseYearEn: "1992",
             title: { it: "Mortal Kombat", en: "Mortal Kombat" },
@@ -3782,6 +3814,7 @@ const GAMES = {
         id: "timeline-rebooted",
         name: { it: "Timeline Rebooted (reset di Raiden)", en: "Rebooted Timeline (Raiden's reset)" },
         span: { it: "2011 – 2019", en: "2011 – 2019" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
         entries: [
           { id: "mk9-2011", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2011 (retelling di MK1-3)", releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Mortal Kombat (2011)", en: "Mortal Kombat (2011)" },
@@ -3810,6 +3843,7 @@ const GAMES = {
         id: "timeline-reborn",
         name: { it: "Nuova Era (reset di Liu Kang)", en: "New Era (Liu Kang's reset)" },
         span: { it: "dal 2023", en: "from 2023" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mortal%20Kombat%20Filigrana.jpg",
         entries: [
           { id: "mk1-2023", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2023", releaseYear: "2023", releaseYearEn: "2023",
             title: { it: "Mortal Kombat 1 (2023)", en: "Mortal Kombat 1 (2023)" },
@@ -3943,13 +3977,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "continuita-originale",
         name: { it: "Continuità Originale", en: "Original Continuity" },
         span: { it: "1989 – 1999", en: "1989 – 1999" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "pop-1989", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1989", releaseYear: "1989", releaseYearEn: "1989",
             title: { it: "Prince of Persia", en: "Prince of Persia" },
@@ -3978,6 +4012,7 @@ const GAMES = {
         id: "sabbie-del-tempo",
         name: { it: "Le Sabbie del Tempo", en: "The Sands of Time" },
         span: { it: "Persia leggendaria", en: "Legendary Persia" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "sands-of-time", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "primo della saga",
             releaseYear: "2003", releaseYearEn: "2003",
@@ -4017,6 +4052,7 @@ const GAMES = {
         id: "reboot-2008",
         name: { it: "Reboot 2008", en: "2008 Reboot" },
         span: { it: "Continuità indipendente", en: "Independent continuity" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "pop-2008", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "continuità propria",
             releaseYear: "2008", releaseYearEn: "2008",
@@ -4032,6 +4068,7 @@ const GAMES = {
         id: "lost-crown",
         name: { it: "The Lost Crown (continuità propria, non dichiarata)", en: "The Lost Crown (own, undeclared continuity)" },
         span: { it: "Persia mitologica", en: "Mythological Persia" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
         entries: [
           { id: "lost-crown", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "non collegato alle precedenti",
             releaseYear: "2024", releaseYearEn: "2024",
@@ -4459,13 +4496,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "continuita-classica",
         name: { it: "Continuità Classica (Core Design)", en: "Classic Continuity (Core Design)" },
         span: { it: "1996 – 2003", en: "1996 – 2003" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
         entries: [
           { id: "tr1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996",
             releaseYear: "1996", releaseYearEn: "1996",
@@ -4521,6 +4558,7 @@ const GAMES = {
         id: "continuita-legend",
         name: { it: "Continuità Legend (Crystal Dynamics, prima trilogia)", en: "Legend Continuity (Crystal Dynamics, first trilogy)" },
         span: { it: "2006 – 2008", en: "2006 – 2008" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
         entries: [
           { id: "anniversary", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "cronologicamente il primo di questa continuità",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -4552,6 +4590,7 @@ const GAMES = {
         id: "continuita-survivor",
         name: { it: "Continuità Survivor (Crystal Dynamics, seconda trilogia)", en: "Survivor Continuity (Crystal Dynamics, second trilogy)" },
         span: { it: "2013 – 2018", en: "2013 – 2018" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
         entries: [
           { id: "tr2013", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
             releaseYear: "2013", releaseYearEn: "2013",
@@ -4596,13 +4635,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "trilogia-rts",
         name: { it: "Trilogia RTS", en: "RTS Trilogy" },
         span: { it: "Prima Guerra – Terza Guerra", en: "First War – Third War" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
         entries: [
           { id: "warcraft-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Prima Guerra", releaseYear: "1994", releaseYearEn: "1994",
             title: { it: "Warcraft: Orcs & Humans", en: "Warcraft: Orcs & Humans" },
@@ -4645,6 +4684,7 @@ const GAMES = {
         id: "world-of-warcraft",
         name: { it: "World of Warcraft", en: "World of Warcraft" },
         span: { it: "2004 – oggi", en: "2004 – present" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
         entries: [
           { id: "wow-vanilla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo la Terza Guerra", releaseYear: "2004", releaseYearEn: "2004",
             title: { it: "World of Warcraft", en: "World of Warcraft" },
@@ -4877,13 +4917,13 @@ const GAMES = {
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Banner.jpg",
-    watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Filigrana.jpg",
     watermarkOpacity: 0.18,
     universes: [
       {
         id: "main",
         name: { it: "Continuità Principale", en: "Main Continuity" },
         span: { it: "1988 – 2024", en: "1988 – 2024" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Filigrana.jpg",
         entries: [
           { id: "yakuza-0", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1988", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Yakuza 0", en: "Yakuza 0" },
