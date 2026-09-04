@@ -946,17 +946,13 @@ const GAMES = {
       it: "Nelle profondità dell'Oceano Atlantico e tra le nuvole sopra il Midwest americano, due città nate dallo stesso sogno di libertà assoluta (una fondata sul culto dell'individuo, l'altra su quello della nazione e della fede) franano sotto il peso delle proprie stesse ideologie. Ogni utopia porta in sé i semi della propria rovina.",
       en: "In the depths of the Atlantic Ocean and among the clouds above the American Midwest, two cities born from the same dream of absolute freedom — one built on the cult of the individual, the other on nation and faith — collapse under the weight of their own ideologies. Every utopia carries the seeds of its own ruin."
     },
-    // PLACEHOLDER - fase Artista saltata su richiesta di Sakrem, da rivedere
-    // in un secondo momento.
-    accentColor: "#7a7a7a",
+    accentColor: "#2E9E86",
     universes: [
       {
         id: "rapture",
         name: { it: "Rapture", en: "Rapture" },
         span: { it: "Anni '40 – 1968", en: "1940s – 1968" },
-        // PLACEHOLDER - fase Artista saltata su richiesta di Sakrem, da
-        // rivedere in un secondo momento.
-        palette: ["#7a7a7a", "#7a7a7a", "#7a7a7a"],
+        palette: ["#C2A233", "#6B7A3D", "#2E9E86"],
         // Collegamento tra Universi (PARTE 1 punto 19 del regolamento,
         // primo caso reale, confermato da Sakrem): Rapture RICEVE
         // l'aggancio causale da Columbia, tramite BioShock Infinite:
@@ -1001,9 +997,7 @@ const GAMES = {
         id: "columbia",
         name: { it: "Columbia", en: "Columbia" },
         span: { it: "1909 – 1912", en: "1909 – 1912" },
-        // PLACEHOLDER - fase Artista saltata su richiesta di Sakrem, da
-        // rivedere in un secondo momento.
-        palette: ["#7a7a7a", "#7a7a7a", "#7a7a7a"],
+        palette: ["#9C7A2E", "#2E9E86"],
         // Collegamento tra Universi: Columbia GENERA l'aggancio causale
         // verso Rapture (vedi nota sull'universo Rapture qui sopra) - va
         // mostrato alla FINE della sua linea.
