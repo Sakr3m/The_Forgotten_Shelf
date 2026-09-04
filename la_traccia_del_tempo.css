@@ -959,13 +959,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     display:flex; align-items:center; justify-content:space-between;
     margin-top:25px; /* corretto da 20 a 25px, richiesto esplicito */
   }
-  body[data-state="game"] .game-header__banner,
-  body[data-state="game"] .game-header__banner-overlay{
-    display:none; /* niente banner su mobile, su richiesta - qui non
-      c'e' piu' nessun numero altrove che dipenda da un banner
-      presente o assente, la nuova riga avatar+musica e' in flusso
-      normale indipendente da lui. */
-  }
   body[data-state="game"] .game-header__cover{
     position:static;
     width:96px; height:96px;
@@ -1243,14 +1236,6 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      restano fermi: sono ancorati al bordo DESTRO dello stage, non
      influenzato dalla larghezza della sidebar a sinistra. --- */
   #sidebar{ width:300px; }
-
-  /* --- ESPERIMENTO (banner nascosti, non eliminati): solo su questa
-     pagina, solo desktop. Per tornare indietro basta commentare/
-     rimuovere questo blocco, il banner e' ancora li' nell'HTML. --- */
-  body[data-state="game"] .game-header__banner,
-  body[data-state="game"] .game-header__banner-overlay{
-    display:none;
-  }
 
   /* --- Blurb della saga: rimessa in vista (era nascosta con
      "ESPERIMENTO 2" mentre restava da scrivere) ora che ogni saga ha

@@ -457,8 +457,6 @@ function applyPaletteToCSS(){
   const gradientCss = "linear-gradient(90deg, " + palette.map((hex, i) => `${hex} ${percents[i]}%`).join(", ") + ")";
   document.body.style.setProperty("--gradient", gradientCss);
   document.body.style.setProperty("--cyan", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
-  const bannerOffset = (g && g.bannerOffset != null) ? g.bannerOffset : 125;
-  document.body.style.setProperty("--banner-x-offset", bannerOffset + "px");
 }
 
 function gradientColorAt(t){
@@ -1273,7 +1271,6 @@ function updateGameHeaderPanelText(gameId){
   if(!panel) return;
   const g = GAMES[gameId];
   panel.innerHTML = `
-    ${g.banner ? `<div class="game-header__banner" style="background-image:url('${g.banner}')"></div><div class="game-header__banner-overlay"></div>` : ""}
     <div class="game-header__top-row">
       <div class="game-header__cover">${g.avatar ? `<img src="${g.avatar}" alt="">` : `<span class="monogram">${monogram(tf(g.title))}</span>`}</div>
     </div>
