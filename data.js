@@ -982,6 +982,15 @@ const GAMES = {
       en: "In the depths of the Atlantic Ocean and among the clouds above the American Midwest, two cities born from the same dream of absolute freedom — one built on the cult of the individual, the other on nation and faith — collapse under the weight of their own ideologies. Every utopia carries the seeds of its own ruin."
     },
     accentColor: "#2E9E86",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20The%20Ocean%20on%20His%20Shoulders.mp3", title: "The Ocean on His Shoulders", game: "BioShock" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Dr.%20Steinman.mp3", title: "Dr. Steinman", game: "BioShock" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Cohen%27s%20Masterpiece.mp3", title: "Cohen's Masterpiece", game: "BioShock" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Empty%20Houses.mp3", title: "Empty Houses", game: "BioShock 2" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Songbird.mp3", title: "Songbird", game: "BioShock Infinite" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Lighter%20Than%20Air.mp3", title: "Lighter Than Air", game: "BioShock Infinite" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Will%20the%20Circle%20Be%20Unbroken.mp3", title: "Will the Circle Be Unbroken?", game: "BioShock Infinite" }
+    ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Avatar.jpg",
     universes: [
       {
