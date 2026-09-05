@@ -2153,8 +2153,17 @@ function renderGamePanel(){
       const H = timelineRect.height;
       const L = -EXTRA;
       const R = W + EXTRA;
-      const dotCutLeft = INSET - GLOW_MARGIN;
-      const dotCutRight = W - INSET + GLOW_MARGIN;
+      // Tolto GLOW_MARGIN da qui (04/09, richiesto esplicitamente da
+      // Sakrem dopo misura diretta col righello sullo schermo): la
+      // distanza tra la sidebar e Discord e' di 100px, e la riga/
+      // pallino deve fermarsi ESATTAMENTE li', zero tolleranza - non
+      // 24px prima, quel margine (nato per non "tranciare" l'alone
+      // del pallino) e' esattamente il motivo per cui sconfinava
+      // visibilmente verso la sidebar. Il taglio ora coincide col
+      // bordo vero (INSET, gia' compensato di BUFFER piu' sopra),
+      // niente respiro aggiuntivo.
+      const dotCutLeft = INSET;
+      const dotCutRight = W - INSET;
       liveTimeline.style.clipPath = `polygon(
         ${L}px 0px, ${R}px 0px,
         ${R}px ${lineTop.toFixed(2)}px, ${dotCutRight.toFixed(2)}px ${lineTop.toFixed(2)}px,
