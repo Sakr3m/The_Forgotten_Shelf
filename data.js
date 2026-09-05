@@ -1112,7 +1112,7 @@ const GAMES = {
         id: "iga",
         name: { it: "Universo IGA (Koji Igarashi)", en: "IGA Universe (Koji Igarashi)" },
         span: { it: "1094 – 2037", en: "1094 – 2037" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20IGA%20Filigrana.jpg",
         palette: ["#C9A227", "#5C120A", "#E8E4D8"],
         entries: [
           { id: "lament-of-innocence", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1094",
@@ -1309,7 +1309,7 @@ const GAMES = {
         id: "secondo-universo-iga",
         name: { it: "Secondo Universo IGA (Koji Igarashi)", en: "Second IGA Universe (Koji Igarashi)" },
         span: { it: "1844 – 1852", en: "1844 – 1852" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20IGA2%20Filigrana.jpg",
         palette: ["#5C120A", "#2E4A2E"],
         entries: [
           { id: "castlevania-64", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1852",
@@ -1352,7 +1352,7 @@ const GAMES = {
         id: "mercurysteam",
         name: { it: "Universo MercurySteam", en: "MercurySteam Universe" },
         span: { it: "1047 – Epoca Moderna", en: "1047 – Modern Era" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20MercurySteam%20Filigrana.jpg",
         palette: ["#5C6773", "#4A1030", "#5C120A"],
         entries: [
           { id: "lords-of-shadow", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1047",
@@ -1388,7 +1388,7 @@ const GAMES = {
         id: "netflix",
         name: { it: "Universo Netflix", en: "Netflix Universe" },
         span: { it: "Fine XV secolo – 1792", en: "Late 15th century – 1792" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Netflix%20Filigrana.jpg",
         palette: ["#5C120A", "#333F82"],
         entries: [
           { id: "netflix-castlevania", type: "SERIE ANIMATA", typeEn: "ANIMATED SERIES", year: "Fine del XV secolo", yearEn: "Late 15th century",
@@ -1443,7 +1443,7 @@ const GAMES = {
         id: "main",
         name: { it: "Limbo City", en: "Limbo City" },
         span: { it: "2000 anni fa – oggi", en: "2000 years ago – present" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Limbo%20City%20Filigrana.jpg",
         entries: [
           { id: "legend-of-sparda", type: "STORIA", typeEn: "STORY", year: "2000 anni fa", yearEn: "2,000 years ago", noAvatar: true,
             title: { it: "La Leggenda di Sparda", en: "The Legend of Sparda" },
@@ -1554,7 +1554,7 @@ const GAMES = {
         id: "ninja-theory",
         name: { it: "Universo Ninja Theory", en: "Ninja Theory Universe" },
         span: { it: "Epoca contemporanea", en: "Contemporary era" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Ninja%20Theory%20Filigrana.jpg",
         entries: [
           { id: "chronicles-of-vergil", type: "FUMETTO", typeEn: "COMIC", year: "Un anno prima di DmC", yearEn: "One year before DmC", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "The Chronicles of Vergil", en: "The Chronicles of Vergil" },
