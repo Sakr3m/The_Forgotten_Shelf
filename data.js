@@ -493,7 +493,7 @@ const GAMES = {
         id: "antichita",
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Antichit%C3%A0%20Filigrana.jpg",
         palette: ["#7C6A2E", "#8E1B2E"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
@@ -529,7 +529,7 @@ const GAMES = {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
         span: { it: "824 – 878", en: "824 – 878" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Alto%20Medioevo%20Filigrana.jpg",
         palette: ["#B8860B", "#8E1B2E"],
         entries: [
           { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
@@ -583,7 +583,7 @@ const GAMES = {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
         span: { it: "1191 – 1526", en: "1191 – 1526" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Basso%20Medioevo%20e%20Rinascimento%20Filigrana.jpg",
         palette: ["#B8935A", "#2E2A4A", "#8E1B2E"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
@@ -746,7 +746,7 @@ const GAMES = {
         id: "giappone-feudale",
         name: { it: "Giappone Feudale", en: "Feudal Japan" },
         span: { it: "1560 – 1581", en: "1560 – 1581" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Giappone%20Feudale%20Filigrana.jpg",
         palette: ["#1F3B4D", "#8E1B2E"],
         entries: [
           { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
@@ -773,7 +773,7 @@ const GAMES = {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Et%C3%A0%20della%20Vela%20Filigrana.jpg",
         palette: ["#1B7A72", "#8E1B2E", "#8A6A2E"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
@@ -818,7 +818,7 @@ const GAMES = {
         id: "eta-rivoluzioni",
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1868", en: "1725 – 1868" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
         palette: ["#8E1B2E", "#242A3D", "#C4802E", "#4E5449"],
         entries: [
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
@@ -901,7 +901,7 @@ const GAMES = {
         id: "rivoluzione-russa",
         name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
         span: { it: "1888 – 1920", en: "1888 – 1920" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Rivoluzione%20Russa%20Filigrana.jpg",
         palette: ["#8E1B2E", "#4A5560"],
         entries: [
           { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
@@ -937,7 +937,7 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2018", en: "2015 – 2018" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Era%20Moderna%20Filigrana.jpg",
         palette: ["#8E1B2E", "#A67F3E"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
