@@ -493,7 +493,8 @@ const GAMES = {
         id: "antichita",
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Antichit%C3%A0%20Filigrana.jpg",
+        watermarkPosition: "right",
         palette: ["#7C6A2E", "#8E1B2E"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
@@ -529,7 +530,7 @@ const GAMES = {
         id: "alto-medioevo",
         name: { it: "Alto Medioevo", en: "Early Middle Ages" },
         span: { it: "824 – 878", en: "824 – 878" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Alto%20Medioevo%20Filigrana.jpg",
         palette: ["#B8860B", "#8E1B2E"],
         entries: [
           { id: "daughter-of-no-one", type: "ROMANZO", typeEn: "NOVEL", year: "824", yearEn: "824",
@@ -583,7 +584,7 @@ const GAMES = {
         id: "basso-medioevo-rinascimento",
         name: { it: "Basso Medioevo e Rinascimento", en: "Late Middle Ages and Renaissance" },
         span: { it: "1191 – 1526", en: "1191 – 1526" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Basso%20Medioevo%20e%20Rinascimento%20Filigrana.jpg",
         palette: ["#B8935A", "#2E2A4A", "#8E1B2E"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
@@ -746,7 +747,8 @@ const GAMES = {
         id: "giappone-feudale",
         name: { it: "Giappone Feudale", en: "Feudal Japan" },
         span: { it: "1560 – 1581", en: "1560 – 1581" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Giappone%20Feudale%20Filigrana.jpg",
+        watermarkPosition: "right",
         palette: ["#1F3B4D", "#8E1B2E"],
         entries: [
           { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
@@ -773,7 +775,7 @@ const GAMES = {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
         span: { it: "1715 – 1780", en: "1715 – 1780" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Et%C3%A0%20della%20Vela%20Filigrana.jpg",
         palette: ["#1B7A72", "#8E1B2E", "#8A6A2E"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
@@ -818,7 +820,7 @@ const GAMES = {
         id: "eta-rivoluzioni",
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1868", en: "1725 – 1868" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
         palette: ["#8E1B2E", "#242A3D", "#C4802E", "#4E5449"],
         entries: [
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
@@ -901,7 +903,7 @@ const GAMES = {
         id: "rivoluzione-russa",
         name: { it: "Rivoluzione Russa", en: "Russian Revolution" },
         span: { it: "1888 – 1920", en: "1888 – 1920" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Rivoluzione%20Russa%20Filigrana.jpg",
         palette: ["#8E1B2E", "#4A5560"],
         entries: [
           { id: "the-fall", type: "FUMETTO", typeEn: "COMIC", year: "1888 – 1917",
@@ -937,7 +939,7 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2018", en: "2015 – 2018" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Era%20Moderna%20Filigrana.jpg",
         palette: ["#8E1B2E", "#A67F3E"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
@@ -1661,18 +1663,18 @@ const GAMES = {
               en: "Baal, the last of the three brothers still free, marches toward the Worldstone, capable of altering reality itself, to corrupt it and complete the Prime Evils' plan. The heroes confront him at Mount Arreat; to prevent the stone from being exploited again, the angel Tyrael destroys it himself, forever altering the balance between Heaven and Hell."
             }
           },
+          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Alcuni anni dopo Lord of Destruction, prima del 1270", yearEn: "A few years after Lord of Destruction, before 1270", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
+            title: { it: "Sword of Justice", en: "Sword of Justice" },
+            synopsis: {
+              it: "Il giovane guerriero Jacob, in fuga da cacciatori di taglie della sua terra natale nelle terre del nord, trova la spada dell'arcangelo Tyrael, scomparso dopo aver distrutto la Worldstone alla fine di Lord of Destruction, e ne diventa involontario portatore. Insieme alla maga Shanar, Jacob affronta i Barbari del Monte Arreat, resi folli dalla distruzione della Worldstone stessa (lo stesso evento che innescherà una delle trame centrali di Diablo III), scoprendo lungo il cammino il proprio legame di sangue con quella tribù. Fumetto in cinque albi ambientato nel vuoto tra Diablo II e Diablo III, scritto in parallelo allo sviluppo della trama di quest'ultimo.",
+              en: "Young warrior Jacob, fleeing bounty hunters from his homeland in the northlands, finds the sword of the archangel Tyrael, missing since he destroyed the Worldstone at the end of Lord of Destruction, and becomes its unwitting bearer. Alongside the mage Shanar, Jacob confronts the Barbarians of Mount Arreat, driven mad by the Worldstone's destruction itself — the same event that will trigger one of Diablo III's central plotlines — discovering along the way his own blood ties to that tribe. A five-issue comic set in the gap between Diablo II and Diablo III, written in parallel with the development of the latter's story."
+            }
+          },
           { id: "diablo-immortal", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1269 – 1270", releaseYear: "2022", releaseYearEn: "2022",
             title: { it: "Diablo Immortal", en: "Diablo Immortal" },
             synopsis: {
               it: "Cinque anni dopo la distruzione della Worldstone, i suoi frammenti corrotti sono sparsi per Sanctuarium, e culti demoniaci cercano di raccoglierli per riportare in vita Diablo. Un gruppo di eroi affronta lo stregone Skarn per impedire che i frammenti vengano riuniti, colmando un vuoto narrativo di quindici anni prima degli eventi di Diablo III.",
               en: "Five years after the destruction of the Worldstone, its corrupted fragments are scattered across Sanctuary, and demonic cults seek to gather them to bring Diablo back to life. A group of heroes confronts the sorcerer Skarn to prevent the fragments from being reunited, filling a fifteen-year narrative gap before the events of Diablo III."
-            }
-          },
-          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Circa 20 anni dopo Lord of Destruction", yearEn: "About 20 years after Lord of Destruction", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
-            title: { it: "Sword of Justice", en: "Sword of Justice" },
-            synopsis: {
-              it: "Il giovane guerriero Jacob, in fuga da cacciatori di taglie della sua terra natale nelle terre del nord, trova la spada dell'arcangelo Tyrael, scomparso dopo aver distrutto la Worldstone alla fine di Lord of Destruction, e ne diventa involontario portatore. Insieme alla maga Shanar, Jacob affronta i Barbari del Monte Arreat, resi folli dalla distruzione della Worldstone stessa (lo stesso evento che innescherà una delle trame centrali di Diablo III), scoprendo lungo il cammino il proprio legame di sangue con quella tribù. Fumetto in cinque albi che colma il vuoto di vent'anni tra Diablo II e Diablo III, scritto in parallelo allo sviluppo della trama di quest'ultimo.",
-              en: "Young warrior Jacob, fleeing bounty hunters from his homeland in the northlands, finds the sword of the archangel Tyrael, missing since he destroyed the Worldstone at the end of Lord of Destruction, and becomes its unwitting bearer. Alongside the mage Shanar, Jacob confronts the Barbarians of Mount Arreat, driven mad by the Worldstone's destruction itself — the same event that will trigger one of Diablo III's central plotlines — discovering along the way his own blood ties to that tribe. A five-issue comic bridging the twenty-year gap between Diablo II and Diablo III, written in parallel with the development of the latter's story."
             }
           },
           { id: "the-order", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Diablo III", yearEn: "Before Diablo III", releaseYear: "2012", releaseYearEn: "2012",
