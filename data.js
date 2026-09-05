@@ -494,7 +494,7 @@ const GAMES = {
         name: { it: "Antichità", en: "Antiquity" },
         span: { it: "431 a.C. – 44 a.C.", en: "431 BC – 44 BC" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Antichit%C3%A0%20Filigrana.jpg",
-        watermarkPosition: "left",
+        watermarkPosition: "right",
         palette: ["#7C6A2E", "#8E1B2E"],
         entries: [
           { id: "odyssey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "431 a.C. – 422 a.C.",
@@ -748,7 +748,7 @@ const GAMES = {
         name: { it: "Giappone Feudale", en: "Feudal Japan" },
         span: { it: "1560 – 1581", en: "1560 – 1581" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Giappone%20Feudale%20Filigrana.jpg",
-        watermarkPosition: "left",
+        watermarkPosition: "right",
         palette: ["#1F3B4D", "#8E1B2E"],
         entries: [
           { id: "tales-of-iga", type: "MANGA", typeEn: "MANGA", year: "1560 circa", yearEn: "c. 1560",
