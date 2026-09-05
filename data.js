@@ -34,6 +34,15 @@ const GAMES = {
         span: { it: "1995 – 2040", en: "1995 – 2040" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20La%20Vera%20Strangereal%20Filigrana.jpg",
         palette: ["#3D2A1E", "#3E7CAE", "#C99A3E", "#1E8F94"],
+        // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
+        // ciascun sottogruppo tranne l'ultimo (Ombra di Belka, Catena
+        // degli Stati/accento, Guerra Aureliana, Alba Corporativa - vedi
+        // commit "Aggiorna colori Ace Combat" per i nomi). Senza questo
+        // campo il colore si "sconfinava" ben prima della voce che
+        // chiude davvero ogni sottogruppo (piu' evidente sulle due voci
+        // ombrello sotto, il cui arco esterno prende un solo colore
+        // fisso - vedi computeGradientStops in script.js).
+        paletteBounds: ["ace-2", "ace-5", "ace-8"],
         entries: [
           { id: "air-combat", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", yearEn: "1995", releaseYear: "1995", releaseYearEn: "1995",
             title: { it: "Air Combat", en: "Air Combat" },
@@ -586,6 +595,15 @@ const GAMES = {
         span: { it: "1191 – 1526", en: "1191 – 1526" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Basso%20Medioevo%20e%20Rinascimento%20Filigrana.jpg",
         palette: ["#B8935A", "#2E2A4A", "#8E1B2E"],
+        // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
+        // ciascun sottogruppo tranne l'ultimo (Pietra di Gerusalemme/
+        // Altaïr, Notte Francese/Confraternita francese, Sangue/Ezio -
+        // vedi commit "Assassin's Creed: applica colori scelti"). Senza
+        // questo campo il colore si "sconfinava" ben prima della voce
+        // che chiude davvero ogni sottogruppo, piu' evidente sull'arco
+        // esterno delle due voci ombrello sotto (colore fisso, vedi
+        // computeGradientStops in script.js).
+        paletteBounds: ["fall-of-masyaf", "heresy"],
         entries: [
           { id: "assassins-creed-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1191",
             releaseYear: "2007", releaseYearEn: "2007",
@@ -822,6 +840,15 @@ const GAMES = {
         span: { it: "1725 – 1868", en: "1725 – 1868" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
         palette: ["#8E1B2E", "#242A3D", "#C4802E", "#4E5449"],
+        // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
+        // ciascun sottogruppo tranne l'ultimo (Sangue/accento - Connor,
+        // Notte di Parigi - Unity, Zafferano - India, Nebbia Industriale
+        // - Londra vittoriana). Senza questo campo il colore si
+        // "sconfinava" ben prima della voce che chiude davvero ogni
+        // sottogruppo, piu' evidente sull'arco esterno della voce
+        // ombrello sotto (colore fisso, vedi computeGradientStops in
+        // script.js).
+        paletteBounds: ["assassins-creed-3", "unity", "chronicles-india"],
         entries: [
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
             releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",

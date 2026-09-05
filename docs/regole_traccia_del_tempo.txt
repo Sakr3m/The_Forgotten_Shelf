@@ -712,6 +712,55 @@ Sakrem finisce per scegliere proprio quella combinazione. Non è mai
 un controllo silenzioso — la decisione finale se accettare comunque
 la duplicazione resta sempre di Sakrem.
 
+I COLORI DEI SOTTOGRUPPI DEVONO RESTARE DENTRO LE LORO VOCI REALI
+(regola aggiunta il 06/09, scoperta da Sakrem durante la revisione di
+Ace Combat/Assassin's Creed/Castlevania): il gradiente che dipinge la
+linea temporale (sia il colore di ciascun pallino sia lo sfondo della
+riga stessa) non va MAI fatto scorrere in proporzione fissa
+sull'INDICE della voce nell'array (0/55/100, o equidistante per un
+numero diverso di colori) quando i sottogruppi narrativi hanno
+lunghezze molto diverse tra loro: un sottogruppo di una sola voce
+dentro un universo di quindici finirebbe "sconfinato" nel colore del
+sottogruppo successivo ben prima della propria ultima voce reale — il
+colore di un pallino deve restare quello del sottogruppo a cui quella
+voce appartiene DAVVERO, non quello che risulta dalla sua posizione
+proporzionale nell'elenco.
+
+Il problema è particolarmente visibile (mai silenzioso) su una voce
+ombrello (PARTE 3 punto 3): il suo arco esterno è un bordo CSS (unica
+proprietà capace di rendere le varianti solid/dashed/dotted/double),
+quindi non può mai essere lui stesso un gradiente — prende un unico
+colore fisso dal proprio primo pallino. Se quel colore è già
+"sconfinato" per il motivo sopra, l'arco esterno risulta visibilmente
+sbagliato rispetto al sottogruppo a cui appartiene davvero, anche
+quando la riga sotto di lui sta ancora sfumando verso il colore giusto.
+
+COSA FARE IN PRATICA: quando una palette ha più di un colore (quindi
+sempre, vedi il minimo di 2 sopra) E l'universo ha almeno un
+sottogruppo che non copre tutte le voci in proporzione equa al numero
+di colori — praticamente ogni volta che c'è una voce ombrello, ma non
+solo — l'universo deve dichiarare esplicitamente in data.js il campo
+`paletteBounds`: un array di id di voci REALI (mai l'id di una voce
+ombrello: il suo colore si risolve da solo in base a dove cade il suo
+pallino), lungo `palette.length - 1`, dove ogni elemento è l'ULTIMA
+voce reale del sottogruppo che lo precede. Il codice
+(computeGradientStops in script.js) usa questi confini per tenere
+ogni sottogruppo a un colore piatto sulle proprie voci, con la
+sfumatura "fusa" (mai un blocco netto, resta lo stile voluto) confinata
+al solo passo tra l'ultima voce di un sottogruppo e la prima del
+successivo — non più spalmata su tutto l'universo. Un universo con un
+solo sottogruppo narrativo reale (vedi il caso "due colori, un solo
+sottogruppo" sopra) non ha bisogno di `paletteBounds`: lì la sfumatura
+proporzionale su tutte le voci è corretta by design, non un bug.
+
+Questa verifica è responsabilità dell'Artista al momento di proporre o
+rilavorare una palette a sottogruppi (non solo del Programmatore in
+fase di applicazione): quando i sottogruppi individuati NON coprono
+porzioni proporzionalmente equivalenti dell'universo, l'Artista lo
+segnala esplicitamente e indica quale sia l'ultima voce reale di
+ciascun sottogruppo, cosi' che il Programmatore possa popolare
+`paletteBounds` senza doverlo dedurre da solo.
+
 
 2) VOCI "GEMELLE" SULLO STESSO PALLINO (sopra E sotto)
 ------------------------------------------------------------

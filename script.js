@@ -441,26 +441,85 @@ function paletteStopPercents(n){
   return Array.from({ length: n }, (_, i) => (i / (n - 1)) * 100);
 }
 
+// uni.paletteBounds (PARTE 3 punto 1 del regolamento, aggiunta 06/09
+// dopo la scoperta di Sakrem): array di id di voci REALI, lungo
+// palette.length-1, uno per confine tra un sottogruppo narrativo e il
+// successivo - ciascun id e' l'ULTIMA voce reale del sottogruppo che lo
+// precede (mai l'id di una voce ombrello: il suo colore si risolve da
+// solo in base a dove cade il suo pallino nell'array espanso, non va
+// mai scelto come ancora esso stesso). Senza questo campo (ancora la
+// stragrande maggioranza delle saghe/universi) il gradiente resta
+// quello di sempre, equidistante sull'INDICE della voce nell'array
+// (0/55/100 per il caso a 3 colori) - comportamento invariato.
+//
+// Perche' serve: prima di questa aggiunta il colore di ogni voce
+// dipendeva solo dalla propria posizione proporzionale nell'array
+// (indice/totale), mai dalla sua vera appartenenza a un sottogruppo -
+// con sottogruppi di lunghezza molto diversa (es. un sottogruppo di
+// una sola voce dentro un universo di 15) il colore risultava gia'
+// "sconfinato" nel sottogruppo successivo ben prima della voce che lo
+// chiude davvero. Il problema era piu' evidente sulle voci ombrello
+// (PARTE 3 punto 3): il loro arco esterno (.h-node__umbrella-link, un
+// bordo - unica proprieta' CSS capace di rendere le 4 varianti solid/
+// dashed/dotted/double, quindi MAI un gradiente reale al proprio
+// interno) prende un singolo colore fisso dal proprio primo pallino
+// (drawUmbrellaConnectors/drawUmbrellaConnectorsVertical piu' sotto),
+// che risultava percio' quasi sempre "sbagliato" rispetto al
+// sottogruppo a cui l'arco appartiene davvero - da qui la richiesta di
+// Sakrem, generalizzata a qualunque sottogruppo sbilanciato, non solo
+// ai casi con un ombrello sopra.
+function computeGradientStops(uni, expandedEntries){
+  const palette = (uni && uni.palette) || (currentGame() && currentGame().palette) || DEFAULT_PALETTE;
+  const total = expandedEntries ? expandedEntries.length : 0;
+  const boundIds = uni && uni.paletteBounds;
+  const boundIdx = (boundIds && total)
+    ? boundIds.map(id => expandedEntries.findIndex(e => e.id === id))
+    : null;
+  if(!boundIdx || boundIdx.some(i => i < 0) || total < 2){
+    // Fallback: vecchio comportamento equidistante (o 0/55/100 per 3 colori) -
+    // invariato per ogni universo senza paletteBounds.
+    const percents = paletteStopPercents(palette.length);
+    return palette.map((hex, i) => ({ p: percents[i] / 100, pct: percents[i], c: hexToRgb(hex) }));
+  }
+  // Due stop per colore (stesso colore su entrambi): la voce di apertura
+  // e quella di chiusura del proprio sottogruppo, cosi' tutto cio' che
+  // sta in mezzo resta un colore piatto, senza sfumare verso il
+  // successivo - la sfumatura vera e propria (voluta, "fusa" per
+  // regolamento, non un blocco netto) resta confinata al solo, singolo
+  // passo tra l'ultima voce di un sottogruppo e la prima del successivo.
+  const stops = [];
+  for(let i = 0; i < palette.length; i++){
+    const startIdx = i === 0 ? 0 : boundIdx[i - 1] + 1;
+    const endIdx = i === palette.length - 1 ? total - 1 : boundIdx[i];
+    const c = hexToRgb(palette[i]);
+    const startP = startIdx / (total - 1);
+    const endP = endIdx / (total - 1);
+    stops.push({ p: startP, pct: startP * 100, c });
+    stops.push({ p: endP, pct: endP * 100, c });
+  }
+  return stops;
+}
+
 function currentGradientStops(){
-  const palette = activePalette();
-  const percents = paletteStopPercents(palette.length);
-  return palette.map((hex, i) => ({ p: percents[i] / 100, c: hexToRgb(hex) }));
+  const uni = currentUniverse();
+  const expanded = uni ? expandEntriesWithUmbrellas(uni) : null;
+  return computeGradientStops(uni, expanded);
 }
 
 function applyPaletteToCSS(){
   const g = currentGame();
+  const stops = currentGradientStops();
   const palette = activePalette();
-  const percents = paletteStopPercents(palette.length);
   document.body.style.setProperty("--tl-1", palette[0]);
   document.body.style.setProperty("--tl-2", palette[Math.min(1, palette.length - 1)]);
   document.body.style.setProperty("--tl-3", palette[palette.length - 1]);
-  const gradientCss = "linear-gradient(90deg, " + palette.map((hex, i) => `${hex} ${percents[i]}%`).join(", ") + ")";
+  const gradientCss = "linear-gradient(90deg, " + stops.map(s => `rgb(${s.c[0]}, ${s.c[1]}, ${s.c[2]}) ${s.pct.toFixed(2)}%`).join(", ") + ")";
   document.body.style.setProperty("--gradient", gradientCss);
   document.body.style.setProperty("--cyan", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
 }
 
-function gradientColorAt(t){
-  const stops = currentGradientStops();
+function gradientColorAt(t, customStops){
+  const stops = customStops || currentGradientStops();
   for(let i = 0; i < stops.length - 1; i++){
     const a = stops[i], b = stops[i+1];
     if(t >= a.p && t <= b.p){
@@ -696,6 +755,10 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   const expandedEntries = expandEntriesWithUmbrellas(uni);
   const total = expandedEntries.length;
+  // Calcolati una sola volta per l'intero universo (non ad ogni voce
+  // dentro il forEach piu' sotto): rispettano uni.paletteBounds se
+  // presente, vedi il commento esteso su computeGradientStops.
+  const gradientStops = computeGradientStops(uni, expandedEntries);
   let turn = 0; // avanza di 1 per voce normale, di 2 per una voce
     // "gemella" (entry.twin) - cosi' l'alternanza sopra/sotto della
     // voce singola successiva riprende dal lato giusto, saltando i
@@ -802,7 +865,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     }
 
     const t = total > 1 ? i / (total - 1) : 0;
-    const color = gradientColorAt(t);
+    const color = gradientColorAt(t, gradientStops);
 
     let node;
     if(isTwin){
