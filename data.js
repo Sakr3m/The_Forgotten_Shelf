@@ -1619,8 +1619,14 @@ const GAMES = {
       it: "Sopra Sanctuarium infuria da sempre il Conflitto Eterno tra gli Angeli del Paradiso e i Demoni dell'Inferno, con l'umanità intrappolata proprio nel mezzo. I Signori del Terrore, incarnazioni del male puro, cercano di corrompere il mondo mortale dall'interno. Solo eroi comuni, spinti oltre i propri limiti, possono opporsi al.",
       en: "Above Sanctuary rages the Eternal Conflict between the Angels of the High Heavens and the Demons of the Burning Hells, with humanity trapped right in the middle. The Lords of Terror, embodiments of pure evil, seek to corrupt the mortal world from within. Only ordinary heroes, pushed past their limits, can."
     },
-    palette: ["#2b1810", "#d4581c", "#7a0c0c"],
-    accentColor: "#d4581c",
+    // Palette a sottogruppi narrativi (fase Artista, 06/09, Proposta 2 -
+    // "Sangue dell'Odio" scelto da Sakrem): sostituisce la vecchia
+    // palette provvisoria a 3 colori fissi, mai passata da questa fase.
+    // Un solo universo (Sanctuarium) -> palette/accentColor restano a
+    // livello di saga; paletteBounds va invece sull'universo stesso
+    // (vedi piu' sotto), come richiesto da computeGradientStops.
+    palette: ["#2e2a52", "#c48a35", "#d2571b", "#8f97a3", "#7a0f0f"],
+    accentColor: "#7a0f0f",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Banner.jpg",
@@ -1631,6 +1637,14 @@ const GAMES = {
         name: { it: "Sanctuarium", en: "Sanctuary" },
         span: { it: "Origini di Sanctuarium – 1336 circa", en: "The Birth of Sanctuary – c. 1336" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Filigrana.jpg",
+        // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale dei
+        // primi 4 sottogruppi su 5 (L'Alba di Sanctuarium, La Guerra del
+        // Peccato, La Caduta del Prime Evil, La Mietitura di Malthael) -
+        // il quinto (L'Età dell'Odio) si estende naturalmente fino alla
+        // fine dell'universo, nessun quinto bound necessario. Il terzo
+        // sottogruppo copre 9 voci su 25 (molto piu' degli altri, 3/3/4/6):
+        // sproporzione reale segnalata dall'Artista, non un errore.
+        paletteBounds: ["rathma", "sin-war-veiled-prophet", "wrath", "reaper-of-souls"],
         entries: [
           { id: "birth-of-sanctuary", type: "STORIA", typeEn: "STORY", year: "Secoli prima di Diablo", yearEn: "Centuries before Diablo", noAvatar: true,
             title: { it: "La Nascita di Sanctuarium e l'Esilio dei Primi Maligni", en: "The Birth of Sanctuary and the Exile of the Prime Evils" },
