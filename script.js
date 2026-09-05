@@ -1949,6 +1949,20 @@ function renderGamePanel(){
       if(firstTile) firstTile.style.transform = `translateX(${TILE_EDGE_SAFETY}px)`;
       const lastTile = nodes[nodes.length - 1] && nodes[nodes.length - 1].querySelector(".h-node__tile");
       if(lastTile && lastTile !== firstTile) lastTile.style.transform = `translateX(-${TILE_EDGE_SAFETY}px)`;
+      // Stesso problema del riquadro qui sopra, ma sul titolo
+      // (.h-node__title, segnalato con screenshot: le prime lettere
+      // del titolo della prima voce sparivano): il titolo e' pero'
+      // largo 130px contro i 100px del riquadro (stessa asse
+      // centrale, 15px di sporgenza per lato) - senza spostarlo a
+      // parte, sporge ancora oltre la maschera anche dopo aver
+      // sistemato solo il riquadro. Misurato dal vivo con Playwright:
+      // 7px di sporgenza effettiva sul primo nodo, +2px della stessa
+      // sicurezza usata sopra = 9px.
+      const TITLE_EDGE_SAFETY = 9;
+      const firstTitle = nodes[0] && nodes[0].querySelector(".h-node__title");
+      if(firstTitle) firstTitle.style.transform = `translateX(${TITLE_EDGE_SAFETY}px)`;
+      const lastTitle = nodes[nodes.length - 1] && nodes[nodes.length - 1].querySelector(".h-node__title");
+      if(lastTitle && lastTitle !== firstTitle) lastTitle.style.transform = `translateX(-${TITLE_EDGE_SAFETY}px)`;
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
