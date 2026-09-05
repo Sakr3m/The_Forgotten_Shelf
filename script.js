@@ -1893,6 +1893,20 @@ function renderGamePanel(){
     // del centro "teorico" della casella 100px, in OGNI nodo,
     // sempre.
     const TRACK_OVERFLOW = (130 - 100) / 2;
+    // BUFFER (04/09): quanto viene allargato il bordo scorrevole di
+    // .h-timeline in modalita' scroll libero (vedi piu' sotto), per
+    // dare spazio al riquadro/titolo (130px) senza tagliarlo. Serve
+    // qui, in questo scope piu' ampio, perche' la maschera sagomata
+    // (dotCutLeft/dotCutRight qui sotto) calcola il proprio taglio
+    // relativo al bordo di liveTimeline: se il bordo si allarga senza
+    // che la maschera lo sappia, anche la fascia stretta - quella che
+    // deve fermarsi esattamente a Discord/switch lingua, non un
+    // pixel oltre - si sposta con lui, portandosi dietro pallino e
+    // alone oltre il confine giusto (segnalato esplicitamente da
+    // Sakrem: "il box della linea temporale" restava troppo largo).
+    // 0 in modalita' fissa: li' il bordo di liveTimeline non viene
+    // mai allargato, nessuna compensazione necessaria.
+    const BUFFER = freeScrollMode ? (TRACK_OVERFLOW - DOT_RADIUS) + 2 : 0;
     // PESO di ogni nodo ai fini della spaziatura: 1 per una voce
     // normale, 2 per un nodo "gemello" (due voci sullo stesso
     // pallino, .h-node--twin) - un gemello ha bisogno di piu' respiro
@@ -1924,26 +1938,21 @@ function renderGamePanel(){
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
       const unitSpacing8 = (availableWidth - 100 - 2 * DOT_RADIUS) / 7;
-      // BUFFER (04/09, sostituisce i vecchi tentativi di spostare
-      // riquadro/titolo via transform - segnalato esplicitamente da
-      // Sakrem: non voleva un rattoppo sul singolo elemento, che
-      // sarebbe rimasto fragile per titoli molto piu' larghi. Causa
-      // vera: .h-timeline ha overflow-x:auto (necessario per lo
-      // scroll libero) che taglia SEMPRE al proprio bordo, ignorando
-      // il margine extra gia' previsto per copertina/titolo dalla
-      // maschera sagomata qui sotto (pensata per un contenitore con
-      // overflow:visible, non :auto) - il bordo tagliava quindi
-      // esattamente al margine "stretto" (Discord/switch lingua),
-      // non a quello "largo" pensato per le voci. BUFFER allarga
-      // il vero bordo scorrevole di .h-timeline (non solo la sua
-      // maschera) di TRACK_OVERFLOW - DOT_RADIUS (7px, la sporgenza
+      // BUFFER (04/09, dichiarato piu' sopra in uno scope condiviso
+      // con la maschera sagomata piu' sotto - serve anche li' per
+      // compensare l'allargamento del bordo, vedi il commento
+      // esteso sopra la sua dichiarazione): sostituisce i vecchi
+      // tentativi di spostare riquadro/titolo via transform,
+      // segnalato esplicitamente da Sakrem come rattoppo fragile per
+      // titoli molto piu' larghi. Causa vera: .h-timeline ha
+      // overflow-x:auto (necessario per lo scroll libero) che taglia
+      // SEMPRE al proprio bordo, ignorando il margine extra gia'
+      // previsto per copertina/titolo dalla maschera sagomata qui
+      // sotto (pensata per un contenitore con overflow:visible, non
+      // :auto). BUFFER allarga il vero bordo scorrevole di
+      // .h-timeline di TRACK_OVERFLOW - DOT_RADIUS (7px, la sporgenza
       // reale e costante del riquadro/titolo rispetto al pallino,
-      // indipendente dal testo) + 2px di margine di sicurezza - lo
-      // stesso identico margine per QUALUNQUE lunghezza di titolo,
-      // perche' .h-node__title resta sempre largo 130px per
-      // dichiarazione CSS, il testo va semplicemente a capo dentro,
-      // non trabocca mai lateralmente.
-      const BUFFER = (TRACK_OVERFLOW - DOT_RADIUS) + 2;
+      // indipendente dal testo) + 2px di margine di sicurezza.
       nodes.forEach((node, i) => {
         if(i === 0){
           // +BUFFER qui cancella esattamente lo spostamento a sinistra
@@ -2095,7 +2104,18 @@ function renderGamePanel(){
       // bandHalf = meta' altezza della fascia stretta: copre il
       // pallino (22px) piu' il trattino e il suo distacco (10+5px)
       // per lato, con un margine di sicurezza. --- */
-      const INSET = 50;
+      // +BUFFER (04/09): INSET e' relativo al bordo di liveTimeline,
+      // che in modalita' scroll libero e' stato allargato di BUFFER
+      // px per lato (vedi sopra, riquadro/titolo) - senza questa
+      // stessa compensazione qui, la fascia stretta (pensata per
+      // fermarsi esattamente a Discord/switch lingua, MAI un pixel
+      // oltre) si sposterebbe anche lei di BUFFER px verso l'esterno,
+      // portando pallino e alone oltre il confine giusto - segnalato
+      // esplicitamente da Sakrem ("il box della linea temporale deve
+      // fermarsi sotto il pulsante di Discord"). Con questa
+      // correzione il taglio della fascia stretta torna esattamente
+      // al punto di sempre, in valore assoluto, qualunque sia BUFFER.
+      const INSET = 50 + BUFFER;
       const bandHalf = 40;
       // GLOW_MARGIN (29/08, richiesto esplicitamente): l'alone del
       // pallino (box-shadow, .h-node__dot in styles.css) si estende
