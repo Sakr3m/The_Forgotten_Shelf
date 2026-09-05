@@ -10,6 +10,7 @@ const TEORIE_ORDER = [
   "ff7_ombra_di_lavos_in_jenova",
   "ff8_squall_is_dead",
   "ff8_vera_identita_artemisia",
+  "gris_viaggio_attraverso_il_lutto",
   "hollow_knight_ricettacolo_perfetto"
 ];
 
@@ -385,6 +386,42 @@ The theory was officially denied by director Yoshinori Kitase at PAX West 2016, 
 Kitase added, however, that he couldn't rule the theory out entirely, since he wasn't aware of the intentions of the other two writers, Nojima and Nomura, and admitted he hadn't even known the theory existed before someone brought it to his attention. A denial, then, but with a few cracks in it. The fandom has built years of discussion on top of it, and will probably keep doing so.
 
 The coincidences in the game's text are still there, visible to anyone who wants to look for them. But Square's official answer is clear: Rinoa and Ultimecia are two distinct people, and the ending of Final Fantasy VIII is exactly what it appears to be.`
+    }
+  }  ,
+  gris_viaggio_attraverso_il_lutto: {
+    game: "gris",
+    gameLabel: { it: "Gris", en: "Gris" },
+    title: {
+      it: "Il Viaggio Attraverso il Lutto",
+      en: "The Journey Through Grief"
+    },
+    body: {
+      it: `Gris non pronuncia mai una parola di troppo. Non ha dialoghi, non ha testi scritti da leggere, non ha nemmeno un narratore. Eppure basta osservare l'ordine in cui il mondo riacquista colore, capitolo dopo capitolo, per accorgersi che quella progressione non è casuale. Segue, quasi punto per punto, le cinque fasi del lutto teorizzate da Elisabeth Kübler Ross: negazione, rabbia, patteggiamento, depressione, accettazione. E una volta notato, diventa impossibile non vederlo ovunque nel gioco.
+
+Il capitolo d'apertura è tutto grigio, nero e bianco. Gris si risveglia nel palmo di una statua che si sgretola, prova a cantare e la voce le muore in gola. È la fase della negazione messa in scena nel modo più letterale possibile: un mondo che non ha ancora accettato ciò che è successo semplicemente non ha colore, non ha forma, non ha nemmeno la voce per dirlo ad alta voce. Il gioco non ti dice "Gris è in negazione." Ti fa camminare dentro quella negazione, capitolo per capitolo, prima di lasciarti intuire cosa significhi davvero.
+
+Poi arriva il rosso, e con lui la tempesta di sabbia che spinge Gris indietro a ogni passo, un livello costruito quasi interamente sulla frustrazione del movimento negato. È la rabbia tradotta in level design puro: non un dialogo arrabbiato, ma un intero capitolo che si oppone fisicamente a chi lo attraversa, proprio come la rabbia si oppone a chi la attraversa dentro di sé. Non a caso è il primo vero ostacolo aggressivo del gioco, subito dopo lo shock iniziale: la rabbia, spesso, è la prima reazione vera che segue la negazione, prima che arrivi qualsiasi tentativo di ragionarci sopra.
+
+Il verde introduce la vita che ricresce, gli insetti e le creature che collaborano invece di ostacolare, la vegetazione che si arrampica sulle rovine. È il capitolo più vicino al patteggiamento, quel tentativo di ricostruire un accordo con il mondo dopo la rabbia, anche se qui il patteggiamento non è con una divinità ma con la natura stessa che si riprende lo spazio perduto, offrendo a Gris nuove abilità in cambio della sua collaborazione.
+
+Il blu porta l'acqua che sommerge intere aree già esplorate, costringendo a nuotare in profondità dove prima si camminava. È la fase più vicina alla depressione: pesante, lenta, invadente, con una creatura oscura che segue Gris da lontano come un pensiero che non se ne va. Non è un caso che sia uno dei capitoli più prolungati in termini di atmosfera sospesa: il lutto, quando arriva davvero la fase depressiva, non ha fretta di finire. Ed è anche il capitolo in cui il buio inizia a farsi più minaccioso, come se il tentativo di patteggiare del capitolo precedente non fosse bastato a tenerlo lontano.
+
+Solo nell'ultimo capitolo, quando Gris raggiunge di nuovo l'oro e la luce piena, ritrova anche la voce. Non a caso è l'unico momento in cui può davvero cantare, l'azione che le era stata negata fin dal primo minuto di gioco. L'accettazione, in Gris, non è un sollievo silenzioso: è il ritorno letterale della voce, l'unica cosa che il lutto le aveva tolto fin dall'inizio.
+
+Nomada Studio non ha mai confermato apertamente questa lettura, anzi ha sempre preferito lasciare l'interpretazione ai giocatori. Ma la corrispondenza tra le cinque fasi e i cinque capitoli, con l'ordine corretto, è troppo precisa per essere solo una coincidenza estetica: sembra piuttosto una struttura narrativa nascosta sotto la superficie, pensata per essere sentita prima ancora che compresa.`,
+      en: `Gris never says a word too many. It has no dialogue, no text to read, not even a narrator. Yet you only have to watch the order in which the world regains its colors, chapter after chapter, to notice that the progression isn't random. It follows, almost point by point, the five stages of grief theorized by Elisabeth Kübler Ross: denial, anger, bargaining, depression, acceptance. And once you notice it, it becomes impossible not to see it everywhere in the game.
+
+The opening chapter is entirely grey, black, and white. Gris wakes in the palm of a crumbling statue, tries to sing, and her voice dies in her throat. It's denial staged in the most literal way possible: a world that hasn't yet accepted what happened simply has no color, no shape, not even the voice to say it out loud. The game never tells you "Gris is in denial." It makes you walk through that denial, chapter by chapter, before letting you piece together what it actually means.
+
+Then comes red, and with it the sandstorm pushing Gris back with every step, a level built almost entirely around the frustration of denied movement. It's anger translated into pure level design: not an angry line of dialogue, but an entire chapter that physically resists whoever crosses it, the same way anger resists whoever carries it inside. It's no coincidence this is the first real aggressive obstacle in the game, right after the initial shock — anger is often the first genuine reaction that follows denial, before any attempt to reason it out even begins.
+
+Green introduces life growing back, insects and creatures that cooperate instead of blocking the way, vegetation climbing over the ruins. It's the chapter closest to bargaining, that attempt to rebuild some kind of agreement with the world after the anger, even if here the bargain isn't struck with a god but with nature itself reclaiming the lost ground, offering Gris new abilities in exchange for her cooperation.
+
+Blue brings water that floods entire areas already explored, forcing you to swim deep where you once walked. It's the stage closest to depression: heavy, slow, invasive, with a dark creature trailing Gris from a distance like a thought that won't leave. It's no accident this is one of the most drawn-out chapters in terms of suspended atmosphere; grief, once it truly reaches the depressive stage, is in no hurry to end. It's also the chapter where the darkness starts turning more threatening, as if the bargaining attempted in the previous chapter hadn't been enough to keep it at bay.
+
+Only in the final chapter, when Gris reaches gold and full light again, does she also regain her voice. It's no coincidence this is the only moment she can truly sing, the very action denied to her from the first minute of the game. Acceptance, in Gris, isn't a quiet relief: it's the literal return of the voice, the one thing grief had taken from her since the beginning.
+
+Nomada Studio has never openly confirmed this reading, and has always preferred to leave the interpretation to the players. But the match between the five stages and the five chapters, in their correct order, is too precise to be just an aesthetic coincidence; it looks more like a narrative structure hidden beneath the surface, meant to be felt before it's ever understood.`
     }
   }  ,
   hollow_knight_ricettacolo_perfetto: {
