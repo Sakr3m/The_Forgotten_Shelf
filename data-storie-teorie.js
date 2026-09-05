@@ -391,6 +391,7 @@ The coincidences in the game's text are still there, visible to anyone who wants
   gris_viaggio_attraverso_il_lutto: {
     game: "gris",
     gameLabel: { it: "Gris", en: "Gris" },
+    accentColor: "#83c2d4",
     title: {
       it: "Il Viaggio Attraverso il Lutto",
       en: "The Journey Through Grief"
