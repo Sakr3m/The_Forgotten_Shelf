@@ -1924,45 +1924,51 @@ function renderGamePanel(){
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
       const unitSpacing8 = (availableWidth - 100 - 2 * DOT_RADIUS) / 7;
+      // BUFFER (04/09, sostituisce i vecchi tentativi di spostare
+      // riquadro/titolo via transform - segnalato esplicitamente da
+      // Sakrem: non voleva un rattoppo sul singolo elemento, che
+      // sarebbe rimasto fragile per titoli molto piu' larghi. Causa
+      // vera: .h-timeline ha overflow-x:auto (necessario per lo
+      // scroll libero) che taglia SEMPRE al proprio bordo, ignorando
+      // il margine extra gia' previsto per copertina/titolo dalla
+      // maschera sagomata qui sotto (pensata per un contenitore con
+      // overflow:visible, non :auto) - il bordo tagliava quindi
+      // esattamente al margine "stretto" (Discord/switch lingua),
+      // non a quello "largo" pensato per le voci. BUFFER allarga
+      // il vero bordo scorrevole di .h-timeline (non solo la sua
+      // maschera) di TRACK_OVERFLOW - DOT_RADIUS (7px, la sporgenza
+      // reale e costante del riquadro/titolo rispetto al pallino,
+      // indipendente dal testo) + 2px di margine di sicurezza - lo
+      // stesso identico margine per QUALUNQUE lunghezza di titolo,
+      // perche' .h-node__title resta sempre largo 130px per
+      // dichiarazione CSS, il testo va semplicemente a capo dentro,
+      // non trabocca mai lateralmente.
+      const BUFFER = (TRACK_OVERFLOW - DOT_RADIUS) + 2;
       nodes.forEach((node, i) => {
         if(i === 0){
-          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px";
+          // +BUFFER qui cancella esattamente lo spostamento a sinistra
+          // impresso a TUTTO il contenitore (liveTimeline.marginLeft
+          // piu' sotto): il pallino torna a toccare Discord esattamente
+          // come prima, senza il buffer. I nodi successivi (margini
+          // relativi al precedente, non assoluti) seguono a cascata
+          // nella stessa posizione di sempre, nessun altro conto da
+          // rifare.
+          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW + BUFFER).toFixed(2) + "px";
         } else {
           const step = unitSpacing8 * (weights[i - 1] + weights[i]) / 2;
           node.style.marginLeft = (step - 100).toFixed(2) + "px";
         }
       });
-      // Riquadro (copertina/monogramma) del primo e dell'ultimo nodo
-      // (segnalato con screenshot: il monogramma del primo nodo
-      // risultava tagliato dalla maschera dello scroll libero) - il
-      // pallino riposa a soli DOT_RADIUS px dal bordo scorrevole
-      // (requisito fermo: deve toccarlo esattamente, mai un pixel
-      // oltre, vedi marginLeft qui sopra), ma il riquadro e' molto
-      // piu' largo di lui (100px) e sporge subito fuori dalla
-      // maschera al minimo scroll. Sposto SOLO il riquadro (non
-      // .h-node, che porterebbe con se' anche il pallino) di qualche
-      // pixel verso l'interno via transform: il pallino/la riga
-      // restano esattamente dove sono sempre stati, il riquadro
-      // guadagna un po' di margine di sicurezza dalla maschera.
-      const TILE_EDGE_SAFETY = 2;
-      const firstTile = nodes[0] && nodes[0].querySelector(".h-node__tile");
-      if(firstTile) firstTile.style.transform = `translateX(${TILE_EDGE_SAFETY}px)`;
-      const lastTile = nodes[nodes.length - 1] && nodes[nodes.length - 1].querySelector(".h-node__tile");
-      if(lastTile && lastTile !== firstTile) lastTile.style.transform = `translateX(-${TILE_EDGE_SAFETY}px)`;
-      // Stesso problema del riquadro qui sopra, ma sul titolo
-      // (.h-node__title, segnalato con screenshot: le prime lettere
-      // del titolo della prima voce sparivano): il titolo e' pero'
-      // largo 130px contro i 100px del riquadro (stessa asse
-      // centrale, 15px di sporgenza per lato) - senza spostarlo a
-      // parte, sporge ancora oltre la maschera anche dopo aver
-      // sistemato solo il riquadro. Misurato dal vivo con Playwright:
-      // 7px di sporgenza effettiva sul primo nodo, +2px della stessa
-      // sicurezza usata sopra = 9px.
-      const TITLE_EDGE_SAFETY = 9;
-      const firstTitle = nodes[0] && nodes[0].querySelector(".h-node__title");
-      if(firstTitle) firstTitle.style.transform = `translateX(${TITLE_EDGE_SAFETY}px)`;
-      const lastTitle = nodes[nodes.length - 1] && nodes[nodes.length - 1].querySelector(".h-node__title");
-      if(lastTitle && lastTitle !== firstTitle) lastTitle.style.transform = `translateX(-${TITLE_EDGE_SAFETY}px)`;
+      // Allarga il vero bordo scorrevole (overflow-x:auto vive proprio
+      // su liveTimeline) di BUFFER px per lato: width cresce di
+      // 2*BUFFER, marginLeft negativo di BUFFER sposta il bordo
+      // sinistro della stessa quantita' verso l'esterno (il bordo
+      // destro si allarga di conseguenza, stessa larghezza extra).
+      // naturalWidth qui sopra (usato per availableWidth/unitSpacing8)
+      // e' gia' stato letto PRIMA di questo allargamento: la
+      // spaziatura delle voci non ne risente in alcun modo.
+      liveTimeline.style.width = (naturalWidth + 2 * BUFFER).toFixed(2) + "px";
+      liveTimeline.style.marginLeft = `-${BUFFER}px`;
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
