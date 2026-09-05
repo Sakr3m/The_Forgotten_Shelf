@@ -1625,8 +1625,14 @@ const GAMES = {
     // Un solo universo (Sanctuarium) -> palette/accentColor restano a
     // livello di saga; paletteBounds va invece sull'universo stesso
     // (vedi piu' sotto), come richiesto da computeGradientStops.
-    palette: ["#2e2a52", "#c48a35", "#d2571b", "#8f97a3", "#7a0f0f"],
-    accentColor: "#7a0f0f",
+    // Schiarito il giorno stesso (+3% di luminosita' HSL, "Step 1" tra
+    // le 5 gradazioni mostrate): l'originale #7a0f0f si avvicinava
+    // troppo, visivamente sul sito, al rosso di Castlevania (entrambi
+    // "sangue"), mentre il tema dell'inferno/fiamme di Diablo resta
+    // distinto dall'arancio gia' usato per Doom - schiarirlo aiuta
+    // a marcare meglio quella differenza.
+    palette: ["#2e2a52", "#c48a35", "#d2571b", "#8f97a3", "#881111"],
+    accentColor: "#881111",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Diablo%20Banner.jpg",
