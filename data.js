@@ -1663,18 +1663,18 @@ const GAMES = {
               en: "Baal, the last of the three brothers still free, marches toward the Worldstone, capable of altering reality itself, to corrupt it and complete the Prime Evils' plan. The heroes confront him at Mount Arreat; to prevent the stone from being exploited again, the angel Tyrael destroys it himself, forever altering the balance between Heaven and Hell."
             }
           },
+          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Alcuni anni dopo Lord of Destruction, prima del 1270", yearEn: "A few years after Lord of Destruction, before 1270", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
+            title: { it: "Sword of Justice", en: "Sword of Justice" },
+            synopsis: {
+              it: "Il giovane guerriero Jacob, in fuga da cacciatori di taglie della sua terra natale nelle terre del nord, trova la spada dell'arcangelo Tyrael, scomparso dopo aver distrutto la Worldstone alla fine di Lord of Destruction, e ne diventa involontario portatore. Insieme alla maga Shanar, Jacob affronta i Barbari del Monte Arreat, resi folli dalla distruzione della Worldstone stessa (lo stesso evento che innescherà una delle trame centrali di Diablo III), scoprendo lungo il cammino il proprio legame di sangue con quella tribù. Fumetto in cinque albi ambientato nel vuoto tra Diablo II e Diablo III, scritto in parallelo allo sviluppo della trama di quest'ultimo.",
+              en: "Young warrior Jacob, fleeing bounty hunters from his homeland in the northlands, finds the sword of the archangel Tyrael, missing since he destroyed the Worldstone at the end of Lord of Destruction, and becomes its unwitting bearer. Alongside the mage Shanar, Jacob confronts the Barbarians of Mount Arreat, driven mad by the Worldstone's destruction itself — the same event that will trigger one of Diablo III's central plotlines — discovering along the way his own blood ties to that tribe. A five-issue comic set in the gap between Diablo II and Diablo III, written in parallel with the development of the latter's story."
+            }
+          },
           { id: "diablo-immortal", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1269 – 1270", releaseYear: "2022", releaseYearEn: "2022",
             title: { it: "Diablo Immortal", en: "Diablo Immortal" },
             synopsis: {
               it: "Cinque anni dopo la distruzione della Worldstone, i suoi frammenti corrotti sono sparsi per Sanctuarium, e culti demoniaci cercano di raccoglierli per riportare in vita Diablo. Un gruppo di eroi affronta lo stregone Skarn per impedire che i frammenti vengano riuniti, colmando un vuoto narrativo di quindici anni prima degli eventi di Diablo III.",
               en: "Five years after the destruction of the Worldstone, its corrupted fragments are scattered across Sanctuary, and demonic cults seek to gather them to bring Diablo back to life. A group of heroes confronts the sorcerer Skarn to prevent the fragments from being reunited, filling a fifteen-year narrative gap before the events of Diablo III."
-            }
-          },
-          { id: "sword-of-justice", type: "FUMETTO", typeEn: "COMIC", year: "Circa 20 anni dopo Lord of Destruction", yearEn: "About 20 years after Lord of Destruction", releaseYear: "2011 – 2012", releaseYearEn: "2011 – 2012",
-            title: { it: "Sword of Justice", en: "Sword of Justice" },
-            synopsis: {
-              it: "Il giovane guerriero Jacob, in fuga da cacciatori di taglie della sua terra natale nelle terre del nord, trova la spada dell'arcangelo Tyrael, scomparso dopo aver distrutto la Worldstone alla fine di Lord of Destruction, e ne diventa involontario portatore. Insieme alla maga Shanar, Jacob affronta i Barbari del Monte Arreat, resi folli dalla distruzione della Worldstone stessa (lo stesso evento che innescherà una delle trame centrali di Diablo III), scoprendo lungo il cammino il proprio legame di sangue con quella tribù. Fumetto in cinque albi che colma il vuoto di vent'anni tra Diablo II e Diablo III, scritto in parallelo allo sviluppo della trama di quest'ultimo.",
-              en: "Young warrior Jacob, fleeing bounty hunters from his homeland in the northlands, finds the sword of the archangel Tyrael, missing since he destroyed the Worldstone at the end of Lord of Destruction, and becomes its unwitting bearer. Alongside the mage Shanar, Jacob confronts the Barbarians of Mount Arreat, driven mad by the Worldstone's destruction itself — the same event that will trigger one of Diablo III's central plotlines — discovering along the way his own blood ties to that tribe. A five-issue comic bridging the twenty-year gap between Diablo II and Diablo III, written in parallel with the development of the latter's story."
             }
           },
           { id: "the-order", type: "ROMANZO", typeEn: "NOVEL", year: "Prima di Diablo III", yearEn: "Before Diablo III", releaseYear: "2012", releaseYearEn: "2012",
