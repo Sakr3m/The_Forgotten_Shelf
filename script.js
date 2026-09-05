@@ -1980,24 +1980,25 @@ function renderGamePanel(){
           const step = unitSpacing8 * (weights[i - 1] + weights[i]) / 2;
           // -DOT_INSET_SHIFT solo sul nodo 1 (05/09): assorbe qui,
           // in un solo intervallo, lo spostamento in avanti dato al
-          // nodo 0 qui sopra - dal nodo 1 in poi (compreso l'ultimo,
-          // quale che sia il numero reale di voci) la posizione
-          // assoluta resta identica a prima di questa modifica,
-          // bordo destro compreso, mai toccato ne' richiesto.
+          // nodo 0 qui sopra - dal nodo 1 in poi la posizione assoluta
+          // resta identica a prima di questa modifica.
           const shift = i === 1 ? DOT_INSET_SHIFT : 0;
-          node.style.marginLeft = (step - 100 - shift).toFixed(2) + "px";
+          // -DOT_INSET_SHIFT anche sull'ultimo nodo (06/09, richiesto
+          // esplicitamente da Sakrem: l'alone, ora piu' grande - 10px
+          // in hover - restava tagliato dalla maschera anche a destra,
+          // dove l'ultimo pallino toccava ancora il confine col
+          // proprio bordo pieno esattamente come il primo prima del
+          // 05/09). A differenza del nodo 0, spostare SOLO l'ultimo
+          // nodo non serve compensarlo altrove: non essendoci nulla
+          // dopo di lui, non trascina nient'altro con se'.
+          const lastShift = i === nodes.length - 1 ? DOT_INSET_SHIFT : 0;
+          node.style.marginLeft = (step - 100 - shift - lastShift).toFixed(2) + "px";
         }
       });
-      // Allarga il vero bordo scorrevole (overflow-x:auto vive proprio
-      // su liveTimeline) di BUFFER px per lato: width cresce di
-      // 2*BUFFER, marginLeft negativo di BUFFER sposta il bordo
-      // sinistro della stessa quantita' verso l'esterno (il bordo
-      // destro si allarga di conseguenza, stessa larghezza extra).
-      // naturalWidth qui sopra (usato per availableWidth/unitSpacing8)
-      // e' gia' stato letto PRIMA di questo allargamento: la
-      // spaziatura delle voci non ne risente in alcun modo.
-      liveTimeline.style.width = (naturalWidth + 2 * BUFFER).toFixed(2) + "px";
-      liveTimeline.style.marginLeft = `-${BUFFER}px`;
+      // La vera larghezza/marginLeft del bordo scorrevole (allargato di
+      // BUFFER px per lato) si applicano piu' sotto, insieme a
+      // flexBasis - vedi commento li' (06/09, era la causa reale del
+      // bug "riga piu' vicina allo switch lingua di mezzo centimetro").
     } else {
       // Sizes are fixed (100px avatar/node), but titles alternate above/below
       // the line, so adjacent nodes never actually collide even when their
@@ -2020,10 +2021,12 @@ function renderGamePanel(){
           node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW + DOT_INSET_SHIFT).toFixed(2) + "px";
         } else {
           const step = unitSpacing * (weights[i - 1] + weights[i]) / 2;
-          // -DOT_INSET_SHIFT solo sul nodo 1: vedi commento gemello
-          // nel ramo freeScrollMode qui sopra, stessa identica logica.
+          // -DOT_INSET_SHIFT sul nodo 1 e sull'ultimo nodo: vedi
+          // commento gemello nel ramo freeScrollMode qui sopra, stessa
+          // identica logica.
           const shift = i === 1 ? DOT_INSET_SHIFT : 0;
-          node.style.marginLeft = (step - 100 - shift).toFixed(2) + "px";
+          const lastShift = i === nodes.length - 1 ? DOT_INSET_SHIFT : 0;
+          node.style.marginLeft = (step - 100 - shift - lastShift).toFixed(2) + "px";
         }
       });
     }
@@ -2037,10 +2040,27 @@ function renderGamePanel(){
     // Constrain the box itself to that same final width so the nodes
     // (space-between) pack exactly into it, first flush left / last flush
     // right, instead of stretching to fill the container's full natural width.
+    // BUG FIX (06/09, segnalato da Sakrem col righello): queste due righe
+    // sovrascrivevano SEMPRE width con availableWidth (piu' stretto),
+    // anche in freeScrollMode - dove il bordo scorrevole andava invece
+    // allargato di 2*BUFFER per lato (vedi BUFFER piu' sopra). flexBasis
+    // vince su width quando entrambi sono espliciti su un flex item, quindi
+    // l'allargamento non aveva MAI effetto reale: il contenitore restava
+    // largo availableWidth, la maschera (INSET, compensata assumendo il
+    // contenitore allargato) tagliava di conseguenza troppo presto - la
+    // riga, scorsa fino in fondo, risultava piu' vicina allo switch lingua
+    // di quanto dovesse (l'esatta "mezza centimetro" misurata a mano).
+    const finalWidth = freeScrollMode ? (naturalWidth + 2 * BUFFER) : availableWidth;
     liveTimeline.style.flexGrow = "0";
     liveTimeline.style.flexShrink = "0";
-    liveTimeline.style.flexBasis = availableWidth.toFixed(2) + "px";
-    liveTimeline.style.width = availableWidth.toFixed(2) + "px";
+    liveTimeline.style.flexBasis = finalWidth.toFixed(2) + "px";
+    liveTimeline.style.width = finalWidth.toFixed(2) + "px";
+    // marginLeft esplicito in ENTRAMBE le modalita' (anche fissa, a 0):
+    // liveTimeline e' lo stesso elemento DOM riusato ad ogni cambio saga/
+    // universo, un -BUFFER lasciato da un rendering precedente in
+    // freeScrollMode altrimenti resterebbe attaccato passando a un
+    // universo in modalita' fissa.
+    liveTimeline.style.marginLeft = freeScrollMode ? `-${BUFFER}px` : "0px";
 
     liveTimeline.addEventListener("mousedown", (e) => {
       if(!freeScrollMode) return;
