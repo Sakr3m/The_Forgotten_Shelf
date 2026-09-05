@@ -1893,6 +1893,19 @@ function renderGamePanel(){
     // del centro "teorico" della casella 100px, in OGNI nodo,
     // sempre.
     const TRACK_OVERFLOW = (130 - 100) / 2;
+    // DOT_INSET_SHIFT (05/09, richiesto esplicitamente da Sakrem):
+    // il primo pallino NON tocca piu' col proprio bordo pieno il
+    // confine vero (Discord) - si ferma 10px piu' dentro. Il confine
+    // vero (INSET/dotCutLeft/dotCutRight piu' sotto) resta
+    // ESATTAMENTE dov'era, invariato: e' l'alone (box-shadow) del
+    // pallino, acceso in hover, a estendersi fino a quel confine e
+    // fermarsi li' "a pelo" grazie alla maschera - non piu' il
+    // pallino stesso. Aggiunto al marginLeft del nodo 0 e sottratto
+    // di nuovo dal solo nodo 1 (vedi piu' sotto, in entrambi i rami):
+    // lo spostamento resta cosi' confinato al primo intervallo, dal
+    // nodo 1 in poi (ultimo pallino/bordo destro compreso) nessuna
+    // posizione cambia rispetto a prima - non richiesto ne' toccato.
+    const DOT_INSET_SHIFT = 10;
     // BUFFER (04/09): quanto viene allargato il bordo scorrevole di
     // .h-timeline in modalita' scroll libero (vedi piu' sotto), per
     // dare spazio al riquadro/titolo (130px) senza tagliarlo. Serve
@@ -1962,10 +1975,17 @@ function renderGamePanel(){
           // relativi al precedente, non assoluti) seguono a cascata
           // nella stessa posizione di sempre, nessun altro conto da
           // rifare.
-          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW + BUFFER).toFixed(2) + "px";
+          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW + BUFFER + DOT_INSET_SHIFT).toFixed(2) + "px";
         } else {
           const step = unitSpacing8 * (weights[i - 1] + weights[i]) / 2;
-          node.style.marginLeft = (step - 100).toFixed(2) + "px";
+          // -DOT_INSET_SHIFT solo sul nodo 1 (05/09): assorbe qui,
+          // in un solo intervallo, lo spostamento in avanti dato al
+          // nodo 0 qui sopra - dal nodo 1 in poi (compreso l'ultimo,
+          // quale che sia il numero reale di voci) la posizione
+          // assoluta resta identica a prima di questa modifica,
+          // bordo destro compreso, mai toccato ne' richiesto.
+          const shift = i === 1 ? DOT_INSET_SHIFT : 0;
+          node.style.marginLeft = (step - 100 - shift).toFixed(2) + "px";
         }
       });
       // Allarga il vero bordo scorrevole (overflow-x:auto vive proprio
@@ -1997,10 +2017,13 @@ function renderGamePanel(){
         : 0;
       nodes.forEach((node, i) => {
         if(i === 0){
-          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW).toFixed(2) + "px";
+          node.style.marginLeft = (DOT_RADIUS - TRACK_OVERFLOW + DOT_INSET_SHIFT).toFixed(2) + "px";
         } else {
           const step = unitSpacing * (weights[i - 1] + weights[i]) / 2;
-          node.style.marginLeft = (step - 100).toFixed(2) + "px";
+          // -DOT_INSET_SHIFT solo sul nodo 1: vedi commento gemello
+          // nel ramo freeScrollMode qui sopra, stessa identica logica.
+          const shift = i === 1 ? DOT_INSET_SHIFT : 0;
+          node.style.marginLeft = (step - 100 - shift).toFixed(2) + "px";
         }
       });
     }
