@@ -1835,8 +1835,12 @@ const GAMES = {
       it: "Un marine solitario affronta da solo le orde demoniache che dilagano ogni volta che un varco verso l'Inferno viene aperto per errore, avidità o arroganza scientifica. Nessun dialogo, nessuna tregua: solo violenza pura contro un nemico che non conosce pietà. La sua rabbia è leggendaria quanto l'inferno che semina.",
       en: "A lone marine faces the demonic hordes that pour out whenever a gateway to Hell is torn open by mistake, greed, or scientific arrogance. No dialogue, no truce: only pure violence against an enemy that knows no mercy. His rage is as legendary as the hell he leaves behind."
     },
+    // accentColor (fase Artista, 06/09, "Arancio Magma" scelto da
+    // Sakrem): i varchi verso l'Inferno, lava e zolfo - legame con
+    // l'arancione storico del brand ma piu' bruciato/minerale.
+    // palette del monogramma lasciata invariata su richiesta esplicita.
     palette: ["#46433a", "#991b1b", "#f97316"],
-    accentColor: "#f97316",
+    accentColor: "#C2410C",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20The%20Only%20Thing%20They%20Fear%20Is%20You.mp3", title: "The Only Thing They Fear Is You", game: "Doom Eternal" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Rip%20and%20Tear.mp3", title: "Rip and Tear", game: "Doom (2016)" },
