@@ -165,6 +165,26 @@ vale sia per le 7 opzioni di accento (fase 1) sia per le palette
 (fase 2). Prima di generare la prima anteprima in una conversazione,
 carica il modulo pertinente con `visualize:read_me`.
 
+GRADIENTE VERO, MAI A BLOCCHI (regola precisata il 06/09 dopo due
+errori identici, Diablo e Dragon Quest - la sola descrizione a
+parole non è bastata): i colori devono fondersi visivamente l'uno
+nell'altro, MAI apparire come segmenti a bordo netto. In CSS questo
+vuol dire UN SOLO stop per colore, a posizioni equidistanti - MAI due
+stop consecutivi alla stessa percentuale con colori diversi (quello
+crea un taglio netto, non una fusione, anche se tecnicamente è
+scritto come "linear-gradient").
+
+Sbagliato (blocchi, taglio netto - NON fare mai così):
+`linear-gradient(90deg, #A 0% 33%, #B 33% 66%, #C 66% 100%)`
+
+Corretto (fusione vera, un solo stop per colore):
+`linear-gradient(90deg, #A 0%, #B 50%, #C 100%)`
+
+Per N colori, gli N stop vanno a `i / (N-1) * 100%` per i = 0...N-1
+(es. 4 colori: 0%, 33.3%, 66.7%, 100%). Controlla sempre il CSS che
+scrivi prima di pubblicare l'anteprima: se vedi due numeri di
+percentuale uguali consecutivi nello stesso gradient, è sbagliato.
+
 ## Se l'utente cambia il colore interfaccia dopo la fase 2
 
 Se, dopo aver visto le tue proposte di palette, l'utente sceglie un

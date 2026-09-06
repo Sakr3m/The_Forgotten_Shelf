@@ -712,7 +712,15 @@ caso la segnalo). Ogni opzione include:
   simile alla linea temporale ma più larga). I colori dei sottogruppi
   sono fusi in un gradiente lineare orizzontale, non blocchi netti
   separati, esattamente come li usa il sito, con tanti stop quanti
-  sono i sottogruppi riconosciuti.
+  sono i sottogruppi riconosciuti. In CSS questo vuol dire UN SOLO
+  stop per colore a posizioni equidistanti (es. 3 colori: 0%, 50%,
+  100%) - MAI due stop consecutivi alla stessa percentuale con
+  colori diversi (es. "0% 33%, 33% 66%, 66% 100%"): quello produce un
+  taglio netto a blocchi, non una fusione, anche se scritto come
+  linear-gradient. Precisato il 06/09 dopo due errori identici
+  (Diablo e Dragon Quest): prima di pubblicare l'anteprima, va
+  ricontrollato che il CSS non contenga due percentuali uguali
+  consecutive nello stesso gradient.
 - la spiegazione del perché ho scelto proprio quei colori per quella
   combinazione, e a quale sottogruppo narrativo corrisponde ciascuno
 - quale colore propongo come accento per l'interfaccia e a quale
