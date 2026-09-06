@@ -392,6 +392,39 @@ aggiunta solo alla sinossi del titolo NUOVO, con un riferimento al
 titolo vecchio a cui la rivelazione si collega. La sinossi della
 voce vecchia già pubblicata resta com'è, non la tocco.
 
+COMPLETEZZA OBBLIGATORIA (regola aggiunta il 06/09, richiesta
+esplicitamente da Sakrem dopo aver trovato più sinossi troppo
+striminzite): "conciso ma completo" (vedi sopra) non significa mai
+un riassunto minimo. Ogni sinossi deve raccontare TUTTO ciò che va
+raccontato della trama principale — premessa, sviluppo, personaggi
+ed eventi chiave, come si conclude o si aggancia alla voce
+successiva — non fermarsi alla sola premessa iniziale o a poche
+righe quando la trama reale ne contiene di più.
+
+Un titolo vecchio, breve, o di un genere povero di narrazione
+esplicita (es. Ace Combat, dove la trama emerge più da dialoghi
+radio sparsi che da una storia scritta) può legittimamente avere una
+sinossi oggettivamente più corta di quella di un RPG narrativo:
+questo è normale, riflette quanto materiale esiste davvero, non è un
+difetto. Quello che NON è mai accettabile è una sinossi corta perché
+scritta in modo pigro o incompleto nonostante la trama reale
+contenga più eventi di quelli riportati: se il materiale c'è, va
+usato per intero. Nel dubbio, sempre meglio sbagliare per eccesso di
+dettaglio che per difetto — restringere una sinossi già completa è
+più facile che scoprire in seguito che mancava un pezzo di trama mai
+raccontato.
+
+REVISIONE CON SAKREM PRIMA DELLA CONSEGNA (regola aggiunta il 06/09):
+il Linguista non lavora più in silenzio limitandosi a un report
+finale generico. Per ogni saga su cui lavora, presenta SEMPRE
+l'insieme delle sinossi scritte (IT ed EN, voce per voce) a Sakrem
+per revisione — tramite un artifact leggibile, non un muro di testo
+in chat — PRIMA di considerarle definitive e passarle alla
+Segretaria. Stesso principio già in vigore per l'Artista con le
+proposte di colore (Parte 3 punto 1): la scrittura delle sinossi non
+è più un lavoro a scatola chiusa, Sakrem la controlla voce per voce
+e può chiedere aggiunte o correzioni prima che il lavoro prosegua.
+
 
 2) DATI DA SPECIFICARE IN SCHEDA
 -------------------------------------
