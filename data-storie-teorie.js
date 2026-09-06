@@ -11,6 +11,7 @@ const TEORIE_ORDER = [
   "ff8_squall_is_dead",
   "ff8_vera_identita_artemisia",
   "gris_viaggio_attraverso_il_lutto",
+  "gris_statua_che_ricorda",
   "hollow_knight_ricettacolo_perfetto"
 ];
 
@@ -392,6 +393,7 @@ The coincidences in the game's text are still there, visible to anyone who wants
     game: "gris",
     gameLabel: { it: "Gris", en: "Gris" },
     accentColor: "#83c2d4",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Lutto.jpg",
     title: {
       it: "Il Viaggio Attraverso il Lutto",
       en: "The Journey Through Grief"
@@ -423,6 +425,20 @@ Blue brings water that floods entire areas already explored, forcing you to swim
 Only in the final chapter, when Gris reaches gold and full light again, does she also regain her voice. It's no coincidence this is the only moment she can truly sing, the very action denied to her from the first minute of the game. Acceptance, in Gris, isn't a quiet relief: it's the literal return of the voice, the one thing grief had taken from her since the beginning.
 
 Nomada Studio has never openly confirmed this reading, and has always preferred to leave the interpretation to the players. But the match between the five stages and the five chapters, in their correct order, is too precise to be just an aesthetic coincidence; it looks more like a narrative structure hidden beneath the surface, meant to be felt before it's ever understood.`
+    }
+  }  ,
+  gris_statua_che_ricorda: {
+    game: "gris",
+    gameLabel: { it: "Gris", en: "Gris" },
+    accentColor: "#83c2d4",
+    banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Statua.jpg",
+    title: {
+      it: "La Statua Che Ricorda",
+      en: "The Statue That Remembers"
+    },
+    body: {
+      it: `Testo in lavorazione.`,
+      en: `Text in progress.`
     }
   }  ,
   hollow_knight_ricettacolo_perfetto: {
