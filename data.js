@@ -1626,9 +1626,13 @@ const GAMES = {
     palette: ["#46433a", "#991b1b", "#f97316"],
     accentColor: "#C2410C",
     tracks: [
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20The%20Only%20Thing%20They%20Fear%20Is%20You.mp3", title: "The Only Thing They Fear Is You", game: "Doom Eternal" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20At%20Doom%27s%20Gate.mp3", title: "At Doom's Gate", game: "Doom (1993)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Doom%2064%20Main%20Theme.mp3", title: "Doom 64: Main Theme", game: "Doom 64" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Into%20Sandy%27s%20City.mp3", title: "Into Sandy's City", game: "Doom II" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Blood%20Swamp.mp3", title: "Blood Swamp", game: "Doom Eternal: The Ancient Gods" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Rip%20and%20Tear.mp3", title: "Rip and Tear", game: "Doom (2016)" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20BFG%20Division.mp3", title: "BFG Division", game: "Doom (2016)" }
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20BFG%20Division.mp3", title: "BFG Division", game: "Doom (2016)" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20The%20Only%20Thing%20They%20Fear%20Is%20You.mp3", title: "The Only Thing They Fear Is You", game: "Doom Eternal" }
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Doom%20Banner.jpg",
