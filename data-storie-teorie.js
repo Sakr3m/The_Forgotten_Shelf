@@ -433,8 +433,8 @@ Nomada Studio has never openly confirmed this reading, and has always preferred 
     accentColor: "#83c2d4",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Statua.jpg",
     title: {
-      it: "La Statua Che Ricorda",
-      en: "The Statue That Remembers"
+      it: "Il Volto di Pietra",
+      en: "The Face of Stone"
     },
     body: {
       it: `C'è una donna di pietra che compare in ogni angolo del viaggio di Gris, e il gioco non le dà mai un nome. Gris la incontra per la prima volta nel palmo della sua mano, all'inizio di tutto: la statua è enorme, e si sgretola sotto il peso della bambina, lasciandola cadere su una terra senza colore, dove i frammenti della mano spezzata restano semisepolti tra le rovine. Da lì in avanti quella stessa donna ricompare più volte nel percorso di Gris, sempre diversa, sempre più rovinata: nel deserto è scolpita in quattro pilastri, il volto stretto tra le mani in pose di dolore; nelle profondità sommerse torna enorme, con la base trasformata in una scalinata che Gris deve risalire. Ogni capitolo, in un modo o nell'altro, la rimette di fronte a lei.
