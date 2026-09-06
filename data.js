@@ -2264,13 +2264,24 @@ const GAMES = {
       en: "In cities collapsed under an epidemic that turns the infected into aggressive creatures, survivors move across rooftops to stay out of reach of what roams the streets below. Daylight offers a fragile truce; the night belongs to those who have stopped being human. Every jump, every sprint, is a choice between life."
     },
     palette: ["#eab308", "#4d7c0f", "#1e3a5f"],
-    accentColor: "#4d7c0f",
+    accentColor: "#65a30d",
     universes: [
       {
         id: "main",
         name: { it: "GRE", en: "GRE" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
+        // Palette a sottogruppi narrativi (fase Artista, 06/09,
+        // Opzione 2 scelta da Sakrem): Harran - le origini di Crane
+        // (dying-light-1), Il Crollo - il ponte narrativo verso
+        // Villedor (banshee-comic, stories-dying-city; accento),
+        // Villedor - la nuova generazione (dying-light-2), La Bestia -
+        // il ritorno di Crane (dying-light-beast). paletteBounds:
+        // ultima voce reale dei primi 3 sottogruppi su 4 (il quarto,
+        // dying-light-beast, arriva naturalmente fino alla fine
+        // dell'universo).
+        palette: ["#b45309", "#65a30d", "#155e75", "#9f1239"],
+        paletteBounds: ["dying-light-1", "stories-dying-city", "dying-light-2"],
         entries: [
           { id: "dying-light-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2015", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Dying Light", en: "Dying Light" },
