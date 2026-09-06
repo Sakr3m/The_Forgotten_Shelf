@@ -394,6 +394,7 @@ The coincidences in the game's text are still there, visible to anyone who wants
     gameLabel: { it: "Gris", en: "Gris" },
     accentColor: "#83c2d4",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Lutto.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Mobile.jpg",
     tracks: SHARED_GRIS_TRACKS,
     title: {
       it: "Il Viaggio Attraverso il Lutto",
@@ -433,6 +434,7 @@ Nomada Studio has never openly confirmed this reading, and has always preferred 
     gameLabel: { it: "Gris", en: "Gris" },
     accentColor: "#83c2d4",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Statua.jpg",
+    mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Mobile.jpg",
     tracks: SHARED_GRIS_TRACKS,
     title: {
       it: "Il Volto di Pietra",
