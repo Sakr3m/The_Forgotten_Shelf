@@ -2394,6 +2394,15 @@ const GAMES = {
     },
     palette: ["#eab308", "#4d7c0f", "#1e3a5f"],
     accentColor: "#65a30d",
+    tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Horizon.mp3", title: "Horizon", game: "Dying Light" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Run%20Jump%20Fight.mp3", title: "Run Jump Fight", game: "Dying Light 2" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Destination.mp3", title: "Destination", game: "Dying Light" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20The%20Last%20Parkour.mp3", title: "The Last Parkour", game: "Dying Light 2" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Empowering%20Yourself.mp3", title: "Empowering Yourself", game: "Dying Light 2" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Mood%2001.mp3", title: "Mood 01", game: "Dying Light: The Beast" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20A%20Changed%20Man.mp3", title: "A Changed Man", game: "Dying Light: The Beast" }
+    ],
     universes: [
       {
         id: "main",
