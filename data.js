@@ -1700,6 +1700,14 @@ const GAMES = {
         span: { it: "1986 – 2017", en: "1986 – 2017" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
         watermarkBottomFade: true,
+        // Palette a sottogruppi narrativi (fase Artista, 06/09,
+        // Opzione 1 scelta da Sakrem): Il Mito delle Origini (DQ11,
+        // accento), Erdrick il Sacrificio del Fondatore (DQ3), Le
+        // Generazioni della Stirpe (DQ1-II). paletteBounds: ultima
+        // voce reale dei primi 2 sottogruppi su 3 (il terzo, DQ1-II,
+        // arriva naturalmente fino alla fine dell'universo).
+        palette: ["#0f9b8e", "#1B2A4A", "#B8860B"],
+        paletteBounds: ["dq11", "dq3"],
         entries: [
           { id: "dq11", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Le origini della leggenda, prima di Dragon Quest III", yearEn: "The origins of the legend, before Dragon Quest III", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Dragon Quest XI: Echi di un'era perduta", en: "Dragon Quest XI: Echoes of an Elusive Age" },
@@ -1741,6 +1749,14 @@ const GAMES = {
         span: { it: "1990 – 1995", en: "1990 – 1995" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
         watermarkBottomFade: true,
+        // Palette a sottogruppi narrativi (fase Artista, 06/09,
+        // Opzione 2 scelta da Sakrem): Sogno e Origine di Zenithia
+        // (DQ6, accento), Le Cronache dei Prescelti (DQ4), La Sposa
+        // del Destino (DQ5). paletteBounds: ultima voce reale dei
+        // primi 2 sottogruppi su 3 (il terzo, DQ5, arriva
+        // naturalmente fino alla fine dell'universo).
+        palette: ["#0f9b8e", "#DDB04A", "#6E3B1D"],
+        paletteBounds: ["dq6", "dq4"],
         entries: [
           { id: "dq6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "La più antica delle tre epoche, separata da millenni dalle altre", yearEn: "The earliest of the three eras, separated by millennia from the others", releaseYear: "1995 (Remake: 2010)", releaseYearEn: "1995 (Remake: 2010)",
             title: { it: "Dragon Quest VI: Nel regno dei sogni", en: "Dragon Quest VI: Realms of Revelation" },

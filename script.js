@@ -523,6 +523,13 @@ function gradientColorAt(t, customStops){
   for(let i = 0; i < stops.length - 1; i++){
     const a = stops[i], b = stops[i+1];
     if(t >= a.p && t <= b.p){
+      if(a.p === b.p){
+        // Sottogruppo di una sola voce (paletteBounds): i due stop
+        // coincidono esattamente sullo stesso punto e la divisione
+        // sotto darebbe 0/0 - qui il colore e' comunque lo stesso su
+        // entrambi gli stop, quindi va restituito diretto.
+        return `rgb(${a.c[0]}, ${a.c[1]}, ${a.c[2]})`;
+      }
       const lt = (t - a.p) / (b.p - a.p);
       const r = a.c[0] + (b.c[0]-a.c[0])*lt;
       const g = a.c[1] + (b.c[1]-a.c[1])*lt;
