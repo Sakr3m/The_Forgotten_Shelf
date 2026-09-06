@@ -32,3 +32,8 @@ const SHARED_FFIX_TRACKS = [
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Freya's%20Theme.mp3", title: "Freya's Theme", game: "Final Fantasy IX" },
   { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20IX%20Immoral%20Melody.mp3", title: "Immoral Melody", game: "Final Fantasy IX" }
 ];
+const SHARED_GRIS_TRACKS = [
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Mae.mp3", title: "Mae", game: "Gris" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Gris%20Pt.1.mp3", title: "Gris, Pt. 1", game: "Gris" },
+  { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20In%20Your%20Hands.mp3", title: "In Your Hands", game: "Gris" }
+];
