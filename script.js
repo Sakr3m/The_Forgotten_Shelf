@@ -1723,10 +1723,11 @@ function renderGamePanel(){
         // il riferimento e' quello giusto.
         const top = headerRect.bottom;
         const rightOffset = 300;
-        const availableHeight = window.innerHeight - top - 40;
         watermarkEl.style.top = top.toFixed(2) + "px";
         watermarkEl.style.right = rightOffset.toFixed(2) + "px";
-        watermarkEl.style.height = availableHeight.toFixed(2) + "px";
+        // bottom:0 in CSS (.canon-watermark) sostituisce il vecchio
+        // calcolo di height qui - il box arriva ora fino al vero
+        // margine basso della pagina, come .title-watermark.
       }
     }
     return;

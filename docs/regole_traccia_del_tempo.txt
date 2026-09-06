@@ -630,9 +630,17 @@ insieme alla scelta dei colori.
 
 COLORE ACCENTO DI SAGA (accentColor): resta unico per l'intera saga,
 scelto una sola volta, condiviso da tutti i suoi universi. L'Artista
-lo presenta sempre come 3 opzioni alternative tra cui Sakrem sceglie
-(o ne propone una diversa sul momento) — mai una proposta secca unica
-(regola aggiornata il 01/09).
+lo presenta sempre come 7 opzioni alternative (corretto il 06/09, era
+3) tra cui Sakrem sceglie (o ne propone una diversa sul momento) — mai
+una proposta secca unica.
+
+DUE FASI SEPARATE, NON PIÙ UNA SOLA (regola aggiunta il 06/09):
+l'Artista presenta PRIMA le 7 opzioni di accento da sole, senza
+ancora toccare le palette dei singoli universi. Solo DOPO che Sakrem
+ha scelto l'accento (o ne ha proposto uno diverso), l'Artista
+presenta le 3 opzioni di palette per ciascun universo, costruite sul
+sottogruppo di quell'accento ormai confermato. Le due fasi non vanno
+mai proposte insieme nello stesso messaggio.
 
 REGOLA FERREA, VALIDA SEMPRE, ANCHE SU SAGHE/UNIVERSI GIÀ PUBBLICATI
 (ribadita il 31/08 dopo tre errori di fila su Ace Combat, Alone in
@@ -690,12 +698,15 @@ Tecnicamente, il campo `palette` va salvato dentro l'oggetto di
 ciascun universo (non più, o non solo, a livello di saga) quando la
 saga ne ha più di uno.
 
-COME LAVORO: per il colore accento propongo sempre 3 opzioni
-alternative. Per la palette di ogni universo propongo la mia analisi
-dei sottogruppi narrativi riconosciuti, poi 3 opzioni di colori
-costruite su quella stessa suddivisione (a meno che non veda una
-lettura alternativa della struttura narrativa altrettanto valida, nel
-qual caso la segnalo). Ogni opzione include:
+COME LAVORO: per il colore accento propongo sempre 7 opzioni
+alternative, da sole, in un primo messaggio - nessuna palette
+d'universo ancora in questa fase. Solo dopo che Sakrem ha scelto
+l'accento (o ne ha proposto uno diverso), passo alla seconda fase:
+per la palette di ogni universo propongo la mia analisi dei
+sottogruppi narrativi riconosciuti, poi 3 opzioni di colori costruite
+su quella stessa suddivisione (a meno che non veda una lettura
+alternativa della struttura narrativa altrettanto valida, nel qual
+caso la segnalo). Ogni opzione include:
 - un nome per la combinazione
 - un'anteprima visiva (non della pagina intera: una barra colorata,
   simile alla linea temporale ma più larga). I colori dei sottogruppi
@@ -708,11 +719,10 @@ qual caso la segnalo). Ogni opzione include:
   sottogruppo l'ho agganciato, indicato chiaramente nella stessa
   anteprima
 
-Sakrem sceglie una delle 3 proposte di accento (o ne inventa una sul
-momento) e una delle proposte di palette per ciascun universo (o
-propone una lettura diversa dei sottogruppi), indicando quale colore
-usare come accento se non è già d'accordo con quello proposto
-dall'Artista.
+Sakrem sceglie una delle 7 proposte di accento (o ne inventa una sul
+momento); solo a quel punto l'Artista propone la palette per ciascun
+universo, tra cui Sakrem sceglie una delle 3 opzioni (o propone una
+lettura diversa dei sottogruppi).
 
 STATO DI QUESTA REGOLA (aggiunta 01/09): il cambio di metodologia è
 stato deciso da Sakrem ma NON ancora applicato a nessuna saga già

@@ -924,10 +924,17 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-timeline.is-scrollable.is-dragging{ cursor:grabbing; user-select:none; }
 .canon-page{ position:relative; width:100%; max-width:1860px; }
 .canon-watermark{
-  /* top, right, height: impostati a runtime in script.js
-     (renderGamePanel), ancorati al fondo reale dell'header e al
-     bordo destro reale (switch lingua) - stesso principio di
-     allineamento gia' usato in tutto il resto del sito.
+  /* top, right: impostati a runtime in script.js (renderGamePanel),
+     ancorati al fondo reale dell'header e al bordo destro reale
+     (switch lingua) - stesso principio di allineamento gia' usato in
+     tutto il resto del sito. bottom:0 (06/09, come .title-watermark
+     qui sotto - prima script.js calcolava un'altezza che si fermava
+     40px sopra il fondo del viewport, mai fino al margine basso vero
+     come le filigrane interne alle voci): con background-size:contain
+     un box piu' alto lascia scalare l'immagine fino a un formato piu'
+     grande, sempre ancorata in alto a destra per costruzione - si
+     "allunga" verso il basso a sinistra da sola, nessun altro
+     spostamento.
      width: fissa qui in CSS (non piu' calcolata dalla proporzione
      reale del file, vedi commento in script.js) - stesso trattamento
      delle filigrane interne alle voci (.title-watermark), piu'
@@ -936,7 +943,7 @@ body[data-state="landing"] .index-link{ display:flex; }
      da solo che l'immagine non venga MAI tagliata qualunque sia la
      sua proporzione reale, a costo di lasciare margine libero invece
      di riempire tutto il riquadro. */
-  position:fixed; width:26vw;
+  position:fixed; width:26vw; bottom:0;
   background-size:contain; background-repeat:no-repeat; background-position:top right;
   -webkit-mask-image:linear-gradient(90deg, transparent, black 22%);
   mask-image:linear-gradient(90deg, transparent, black 22%);
