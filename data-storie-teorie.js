@@ -22,7 +22,6 @@ const TEORIE = {
     accentColor: "#8a1f2b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Banner%20Sogno%201.2.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Mobile%201.2.jpg",
-    mirrorBanner: true,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Cleric%20Beast.mp3", title: "Cleric Beast", game: "Bloodborne" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bloodborne%20Father%20Gascoigne.mp3", title: "Father Gascoigne", game: "Bloodborne" },
@@ -72,7 +71,6 @@ Bloodborne, in the end, was never really a game about waking up. It's a game abo
     accentColor: "#6c5026",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Banner%20Jenova.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Chrono%20Trigger%20Mobile.jpg",
-    mirrorBanner: true,
     bannerOffset: 75,
     sharedWith: { it: "FFVII", en: "FFVII" },
     tracks: [
@@ -115,7 +113,6 @@ No connection has ever been made official, and probably never will be. Jenova wo
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%20Bambino.png",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile%201.3.jpg",
-    mirrorBanner: true,
     bannerOffset: 75,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
@@ -181,7 +178,6 @@ That's why he stays there, still, while everyone else embraces: he isn't watchin
     accentColor: "#c9a24b",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Banner%20Clea.png",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Mobile%201.3.jpg",
-    mirrorBanner: true,
     bannerOffset: 75,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Clair%20Obscur%20Expedition%2033%20Lumière.mp3", title: "Lumière", game: "Clair Obscur: Expedition 33" },
@@ -227,7 +223,6 @@ If the theory holds, it changes quite a bit about how to read the ending. The co
     accentColor: "#2dd4bf",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Banner%20Lavos%201.3.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VII%20Mobile.jpg",
-    mirrorBanner: true,
     bannerOffset: 75,
     sharedWith: { it: "Chrono Trigger", en: "Chrono Trigger" },
     title: {
@@ -261,7 +256,6 @@ No connection has ever been made official, and probably never will be. Jenova wo
     gameLabel: { it: "Final Fantasy VIII", en: "Final Fantasy VIII" },
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner%20Death.jpg",
-    mirrorBanner: true,
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile%201.3.jpg",
     bannerOffset: 85,
     tracks: SHARED_FFVIII_TRACKS,
@@ -320,6 +314,7 @@ Kitase's official answer settles the matter on a narrative level: Squall doesn't
     accentColor: "#ff3b30",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Banner%20Rinoa%20Artemisia.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Final%20Fantasy%20VIII%20Mobile%201.3.jpg",
+    mirrorBanner: true,
     bannerOffset: 85,
     tracks: SHARED_FFVIII_TRACKS,
     title: {
@@ -395,7 +390,6 @@ The coincidences in the game's text are still there, visible to anyone who wants
     accentColor: "#83c2d4",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Lutto.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Mobile.jpg",
-    mirrorBanner: true,
     tracks: SHARED_GRIS_TRACKS,
     title: {
       it: "Il Viaggio Attraverso il Lutto",
@@ -436,7 +430,6 @@ Nomada Studio has never openly confirmed this reading, and has always preferred 
     accentColor: "#83c2d4",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Banner%20Statua.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gris%20Mobile.jpg",
-    mirrorBanner: true,
     tracks: SHARED_GRIS_TRACKS,
     title: {
       it: "Il Volto di Pietra",
@@ -473,7 +466,6 @@ In the end, Gris doesn't defeat the monster alone. She defeats it together with 
     accentColor: "#8f9bb3",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Vero%20Ricettacolo%201.3.jpg",
     mobileBanner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Mobile%201.2.jpg",
-    mirrorBanner: true,
     bannerOffset: 100,
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Hollow%20Knight%20Dirtmouth.mp3", title: "Dirtmouth", game: "Hollow Knight" },

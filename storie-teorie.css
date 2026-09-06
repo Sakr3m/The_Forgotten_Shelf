@@ -1086,26 +1086,26 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
   }
   body[data-state="entry"] .entry-game-picker{
     display:flex;
-    position:absolute; top:50px; right:-1px; z-index:2; /* right:-1px
-      (non 0) per compensare il padding:16px di .stage - il pannello
-      e' gia' rientrato di 16px, right:0 darebbe 16px veri dal bordo
-      invece dei 15px richiesti (stessa distanza dello switch lingua),
-      verificato con Playwright. era 70px
-      (banner 150px), -20px - stessa distanza dal bordo basso del
-      banner di prima, che si e' alzato della stessa quantita'.
-      music-control invece resta fermo, ancorato alla parte ALTA del
-      banner (non cambiata). */
+    position:absolute; top:50px; left:-1px; z-index:2; /* SINISTRA e'
+      ora la posizione di DEFAULT (cambiato da destra il 06/09,
+      richiesto esplicitamente perche' la maggioranza delle voci
+      stava gia' a sinistra tramite mirrorBanner) - stessa
+      compensazione -1px di prima per il padding:16px di .stage,
+      solo specchiata sul lato opposto. */
   }
-  /* Banner specchiato (20/08): per le voci dove il banner sta meglio
-     con lo spazio vuoto a sinistra invece che a destra (es. FFVIII),
-     entrambi i pulsanti passano dal bordo destro a quello sinistro -
-     stessa sequenza, solo speculare: ingrandimento sempre piu' vicino
-     al bordo (qui il bordo e' quello sinistro), poi il volume, la
-     tendina capitoli sotto. Attivata via classe sul body
-     (has-mirrored-banner), impostata da renderEntry() in base al
-     campo mirrorBanner della voce - vedi data-storie-teorie.js. */
+  /* Banner NON specchiato (06/09, ex-default): ora e' il caso
+     eccezionale invece della base. Per le voci dove il banner sta
+     meglio con lo spazio vuoto a destra invece che a sinistra,
+     entrambi i pulsanti passano dal bordo sinistro (nuovo default)
+     a quello destro - stessa sequenza, solo speculare. Attivata via
+     classe sul body (has-mirrored-banner), impostata da renderEntry()
+     in base al campo mirrorBanner della voce - vedi
+     data-storie-teorie.js. Il NOME del campo/della classe e' rimasto
+     invariato per non riscrivere tutta la logica JS, ma il suo
+     SIGNIFICATO visivo si e' invertito: true ora vuol dire "vai a
+     destra", non piu' "vai a sinistra". */
   body.has-mirrored-banner[data-state="entry"] .entry-game-picker{
-    left:-1px; right:auto; /* stessa ragione di right:-1px sopra, specchiata */
+    right:-1px; left:auto; /* stessa ragione di left:-1px sopra, specchiata */
   }
   body[data-state="entry"] .entry-game-trigger{
     height:35px; padding:0 10px; font-size:.76rem;
@@ -1134,16 +1134,16 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
     20px/2x) - eredita la line-height a 1.5x dalla regola base. */
   body[data-state="entry"] .music-control{
     display:flex;
-    position:absolute; top:-15px; right:-1px; z-index:2; /* right:-1px
-      (non 0), stessa ragione della tendina qui sopra: compensa il
-      padding:16px di .stage per ottenere 15px veri dal bordo. 15px dalla
-      parte alta del banner (era -12px, 17px - richiesto esplicito
-      per allinearlo alla stessa distanza (15px) della tendina dalla
-      parte bassa. right:0 invariato: il pulsante dimensione testo ora
-      e' un figlio VERO di questo contenitore (spostato via JS, vedi
-      posizionaTextSizeToggle in script-racconti.js) - il contenitore
-      si allarga naturalmente per contenerlo, restando ancorato al
-      bordo destro come sempre, nessun calcolo di spazio necessario. */
+    position:absolute; top:-15px; left:-1px; z-index:2; /* SINISTRA e'
+      ora la posizione di DEFAULT (cambiato da destra il 06/09) -
+      stessa compensazione -1px di prima per il padding:16px di
+      .stage, solo specchiata. */
+    flex-direction:row-reverse; /* con l'ancoraggio a sinistra, serve
+      l'ordine invertito perche' text-size-toggle (spostato qui via
+      JS, vedi posizionaTextSizeToggle in script-racconti.js) resti
+      il piu' vicino al bordo - stesso ruolo che aveva
+      row-reverse sul caso "specchiato" prima dell'inversione del
+      06/09. */
     height:35px; /* fissa, come il pulsante volume - senza, il
       contenitore cresce quando compare la tabellina col nome del
       brano (piu' alta del solo pulsante), e il pulsante (centrato al
@@ -1152,14 +1152,15 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
       resta sempre fermo, e la tabellina - centrata a lui nella
       stessa riga - resta centrata di conseguenza. */
   }
-  /* Banner specchiato: music-control passa a sinistra, flex-direction
-     invertita cosi' l'ultimo figlio (text-size-toggle, spostato qui
-     via JS - vedi commento su .entry-game-picker sopra) resta il piu'
-     vicino al bordo anche a sinistra, esattamente come lo e' a destra
-     nel caso normale - stessa sequenza, solo speculare. */
+  /* Banner NON specchiato (06/09, ex-default): music-control passa a
+     destra, flex-direction torna quella normale (non piu' invertita)
+     cosi' text-size-toggle resta il piu' vicino al bordo anche a
+     destra - stessa sequenza, solo speculare. Vedi il commento
+     sopra .entry-game-picker per la spiegazione completa
+     dell'inversione di significato del campo mirrorBanner. */
   body.has-mirrored-banner[data-state="entry"] .music-control{
-    left:-1px; right:auto; /* stessa ragione di right:-1px sopra, specchiata */
-    flex-direction:row-reverse;
+    right:-1px; left:auto; /* stessa ragione di left:-1px sopra, specchiata */
+    flex-direction:row;
   }
   body[data-state="entry"] .track-info{ max-width:150px; padding:5px 10px 5px 10px; }
 
