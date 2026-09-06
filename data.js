@@ -1698,7 +1698,7 @@ const GAMES = {
         id: "erdrick",
         name: { it: "Universo Erdrick", en: "Erdrick Universe" },
         span: { it: "1986 – 2017", en: "1986 – 2017" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Erdrick%20Filigrana.jpg",
         watermarkBottomFade: true,
         // Palette a sottogruppi narrativi (fase Artista, 06/09,
         // Opzione 1 scelta da Sakrem): Il Mito delle Origini (DQ11,
@@ -1710,7 +1710,7 @@ const GAMES = {
         paletteBounds: ["dq11", "dq3"],
         entries: [
           { id: "dq11", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Le origini della leggenda, prima di Dragon Quest III", yearEn: "The origins of the legend, before Dragon Quest III", releaseYear: "2017", releaseYearEn: "2017",
-            title: { it: "Dragon Quest XI: Echi di un'era perduta", en: "Dragon Quest XI: Echoes of an Elusive Age" },
+            title: { it: "Dragon Quest XI: Echi di un'Era Perduta", en: "Dragon Quest XI: Echoes of an Elusive Age" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20XI.jpg",
             synopsis: {
               it: "Il protagonista, un giovane del villaggio di Roccapietra, scopre durante la cerimonia del suo sedicesimo compleanno di essere il Lucente, la reincarnazione di un eroe leggendario scelto dall'albero mondiale Yggdrasil per proteggere il mondo di Erdrea. Il re di Eliodoro lo bolla come \"Prole Oscura\" e lo imprigiona, ma lui fugge e raduna un gruppo di compagni. Nel corso della missione raggiunge Yggdrasil, ma l'albero viene abbattuto dal mago Mordegon, che scatena un'era di oscurità su Erdrea. Il Lucente sconfigge Mordegon ma scopre che il vero antagonista è Calasmos, il Signore Oscuro originale di cui Mordegon era servitore. Usando la Torre del Tempo Perduto, il Lucente torna indietro nel tempo per riscrivere gli eventi e impedire la caduta di Yggdrasil. Sconfigge definitivamente Calasmos e riceve da Yggdragon, l'antico drago di luce la cui essenza aveva dato vita all'albero, il titolo di Erdrick, il più grande degli eroi.\n\nNel post-credits, una madre legge al figlio la storia del Lucente, in quello che sembra un chiaro richiamo all'inizio di Dragon Quest III.",
@@ -1718,7 +1718,7 @@ const GAMES = {
             }
           },
           { id: "dq3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "L'inizio della leggenda di Erdrick", yearEn: "The beginning of the Erdrick legend", releaseYear: "1988 (Remake: 2024)", releaseYearEn: "1988 (Remake: 2024)",
-            title: { it: "Dragon Quest III: E così entrò nella leggenda", en: "Dragon Quest III: The Seeds of Salvation" },
+            title: { it: "Dragon Quest III: E Così Entrò nella Leggenda", en: "Dragon Quest III: The Seeds of Salvation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20III.jpg",
             synopsis: {
               it: "Il protagonista, figlio del leggendario guerriero Ortega, parte dal regno di Aliahan per completare la missione lasciata incompiuta dal padre: sconfiggere il Grand Arcidemone Baramos, che minaccia di distruggere il mondo. Radunato un gruppo di compagni, percorre il mondo intero scoprendo che Baramos è in realtà un servo di un'entità ancora più potente: Zoma, il Signore delle Tenebre che governa un mondo sotterraneo chiamato Mondo Oscuro. Il protagonista vi scende, libera la dea Rubiss imprigionata dal Signore delle Tenebre e, usando la Sfera di Luce donata dalla Regina Drago, lo sconfigge portando per la prima volta la luce in quel regno. Tuttavia il varco tra i due mondi si chiude, intrappolando il protagonista nel Mondo Oscuro per sempre. Il popolo del luogo, che chiama il proprio regno Alefgard, lo incorona con il titolo di Erdrick, il più grande degli eroi. Erdrick fonda una casata destinata a produrre gli eroi delle generazioni future.\n\nNota — localizzazione: nella versione italiana del remake HD-2D (2024), quella su cui si basa questa voce, il nome del villain è stato cambiato da Baramos a Padramos.",
@@ -1747,7 +1747,7 @@ const GAMES = {
         id: "zenithia",
         name: { it: "Universo Zenithia", en: "Zenithia Universe" },
         span: { it: "1990 – 1995", en: "1990 – 1995" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Zenithia%20Filigrana.jpg",
         watermarkBottomFade: true,
         // Palette a sottogruppi narrativi (fase Artista, 06/09,
         // Opzione 2 scelta da Sakrem): Sogno e Origine di Zenithia
@@ -1759,7 +1759,7 @@ const GAMES = {
         paletteBounds: ["dq6", "dq4"],
         entries: [
           { id: "dq6", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "La più antica delle tre epoche, separata da millenni dalle altre", yearEn: "The earliest of the three eras, separated by millennia from the others", releaseYear: "1995 (Remake: 2010)", releaseYearEn: "1995 (Remake: 2010)",
-            title: { it: "Dragon Quest VI: Nel regno dei sogni", en: "Dragon Quest VI: Realms of Revelation" },
+            title: { it: "Dragon Quest VI: Nel Regno dei Sogni", en: "Dragon Quest VI: Realms of Revelation" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20VI.jpg",
             synopsis: {
               it: "Il protagonista, principe del regno di Somnia, attacca il castello del Re dei Demoni Murdaw insieme ai compagni Milly e Carver, ma vengono sopraffatti. Si risveglia nel piccolo villaggio di Weaver's Peak senza ricordi, ignaro della propria vera identità. Scopre presto di poter accedere al Dream World, un mondo parallelo invisibile alla gente comune, dove lui e i compagni esistono come presenze incorporee. Viaggiando tra i due mondi, recupera gradualmente la memoria fondendosi con la propria versione corporea nel Real World. Il vero antagonista si rivela essere Mortamor, il Demon Emperor, che abita nel Dread Realm, un reame oscuro tra i due mondi, e vuole fonderli per dominarli entrambi. Il protagonista e i compagni raggiungono il Dread Realm a bordo di Pegasus e sconfiggono Mortamor. Con la sua morte il Dream World cessa di esistere. Nel finale si rivela che le armi del protagonista diventeranno il leggendario equipaggiamento Zenithiano degli eroi futuri.",
@@ -1767,7 +1767,7 @@ const GAMES = {
             }
           },
           { id: "dq4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca propria, lontana nel tempo da Dragon Quest VI", yearEn: "Its own era, far removed in time from Dragon Quest VI", releaseYear: "1990 (Remake: 2001, 2007)", releaseYearEn: "1990 (Remake: 2001, 2007)",
-            title: { it: "Dragon Quest IV: Le cronache dei prescelti", en: "Dragon Quest IV: Chapters of the Chosen" },
+            title: { it: "Dragon Quest IV: Le Cronache dei Prescelti", en: "Dragon Quest IV: Chapters of the Chosen" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20IV.jpg",
             synopsis: {
               it: "Il gioco è diviso in sei capitoli. I primi quattro seguono separatamente i compagni dell'Eroe: il cavaliere Ragnar McRyan, la principessa Alena con i suoi tutori, il mercante Torneko Taloon, e le sorelle indovine Maya e Meena. Ognuno di loro, seguendo percorsi diversi, scopre la cospirazione di Psaro the Manslayer, un essere a metà tra umano e mostro che vuole sterminare la razza umana usando il Secret of Evolution per diventare il nuovo Ruler of Evil. Nel quinto capitolo l'Eroe, la cui città natale viene distrutta da Psaro, si riunisce con tutti i compagni dei capitoli precedenti. Insieme sconfiggono Estark, il Ruler of Evil che Psaro voleva risvegliare, e raggiungono Nadiria attraverso il castello volante di Zenithia, dove affrontano Psaro ormai trasformato in un essere mostruoso. Nel sesto capitolo canonico, i Chosen Ones scoprono che la vera mente dietro gli eventi è Aamon, il luogotenente di Psaro che aveva orchestrato l'uccisione di Rosa, la compagna elfa di Psaro, per spingerlo alla follia. Riportando Rosa in vita, i Chosen Ones convincono Psaro a unirsi a loro per sconfiggere Aamon definitivamente.\n\nNota — versioni successive: il gioco originale del 1990 si fermava al quinto capitolo. Il sesto capitolo, qui narrato come parte della trama canonica, è stato aggiunto nel remake per PlayStation del 2001 (poi confermato anche nella versione Nintendo DS del 2007, quella su cui si basano tutte le riedizioni successive).",
@@ -1775,7 +1775,7 @@ const GAMES = {
             }
           },
           { id: "dq5", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Epoca propria, lontana nel tempo dagli altri due capitoli", yearEn: "Its own era, far removed in time from the other two chapters", releaseYear: "1992 (Remake: 2008)", releaseYearEn: "1992 (Remake: 2008)",
-            title: { it: "Dragon Quest V: La sposa del destino", en: "Dragon Quest V: Hand of the Heavenly Bride" },
+            title: { it: "Dragon Quest V: La Sposa del Destino", en: "Dragon Quest V: Hand of the Heavenly Bride" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20V.jpg",
             synopsis: {
               it: "La storia segue l'intera vita del protagonista in tre archi narrativi. Da bambino viaggia col padre Pankraz alla ricerca della leggendaria Sposa del Cielo e del suo eroe. Pankraz viene ucciso dal villain Ladja, servo dell'Order of Zugzwang, e il protagonista viene ridotto in schiavitù per anni. Una volta libero, si sposa e scopre che suo figlio, non lui, è il Legendary Hero profetizzato. La moglie viene rapita e trasformata in statua di pietra dall'Order of Zugzwang. Il protagonista affronta il villain, libera la moglie e raccoglie l'equipaggiamento Zenithiano necessario al figlio. Insieme, tutta la famiglia raggiunge Nadiria dove affrontano il Grandmaster Nimzo, il dio delle Tenebre e vero antagonista dietro l'Order of Zugzwang. Nimzo viene sconfitto. Nel finale il protagonista ritrova la madre Madalena, che tuttavia viene uccisa da Nimzo prima che possano parlarsi. La famiglia torna al castello di Gotha, mentre gli spiriti di Pankraz e Madalena li osservano in pace dal cielo.",
@@ -2270,7 +2270,7 @@ const GAMES = {
         id: "main",
         name: { it: "GRE", en: "GRE" },
         span: { it: "2015 – 2036", en: "2015 – 2036" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20Filigrana.jpg",
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dying%20Light%20GRE%20Filigrana.jpg",
         // Palette a sottogruppi narrativi (fase Artista, 06/09,
         // Opzione 2 scelta da Sakrem): Harran - le origini di Crane
         // (dying-light-1), Il Crollo - il ponte narrativo verso
