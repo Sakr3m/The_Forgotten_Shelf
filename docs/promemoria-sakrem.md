@@ -500,3 +500,41 @@ mai popolata finora, vedi sotto in "Musica"):
 - `fallout-tactics` - Fallout Tactics: Brotherhood of Steel (VIDEOGIOCO,
   2001) - voce a sé, inserita nell'universo "Wasteland Americano" tra
   `fallout-1` e `fallout-2` - sessione notturna, 2026-09-08.
+
+## Final Fantasy
+
+### Musica
+
+#### Tracklist completa saga (rifatta da capo)
+
+- **Proposta**: sostituire integralmente la playlist della saga (`tracks:
+  []`, mai popolata finora) con una nuova selezione di 7 brani: Aerith's
+  Theme (*Final Fantasy VII*), To Zanarkand (*Final Fantasy X*),
+  One-Winged Angel (*Final Fantasy VII*), Melodies of Life (*Final
+  Fantasy IX*), Suteki Da Ne (Isn't It Wonderful) (*Final Fantasy X*),
+  Stand By Me (*Final Fantasy XV*), Blinded by Light (*Final Fantasy
+  XIII*).
+- **Origine**: Musicista.
+- **Motivazione**: selezione dei brani più iconici/riconoscibili della
+  saga, a copertura di più capitoli, per popolare per la prima volta
+  la playlist.
+- **Data**: 2026-09-08 (sessione notturna).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico).
+
+### Media aggiunti
+
+- `vivi-grandpa-memories` - Vivi and Grandpa's Memories for the Sky
+  (LIBRO ILLUSTRATO, 2025 Giappone / 2026 internazionale) - voce a sé,
+  prima voce del nuovo universo Gaia - sessione notturna, 2026-09-08.
+- `ffix` - Final Fantasy IX (VIDEOGIOCO, 2000) - voce a sé, seconda e
+  ultima voce del nuovo universo Gaia - sessione notturna, 2026-09-08.
+- `ffvii-revelation` - Final Fantasy VII Revelation (VIDEOGIOCO, in
+  uscita 8 aprile 2027, imagePending) - voce a sé, inserita
+  nell'universo Riunione dopo `ffvii-rebirth` - sessione notturna,
+  2026-09-08.
+- Nuovo universo **Gaia** (Vivi and Grandpa's Memories for the Sky →
+  Final Fantasy IX, posizionato tra Riunione e Spira) - sessione
+  notturna, 2026-09-08.
