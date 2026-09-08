@@ -21,9 +21,13 @@ Il file tiene insieme due tipi di contenuto, per saga:
      per quella saga (sostituzione o riordino), con lo stato reale
      (confermato / rifiutato / in attesa di decisione), aggiornato
      quando cambia ma mai cancellato dalla lista.
-   - **Media aggiunti**: ogni nuovo media entrato in quella saga durante
-     il lavoro della catena (voce a sé o nota), con la sessione/data in
-     cui è stato aggiunto. Se una saga non ha nessuna voce per una di
+   - **Media aggiunti**: solo i nuovi media veri e propri entrati in
+     quella saga durante il lavoro della catena - nuova voce a sé, nuova
+     voce gemella/ombrello o nuovo universo - con la sessione/data in cui
+     sono stati aggiunti. Non contiene mai note aggiunte a voci già
+     pubblicate, correzioni di sinossi esistenti o riclassificazioni:
+     quel materiale resta solo nel report una tantum, mai in questo
+     storico permanente. Se una saga non ha nessuna voce per una di
      queste due liste, la sotto-sezione relativa viene omessa per quella
      saga (non si scrive "nessuno").
 
@@ -61,12 +65,13 @@ gli stessi campi fissi di sopra (Proposta/Origine/Motivazione/Data) più:
 ### Media aggiunti
 
 Storico permanente, mai rimosso. Un elenco puntato, un punto per ogni
-nuovo media entrato in pagina durante il lavoro della catena (voce a sé,
-voce gemella/ombrello, nuovo universo o nota dentro una voce già
-pubblicata), con questo formato:
+nuovo media vero e proprio entrato in pagina durante il lavoro della
+catena (voce a sé, voce gemella/ombrello o nuovo universo - mai una nota
+aggiunta a una voce già pubblicata, una correzione di sinossi esistente
+o una riclassificazione), con questo formato:
 
 - `id` (se applicabile) - Titolo - tipo (voce a sé / voce gemella /
-  nota / nuovo universo) - sessione/data di aggiunta.
+  nuovo universo) - sessione/data di aggiunta.
 
 ---
 
@@ -99,14 +104,6 @@ pubblicata), con questo formato:
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
   proposta ancora aperta in "In sospeso" sopra).
-
-### Media aggiunti
-
-- `ace-zero` - nota "The White Notebook" (Aces at War: A History, 2019)
-  aggiunta in coda alla sinossi di Ace Combat Zero - sessione 2026-09-08.
-- `ace-7` - nota "After the Blue Dove" (Aces at War: A History, 2019)
-  aggiunta in coda alla sinossi di Ace Combat 7: Skies Unknown - sessione
-  2026-09-08.
 
 ## Alone in the Dark
 
@@ -221,16 +218,6 @@ Filigrana (watermark) mancante per il nuovo universo:
   revisione) - sessione 2026-09-08.
 - Nuovo universo **Novecento** (Conspiracies → Bloodstone, span 1943 -
   1964) - sessione 2026-09-08.
-- Nota su Hidden Ones/Curse of the Pharaohs aggiunta a `origins` -
-  sessione 2026-09-08.
-- Nota su Fate of Atlantis aggiunta a `odyssey` - sessione 2026-09-08.
-- Nota su Wrath of the Druids/Siege of Paris/Dawn of Ragnarök aggiunta a
-  `valhalla` - sessione 2026-09-08.
-- Nota su AC II: Discovery aggiunta a `assassins-creed-2` - sessione
-  2026-09-08.
-- Nota su Claws of Awaji aggiunta a `shadows` - sessione 2026-09-08.
-- Nota sul collegamento a Bloodstone aggiunta a `assassins-creed-film` -
-  sessione 2026-09-08.
 
 ## BioShock
 
@@ -348,15 +335,6 @@ Filigrana (watermark) mancante per il nuovo universo:
 - **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
   proposta ancora aperta in "In sospeso" sopra).
 
-### Media aggiunti
-
-- `lament-of-innocence` - nota "Castlevania Legends" (Game Boy, 1997,
-  non canonico dal 2003) aggiunta in coda alla sinossi - sessione
-  2026-09-08.
-- `curse-of-darkness-manga` - nota "Prelude to Revenge" (fumetto
-  promozionale, 2005, Ayami Kojima) aggiunta in coda alla sinossi -
-  sessione 2026-09-08.
-
 ## Devil May Cry
 
 ### Musica
@@ -455,17 +433,8 @@ Filigrane (watermark) mancanti per i due nuovi universi:
   sessione 2026-09-08.
 - Nuovo universo **Dai** (IT "Universo Dai") - sessione 2026-09-08.
 - Nuovo universo **Eden** (IT "Universo Eden") - sessione 2026-09-08.
-- `emblem-of-roto-oav` - riclassificata da voce gemella (dentro
-  `emblem-of-roto`) a voce autonoma nell'array `entries`
-  dell'Universo Erdrick, con testo sinossi completo nuovo - sessione
-  2026-09-08.
 - `dragon-quest-eden` - Dragon Quest Eden (manga, 2026-in corso) - voce
   a sé, inserita nell'Universo Eden dopo `dq7` - sessione 2026-09-08.
-- Correzione sinossi (rimozione prefisso "Nota:", non una nuova voce)
-  per `seirei-rubiss-densetsu-manga`, `dai-no-daibouken-anime-reboot` e
-  `warriors-of-eden` (quest'ultima con rimozione anche del paragrafo
-  finale "Nota su Dragon Quest Eden...", ora superfluo con la nuova voce
-  a sé `dragon-quest-eden`) - sessione 2026-09-08.
 
 ## Dying Light
 
@@ -480,15 +449,3 @@ cambiamento di tracce già esistenti) e non più toccata in seguito.
 
 - `nightmare-row` - Nightmare Row (romanzo, Raymond Benson, 2016) - voce
   a sé, nuova prima voce della timeline - sessione 2026-09-06.
-- Nota "Dying Light: Hellraid" aggiunta a `dying-light-1` - sessione
-  2026-09-06.
-- Nota "The Last Supply Drop" aggiunta a `dying-light-1` - sessione
-  2026-09-06.
-- Nota "Dying Light 2: Bloody Ties" aggiunta a `dying-light-2` -
-  sessione 2026-09-06.
-- Nota "In the Footsteps of a Nightrunner" aggiunta a `dying-light-2` -
-  sessione 2026-09-06.
-- Nota "Dying Light: The Beast - Restored Land" aggiunta a
-  `dying-light-beast` - sessione 2026-09-06.
-- Nota "Firearms Update" (Tolga e Fatin) aggiunta a `dying-light-2` -
-  sessione 2026-09-08.
