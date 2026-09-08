@@ -1555,8 +1555,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Devil May Cry", en: "Devil May Cry" },
     blurb: {
-      it: "Discendenti di un antico cacciatore di demoni, protagonisti a metà tra l'umano e l'infernale si oppongono alle incursioni del mondo demoniaco nel nostro. Stile, sangue misto e un'arma di famiglia sono le uniche difese contro creature capaci di aprire varchi verso l'inferno stesso. La linea tra eroe e demone è sempre.",
-      en: "Descendants of an ancient demon hunter, protagonists caught between human and infernal stand against the demonic world's incursions into ours. Style, mixed blood, and a family weapon are the only defense against creatures capable of tearing open gateways to hell itself. The line between hero and demon."
+      it: "Discendenti di un antico cacciatore di demoni, protagonisti a metà tra l'umano e l'infernale si oppongono alle incursioni del mondo demoniaco nel nostro. Stile, sangue misto e un'arma di famiglia sono le uniche difese contro creature capaci di aprire varchi verso l'inferno stesso. La linea tra eroe e demone è sempre sottile.",
+      en: "Descendants of an ancient demon hunter, protagonists caught between human and infernal stand against the demonic world's incursions into ours. Style, mixed blood, and a family weapon are the only defense against creatures capable of tearing open gateways to hell itself. The line between hero and demon is always thin."
     },
     palette: ["#2563eb", "#9ca3af", "#c41e3a"],
     accentColor: "#E4291B",
@@ -1573,6 +1573,7 @@ const GAMES = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Bury%20the%20Light.mp3", title: "Bury the Light", game: "Devil May Cry 5" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devils%20Never%20Cry.mp3", title: "Devils Never Cry", game: "Devil May Cry 3" }
     ],
+    lastAgentPass: "2026-09-08",
     universes: [
       {
         id: "main",
