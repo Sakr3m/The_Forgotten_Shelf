@@ -12,15 +12,22 @@ esaustivo possibile, mai un riassunto striminzito quando la trama
 reale contiene di più.
 
 **Lunghezza minima**: ogni sinossi COMPLETA (mai una nota, vedi sotto)
-deve stare almeno sulle 150 parole, aggiustando verso l'alto in base
-a età del titolo e genere - un gioco più vecchio o più semplice può
-stare vicino al minimo, uno recente/narrativo ne richiede di più. Se
-la trama reale del media non basta a raggiungere le 150 parole,
-prima di consegnare una sinossi corta cerca informazioni vere
-aggiuntive (sottotrame, contesto, personaggi secondari, finali) - mai
-inventate - invece di consegnare un riassunto striminzito e sperare
-che passi il controllo del Supervisore. Questo minimo non si applica
-mai alle note (sempre più corte per natura) né ai titoli
+ha una soglia minima che varia in base al caso:
+- **70 parole**: media più vecchi, o di un genere che comunque non
+  regge una trama estesa - qui l'età/il genere sono una scusa
+  legittima per stare più corti.
+- **100 parole**: qualunque altro media che non ha questa scusa
+  (recente e/o narrativo), e le voci STORIA (mai una scusa di età/
+  genere per loro, essendo testo scritto ex novo).
+
+Questi sono minimi assoluti, non un obiettivo: resta sempre valida la
+regola generale, il più completo ed esaustivo possibile quando la
+trama reale contiene di più. Se la trama reale del media non basta a
+raggiungere la soglia che si applica al tuo caso, prima di consegnare
+una sinossi corta cerca informazioni vere aggiuntive (sottotrame,
+contesto, personaggi secondari, finali) - mai inventate - invece di
+sperare che passi il controllo del Supervisore. Questi minimi non si
+applicano mai alle note (sempre più corte per natura) né ai titoli
 `imagePending` (nessuna sinossi da scrivere, vedi sotto).
 
 **Solo trama**, dal punto A (inizio) al punto B (fine) - niente

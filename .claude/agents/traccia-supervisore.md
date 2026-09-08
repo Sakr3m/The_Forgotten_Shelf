@@ -161,10 +161,16 @@ vedi il suo file) - nessun testo di sinossi previsto.
 
 Controlli che le sinossi siano piene, solo trama, senza collegamenti
 esterni ingiustificati. Giudichi la lunghezza in base a età del
-titolo e genere. Sotto le 150 parole (mai una nota) è allarme: chiedi
-allo Scrittore di allungare con info vere, mai inventate. Questo
-allarme non riguarda i titoli `imagePending` (vedi sotto): per loro
-non esiste proprio nessuna sinossi da valutare.
+titolo e genere, con questa soglia minima (mai una nota, quelle
+restano sempre più corte per natura): 70 parole per media più vecchi
+o di un genere che comunque non regge una trama estesa (età/genere
+sono una scusa legittima), 100 parole per qualunque altro media senza
+questa scusa e per le voci STORIA (mai una scusa di età/genere per
+loro). Sotto la soglia che si applica al caso è allarme: chiedi allo
+Scrittore (o, per una voce STORIA, allo Storico) di allungare con
+info vere, mai inventate. Questo allarme non riguarda i titoli
+`imagePending` (vedi sotto): per loro non esiste proprio nessuna
+sinossi da valutare.
 
 Controlli anche il blurb della saga che scrivono insieme: che
 descriva il punto in comune tra gli universi/titoli (non la trama di
