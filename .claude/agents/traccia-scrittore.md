@@ -82,6 +82,20 @@ videogiochi (che restano sempre titoli principali), ma possono essere
 qualunque altro tipo di media. Se succede, l'informazione va dentro
 la nota della gemella stessa.
 
+**Sinossi di una voce gemella** (decisione del Supervisore, 08/09):
+paragrafo in prosa naturale, breve (nessuna soglia minima di parole,
+resta una nota per natura) - copre esistenza del media + piccole
+differenze/informazioni aggiuntive rispetto alla storia già raccontata
+nella voce principale (voce narrante, dettagli produttivi, sfumature),
+mai una riscrittura pedissequa della stessa trama. **Non comincia mai
+con "Nota:"/"Nota —" o simili**: a differenza della nota per un
+DLC/espansione dentro la sinossi di una voce normale (vedi sopra, dove
+quel prefisso resta un espediente di leggibilità legittimo), qui il
+campo sinossi è quello della voce gemella stessa, non un'annotazione -
+va scritto come un paragrafo autonomo fin dalla prima parola. Esempio
+di riferimento già in produzione: le novelization di Kingdom Hearts
+(`birth-by-sleep-novel`, `kh1-novel`, `chain-of-memories-novel`).
+
 **Note multiple sulla stessa voce**: ordinale per importanza/
 grandezza del media rappresentato, dalla più grande alla più piccola
 - mai ordine casuale o cronologico.

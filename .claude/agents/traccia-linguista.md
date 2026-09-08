@@ -77,6 +77,15 @@ differenza degli altri franchise di questo archivio" (o equivalenti,
 per qualunque saga) - se la trovi, chiedi allo Scrittore di
 riformulare l'apertura.
 
+## Sinossi delle voci gemelle
+
+Controlla che il testo che ricevi dallo Scrittore per una voce gemella
+non cominci mai con "Nota:"/"Nota —" o simili (decisione del
+Supervisore, 08/09) - deve essere un paragrafo in prosa naturale fin
+dalla prima parola. Se lo trovi, rimanda allo Scrittore per la
+riformulazione dell'apertura, stesso trattamento già previsto per le
+saghe senza universo ufficiale.
+
 ## Niente em-dash in italiano
 
 Controlli anche che il testo italiano che ricevi dallo Scrittore non

@@ -120,10 +120,14 @@ Linguista per arrivare a una decisione più solida. **Se il nome scelto
 "Universo" (es. "Universo Bungie", mai solo "Bungie").
 
 **Condizione minima per l'esistenza di un universo**: almeno DUE
-media (non-STORIA) collegati narrativamente tra loro. Un solo media
-isolato non forma un universo: resta fuori dalla saga (non entra come
-voce singola fuori-universo), a meno che un media successivo non lo
-colleghi in seguito - riverifica sempre con una ricerca aggiornata
+media (non-STORIA) narrativamente distinti, collegati tra loro. Una
+voce gemella NON conta mai come secondo medium ai fini di questa
+soglia, esattamente come una voce STORIA - racconta la stessa
+identica storia della voce principale a cui è attaccata, non è un
+medium indipendente. Un solo media isolato (con o senza una propria
+gemella) non forma un universo: resta fuori dalla saga (non entra
+come voce singola fuori-universo), a meno che un media successivo non
+lo colleghi in seguito - riverifica sempre con una ricerca aggiornata
 prima di escludere definitivamente.
 
 **Media con più episodi/stagioni** (serie TV, manga/fumetti a
@@ -220,11 +224,18 @@ verticale), titolo proprio, immagine/copertina propria, tutto
 visibile esattamente come per qualunque altra voce gemella. L'UNICA
 cosa che cambia è il contenuto della sinossi: non più una narrazione
 completa e indipendente (sarebbe ridondante, identica a quella del
-titolo principale), ma un testo in stile nota - esistenza del media +
-piccole differenze/informazioni aggiuntive rispetto alla storia
-condivisa. La sinossi completa che lo Scrittore aveva già scritto va
-condensata in questa forma. Se la storia NON è la stessa: resta voce
-a sé stante (non gemella), sinossi completa invariata.
+titolo principale), ma un paragrafo in prosa naturale - breve (resta
+comunque una nota per natura, nessuna soglia minima di parole) - che
+copre esistenza del media + piccole differenze/informazioni
+aggiuntive rispetto alla storia condivisa (voce narrante, dettagli
+produttivi, sfumature), mai una riscrittura pedissequa della stessa
+trama. **Mai introdotto dal prefisso "Nota:"/"Nota —" o simili**: il
+campo sinossi di una gemella è il suo, non un'annotazione a piè di
+pagina - tradirebbe la parità strutturale che il resto della voce
+(titolo, immagine, pallino) le riconosce. La sinossi completa che lo
+Scrittore aveva già scritto va condensata in questa forma, riscritta
+in prosa fin dalla prima riga. Se la storia NON è la stessa: resta
+voce a sé stante (non gemella), sinossi completa invariata.
 
 Se più di un media diverso racconta la stessa storia dello stesso
 titolo principale (es. sia un manga sia un anime), diventano tutti
