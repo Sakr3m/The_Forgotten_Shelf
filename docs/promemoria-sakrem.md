@@ -371,27 +371,11 @@ Filigrana (watermark) mancante per il nuovo universo:
 - **Origine**: Musicista.
 - **Motivazione**: fama decrescente delle tracce.
 - **Data**: 2026-09-08.
-- **Stato**: in attesa di decisione di Sakrem, non applicato.
+- **Stato**: confermato e applicato. Puro riordino (stesse tracce,
+  nessuna sostituzione): applicato direttamente senza consenso esplicito
+  di Sakrem, secondo la regola stabilita l'08/09/2026.
 
 ## Dragon Quest
-
-### In sospeso
-
-#### Riordino playlist per fama decrescente
-
-- **Proposta**: riordinare le 7 tracce già esistenti della playlist Dragon
-  Quest (stesse tracce, nuovo ordine): Overture (DQ1) → Fighting Spirit
-  (DQ3) → Unyielding Courage (DQ11) → Bridal Waltz (DQ5) → Wagon Wheel's
-  March (DQ4) → Violent Enemies (DQ2) → Pegasus (DQ6), al posto
-  dell'attuale ordine cronologico per numero di capitolo (DQ1→DQ2→DQ3→
-  DQ4→DQ5→DQ6→DQ11).
-- **Origine**: Musicista.
-- **Motivazione**: l'ordine cronologico attuale non riflette il
-  gradimento/fama reale delle tracce, verificato con ricerche su
-  recensioni, wiki musicali, cronache di concerti sinfonici e reazioni di
-  fan/critica.
-- **Data**: 2026-09-08.
-- **Stato**: in attesa di decisione di Sakrem, non applicato.
 
 ### In sospeso - immagini mancanti
 
@@ -439,10 +423,11 @@ Filigrane (watermark) mancanti per i due nuovi universi:
 - **Motivazione**: l'ordine cronologico non riflette il gradimento/fama
   reale delle tracce.
 - **Data**: 2026-09-08.
-- **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
-  proposta ancora aperta in "In sospeso" sopra). Il Musicista ha inoltre
-  verificato l'eventuale inclusione di tracce da Dragon Quest VII o
-  Dragon Quest Builders 2 (i due nuovi titoli aggiunti in questo ciclo)
+- **Stato**: confermato e applicato. Puro riordino (stesse tracce,
+  nessuna sostituzione): applicato direttamente senza consenso esplicito
+  di Sakrem, secondo la regola stabilita l'08/09/2026. Il Musicista ha
+  inoltre verificato l'eventuale inclusione di tracce da Dragon Quest VII
+  o Dragon Quest Builders 2 (i due nuovi titoli aggiunti in questo ciclo)
   ma non ne ha trovate di abbastanza iconiche: nessuna traccia aggiunta.
 
 ### Media aggiunti
