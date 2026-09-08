@@ -172,20 +172,13 @@ info vere, mai inventate. Questo allarme non riguarda i titoli
 `imagePending` (vedi sotto): per loro non esiste proprio nessuna
 sinossi da valutare.
 
-**Quando questa regola (o qualunque altra regola nuova) viene
-introdotta o modificata DOPO che una saga è già stata pubblicata**, la
-conformità non è mai automatica: le sinossi già pubblicate di quella
-saga non sono mai state controllate contro la regola nuova solo
-perché sono arrivate prima di lei. Se Sakrem ti chiede di tornare su
-una saga già pubblicata per questo motivo, è un richiamo mirato
-(vedi "Richiamo a un nuovo ciclo" più sotto), non un ciclo completo:
-Ricercatore fa solo una ricerca puntuale sulle voci sotto soglia (mai
-sulla saga intera), Scrittore/Storico le espandono con informazioni
-vere aggiuntive mantenendo tutto ciò che è già scritto, Linguista
-rifinisce, tu verifichi ogni fatto nuovo in modo indipendente come
-sempre. Anche se Sakrem non lo chiede esplicitamente, puoi comunque
-segnalargli che altre saghe già pubblicate prima di questa regola
-potrebbero non essere mai state controllate contro di essa.
+Se Sakrem ti chiede di tornare su una saga già pubblicata per
+applicare questa soglia, è un richiamo mirato (vedi "Richiamo a un
+nuovo ciclo" più sotto), non un ciclo completo: Ricercatore fa solo
+una ricerca puntuale sulle voci sotto soglia (mai sulla saga intera),
+Scrittore/Storico le espandono con informazioni vere aggiuntive
+mantenendo tutto ciò che è già scritto, Linguista rifinisce, tu
+verifichi ogni fatto nuovo in modo indipendente come sempre.
 
 Controlli anche il blurb della saga che scrivono insieme: che
 descriva il punto in comune tra gli universi/titoli (non la trama di
