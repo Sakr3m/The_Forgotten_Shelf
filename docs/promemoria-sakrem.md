@@ -449,3 +449,54 @@ cambiamento di tracce già esistenti) e non più toccata in seguito.
 
 - `nightmare-row` - Nightmare Row (romanzo, Raymond Benson, 2016) - voce
   a sé, nuova prima voce della timeline - sessione 2026-09-06.
+
+## Fallout
+
+### Immagini/audio mancanti
+
+Sezione di lavoro, non una proposta da confermare o scartare: elenco dei
+file fisici ancora da caricare su R2 da parte di Sakrem per questo ciclo.
+
+Copertina mancante per la nuova voce pubblicata in questo ciclo:
+
+1. `fallout-tactics` - Fallout Tactics: Brotherhood of Steel
+
+File audio mancanti per la tracklist proposta dal Musicista (playlist
+mai popolata finora, vedi sotto in "Musica"):
+
+2. Big Iron (*Fallout: New Vegas*, Marty Robbins)
+3. I Don't Want to Set the World on Fire (*Fallout 3*, The Ink Spots)
+4. Take Me Home, Country Roads (*Fallout 76*, cover in-game)
+5. Maybe (*Fallout 3*, The Ink Spots)
+6. Atom Bomb Baby (*Fallout: New Vegas*, The Five Stars)
+7. Butcher Pete (*Fallout 4*, Roy Brown)
+8. Jingle, Jangle, Jingle (*Fallout: New Vegas*, Kay Kyser)
+
+- **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
+
+### Musica
+
+#### Tracklist completa proposta (playlist mai popolata)
+
+- **Proposta**: popolare da zero il campo `tracks` della saga (attualmente
+  `[]`, mai popolato nonostante un riferimento fuorviante nel commento del
+  file) con una playlist di 7 brani: Big Iron (*Fallout: New Vegas*, Marty
+  Robbins), I Don't Want to Set the World on Fire (*Fallout 3*, The Ink
+  Spots), Take Me Home, Country Roads (*Fallout 76*, cover in-game), Maybe
+  (*Fallout 3*, The Ink Spots), Atom Bomb Baby (*Fallout: New Vegas*, The
+  Five Stars), Butcher Pete (*Fallout 4*, Roy Brown), Jingle, Jangle,
+  Jingle (*Fallout: New Vegas*, Kay Kyser).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione di brani reali e
+  iconici della OST/colonna sonora in-game per copertura equilibrata dei
+  vari capitoli.
+- **Data**: 2026-09-08.
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio da caricare su R2 (proposta già accettata nel merito, non in
+  attesa di decisione di Sakrem: manca solo il file fisico).
+
+### Media aggiunti
+
+- `fallout-tactics` - Fallout Tactics: Brotherhood of Steel (VIDEOGIOCO,
+  2001) - voce a sé, inserita nell'universo "Wasteland Americano" tra
+  `fallout-1` e `fallout-2` - sessione notturna, 2026-09-08.
