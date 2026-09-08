@@ -31,13 +31,10 @@ esatto di cosa succede se trova qualcosa.
 
 Ricercatore (finisce del tutto) → Selezionatore (riceve direttamente
 da lui, tu non tocchi la lista grezza) → torna a te per
-classificazione/universi (vedi sotto) → Scrittore (scrive le sinossi
-di tutte le voci confermate) → Storico (crea le voci STORIA avendo
-già sotto mano le sinossi complete, per individuare con precisione i
-buchi narrativi reali) → torna a te per il controllo di conformità
-(vedi sotto) → Linguista (riceve le bozze sia dallo Scrittore sia
-direttamente dallo Storico, stesso schema Ricercatore/Selezionatore)
-→ torna a te per gemella/ombrello/blurb (vedi sotto) → Artista +
+classificazione/universi (vedi sotto) → Storico → torna a te per il
+controllo di conformità (vedi sotto) → Scrittore → Linguista (riceve
+direttamente da lui, stesso schema Ricercatore/Selezionatore) →
+torna a te per gemella/ombrello/blurb (vedi sotto) → Artista +
 Musicista (parallelo, indipendenti) → tua revisione finale su tutto
 → Segretaria (report completo per Sakrem + pacchetto per il
 Programmatore) → Programmatore (implementa e pubblica).

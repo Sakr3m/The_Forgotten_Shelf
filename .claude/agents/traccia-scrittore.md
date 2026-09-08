@@ -55,6 +55,9 @@ soli campi tecnici (titolo, tipo, data di uscita) - nessun allarme
 sulla lunghezza si applica, perché qui non c'è proprio nessuna
 sinossi da valutare.
 
+**Voci STORIA**: il contenuto te lo fornisce già lo Storico - non lo
+riscrivi, passa così com'è al Linguista.
+
 **Remaster su una voce gemella**: caso raro - le gemelle non sono mai
 videogiochi (che restano sempre titoli principali), ma possono essere
 qualunque altro tipo di media. Se succede, l'informazione va dentro
