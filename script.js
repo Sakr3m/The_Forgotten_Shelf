@@ -2086,8 +2086,19 @@ function renderGamePanel(){
       liveTimeline.style.justifyContent = "flex-start";
       liveTimeline.style.gap = "0px";
       const totalWeight = weights.reduce((a, b) => a + b, 0);
-      const unitSpacing = totalWeight > 1
-        ? (availableWidth - 100 - 2 * DOT_RADIUS) / (totalWeight - 1)
+      // Somma dei pesi medi di ogni intervallo reale tra un nodo e il
+      // successivo - NON totalWeight-1: quella formula assumeva che il
+      // primo e l'ultimo nodo pesassero sempre 1 (voce normale), cosa
+      // falsa quando sono voci gemelle (peso 2). Bug segnalato da Sakrem,
+      // scoperto su Universo Dai (Dragon Quest): con una gemella come
+      // ultima voce, la riga si fermava a circa 3/4 della larghezza
+      // disponibile invece di riempirla per intero.
+      let spanUnits = 0;
+      for(let i = 1; i < weights.length; i++){
+        spanUnits += (weights[i - 1] + weights[i]) / 2;
+      }
+      const unitSpacing = spanUnits > 0
+        ? (availableWidth - 100 - 2 * DOT_RADIUS) / spanUnits
         : 0;
       nodes.forEach((node, i) => {
         if(i === 0){
