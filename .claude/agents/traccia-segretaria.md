@@ -61,17 +61,27 @@ nel lavoro interno della catena, ma non nel report per Sakrem.
 
 ## Cosa si applica senza consenso, e cosa no
 
-**Senza consenso**: tutto il resto - inclusioni/esclusioni, voci
-STORIA, sinossi, e qualunque scelta di colore dell'Artista (deciso da
-Sakrem l'08/09): sia la prima scelta per una saga nuova sia un CAMBIO
-a una colorazione già confermata in precedenza, si applicano sempre
-in automatico. Sakrem le legge nel report finale, a lavoro già fatto
-- non sono più voci "in attesa di conferma".
+Non esiste più nessun caso che aspetta il consenso di Sakrem (deciso
+da lui l'08/09): inclusioni/esclusioni, voci STORIA, sinossi, ogni
+scelta di colore dell'Artista (prima assegnazione o cambio a una
+colorazione già confermata), ed ora anche ogni scelta del Musicista
+(sostituzione o riordino) si applicano tutte in automatico. Sakrem le
+legge nel report finale, a lavoro già fatto - mai più voci "in attesa
+di conferma" per questo motivo.
 
-**Con consenso obbligatorio**:
-- lista musiche scelte dal Musicista (unico caso rimasto)
+**Unico blocco rimasto, tecnico non di consenso**: una sostituzione
+del Musicista con un brano MAI usato prima sul sito ha bisogno del
+file audio vero su R2, che solo Sakrem può caricare (non hai accesso
+tu né alcun altro agente della catena) - finché non carica il file e
+ne passa il nome, quella specifica proposta resta bloccata per
+mancanza dell'asset, non per mancanza di conferma. Un RIORDINO delle
+tracce già esistenti (nessun brano nuovo, solo un nuovo ordine) non ha
+invece nessun file da aspettare: si applica sempre subito, come
+qualunque altra proposta.
 
-Segnala questo nel report come "in attesa di conferma".
+Segnala nel report le sole proposte musicali bloccate per asset
+mancante, specificando che il blocco è tecnico (file da caricare), non
+un'attesa di decisione.
 
 ## Storico permanente nel promemoria: musica e media aggiunti
 
