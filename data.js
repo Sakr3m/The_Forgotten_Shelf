@@ -874,7 +874,7 @@ const GAMES = {
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1725 – 1888", en: "1725 – 1888" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
-        palette: ["#8E1B2E", "#242A3D", "#C4802E", "#4E5449"],
+        palette: ["#8E1B2E", "#242A3D", "#C4802E", "#5C4A66", "#4E5449"],
         // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
         // ciascun sottogruppo tranne l'ultimo (Sangue/accento - Connor,
         // Notte di Parigi - Unity, Zafferano - India, Nebbia Industriale
@@ -883,9 +883,10 @@ const GAMES = {
         // sottogruppo, piu' evidente sull'arco esterno della voce
         // ombrello sotto (colore fisso, vedi computeGradientStops in
         // script.js). Aggiornato (08/09): il sottogruppo "Zafferano -
-        // India" si estende ora fino a "magus-conspiracy" invece che
-        // fermarsi a "chronicles-india".
-        paletteBounds: ["assassins-creed-3", "unity", "magus-conspiracy"],
+        // India" si ferma di nuovo a "chronicles-india"; il nuovo
+        // sottogruppo viola-prugna "Magus Conspiracy" ha ora un bound
+        // dedicato su "magus-conspiracy".
+        paletteBounds: ["assassins-creed-3", "unity", "chronicles-india", "magus-conspiracy"],
         entries: [
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
             releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",
@@ -1075,8 +1076,8 @@ const GAMES = {
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2023", en: "2015 – 2023" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Era%20Moderna%20Filigrana.jpg",
-        palette: ["#8E1B2E", "#A67F3E"],
-        paletteBounds: ["reflections"],
+        palette: ["#8E1B2E", "#2E6E8E", "#A67F3E", "#5B4E8C"],
+        paletteBounds: ["assassins-templars", "last-descendants", "uprising"],
         entries: [
           { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
             releaseYear: "2015 – 2017", releaseYearEn: "2015 – 2017",
