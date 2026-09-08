@@ -577,4 +577,33 @@ mai popolata finora, vedi sotto in "Musica"):
 - Nuovo universo **Fódlan** (Three Houses → Fortune's Weave, quarto e
   ultimo universo della saga, dopo Tellius) - sessione notturna,
   2026-09-08.
+
+## Gears of War
+
+### Musica
+
+#### Tracklist completa saga (rifatta da capo)
+
+- **Proposta**: sostituire integralmente la playlist della saga (`tracks:
+  []`, mai popolata finora) con una nuova selezione di 7 brani: Mad World
+  (strumentale) (*Gears of War 3*), Hope Runs Deep (*Gears of War 2*),
+  Return of the Omen (*Gears of War 3*), Kait's Theme (*Gears 5*),
+  Finally a Tomorrow (*Gears of War 3*), Main Theme (*Gears of War 4*),
+  14 Years After E-Day (*Gears of War*, 2006).
+- **Origine**: Musicista.
+- **Motivazione**: selezione dei brani più iconici/riconoscibili della
+  saga, a copertura di più capitoli, per popolare per la prima volta la
+  playlist.
+- **Data**: 2026-09-08 (sessione notturna).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico).
+
+Nota: nessuna sezione "Media aggiunti" per Gears of War in questa
+sessione - il lavoro di questo ciclo è stato solo una correzione
+urgente su `e-day` (già pubblicata, downgrade a titolo non ancora
+uscito) e una nota aggiunta alla sinossi esistente di `gears-1`, mai un
+nuovo media vero e proprio (vedi il report una tantum, punto 4, per i
+dettagli).
 </content>

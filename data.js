@@ -2769,12 +2769,15 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Banner.jpg",
     watermarkOpacity: 0.18,
+    lastAgentPass: "2026-09-08",
     universes: [
       {
         id: "main",
         name: { it: "Sera", en: "Sera" },
         span: { it: "0 A.E. – 42 A.E.", en: "0 A.E. – 42 A.E." },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Gears%20of%20War%20Filigrana.jpg",
+        palette: ["#7d8792", "#4a1620", "#2f8f86"],
+        paletteBounds: ["the-slab", "gears-3"],
         entries: [
           { id: "rise-of-raam", type: "FUMETTO", typeEn: "COMIC", year: "Prima del Giorno dell'Emergenza", yearEn: "Before Emergence Day", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "Gears of War: The Rise of RAAM", en: "Gears of War: The Rise of RAAM" },
@@ -2783,12 +2786,11 @@ const GAMES = {
               en: "A four-issue comic recounting the origins of RAAM, the general who becomes the Locust Horde's most feared commander: how he is born into the Locust's rigid social hierarchy and ruthlessly earns his place at the top, well before his people emerge to the surface on Emergence Day."
             }
           },
-          { id: "e-day", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "0 A.E. (Giorno dell'Emergenza)", releaseYear: "2025", releaseYearEn: "2025",
+          { id: "e-day", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "0 A.E. (Giorno dell'Emergenza)", releaseYear: "6 ottobre 2026", releaseYearEn: "October 6, 2026",
             title: { it: "Gears of War: E-Day", en: "Gears of War: E-Day" },
-            synopsis: {
-              it: "Il giorno in cui il Locust Horde emerge dal sottosuolo di Sera, colpendo simultaneamente ogni città del pianeta. Un giovane Marcus Fenix, ancora al fianco del padre Adam, scienziato della COG, affronta l'inizio di una guerra che cambierà per sempre il volto del pianeta. Capitolo cronologicamente più antico, uscito solo di recente.",
-              en: "The day the Locust Horde emerges from beneath Sera, striking every city on the planet simultaneously. A young Marcus Fenix, still at his father Adam's side, a COG scientist, faces the beginning of a war that will forever change the face of the planet. The chronologically earliest chapter, released only recently."
-            }
+            imagePending: true,
+            releaseDateShort: { it: "6 ottobre 2026", en: "October 6, 2026" },
+            releaseDateISO: "2026-10-06"
           },
           { id: "judgment", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "poco dopo E-Day", releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Gears of War: Judgment", en: "Gears of War: Judgment" },
@@ -2811,11 +2813,11 @@ const GAMES = {
               en: "A prequel novel recounting Marcus Fenix's years in the Slab military prison, where he serves his sentence for disobeying orders during the rescue mission for his father Adam, lost in Locust territory. It follows his relationship with fellow inmates and guards up to the day when, with the war nearly lost, he is offered freedom in exchange for enlisting in Delta Squad."
             }
           },
-          { id: "gears-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "14 A.E.", releaseYear: "2006 (Remaster: 2015)", releaseYearEn: "2006 (Remaster: 2015)",
+          { id: "gears-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "14 A.E.", releaseYear: "2006 (Remaster: 2015, 2025, come Reloaded)", releaseYearEn: "2006 (Remaster: 2015, 2025, as Reloaded)",
             title: { it: "Gears of War", en: "Gears of War" },
             synopsis: {
-              it: "Quattordici anni dopo il Giorno dell'Emergenza, con la guerra ormai quasi persa, Marcus Fenix viene liberato dal carcere per unirsi alla Squadra Delta e lanciare l'Offensiva Lightmass, un bombardamento capace di distruggere le gallerie sotterranee del Locust Horde.\n\nNota — Remaster 2015 (Ultimate Edition): oltre alla veste grafica rifatta, ripristina cinque capitoli del quinto atto tagliati dalla versione Xbox 360 originale ma presenti nella versione PC (incluso uno scontro contro un Brumak), e mostra per la prima volta un'inquadratura della Regina Locust Myrrah nel finale, prima udibile solo a voce.",
-              en: "Fourteen years after Emergence Day, with the war nearly lost, Marcus Fenix is released from prison to join Delta Squad and launch the Lightmass Offensive, a bombardment capable of destroying the Locust Horde's underground tunnels.\n\nNote — 2015 Remaster (Ultimate Edition): beyond the graphical overhaul, it restores five chapters from the fifth act cut from the original Xbox 360 version but present in the PC version (including a fight against a Brumak), and shows an actual shot of Locust Queen Myrrah in the finale for the first time, previously heard only as a voice."
+              it: "Quattordici anni dopo il Giorno dell'Emergenza, con la guerra ormai quasi persa, Marcus Fenix viene liberato dal carcere per unirsi alla Squadra Delta e lanciare l'Offensiva Lightmass, un bombardamento capace di distruggere le gallerie sotterranee del Locust Horde.\n\nNota — Remaster 2015 (Ultimate Edition): oltre alla veste grafica rifatta, ripristina cinque capitoli del quinto atto tagliati dalla versione Xbox 360 originale ma presenti nella versione PC (incluso uno scontro contro un Brumak), e mostra per la prima volta un'inquadratura della Regina Locust Myrrah nel finale, prima udibile solo a voce.\n\nNota — Remaster 2025 (Gears of War: Reloaded): secondo remaster del capitolo originale, distinto dalla Ultimate Edition 2015 di cui eredita tutti i contenuti. Non introduce alcun contenuto narrativo inedito, limitandosi a un ulteriore aggiornamento tecnico con texture in 4K, illuminazione e HDR rinnovati, supporto ai 120fps, cross-play tra piattaforme e il debutto della serie su PlayStation.",
+              en: "Fourteen years after Emergence Day, with the war nearly lost, Marcus Fenix is released from prison to join Delta Squad and launch the Lightmass Offensive, a bombardment capable of destroying the Locust Horde's underground tunnels.\n\nNote — 2015 Remaster (Ultimate Edition): beyond the graphical overhaul, it restores five chapters from the fifth act cut from the original Xbox 360 version but present in the PC version (including a fight against a Brumak), and shows an actual shot of Locust Queen Myrrah in the finale for the first time, previously heard only as a voice.\n\nNote — 2025 Remaster (Gears of War: Reloaded): a second remaster of the original chapter, distinct from the 2015 Ultimate Edition whose content it inherits in full. It introduces no new narrative content, limiting itself to a further technical overhaul with 4K textures, reworked lighting and HDR, 120fps support, cross-play between platforms, and the series' debut on PlayStation."
             }
           },
           { id: "aspho-fields", type: "ROMANZO", typeEn: "NOVEL", year: "Subito dopo Gears of War", yearEn: "Right after Gears of War", releaseYear: "2008", releaseYearEn: "2008",
