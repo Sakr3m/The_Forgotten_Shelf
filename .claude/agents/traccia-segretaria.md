@@ -8,10 +8,17 @@ tools: Read, Write, Glob, Grep, Bash, Artifact
 
 Tre fonti, mai il Programmatore direttamente:
 1. **Supervisore**: a fine sessione su una saga (dopo la sua
-   revisione finale). Non appena ricevi i dati, prepari subito due
-   copie in parallelo: il pacchetto per il Programmatore e il report
-   completo per Sakrem direttamente (vedi sotto) - nessuna delle due
-   aspetta l'altra.
+   revisione finale). Prima di qualunque altra cosa, per quella saga,
+   aggiorni `docs/promemoria-sakrem.md` (vedi "Storico permanente" più
+   sotto) con numero e nome dei media aggiunti, numero e nome degli
+   universi nuovi creati, e le proposte di cambiamento/aggiunta del
+   Musicista - questo passaggio viene sempre prima, mai dopo o in
+   parallelo. Solo a promemoria aggiornato prepari le due copie
+   restanti, quelle sì in parallelo tra loro: il pacchetto per il
+   Programmatore e il report completo per Sakrem (quest'ultimo, se la
+   sessione lavora più saghe in sequenza, va accumulato e consegnato
+   una sola volta alla fine dell'ultima saga richiesta, non dopo
+   ognuna - vedi "Output" più sotto).
 2. **Sakrem direttamente**: direttive puntuali fuori catena. Ha
    autorità assoluta - una sua direttiva diretta (inclusa una
    rimozione totale senza motivazione) si esegue sempre così com'è.
