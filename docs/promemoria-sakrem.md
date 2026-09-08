@@ -90,3 +90,65 @@ Filigrana (watermark) mancante per il nuovo universo:
     saga, ancora privo del campo `watermark`)
 
 - **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
+
+## BioShock
+
+### Cambio playlist - "Empty Houses" → "Beyond the Sea"
+
+- **Proposta**: sostituire la traccia "Empty Houses" (*BioShock*) con
+  "Beyond the Sea" (*BioShock*) nella playlist della saga.
+- **Origine**: Musicista.
+- **Motivazione**: "Beyond the Sea" è la traccia più iconica in assoluto
+  della saga - usata nel trailer di annuncio del 2006 (diventato virale,
+  tra i migliori trailer di sempre), nell'apertura e nel finale del gioco,
+  ripresa anche in *Burial at Sea Episode 1* (*BioShock Infinite*). Nota
+  aggiuntiva: se questa sostituzione viene rifiutata, *BioShock 2*
+  resterebbe senza alcuna traccia genuinamente propria nella playlist,
+  perché è emerso che "Empty Houses" (finora unico slot nominale per quel
+  gioco) appartiene in realtà alla colonna sonora originale del primo
+  *BioShock*, non di *BioShock 2* - correzione già applicata comunque
+  nell'attribuzione tecnica del brano (game: "BioShock 2" → "BioShock"),
+  indipendentemente da questa proposta di sostituzione.
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+### Cambio playlist - "Lighter Than Air" → "God Only Knows"
+
+- **Proposta**: sostituire la traccia "Lighter Than Air" (*BioShock
+  Infinite*) con "God Only Knows" (*BioShock Infinite*) nella playlist
+  della saga.
+- **Origine**: Musicista.
+- **Motivazione**: "God Only Knows" è una cover eseguita in-game da un
+  barbershop quartet, momento fortemente virale e ampiamente citato come
+  uno dei più memorabili dell'intera saga, con riconoscibilità pubblica
+  nettamente superiore.
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+## Castlevania
+
+### Cambio playlist - "The Gears Go Awry" → "Beginning"
+
+- **Proposta**: sostituire la traccia "The Gears Go Awry" (*Castlevania:
+  Portrait of Ruin*) con "Beginning" (*Castlevania: Dracula's Curse*)
+  nella playlist della saga.
+- **Origine**: Musicista.
+- **Motivazione**: "Beginning" è il tema di Trevor Belmont, costantemente
+  citato nelle classifiche di settore tra i brani più iconici della saga,
+  presente nella Castlevania Sound Selection di *Super Smash Bros.
+  Ultimate* (verificato in modo indipendente dal Supervisore).
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+### Cambio playlist - "Sorrow's Distortion" → "Divine Bloodlines"
+
+- **Proposta**: sostituire la traccia "Sorrow's Distortion" (*Castlevania:
+  Order of Ecclesia*) con "Divine Bloodlines" (*Castlevania: Rondo of
+  Blood*) nella playlist della saga.
+- **Origine**: Musicista.
+- **Motivazione**: "Divine Bloodlines" è il tema di Richter Belmont,
+  presente nella Castlevania Sound Selection di *Super Smash Bros.
+  Ultimate* (verificato in modo indipendente dal Supervisore), costantemente
+  citato tra i classici della saga.
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
