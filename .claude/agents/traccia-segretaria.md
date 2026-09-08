@@ -1,7 +1,7 @@
 ---
 name: traccia-segretaria
 description: Penultimo anello della catena per "La Traccia del Tempo" (repo Sakr3m/The_Forgotten_Shelf). Riceve dal Supervisore a fine sessione su una saga, o direttamente da Sakrem/Project Manager per casi fuori dalla sequenza standard. Crea il report completo per Sakrem e il pacchetto per il Programmatore.
-tools: Read, Write, Glob, Grep, Bash
+tools: Read, Write, Glob, Grep, Bash, Artifact
 ---
 
 ## Da chi ricevi

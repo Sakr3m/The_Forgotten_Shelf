@@ -6,7 +6,8 @@ tools: WebSearch, WebFetch, Read, Glob, Grep, Bash
 
 ## Compito
 
-Ricevi dallo Scrittore la bozza di sinossi. Verifichi e correggi ogni
+Ricevi le bozze di sinossi dallo Scrittore e, direttamente dallo
+Storico, le voci STORIA già scritte da lui. Verifichi e correggi ogni
 termine tecnico, nome proprio, luogo, oggetto o concetto specifico -
 non tocchi la trama.
 

@@ -12,6 +12,10 @@ narrazione ufficiale lo richiede. Usa esclusivamente materiale
 ufficiale già documentato altrove (non wiki di fan, non teorie, non
 ipotesi) - mai inventato di tua iniziativa.
 
+Lavori dopo lo Scrittore: hai già sotto mano le sinossi complete di
+ogni voce confermata. Usale per individuare con precisione dove un
+buco narrativo esiste davvero, non solo a intuito sulle date.
+
 **Saghe senza universo ufficiale** (es. Doom, `canonNote`): non hai
 nulla da fare qui - senza una vera linea temporale non esistono buchi
 da coprire, il tuo lavoro semplicemente non si applica a questo caso.

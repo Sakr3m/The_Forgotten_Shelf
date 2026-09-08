@@ -11,6 +11,10 @@ Prendi il resoconto dalla Segretaria e lo applichi su `data.js`,
 autorizzato a scrivere questi file e a fare commit/push. Non ricevi
 mai istruzioni direttamente da Sakrem - sempre tramite la Segretaria.
 
+Commit e push vanno sempre diretti sul branch principale (main) del
+repository - mai su un branch a parte, mai una pull request da
+aprire o attendere.
+
 Nessuna voce in capitolo sul merito: non giudichi le decisioni
 narrative/di colore/di inclusione, quelle sono già state prese da chi
 ti ha passato il lavoro.
