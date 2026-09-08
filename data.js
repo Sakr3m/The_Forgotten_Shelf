@@ -1826,14 +1826,16 @@ const GAMES = {
         span: { it: "1986 – 2020", en: "1986 – 2020" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Erdrick%20Filigrana.jpg",
         watermarkBottomFade: true,
-        // Palette a sottogruppi narrativi (fase Artista, 06/09,
-        // Opzione 1 scelta da Sakrem): Il Mito delle Origini (DQ11,
-        // accento), Erdrick il Sacrificio del Fondatore (DQ3), Le
-        // Generazioni della Stirpe (DQ1-II). paletteBounds: ultima
-        // voce reale dei primi 2 sottogruppi su 3 (il terzo, DQ1-II,
-        // arriva naturalmente fino alla fine dell'universo).
-        palette: ["#0f9b8e", "#1B2A4A", "#B8860B"],
-        paletteBounds: ["dq11", "dq3"],
+        // Palette a sottogruppi narrativi (fase Artista, confermata da
+        // Sakrem l'08/09): Il Mito Primordiale (seirei-rubiss-densetsu,
+        // elegy-of-thieves, dq11), Erdrick il Sacrificio del Fondatore
+        // (dq3), La Stirpe di Roto (emblem-of-roto...to-the-children-
+        // who-inherit-the-emblem), Gli Eredi Diretti (dq1, dq2,
+        // dragon-quest-builders-2). paletteBounds: ultima voce reale dei
+        // primi 3 sottogruppi su 4 (il quarto, Gli Eredi Diretti, arriva
+        // naturalmente fino alla fine dell'universo).
+        palette: ["#0f9b8e", "#1B2A4A", "#7A2634", "#B8860B"],
+        paletteBounds: ["dq11", "dq3", "to-the-children-who-inherit-the-emblem"],
         entries: [
           { id: "seirei-rubiss-densetsu", type: "ROMANZO", typeEn: "NOVEL",
             year: "Prima della leggenda di Erdrick", yearEn: "Before the legend of Erdrick",
