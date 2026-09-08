@@ -155,24 +155,6 @@ Filigrana (watermark) mancante per il nuovo universo:
 
 ## Dragon Quest
 
-### Cambio palette Universo Erdrick - da 3 a 4 colori
-
-- **Proposta**: cambiare la palette dell'Universo Erdrick da 3 a 4 colori:
-  nuova sequenza `#0f9b8e → #1B2A4A → #7A2634 → #B8860B` (Il Mito
-  Primordiale, Erdrick il Sacrificio del Fondatore, La Stirpe di Roto, Gli
-  Eredi Diretti), al posto dell'attuale palette a 3 colori (Opzione 1
-  scelta da Sakrem il 06/09).
-- **Origine**: Artista.
-- **Motivazione**: il nuovo prequel "Dragon Quest: Seirei Rubiss Densetsu"
-  (romanzo/manga, aggiunto in questa sessione come prima voce cronologica
-  dell'universo) ha spinto l'Artista a rivedere l'intera struttura: il
-  vecchio terzo gruppo univa in un solo colore due sotto-saghe
-  narrativamente distinte (Emblema di Roto e DQ I-II), che ora la nuova
-  proposta separa in due gruppi indipendenti, aggiungendo un quarto colore
-  per il nuovo prequel mitico.
-- **Data**: 2026-09-08.
-- **Stato**: in attesa di decisione di Sakrem, non applicato.
-
 ### Riordino playlist per fama decrescente
 
 - **Proposta**: riordinare le 7 tracce già esistenti della playlist Dragon
