@@ -252,35 +252,40 @@ tra nessuna coppia di titoli dell'intera saga (non solo un titolo
 isolato, l'intera saga), è questo il segnale che ti porta a valutare
 se applicare questa regola.
 
-## Eccezione che resta sempre di Sakrem: collegamento tra universi
+## Collegamento tra universi
 
-Un caso non rientra mai nel tuo "agire in vece di Sakrem": se due
-universi diversi della STESSA saga hanno un aggancio narrativo
-causale diretto e ufficiale (non un parallelismo tematico), va sempre
-segnalato e confermato con Sakrem esplicitamente, caso per caso -
-mai una tua iniziativa autonoma, in nessun caso, anche quando saresti
-altrimenti autorizzato a decidere da solo.
+Se due universi diversi della STESSA saga hanno un aggancio narrativo
+causale diretto e ufficiale (non un parallelismo tematico), decidi tu
+- non lo proponi a Sakrem, non aspetti una sua conferma: rientra nel
+tuo "agire in vece di Sakrem" come qualunque altro caso di questo
+tipo. Il criterio è oggettivo, non un giudizio di gusto:
 
-**Attenzione alla portata reale del collegamento**: il meccanismo
-tecnico che rappresenta questo caso (`universeLink`, vedi il file del
-Programmatore) collega visivamente i due UNIVERSI nella loro
-interezza, non due titoli specifici al loro interno - un ponte
-tratteggiato che parte da un capo della linea di un universo e arriva
-a un capo della linea dell'altro. Prima di proporlo a Sakrem, verifica
-sempre se l'aggancio causale riguarda davvero l'intero universo (come
-il caso originale BioShock Rapture/Columbia, dove l'intera trama di
-Columbia sfocia in quella di Rapture) o se in realtà lega solo due
-media specifici al suo interno (es. una singola scena di un film con
-una singola voce di un altro universo, senza che il resto delle due
-linee abbia nulla a che vedere). Nel secondo caso, proporre
-`universeLink` sarebbe impreciso: il meccanismo implica visivamente un
-collegamento più ampio di quanto la trama giustifichi davvero.
-Segnala sempre questa distinzione a Sakrem quando presenti il caso -
-capita di scoprirlo solo a posteriori, dopo che il collegamento è già
-stato mostrato: se succede, niente panico, proponi la rimozione del
-tutto (l'universo resta a sé stante, senza ponte verso nessun altro)
-piuttosto che forzare un compromesso visivo che finirebbe comunque per
-raccontare un collegamento falso.
+- **Se l'aggancio causale riguarda davvero l'intero universo** (come
+  il caso originale BioShock Rapture/Columbia, dove l'intera trama di
+  Columbia sfocia in quella di Rapture): lo implementi, trovando tu il
+  modo migliore di mostrarlo. Il meccanismo tecnico è `universeLink`
+  (vedi il file del Programmatore) - un ponte tratteggiato che parte
+  da un capo della linea di un universo e arriva a un capo della
+  linea dell'altro, con direzione ed etichetta che descrivono
+  l'aggancio. Comunichi al Programmatore i valori esatti (`edge`,
+  `direction`, `targetUniverse`, `label`) in base a dove nella linea
+  si trova l'evento che genera/riceve il collegamento.
+- **Se invece l'aggancio lega solo due media specifici al suo
+  interno** (es. una singola scena di un film con una singola voce di
+  un altro universo, senza che il resto delle due linee abbia nulla a
+  che vedere), e non l'intero universo: NON lo implementi. `universeLink`
+  collega visivamente i due universi nella loro interezza - usarlo qui
+  sarebbe impreciso, implicherebbe un collegamento più ampio di quanto
+  la trama giustifichi davvero. I due universi restano a sé stanti,
+  senza alcun ponte tra loro. La menzione narrativa nella sinossi del
+  media coinvolto (se la trama la richiede) resta comunque, è solo
+  testo, non un collegamento strutturale.
+
+Capita di accorgersi solo a posteriori di essere nel secondo caso,
+dopo che un collegamento era già stato mostrato per errore: se
+succede, niente panico, rimuovilo del tutto (l'universo torna a sé
+stante) piuttosto che forzare un compromesso visivo che finirebbe
+comunque per raccontare un collegamento falso.
 
 ## Ordine tra universi, titoli su due universi, fonti contraddittorie
 
