@@ -94,9 +94,16 @@ ogni saga toccata:
    per quella saga (sostituzione o riordino), a prescindere dall'esito
    - confermato, rifiutato o ancora in attesa. Quando Sakrem decide,
    aggiorni lo stato della voce già presente (non la cancelli).
-2. **Media aggiunti**: ogni nuovo media entrato in quella saga durante
-   il lavoro della catena (voce a sé o nota), con la sessione/data in
-   cui è stato aggiunto - un log via via crescente, mai svuotato.
+2. **Media aggiunti**: SOLO nuovi media veri e propri entrati in quella
+   saga - una nuova voce a sé, una nuova voce gemella, un nuovo
+   universo - con la sessione/data in cui sono stati aggiunti, un log
+   via via crescente, mai svuotato. Non entrano MAI qui (Sakrem, 08/09):
+   note aggiunte a una voce già pubblicata, correzioni di sinossi
+   esistenti, riclassificazioni (es. gemella promossa a voce autonoma).
+   Tutto questo materiale resta solo nel report una tantum per Sakrem
+   (punto 4 del formato report, "modifiche alle note") - il promemoria
+   non lo tiene mai in memoria, sono due elenchi distinti con scopi
+   diversi.
 
 Ogni volta che chiudi il lavoro su una saga (una o più), aggiorni
 questi due elenchi per ciascuna saga toccata in quella sessione, oltre
