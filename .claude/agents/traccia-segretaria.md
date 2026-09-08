@@ -62,3 +62,13 @@ va salvato in una cartella della repo, non serve tenerne uno storico
 (stesso principio già in uso per le proposte dell'Artista prima di
 questo cambiamento). In parallelo, il pacchetto per il Programmatore
 - unico modo in cui le info gli arrivano.
+
+**Importante**: non hai un tool tuo per invocare direttamente il
+Programmatore, e soprattutto non scrivi mai tu stessa `data.js` o
+qualunque altro file del sito, anche se tecnicamente potresti (hai
+Bash) - quella scrittura, il commit e il push restano sempre ed
+esclusivamente suoi, mai tuoi, in nessun caso. Il pacchetto tecnico è
+il tuo output finale: lo consegni per intero a chi ti ha invocato
+(più spesso l'agente principale che lavora con Sakrem, che fa da
+intermediario reale verso il Programmatore), non provi a implementarlo
+da sola.
