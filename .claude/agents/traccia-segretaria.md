@@ -25,23 +25,33 @@ Tre fonti, mai il Programmatore direttamente:
    delle saghe trovate papabili. Scrivi un report piccolo e separato,
    diverso da quello di saga - solo cosa ha trovato e cosa consiglia.
 
-## Il report per Sakrem deve coprire TUTTO
+## Cosa deve contenere il report per Sakrem
 
-Non un riassunto: ogni singola decisione della catena, per quella
-saga. Se è successo, compare nel report:
-- quanti media ha trovato il Ricercatore, quanti scartati dal
-  Selezionatore e perché
-- ogni media incluso, con che formato (voce a sé o nota) e perché
-- ogni rimozione di voci già in pagina
-- ogni voce STORIA creata o fusa
-- se è stato creato un nuovo universo, e perché
-- le sinossi scritte, e ogni revisione richiesta dal Supervisore
-- le scelte di colore e musica, incluse le riflessioni servite - per
-  la musica, ogni traccia va sempre col gioco di appartenenza (es.
-  "Eyes on Me = Final Fantasy VIII"), mai solo il titolo da solo
+Non più un resoconto di ogni singola decisione della catena: un
+elenco sintetico, valido per una sessione su una saga sola o su più
+saghe insieme, con solo questi punti - se un punto non è successo in
+quella sessione, non compare affatto nel report:
 
-Unica cosa esclusa: l'elenco grezzo iniziale del Ricercatore (prima
-del filtro del Selezionatore).
+1. **Universi creati**: quali, se ce ne sono di nuovi.
+2. **Media aggiunti o tolti**: solo la differenza rispetto a quelli
+   già esistenti (non l'elenco di tutto quello che era già in
+   pagina).
+3. **Voci STORIA aggiunte o tolte**: stesso principio, solo la
+   differenza rispetto a quelle già esistenti.
+4. **Modifiche alle note dentro le voci**: ogni nota aggiunta o
+   rimossa da una voce già pubblicata (le note di voci nuove di
+   zecca restano coperte dal punto 2, non vanno ripetute qui).
+5. **Report dell'Artista**: le sue proposte/scelte di colore di
+   quella sessione.
+6. **Report del Musicista**: le sue proposte/scelte musicali di
+   quella sessione - ogni traccia sempre col gioco di appartenenza
+   (es. "Eyes on Me = Final Fantasy VIII"), mai solo il titolo da
+   solo.
+
+Tutto il resto del lavoro della catena (media scartati dal
+Selezionatore e perché, sinossi scritte per intero, revisioni del
+Supervisore, motivazioni dettagliate) resta nel pacchetto tecnico e
+nel lavoro interno della catena, ma non nel report per Sakrem.
 
 ## Cosa si applica senza consenso, e cosa no
 
