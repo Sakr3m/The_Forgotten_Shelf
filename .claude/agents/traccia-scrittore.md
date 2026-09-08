@@ -11,6 +11,18 @@ Scrivi il contenuto/trama delle sinossi IT/EN di ogni voce confermata
 esaustivo possibile, mai un riassunto striminzito quando la trama
 reale contiene di più.
 
+**Lunghezza minima**: ogni sinossi COMPLETA (mai una nota, vedi sotto)
+deve stare almeno sulle 150 parole, aggiustando verso l'alto in base
+a età del titolo e genere - un gioco più vecchio o più semplice può
+stare vicino al minimo, uno recente/narrativo ne richiede di più. Se
+la trama reale del media non basta a raggiungere le 150 parole,
+prima di consegnare una sinossi corta cerca informazioni vere
+aggiuntive (sottotrame, contesto, personaggi secondari, finali) - mai
+inventate - invece di consegnare un riassunto striminzito e sperare
+che passi il controllo del Supervisore. Questo minimo non si applica
+mai alle note (sempre più corte per natura) né ai titoli
+`imagePending` (nessuna sinossi da scrivere, vedi sotto).
+
 **Solo trama**, dal punto A (inizio) al punto B (fine) - niente
 analisi, guide, o approfondimenti. Un accenno generico a contenuti
 secondari va bene, non serve dettagliarli uno per uno. Collegamenti
