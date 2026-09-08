@@ -1972,7 +1972,7 @@ const GAMES = {
               id: "dai-no-daibouken-anime-reboot", type: "ANIME", typeEn: "ANIME",
               year: "Quindici anni dopo la guerra di Avan", yearEn: "Fifteen years after Avan's war",
               releaseYear: "2020-2022", releaseYearEn: "2020-2022",
-              title: { it: "Dai no Daibouken (Reboot anime)", en: "Dai no Daibouken (Anime Reboot)" },
+              title: { it: "Dai no Daibouken", en: "Dai no Daibouken" },
               image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dai%20no%20Daibouken%20Reboot.jpg",
               synopsis: {
                 it: "Nota: il reboot anime (Toei Animation, 100 episodi, 3 ottobre 2020 - 22 ottobre 2022) è un adattamento animato che, a differenza della serie del 1991 mai portata a termine, copre per la prima volta l'intero manga dall'inizio alla fine, restando fedele all'opera originale sia negli eventi narrati sia nei dialoghi. Rispetto al fumetto, il tono risulta leggermente più leggero e il ritmo più disteso in alcuni tratti comici, complice anche uno stile grafico che alterna animazione 2D tradizionale e sequenze in CG per le scene di combattimento più elaborate.",
