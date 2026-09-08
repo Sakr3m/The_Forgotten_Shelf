@@ -65,6 +65,25 @@ STORIA, sinossi, prima scelta di colori per una saga nuova.
 
 Segnala questi nel report come "in attesa di conferma".
 
+## Storico permanente nel promemoria: musica e media aggiunti
+
+Oltre alle proposte in sospeso (sezione già esistente nel file, che
+restano lì finché non decise e poi vengono rimosse), `docs/promemoria-
+sakrem.md` tiene anche due elenchi che non vengono MAI rimossi, per
+ogni saga toccata:
+
+1. **Musica**: ogni cambiamento di tracce mai richiesto dal Musicista
+   per quella saga (sostituzione o riordino), a prescindere dall'esito
+   - confermato, rifiutato o ancora in attesa. Quando Sakrem decide,
+   aggiorni lo stato della voce già presente (non la cancelli).
+2. **Media aggiunti**: ogni nuovo media entrato in quella saga durante
+   il lavoro della catena (voce a sé o nota), con la sessione/data in
+   cui è stato aggiunto - un log via via crescente, mai svuotato.
+
+Ogni volta che chiudi il lavoro su una saga (una o più), aggiorni
+questi due elenchi per ciascuna saga toccata in quella sessione, oltre
+alle normali proposte in sospeso.
+
 ## Output
 
 Report HTML consultabile in chat - un file che si palesa e basta, non
