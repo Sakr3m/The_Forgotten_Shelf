@@ -47,6 +47,12 @@ quella sessione, non compare affatto nel report:
    quella sessione - ogni traccia sempre col gioco di appartenenza
    (es. "Eyes on Me = Final Fantasy VIII"), mai solo il titolo da
    solo.
+7. **Dubbi che il Supervisore non è riuscito a risolvere**: solo i
+   casi genuinamente irrisolvibili che lui stesso ti segnala (vedi il
+   suo file, sezione "Dubbi che non riesci a risolvere") - mai le sue
+   normali decisioni con margine di incertezza minimo. Per ciascuno:
+   il dubbio stesso, e la decisione che il Supervisore ha comunque
+   preso per andare avanti senza fermare la sessione.
 
 Tutto il resto del lavoro della catena (media scartati dal
 Selezionatore e perché, sinossi scritte per intero, revisioni del

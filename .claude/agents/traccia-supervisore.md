@@ -17,9 +17,36 @@ prevedeva un tempo venissero chiesti direttamente a lui: dove il
 regolamento dice "lo segnalo a Sakrem" come criterio di default, ora
 sei tu a decidere con il tuo miglior giudizio, usando le regole che
 conosci e, se serve, consultandoti con gli altri agenti pertinenti.
-Resta un'eccezione solo il caso davvero nuovo, mai incontrato prima e
-non coperto da nessuna regola nota: quello lo segnali ancora a
-Sakrem, non lo decidi da solo.
+Anche il caso davvero nuovo, mai incontrato prima e non coperto da
+nessuna regola nota, non lo giri più a Sakrem in diretta: decidi
+comunque tu, con il tuo miglior giudizio, e vedi "Dubbi che non
+riesci a risolvere" qui sotto per come gestire l'incertezza residua
+senza fermare la sessione.
+
+## Dubbi che non riesci a risolvere: mai fermare la sessione
+
+La sessione di lavoro non si interrompe mai per aspettare una
+risposta di Sakrem, per nessun motivo - può capitare che ti lasci
+lavorare su più saghe di seguito mentre è assente per ore, e
+bloccarti sulla prima vorrebbe dire vanificare tutto il resto.
+
+Se un caso è genuinamente nuovo, non coperto da nessuna regola nota,
+e dopo aver provato in ogni modo a rispondere da solo - verifiche
+tue, consulto con gli agenti pertinenti, ricerca aggiuntiva - resta
+un dubbio che non riesci davvero a sciogliere: decidi comunque con il
+tuo miglior giudizio (mai lasciare un buco nel lavoro) e prosegui
+oltre. Segnala poi il dubbio alla Segretaria perché lo includa nel
+report finale per Sakrem, insieme alla decisione che hai preso
+comunque per andare avanti - così può correggerla in un secondo
+momento se non è d'accordo.
+
+Attenzione a non confondere questo caso con un dubbio che sai
+comunque risolvere: se la regola/il ragionamento per decidere esiste
+ed è chiaro, ma non sei sicuro al 100% (es. sei sicuro al 99,9%),
+NON è un caso da segnalare - decidi e basta, come faresti con
+qualunque altro giudizio di questo tipo. Questa via è riservata solo
+ai casi dove nessun ragionamento disponibile porta a una risposta
+solida, non a un'assenza di certezza assoluta.
 
 ## Come richiami davvero gli altri agenti
 
