@@ -54,3 +54,39 @@ una sotto-sezione `###` per ogni proposta, con questi campi fissi:
   21 tracce) per l'attuale "The Light Carrier Test".
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+## Assassin's Creed - immagini mancanti
+
+Sezione diversa dalle precedenti: non è una proposta da confermare o
+scartare, ma un semplice elenco di lavoro. Le 11 voci sotto sono ancora
+prive dell'immagine/copertina corrispondente caricata su R2 da Sakrem (le
+voci elencano già il campo `image` in `data.js` con l'URL atteso, in stile
+segnaposto coerente con la convenzione di naming del bucket, ma il file
+fisico non risulta ancora caricato). Stesso schema già discusso per Ace
+Combat: quando Sakrem carica i file su R2, passa solo il nome file e la
+voce esce da questo elenco.
+
+Copertine mancanti per le 9 nuove voci pubblicate in questo ciclo:
+
+1. `nexus-vr` - Assassin's Creed Nexus VR
+2. `jack-the-ripper` - Assassin's Creed Syndicate: Jack the Ripper
+3. `magus-conspiracy` - Assassin's Creed: La Cospirazione del Magus
+4. `resurrection-plot` - Assassin's Creed: The Resurrection Plot
+5. `last-descendants` - Assassin's Creed: Last Descendants
+6. `geirmunds-saga` - Assassin's Creed Valhalla - La Saga di Geirmund
+7. `song-of-glory` - Assassin's Creed Valhalla: Il Canto della Gloria
+8. `conspiracies` - Assassin's Creed: Conspiracies
+9. `bloodstone` - Assassin's Creed: Bloodstone
+
+Copertina propria mancante per la voce gemella (le gemelle hanno sempre
+immagine propria, distinta dall'ospite):
+
+10. `blade-of-shao-jun` - Assassin's Creed: Blade of Shao Jun (gemella di
+    `chronicles-china`)
+
+Filigrana (watermark) mancante per il nuovo universo:
+
+11. `novecento` - universo "Novecento" (unico, tra gli universi della
+    saga, ancora privo del campo `watermark`)
+
+- **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
