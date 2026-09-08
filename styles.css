@@ -1111,7 +1111,8 @@ body[data-state="landing"] .index-link{ display:flex; }
 
 
 .h-node__marker{ align-self:center; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
-.h-node--down .h-node__marker::after{
+.h-node--down .h-node__marker::after,
+.h-node--twin .h-node__marker::after{
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
   margin-top:5px;
@@ -1119,7 +1120,8 @@ body[data-state="landing"] .index-link{ display:flex; }
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
 }
-.h-node--up .h-node__marker::before{
+.h-node--up .h-node__marker::before,
+.h-node--twin .h-node__marker::before{
   content:"";
   position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
   margin-bottom:5px;
@@ -1732,12 +1734,14 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .h-node__tile{ width:63px; height:80px; }
   .h-node__title{ font-size:.7rem; height:auto; width:80px; }
   .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
-  .h-node--down .h-node__marker::after{
+  .h-node--down .h-node__marker::after,
+  .h-node--twin .h-node__marker::after{
     top:50%; left:100%; bottom:auto; transform:translateY(-50%);
     margin-top:0; margin-left:8px;
     width:7px; height:2px;
   }
-  .h-node--up .h-node__marker::before{
+  .h-node--up .h-node__marker::before,
+  .h-node--twin .h-node__marker::before{
     top:50%; right:100%; bottom:auto; left:auto; transform:translateY(-50%);
     margin-bottom:0; margin-right:8px;
     width:7px; height:2px;
