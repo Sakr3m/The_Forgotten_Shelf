@@ -538,3 +538,43 @@ mai popolata finora, vedi sotto in "Musica"):
 - Nuovo universo **Gaia** (Vivi and Grandpa's Memories for the Sky →
   Final Fantasy IX, posizionato tra Riunione e Spira) - sessione
   notturna, 2026-09-08.
+
+## Fire Emblem
+
+### Musica
+
+#### Tracklist completa saga (rifatta da capo)
+
+- **Proposta**: sostituire integralmente la playlist della saga (`tracks:
+  []`, mai popolata finora) con una nuova selezione di 7 brani: Lost in
+  Thoughts All Alone (*Fire Emblem Fates*), Id (Purpose) (*Fire Emblem:
+  Awakening*), The Edge of Dawn (*Fire Emblem: Three Houses*), Fire
+  Emblem Theme (*Fire Emblem: Shadow Dragon and the Blade of Light*),
+  Together We Ride (*Fire Emblem: The Blazing Blade*), The Devoted
+  (*Fire Emblem: Radiant Dawn*), Lost in the Waves (*Fire Emblem
+  Fates*).
+- **Origine**: Musicista.
+- **Motivazione**: selezione dei brani più iconici/riconoscibili della
+  saga, a copertura di più universi/capitoli, per popolare per la prima
+  volta la playlist.
+- **Data**: 2026-09-08 (sessione notturna).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico).
+
+### Media aggiunti
+
+- `three-houses` - Fire Emblem: Three Houses (VIDEOGIOCO, 2019) - voce
+  a sé, prima voce del nuovo universo Fódlan - sessione notturna,
+  2026-09-08.
+- `three-hopes` - Fire Emblem Warriors: Three Hopes (VIDEOGIOCO, 2022) -
+  voce a sé, seconda voce del nuovo universo Fódlan - sessione notturna,
+  2026-09-08.
+- `fortune-s-weave` - Fire Emblem: Fortune's Weave (VIDEOGIOCO, in
+  uscita 17 settembre 2026, imagePending) - voce a sé, terza e ultima
+  voce del nuovo universo Fódlan - sessione notturna, 2026-09-08.
+- Nuovo universo **Fódlan** (Three Houses → Fortune's Weave, quarto e
+  ultimo universo della saga, dopo Tellius) - sessione notturna,
+  2026-09-08.
+</content>
