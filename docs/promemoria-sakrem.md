@@ -152,3 +152,72 @@ Filigrana (watermark) mancante per il nuovo universo:
   citato tra i classici della saga.
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+## Dragon Quest
+
+### Cambio palette Universo Erdrick - da 3 a 4 colori
+
+- **Proposta**: cambiare la palette dell'Universo Erdrick da 3 a 4 colori:
+  nuova sequenza `#0f9b8e → #1B2A4A → #7A2634 → #B8860B` (Il Mito
+  Primordiale, Erdrick il Sacrificio del Fondatore, La Stirpe di Roto, Gli
+  Eredi Diretti), al posto dell'attuale palette a 3 colori (Opzione 1
+  scelta da Sakrem il 06/09).
+- **Origine**: Artista.
+- **Motivazione**: il nuovo prequel "Dragon Quest: Seirei Rubiss Densetsu"
+  (romanzo/manga, aggiunto in questa sessione come prima voce cronologica
+  dell'universo) ha spinto l'Artista a rivedere l'intera struttura: il
+  vecchio terzo gruppo univa in un solo colore due sotto-saghe
+  narrativamente distinte (Emblema di Roto e DQ I-II), che ora la nuova
+  proposta separa in due gruppi indipendenti, aggiungendo un quarto colore
+  per il nuovo prequel mitico.
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+### Riordino playlist per fama decrescente
+
+- **Proposta**: riordinare le 7 tracce già esistenti della playlist Dragon
+  Quest (stesse tracce, nuovo ordine): Overture (DQ1) → Fighting Spirit
+  (DQ3) → Unyielding Courage (DQ11) → Bridal Waltz (DQ5) → Wagon Wheel's
+  March (DQ4) → Violent Enemies (DQ2) → Pegasus (DQ6), al posto
+  dell'attuale ordine cronologico per numero di capitolo (DQ1→DQ2→DQ3→
+  DQ4→DQ5→DQ6→DQ11).
+- **Origine**: Musicista.
+- **Motivazione**: l'ordine cronologico attuale non riflette il
+  gradimento/fama reale delle tracce, verificato con ricerche su
+  recensioni, wiki musicali, cronache di concerti sinfonici e reazioni di
+  fan/critica.
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+## Dragon Quest - immagini mancanti
+
+Sezione diversa dalle precedenti: non è una proposta da confermare o
+scartare, ma un semplice elenco di lavoro. Le voci sotto sono ancora
+prive dell'immagine/copertina corrispondente caricata su R2 da Sakrem (i
+campi `image` in `data.js` contengono già l'URL atteso in stile
+segnaposto coerente con la convenzione di naming del bucket, ma il file
+fisico non risulta ancora caricato). Stesso schema già discusso per
+Assassin's Creed: quando Sakrem carica i file su R2, passa solo il nome
+file e la voce esce da questo elenco.
+
+Copertine mancanti per le nuove voci pubblicate in questo ciclo:
+
+1. `seirei-rubiss-densetsu` - Dragon Quest: Seirei Rubiss Densetsu
+   (romanzo)
+2. `seirei-rubiss-densetsu-manga` - Dragon Quest: Seirei Rubiss Densetsu
+   (manga, gemella)
+3. `hero-avan-dark-lord-hellfire` - The Hero Avan and the Dark Lord of
+   Hellfire
+4. `dai-no-daibouken` - Dai no Daibouken (manga)
+5. `dai-no-daibouken-anime-reboot` - Dai no Daibouken Reboot anime
+   (gemella)
+6. `dq7` - Dragon Quest VII
+7. `warriors-of-eden` - Warriors of Eden (gemella)
+8. `dragon-quest-builders-2` - Dragon Quest Builders 2
+
+Filigrane (watermark) mancanti per i due nuovi universi:
+
+9. `dai` - Universo Dai (nessuna filigrana ancora caricata)
+10. `eden` - Universo Eden (nessuna filigrana ancora caricata)
+
+- **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
