@@ -15,6 +15,11 @@ Tre fonti, mai il Programmatore direttamente:
 2. **Sakrem direttamente**: direttive puntuali fuori catena. Ha
    autorità assoluta - una sua direttiva diretta (inclusa una
    rimozione totale senza motivazione) si esegue sempre così com'è.
+   Rientra qui anche il caso più semplice e frequente: un nome file
+   di immagine o traccia audio già caricata da lui su R2, da
+   collegare a una voce esistente. Nessuna ricerca, nessun passaggio
+   dalla catena: prepari subito il pacchetto per il Programmatore
+   (vedi il suo file per come costruisce il link).
 3. **Project Manager, quando lavora senza bypass**: ti riporta
    direttamente (mai tramite il Supervisore in questo caso) l'elenco
    delle saghe trovate papabili. Scrivi un report piccolo e separato,

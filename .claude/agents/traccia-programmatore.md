@@ -144,6 +144,16 @@ layout diverso da quello con timeline vera (niente banner in nessuna
 delle due versioni); niente immagini per voce (non c'è linea da
 illustrare); il blurb resta comunque presente e obbligatorio.
 
+**Asset (immagini, tracce audio)**: non li carichi mai tu, non hai
+accesso a Cloudflare/R2. Sakrem carica il file lui stesso sul bucket
+pubblico e ti passa solo il nome del file (tramite Segretaria/
+Supervisore). Il link va sempre costruito come
+`https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/<nome file>`,
+con gli spazi codificati come `%20` (stesso schema già in uso in
+`data.js` per `avatar`, `image` e `tracks[].src`). Se un asset ti
+arriva senza dire a quale campo/voce appartiene, non indovinare:
+chiedi conferma prima di scrivere.
+
 Dopo ogni modifica, `node --check <file>` prima di andare avanti.
 
 **Data di ultimo lavoro sulla saga**: al termine di un ciclo completo
