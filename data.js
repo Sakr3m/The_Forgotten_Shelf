@@ -10,8 +10,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Ace Combat", en: "Ace Combat" },
     blurb: {
-      it: "Nei cieli di un mondo immaginario chiamato Strangereal, piloti da caccia si contendono il controllo di nazioni in guerra. Ogni conflitto nasconde ambizioni politiche, alleanze tradite e superarmi capaci di ribaltare il destino di interi continenti. Al centro di tutto, un asso silenzioso che vola per chi non ha voce.",
-      en: "In the skies of a fictional world called Strangereal, fighter pilots fight for control of nations at war. Every conflict hides political ambition, betrayed alliances, and superweapons capable of reshaping the fate of entire continents. At the center of it all, a silent ace who flies for those who have no voice."
+      it: "Piloti da caccia decidono il destino di guerre e nazioni in duelli aerei mozzafiato: nella Strangereal immaginaria e nei cieli di un vicino futuro terrestre, ogni conflitto nasconde ambizioni politiche, alleanze tradite, armi capaci di ribaltare interi continenti. Al centro, assi silenziosi che volano per chi non ha voce.",
+      en: "Fighter pilots stake the fate of wars and nations on breathtaking dogfights: in the fictional Strangereal and in the skies of a near-future Earth, every conflict hides political ambition, betrayed alliances, weapons capable of reshaping entire continents. At the center, silent aces who fly for those who have no voice."
     },
     palette: ["#e0813f", "#98a2ab", "#4f8fc0"],
     accentColor: "#3E7CAE",
@@ -27,6 +27,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Banner.jpg",
     watermarkOpacity: 0.18,
+    lastAgentPass: "2026-09-08",
     universes: [
       {
         id: "vera-strangereal",
