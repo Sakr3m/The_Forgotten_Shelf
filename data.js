@@ -174,7 +174,7 @@ const GAMES = {
           { id: "collasso-estovacchia", type: "STORIA", typeEn: "STORY", year: "1999 – 2015", yearEn: "1999 – 2015",
             noAvatar: true,
             title: { it: "Il Collasso dell'Estovakia", en: "The Collapse of Estovakia" },
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md, linea
             // doppia sottile): copre lo stesso arco di date delle voci
             // che racchiude, ma racconta eventi ambientati altrove,
             // scollegati, senza alcun punto di contatto narrativo con
@@ -199,7 +199,7 @@ const GAMES = {
           { id: "ascesa-erusea", type: "STORIA", typeEn: "STORY", year: "2005 – 2019", yearEn: "2005 – 2019",
             noAvatar: true,
             title: { it: "L'Ascesa di Erusea", en: "The Rise of Erusea" },
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md, linea
             // doppia sottile): stesso meccanismo di "Il Collasso
             // dell'Estovakia" qui sopra, arco parzialmente sovrapposto
             // al suo (entrambi racchiudono "La Distensione di Osea e
@@ -632,7 +632,7 @@ const GAMES = {
             }
           },
           // STORIA "fall-of-paris-temple" adiacente a un'altra STORIA
-          // (fall-of-masyaf): caso ammesso dall'eccezione del regolamento
+          // (fall-of-masyaf): caso ammesso dall'eccezione in .claude/agents/traccia-supervisore.md
           // (Parte 1, punto 4) perché fall-of-masyaf rientra nell'arco
           // della voce ombrello "secret-crusade" (vedi array umbrellas
           // più sotto) mentre fall-of-paris-temple resta fuori da
@@ -718,7 +718,7 @@ const GAMES = {
             // Altaïr), non un'esperienza vissuta in prima persona da chi
             // legge - lineStyle "dotted" (PARTE 3 punto 3, variante 3).
             lineStyle: "dotted",
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento): la sua
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md): la sua
             // trama copre l'intera vita di Altaïr, dall'infanzia fino
             // alla morte a Masyaf nel 1257 - racconto in flashback fatto
             // da Niccolò Polo a Maffeo proprio durante l'assedio narrato
@@ -741,7 +741,7 @@ const GAMES = {
             releaseYear: "2009 (Remaster: 2016)", releaseYearEn: "2009 (Remaster: 2016)",
             title: { it: "Assassin's Creed II", en: "Assassin's Creed II" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20II.jpg",
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md, linea
             // doppia sottile): il gioco (1476-1499, Ezio a Firenze,
             // Venezia e Roma) e il film Assassin's Creed (1491-1492,
             // Aguilar in Spagna) si svolgono in parallelo nello stesso
@@ -910,7 +910,7 @@ const GAMES = {
             releaseYear: "2012", releaseYearEn: "2012",
             title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Forsaken.jpg",
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento): stessi
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md): stessi
             // eventi (la Rivoluzione Americana) di "assassins-creed-3",
             // ma vissuti da un personaggio diverso (Haytham Kenway
             // invece di Connor) - lineStyle "dashed" (variante 2).
@@ -1028,7 +1028,7 @@ const GAMES = {
         span: { it: "Anni '40 – 1968", en: "1940s – 1968" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Bioshock%20Rapture%20Filigrana.jpg",
         palette: ["#C2A233", "#6B7A3D", "#2E9E86"],
-        // Collegamento tra Universi (PARTE 1 punto 19 del regolamento,
+        // Collegamento tra Universi (vedi .claude/agents/traccia-supervisore.md (Eccezione collegamento tra universi),
         // primo caso reale, confermato da Sakrem): Rapture RICEVE
         // l'aggancio causale da Columbia, tramite BioShock Infinite:
         // Burial at Sea Episode 2 (Elizabeth rivela ad Atlas/Fontaine la
@@ -1357,7 +1357,7 @@ const GAMES = {
             releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Castlevania: Legacy of Darkness", en: "Castlevania: Legacy of Darkness" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Castlevania%20Legacy%20of%20Darkness.jpg",
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento, linea
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md, linea
             // diretta/solida, nessun lineStyle): la sinossi del gioco
             // stesso dichiara che il suo scenario sbloccabile (Henry
             // Oldrey adulto) e' ambientato "in concomitanza con gli
@@ -3486,7 +3486,7 @@ const GAMES = {
         umbrellas: [
           { id: "ascendance", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Prima di Soul Reaver", yearEn: "Before Soul Reaver", releaseYear: "2026", releaseYearEn: "2026",
             title: { it: "Legacy of Kain: Ascendance", en: "Legacy of Kain: Ascendance" },
-            // Voce "ombrello" (PARTE 3 punto 3 del regolamento): la sua
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md): la sua
             // trama copre l'arco tra "The Dead Shall Rise" (dove Elaleth
             // viene introdotta, e da dove Ascendance parte quindi DOPO,
             // non prima) e "La Caduta di Raziel" (dove Ascendance FINISCE

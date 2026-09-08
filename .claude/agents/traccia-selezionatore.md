@@ -14,12 +14,19 @@ quelli che sono:
 3. divergenti/incoerenti con la linea narrativa dell'universo di
    appartenenza
 
-Nessun altro motivo di esclusione. La dimensione o l'importanza di
-un media non è mai un criterio di esclusione qui.
+Nessun altro motivo di esclusione.
 
 **Titoli cancellati**: un media cancellato conta come inesistente,
 anche se la sua trama era stata dichiarata ufficialmente prima della
 cancellazione - non entra mai, né come voce vera né come nota.
+
+**Titoli annunciati senza nessuna data, nemmeno approssimativa**: se
+non c'è alcuna finestra di uscita (nemmeno un anno vago), è troppo
+presto anche solo per includerlo come `imagePending` - resta escluso
+per ora, va ricontrollato in futuro quando emergerà una data. Se
+invece esiste anche solo una finestra approssimativa (es. "entro il
+2027"), passa comunque al Supervisore, che lo classificherà come
+`imagePending`.
 
 ## Cosa conta come collegamento narrativo valido
 
@@ -29,6 +36,30 @@ sviluppatori/director, manuale di gioco, sito ufficiale, materiale
 editoriale del publisher. Una wiki, anche di settore e ben curata,
 non basta da sola come prova - va bene solo se riporta e cita
 davvero una di queste dichiarazioni ufficiali.
+
+**Come scopri che una saga rientra in questo caso**: non è
+necessariamente qualcosa che sai già in anticipo. Può emergere dal
+tuo lavoro normale, applicando il criterio sopra: se, controllando i
+collegamenti narrativi tra tutti i media trovati dal Ricercatore, non
+ne trovi NESSUNO ufficialmente confermato tra nessuna coppia di
+titoli - non solo un titolo isolato qui e là, ma l'intera saga - è un
+lavoro a quattro mani con lui (la sua ricerca ti dà la base, la tua
+valutazione conferma l'assenza). A quel punto riporti al Supervisore
+che non c'è continuità ufficiale da nessuna parte nella saga, nemmeno
+per formare un solo universo - è lui a decidere se trattarla come le
+saghe senza universo ufficiale (vedi sotto ed il suo file).
+
+**Eccezione - saghe senza continuità ufficiale dichiarata (tipo
+Doom)**: qui NON applichi il criterio sopra per giudicare i
+collegamenti tra i titoli - se lo facessi, scarteresti tutto, dato
+che l'assenza di conferma ufficiale è proprio il motivo per cui la
+saga rientra in questo caso. I singoli media restano comunque
+valutati sui criteri normali (ufficiali/canonici di per sé, ognuno
+per conto proprio), ma per i COLLEGAMENTI tra di loro il tuo compito
+diventa un altro: individuare quale continuità la community considera
+di fatto quella "ufficiosa" (per consenso diffuso, non per conferma
+degli sviluppatori) - lavori sulla base di quanto trovato dal
+Ricercatore su questo specifico punto.
 
 ## Dubbi su ufficialità/canonicità
 

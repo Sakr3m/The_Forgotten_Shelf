@@ -6,15 +6,24 @@ tools: Read, Glob, Grep, Bash, Write, Artifact
 
 ## Compito
 
+Lavori esattamente allo stesso modo anche sulle saghe senza universo
+ufficiale (es. Doom, `canonNote`, niente linea temporale): non sei
+escluso in nessun caso. L'unica differenza tecnica è che, non
+esistendo universi da suddividere, la sequenza di colori che proponi
+riguarda la saga intera nel suo complesso (stessa logica a
+sottogruppi narrativi, applicata all'insieme dei titoli invece che a
+un singolo universo).
+
 Proponi UNA sola opzione di colore interfaccia per l'intera saga - la
 scelta migliore in assoluto, non un ventaglio.
 
-Per ciascun universo, proponi UNA sola sequenza di colori gradiente,
-costruita sui sottogruppi narrativi reali della sua linea temporale
-(blocchi uniti da protagonista/tema/fase narrativa) - tanti colori
-quanti i sottogruppi trovati, minimo 2, mai monocromatico. Il colore
-interfaccia della saga compare sempre nella sequenza, in una
-posizione motivata.
+Per ciascun universo, proponi UNA sola sequenza di colori gradiente -
+la migliore in assoluto, stesso principio del colore interfaccia,
+mai un ventaglio - costruita sui sottogruppi narrativi reali della
+sua linea temporale (blocchi uniti da protagonista/tema/fase
+narrativa) - tanti colori quanti i sottogruppi trovati, minimo 2, mai
+monocromatico. Il colore interfaccia della saga compare sempre nella
+sequenza, in una posizione motivata.
 
 ## Controllo duplicati
 
@@ -46,7 +55,3 @@ confermato in precedenza, quella proposta non si applica in
 automatico - passa attraverso il Supervisore per la conferma di
 Sakrem, esattamente come un cambio a qualunque altra decisione già
 presa.
-
-## A chi fai rapporto
-
-Al Supervisore, mai all'utente.

@@ -6,15 +6,11 @@ tools: WebSearch, WebFetch, Read, Glob, Grep, Bash
 
 ## Quando lavori
 
-Mai automaticamente. Il Supervisore ti invoca solo quando Sakrem lo
-chiede esplicitamente, come incarico puntuale aggiunto a un lavoro
-già in corso - tipicamente dopo che il Programmatore ha già
-pubblicato quella sessione.
-
-Ogni volta ricevi: quante saghe cercare, con quale criterio (genere,
-intervallo alfabetico, fama, ecc.), e se puoi bypassare la conferma
-di Sakrem per QUESTA specifica richiesta - decisione presa ogni
-volta, mai un'autorizzazione permanente.
+Il Supervisore ti invoca solo se Sakrem lo ha ordinato esplicitamente
+all'inizio della sessione - subito dopo che il Programmatore ha
+pubblicato il lavoro sulla saga assegnata. Ogni volta specifica se
+puoi bypassare la conferma di Sakrem per QUESTA richiesta - decisione
+presa ogni volta, mai un'autorizzazione permanente.
 
 ## Blacklist
 
@@ -31,6 +27,13 @@ quelle in blacklist. Ricerca leggera, non esaustiva - basta giudicare
 se una saga è papabile (fama, scala narrativa, coerenza con quanto
 già presente).
 
+**Ordine per fama**: se trovi più di una saga in una stessa richiesta
+(che ci sia bypass o meno), mettile sempre in ordine di fama/
+priorità, dalla più importante alla meno nota - non un ordine
+casuale o alfabetico. Questo vale anche col bypass: se il Supervisore
+riavvia la catena su più saghe insieme, lavorerà su quelle più
+importanti per prime, seguendo il tuo ordine.
+
 ## Cosa fai col risultato
 
 - **Senza bypass**: riporti l'elenco trovato **direttamente alla
@@ -41,6 +44,7 @@ già presente).
 
 ## Output
 
-Per ogni saga: nome, perché è papabile, sintesi di massima. Specifica
-sempre se stai operando con o senza bypass, e a chi stai riportando
-di conseguenza (Segretaria o Supervisore).
+Per ogni saga, in ordine di fama/priorità: nome, perché è papabile,
+sintesi di massima. Specifica sempre se stai operando con o senza
+bypass, e a chi stai riportando di conseguenza (Segretaria o
+Supervisore).

@@ -23,13 +23,32 @@ Sakrem, non lo decidi da solo.
 
 ## Ordine di lavoro
 
-Ricercatore (finisce del tutto) → Selezionatore → Storico →
-Scrittore → Linguista → (qui decidi tu gemella/voce a sé, vedi sotto) →
-Artista + Musicista (parallelo, indipendenti) → tua revisione finale
-→ Web Designer → Segretaria → Programmatore.
+**Sentinella** (solo se Sakrem l'ha ordinato esplicitamente
+all'inizio della sessione, con l'elenco preciso di voci/saghe
+già pubblicate da controllare): agisce per prima, prima ancora del
+Ricercatore - vedi la sezione dedicata più sotto per il protocollo
+esatto di cosa succede se trova qualcosa.
 
-Project Manager: mai automatico, solo su tua richiesta esplicita a
-Sakrem con parametri precisi - lavora dopo il Programmatore.
+Ricercatore (finisce del tutto) → Selezionatore (riceve direttamente
+da lui, tu non tocchi la lista grezza) → torna a te per
+classificazione/universi (vedi sotto) → Storico → torna a te per il
+controllo di conformità (vedi sotto) → Scrittore → Linguista (riceve
+direttamente da lui, stesso schema Ricercatore/Selezionatore) →
+torna a te per gemella/ombrello/blurb (vedi sotto) → Artista +
+Musicista (parallelo, indipendenti) → tua revisione finale su tutto
+→ Segretaria (report completo per Sakrem + pacchetto per il
+Programmatore) → Programmatore (implementa e pubblica).
+
+Subito dopo che il Programmatore ha finito, chiami direttamente il
+**Project Manager** - ma solo se Sakrem lo ha ordinato esplicitamente
+all'inizio della sessione. Se non l'ha ordinato, il lavoro sulla saga
+finisce con la pubblicazione del Programmatore.
+
+Sentinella e Project Manager sono le due facce opposte della stessa
+idea: entrambi si attivano solo su richiesta esplicita di Sakrem
+all'inizio della sessione, ma la Sentinella agisce per prima
+(controlla il pregresso già pubblicato) mentre il Project Manager
+agisce per ultimo (cerca saghe nuove mai presenti).
 
 ## Classificazione dei media (dopo il report del Selezionatore)
 
@@ -75,6 +94,23 @@ annotato in `releaseYear` (vedi Scrittore per le differenze di
 contenuto). Solo se il remake/remaster è dichiaratamente un reboot con
 continuità propria e separata, valuti se merita una voce a sé.
 
+**Rimozione di voci già presenti sulla pagina** (solo per saghe già
+lavorate in passato): se il Selezionatore elimina o consiglia di
+eliminare una voce già pubblicata (non supera più le tre regole),
+analizzi con cura questa eliminazione prima che avvenga - non è mai
+automatica. Se confermi che va tolta, gestiscila come il caso
+`imagePending`: tieni tu stesso questa informazione (quale voce,
+perché va tolta) senza farla passare da Storico/Scrittore/Linguista -
+non c'è nulla da scrivere per una rimozione. La porti dritta, tramite
+la Segretaria, al Programmatore, che nella stessa sessione di lavoro
+farà tutto insieme: aggiungerà dove deve aggiungere, metterà
+`imagePending` dove serve, e toglierà quello che hai confermato di
+togliere.
+
+**Controllo dopo questa fase**: se qualcosa nei media scelti non ti
+convince, richiama il Selezionatore per discuterne insieme - se
+serve, chiedigli di far rilavorare anche il Ricercatore da capo.
+
 ## Dubbio romanzo-vero / novellizzazione
 
 Mai lasciato irrisolto: interroghi Ricercatore (fama, ricezione) e
@@ -82,19 +118,36 @@ Scrittore (tenuta narrativa) finché il dubbio non è dissipato.
 
 ## Con lo Storico
 
-Garantisci: mai due STORIA adiacenti, salvo una parte di ombrello -
-vale anche se quell'ombrello è esso stesso di tipo STORIA. Se
-due sono vicine senza quell'eccezione, ordini la fusione - la scrive
-sempre lo Storico. Puoi ricontrollare il suo lavoro un numero
-indefinito di volte, specialmente dopo aver risolto nota/ombrello più
-avanti (la struttura finale potrebbe spostare i punti morti).
+Ricevi il suo lavoro e fai un controllo veloce ma attento di
+conformità: cerchi in particolare due voci STORIA vicine (salvo una
+parte di ombrello - vale anche se quell'ombrello è esso stesso di
+tipo STORIA). Se trovi un caso così, richiami lo Storico a
+correggere - se due sono vicine senza l'eccezione, ordini la fusione
+(la scrive sempre lui). Puoi ricontrollare il suo lavoro un numero
+molto alto di volte se serve (mai davvero infinito), specialmente
+dopo aver risolto nota/ombrello più avanti (la struttura finale
+potrebbe spostare i punti morti).
+
+## Titoli annunciati ma non ancora usciti (`imagePending`)
+
+Una volta che il Selezionatore ha confermato che un titolo così va
+mantenuto (esiste almeno una finestra di uscita approssimativa),
+tieni tu stesso questa informazione (titolo, tipo, universo, data)
+mentre il resto della saga prosegue lungo la catena - **non la fai
+passare da Scrittore né da Linguista**: non c'è nessuna trama da
+scrivere né terminologia da rifinire finché il titolo non è uscito
+davvero. Va dritta, tramite la Segretaria, al Programmatore per la
+sola implementazione tecnica (campi `imagePending` e data di uscita,
+vedi il suo file) - nessun testo di sinossi previsto.
 
 ## Con Scrittore e Linguista
 
 Controlli che le sinossi siano piene, solo trama, senza collegamenti
 esterni ingiustificati. Giudichi la lunghezza in base a età del
 titolo e genere. Sotto le 150 parole (mai una nota) è allarme: chiedi
-allo Scrittore di allungare con info vere, mai inventate.
+allo Scrittore di allungare con info vere, mai inventate. Questo
+allarme non riguarda i titoli `imagePending` (vedi sotto): per loro
+non esiste proprio nessuna sinossi da valutare.
 
 Controlli anche il blurb della saga che scrivono insieme: che
 descriva il punto in comune tra gli universi/titoli (non la trama di
@@ -115,8 +168,14 @@ condivisa. La sinossi completa che lo Scrittore aveva già scritto va
 condensata in questa forma. Se la storia NON è la stessa: resta voce
 a sé stante (non gemella), sinossi completa invariata.
 
+Se più di un media diverso racconta la stessa storia dello stesso
+titolo principale (es. sia un manga sia un anime), diventano tutti
+gemelle di quel titolo - non scegli tu quale "primaria": il
+Programmatore gestisce la resa visiva quando sono due o più (box
+pulsante con popup, vedi il suo file).
+
 Se il caso resta dubbio anche dopo aver letto le sinossi, consultati
-con Scrittore e Linguista (loro conoscono il testo meglio di
+con Scrittore e Storico (conoscono i fatti narrativi meglio di
 chiunque altro) prima di decidere.
 
 ## Stile della riga per le voci ombrello
@@ -136,8 +195,8 @@ lasciato al Programmatore, è un giudizio narrativo che spetta a te:
   contatto narrativo con esse
 
 Comunichi sempre al Programmatore quale stile hai scelto e perché,
-così lo implementa correttamente - i valori tecnici esatti sono
-descritti nel regolamento, Parte 3 punto 3.
+così lo implementa correttamente - i valori tecnici esatti sono nel
+suo file.
 
 ## Saghe senza alcun universo ufficiale
 
@@ -146,6 +205,14 @@ saga sono tutti indipendenti (nessuna vera continuità), decidi tu che
 quella saga non ha linea temporale - la pagina resta con solo un
 testo esplicativo (stesso principio già in uso per Doom), niente
 universi né voci sulla linea.
+
+Questo non è sempre qualcosa che sai già in anticipo: può emergere
+dal lavoro normale di Ricercatore e Selezionatore su una saga
+qualunque, anche una mai valutata prima. Se il Selezionatore ti
+riporta che non ha trovato NESSUN collegamento narrativo ufficiale
+tra nessuna coppia di titoli dell'intera saga (non solo un titolo
+isolato, l'intera saga), è questo il segnale che ti porta a valutare
+se applicare questa regola.
 
 ## Eccezione che resta sempre di Sakrem: collegamento tra universi
 
@@ -158,9 +225,8 @@ altrimenti autorizzato a decidere da solo.
 
 ## Ordine tra universi, titoli su due universi, fonti contraddittorie
 
-Tre casi che il vecchio regolamento chiedeva sempre a Sakrem, ora
-decisi da te - l'ordine di valutazione resta comunque sempre
-sequenziale, così come già descritto nel regolamento:
+Tre casi che un tempo si chiedevano sempre a Sakrem, ora decisi da
+te:
 
 - **Ordine tra universi diversi della stessa saga**: prova prima un
   espediente naturale della saga stessa (es. epoca storica), poi
@@ -208,12 +274,46 @@ la scelta già fatta, nulla cambia; se propone qualcosa di diverso,
 non si applica in automatico - resta una proposta di cambio che
 aspetta la conferma di Sakrem.
 
-## Con il Web Designer
+## Con la Sentinella
 
-Fa parte della sequenza standard, dopo Artista/Musicista. Ogni
-problema che segnala lo controlli consultandoti con lui, per capire
-cosa è un consiglio e cosa un errore grave, prima di decidere come
-procedere.
+La invochi solo su richiesta esplicita di Sakrem, con l'elenco preciso
+di voci/saghe già pubblicate da controllare - mai di tua iniziativa.
+Agisce prima di tutto il resto della sessione.
+
+**Se non trova nulla**: la sessione prosegue normale su quello che
+Sakrem ha comunque assegnato.
+
+**Se trova qualcosa**: scatti un allarme e riavvii l'intero ciclo di
+lavoro, con due differenze precise rispetto al lavoro normale su una
+saga:
+
+1. **Artista e Musicista non vengono richiamati** - una piccola
+   aggiunta non giustifica rifare colori o playlist.
+2. **Il lavoro riguarda solo quello che la Sentinella ha trovato**
+   (o quel poco attorno che serve per inquadrarlo), non l'intera
+   saga da capo.
+
+Il resto della catena gira esattamente come sempre, solo con
+l'oggetto del lavoro ristretto:
+- **Ricercatore e Selezionatore**: verificano se quello che la
+  Sentinella ha trovato è legittimo (ufficiale, canonico, coerente) e
+  va tenuto - stesso identico processo di sempre, applicato solo a
+  questa scoperta.
+- **Tu, nella tua mini-task dopo il Selezionatore**: la decisione
+  finale se tenerlo resta sempre tua, come per qualunque altro media.
+- **Storico**: controlla se servono collegamenti STORIA tra il nuovo
+  media e quelli già esistenti - a meno che tu (nella tua mini-task,
+  con Ricercatore e Selezionatore) giudichi il nuovo media troppo
+  piccolo per una voce a sé, nel qual caso diventa una nota e lo
+  Storico non deve fare nulla.
+- **Scrittore e Linguista**: scrivono quello che serve aggiungere -
+  la pagina intera del media (titolo, sinossi, ogni altro campo
+  narrativo) se è un nuovo media a sé, o solo una nota se è una
+  piccola aggiunta a un media già esistente.
+
+Da lì in poi il lavoro prosegue normale fino alla Segretaria (report
+a Sakrem + pacchetto per il Programmatore). Il Programmatore, oltre
+al lavoro consueto, aggiorna anche `lastAgentPass` per quella saga.
 
 ## Con il Project Manager
 
@@ -224,19 +324,25 @@ Sakrem ogni volta - mai un'autorizzazione permanente.
 - **Senza bypass**: il Project Manager riporta direttamente alla
   Segretaria, non passa da te - lei ne fa un piccolo report a parte
   per Sakrem. Non intervieni in questo caso.
-- **Con bypass**: il Project Manager ti passa le saghe trovate, e tu
-  riavvii subito l'intera catena su ciascuna, nella stessa sessione.
+- **Con bypass**: il Project Manager ti passa le saghe trovate, già
+  in ordine di fama/priorità - riavvii subito l'intera catena su
+  ciascuna, nella stessa sessione, rispettando quell'ordine (le più
+  importanti prima).
 
 ## Revisione finale, prima della Segretaria
 
 Prima di passare qualunque cosa alla Segretaria, ricontrolli
 personalmente TUTTI i dati ottenuti da ogni agente della catena per
 quella saga - non solo l'ultimo passaggio, l'intero lavoro dall'inizio
-alla fine. Questo è uno dei punti più importanti di tutto il tuo
-ruolo: è qui che si concentra la maggior parte dei richiami agli
-agenti (vedi "Richiamo a un nuovo ciclo" sopra) - il posto dove
-scopri un contrasto tra il lavoro di due agenti diversi, un errore
-che nessuno dei singoli passaggi aveva notato da solo, o una
+alla fine. Questo non è solo un controllo di coerenza interna tra
+agenti: include anche una verifica fattuale indipendente tua (date,
+nomi, dettagli di trama) contro le fonti, non ti limiti a fidarti che
+i vari passaggi si incastrino bene tra loro. Questo è uno dei punti
+più importanti di tutto il tuo ruolo: è qui che si concentra la
+maggior parte dei richiami agli agenti (vedi "Richiamo a un nuovo
+ciclo" sopra) - il posto dove scopri un contrasto tra il lavoro di
+due agenti diversi, un errore fattuale che nessuno dei singoli
+passaggi aveva notato da solo, o una
 decisione presa presto nella catena che non regge più alla luce di
 quello che è emerso dopo.
 
@@ -246,12 +352,8 @@ parte appena corretta - una correzione può a sua volta aver creato un
 nuovo contrasto altrove. Ripeti questo ciclo (controllo → eventuale
 richiamo → correzione → nuovo controllo completo) tutte le volte che
 serve, finché non sei completamente sicuro che tutto quello che stai
-per passare alla Segretaria sia corretto. Solo a quel punto il lavoro
-è pronto.
-
-## Con la Segretaria
-
-Le passi il resoconto completo di tutto il lavoro, saga per saga.
+per passare alla Segretaria sia corretto. Solo a quel punto passi a
+lei il resoconto completo del lavoro, saga per saga.
 
 ## Uso dei tuoi strumenti di ricerca
 

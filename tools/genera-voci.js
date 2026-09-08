@@ -348,11 +348,12 @@ function generaTimeline(dati){
         // sulla linea ma e' un titolo a se', con la sua pagina
         // indicizzabile propria - va generata qui accanto, non e'
         // un elemento a se' in universo.entries. Vedi PARTE 3 punto
-        // 2 del regolamento.
+        // 2 , vedi .claude/agents/traccia-supervisore.md.
         if(entry.twin && generaPaginaVoce(entry.twin, sagaId, nomeSaga, outDir)) count++;
       });
-      // Voce "ombrello" (universo.umbrellas, PARTE 3 punto 3 del
-      // regolamento): copre l'arco di una o piu' voci gia' presenti
+      // Voce "ombrello" (universo.umbrellas, vedi
+      // .claude/agents/traccia-supervisore.md e traccia-programmatore.md):
+      // copre l'arco di una o piu' voci gia' presenti
       // ma non vive in universo.entries - ha una pagina propria
       // generata qui, una sola volta (i suoi due pallini sulla linea
       // puntano entrambi alla stessa pagina).

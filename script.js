@@ -417,9 +417,10 @@ function hexToRgb(hex){
 }
 
 // Palette attiva: preferisce quella del singolo universo corrente
-// (regolamento PARTE 3 punto 1 - saga con più di un universo, ogni
-// universo ha la propria palette dedicata), con fallback su quella a
-// livello di saga (sempre presente per le saghe con un solo universo)
+// (vedi .claude/agents/traccia-artista.md - saga con più di un
+// universo, ogni universo ha la propria palette dedicata), con
+// fallback su quella a livello di saga (sempre presente per le
+// saghe con un solo universo)
 // e infine sul default generico della linea temporale.
 function activePalette(){
   const u = currentUniverse();
@@ -434,14 +435,14 @@ function activePalette(){
 // respiro al colore centrale) - non va toccato per non alterare il
 // rendering di tutte le altre saghe. Palette con un numero diverso di
 // colori (es. i 4 stop di un universo con sotto-gruppi narrativi,
-// PARTE 3 punto 1 del regolamento) usano stop equidistanti.
+// vedi .claude/agents/traccia-artista.md) usano stop equidistanti.
 function paletteStopPercents(n){
   if(n === 3) return [0, 55, 100];
   if(n <= 1) return [0];
   return Array.from({ length: n }, (_, i) => (i / (n - 1)) * 100);
 }
 
-// uni.paletteBounds (PARTE 3 punto 1 del regolamento, aggiunta 06/09
+// uni.paletteBounds (vedi .claude/agents/traccia-artista.md e traccia-programmatore.md
 // dopo la scoperta di Sakrem): array di id di voci REALI, lungo
 // palette.length-1, uno per confine tra un sottogruppo narrativo e il
 // successivo - ciascun id e' l'ULTIMA voce reale del sottogruppo che lo
@@ -485,8 +486,9 @@ function computeGradientStops(uni, expandedEntries){
   // e quella di chiusura del proprio sottogruppo, cosi' tutto cio' che
   // sta in mezzo resta un colore piatto, senza sfumare verso il
   // successivo - la sfumatura vera e propria (voluta, "fusa" per
-  // regolamento, non un blocco netto) resta confinata al solo, singolo
-  // passo tra l'ultima voce di un sottogruppo e la prima del successivo.
+  // scelta di design, non un blocco netto) resta confinata al solo,
+  // singolo passo tra l'ultima voce di un sottogruppo e la prima del
+  // successivo.
   const stops = [];
   for(let i = 0; i < palette.length; i++){
     const startIdx = i === 0 ? 0 : boundIdx[i - 1] + 1;
@@ -544,7 +546,7 @@ function gradientColorAt(t, customStops){
 function currentGame(){ return state.gameId ? GAMES[state.gameId] : null; }
 function currentUniverse(){
   const g = currentGame();
-  // Alcune saghe (es. Doom, Pokémon: PARTE 1 punto 12 del regolamento,
+  // Alcune saghe (es. Doom, Pokémon: vedi .claude/agents/traccia-supervisore.md (Saghe senza universo ufficiale),
   // canonNote senza linea temporale) non hanno affatto un array
   // "universes" - va gestito qui, non solo dove currentUniverse() era
   // gia' chiamata prima, perche' ora la richiama anche activePalette()
@@ -553,7 +555,7 @@ function currentUniverse(){
   return g.universes[state.universeIndex] || g.universes[0];
 }
 // Espande uni.entries inserendo, per ciascuna voce "ombrello"
-// dichiarata in uni.umbrellas (PARTE 3 punto 3 del regolamento), due
+// dichiarata in uni.umbrellas (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md), due
 // pseudo-voci identiche (stesso oggetto, stesso id, stessa pagina)
 // nei due punti dell'arco che copre: una subito prima della prima
 // voce coperta (umb.startsBeforeId), una subito prima della voce
@@ -597,7 +599,7 @@ function findEntry(game, entryId){
     // Voce "gemella" (entry.twin): non vive come proprio elemento in
     // u.entries, ma la sua pagina deve essere raggiungibile per id
     // esattamente come qualunque altra voce - vedi PARTE 3 punto 2
-    // del regolamento.
+    // , vedi .claude/agents/traccia-supervisore.md.
     const twinHost = u.entries.find(e => e.twin && e.twin.id === entryId);
     if(twinHost) return { entry: twinHost.twin, universe: u };
     // Voce "ombrello" (uni.umbrellas, PARTE 3 punto 3): idem, non
@@ -679,7 +681,7 @@ function selectUniverse(idx){
     const u = g.universes[idx];
     if(u.entries.length) selectEntry(u.entries[0].id);
   } else {
-    // ogni universo puo' avere la propria palette dedicata (regolamento
+    // ogni universo puo' avere la propria palette dedicata (vedi .claude/agents/traccia-artista.md
     // PARTE 3 punto 1): riapplicarla qui, non solo su renderGamePanel(),
     // altrimenti passando da un universo all'altro senza mai toccare
     // "title" i colori resterebbero quelli dell'universo precedente.
@@ -688,7 +690,7 @@ function selectUniverse(idx){
   }
 }
 
-// Nodo "Collegamento tra Universi" (PARTE 1 punto 19 del regolamento,
+// Nodo "Collegamento tra Universi" (vedi .claude/agents/traccia-supervisore.md (Eccezione collegamento tra universi),
 // primo caso reale: BioShock, Rapture <-> Columbia): NON e' una voce
 // reale (nessuna sinossi, nessun avatar, nessuna pagina generata da
 // tools/genera-voci.js - vive solo in uni.universeLink, mai in
@@ -773,7 +775,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     // sotto sullo stesso pallino).
 
   // Stack degli archi ombrello attualmente "aperti" (PARTE 3 punto 3
-  // del regolamento): vuoto quando non siamo dentro nessun arco. Al
+  // vedi .claude/agents/traccia-supervisore.md): vuoto quando non siamo dentro nessun arco. Al
   // primo incontro di un dato oggetto ombrello (il suo pallino
   // sinistro) si calcola il lato e lo si "congela" qui (push); al
   // secondo incontro (il suo pallino destro, che richiude l'arco) lo
@@ -928,7 +930,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   return track;
 }
 
-// Voci "ombrello" (PARTE 3 punto 3 del regolamento) - parte
+// Voci "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md) - parte
 // reattiva allo scroll, aggiunta dopo la prima voce ombrello reale
 // (Legacy of Kain: Ascendance, 30/08): dei due pallini che
 // condividono lo stesso ombrello, il box (copertina+titolo) compare
@@ -1165,7 +1167,7 @@ function positionVerticalTimeline(liveTimeline){
     lineBottomViewport = timelineRect.top + lineBottom;
   }
 
-  // Nodo "Collegamento tra Universi" (regolamento PARTE 1 punto 19),
+  // Nodo "Collegamento tra Universi" (.claude/agents/traccia-supervisore.md (Eccezione collegamento tra universi)),
   // SOLO MOBILE: stesso principio dell'allungamento desktop (vedi
   // renderGamePanel, --bridge-left-extend/--bridge-right-extend), ma
   // sull'asse verticale - qui la riga corre dall'alto in basso, quindi
@@ -2169,7 +2171,7 @@ function renderGamePanel(){
       liveTimeline.style.setProperty("--tl-line-left", lineLeft.toFixed(2) + "px");
       liveTimeline.style.setProperty("--tl-line-width", Math.max(0, lineRight - lineLeft).toFixed(2) + "px");
 
-      // Nodo "Collegamento tra Universi" (regolamento PARTE 1 punto 19):
+      // Nodo "Collegamento tra Universi" (.claude/agents/traccia-supervisore.md (Eccezione collegamento tra universi)):
       // il proprio tratteggio (.h-node--bridge::before, styles.css) vive
       // dentro il proprio slot da 100px, ma quello slot puo' restare
       // parecchio piu' stretto della distanza vera fino al primo/ultimo
@@ -2568,7 +2570,7 @@ function buildAllTitlePanels(){
           // Una voce ombrello compare DUE volte nella lista espansa
           // (una per ciascuno dei due pallini che genera sulla linea),
           // ma ha una sola pagina di dettaglio reale (stesso id,
-          // stesso identico contenuto - vedi regolamento, PARTE 3
+          // stesso identico contenuto - vedi .claude/agents/traccia-supervisore.md
           // punto 3): costruita alla prima occorrenza, non va
           // ricreata/duplicata nel DOM alla seconda.
           return;
@@ -3665,7 +3667,7 @@ function checkUpcomingReleases(){
 
   // Manda l'avviso per una singola voce "in arrivo" (helper, cosi'
   // la logica non va duplicata tra voce normale e voce gemella qui
-  // sotto - vedi PARTE 3 punto 2 del regolamento per il gemello).
+  // sotto - vedi vedi .claude/agents/traccia-supervisore.md per il gemello).
   function notifyIfDue(entry, gameId){
     if(!entry || !entry.imagePending || !entry.releaseDateISO) return;
     if(entry.releaseDateISO > todayISO) return; // data non ancora raggiunta

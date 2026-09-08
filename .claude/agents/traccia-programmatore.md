@@ -19,6 +19,12 @@ Implementi subito tutto, tranne quanto la Segretaria segnala "in
 attesa di conferma" (musiche, cambi a colori già esistenti) - per
 quella parte aspetti la conferma di Sakrem, il resto procede.
 
+**Nella stessa sessione di lavoro** puoi trovarti a fare più tipi di
+modifica insieme sulla stessa saga: aggiungere voci nuove, marcare
+`imagePending` un titolo annunciato, e togliere una voce che non
+supera più i criteri - fanno tutte parte dello stesso pacchetto,
+implementale insieme, non in sessioni separate.
+
 ## Metodo
 
 Un punto alla volta. Dopo ciascuno, e quando pensi di aver finito,
@@ -36,6 +42,12 @@ ambientazione cambia in quella versione. Mai un nome di evento tra
 parentesi accanto all'anno (es. mai "1995 (Guerra di Belka)").
 
 **`noAvatar: true`** solo sulle voci STORIA, mai su media reali.
+
+**Tabella/rail verticale a destra**: riporta il resoconto di tutte le
+voci di tutti gli universi della saga (compresi gli universi stessi
+come intestazioni). Si aggiorna da sola ogni volta che scrivi in
+`data.js` - è la stessa fonte dati della linea orizzontale, non un
+file separato da mantenere a mano.
 
 **Voci STORIA - rendering**: hanno solo il titolo, mai un box
 immagine, sulla linea orizzontale (spacer invisibile al posto del
@@ -56,6 +68,15 @@ che toccherebbe due passi dopo). Su mobile nessun peso aggiuntivo
 serve (spaziatura misurata dal vero dopo il disegno). Nella tabella
 verticale a destra occupa una riga a doppia altezza (metà ospite,
 metà gemello), pallino decorativo unico e condiviso.
+
+**Due o più gemelle sullo stesso titolo principale**: il meccanismo
+sopra resta per UNA gemella. Da due gemelle in su, la posizione sotto
+la riga (quella dell'ospite resta sopra come sempre) non mostra più
+una gemella specifica: diventa un box pulsante, senza un'immagine
+dedicata, con un contenuto generico che inviti l'utente a cliccare.
+Al click si apre un popup con tutte le voci gemelle (solo quelle,
+mai l'ospite) disposte in fila da sinistra a destra. Dimensioni del
+box (altezza e larghezza) sempre multipli di 5px (es. 110×120).
 
 **Voce ombrello** (`uni.umbrellas`): estremi dedotti dal contenuto
 narrativo, mai a intuito. Ha una sua pagina vera come ogni titolo.
@@ -120,6 +141,15 @@ delle due versioni); niente immagini per voce (non c'è linea da
 illustrare); il blurb resta comunque presente e obbligatorio.
 
 Dopo ogni modifica, `node --check <file>` prima di andare avanti.
+
+**Data di ultimo lavoro sulla saga**: al termine di un ciclo completo
+(Ricercatore...Programmatore) su una saga, scrivi/aggiorni sull
+'oggetto della saga in `data.js` un campo `lastAgentPass` con la data
+di oggi (formato AAAA-MM-GG) - es. `lastAgentPass: "2026-09-07"`. È
+il riferimento che la Sentinella userà per sapere da quando cercare
+novità: senza questa data, il suo lavoro non saprebbe da dove
+partire. Aggiornalo ogni volta che la saga viene ripassata per
+intero, non per piccoli fix puntuali fuori dalla catena.
 
 ## Controllo finale - obbligatorio
 
