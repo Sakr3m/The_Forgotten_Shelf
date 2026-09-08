@@ -418,11 +418,12 @@ Copertine mancanti per le nuove voci pubblicate in questo ciclo:
 6. `dq7` - Dragon Quest VII
 7. `warriors-of-eden` - Warriors of Eden (gemella)
 8. `dragon-quest-builders-2` - Dragon Quest Builders 2
+9. `dragon-quest-eden` - Dragon Quest Eden (manga, 2026-in corso)
 
 Filigrane (watermark) mancanti per i due nuovi universi:
 
-9. `dai` - Universo Dai (nessuna filigrana ancora caricata)
-10. `eden` - Universo Eden (nessuna filigrana ancora caricata)
+10. `dai` - Universo Dai (nessuna filigrana ancora caricata)
+11. `eden` - Universo Eden (nessuna filigrana ancora caricata)
 
 - **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
 
@@ -473,6 +474,13 @@ Filigrane (watermark) mancanti per i due nuovi universi:
   `emblem-of-roto`) a voce autonoma nell'array `entries`
   dell'Universo Erdrick, con testo sinossi completo nuovo - sessione
   2026-09-08.
+- `dragon-quest-eden` - Dragon Quest Eden (manga, 2026-in corso) - voce
+  a sé, inserita nell'Universo Eden dopo `dq7` - sessione 2026-09-08.
+- Correzione sinossi (rimozione prefisso "Nota:", non una nuova voce)
+  per `seirei-rubiss-densetsu-manga`, `dai-no-daibouken-anime-reboot` e
+  `warriors-of-eden` (quest'ultima con rimozione anche del paragrafo
+  finale "Nota su Dragon Quest Eden...", ora superfluo con la nuova voce
+  a sé `dragon-quest-eden`) - sessione 2026-09-08.
 
 ## Dying Light
 
