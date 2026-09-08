@@ -230,7 +230,8 @@ const GAMES = {
         name: { it: "Cieli Terrestri", en: "Earthly Skies" },
         span: { it: "2002 – 2016", en: "2002 – 2016" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%20Cieli%20Terrestri%20Filigrana.jpg",
-        palette: ["#C97830", "#661F30", "#3E7CAE"],
+        palette: ["#C97830", "#3E7CAE"],
+        paletteBounds: ["ikaros-in-the-sky"],
         entries: [
           { id: "ikaros-in-the-sky", type: "ROMANZO", typeEn: "NOVEL", year: "2002", yearEn: "2002", releaseYear: "2012", releaseYearEn: "2012",
             title: { it: "Ace Combat: Ikaros in the Sky", en: "Ace Combat: Ikaros in the Sky" },
