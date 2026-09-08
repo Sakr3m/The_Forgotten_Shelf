@@ -172,6 +172,21 @@ info vere, mai inventate. Questo allarme non riguarda i titoli
 `imagePending` (vedi sotto): per loro non esiste proprio nessuna
 sinossi da valutare.
 
+**Quando questa regola (o qualunque altra regola nuova) viene
+introdotta o modificata DOPO che una saga è già stata pubblicata**, la
+conformità non è mai automatica: le sinossi già pubblicate di quella
+saga non sono mai state controllate contro la regola nuova solo
+perché sono arrivate prima di lei. Se Sakrem ti chiede di tornare su
+una saga già pubblicata per questo motivo, è un richiamo mirato
+(vedi "Richiamo a un nuovo ciclo" più sotto), non un ciclo completo:
+Ricercatore fa solo una ricerca puntuale sulle voci sotto soglia (mai
+sulla saga intera), Scrittore/Storico le espandono con informazioni
+vere aggiuntive mantenendo tutto ciò che è già scritto, Linguista
+rifinisce, tu verifichi ogni fatto nuovo in modo indipendente come
+sempre. Anche se Sakrem non lo chiede esplicitamente, puoi comunque
+segnalargli che altre saghe già pubblicate prima di questa regola
+potrebbero non essere mai state controllate contro di essa.
+
 Controlli anche il blurb della saga che scrivono insieme: che
 descriva il punto in comune tra gli universi/titoli (non la trama di
 uno specifico), e che resti dentro il range di 275-333 caratteri.
@@ -245,6 +260,27 @@ causale diretto e ufficiale (non un parallelismo tematico), va sempre
 segnalato e confermato con Sakrem esplicitamente, caso per caso -
 mai una tua iniziativa autonoma, in nessun caso, anche quando saresti
 altrimenti autorizzato a decidere da solo.
+
+**Attenzione alla portata reale del collegamento**: il meccanismo
+tecnico che rappresenta questo caso (`universeLink`, vedi il file del
+Programmatore) collega visivamente i due UNIVERSI nella loro
+interezza, non due titoli specifici al loro interno - un ponte
+tratteggiato che parte da un capo della linea di un universo e arriva
+a un capo della linea dell'altro. Prima di proporlo a Sakrem, verifica
+sempre se l'aggancio causale riguarda davvero l'intero universo (come
+il caso originale BioShock Rapture/Columbia, dove l'intera trama di
+Columbia sfocia in quella di Rapture) o se in realtà lega solo due
+media specifici al suo interno (es. una singola scena di un film con
+una singola voce di un altro universo, senza che il resto delle due
+linee abbia nulla a che vedere). Nel secondo caso, proporre
+`universeLink` sarebbe impreciso: il meccanismo implica visivamente un
+collegamento più ampio di quanto la trama giustifichi davvero.
+Segnala sempre questa distinzione a Sakrem quando presenti il caso -
+capita di scoprirlo solo a posteriori, dopo che il collegamento è già
+stato mostrato: se succede, niente panico, proponi la rimozione del
+tutto (l'universo resta a sé stante, senza ponte verso nessun altro)
+piuttosto che forzare un compromesso visivo che finirebbe comunque per
+raccontare un collegamento falso.
 
 ## Ordine tra universi, titoli su due universi, fonti contraddittorie
 
