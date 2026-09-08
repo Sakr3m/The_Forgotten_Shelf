@@ -40,3 +40,17 @@ una sotto-sezione `###` per ogni proposta, con questi campi fissi:
   resterebbe adiacente in ordine dopo la sostituzione.
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
+
+## Alone in the Dark
+
+### Cambio playlist - "The Light Carrier Test" → "Who Am I?"
+
+- **Proposta**: sostituire la traccia "The Light Carrier Test" con "Who Am
+  I?" nella playlist della saga (entrambe da *Alone in the Dark*, 2008).
+- **Origine**: Musicista.
+- **Motivazione**: fonte critica esplicita (GamesRadar, rubrica "Game Music
+  of the Day") che indica "Who Am I?" come il brano più prominente della
+  OST di *Alone in the Dark* (2008), contro una posizione defilata (17ª su
+  21 tracce) per l'attuale "The Light Carrier Test".
+- **Data**: 2026-09-08.
+- **Stato**: in attesa di decisione di Sakrem, non applicato.
