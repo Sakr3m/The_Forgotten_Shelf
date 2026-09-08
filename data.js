@@ -1575,13 +1575,13 @@ const GAMES = {
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Banner.jpg",
     bannerOffset: 265,
     tracks: [
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devil%20Trigger.mp3", title: "Devil Trigger", game: "Devil May Cry 5" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devils%20Never%20Cry.mp3", title: "Devils Never Cry", game: "Devil May Cry 3" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Bury%20the%20Light.mp3", title: "Bury the Light", game: "Devil May Cry 5" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Taste%20the%20Blood.mp3", title: "Taste the Blood", game: "Devil May Cry 3" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Subhuman.mp3", title: "Subhuman", game: "Devil May Cry 5" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Crimson%20Cloud.mp3", title: "Crimson Cloud", game: "Devil May Cry 5" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Shall%20Never%20Surrender.mp3", title: "Shall Never Surrender", game: "Devil May Cry 4" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devil%20Trigger.mp3", title: "Devil Trigger", game: "Devil May Cry 5" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Bury%20the%20Light.mp3", title: "Bury the Light", game: "Devil May Cry 5" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Devils%20Never%20Cry.mp3", title: "Devils Never Cry", game: "Devil May Cry 3" }
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Devil%20May%20Cry%20Crimson%20Cloud.mp3", title: "Crimson Cloud", game: "Devil May Cry 5" }
     ],
     lastAgentPass: "2026-09-08",
     universes: [
@@ -1807,12 +1807,12 @@ const GAMES = {
     accentColor: "#0f9b8e",
     tracks: [
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Overture.mp3", title: "Overture", game: "Dragon Quest I" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Violent%20Enemies.mp3", title: "Violent Enemies", game: "Dragon Quest II" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Fighting%20Spirit.mp3", title: "Fighting Spirit", game: "Dragon Quest III" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Wagon%20Wheel%27s%20March.mp3", title: "Wagon Wheel's March", game: "Dragon Quest IV" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Unflinchable%20Courage.mp3", title: "Unyielding Courage", game: "Dragon Quest XI" },
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Bridal%20Waltz.mp3", title: "Bridal Waltz", game: "Dragon Quest V" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Pegasus.mp3", title: "Pegasus", game: "Dragon Quest VI" },
-      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Unflinchable%20Courage.mp3", title: "Unyielding Courage", game: "Dragon Quest XI" }
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Wagon%20Wheel%27s%20March.mp3", title: "Wagon Wheel's March", game: "Dragon Quest IV" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Violent%20Enemies.mp3", title: "Violent Enemies", game: "Dragon Quest II" },
+      { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Pegasus.mp3", title: "Pegasus", game: "Dragon Quest VI" }
     ],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Dragon%20Quest%20Banner.jpg",
