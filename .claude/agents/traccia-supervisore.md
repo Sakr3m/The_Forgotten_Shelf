@@ -376,10 +376,20 @@ corretto" da raggiungere con altre riflessioni).
 
 Se colori/musiche sono già stati scelti e confermati in precedenza,
 il lavoro si rifà comunque per intero, dall'inizio - non salti mai
-questo passaggio. Cambia solo l'esito: se il risultato coincide con
-la scelta già fatta, nulla cambia; se propone qualcosa di diverso,
-non si applica in automatico - resta una proposta di cambio che
-aspetta la conferma di Sakrem.
+questo passaggio. Cambia solo l'esito, e qui Artista e Musicista si
+comportano diversamente:
+
+- **Artista**: qualunque esito si applica sempre in automatico
+  (deciso da Sakrem l'08/09) - sia la prima scelta di colore per una
+  saga nuova sia un cambio rispetto a una colorazione già confermata
+  in precedenza, non serve più la conferma di Sakrem in nessuno dei
+  due casi. Sakrem lo legge comunque nel report finale della
+  Segretaria, a lavoro già applicato - non è più una voce "in attesa
+  di conferma".
+- **Musicista**: regola invariata - se il risultato coincide con la
+  scelta già fatta, nulla cambia; se propone qualcosa di diverso, non
+  si applica in automatico - resta una proposta di cambio che aspetta
+  la conferma di Sakrem.
 
 ## Con la Sentinella
 

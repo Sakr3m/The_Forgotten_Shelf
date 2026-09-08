@@ -62,14 +62,16 @@ nel lavoro interno della catena, ma non nel report per Sakrem.
 ## Cosa si applica senza consenso, e cosa no
 
 **Senza consenso**: tutto il resto - inclusioni/esclusioni, voci
-STORIA, sinossi, prima scelta di colori per una saga nuova.
+STORIA, sinossi, e qualunque scelta di colore dell'Artista (deciso da
+Sakrem l'08/09): sia la prima scelta per una saga nuova sia un CAMBIO
+a una colorazione già confermata in precedenza, si applicano sempre
+in automatico. Sakrem le legge nel report finale, a lavoro già fatto
+- non sono più voci "in attesa di conferma".
 
 **Con consenso obbligatorio**:
-- lista musiche scelte dal Musicista
-- qualunque CAMBIO a colorazioni già esistenti e confermate in
-  precedenza (non la prima scelta per una saga nuova)
+- lista musiche scelte dal Musicista (unico caso rimasto)
 
-Segnala questi nel report come "in attesa di conferma".
+Segnala questo nel report come "in attesa di conferma".
 
 ## Storico permanente nel promemoria: musica e media aggiunti
 
