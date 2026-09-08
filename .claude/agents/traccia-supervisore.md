@@ -272,6 +272,17 @@ tra nessuna coppia di titoli dell'intera saga (non solo un titolo
 isolato, l'intera saga), è questo il segnale che ti porta a valutare
 se applicare questa regola.
 
+Quando rivedi il testo esplicativo (`canonNote`) nella tua revisione
+finale, verifica che rispetti sempre e solo la struttura a due parti
+(vedi il file dello Scrittore per il dettaglio): avviso/motivazione
+dell'assenza di linea ufficiale (con un accenno alla posizione degli
+sviluppatori/casa videoludica nel tempo), poi presentazione della
+linea fan-made mostrata nella tabella `canonNote.chain`. Se trovi una
+terza parte aggiunta (approfondimenti su casi singoli, dettagli non
+necessari a nessuno dei due scopi) o un'apertura del tipo "A
+differenza degli altri franchise di questo archivio", richiama lo
+Scrittore per tagliarla/riformularla prima di proseguire.
+
 ## Collegamento tra universi
 
 Se due universi diversi della STESSA saga hanno un aggancio narrativo

@@ -64,7 +64,18 @@ limite, sistemala mantenendoti dentro il range.
 ## Saghe senza universo ufficiale (es. Doom)
 
 Rifinisci la terminologia del testo esplicativo (`canonNote`) scritto
-dallo Scrittore, stesso rigore di ogni altro testo.
+dallo Scrittore, stesso rigore di ogni altro testo. Sempre e solo due
+parti (`intro` + `outro`, vedi il file dello Scrittore per il
+dettaglio) - se trovi un terzo blocco/paragrafo che non motiva
+l'assenza di linea ufficiale né presenta la linea fan-made, segnalalo
+al Supervisore invece di limitarti a rifinirne la terminologia: non è
+compito tuo tagliarlo di tua iniziativa, ma nemmeno lasciarlo passare
+senza dirlo.
+
+Controlla anche che l'attacco del testo non usi formule tipo "A
+differenza degli altri franchise di questo archivio" (o equivalenti,
+per qualunque saga) - se la trovi, chiedi allo Scrittore di
+riformulare l'apertura.
 
 ## Niente em-dash in italiano
 

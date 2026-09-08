@@ -100,11 +100,34 @@ sotto) - non lo sostituisce, si aggiunge.
 Se il Supervisore decide che una saga non ha continuità (pagina con
 solo `canonNote`, niente linea temporale), scrivi tu il testo
 esplicativo - stesso schema del resto del tuo lavoro, poi il
-Linguista rifinisce la terminologia. Deve coprire: perché non c'è una
-vera continuità (con la fonte ufficiale di questa dichiarazione),
-quali collegamenti "pseudo-validi" i fan scambiano spesso per
-continuità pur non essendolo (informazione che ti arriva dal
-Ricercatore), e di cosa parlano comunque i titoli presi singolarmente.
+Linguista rifinisce la terminologia. Sempre e solo DUE parti,
+corrispondenti ai campi `canonNote.intro` e `canonNote.outro` - mai
+una terza:
+
+1. **Avviso e motivazione** (`intro`): dichiari che non esiste una
+   linea temporale ufficiale e spieghi perché, con la fonte ufficiale
+   di questa dichiarazione - includi anche un accenno alla posizione
+   presa nel tempo dagli sviluppatori/dalla casa videoludica su
+   questo punto (dichiarazioni, contraddizioni, distanziamenti da
+   contenuti non canonici, ecc.).
+2. **Presentazione della linea temporale fan-made** (`outro`): la
+   community ha comunque provato a mettere in ordine i titoli (quelli
+   elencati nella tabella `canonNote.chain`, mostrata a fianco del
+   testo) usando indizi sparsi non ufficiali - presenta quali
+   collegamenti "pseudo-validi" i fan citano (informazione che ti
+   arriva da Ricercatore/Selezionatore) e su cosa si basa quest'ordine
+   fan-made.
+
+Non aggiungere una terza parte con approfondimenti su casi singoli
+irrisolti, dettagli minori o altro materiale che non serve a motivare
+l'assenza di linea ufficiale (punto 1) né a presentare la linea
+fan-made (punto 2) - anche se il materiale è vero e interessante, se
+non serve a uno di questi due scopi non entra nel testo.
+
+**Mai aprire con formule tipo "A differenza degli altri franchise di
+questo archivio" (o equivalenti)** - vale per qualunque saga, non solo
+questo caso, ma qui è particolarmente facile cadere nella tentazione:
+vai dritto al punto.
 
 ## Niente em-dash in italiano
 

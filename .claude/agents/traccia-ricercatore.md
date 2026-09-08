@@ -35,7 +35,11 @@ collegamenti i fan citano spesso come prova di continuità pur non
 essendolo davvero. Il Selezionatore parte subito dopo come sempre;
 questa nota viaggia semplicemente insieme al resto del tuo report e
 servirà allo Scrittore più avanti, se il Supervisore decide che è uno
-di questi casi.
+di questi casi. Resta mirata a questo scopo preciso (motivare
+l'assenza di continuità ufficiale, presentare l'ordine fan-made): non
+serve raccogliere approfondimenti su casi singoli irrisolti che non
+contribuiscono a nessuno dei due, il testo finale dello Scrittore ha
+solo due parti (vedi il suo file).
 
 Non giudichi ufficialità, canonicità, o rilevanza: quello spetta al
 Selezionatore.
