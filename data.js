@@ -1032,24 +1032,6 @@ const GAMES = {
         name: { it: "Novecento", en: "20th Century" },
         span: { it: "1943 – 1964", en: "1943 – 1964" },
         palette: ["#4A6670", "#8E1B2E"],
-        // Collegamento tra Universi (vedi .claude/agents/traccia-supervisore.md (Eccezione collegamento tra
-        // universi)): Novecento RICEVE l'aggancio causale dal film
-        // Assassin's Creed (2016, universo Basso Medioevo e
-        // Rinascimento) - la distruzione della sede Abstergo di Madrid
-        // da parte di Callum Lynch permette ai coniugi Adler di
-        // impossessarsi dell'Animus usato in Bloodstone (vedi nota
-        // aggiuntiva su "assassins-creed-film" e nota sulla cornice
-        // moderna di "bloodstone" qui sotto). Il collegamento va
-        // mostrato in fondo alla linea di Novecento (dove si trova
-        // "bloodstone", l'unica voce a citare esplicitamente
-        // l'evento). Nessun universeLink speculare su
-        // "basso-medioevo-rinascimento": confermato da Sakrem.
-        universeLink: {
-          edge: "end",
-          direction: "from",
-          targetUniverse: "basso-medioevo-rinascimento",
-          label: { it: "Dal film Assassin's Creed (2016)", en: "From the film Assassin's Creed (2016)" }
-        },
         entries: [
           { id: "conspiracies", type: "FUMETTO", typeEn: "GRAPHIC NOVEL", year: "1943", yearEn: "1943",
             releaseYear: "2016 – 2017", releaseYearEn: "2016 – 2017",
