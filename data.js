@@ -264,6 +264,7 @@ const GAMES = {
 
   aitd: {
     id: "aitd",
+    lastAgentPass: "2026-09-08",
     listTitle: { it: "Alone in the Dark", en: "Alone in the Dark" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Alone in the Dark", en: "Alone in the Dark" },
@@ -281,7 +282,7 @@ const GAMES = {
       { src: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20The%20Light%20Carrier%20Test.mp3", title: "The Light Carrier Test", game: "Alone in the Dark (2008)" }
     ],
     blurb: {
-      it: "Un investigatore privato e chi lo accompagna si addentrano in dimore isolate dove la realtà si piega e l'orrore prende forma dall'ombra. Dietro ogni mistero da risolvere si nasconde qualcosa di più antico della ragione, capace di manipolare mente e percezione. La sopravvivenza dipende tanto dal coraggio quanto.",
+      it: "Un investigatore privato e chi lo accompagna si addentrano in dimore isolate dove la realtà si piega e l'orrore prende forma dall'ombra. Dietro ogni mistero da risolvere si nasconde qualcosa di più antico della ragione, capace di manipolare mente e percezione. La sopravvivenza dipende tanto dal coraggio quanto dal restare lucidi.",
       en: "A private investigator and those who join them venture into isolated estates where reality bends and horror takes shape from the shadows. Behind every mystery lies something older than reason itself, capable of twisting mind and perception alike. Survival depends as much on courage as on staying sane."
     },
     universes: [
@@ -430,7 +431,7 @@ const GAMES = {
       {
         id: "pieces-interactive",
         name: { it: "Universo Pieces Interactive", en: "Pieces Interactive Universe" },
-        span: { it: "2024", en: "2024" },
+        span: { it: "1930", en: "1930" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Pieces%20Interactive%20Filigrana.jpg",
         palette: ["#D1903D", "#9BAF9A"],
         entries: [
@@ -438,8 +439,8 @@ const GAMES = {
             id: "grace-in-the-dark",
             type: "VIDEOGIOCO",
             typeEn: "VIDEOGAME",
-            year: "1924 (ipotizzato)",
-            yearEn: "1924 (implied)",
+            year: "1930 (poche settimane prima)",
+            yearEn: "1930 (a few weeks before)",
             releaseYear: "2023",
             releaseYearEn: "2023",
             title: { it: "Alone in the Dark Prologue", en: "Alone in the Dark Prologue" },
@@ -453,8 +454,8 @@ const GAMES = {
             id: "aitd-2024",
             type: "VIDEOGIOCO",
             typeEn: "VIDEOGAME",
-            year: "1924 (ipotizzato)",
-            yearEn: "1924 (implied)",
+            year: "1930",
+            yearEn: "1930",
             releaseYear: "2024",
             releaseYearEn: "2024",
             title: { it: "Alone in the Dark", en: "Alone in the Dark" },
