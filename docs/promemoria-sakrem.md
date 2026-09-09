@@ -1417,3 +1417,82 @@ se necessario, rimuovere qualunque permesso di scrittura su `data.js`
 lato Artista - e per coerenza controllare anche il Musicista - per
 evitare che l'incidente si ripeta al prossimo ciclo di rivalutazione
 palette/tracklist.
+
+## Metal Gear Solid
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (finora
+  assente da `data.js`, nessun asset audio/immagine mai caricato per
+  questa saga) e popolarlo con una playlist di 7 brani, ordine di fama
+  decrescente, nessuna coppia consecutiva dello stesso titolo: Snake
+  Eater (*Metal Gear Solid 3: Snake Eater*), Rules of Nature (*Metal
+  Gear Rising: Revengeance*), Metal Gear Solid Main Theme (*Metal Gear
+  Solid 2: Sons of Liberty*), The Best Is Yet to Come (*Metal Gear
+  Solid*), It Has to Be This Way (*Metal Gear Rising: Revengeance*),
+  Sins of the Father (*Metal Gear Solid V: The Phantom Pain*), Heavens
+  Divide (*Metal Gear Solid: Peace Walker*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di più capitoli principali e
+  spin-off (incluso Metal Gear Rising: Revengeance).
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 5/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
+  sono nuovi per il sito e da caricare su R2 (proposta già accettata
+  nel merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico; saga finora priva di qualunque asset audio/immagine caricato,
+  incluso avatar/banner/watermarkOpacity). Il campo viene comunque
+  creato dal Programmatore come `tracks: []`, non popolato, in attesa
+  dei file.
+
+### Media aggiunti
+
+Saga già pubblicata, nessun nuovo universo in questo ciclo: 1 nuova
+voce a sé e 4 nuove voci gemelle (prima applicazione reale sul sito
+del meccanismo "gemella multipla" - vedi nota procedurale sotto).
+
+- `mgs2-comic` - Metal Gear Solid: Sons of Liberty (FUMETTO, IDW,
+  2005-2007) - voce a sé, inserita nell'universo `main` subito dopo
+  `mgs2`, prima di `mgs4` - richiamo mirato, 2026-09-09.
+- `mgs1-novel` - Metal Gear Solid (ROMANZO, Raymond Benson, 2008) -
+  voce gemella di `mgs1` - richiamo mirato, 2026-09-09.
+- `mgs1-comic` - Metal Gear Solid (FUMETTO, IDW, 2004-2006) - voce
+  gemella di `mgs1`, SECONDA gemella sullo stesso host insieme a
+  `mgs1-novel` - richiamo mirato, 2026-09-09.
+- `mgs2-novel` - Metal Gear Solid 2: Sons of Liberty (ROMANZO, Raymond
+  Benson, 2009) - voce gemella singola di `mgs2` - richiamo mirato,
+  2026-09-09.
+- `mgs4-novel` - Metal Gear Solid: Guns of the Patriots (ROMANZO,
+  Project Itoh, 2008 Giappone/2012 EN) - voce gemella singola di
+  `mgs4` - richiamo mirato, 2026-09-09.
+
+### Nota procedurale - PRIMA APPLICAZIONE REALE del meccanismo "gemella multipla"
+
+**Da leggere con priorità - novità tecnica rilevante anche oltre questa
+saga, non solo una nota di dettaglio locale.**
+
+`mgs1` è la prima voce sul sito ad avere davvero DUE gemelle
+contemporaneamente (`mgs1-comic`, IDW 2004-2006, e `mgs1-novel`,
+Benson 2008): il meccanismo "box pulsante + popup" per due o più
+gemelle sullo stesso titolo principale, già specificato in
+`.claude/agents/traccia-programmatore.md` (righe 76-83) ma mai
+implementato finora, viene commissionato al Programmatore per la prima
+volta in questo ciclo. Ordine delle due gemelle nel popup: prima
+`mgs1-comic` (2004-2006), poi `mgs1-novel` (2008) - ordine cronologico
+di uscita.
+
+Collegamento diretto con la proposta ancora in sospeso per Kingdom
+Hearts (vedi sezione Kingdom Hearts sopra, "In sospeso - meccanismo
+gemella multipla"): lì il Supervisore aveva individuato lo stesso
+identico limite tecnico e proposto due strade, (a) costruire il
+meccanismo strutturale oppure (b) degradare i 5 manga proposti
+(`kh1-manga`, `chain-of-memories-manga`, `kh2-manga`,
+`358-2-days-manga`, `kh3-manga`) a semplice nota testuale. Con
+l'implementazione del meccanismo (a) commissionata ora per Metal Gear
+Solid, la strada (a) diventa concretamente disponibile anche per
+Kingdom Hearts: la decisione se ripubblicare i 5 manga KH ora (con lo
+stesso meccanismo appena costruito) o in un secondo momento resta
+comunque di chi gestisce la consegna di quella saga - il testo IT/EN
+delle 5 voci è già pronto e verificato da prima, nessun lavoro perso.

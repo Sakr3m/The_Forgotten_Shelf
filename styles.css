@@ -692,6 +692,77 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   .report-modal-card{ padding:22px; }
 }
 
+/* ============================================================
+   Popup "gemella multipla" (entry.twins, 2+ gemelle sullo stesso
+   ospite - vedi .claude/agents/traccia-programmatore.md, "Due o piu'
+   gemelle sullo stesso titolo principale", e script.js
+   openTwinsPopup). Stessa identica meccanica visiva del popup
+   "Segnala un problema" qui sopra (overlay scuro + card centrata),
+   ma la card qui contiene una fila orizzontale di voci (solo le
+   gemelle, mai l'ospite) invece di un form.
+   ============================================================ */
+.twins-popup-overlay{
+  display:none;
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:1000;
+  align-items:center; justify-content:center;
+  padding:20px;
+}
+.twins-popup-overlay.visible{ display:flex; }
+.twins-popup-card{
+  position:relative;
+  background:var(--panel);
+  border:1px solid var(--cyan);
+  border-radius:14px;
+  padding:28px;
+  max-width:90vw; max-height:85vh; overflow:auto;
+  text-align:center;
+  box-sizing:border-box;
+}
+.twins-popup-close{
+  position:absolute; top:14px; right:14px;
+  width:32px; height:32px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg); border:1px solid var(--line); border-radius:50%;
+  color:var(--text-dim); font-size:1rem; cursor:pointer;
+}
+.twins-popup-close:hover{ color:var(--cyan); border-color:var(--cyan); }
+.twins-popup-title{ margin:0 24px 20px 0; font-size:1.1rem; font-weight:700; color:var(--text); }
+.twins-popup-track{
+  display:flex; flex-direction:row; gap:24px; justify-content:center;
+  flex-wrap:wrap;
+}
+.twins-popup-item{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  text-decoration:none; cursor:pointer; width:100px;
+}
+.twins-popup-item__tile{
+  width:100px; height:125px;
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  background:var(--bg);
+  overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color var(--dur-fast) var(--ease);
+}
+.twins-popup-item__tile img{ width:100%; height:100%; object-fit:cover; }
+.twins-popup-item__tile .monogram{ font-size:1.6rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.twins-popup-item__tile--missing{
+  border-color:#e5484d; background:color-mix(in srgb, #e5484d 12%, var(--bg));
+}
+.twins-popup-item__tile--missing .tile-missing{
+  font-size:.62rem; font-weight:700; text-align:center; color:#ff6b6f; line-height:1.3; padding:0 6px;
+}
+.twins-popup-item__title{ font-size:.82rem; font-weight:600; color:var(--text-dim); }
+.twins-popup-item:hover .twins-popup-item__tile{ border-color:var(--cyan); }
+.twins-popup-item:hover .twins-popup-item__title{ color:var(--text); }
+
+@media (max-width:900px){
+  .twins-popup-card{ padding:22px; }
+  .twins-popup-track{ gap:16px; }
+}
+
 
 /* Pulsante Discord — piccolo, solo icona (a differenza di Ko-fi che
    ha anche il testo), stessa forma a pillola/cerchio e stessa
@@ -1226,6 +1297,40 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node:hover .h-node__title{ color:var(--text); }
 
 /* ============================================================
+   Nodo "gemella multipla" (entry.twins, 2+ gemelle sullo stesso
+   ospite - vedi .claude/agents/traccia-programmatore.md, "Due o piu'
+   gemelle sullo stesso titolo principale"). La meta' sotto non e'
+   piu' un link verso una gemella precisa: e' un <button> (reset qui
+   sotto per azzerare lo stile nativo del browser) col box generico
+   .h-node__multitwin-box al posto della copertina - stesse
+   dimensioni base della copertina vera (100x125, gia' multipli di
+   5px), cosi' non c'e' nessun salto di layout passando da una
+   gemella sola a 2+. Bordo tratteggiato (invece che pieno, come
+   .h-node__tile) per segnalare visivamente "qui non c'e' un'immagine
+   vera, e' un pulsante".
+   ============================================================ */
+.h-node__bottom.h-node__bottom--multi-twin-btn{
+  background:none; border:none; margin:0; font:inherit; color:inherit;
+  cursor:pointer; padding:35px 0 0; /* stesso padding-top di .h-node__bottom */
+}
+.h-node__multitwin-box{
+  width:calc(100px * var(--avatar-scale, 1)); height:calc(125px * var(--avatar-scale, 1));
+  border-radius:var(--radius-sm);
+  border:1px dashed var(--line);
+  background:var(--panel);
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color var(--dur-fast) var(--ease);
+}
+.h-node__multitwin-count{
+  font-size:calc(1.1rem * var(--avatar-scale, 1)); font-weight:800;
+  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.h-node__bottom--multi-twin-btn:hover .h-node__multitwin-box,
+.h-node__bottom--multi-twin-btn:focus-visible .h-node__multitwin-box{ border-color:var(--dot-color, var(--cyan)); }
+.h-node__bottom--multi-twin-btn:hover .h-node__title,
+.h-node__bottom--multi-twin-btn:focus-visible .h-node__title{ color:var(--text); }
+
+/* ============================================================
    Nodo "Collegamento tra Universi" (regolamento PARTE 1 punto 19,
    primo caso reale: BioShock, Rapture <-> Columbia) - NON e' una voce
    reale: nessun .h-node__dot (nessun pallino pieno), nessun box
@@ -1374,6 +1479,29 @@ body[data-state="landing"] .index-link{ display:flex; }
 }
 .v-node__half:hover .v-node__title{ color:var(--text); }
 .v-node__half.is-active .v-node__title{ color:var(--text); font-weight:700; }
+
+/* Riga "gemella multipla" nella tabella (entry.twins, 2+ gemelle):
+   stessa doppia altezza/struttura di .v-node--twin qui sopra, ma la
+   meta' sotto e' un <button> (reset qui sotto) con un box generico al
+   posto di copertina+titolo dedicati - apre lo stesso popup della
+   linea orizzontale. 40x50: dimensioni fisse multiple di 5px, non
+   legate a .v-node__tile (38x48) per rispettare la regola tecnica. */
+.v-node__half--multi-twin-btn{
+  background:none; border:none; margin:0; padding:0; font:inherit; color:inherit;
+  width:100%; text-align:left;
+}
+.v-node__tile--multi{
+  width:40px; height:50px; flex-shrink:0;
+  border-radius:var(--radius-sm);
+  border:1px dashed var(--line);
+  background:var(--panel);
+  display:flex; align-items:center; justify-content:center;
+}
+.v-node__multitwin-count{
+  font-size:.85rem; font-weight:800;
+  background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.v-node__half--multi-twin-btn:hover .v-node__tile--multi{ border-color:var(--cyan); }
 
 /* ============================================================
    Title panel — full detail
@@ -1732,6 +1860,15 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   }
   .h-node__marker{ grid-column:2; grid-row:1; }
   .h-node__tile{ width:63px; height:80px; }
+  /* Il box "gemella multipla" (vedi regola desktop sopra) ha una
+     specificita' piu' alta di .h-node__bottom da solo (due classi
+     contro una) - senza questa riga il suo padding fisso desktop
+     (35px 0 0) vincerebbe anche qui, rompendo il layout affiancato
+     mobile. Stesso padding di .h-node__bottom qui sopra, stessa
+     dimensione box di .h-node__tile qui sopra (65x80, il valore piu'
+     vicino multiplo di 5px). */
+  .h-node__bottom.h-node__bottom--multi-twin-btn{ padding:0 0 0 14px; }
+  .h-node__multitwin-box{ width:65px; height:80px; }
   .h-node__title{ font-size:.7rem; height:auto; width:80px; }
   .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
   .h-node--down .h-node__marker::after,
@@ -1837,6 +1974,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   }
   .v-node::before{ left:50%; top:24px; transform:translateX(-50%); }
   .v-node__tile{ width:56px; height:70px; margin-top:14px; }
+  .v-node__tile--multi{ width:35px; height:45px; margin-top:14px; } /* stessa proporzione di .v-node__tile qui sopra, multipli di 5px */
   .v-node__meta{ text-align:center; }
   .v-node__title{ font-size:.68rem; }
 }

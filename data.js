@@ -5458,13 +5458,19 @@ const GAMES = {
     },
     palette: ["#4b5320", "#7c8b96", "#ff6a00"],
     accentColor: "#7c8b96",
+    // Playlist proposta dal Musicista (7 brani), in attesa dei file
+    // MP3 su R2 - nessun asset caricato ancora per questa saga in
+    // questo ciclo, campo creato vuoto (vedi pacchetto Segretaria,
+    // sezione 6).
+    tracks: [],
+    lastAgentPass: "2026-09-09",
     universes: [
       {
         id: "main",
         name: { it: "Universo principale", en: "Main Universe" },
         span: { it: "1964 – 2018", en: "1964 – 2018" },
         entries: [
-          { id: "mgs3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1964", releaseYear: "2004", releaseYearEn: "2004",
+          { id: "mgs3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1964", releaseYear: "2004 (Remaster: 2023, Remake: 2025)", releaseYearEn: "2004 (Remaster: 2023, Remake: 2025)",
             title: { it: "Metal Gear Solid 3: Snake Eater / Metal Gear Solid Δ: Snake Eater", en: "Metal Gear Solid 3: Snake Eater / Metal Gear Solid Δ: Snake Eater" },
             synopsis: {
               it: "Naked Snake, agente FOX, viene inviato nell'Unione Sovietica per sabotare lo Shagohod, un carro armato nucleare precursore dei Metal Gear, recuperare il disertore Dr. Sokolov ed eliminare la sua mentore The Boss, apparentemente passata al nemico insieme al colonnello rinnegato Volgin. La missione rivela una verità devastante: The Boss era stata sacrificata dal governo americano, incaricata di fingere la defezione per spiare Volgin dall'interno e prevenire una guerra nucleare. Snake la uccide sapendo che era innocente. Per questo gesto viene insignito del titolo di Big Boss, che porta come una cicatrice.",
@@ -5478,7 +5484,7 @@ const GAMES = {
               en: "Big Boss is kidnapped and imprisoned in Colombia by renegade elements of his former unit FOX, now under the control of Gene, a product of the American \"Successor Project\" to create the perfect battlefield commander. Accused of treason alongside Major Zero, Big Boss recruits an army of prisoners and deserters to dismantle FOX. During the mission he encounters the young Frank Jaeger for the first time — the future Grey Fox — reduced to a pure killing machine through military experiments that erased his memories and emotions. He discovers that Gene intended to use a nuclear Metal Gear to strike the USA, destroy the Philosophers, and found an independent nation of soldiers called \"Army's Heaven\". Big Boss defeats Gene, who before dying hands over his resources and intelligence. On his return, Big Boss establishes FOXHOUND. Canonical but considered a minor chapter, not directed by Kojima."
             }
           },
-          { id: "peace-walker", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1974", releaseYear: "2010", releaseYearEn: "2010",
+          { id: "peace-walker", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1974", releaseYear: "2010 (Remaster: 2026)", releaseYearEn: "2010 (Remaster: 2026)",
             title: { it: "Metal Gear Solid: Peace Walker", en: "Metal Gear Solid: Peace Walker" },
             synopsis: {
               it: "Big Boss e la sua organizzazione mercenaria Militaires Sans Frontières vengono ingaggiati per indagare su un'occupazione militare in Costa Rica. Scoprono che il gruppo CIA rinnegato Peace Sentinel, guidato dall'agente Coldman, sta sviluppando il Peace Walker: un carro armato nucleare quadrupede la cui intelligenza artificiale è modellata sulla personalità di The Boss. Coldman attiva il sistema per dimostrare la validità del deterrente nucleare, ma è l'AI di The Boss stessa che, diventando consapevole, si getta nel lago spezzando il collegamento e salvando il mondo. Nel secondo atto, Paz Ortega si rivela essere una spia di Cipher, l'organizzazione segreta di Major Zero, e tenta di usare il Metal Gear ZEKE per colpire gli USA e ricondurre Big Boss sotto il controllo dei Patrioti. Big Boss la sconfigge e nel finale dichiara la MSF \"Outer Heaven\", nazione di soldati senza bandiera.",
@@ -5506,39 +5512,87 @@ const GAMES = {
               en: "A soldier wakes from a coma in a hospital in Cyprus: he is Venom Snake, the field medic from Ground Zeroes, surgically and psychologically transformed to replace Big Boss as a decoy for his enemies. Together with Ocelot and Miller he rebuilds Diamond Dogs, hunting down Skull Face — the renegade XOF commander who intends to spread a vocal cord parasite capable of killing anyone who speaks certain languages, in order to destroy English and bring down Cipher's global control system. Skull Face's plan includes the Metal Gear Sahelanthropus, a next-generation bipedal weapon. Skull Face is defeated and left to die, but the parasite and the Metal Gear remain active threats until their final resolution. The finale reveals that the real Big Boss was \"Ishmael\" — the mysterious figure who helped Venom Snake escape from the hospital — and that he used his double to build Outer Heaven from the shadows."
             }
           },
-          { id: "mg1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", releaseYear: "1987", releaseYearEn: "1987",
+          { id: "mg1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1995", releaseYear: "1987 (Remaster: 2023)", releaseYearEn: "1987 (Remaster: 2023)",
             title: { it: "Metal Gear", en: "Metal Gear" },
             synopsis: {
               it: "Solid Snake, recluta di FOXHOUND, viene inviato nella nazione-fortezza di Outer Heaven in Sud Africa per salvare Gray Fox e scoprire la verità sul Metal Gear, un carro armato nucleare bipede. Durante la missione il suo comandante, Big Boss, lo guida via radio fornendogli volutamente consigli sbagliati: Snake è stato mandato come pedina sacrificabile. Scopre che il comandante operativo di Outer Heaven è in realtà Venom Snake, il sosia di Big Boss. Snake distrugge il Metal Gear e sconfigge Venom Snake, che muore nell'esplosione della fortezza.",
               en: "Solid Snake, a FOXHOUND rookie, is sent to the fortified nation of Outer Heaven in South Africa to rescue Gray Fox and uncover the truth behind Metal Gear, a bipedal nuclear tank. During the mission his commanding officer, Big Boss, guides him via radio while deliberately feeding him misleading advice: Snake has been sent in as a expendable pawn. He discovers that the operational commander of Outer Heaven is in fact Venom Snake, Big Boss's body double. Snake destroys Metal Gear and defeats Venom Snake, who dies in the explosion of the fortress."
             }
           },
-          { id: "mg2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1999", releaseYear: "1990", releaseYearEn: "1990",
+          { id: "mg2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1999", releaseYear: "1990 (Remaster: 2023)", releaseYearEn: "1990 (Remaster: 2023)",
             title: { it: "Metal Gear 2: Solid Snake", en: "Metal Gear 2: Solid Snake" },
             synopsis: {
               it: "Snake viene richiamato dall'autoesilio in Alaska per infiltrarsi a Zanzibar Land, nazione mercenaria armata di testate nucleari rubate, dove il Dr. Kio Marv è stato rapito insieme alla formula dell'OILIX, un'alga sintetica capace di produrre carburante e risolvere la crisi petrolifera mondiale. Scopre che Big Boss guida Zanzibar Land, e che Gray Fox, ora nemico, pilota il nuovo Metal Gear D. Snake distrugge il Metal Gear e sconfigge Gray Fox in un duello a mani nude in un campo minato. Senza più armi, affronta Big Boss con un lanciafiamme improvvisato fatto da un accendino e una bomboletta spray, sconfiggendolo definitivamente. Big Boss muore per le ferite. Snake torna in esilio in Alaska.",
               en: "Snake is pulled out of self-imposed exile in Alaska to infiltrate Zanzibar Land, a mercenary nation armed with stolen nuclear warheads, where Dr. Kio Marv has been kidnapped along with the formula for OILIX — a synthetic algae capable of producing fuel and solving the global oil crisis. He discovers that Big Boss is leading Zanzibar Land, and that Gray Fox, now an enemy, pilots the new Metal Gear D. Snake destroys the Metal Gear and defeats Gray Fox in a bare-knuckle duel in a minefield. With no weapons left, he faces Big Boss with an improvised flamethrower made from a lighter and an aerosol can, defeating him for the last time. Big Boss dies from his wounds. Snake returns to exile in Alaska."
             }
           },
-          { id: "mgs1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2005", releaseYear: "1998", releaseYearEn: "1998",
-            title: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
+          { id: "mgs1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2005", releaseYear: "1998 (Remake: 2004, Remaster: 2023)", releaseYearEn: "1998 (Remake: 2004, Remaster: 2023)",
+            title: { it: "Metal Gear Solid / Metal Gear Solid: The Twin Snakes", en: "Metal Gear Solid / Metal Gear Solid: The Twin Snakes" },
             synopsis: {
               it: "Solid Snake viene richiamato dall'esilio in Alaska per infiltrarsi nella base nucleare di Shadow Moses, conquistata dai FOXHOUND ribelli guidati da Liquid Snake, gemello biologico di Solid e prodotto come lui del progetto segreto Les Enfants Terribles. Liquid crede di essere il clone \"inferiore\", portatore dei geni recessivi di Big Boss, e nutre un risentimento viscerale verso Solid per questo. Snake scopre di essere stato usato inconsapevolmente come vettore del virus FOXDIE, programmato dal governo per uccidere i membri di FOXHOUND tramite arresto cardiaco e recuperare il Metal Gear REX intatto. Gray Fox, ora cyborg, muore distruggendo a mani nude il sistema radar del REX per renderlo vulnerabile agli attacchi di Snake. Snake distrugge il Metal Gear REX e sconfigge Liquid, che tuttavia muore non per le ferite ma per il FOXDIE stesso. Nell'epilogo, Revolver Ocelot, agente doppio presente durante tutta la missione, si fa trapiantare il braccio di Liquid appena morto: il braccio comincia gradualmente a far emergere la personalità di Liquid attraverso Ocelot, seminando le basi per gli eventi di MGS4.",
               en: "Solid Snake is pulled out of exile in Alaska to infiltrate the nuclear facility at Shadow Moses, seized by renegade FOXHOUND members led by Liquid Snake — Snake's biological twin and, like him, a product of the secret Les Enfants Terribles project. Liquid believes himself to be the \"inferior\" clone, carrying Big Boss's recessive genes, and harbours a visceral resentment toward Solid because of it. Snake discovers he has been unknowingly used as a carrier of the FOXDIE virus, programmed by the government to kill FOXHOUND members via cardiac arrest and recover Metal Gear REX intact. Gray Fox, now a cyborg, dies destroying REX's radar system with his bare hands to leave it vulnerable to Snake's attacks. Snake destroys Metal Gear REX and defeats Liquid, who however dies not from his wounds but from FOXDIE itself. In the epilogue, Revolver Ocelot — a double agent present throughout the entire mission — has Liquid's freshly amputated arm grafted onto himself: the arm gradually begins to bring Liquid's personality to the surface through Ocelot, sowing the seeds for the events of MGS4."
-            }
+            },
+            // Voce "gemella multipla" (entry.twins, array, 2 gemelle
+            // sullo stesso ospite): PRIMA applicazione reale di questo
+            // meccanismo sul sito, vedi .claude/agents/traccia-programmatore.md
+            // ("Due o piu' gemelle sullo stesso titolo principale") e
+            // il rendering dedicato in script.js (h-node--twin-multi /
+            // v-node--twin-multi / openTwinsPopup). Ordine nell'array =
+            // ordine nel popup, sinistra->destra: mgs1-comic (2004-2006)
+            // prima, mgs1-novel (2008) dopo - ordine cronologico di
+            // uscita.
+            twins: [
+              { id: "mgs1-comic", type: "FUMETTO", typeEn: "COMIC", year: "2005", yearEn: "2005", releaseYear: "2004 – 2006", releaseYearEn: "2004 – 2006",
+                title: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
+                synopsis: {
+                  it: "Fumetto pubblicato da IDW Publishing tra il 2004 e il 2006, sceneggiato da Kris Oprisko e disegnato da Ashley Wood, adattamento ufficiale su licenza Konami di Metal Gear Solid (1998), fedele all'originale salvo alcuni tagli e piccole aggiunte. Da questo fumetto è tratta anche Metal Gear Solid: Digital Graphic Novel, motion comic interattivo per PSP uscito il 13 giugno 2006 in Nord America e il 21 settembre 2006 in Giappone ed Europa.",
+                  en: "A comic book published by IDW Publishing between 2004 and 2006, written by Kris Oprisko and drawn by Ashley Wood, an official Konami-licensed adaptation of Metal Gear Solid (1998), faithful to the original aside from a few cuts and minor additions. This comic also served as the basis for Metal Gear Solid: Digital Graphic Novel, an interactive motion comic for PSP released on June 13, 2006 in North America and September 21, 2006 in Japan and Europe."
+                }
+              },
+              { id: "mgs1-novel", type: "ROMANZO", typeEn: "NOVEL", year: "2005", yearEn: "2005", releaseYear: "2008", releaseYearEn: "2008",
+                title: { it: "Metal Gear Solid", en: "Metal Gear Solid" },
+                synopsis: {
+                  it: "Romanzo di Raymond Benson, pubblicato nel 2008 da Del Rey, novellizzazione ufficiale di Metal Gear Solid (1998). L'adattamento segue fedelmente gli eventi del gioco, senza divergenze di trama rilevanti; Benson, autore già noto per il suo background in narrativa di genere, arricchisce la narrazione con maggiori dettagli sui pensieri interiori dei personaggi rispetto al materiale originale.",
+                  en: "A novel by Raymond Benson, published in 2008 by Del Rey, an official novelization of Metal Gear Solid (1998). The adaptation faithfully follows the events of the game with no significant plot divergences; Benson, already known for his genre-fiction background, expands the narrative with additional insight into the characters' inner thoughts compared to the original material."
+                }
+              }
+            ]
           },
-          { id: "mgs2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2007–2009", releaseYear: "2001", releaseYearEn: "2001",
+          { id: "mgs2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2007–2009", releaseYear: "2001 (Remaster: 2023)", releaseYearEn: "2001 (Remaster: 2023)",
             title: { it: "Metal Gear Solid 2: Sons of Liberty", en: "Metal Gear Solid 2: Sons of Liberty" },
             synopsis: {
               it: "Diviso in due atti. Nel primo, Snake infiltra un tanker nel porto di New York per fotografare il Metal Gear RAY, nuovo prototipo anfibio. Ocelot tradisce tutti, affonda la nave con il RAY a bordo e Snake viene dato per morto. Nel secondo, due anni dopo, Raiden, giovane soldato senza esperienza sul campo, viene inviato sulla Big Shell, una piattaforma di decontaminazione offshore che nasconde in realtà Arsenal Gear: una fortezza mobile che ospita un'AI dei Patriots programmata per controllare il flusso di informazioni globale. L'intera missione si rivela essere una simulazione orchestrata dai Patriots per verificare se fosse possibile creare un soldato perfetto attraverso il controllo dell'informazione. Il vero antagonista è Solidus Snake, terzo clone di Big Boss ed ex presidente degli USA. Raiden sconfigge Solidus con l'aiuto di Snake, ma i Patriots rimangono nell'ombra, la loro identità irrisolta.",
               en: "Divided into two acts. In the first, Snake infiltrates a tanker in New York Harbor to photograph Metal Gear RAY, a new amphibious prototype. Ocelot betrays everyone, sinks the ship with RAY on board, and Snake is presumed dead. In the second, two years later, Raiden — a young soldier with no field experience — is sent to the Big Shell, an offshore decontamination facility that is in reality concealing Arsenal Gear: a mobile fortress housing a Patriots AI programmed to control the global flow of information. The entire mission is revealed to be a simulation orchestrated by the Patriots to test whether a perfect soldier could be created through the control of information. The true antagonist is Solidus Snake, the third clone of Big Boss and a former US President. Raiden defeats Solidus with Snake's help, but the Patriots remain in the shadows, their identity unresolved."
+            },
+            twin: {
+              id: "mgs2-novel", type: "ROMANZO", typeEn: "NOVEL", year: "2007–2009", yearEn: "2007–2009", releaseYear: "2009", releaseYearEn: "2009",
+              title: { it: "Metal Gear Solid 2: Sons of Liberty", en: "Metal Gear Solid 2: Sons of Liberty" },
+              synopsis: {
+                it: "Romanzo di Raymond Benson, pubblicato nel 2009 da Del Rey, novellizzazione ufficiale di Metal Gear Solid 2: Sons of Liberty (2001). Come per il romanzo precedente, l'adattamento resta fedele alla trama del gioco. Fu l'ultimo libro scritto da Benson per la saga: Del Rey chiuse l'accordo editoriale dopo questi due volumi e non fu mai realizzata una novellizzazione di Metal Gear Solid 3: Snake Eater.",
+                en: "A novel by Raymond Benson, published in 2009 by Del Rey, an official novelization of Metal Gear Solid 2: Sons of Liberty (2001). Like its predecessor, the adaptation remains faithful to the game's plot. It was the last book Benson wrote for the series: Del Rey ended the publishing deal after these two volumes, and a novelization of Metal Gear Solid 3: Snake Eater was never produced."
+              }
             }
           },
-          { id: "mgs4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2014", releaseYear: "2008", releaseYearEn: "2008",
+          { id: "mgs2-comic", type: "FUMETTO", typeEn: "COMIC", year: "2007–2009", yearEn: "2007–2009", releaseYear: "2005 – 2007", releaseYearEn: "2005 – 2007",
+            title: { it: "Metal Gear Solid: Sons of Liberty", en: "Metal Gear Solid: Sons of Liberty" },
+            synopsis: {
+              it: "Metal Gear Solid: Sons of Liberty è un fumetto pubblicato da IDW Publishing tra ottobre 2005 e settembre 2007, in tredici albi (numeri 0-12), sceneggiato da Alex Garner e disegnato da Ashley Wood, adattamento ufficiale su licenza Konami di Metal Gear Solid 2: Sons of Liberty (2001). Pur ricalcando la struttura generale del gioco, introduce diverse divergenze di trama. È Snake, e non Raiden, ad affrontare Vamp nella camera di purificazione della Big Shell e a scortare Emma Emmerich verso la sala computer; più avanti, quando Vamp tiene in ostaggio Emma sull'oil fence, è comunque Raiden a colpirlo da cecchino. Durante la tortura di Raiden per mano di Solidus Snake viene rivelato un flashback inedito: nel giorno del suo decimo compleanno, nel 1990, Raiden (allora conosciuto come \"Jack the Ripper\") fu costretto da Solidus a decapitare dieci prigionieri di guerra liberiani come \"regalo di compleanno\". Anche il climax finale è alterato: sul tetto della Federal Hall, dopo che Solidus mette KO Raiden, è Snake a sfidarlo a duello di spada, sconfiggendolo e pugnalandolo, causandone la caduta dal tetto. Una sottotrama segue lo spirito di Liquid Snake, che possiede la mente di Revolver Ocelot e dialoga con lui; compare anche The Sorrow, padre di Ocelot già noto da Metal Gear Solid 3, che lo rimprovera per essersi lasciato controllare così facilmente, sfruttando retroattivamente la rivelazione dei poteri medianici di Ocelot. Dal fumetto fu tratta anche Metal Gear Solid 2: Bande Dessinée, motion comic con doppiaggio giapponese distribuito su DVD in esclusiva in Giappone il 12 giugno 2008, in origine concepito come sequel PSP di Metal Gear Solid: Digital Graphic Novel ma poi cancellato in quella forma.",
+              en: "Metal Gear Solid: Sons of Liberty is a comic book published by IDW Publishing between October 2005 and September 2007, across thirteen issues (#0-12), written by Alex Garner and drawn by Ashley Wood, an official Konami-licensed adaptation of Metal Gear Solid 2: Sons of Liberty (2001). While it follows the game's overall structure, it introduces several plot divergences. It is Snake, not Raiden, who confronts Vamp in the Big Shell's purification chamber and escorts Emma Emmerich to the computer room; later, when Vamp holds Emma hostage on the oil fence, it is still Raiden who shoots him from a sniper position. During Raiden's torture at Solidus Snake's hands, an original flashback is revealed: on his tenth birthday in 1990, Raiden (then known as \"Jack the Ripper\") was forced by Solidus to behead ten Liberian prisoners of war as a \"birthday present.\" The final climax is also altered: on the roof of Federal Hall, after Solidus knocks Raiden out, it is Snake who challenges him to a sword duel, defeating and stabbing him, causing him to fall from the roof. A subplot follows the spirit of Liquid Snake, who possesses Revolver Ocelot's mind and converses with him; The Sorrow, Ocelot's father already known from Metal Gear Solid 3, also appears, scolding him for letting himself be controlled so easily, a retroactive use of Ocelot's revealed spirit-medium abilities. The comic also served as the basis for Metal Gear Solid 2: Bande Dessinée, a Japanese-dubbed motion comic released exclusively on DVD in Japan on June 12, 2008, originally conceived as a PSP sequel to Metal Gear Solid: Digital Graphic Novel but ultimately cancelled in that form."
+            }
+          },
+          { id: "mgs4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2014", releaseYear: "2008 (Remaster: 2026)", releaseYearEn: "2008 (Remaster: 2026)",
             title: { it: "Metal Gear Solid 4: Guns of the Patriots", en: "Metal Gear Solid 4: Guns of the Patriots" },
             synopsis: {
               it: "Solid Snake, invecchiato prematuramente per via della sua genetica clonata, viene inviato a eliminare Liquid Ocelot: in realtà Ocelot si è ipnotizzato per impersonare Liquid e ingannare le AI dei Patriots dall'interno. Nel 2014 il mondo è dominato da un'economia di guerra gestita dai Patriots attraverso PMC globali e nanomacchine impiantate nei soldati. Snake carica il virus FOXALIVE nel sistema AI dei Patriots, distruggendolo definitivamente. Nell'epilogo Big Boss riappare vivo: il corpo bruciato in precedenza era quello di Solidus Snake, usato come sosia. Big Boss uccide Zero, l'ultimo fondatore dei Patriots rimasto in vita, poi muore per un nuovo ceppo di FOXDIE. Snake decide di vivere i suoi ultimi mesi senza più combattere.",
               en: "Solid Snake, prematurely aged due to his cloned genetics, is sent to eliminate Liquid Ocelot: in reality, Ocelot has hypnotised himself to impersonate Liquid and deceive the Patriots' AIs from within. By 2014, the world is dominated by a war economy managed by the Patriots through global PMCs and nanomachines implanted in soldiers. Snake uploads the FOXALIVE virus into the Patriots' AI system, destroying it for good. In the epilogue, Big Boss reappears alive: the body burned previously was that of Solidus Snake, used as a body double. Big Boss kills Zero, the last surviving founder of the Patriots, then dies himself from a new strain of FOXDIE. Snake chooses to live out his remaining months without fighting."
+            },
+            twin: {
+              id: "mgs4-novel", type: "ROMANZO", typeEn: "NOVEL", year: "2014", yearEn: "2014", releaseYear: "2008", releaseYearEn: "2008",
+              title: { it: "Metal Gear Solid: Guns of the Patriots", en: "Metal Gear Solid: Guns of the Patriots" },
+              synopsis: {
+                it: "Romanzo di Project Itoh (pseudonimo di Satoshi Itō), pubblicato originariamente in Giappone nel 2008 e tradotto in inglese nel 2012 da Haikasoru, novellizzazione ufficiale di Metal Gear Solid 4: Guns of the Patriots (2008). Project Itoh, autore pluripremiato di fantascienza giapponese, non altera gli eventi di trama del gioco ma approfondisce sensibilmente l'introspezione psicologica dei personaggi rispetto al materiale originale.",
+                en: "A novel by Project Itoh (pen name of Satoshi Itō), originally published in Japan in 2008 and translated into English in 2012 by Haikasoru, an official novelization of Metal Gear Solid 4: Guns of the Patriots (2008). Project Itoh, an award-winning Japanese science-fiction author, doesn't alter the game's plot events but considerably deepens the characters' psychological introspection compared to the original material."
+              }
             }
           },
           { id: "mgr", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2018", releaseYear: "2013", releaseYearEn: "2013",

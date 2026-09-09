@@ -62,7 +62,10 @@ const STRINGS = {
     reportNeedDescription: "Descrivi prima il problema.",
     reportProcessingImage: "Elaborazione immagine...",
     reportInvalidImage: "Non è stato possibile leggere quell'immagine, provane un'altra.",
-    reportSelectImage: "Seleziona un file immagine."
+    reportSelectImage: "Seleziona un file immagine.",
+    twinMultiLabel: "Altre versioni",
+    twinMultiPopupTitle: "Altre versioni",
+    twinMultiClose: "Chiudi"
   },
   en: {
     brand: "The Trace of Time",
@@ -101,7 +104,10 @@ const STRINGS = {
     reportNeedDescription: "Please describe the issue first.",
     reportProcessingImage: "Processing image...",
     reportInvalidImage: "Could not read that image, try another one.",
-    reportSelectImage: "Please select an image file."
+    reportSelectImage: "Please select an image file.",
+    twinMultiLabel: "Other versions",
+    twinMultiPopupTitle: "Other versions",
+    twinMultiClose: "Close"
   }
 };
 
@@ -602,6 +608,12 @@ function findEntry(game, entryId){
     // , vedi .claude/agents/traccia-supervisore.md.
     const twinHost = u.entries.find(e => e.twin && e.twin.id === entryId);
     if(twinHost) return { entry: twinHost.twin, universe: u };
+    // Voce "gemella multipla" (entry.twins, array, da 2 gemelle in
+    // su sullo stesso ospite - vedi buildUniverseTrack per il resto
+    // del meccanismo): stesso principio di entry.twin sopra, ma
+    // cercando dentro l'array invece che su un singolo oggetto.
+    const multiTwinHost = u.entries.find(e => Array.isArray(e.twins) && e.twins.some(tw => tw.id === entryId));
+    if(multiTwinHost) return { entry: multiTwinHost.twins.find(tw => tw.id === entryId), universe: u };
     // Voce "ombrello" (uni.umbrellas, PARTE 3 punto 3): idem, non
     // vive in u.entries ma deve restare raggiungibile per id.
     const umbrella = (u.umbrellas || []).find(e => e.id === entryId);
@@ -819,6 +831,20 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
     return position === "top" ? (tile + title) : (title + tile);
   }
 
+  // Markup della meta' "sotto" quando un ospite ha 2+ gemelle
+  // (entry.twins, prima applicazione: mgs1-comic/mgs1-novel su MGS1):
+  // niente immagine/titolo dedicati (nessuna gemella specifica va
+  // mostrata li'), un box generico che invita a cliccare - stessa
+  // posizione/ordine (titolo poi box) della meta' "bottom" normale,
+  // cosi' l'occhio non nota nessun salto passando da una gemella
+  // singola a 2+. Dimensioni del box fisse, entrambe multipli di 5px
+  // (regola tecnica, vedi .claude/agents/traccia-programmatore.md).
+  function buildMultiTwinHalfHTML(count){
+    const title = `<span class="h-node__title h-node__title--bottom">${t("twinMultiLabel")}</span>`;
+    const box = `<span class="h-node__multitwin-box" aria-hidden="true"><span class="h-node__multitwin-count">+${count}</span></span>`;
+    return title + box;
+  }
+
   // Collegamento tra Universi (PARTE 1 punto 19): se questo universo
   // RICEVE l'aggancio da un altro ("start"), il nodo tratteggiato va
   // per primo, prima di qualunque voce reale.
@@ -829,6 +855,12 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
 
   expandedEntries.forEach((entry, i) => {
     const isTwin = !!entry.twin;
+    // Voce "gemella multipla" (entry.twins, array da 2 elementi in
+    // su): stesso peso/alternanza di una gemella singola (occupa
+    // sopra+sotto sullo stesso pallino, 2 turni), ma sotto la riga
+    // non mostra una gemella specifica - un box pulsante generico
+    // che apre il popup con tutte le gemelle (vedi piu' sotto).
+    const isMultiTwin = Array.isArray(entry.twins) && entry.twins.length >= 2;
     const isUmbrella = (uni.umbrellas || []).includes(entry);
 
     let tileDown;
@@ -869,15 +901,16 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
       // racchiudono (tutti sullo stesso lato tra loro, vedi sopra).
       tileDown = !openUmbrellas[0].tileDown;
     } else {
-      tileDown = !isTwin && (turn % 2 === 0); // per un gemello non
-        // serve un "lato": occupa entrambi, il valore non viene usato
+      tileDown = !isTwin && !isMultiTwin && (turn % 2 === 0); // per un
+        // gemello (singolo o multiplo) non serve un "lato": occupa
+        // entrambi, il valore non viene usato
     }
 
     const t = total > 1 ? i / (total - 1) : 0;
     const color = gradientColorAt(t, gradientStops);
 
     let node;
-    if(isTwin){
+    if(isTwin || isMultiTwin){
       // Nodo "gemello": due media diversi sullo stesso pallino, uno
       // sopra (questa entry) e uno sotto (entry.twin) - convenzione
       // FISSA confermata (29/08), non modificabile caso per caso: chi
@@ -888,16 +921,33 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
       // copertina+titolo a diventare link indipendenti, con il
       // pallino condiviso in mezzo che resta sempre lo stesso (solo
       // hover, mai cliccabile, come su ogni nodo).
+      // Da 2 gemelle in su sullo stesso ospite (entry.twins, array):
+      // stessa meccanica di sopra/sotto/pallino condiviso, ma la
+      // meta' sotto non e' piu' un link verso UNA gemella - diventa
+      // un box pulsante generico che apre un popup con tutte le
+      // gemelle in fila (prima applicazione: mgs1-comic/mgs1-novel
+      // su Metal Gear Solid, MGS1). Vedi openTwinsPopup piu' in
+      // basso.
       node = document.createElement("div");
-      node.className = "h-node h-node--twin";
+      node.className = "h-node h-node--twin" + (isMultiTwin ? " h-node--twin-multi" : "");
       node.style.setProperty("--dot-color", color);
       const topHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
-      const bottomHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.twin.id}.html`;
-      node.innerHTML = `
-        <a class="h-node__top" href="${topHref}" data-entry-id="${entry.id}">${buildHalfHTML(entry, "top")}</a>
-        <span class="h-node__marker"><span class="h-node__dot"></span></span>
-        <a class="h-node__bottom" href="${bottomHref}" data-entry-id="${entry.twin.id}">${buildHalfHTML(entry.twin, "bottom")}</a>
-      `;
+      if(isMultiTwin){
+        node.innerHTML = `
+          <a class="h-node__top" href="${topHref}" data-entry-id="${entry.id}">${buildHalfHTML(entry, "top")}</a>
+          <span class="h-node__marker"><span class="h-node__dot"></span></span>
+          <button type="button" class="h-node__bottom h-node__bottom--multi-twin-btn">${buildMultiTwinHalfHTML(entry.twins.length)}</button>
+        `;
+        const multiBtn = node.querySelector(".h-node__bottom--multi-twin-btn");
+        multiBtn.addEventListener("click", () => openTwinsPopup(entry.twins, state.gameId));
+      } else {
+        const bottomHref = `voci/la-traccia-del-tempo/${state.gameId}/${entry.twin.id}.html`;
+        node.innerHTML = `
+          <a class="h-node__top" href="${topHref}" data-entry-id="${entry.id}">${buildHalfHTML(entry, "top")}</a>
+          <span class="h-node__marker"><span class="h-node__dot"></span></span>
+          <a class="h-node__bottom" href="${bottomHref}" data-entry-id="${entry.twin.id}">${buildHalfHTML(entry.twin, "bottom")}</a>
+        `;
+      }
     } else {
       node = document.createElement("a");
       node.href = `voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html`;
@@ -916,7 +966,7 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
         // questa funzione costruisce nodi per entrambi)
     }
     timeline.appendChild(node);
-    turn += isTwin ? 2 : 1;
+    turn += (isTwin || isMultiTwin) ? 2 : 1;
   });
 
   // Collegamento tra Universi: se questo universo GENERA l'aggancio
@@ -928,6 +978,70 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   }
 
   return track;
+}
+
+// ---------------------------------------------------------
+// Popup "gemella multipla" (entry.twins, 2+ gemelle sullo stesso
+// ospite - vedi .claude/agents/traccia-programmatore.md, "Due o piu'
+// gemelle sullo stesso titolo principale"): il box pulsante sotto la
+// riga (linea orizzontale, h-node__bottom--multi-twin-btn, e tabella
+// verticale, v-node__half--multi-twin-btn) apre questo stesso popup,
+// che mostra SOLO le gemelle (mai l'ospite) in fila da sinistra a
+// destra, nell'ordine gia' presente in entry.twins (per MGS1:
+// mgs1-comic prima, mgs1-novel dopo - ordine cronologico di uscita,
+// deciso a monte nei dati, non qui). Overlay costruito una sola volta,
+// lazy (alla prima apertura), stesso schema di initReportModal qui
+// sotto - non serve markup dedicato nell'HTML della pagina.
+let twinsPopupOverlay = null;
+let twinsPopupTrack = null;
+
+function ensureTwinsPopup(){
+  if(twinsPopupOverlay) return;
+  twinsPopupOverlay = document.createElement("div");
+  twinsPopupOverlay.className = "twins-popup-overlay";
+  twinsPopupOverlay.innerHTML = `
+    <div class="twins-popup-card">
+      <button type="button" class="twins-popup-close" aria-label="${t("twinMultiClose")}">✕</button>
+      <p class="twins-popup-title">${t("twinMultiPopupTitle")}</p>
+      <div class="twins-popup-track"></div>
+    </div>
+  `;
+  document.body.appendChild(twinsPopupOverlay);
+  twinsPopupTrack = twinsPopupOverlay.querySelector(".twins-popup-track");
+  const closeBtn = twinsPopupOverlay.querySelector(".twins-popup-close");
+  closeBtn.addEventListener("click", closeTwinsPopup);
+  twinsPopupOverlay.addEventListener("click", (e) => { if(e.target === twinsPopupOverlay) closeTwinsPopup(); });
+  document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeTwinsPopup(); });
+}
+
+function closeTwinsPopup(){
+  if(twinsPopupOverlay) twinsPopupOverlay.classList.remove("visible");
+}
+
+// twins: entry.twins (array), gameId: state.gameId dell'ospite - le
+// gemelle condividono sempre la saga dell'ospite, mai un'altra.
+function openTwinsPopup(twins, gameId){
+  ensureTwinsPopup();
+  twinsPopupTrack.innerHTML = "";
+  twins.forEach(tw => {
+    const item = document.createElement("a");
+    item.className = "twins-popup-item";
+    item.href = `voci/la-traccia-del-tempo/${gameId}/${tw.id}.html`;
+    const tileHTML = tw.noAvatar
+      ? ""
+      : `<span class="twins-popup-item__tile${tileMissingClass(tw, "twins-popup-item__tile")}">${tileInnerHTML(tw)}</span>`;
+    item.innerHTML = `
+      ${tileHTML}
+      <span class="twins-popup-item__title">${tf(tw.title)}</span>
+    `;
+    item.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      closeTwinsPopup();
+      selectEntry(tw.id);
+    });
+    twinsPopupTrack.appendChild(item);
+  });
+  twinsPopupOverlay.classList.add("visible");
 }
 
 // Voci "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md) - parte
@@ -1998,7 +2112,11 @@ function renderGamePanel(){
     // pallino, .h-node--twin) - un gemello ha bisogno di piu' respiro
     // dai vicini perche' occupa sia sopra che sotto. Letto dalla
     // classe nel DOM (non dai dati) cosi' vale identico in ogni punto
-    // dove questa funzione viene chiamata.
+    // dove questa funzione viene chiamata. Un nodo "gemella multipla"
+    // (entry.twins, 2+ gemelle, .h-node--twin-multi) porta comunque
+    // anche la classe base .h-node--twin, quindi pesa 2 esattamente
+    // come una gemella singola - il box pulsante occupa lo stesso
+    // spazio che occuperebbe una gemella sola, nessun salto di layout.
     const weights = nodes.map(node => node.classList.contains("h-node--twin") ? 2 : 1);
     // Distanza tra un nodo e il successivo = spacing-unitario x la
     // MEDIA dei due pesi coinvolti: tra due voci normali (1 e 1) resta
@@ -2613,6 +2731,24 @@ function buildAllTitlePanels(){
           titlePanels[twinKey] = { panel: twinPanel, entry: entry.twin, game: g, universe, prevEntry, nextEntry };
           updateTitlePanelText(twinKey);
         }
+
+        // Voce "gemella multipla" (entry.twins, array da 2 gemelle in
+        // su sullo stesso ospite): stesso principio di entry.twin qui
+        // sopra, ma per ciascuna delle N gemelle nell'array - ognuna
+        // ha la propria pagina di dettaglio, tutte con gli stessi
+        // vicini (prev/next) dell'ospite.
+        if(Array.isArray(entry.twins)){
+          entry.twins.forEach(tw => {
+            const twinKey = titlePanelKey(g.id, tw.id);
+            const twinPanel = document.createElement("div");
+            twinPanel.className = "title-content-item";
+            twinPanel.id = `titleItem-${twinKey}`;
+            twinPanel.hidden = true;
+            el.titleContent.appendChild(twinPanel);
+            titlePanels[twinKey] = { panel: twinPanel, entry: tw, game: g, universe, prevEntry, nextEntry };
+            updateTitlePanelText(twinKey);
+          });
+        }
       });
     });
   });
@@ -2815,7 +2951,21 @@ function renderRail(){
     `;
   }
 
+  // Meta' "sotto" della riga per un ospite con 2+ gemelle (entry.twins):
+  // stesso principio di buildMultiTwinHalfHTML nella linea orizzontale,
+  // nessuna immagine/titolo dedicati, un box generico che invita al
+  // click e apre il popup con tutte le gemelle.
+  function buildMultiTwinRowHTML(count){
+    return `
+      <span class="v-node__tile v-node__tile--multi" aria-hidden="true"><span class="v-node__multitwin-count">+${count}</span></span>
+      <span class="v-node__meta">
+        <span class="v-node__title">${t("twinMultiLabel")}</span>
+      </span>
+    `;
+  }
+
   expandEntriesWithUmbrellas(u).forEach(entry => {
+    const hasMultiTwins = Array.isArray(entry.twins) && entry.twins.length >= 2;
     if(entry.twin){
       // Nodo "gemello" nella tabella: doppia altezza, spaccata in
       // due meta' (una per ciascun media), ognuna con la propria
@@ -2835,6 +2985,27 @@ function renderRail(){
         const targetId = i === 0 ? entry.id : entry.twin.id;
         half.addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(targetId); });
       });
+      el.railTrack.appendChild(node);
+      return;
+    }
+
+    if(hasMultiTwins){
+      // Nodo "gemella multipla" nella tabella: stessa riga a doppia
+      // altezza di una gemella singola (nessun salto rispetto al caso
+      // sopra) - meta' sopra e' sempre l'ospite (come sulla linea
+      // orizzontale), meta' sotto e' un box pulsante generico (nessuna
+      // gemella specifica), che apre lo stesso popup della linea
+      // orizzontale con tutte le gemelle in fila.
+      const node = document.createElement("div");
+      const isPrimaryActive = entry.id === state.entryId;
+      const isAnyTwinActive = entry.twins.some(tw => tw.id === state.entryId);
+      node.className = "v-node v-node--twin v-node--twin-multi" + ((isPrimaryActive || isAnyTwinActive) ? " is-active" : "");
+      node.innerHTML = `
+        <a class="v-node__half${isPrimaryActive ? " is-active" : ""}" href="voci/la-traccia-del-tempo/${state.gameId}/${entry.id}.html">${buildRowHTML(entry)}</a>
+        <button type="button" class="v-node__half v-node__half--multi-twin-btn${isAnyTwinActive ? " is-active" : ""}">${buildMultiTwinRowHTML(entry.twins.length)}</button>
+      `;
+      node.querySelector(".v-node__half:not(.v-node__half--multi-twin-btn)").addEventListener("click", (ev) => { ev.preventDefault(); selectEntry(entry.id); });
+      node.querySelector(".v-node__half--multi-twin-btn").addEventListener("click", () => openTwinsPopup(entry.twins, state.gameId));
       el.railTrack.appendChild(node);
       return;
     }
@@ -3704,6 +3875,10 @@ function checkUpcomingReleases(){
         notifyIfDue(entry.twin, gameId); // voce gemella (se presente):
           // controllata a parte, e' un titolo indipendente con il
           // suo id/data propri, non quelli dell'ospite
+        // Voce "gemella multipla" (entry.twins, 2+ gemelle): stesso
+        // principio, ciascuna con la propria releaseDateISO/id
+        // indipendente - controllate una per una.
+        if(Array.isArray(entry.twins)) entry.twins.forEach(tw => notifyIfDue(tw, gameId));
       });
       // Voci "ombrello" (uni.umbrellas): non vivono in uni.entries,
       // vanno controllate a parte - una volta sola ciascuna (stesso

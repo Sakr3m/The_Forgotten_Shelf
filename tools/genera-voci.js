@@ -350,6 +350,16 @@ function generaTimeline(dati){
         // un elemento a se' in universo.entries. Vedi PARTE 3 punto
         // 2 , vedi .claude/agents/traccia-supervisore.md.
         if(entry.twin && generaPaginaVoce(entry.twin, sagaId, nomeSaga, outDir)) count++;
+        // Voce "gemella multipla" (entry.twins, array da 2 gemelle in
+        // su sullo stesso ospite - vedi traccia-programmatore.md, "Due
+        // o piu' gemelle sullo stesso titolo principale"): stesso
+        // principio di entry.twin qui sopra, ma una pagina per
+        // ciascuna delle N gemelle nell'array.
+        if(Array.isArray(entry.twins)){
+          entry.twins.forEach(tw => {
+            if(generaPaginaVoce(tw, sagaId, nomeSaga, outDir)) count++;
+          });
+        }
       });
       // Voce "ombrello" (universo.umbrellas, vedi
       // .claude/agents/traccia-supervisore.md e traccia-programmatore.md):
