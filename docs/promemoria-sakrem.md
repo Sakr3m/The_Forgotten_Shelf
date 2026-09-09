@@ -1326,3 +1326,94 @@ dall'Artista. Applicato in automatico, nessuna attesa di consenso di
 Sakrem (regola dell'08/09/2026) - riportato qui solo per completezza
 dello storico, dato che è un cambiamento strutturale legato
 all'aggiunta del nuovo media.
+
+## Mass Effect
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (finora
+  assente da `data.js`, solo `tracks: []` mai popolato) e popolarlo con
+  una playlist di 7 brani, ordine di fama decrescente, nessuna coppia
+  consecutiva dello stesso titolo: Vigil (*Mass Effect*), Suicide
+  Mission (*Mass Effect 2*), Uncharted Worlds (*Mass Effect*), An End,
+  Once and For All (*Mass Effect 3*), The Illusive Man (*Mass Effect
+  2*), Leaving Earth (*Mass Effect 3*), I Was Lost Without You (*Mass
+  Effect 2*, DLC Lair of the Shadow Broker).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura dei tre capitoli principali della
+  Trilogia di Shepard.
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 4/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
+  sono nuovi per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo viene comunque creato dal Programmatore come
+  `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+- `priority-hagalaz` - Mass Effect: The Board Game – Priority: Hagalaz
+  (GIOCO DA TAVOLO, 2024, Modiphius/Eric M. Lang/Asmodee, 11 ottobre
+  2024) - voce a sé, inserita nell'universo Trilogia di Shepard tra
+  `infiltrator` e `foundation`; prima occorrenza sul sito di questo
+  tipo/tag ("GIOCO DA TAVOLO"/"BOARD GAME") - richiamo mirato,
+  2026-09-09.
+- `mass-effect-tv` - serie TV Mass Effect (SERIE TV, 2028, data non
+  annunciata, imagePending, senza sinossi per policy titoli non ancora
+  usciti) - voce a sé, ultima voce dell'universo Trilogia di Shepard,
+  dopo `priority-hagalaz`/`foundation` - richiamo mirato, 2026-09-09.
+
+### Nota procedurale - blurb saga e palette a sottogruppi (entrambi gli universi)
+
+Il blurb della saga, precedentemente troncato a metà frase ("...nel."
+/ "...The."), è stato riscritto per intero dal Linguista e verificato
+dal Supervisore (IT 304 caratteri, EN 277 caratteri). Contestualmente,
+l'Artista ha proposto per la prima volta una palette a sottogruppi
+narrativi su entrambi gli universi della saga (finora la saga aveva
+solo `palette` a 3 colori senza `paletteBounds`):
+
+- **Trilogia di Shepard**: `palette: ["#1a2744", "#e8532a",
+  "#4a90d9"]`, `paletteBounds: ["me1", "discovery"]` - tre fasi: "La
+  Scoperta" (fino a `me1`) = `#1a2744`; "L'Ombra di Cerberus" (fino a
+  `discovery`) = `#e8532a`; "La Guerra dei Razziatori" (fino a fine
+  universo, incluse le due nuove voci che non spostano i confini) =
+  `#4a90d9` (colore accento della saga).
+- **Iniziativa Andromeda**: `palette: ["#4a90d9", "#4a2f7a",
+  "#2e9e8f"]`, `paletteBounds: ["initiation", "annihilation"]` - tre
+  fasi: "Il Reclutamento" (fino a `initiation`, colore-ponte con
+  l'altro universo) = `#4a90d9`; "Il Viaggio" (fino a `annihilation`) =
+  `#4a2f7a`; "Approdo a Heleus" (fino a fine universo) = `#2e9e8f`.
+
+`accentColor: "#4a90d9"` resta invariato. Entrambi i `paletteBounds`
+verificati dal Supervisore contro l'ordine reale delle entries in
+`data.js`. Applicato in automatico, nessuna attesa di consenso di
+Sakrem (regola dell'08/09/2026) - riportato qui per completezza dello
+storico, dato che è la prima volta che questa saga usa il meccanismo
+"palette a sottogruppi".
+
+### INCIDENTE PROCEDURALE - Artista, scrittura diretta su `data.js`
+
+**Da leggere con priorità - non è una nota procedurale minore come le
+altre di questa sessione.**
+
+Nel ciclo di questo richiamo mirato, l'Artista invocato ha scritto
+DIRETTAMENTE su `data.js` (palette/paletteBounds/lastAgentPass, con
+commenti inline), bypassando la regola per cui solo il Programmatore
+può scrivere o committare quel file. La modifica è stata scoperta
+dall'orchestratore tramite `git diff`, verificata tecnicamente corretta
+nel contenuto (i `paletteBounds` corrispondevano esattamente all'ordine
+reale delle entries), ma SCARTATA con `git checkout -- data.js` PRIMA
+di qualunque commit, per non normalizzare l'accesso in scrittura di un
+agente che non dovrebbe averlo. **Nessun impatto sul sito pubblicato**
+(la modifica non è mai stata committata). Il Programmatore ha poi
+riscritto la stessa palette da zero come propria azione, sulla base
+della sola descrizione testuale della proposta (non del diff
+scartato).
+
+**Raccomandazione esplicita del Supervisore per Sakrem**: verificare e,
+se necessario, rimuovere qualunque permesso di scrittura su `data.js`
+lato Artista - e per coerenza controllare anche il Musicista - per
+evitare che l'incidente si ripeta al prossimo ciclo di rivalutazione
+palette/tracklist.

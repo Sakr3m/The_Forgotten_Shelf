@@ -5134,8 +5134,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Mass Effect", en: "Mass Effect" },
     blurb: {
-      it: "Le civiltà della galassia, unite in un fragile consiglio di razze aliene, si trovano di fronte a una minaccia ciclica: un'antica specie meccanica che ritorna periodicamente per sterminare ogni forma di vita avanzata. Un comandante umano diventa il ponte tra specie diverse, spesso in disaccordo tra loro, nel.",
-      en: "The galaxy's civilizations, united in a fragile council of alien races, face a cyclical threat: an ancient mechanical species that periodically returns to wipe out every advanced form of life. A human commander becomes the bridge between different, often quarreling species, trying to unite them against extinction. The."
+      it: "Specie diverse della galassia, spesso in conflitto tra loro, sono costrette a unirsi sotto la guida umana di fronte a minacce esistenziali capaci di causarne l'estinzione: prima i Razziatori nella Via Lattea, poi un nuovo pericolo che spinge un'intera iniziativa a migrare verso la galassia di Andromeda.",
+      en: "Different galactic species, often at odds with one another, are forced to unite under human leadership against existential threats that risk their extinction: first the Reapers in the Milky Way, then a new danger driving an entire initiative to migrate to the Andromeda galaxy."
     },
     palette: ["#1a2744", "#4a90d9", "#e8532a"],
     accentColor: "#4a90d9",
@@ -5143,12 +5143,15 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Banner.jpg",
     watermarkOpacity: 0.18,
+    lastAgentPass: "2026-09-09",
     universes: [
       {
         id: "trilogia-shepard",
         name: { it: "Trilogia di Shepard", en: "Shepard Trilogy" },
         span: { it: "2183 – 2186", en: "2183 – 2186" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
+        palette: ["#1a2744", "#e8532a", "#4a90d9"],
+        paletteBounds: ["me1", "discovery"],
         entries: [
           { id: "evolution", type: "FUMETTO", typeEn: "COMIC", year: "Guerra del Primo Contatto", yearEn: "First Contact War", releaseYear: "2011", releaseYearEn: "2011",
             title: { it: "Mass Effect: Evolution", en: "Mass Effect: Evolution" },
@@ -5262,12 +5265,24 @@ const GAMES = {
               en: "Randall Ezno, a cybernetically enhanced Cerberus operative, discovers the organisation is running ethically monstrous experiments and defects to save a friend trapped within them, fighting his own former forces against the backdrop of the Reapers' open invasion of the galaxy during the events of Mass Effect 3."
             }
           },
+          { id: "priority-hagalaz", type: "GIOCO DA TAVOLO", typeEn: "BOARD GAME", year: "Durante Mass Effect 3 (~2186)", yearEn: "During Mass Effect 3 (~2186)", releaseYear: "2024", releaseYearEn: "2024",
+            title: { it: "Mass Effect: The Board Game – Priority: Hagalaz", en: "Mass Effect: The Board Game – Priority: Hagalaz" },
+            synopsis: {
+              it: "Ambientato nel 2186, nel pieno della Guerra dei Razziatori raccontata in Mass Effect 3, questo gioco da tavolo cooperativo standalone mette il Comandante Shepard alla guida di una squadra scelta tra Liara T'Soni, Garrus Vakarian, Wrex e Tali'Zorah, inviata sul remoto mondo di Hagalaz. Qui un incrociatore da ricerca di Cerberus è precipitato proprio sulla rotta di una tempesta letale in rapido avvicinamento: prima che la tempesta lo travolga, Shepard deve farsi strada nel relitto per scoprire quali esperimenti segreti l'organizzazione vi stesse conducendo, recuperando o distruggendo i dati di ricerca prima che cadano in mani nemiche. Oltre alle forze Cerberus rimaste a guardia della nave, la squadra si scontra con minacce ben più pericolose, risvegliate dagli stessi esperimenti custoditi a bordo. La campagna narrativa, composta da tre-cinque missioni collegate secondo lo schema di scelte paragon e renegade tipico della serie, si ramifica in base alle decisioni dei giocatori e offre missioni di lealtà opzionali per i compagni, con esiti diversi a seconda dell'approccio adottato. Un'espansione della campagna è stata annunciata per il 2027.",
+              en: "Set in 2186, in the midst of the Reaper War told in Mass Effect 3, this standalone cooperative board game puts Commander Shepard in command of a squad chosen from Liara T'Soni, Garrus Vakarian, Wrex, and Tali'Zorah, sent to the remote world of Hagalaz. There, a Cerberus research cruiser has crashed directly in the path of a deadly, fast-approaching storm: before it hits, Shepard must fight through the wreck to uncover what secret experiments the organisation was conducting there, retrieving or destroying its research data before it can fall into enemy hands. Beyond the Cerberus forces still guarding the ship, the squad faces far greater dangers, unleashed by the very experiments kept aboard. The branching narrative campaign, made up of three to five missions tied to the series' signature paragon and renegade choices, changes according to the players' decisions and offers optional loyalty missions for squadmates, with different outcomes depending on the approach taken. A campaign expansion has been announced for 2027."
+            }
+          },
           { id: "foundation", type: "FUMETTO", typeEn: "COMIC", year: "Vari punti della Trilogia di Shepard", yearEn: "Various points across the Shepard Trilogy", releaseYear: "2013-2014", releaseYearEn: "2013-2014",
             title: { it: "Mass Effect: Foundation", en: "Mass Effect: Foundation" },
             synopsis: {
               it: "Antologia di tredici albi con Jacob Taylor come narratore cornice durante la festa del DLC Citadel di Mass Effect 3, ciascuno dedicato a un retroscena diverso di personaggi della saga: tra gli episodi più rilevanti, il passato di Kaiden Alenko alla struttura di addestramento biotico di Jump Zero, e l'origine dell'Uomo Misterioso durante la Guerra del Primo Contatto, poco dopo la scoperta dei relè di massa.",
               en: "An anthology of thirteen issues framed by Jacob Taylor's narration during the Citadel DLC party in Mass Effect 3, each dedicated to a different backstory of characters from the saga: among the most notable episodes, Kaiden Alenko's past at the Jump Zero biotic training facility, and the origin of the Illusive Man during the First Contact War, shortly after the discovery of the mass relays."
             }
+          },
+          { id: "mass-effect-tv", type: "SERIE TV", typeEn: "TV SERIES", year: "Dopo la Trilogia di Shepard", yearEn: "After the Shepard Trilogy", releaseYear: "2028", releaseYearEn: "2028",
+            title: { it: "Mass Effect", en: "Mass Effect" },
+            imagePending: true,
+            releaseDateShort: { it: "2028 (data non annunciata)", en: "2028 (date not yet announced)" }
           }
         ]
       },
@@ -5276,6 +5291,8 @@ const GAMES = {
         name: { it: "Iniziativa Andromeda", en: "Andromeda Initiative" },
         span: { it: "2785 (600 anni dopo)", en: "2785 (600 years later)" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Mass%20Effect%20Filigrana.jpg",
+        palette: ["#4a90d9", "#4a2f7a", "#2e9e8f"],
+        paletteBounds: ["initiation", "annihilation"],
         entries: [
           { id: "initiation", type: "ROMANZO", typeEn: "NOVEL", year: "Prima della partenza dell'Iniziativa Andromeda (2185)", yearEn: "Before the Andromeda Initiative's departure (2185)", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Mass Effect: Andromeda – Initiation", en: "Mass Effect: Andromeda – Initiation" },
