@@ -2190,3 +2190,69 @@ notturna.
   accettata nel merito, non in attesa di decisione di Sakrem: manca
   solo il file fisico). Il campo `tracks` non viene creato in questo
   pacchetto, resta assente fino al caricamento dei file.
+
+## Silent Hill
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare)
+
+- **Proposta**: creare il campo `tracks` della saga (attualmente assente,
+  mai popolato) con una playlist di 7 brani, in ordine di fama decrescente:
+  Theme of Laura (*Silent Hill 2*), Promise (Reprise) (*Silent Hill 2*),
+  Room of Angel (*Silent Hill 4: The Room*), You're Not Here (*Silent Hill
+  2*), Silent Hill (Main Theme) (*Silent Hill*), I Want Love (*Silent Hill
+  3*), Heaven's Night (*Silent Hill*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei brani più
+  iconici/riconoscibili a copertura dei giochi Main universe (Silent Hill
+  1/2/3/4), tutti già presenti o in via di aggiunta nella scheda. Nessuna
+  traccia dai film del nuovo Universo Cinematografico (fuori scope per
+  esplicita richiesta del mandato). *Silent Hill f* (2025) valutato ma
+  escluso per ora: accoglienza critica molto positiva ma nessun brano ha
+  ancora raggiunto, a un anno dall'uscita, un livello di fama pubblica
+  paragonabile ai classici storici della saga - candidato da rivalutare in
+  cicli futuri.
+- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, saga 4/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file fisico).
+  Il campo `tracks` non viene creato in questo pacchetto, resta assente
+  fino al caricamento dei file.
+
+### Media aggiunti
+
+Aggiornamento sostanziale: nuovo universo creato e 10 nuove voci (7 nel
+Main universe + 3 nel nuovo Universo Cinematografico), tutte inserite nella
+stessa sessione, 2026-09-09 (richiamo mirato, turno notturno 2, saga 4/11).
+
+- Nuovo universo **Universo Cinematografico** (`sh-film-2006` →
+  `sh-film-revelation` → `sh-film-return`, span Anni 2000 – 2026, 3 voci,
+  nessun `universeLink` verso il Main) - sessione 2026-09-09.
+- `silent-hill-f` - Silent Hill f (VIDEOGIOCO, 2025) - voce a sé, nuova
+  prima voce cronologica del Main universe (dopo `past-life`) - sessione
+  2026-09-09.
+- `silent-hill-f-novel` - Silent Hill f: The Novel (NOVEL, 2025) - voce
+  gemella di `silent-hill-f` - sessione 2026-09-09.
+- `silent-hill-f-manga` - Silent Hill f (manga) (MANGA, in corso dal 2026)
+  - voce a sé (non gemella: introduce un sesto finale canonico inedito,
+  espansione sostanziale del canone) - sessione 2026-09-09.
+- `sh-townfall` - Silent Hill: Townfall (VIDEOGIOCO, in uscita 24 settembre
+  2026, imagePending) - voce a sé, senza sinossi per policy titoli non
+  ancora usciti - sessione 2026-09-09.
+- `book-of-memories` - Silent Hill: Book of Memories (VIDEOGIOCO, 2012) -
+  voce a sé, inserita nel Main universe tra `downpour` e `annes-story` -
+  sessione 2026-09-09.
+- `silent-hill-ascension` - Silent Hill: Ascension (SERIE INTERATTIVA,
+  2023-2024) - voce a sé, ultima voce cronologica aggiunta - sessione
+  2026-09-09.
+- `silent-hill-short-message` - Silent Hill: The Short Message
+  (VIDEOGIOCO, 2023-2024) - voce a sé, ultima voce del Main universe -
+  sessione 2026-09-09.
+- `sh-film-2006` - Silent Hill (film) (LIVE ACTION, 2006) - voce a sé,
+  prima voce del nuovo Universo Cinematografico - sessione 2026-09-09.
+- `sh-film-revelation` - Silent Hill: Revelation 3D (LIVE ACTION, 2012) -
+  voce a sé - sessione 2026-09-09.
+- `sh-film-return` - Return to Silent Hill (LIVE ACTION, 2026) - voce a
+  sé, ultima voce del nuovo Universo Cinematografico - sessione
+  2026-09-09.
