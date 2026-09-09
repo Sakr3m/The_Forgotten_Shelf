@@ -607,3 +607,35 @@ uscito) e una nota aggiunta alla sinossi esistente di `gears-1`, mai un
 nuovo media vero e proprio (vedi il report una tantum, punto 4, per i
 dettagli).
 </content>
+
+## God of War
+
+### Musica
+
+#### Tracklist completa saga (rifatta da capo)
+
+- **Proposta**: sostituire integralmente la playlist della saga (`tracks:
+  []`, mai popolata finora) con una nuova selezione di 7 brani: Blood
+  Upon the Snow (feat. Hozier) (*God of War Ragnarök*), Memories of
+  Mother (*God of War*, 2018), The Vengeful Spartan (Tema Principale)
+  (*God of War*, 2005), God of War (Tema Principale) (*God of War*,
+  2018), Rage of Sparta (*God of War III*), Ragnarök (Tema del climax)
+  (*God of War Ragnarök*), The End Begins (*God of War II*).
+- **Origine**: Musicista.
+- **Motivazione**: selezione dei brani più iconici/riconoscibili della
+  saga, a copertura di più capitoli, per popolare per la prima volta la
+  playlist.
+- **Data**: 2026-09-08 (sessione notturna).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico).
+
+### Media aggiunti
+
+- `god-of-war-laufey` - God of War Laufey (VIDEOGIOCO, in uscita 16
+  febbraio 2027, imagePending) - voce a sé, inserita in coda
+  all'universo Saga Norrena dopo `ragnarok` (collocazione PROVVISORIA:
+  quando il gioco uscirà con sinossi reale, la posizione cronologica
+  potrebbe rivelarsi precedente a `god-of-war-2018`) - sessione
+  notturna, 2026-09-08.

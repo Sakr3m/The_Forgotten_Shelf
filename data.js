@@ -3058,12 +3058,15 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Banner.jpg",
     watermarkOpacity: 0.18,
+    lastAgentPass: "2026-09-09",
     universes: [
       {
         id: "saga-greca",
         name: { it: "Saga Greca", en: "Greek Saga" },
         span: { it: "Sparta, XIII secolo a.C. circa", en: "Sparta, c. 13th century BC" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
+        palette: ["#A9662E", "#7A1F2E", "#8B8B85", "#D9481E", "#C9C4B8"],
+        paletteBounds: ["sons-of-sparta", "god-of-war-1", "betrayal", "god-of-war-3"],
         entries: [
           { id: "sons-of-sparta", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "infanzia di Kratos", releaseYear: "2026", releaseYearEn: "2026",
             title: { it: "Sons of Sparta", en: "Sons of Sparta" },
@@ -3142,6 +3145,8 @@ const GAMES = {
         name: { it: "Saga Norrena", en: "Norse Saga" },
         span: { it: "Midgard, decenni dopo", en: "Midgard, decades later" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/God%20of%20War%20Filigrana.jpg",
+        palette: ["#8B8B85", "#4A6B7A", "#3F6B52"],
+        paletteBounds: ["dark-horse-god-of-war", "god-of-war-2018"],
         entries: [
           { id: "dark-horse-god-of-war", type: "FUMETTO", typeEn: "COMIC", year: "Prima di God of War (2018)", yearEn: "Before God of War (2018)", releaseYear: "2018 – 2021", releaseYearEn: "2018 – 2021",
             title: { it: "God of War (fumetto Dark Horse)", en: "God of War (Dark Horse)" },
@@ -3153,16 +3158,22 @@ const GAMES = {
           { id: "god-of-war-2018", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decenni dopo la Saga Greca", releaseYear: "2018", releaseYearEn: "2018",
             title: { it: "God of War (2018)", en: "God of War (2018)" },
             synopsis: {
-              it: "Trasferitosi a Midgard e diventato padre di Atreus, Kratos deve disperdere le ceneri della defunta moglie Faye in cima al monte più alto dei Nove Regni, un ultimo desiderio che si trasforma in un viaggio attraverso il mondo norreno. Lungo il percorso affronta Baldr, figlio di Odino reso invulnerabile ma incapace di sentire alcuna emozione, mentre insegna ad Atreus a controllare la propria natura divina appena scoperta.",
-              en: "Having relocated to Midgard and become a father to Atreus, Kratos must scatter the ashes of his deceased wife Faye atop the highest mountain of the Nine Realms, a final wish that becomes a journey across the Norse world. Along the way he confronts Baldr, Odin's son rendered invulnerable but incapable of feeling any emotion, while teaching Atreus to control his newly discovered divine nature."
+              it: "Trasferitosi a Midgard e diventato padre di Atreus, Kratos deve disperdere le ceneri della defunta moglie Faye in cima al monte più alto dei Nove Regni, un ultimo desiderio che si trasforma in un viaggio attraverso il mondo norreno. Lungo il percorso affronta Baldr, figlio di Odino reso invulnerabile ma incapace di sentire alcuna emozione, mentre insegna ad Atreus a controllare la propria natura divina appena scoperta.\n\nNota su A Call from the Wilds: text adventure pubblicata nel febbraio 2018 su Facebook Messenger, realizzata da Sony in collaborazione con Facebook come antefatto promozionale al gioco in uscita di lì a poco. Segue un giovane Atreus, addestrato ancora dalla madre Faye (qui ancora in vita) poco prima dell'inizio degli eventi narrati in God of War (2018), completando il quadro delle competenze nella sopravvivenza nei boschi che il ragazzo dimostra già di possedere quando la storia principale ha inizio.\n\nNota sulla novelization: God of War: The Official Novelization (2018) è un romanzo di J.M. Barlog, scritto con la collaborazione di Cory Barlog (direttore creativo del gioco) e pubblicato da Titan Books. Ripercorre fedelmente gli eventi di God of War (2018), aggiungendo alcuni dettagli minori: i corvi Huginn e Muninn compaiono più volte come easter egg e presagio delle vicende future della saga; viene introdotto un falco domestico di nome \"Jöphie\", appartenuto a Faye; alcuni incontri del gioco presentano lievi variazioni di tono rispetto alla loro controparte videoludica.",
+              en: "Having relocated to Midgard and become a father to Atreus, Kratos must scatter the ashes of his deceased wife Faye atop the highest mountain of the Nine Realms, a final wish that becomes a journey across the Norse world. Along the way he confronts Baldr, Odin's son rendered invulnerable but incapable of feeling any emotion, while teaching Atreus to control his newly discovered divine nature.\n\nNote — A Call from the Wilds: a text adventure released in February 2018 on Facebook Messenger, developed by Sony in collaboration with Facebook as a promotional lead-in to the game's release shortly after. It follows a young Atreus, still being trained by his mother Faye (alive at this point) shortly before the events of God of War (2018) begin, rounding out the wilderness survival skills the boy already displays once the main story starts.\n\nNote — God of War: The Official Novelization: a novel by J.M. Barlog, written with the collaboration of Cory Barlog (the game's creative director) and published by Titan Books in 2018. It faithfully retraces the events of God of War (2018), adding a few minor details: the ravens Huginn and Muninn appear on several occasions as an easter egg and foreshadowing of the saga's future events; a pet falcon named \"Jöphie\", once belonging to Faye, is introduced; a handful of encounters in the game show slightly different tonal shades compared to their video game counterpart."
             }
           },
           { id: "ragnarok", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seguito diretto", releaseYear: "2022", releaseYearEn: "2022",
             title: { it: "Ragnarök", en: "Ragnarök" },
             synopsis: {
-              it: "Con il Fimbulwinter (l'inverno che precede il Ragnarök) ormai iniziato, Kratos e Atreus devono affrontare Odino stesso e Thor, mentre Atreus insegue la propria identità come Loki, figura profetizzata a innescare la fine del mondo norreno. Nel finale, Kratos sceglie di abbracciare un ruolo di guida per i regni invece che di dominio, mentre Atreus parte per cercare i giganti sopravvissuti altrove nei Nove Regni.",
-              en: "With Fimbulwinter, the winter preceding Ragnarök, already underway, Kratos and Atreus must confront Odin himself and Thor, while Atreus grapples with his own identity as Loki, the figure prophesied to trigger the end of the Norse world. In the finale, Kratos chooses to embrace a role of guidance for the realms rather than domination, while Atreus sets off to find surviving giants elsewhere across the Nine Realms."
+              it: "Con il Fimbulwinter (l'inverno che precede il Ragnarök) ormai iniziato, Kratos e Atreus devono affrontare Odino stesso e Thor, mentre Atreus insegue la propria identità come Loki, figura profetizzata a innescare la fine del mondo norreno. Nel finale, Kratos sceglie di abbracciare un ruolo di guida per i regni invece che di dominio, mentre Atreus parte per cercare i giganti sopravvissuti altrove nei Nove Regni.\n\nNota sul DLC Valhalla: pubblicato gratuitamente nel dicembre 2023, pensato come vero e proprio epilogo narrativo della Saga Norrena. Portato da Mimir sulle rive di un misterioso regno chiamato Valhalla, Kratos affronta un percorso di prove che lo costringe a confrontarsi con echi del proprio passato, rivivendo scontri contro personaggi già incontrati nel corso della saga. Il viaggio, arricchito dai dialoghi con Freya, Mimir e in particolare con Týr, approfondisce l'evoluzione interiore di Kratos dopo la scelta di abbracciare un ruolo di guida per i regni, includendo anche flashback legati al suo passato greco (Lysandra, Calliope, Ercole) mai mostrati altrove con lo stesso dettaglio. Il DLC si chiude con un epilogo segreto che vede Sigrun in possesso della testa di Mimir.",
+              en: "With Fimbulwinter, the winter preceding Ragnarök, already underway, Kratos and Atreus must confront Odin himself and Thor, while Atreus grapples with his own identity as Loki, the figure prophesied to trigger the end of the Norse world. In the finale, Kratos chooses to embrace a role of guidance for the realms rather than domination, while Atreus sets off to find surviving giants elsewhere across the Nine Realms.\n\nNote on the Valhalla DLC: released for free in December 2023, conceived as a true narrative epilogue to the Norse Saga. Brought by Mimir to the shores of a mysterious realm called Valhalla, Kratos undergoes a trial-based journey that forces him to confront echoes of his own past, reliving clashes with characters already encountered throughout the saga. The journey, enriched by conversations with Freya, Mimir, and especially Týr, deepens Kratos's inner evolution after his choice to embrace a role of guidance for the realms, also including flashbacks tied to his Greek past (Lysandra, Calliope, Hercules) never shown elsewhere in the same detail. The DLC closes with a secret epilogue showing Sigrun in possession of Mimir's head."
             }
+          },
+          { id: "god-of-war-laufey", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "God of War Laufey", yearEn: "God of War Laufey", releaseYear: "16 febbraio 2027", releaseYearEn: "February 16, 2027",
+            title: { it: "God of War Laufey", en: "God of War Laufey" },
+            imagePending: true,
+            releaseDateShort: { it: "16 febbraio 2027", en: "February 16, 2027" },
+            releaseDateISO: "2027-02-16"
           }
         ]
       }
