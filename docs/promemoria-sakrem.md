@@ -573,6 +573,95 @@ inserite nella stessa sessione notturna, 2026-09-09.
 - **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
   proposta ancora aperta in "In sospeso" sopra).
 
+## Crash Bandicoot
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani:
+  Title ~ Map ~ N. Sanity Beach (Main Theme) (*Crash Bandicoot*), Cortex
+  Boss Theme (*Crash Bandicoot 2: Il Ritorno di Cortex*), Boulders /
+  Boulder Dash (*Crash Bandicoot*), Warp Room (*Crash Bandicoot 2: Il
+  Ritorno di Cortex*), Slippery Climb / Stormy Ascent (*Crash
+  Bandicoot*), Blizzard Bluff (*Crash Team Racing*), Future Frenzy,
+  Gone Tomorrow (*Crash Bandicoot: Warped*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura dei capitoli principali della
+  Linea Principale (nessun brano dalla Linea Temporale Alternativa).
+- **Data**: 2026-09-09 (sessione notturna, 11/12).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 2 nuovi universi e 23 nuove voci (22 con
+sinossi + 1 senza, imagePending), tutte inserite nella stessa sessione
+notturna, 2026-09-09.
+
+- Nuovo universo **Linea Principale** (`crash-1` → `insanity-series`,
+  span 1996 – 2026, 19 voci) - sessione notturna, 2026-09-09.
+- Nuovo universo **Linea Temporale Alternativa** (`wrath-of-cortex` →
+  `mind-over-mutant`, span 2001 – 2008, 4 voci) - sessione notturna,
+  2026-09-09.
+- `crash-1` - Crash Bandicoot (VIDEOGIOCO, 1996) - voce a sé, prima
+  voce della saga - sessione notturna, 2026-09-09.
+- `crash-1-manga` - Crash Bandicoot (manga, 1996-97) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `crash-2` - Crash Bandicoot 2: Il Ritorno di Cortex (VIDEOGIOCO,
+  1997) - voce a sé - sessione notturna, 2026-09-09.
+- `crash-2-manga` - Crash Bandicoot: Dance! De Jump! Na Daibōken
+  (manga, 1997-99) - voce a sé - sessione notturna, 2026-09-09.
+- `warped` - Crash Bandicoot: Warped (VIDEOGIOCO, 1998) - voce a sé,
+  punto di diramazione tra le due linee temporali - sessione notturna,
+  2026-09-09.
+- `ctr` - Crash Team Racing (VIDEOGIOCO, 1999) - voce a sé - sessione
+  notturna, 2026-09-09.
+- `spin-world-manga` - Crash Bandicoot: Kattobi! Spin World (manga,
+  1999-2004) - voce a sé - sessione notturna, 2026-09-09.
+- `crash-bash` - Crash Bash (VIDEOGIOCO PARTY, 2000) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `huge-adventure` - Crash Bandicoot: The Huge Adventure (VIDEOGIOCO,
+  2002) - voce a sé - sessione notturna, 2026-09-09.
+- `n-tranced` - Crash Bandicoot 2: N-Tranced (VIDEOGIOCO, 2003) - voce
+  a sé - sessione notturna, 2026-09-09.
+- `nitro-kart` - Crash Nitro Kart (VIDEOGIOCO, 2003) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `crash-fusion` - Crash Bandicoot: Fusion / Spyro: Fusion (VIDEOGIOCO
+  CROSSOVER, 2004) - voce a sé - sessione notturna, 2026-09-09.
+- `tag-team-racing` - Crash Tag Team Racing (VIDEOGIOCO, 2005) - voce
+  a sé - sessione notturna, 2026-09-09.
+- `boom-bang` - Crash Boom Bang! (VIDEOGIOCO PARTY, 2006) - voce a sé
+  - sessione notturna, 2026-09-09.
+- `nitro-kart-3d` - Crash Bandicoot Nitro Kart 3D (VIDEOGIOCO MOBILE,
+  2008) - voce a sé - sessione notturna, 2026-09-09.
+- `nitro-kart-2` - Crash Bandicoot Nitro Kart 2 (VIDEOGIOCO MOBILE,
+  2010) - voce a sé - sessione notturna, 2026-09-09.
+- `crash-4` - Crash Bandicoot 4: It's About Time (VIDEOGIOCO,
+  2020-2021, include nota su Crash Team Rumble 2023) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `on-the-run` - Crash Bandicoot: On the Run! (VIDEOGIOCO MOBILE,
+  2021-2023) - voce a sé - sessione notturna, 2026-09-09.
+- `insanity-series` - The Insanity Series (SERIE ANIMATA, 2026,
+  imagePending, senza sinossi) - voce a sé, ultima voce della Linea
+  Principale - sessione notturna, 2026-09-09.
+- `wrath-of-cortex` - Crash Bandicoot: L'Ira di Cortex (VIDEOGIOCO,
+  2001) - voce a sé, prima voce del nuovo universo Linea Temporale
+  Alternativa - sessione notturna, 2026-09-09.
+- `twinsanity` - Crash Twinsanity (VIDEOGIOCO, 2004) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `crash-of-the-titans` - Crash of the Titans (VIDEOGIOCO, 2007,
+  include nota sui cortometraggi promozionali) - voce a sé - sessione
+  notturna, 2026-09-09.
+- `mind-over-mutant` - Crash: Il Dominio sui Mutanti (VIDEOGIOCO,
+  2008) - voce a sé, ultima voce della saga - sessione notturna,
+  2026-09-09.
+
 ## Devil May Cry
 
 ### Musica
