@@ -138,6 +138,97 @@ o una riclassificazione), con questo formato:
   proposta ancora aperta in "In sospeso" sopra; bloccata anche
   tecnicamente in attesa del file audio su R2).
 
+## Armored Core
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani: "9"
+  (Nine-Ball Seraph Theme) (*Armored Core: Master of Arena*), "Contact
+  With You" (Balteus Theme) (*Armored Core VI: Fires of Rubicon*), "The
+  Answer" (White Glint's Theme) (*Armored Core: For Answer*), "Steel
+  Haze" (V.IV Rusty's Theme) (*Armored Core VI: Fires of Rubicon*),
+  "Fall" (tema boss finale) (*Armored Core: For Answer*), "Someone is
+  Always Moving on the Surface" (*Armored Core: For Answer*), "Remember"
+  (*Armored Core: For Answer*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di più ere narrative della serie
+  (trilogia arcaica, Layered, Lynx, Rubicon).
+- **Data**: 2026-09-09 (sessione notturna, 12/12, ultima saga della
+  notte).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 5 nuovi universi e 21 nuove voci (19 reali + 2
+VOCE STORIA, nessuna gemella), tutte inserite nella stessa sessione
+notturna, 2026-09-09.
+
+- Nuovo universo **Leos Klein** (`ac1` → `ac2-another-age`, 6 voci) -
+  sessione notturna, 2026-09-09.
+- Nuovo universo **Layered** (`ac3` → `fort-tower-song`, 10 voci) -
+  sessione notturna, 2026-09-09.
+- Nuovo universo **Lynx** (`ac4` → `for-answer`, 2 voci) - sessione
+  notturna, 2026-09-09.
+- Nuovo universo **Verdict Day** (`ac-v` → `verdict-day`, 2 voci) -
+  sessione notturna, 2026-09-09.
+- Nuovo universo **Rubicon** (`ac6-fires-of-rubicon`, 1 voce) -
+  sessione notturna, 2026-09-09.
+- `ac1` - Armored Core (VIDEOGIOCO, 1997) - voce a sé, prima voce della
+  saga - sessione notturna, 2026-09-09.
+- `project-phantasma` - Armored Core: Project Phantasma (VIDEOGIOCO,
+  1997) - voce a sé - sessione notturna, 2026-09-09.
+- `master-of-arena` - Armored Core: Master of Arena (VIDEOGIOCO, 1999)
+  - voce a sé - sessione notturna, 2026-09-09.
+- `mars-terraformation-frighteners-coup` - VOCE STORIA "La
+  Terraformazione di Marte e il Colpo di Stato dei Frighteners" -
+  sessione notturna, 2026-09-09.
+- `ac2` - Armored Core 2 (VIDEOGIOCO, 2000) - voce a sé - sessione
+  notturna, 2026-09-09.
+- `ac2-another-age` - Armored Core 2: Another Age (VIDEOGIOCO, 2001) -
+  voce a sé, ultima voce di Leos Klein - sessione notturna, 2026-09-09.
+- `ac3` - Armored Core 3 (VIDEOGIOCO, 2002) - voce a sé, prima voce di
+  Layered - sessione notturna, 2026-09-09.
+- `silent-line` - Silent Line: Armored Core (VIDEOGIOCO, 2003) - voce a
+  sé - sessione notturna, 2026-09-09.
+- `formula-front` - Armored Core: Formula Front (VIDEOGIOCO,
+  2004/Extreme Battle 2005) - voce a sé - sessione notturna,
+  2026-09-09.
+- `end-of-truce-rise-of-navis` - VOCE STORIA "La Fine della Tregua tra
+  le Corporazioni e l'Ascesa di Navis" - sessione notturna, 2026-09-09.
+- `nexus` - Armored Core: Nexus (VIDEOGIOCO, 2003/2004) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `nine-breaker` - Armored Core: Nine Breaker (VIDEOGIOCO, 2004) - voce
+  a sé - sessione notturna, 2026-09-09.
+- `ac-mobile` - Armored Core Mobile (VIDEOGIOCO, 2004-2008, voce
+  consolidata) - voce a sé - sessione notturna, 2026-09-09.
+- `last-raven` - Armored Core: Last Raven (VIDEOGIOCO, 2005) - voce a
+  sé - sessione notturna, 2026-09-09.
+- `tower-city-blade` - Armored Core: Tower City Blade (MANGA, 2007) -
+  voce a sé, indipendente (non gemella) - sessione notturna,
+  2026-09-09.
+- `fort-tower-song` - Armored Core: Fort Tower Song (ROMANZO, 2007) -
+  voce a sé, indipendente (non gemella), ultima voce di Layered -
+  sessione notturna, 2026-09-09.
+- `ac4` - Armored Core 4 (VIDEOGIOCO, 2006) - voce a sé, prima voce di
+  Lynx - sessione notturna, 2026-09-09.
+- `for-answer` - Armored Core: For Answer (VIDEOGIOCO, 2008) - voce a
+  sé, ultima voce di Lynx - sessione notturna, 2026-09-09.
+- `ac-v` - Armored Core V (VIDEOGIOCO, 2012) - voce a sé, prima voce di
+  Verdict Day - sessione notturna, 2026-09-09.
+- `verdict-day` - Armored Core: Verdict Day (VIDEOGIOCO, 2013) - voce a
+  sé, ultima voce di Verdict Day - sessione notturna, 2026-09-09.
+- `ac6-fires-of-rubicon` - Armored Core VI: Fires of Rubicon
+  (VIDEOGIOCO, 2023) - voce a sé, unica voce del nuovo universo Rubicon
+  - sessione notturna, 2026-09-09.
+
 ## Assassin's Creed
 
 ### In sospeso - immagini mancanti
