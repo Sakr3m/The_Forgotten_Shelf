@@ -1496,3 +1496,127 @@ Kingdom Hearts: la decisione se ripubblicare i 5 manga KH ora (con lo
 stesso meccanismo appena costruito) o in un secondo momento resta
 comunque di chi gestisce la consegna di quella saga - il testo IT/EN
 delle 5 voci è già pronto e verificato da prima, nessun lavoro perso.
+
+## Mortal Kombat
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare/popolare)
+
+- **Proposta**: popolare il campo `tracks` della saga (attualmente
+  `[]`, mai popolato) con una playlist di 7 brani, ordine cronologico
+  di uscita: Techno Syndrome (*Mortal Kombat*, 1992/Sega CD), MKII
+  Title Theme (*Mortal Kombat II*, 1993), MK3 Title Theme (*Mortal
+  Kombat 3*, 1995), MK2011 Title Theme (*Mortal Kombat*, 2011), MKX
+  Title Theme (*Mortal Kombat X*, 2015), A Matter of Time/MK11 Main
+  Theme (*Mortal Kombat 11*, 2019), MK1 Main Theme (*Mortal Kombat 1*,
+  2023).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, copertura cronologica
+  della sola Linea Videoludica Mainline (nessun brano dagli universi
+  cinematografici/TV appena aggiunti).
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 6/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
+  sono nuovi per il sito e da caricare su R2 (proposta già accettata
+  nel merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo resta `tracks: []` fino al caricamento.
+
+### Media aggiunti
+
+Saga già pubblicata, ampliata da 3 a 7 universi in questo ciclo: 4
+nuovi universi (11 voci) + 3 aggiunte a universi già esistenti, per un
+totale di 14 nuove voci (nessuna gemella), tutte inserite nella stessa
+sessione, 2026-09-09.
+
+- Nuovo universo **Film Anni '90** (`mk-1995-film` → `mk-annihilation`,
+  span 1995 – 1997, 3 voci) - richiamo mirato, 2026-09-09.
+- Nuovo universo **Mortal Kombat Legacy** (`mk-legacy-rebirth` →
+  `mk-legacy-series`, span 2010 – 2013, 2 voci) - richiamo mirato,
+  2026-09-09.
+- Nuovo universo **Mortal Kombat Legends** (`mk-legends-scorpions-
+  revenge` → `mk-legends-cage-match`, span 2020 – 2023, 4 voci) -
+  richiamo mirato, 2026-09-09.
+- Nuovo universo **Film Reboot** (`mk-2021-film` → `mk-2026-film`,
+  span 2021 – 2026, 2 voci) - richiamo mirato, 2026-09-09.
+- `mythologies-subzero` - Mortal Kombat Mythologies: Sub-Zero
+  (VIDEOGIOCO, 1997) - voce a sé, aggiunta a Timeline Originale
+  (universo già esistente) come nuova PRIMA voce, prima di `mk1-1992`
+  - richiamo mirato, 2026-09-09.
+- `mkx-comic-2015` - Mortal Kombat X (FUMETTO, 2015) - voce a sé,
+  aggiunta a Timeline Rebooted (universo già esistente) tra `mk9-2011`
+  e `mkx-2015` - richiamo mirato, 2026-09-09.
+- `mk-vs-dc-2008` - Mortal Kombat vs. DC Universe (VIDEOGIOCO, 2008) -
+  voce a sé, aggiunta a Timeline Rebooted (universo già esistente)
+  DOPO `mk11-2019`, come ultima voce dell'universo nonostante l'anno
+  di uscita più basso (posizione narrativa, non cronologica) -
+  richiamo mirato, 2026-09-09.
+- `mk-1995-film` - Mortal Kombat (LIVE ACTION, 1995) - voce a sé, prima
+  voce del nuovo universo Film Anni '90 - richiamo mirato, 2026-09-09.
+- `mk-journey-begins` - Mortal Kombat: The Journey Begins
+  (CORTOMETRAGGIO, 1995) - voce a sé - richiamo mirato, 2026-09-09.
+- `mk-annihilation` - Mortal Kombat - Distruzione Totale (LIVE ACTION,
+  1997) - voce a sé, ultima voce di Film Anni '90 - richiamo mirato,
+  2026-09-09.
+- `mk-legacy-rebirth` - Mortal Kombat: Rebirth (CORTOMETRAGGIO, 2010) -
+  voce a sé, prima voce del nuovo universo Mortal Kombat Legacy -
+  richiamo mirato, 2026-09-09.
+- `mk-legacy-series` - Mortal Kombat: Legacy (SERIE TV, 2011 – 2013) -
+  voce a sé, ultima voce di Mortal Kombat Legacy - richiamo mirato,
+  2026-09-09.
+- `mk-legends-scorpions-revenge` - Mortal Kombat Legends: Scorpion's
+  Revenge (FILM D'ANIMAZIONE, 2020) - voce a sé, prima voce del nuovo
+  universo Mortal Kombat Legends, prima uso sul sito del tipo "FILM
+  D'ANIMAZIONE"/"ANIMATED FILM" - richiamo mirato, 2026-09-09.
+- `mk-legends-battle-of-realms` - Mortal Kombat Legends: Battle of the
+  Realms (FILM D'ANIMAZIONE, 2021) - voce a sé - richiamo mirato,
+  2026-09-09.
+- `mk-legends-snow-blind` - Mortal Kombat Legends: Snow Blind (FILM
+  D'ANIMAZIONE, 2022) - voce a sé - richiamo mirato, 2026-09-09.
+- `mk-legends-cage-match` - Mortal Kombat Legends: Cage Match (FILM
+  D'ANIMAZIONE, 2023) - voce a sé, ultima voce di Mortal Kombat
+  Legends - richiamo mirato, 2026-09-09.
+- `mk-2021-film` - Mortal Kombat (LIVE ACTION, 2021) - voce a sé, prima
+  voce del nuovo universo Film Reboot - richiamo mirato, 2026-09-09.
+- `mk-2026-film` - Mortal Kombat II (LIVE ACTION, 2026) - voce a sé,
+  ultima voce di Film Reboot; titolo identico a `mk2-1993` (Timeline
+  Originale) ma titolo reale del film, non un refuso - richiamo
+  mirato, 2026-09-09.
+
+### Nota procedurale - riordino strutturale, blurb, palette, allucinazione intercettata
+
+Ampliamento da 3 a 7 universi in un solo ciclo, il più grande di
+questa sessione notturna finora - alcune modifiche strutturali oltre
+alle semplici aggiunte di voci:
+
+- **Riordino dell'intero array `universes`** (non un semplice append
+  dei 4 nuovi in coda): criterio anno di nascita dell'universo, dato
+  che nessun espediente narrativo unificante lega le 7 diramazioni tra
+  loro. Ordine finale: Timeline Originale (1992) → Film Anni '90
+  (1995) → Mortal Kombat Legacy (2010) → Timeline Rebooted (nato 2011
+  con MK9, non 2008 - l'inclusione di MK vs DC è un retcon successivo)
+  → Mortal Kombat Legends (2020) → Film Reboot (2021) → Nuova Era
+  (2023).
+- **Correzione dello span di Timeline Rebooted**: da "2011 – 2019" a
+  "2008 – 2019" (conseguenza dell'aggiunta di `mk-vs-dc-2008`, che ha
+  releaseYear 2008, il più basso dell'universo, pur restando
+  narrativamente l'ultima voce).
+- **Nuovo blurb della saga** (sostituisce quello troncato a metà frase
+  in `data.js`): riscritto per intero da Scrittore/Linguista, con una
+  correzione di traduzione EN applicata dal Supervisore in revisione
+  finale. Copre tutti e 7 gli universi senza descrivere la trama di un
+  singolo titolo.
+- **7 sequenze palette** (campo `uni.palette`, già esistente/
+  funzionante sul sito) applicate a ciascuno dei 7 universi
+  dall'Artista - dettaglio completo nel pacchetto tecnico. `palette` e
+  `accentColor` a livello di saga restano invariati.
+- **Nuovo tipo "FILM D'ANIMAZIONE"/"ANIMATED FILM"**: mai usato prima
+  sul sito, introdotto dalle 4 voci di Mortal Kombat Legends.
+- **Allucinazione del Ricercatore intercettata e scartata**:
+  `mk11-comic-2019` (presunta miniserie fumetto IDW "Mortal Kombat 11"
+  attribuita a Matthew Dow Smith/Carlos Magno) non risulta mai
+  esistita - verificato con ricerca incrociata su più fonti dirette
+  (tra cui una dichiarazione esplicita dello sceneggiatore della vera
+  miniserie MKX 2015 che nega l'esistenza di una serie a fumetti per
+  MK11). Scartata prima della fase di scrittura, nessuna sinossi mai
+  prodotta per questa voce - esempio positivo di controllo qualità
+  della catena, segnalato anche nel report a Sakrem.

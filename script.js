@@ -1539,7 +1539,7 @@ const MEDIA_TYPE_LABELS_IT = {
   "ROMANZO": "Romanzi", "ANIME": "Anime", "MANGA": "Manga", "LORE": "Lore",
   "GRAPHIC NOVEL": "Graphic Novel", "LIGHT NOVEL": "Light Novel",
   "SERIE ANIMATA": "Serie Animate", "SERIE TV": "Serie TV", "CORTOMETRAGGIO": "Cortometraggi",
-  "FILM CGI": "Film CGI", "CABINATO ARCADE": "Cabinati Arcade", "LIVE ACTION": "Live Action",
+  "FILM CGI": "Film CGI", "FILM D'ANIMAZIONE": "Film d'Animazione", "CABINATO ARCADE": "Cabinati Arcade", "LIVE ACTION": "Live Action",
   "VIDEOGIOCO MOBILE": "Videogiochi Mobile", "BACKGROUND": "Background", "BLOG": "Blog"
 };
 const MEDIA_TYPE_LABELS_EN = {
@@ -1547,7 +1547,7 @@ const MEDIA_TYPE_LABELS_EN = {
   "NOVEL": "Novels", "ANIME": "Anime", "MANGA": "Manga", "LORE": "Lore",
   "GRAPHIC NOVEL": "Graphic Novels", "LIGHT NOVEL": "Light Novels",
   "ANIMATED SERIES": "Animated Series", "TV SERIES": "TV Series", "SHORT FILM": "Short Films",
-  "CGI FILM": "CGI Films", "ARCADE": "Arcade Cabinets", "MOBILE GAME": "Mobile Games",
+  "CGI FILM": "CGI Films", "ANIMATED FILM": "Animated Films", "ARCADE": "Arcade Cabinets", "MOBILE GAME": "Mobile Games",
   "LIVE ACTION": "Live Action", "BACKGROUND": "Background", "BLOG": "Blog"
 };
 
