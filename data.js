@@ -7007,40 +7007,49 @@ const GAMES = {
               it: "Prima raccolta di racconti dedicata allo strigo, pubblicata in Polonia nel 1993 e uscita in Italia nel 2001 per Editrice Nord. Il libro non presenta gli episodi in ordine cronologico lineare: le storie sono incorniciate e alternate ai capitoli di \"La voce della ragione\", ambientati durante la convalescenza di Geralt al tempio di Melitele, dove lo strigo, curato dalla sacerdotessa Nenneke, ripercorre a ritroso e fuori sequenza gli eventi che lo hanno condotto fin lì, mescolando presente e ricordi. Tra i racconti raccolti: \"Lo strigo\", in cui Geralt libera la principessa Adda di Temeria dalla maledizione che l'ha trasformata in striga; \"Un briciolo di verità\", l'incontro con Nivellen, un uomo mutato in bestia e tenuto prigioniero di un incantesimo dalla misteriosa Vereena; \"Il male minore\", in cui Geralt si scontra a Blaviken con il mago Stregobor sul destino della giovane Renfri, ritenuta portatrice di una maledizione ancestrale, in un episodio che gli costerà l'appellativo di Macellaio di Blaviken; \"Una questione di prezzo\", ambientato al banchetto di fidanzamento della principessa Pavetta di Cintra, dove Geralt invoca la legge della Sorpresa nei confronti del cavaliere maledetto Duny, gettando inconsapevolmente le basi del legame con Ciri; \"Il confine del mondo\", il viaggio ai margini del mondo conosciuto in compagnia del sylvan Torque e lo scontro con il drago dorato Villentretenmerth; e il racconto che dà il titolo originale alla raccolta, \"L'ultimo desiderio\", in cui Geralt libera un genio imprigionato in una bottiglia e lega per la prima volta il proprio destino a quello della maga Yennefer di Vengerberg.",
               en: "The first short-story collection devoted to the witcher, published in Poland in 1993. The book does not present its episodes in strict chronological order: the stories are framed and interspersed with the \"Voice of Reason\" interludes, set during Geralt's convalescence at the temple of Melitele, where the witcher, tended by the priestess Nenneke, recalls the events that led him there out of sequence, blending present and memory. Among the collected stories: \"The Witcher,\" in which Geralt frees Princess Adda of Temeria from the curse that turned her into a striga; \"A Grain of Truth,\" the encounter with Nivellen, a man turned into a beast and kept prisoner of an enchantment by the mysterious Vereena; \"The Lesser Evil,\" in which Geralt clashes in Blaviken with the mage Stregobor over the fate of the young Renfri, believed to carry an ancestral curse, in an episode that earns him the epithet Butcher of Blaviken; \"A Question of Price,\" set at the betrothal feast of Princess Pavetta of Cintra, where Geralt invokes the Law of Surprise against the cursed knight Duny, unknowingly laying the foundation of his bond with Ciri; \"The Edge of the World,\" the journey to the margins of the known world with the sylvan Torque and the confrontation with the golden dragon Villentretenmerth; and the title story, \"The Last Wish,\" in which Geralt frees a djinn trapped in a bottle and, for the first time, binds his destiny to that of the sorceress Yennefer of Vengerberg."
             },
-            twin: {
-              id: "witcher-a-grain-of-truth",
-              type: "FUMETTO",
-              typeEn: "COMIC",
-              year: "Adattamento del racconto \"Un briciolo di verità\"",
-              yearEn: "Adaptation of \"A Grain of Truth\"",
-              releaseYear: "2021 – 2022",
-              releaseYearEn: "2021 – 2022",
-              title: {
-                it: "The Witcher: Un Briciolo di Verità",
-                en: "The Witcher: A Grain of Truth"
+            // Voce "gemella multipla" (entry.twins, array, 2 gemelle
+            // sullo stesso ospite): "Il guardiano degli innocenti"
+            // adattato in due fumetti separati, ciascuno tratto da un
+            // racconto diverso della stessa raccolta. Ordine nell'array =
+            // ordine nel popup, sinistra->destra, cronologico per uscita:
+            // witcher-a-grain-of-truth (2021-2022) prima, poi
+            // witcher-the-lesser-evil (2023-2024).
+            twins: [
+              {
+                id: "witcher-a-grain-of-truth",
+                type: "FUMETTO",
+                typeEn: "COMIC",
+                year: "Adattamento del racconto \"Un briciolo di verità\"",
+                yearEn: "Adaptation of \"A Grain of Truth\"",
+                releaseYear: "2021 – 2022",
+                releaseYearEn: "2021 – 2022",
+                title: {
+                  it: "The Witcher: Un Briciolo di Verità",
+                  en: "The Witcher: A Grain of Truth"
+                },
+                synopsis: {
+                  it: "Fumetto in volume unico pubblicato da Dark Horse Comics nel 2022 (con uscita a fascicoli tra il 2021 e il 2022), sceneggiato da Jacek Rembis e disegnato da Jonas Scharf, che adatta il racconto \"Un briciolo di verità\" già contenuto ne \"Il guardiano degli innocenti\": l'incontro di Geralt con Nivellen, un uomo trasformato in creatura bestiale da una maledizione lanciata anni prima da una sacerdotessa da lui offesa, e con Vereena, l'enigmatica ospite del suo maniero che in realtà lo tiene prigioniero di un incantesimo mentre attira e divora altri visitatori. Rispetto al racconto originale, l'adattamento a fumetti mantiene sostanzialmente intatta la trama e il registro da favola nera ispirata alla Bella e la Bestia, valorizzando attraverso il disegno l'atmosfera gotica del maniero decadente e l'ambiguità visiva tra il vero aspetto di Nivellen e quello percepito da Geralt sotto l'effetto dell'incantesimo.",
+                  en: "A single-volume comic published by Dark Horse Comics in 2022 (released in issues between 2021 and 2022), scripted by Jacek Rembis and drawn by Jonas Scharf, adapting the short story \"A Grain of Truth\" already contained in \"The Last Wish\": Geralt's encounter with Nivellen, a man turned into a beast-like creature by a curse cast years earlier by a priestess he wronged, and with Vereena, the enigmatic guest of his manor who actually keeps him prisoner of an enchantment while luring and feeding on other visitors. Compared with the original story, the comic adaptation keeps the plot and dark-fairy-tale register (a spin on Beauty and the Beast) largely intact, using the art to heighten the gothic atmosphere of the decaying manor and the visual ambiguity between Nivellen's true appearance and the one Geralt perceives under the spell's effect."
+                }
               },
-              synopsis: {
-                it: "Fumetto in volume unico pubblicato da Dark Horse Comics nel 2022 (con uscita a fascicoli tra il 2021 e il 2022), sceneggiato da Jacek Rembis e disegnato da Jonas Scharf, che adatta il racconto \"Un briciolo di verità\" già contenuto ne \"Il guardiano degli innocenti\": l'incontro di Geralt con Nivellen, un uomo trasformato in creatura bestiale da una maledizione lanciata anni prima da una sacerdotessa da lui offesa, e con Vereena, l'enigmatica ospite del suo maniero che in realtà lo tiene prigioniero di un incantesimo mentre attira e divora altri visitatori. Rispetto al racconto originale, l'adattamento a fumetti mantiene sostanzialmente intatta la trama e il registro da favola nera ispirata alla Bella e la Bestia, valorizzando attraverso il disegno l'atmosfera gotica del maniero decadente e l'ambiguità visiva tra il vero aspetto di Nivellen e quello percepito da Geralt sotto l'effetto dell'incantesimo.",
-                en: "A single-volume comic published by Dark Horse Comics in 2022 (released in issues between 2021 and 2022), scripted by Jacek Rembis and drawn by Jonas Scharf, adapting the short story \"A Grain of Truth\" already contained in \"The Last Wish\": Geralt's encounter with Nivellen, a man turned into a beast-like creature by a curse cast years earlier by a priestess he wronged, and with Vereena, the enigmatic guest of his manor who actually keeps him prisoner of an enchantment while luring and feeding on other visitors. Compared with the original story, the comic adaptation keeps the plot and dark-fairy-tale register (a spin on Beauty and the Beast) largely intact, using the art to heighten the gothic atmosphere of the decaying manor and the visual ambiguity between Nivellen's true appearance and the one Geralt perceives under the spell's effect."
+              {
+                id: "witcher-the-lesser-evil",
+                type: "FUMETTO",
+                typeEn: "COMIC",
+                year: "Adattamento del racconto \"Il male minore\"",
+                yearEn: "Adaptation of \"The Lesser Evil\"",
+                releaseYear: "2023 – 2024",
+                releaseYearEn: "2023 – 2024",
+                title: {
+                  it: "The Witcher: Il Male Minore",
+                  en: "The Witcher: The Lesser Evil"
+                },
+                synopsis: {
+                  it: "Fumetto in volume unico pubblicato da Dark Horse Comics tra il 2023 e il 2024, sceneggiato da Jacek Rembis e disegnato da Adam Gorham, che adatta il racconto \"Il male minore\" già contenuto ne \"Il guardiano degli innocenti\" (racconto diverso da quello di \"Un briciolo di verità\", pur provenendo dalla stessa raccolta): Geralt, giunto a Blaviken per vendere la carcassa di un mostro appena ucciso, si trova coinvolto nello scontro tra il mago Stregobor, nascosto in incognito in città, e Renfri, una giovane bandita ritenuta dallo stregone portatrice di un'antica maledizione (la Maledizione del Sole Nero) che la renderebbe destinata a compiere atrocità. Messo di fronte alla richiesta di Stregobor di uccidere preventivamente la ragazza e alla versione di Renfri, secondo cui è invece il mago il vero mostro per i crimini commessi in nome delle proprie superstizioni, Geralt è costretto a una scelta impossibile tra due mali, da cui nascerà la sua fama di Macellaio di Blaviken. L'adattamento a fumetti segue fedelmente la struttura moralmente ambigua del racconto originale, sviluppando per immagini soprattutto il breve scontro finale tra Geralt e la banda di Renfri nelle strade della città.",
+                  en: "A single-volume comic published by Dark Horse Comics between 2023 and 2024, scripted by Jacek Rembis and drawn by Adam Gorham, adapting the short story \"The Lesser Evil\" already contained in \"The Last Wish\" (a different story from the one adapted in \"A Grain of Truth,\" though from the same collection): Geralt, arriving in Blaviken to sell the carcass of a monster he has just slain, gets drawn into the conflict between the mage Stregobor, hiding incognito in town, and Renfri, a young bandit the sorcerer believes carries an ancient curse (the Curse of the Black Sun) that dooms her to commit atrocities. Faced with Stregobor's demand that he pre-emptively kill the girl, and with Renfri's own account that it is the mage who is the true monster for the crimes he has committed in the name of his superstitions, Geralt is forced into an impossible choice between two evils — the episode that will earn him the name Butcher of Blaviken. The comic adaptation faithfully follows the morally ambiguous structure of the original story, using the art mainly to expand on the brief final clash between Geralt and Renfri's gang in the streets of the town."
+                }
               }
-            }
-          },
-          {
-            id: "witcher-the-lesser-evil",
-            type: "FUMETTO",
-            typeEn: "COMIC",
-            year: "Adattamento del racconto \"Il male minore\"",
-            yearEn: "Adaptation of \"The Lesser Evil\"",
-            releaseYear: "2023 – 2024",
-            releaseYearEn: "2023 – 2024",
-            title: {
-              it: "The Witcher: Il Male Minore",
-              en: "The Witcher: The Lesser Evil"
-            },
-            synopsis: {
-              it: "Fumetto in volume unico pubblicato da Dark Horse Comics tra il 2023 e il 2024, sceneggiato da Jacek Rembis e disegnato da Adam Gorham, che adatta il racconto \"Il male minore\" già contenuto ne \"Il guardiano degli innocenti\" (racconto diverso da quello di \"Un briciolo di verità\", pur provenendo dalla stessa raccolta): Geralt, giunto a Blaviken per vendere la carcassa di un mostro appena ucciso, si trova coinvolto nello scontro tra il mago Stregobor, nascosto in incognito in città, e Renfri, una giovane bandita ritenuta dallo stregone portatrice di un'antica maledizione (la Maledizione del Sole Nero) che la renderebbe destinata a compiere atrocità. Messo di fronte alla richiesta di Stregobor di uccidere preventivamente la ragazza e alla versione di Renfri, secondo cui è invece il mago il vero mostro per i crimini commessi in nome delle proprie superstizioni, Geralt è costretto a una scelta impossibile tra due mali, da cui nascerà la sua fama di Macellaio di Blaviken. L'adattamento a fumetti segue fedelmente la struttura moralmente ambigua del racconto originale, sviluppando per immagini soprattutto il breve scontro finale tra Geralt e la banda di Renfri nelle strade della città.",
-              en: "A single-volume comic published by Dark Horse Comics between 2023 and 2024, scripted by Jacek Rembis and drawn by Adam Gorham, adapting the short story \"The Lesser Evil\" already contained in \"The Last Wish\" (a different story from the one adapted in \"A Grain of Truth,\" though from the same collection): Geralt, arriving in Blaviken to sell the carcass of a monster he has just slain, gets drawn into the conflict between the mage Stregobor, hiding incognito in town, and Renfri, a young bandit the sorcerer believes carries an ancient curse (the Curse of the Black Sun) that dooms her to commit atrocities. Faced with Stregobor's demand that he pre-emptively kill the girl, and with Renfri's own account that it is the mage who is the true monster for the crimes he has committed in the name of his superstitions, Geralt is forced into an impossible choice between two evils — the episode that will earn him the name Butcher of Blaviken. The comic adaptation faithfully follows the morally ambiguous structure of the original story, using the art mainly to expand on the brief final clash between Geralt and Renfri's gang in the streets of the town."
-            }
+            ]
           },
           {
             id: "witcher-spada-del-destino",
