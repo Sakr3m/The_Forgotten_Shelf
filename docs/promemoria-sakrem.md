@@ -281,6 +281,98 @@ Filigrana (watermark) mancante per il nuovo universo:
 - **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
   proposta ancora aperta in "In sospeso" sopra).
 
+## Call of Duty
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani:
+  Main Theme (*Call of Duty: Modern Warfare 2*, 2009, Hans Zimmer),
+  Main Theme (*Call of Duty 4: Modern Warfare*, 2007), American Theme
+  (Main Theme) (*Call of Duty: World at War*, 2008), Theme from Call
+  of Duty: Black Ops II (*Black Ops II*, 2012, Trent Reznor), 115
+  (*Call of Duty: Black Ops*, 2010, Zombies "Kino der Toten"), Modern
+  Warfare Main Theme (*Call of Duty: Modern Warfare*, 2019, Sarah
+  Schachner), A Brotherhood of Heroes (*Call of Duty: WWII*, 2017,
+  Wilbert Roget II).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi
+  musicali più iconici/riconoscibili a copertura di più capitoli ed
+  epoche della saga.
+- **Data**: 2026-09-09 (sessione notturna, 8/12).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 5 nuovi universi e 23 nuove voci, tutte
+inserite nella stessa sessione notturna, 2026-09-09.
+
+- Nuovo universo **Universo Classico** (`cod1` → `cod2` → `cod3`, span
+  1942 – 1944) - sessione notturna, 2026-09-09.
+- Nuovo universo **L'Ombra di Makarov** (`mw-ghost` → `mw1` → `mw2` →
+  `mw3`, span Prima di Modern Warfare – 2016) - sessione notturna,
+  2026-09-09.
+- Nuovo universo **Black Ops** (`waw` → `bo1` → `bo2` → `bo3` → `bo4`
+  → `bo-cw` → `bo6` → `bo7`, span 1943 – 2035) - sessione notturna,
+  2026-09-09.
+- Nuovo universo **Task Force One** (`cod-wwii` → `vanguard-comic` →
+  `vanguard`, span 1944 – 1945) - sessione notturna, 2026-09-09.
+- Nuovo universo **Modern Warfare (2019)** (`mw2019` → `mw2022` →
+  `mw2023` → `mw4` → `cod-film`, span Epoca contemporanea) - sessione
+  notturna, 2026-09-09.
+- `cod1` - Call of Duty (VIDEOGIOCO, 2003) - sessione notturna,
+  2026-09-09.
+- `cod2` - Call of Duty 2 (VIDEOGIOCO, 2005) - sessione notturna,
+  2026-09-09.
+- `cod3` - Call of Duty 3 (VIDEOGIOCO, 2006) - sessione notturna,
+  2026-09-09.
+- `mw-ghost` - Modern Warfare 2: Ghost (FUMETTO, 2009-2010) - sessione
+  notturna, 2026-09-09.
+- `mw1` - Call of Duty 4: Modern Warfare (VIDEOGIOCO, 2007) - sessione
+  notturna, 2026-09-09.
+- `mw2` - Call of Duty: Modern Warfare 2 (VIDEOGIOCO, 2009) - sessione
+  notturna, 2026-09-09.
+- `mw3` - Call of Duty: Modern Warfare 3 (VIDEOGIOCO, 2011) - sessione
+  notturna, 2026-09-09.
+- `waw` - Call of Duty: World at War (VIDEOGIOCO, 2008) - sessione
+  notturna, 2026-09-09.
+- `bo1` - Call of Duty: Black Ops (VIDEOGIOCO, 2010) - sessione
+  notturna, 2026-09-09.
+- `bo2` - Call of Duty: Black Ops II (VIDEOGIOCO, 2012) - sessione
+  notturna, 2026-09-09.
+- `bo3` - Call of Duty: Black Ops III (VIDEOGIOCO, 2015) - sessione
+  notturna, 2026-09-09.
+- `bo4` - Call of Duty: Black Ops 4 (VIDEOGIOCO, 2018) - sessione
+  notturna, 2026-09-09.
+- `bo-cw` - Call of Duty: Black Ops Cold War (VIDEOGIOCO, 2020) -
+  sessione notturna, 2026-09-09.
+- `bo6` - Call of Duty: Black Ops 6 (VIDEOGIOCO, 2024) - sessione
+  notturna, 2026-09-09.
+- `bo7` - Call of Duty: Black Ops 7 (VIDEOGIOCO, 2025) - sessione
+  notturna, 2026-09-09.
+- `cod-wwii` - Call of Duty: WWII (VIDEOGIOCO, 2017) - sessione
+  notturna, 2026-09-09.
+- `vanguard-comic` - Call of Duty: Vanguard (fumetto) (FUMETTO, 2021)
+  - sessione notturna, 2026-09-09.
+- `vanguard` - Call of Duty: Vanguard (VIDEOGIOCO, 2021) - sessione
+  notturna, 2026-09-09.
+- `mw2019` - Call of Duty: Modern Warfare (2019) (VIDEOGIOCO, 2019) -
+  sessione notturna, 2026-09-09.
+- `mw2022` - Call of Duty: Modern Warfare II (VIDEOGIOCO, 2022) -
+  sessione notturna, 2026-09-09.
+- `mw2023` - Call of Duty: Modern Warfare III (VIDEOGIOCO, 2023) -
+  sessione notturna, 2026-09-09.
+- `mw4` - Call of Duty: Modern Warfare 4 (VIDEOGIOCO, in uscita 23
+  ottobre 2026, imagePending) - sessione notturna, 2026-09-09.
+- `cod-film` - Call of Duty (film) (LIVE ACTION, in uscita 30 giugno
+  2028, imagePending) - sessione notturna, 2026-09-09.
+
 ## Castlevania
 
 ### In sospeso
