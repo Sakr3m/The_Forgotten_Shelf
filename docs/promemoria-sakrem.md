@@ -219,6 +219,91 @@ Filigrana (watermark) mancante per il nuovo universo:
 - Nuovo universo **Novecento** (Conspiracies → Bloodstone, span 1943 -
   1964) - sessione 2026-09-08.
 
+## Baldur's Gate
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani:
+  Down by the River (*Baldur's Gate 3*), Baldur's Gate (Main Theme)
+  (*Baldur's Gate*), Baldur's Gate II: Shadows of Amn (Main Theme)
+  (*Baldur's Gate II: Shadows of Amn*), I Want to Live (*Baldur's Gate
+  3*), Raphael's Final Act (*Baldur's Gate 3*), Main Titles (Dark
+  Alliance Theme) (*Baldur's Gate: Dark Alliance*), Main Theme
+  (*Baldur's Gate: Dark Alliance II*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura sia dei CRPG classici sia di
+  Baldur's Gate 3 sia degli spin-off Dark Alliance.
+- **Data**: 2026-09-09 (sessione notturna, 9/12).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 2 nuovi universi e 17 nuove voci (più 3
+gemelle nidificate nelle rispettive voci principali), tutte inserite
+nella stessa sessione notturna, 2026-09-09.
+
+- Nuovo universo **Costa della Spada** (`bg-promo-comic` → `bg3`,
+  span Prima di Baldur's Gate – 1492 DR, 15 voci) - sessione notturna,
+  2026-09-09.
+- Nuovo universo **Dark Alliance** (`bg-dark-alliance` →
+  `bg-dark-alliance-2`, span 1369 DR – 1372 DR, 2 voci) - sessione
+  notturna, 2026-09-09.
+- `bg-promo-comic` - Fumetto promozionale di Baldur's Gate (FUMETTO,
+  1998) - voce a sé, prima voce della saga - sessione notturna,
+  2026-09-09.
+- `bg1` - Baldur's Gate (VIDEOGIOCO, 1998, include Tales of the Sword
+  Coast) - voce a sé - sessione notturna, 2026-09-09.
+- `bg1-novel` - Baldur's Gate (novelization, Philip Athans, 1999)
+  (ROMANZO) - voce gemella di `bg1` - sessione notturna, 2026-09-09.
+- `siege-of-dragonspear` - Baldur's Gate: Siege of Dragonspear
+  (VIDEOGIOCO, 2016) - voce a sé - sessione notturna, 2026-09-09.
+- `bg2` - Baldur's Gate II: Shadows of Amn (VIDEOGIOCO, 2000) - voce
+  a sé - sessione notturna, 2026-09-09.
+- `bg2-novel` - Baldur's Gate II: Shadows of Amn (novelization,
+  Philip Athans, 2000) (ROMANZO) - voce gemella di `bg2` - sessione
+  notturna, 2026-09-09.
+- `throne-of-bhaal` - Baldur's Gate II: Throne of Bhaal (VIDEOGIOCO,
+  2001) - voce a sé - sessione notturna, 2026-09-09.
+- `throne-of-bhaal-novel` - Baldur's Gate II: Throne of Bhaal
+  (novelization, Drew Karpyshyn, 2001) (ROMANZO) - voce gemella di
+  `throne-of-bhaal` - sessione notturna, 2026-09-09.
+- `murder-in-baldurs-gate` - Murder in Baldur's Gate (MODULO D&D,
+  2013) - voce a sé, primo uso del nuovo tipo/tag "MODULO D&D" sul
+  sito - sessione notturna, 2026-09-09.
+- `legends-of-baldurs-gate` - Legends of Baldur's Gate (FUMETTO,
+  2014-2015) - voce a sé - sessione notturna, 2026-09-09.
+- `shadows-of-the-vampire` - Baldur's Gate: Shadows of the Vampire
+  (FUMETTO, 2016) - voce a sé - sessione notturna, 2026-09-09.
+- `frost-giants-fury` - Baldur's Gate: The Frost Giant's Fury
+  (FUMETTO, 2017) - voce a sé - sessione notturna, 2026-09-09.
+- `evil-at-baldurs-gate` - Evil at Baldur's Gate (FUMETTO, 2018) -
+  voce a sé - sessione notturna, 2026-09-09.
+- `infernal-tides` - Baldur's Gate: Infernal Tides (FUMETTO,
+  2019-2020) - voce a sé - sessione notturna, 2026-09-09.
+- `descent-into-avernus` - Baldur's Gate: Discesa nell'Avernus
+  (MODULO D&D, 2019) - voce a sé - sessione notturna, 2026-09-09.
+- `mindbreaker` - Baldur's Gate: Mindbreaker (FUMETTO, 2021-2022) -
+  voce a sé - sessione notturna, 2026-09-09.
+- `astarion-novel` - Astarion (ROMANZO, in uscita 29 settembre 2026,
+  imagePending) - voce a sé, senza sinossi per policy titoli non
+  ancora usciti - sessione notturna, 2026-09-09.
+- `bg3` - Baldur's Gate 3 (VIDEOGIOCO, 2023) - voce a sé, ultima voce
+  di Costa della Spada - sessione notturna, 2026-09-09.
+- `bg-dark-alliance` - Baldur's Gate: Dark Alliance (VIDEOGIOCO,
+  2001) - voce a sé, prima voce del nuovo universo Dark Alliance -
+  sessione notturna, 2026-09-09.
+- `bg-dark-alliance-2` - Baldur's Gate: Dark Alliance II (VIDEOGIOCO,
+  2004) - voce a sé, ultima voce del nuovo universo Dark Alliance -
+  sessione notturna, 2026-09-09.
+
 ## BioShock
 
 ### In sospeso
@@ -698,7 +783,6 @@ urgente su `e-day` (già pubblicata, downgrade a titolo non ancora
 uscito) e una nota aggiunta alla sinossi esistente di `gears-1`, mai un
 nuovo media vero e proprio (vedi il report una tantum, punto 4, per i
 dettagli).
-</content>
 
 ## God of War
 
