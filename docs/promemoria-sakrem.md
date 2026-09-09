@@ -868,6 +868,58 @@ cambiamento di tracce già esistenti) e non più toccata in seguito.
 - `nightmare-row` - Nightmare Row (romanzo, Raymond Benson, 2016) - voce
   a sé, nuova prima voce della timeline - sessione 2026-09-06.
 
+## The Elder Scrolls
+
+### In sospeso - lavoro rimandato a un ciclo futuro
+
+Non è una proposta da confermare o scartare (nessuna decisione ancora
+presa da nessun agente della catena su questi titoli, nessuna proposta di
+inclusione formulata): solo un promemoria di scope, per non perdere di
+vista questo materiale in una sessione futura dedicata alla saga.
+
+- **Nota di scope**: in questo richiamo mirato il Supervisore ha scelto
+  una via di mezzo tra rattoppo minimo e rifacimento totale - inclusi
+  Oblivion Remastered (scoperto autonomamente durante la revisione), i
+  DLC classici annotati (Knights of the Nine, Shivering Isles, Dawnguard,
+  Dragonborn) e la nuova voce a sé "blades". Rimandati esplicitamente a
+  un ciclo futuro dedicato: gli spin-off standalone *Battlespire* e
+  *Redguard*, e i romanzi di Greg Keyes (*The Elder Scrolls: The Infernal
+  City* e seguiti).
+- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, 5ª saga di 11).
+- **Stato**: non deciso, non un dubbio da risolvere - scope volutamente
+  limitato in questo ciclo, da riprendere in una sessione futura dedicata
+  a Battlespire/Redguard/romanzi Keyes.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (attualmente `[]`,
+  mai popolato) e popolarlo con una playlist di 7 brani: Dragonborn
+  (*Skyrim*), Nerevar Rising (*Morrowind*), Auriel's Ascension
+  (*Oblivion*), Secunda (*Skyrim*), The Wings of Kynareth (*Oblivion*),
+  Watch the Skies (*Skyrim*), Beauty of Dawn (*The Elder Scrolls
+  Online*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione per fama/
+  gradimento decrescente verificata su più fonti indipendenti; nessuna
+  coppia di tracce dello stesso gioco adiacente in ordine.
+- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Nessun nuovo universo (unico universo "main"/Tamriel già esistente): una
+sola nuova voce.
+
+- `blades` - The Elder Scrolls: Blades (VIDEOGIOCO, 2019, chiusura
+  server: 2026) - voce a sé, inserita cronologicamente tra `oblivion` e
+  `skyrim` - richiamo mirato, turno notturno 2, 2026-09-09.
+
 ## Fallout
 
 ### Immagini/audio mancanti
