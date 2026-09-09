@@ -1236,3 +1236,46 @@ pubblicate in futuro.
   altre gemelle ancora in sospeso) - voce gemella di `bbs-02` (prima e
   unica gemella, meccanismo singolo standard già esistente, nessun
   problema tecnico) - richiamo mirato, 2026-09-09.
+
+## Legacy of Kain
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (finora
+  assente da `data.js`) e popolarlo con una playlist di 7 brani: Ozar
+  Midrashim (*Legacy of Kain: Soul Reaver*), Ariel's Lament (*Legacy of
+  Kain: Soul Reaver 2*), The Ruined City (*Legacy of Kain: Soul
+  Reaver*), Sarafan (*Legacy of Kain: Soul Reaver 2*), Necropolis
+  (*Legacy of Kain: Soul Reaver*), Nupraptor's Theme (*Blood Omen:
+  Legacy of Kain*), Blood Omen 2 Main Theme (*Blood Omen 2*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, ordine di fama/gradimento
+  decrescente, nessuna coppia consecutiva dello stesso titolo. Copertura
+  4 titoli su 6 (Defiance e Ascendance restano senza un brano proprio -
+  non è richiesta copertura totale).
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 2/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+- `defiance-comic` - Legacy of Kain: Defiance — Fumetto (FUMETTO, 2004)
+  - voce a sé, inserita nell'universo "L'Eredità di Kain" tra
+  `blood-omen-2` e `defiance` - richiamo mirato, 2026-09-09.
+
+### Nota procedurale - brief Artista
+
+L'Artista ha chiuso la propria proposta di cambio gradiente (palette a
+4 colori) dicendo che "non si applica in automatico e passa al
+Supervisore per la conferma di Sakrem" - applicazione della regola
+pre-08/09, ormai superata (dall'08/09/2026 ogni scelta di colore
+dell'Artista si applica in automatico, senza attesa di consenso). Il
+Supervisore ha corretto il malinteso e confermato l'applicazione
+automatica in questo stesso ciclo, quindi nessun impatto sul risultato
+finale - ma segnala che il brief dell'Artista andrebbe aggiornato per
+evitare che l'inciampo si ripeta nei prossimi cicli.
