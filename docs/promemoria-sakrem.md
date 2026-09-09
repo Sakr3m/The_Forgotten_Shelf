@@ -1694,3 +1694,121 @@ alcune modifiche a voci già pubblicate:
   invariati.
 - Nessuna immagine/watermark disponibile per la nuova voce/universo in
   questo ciclo (nessun asset caricato su R2).
+
+## Persona
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani: Life
+  Will Change (*Persona 5*), Last Surprise (*Persona 5*), Mass
+  Destruction (*Persona 3*, anche in *Persona 3 Reload*), Reach Out to
+  the Truth (*Persona 4*, anche in *Persona 4 Golden*), Beneath the Mask
+  (*Persona 5*), Memories of You (*Persona 3*, anche in *Persona 3
+  Reload*), Burn My Dread (*Persona 3*, anche in *Persona 3 Reload*).
+- **Origine**: Musicista.
+- **Motivazione**: selezione basata su sondaggi ufficiali dei fan Atlus
+  (DJ Morgana per P5 Royal, Persona 3 Portable, Persona 4 Golden, tutti
+  2020/2022) incrociati con la fama pubblica internazionale (Beneath the
+  Mask preferita a un brano meglio piazzato nel solo sondaggio
+  giapponese, per la sua notorietà internazionale/presenza in Super
+  Smash Bros. Ultimate). Nessuna traccia da Megami Ibunroku
+  Persona/Persona 2 inclusa, per assenza di notorietà pubblica
+  comparabile.
+- **Data**: 2026-09-09 (sessione notturna, prima delle 3 saghe trovate
+  dal Project Manager in bypass).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 3 nuovi universi, 16 nuove voci principali + 7
+gemelle nidificate (23 entry totali), tutte inserite nella stessa
+sessione notturna, 2026-09-09.
+
+- Nuovo universo **Mikage-chō** (`megami-ibunroku-persona` →
+  `megami-ibunroku-persona-manga`, span 1996 – 2000, 2 voci) - sessione
+  notturna, 2026-09-09.
+- Nuovo universo **Sumaru** (`persona-2-innocent-sin` →
+  `persona-2-eternal-punishment`, span 1999 – 2000, 2 voci) - sessione
+  notturna, 2026-09-09.
+- Nuovo universo **Velvet Room** (`persona-3` → `persona-5-tactica`,
+  span 2006 – 2023, 12 voci principali + 7 gemelle nidificate - fusione
+  di quelli che sarebbero stati 3 universi separati Persona 3/Persona
+  4/Persona 5 in uno unico, vedi nota sotto) - sessione notturna,
+  2026-09-09.
+- `megami-ibunroku-persona` - Megami Ibunroku Persona / Shin Megami
+  Tensei: Persona (VIDEOGIOCO, 1996, Remake: 2009/2010) - voce a sé,
+  prima voce della saga - sessione notturna, 2026-09-09.
+- `megami-ibunroku-persona-manga` - Megami Ibunroku Persona (manga,
+  1996-2000) - voce a sé, indipendente (non gemella: trama alternativa
+  con antagonista originale Kazuya Toudou) - sessione notturna,
+  2026-09-09.
+- `persona-2-innocent-sin` - Persona 2: Innocent Sin (VIDEOGIOCO, 1999,
+  Remake: 2011) - voce a sé, prima voce di Sumaru - sessione notturna,
+  2026-09-09.
+- `persona-2-eternal-punishment` - Persona 2: Eternal Punishment
+  (VIDEOGIOCO, 2000) - voce a sé, ultima voce di Sumaru - sessione
+  notturna, 2026-09-09.
+- `persona-3` - Persona 3 / Persona 3 Reload (VIDEOGIOCO, 2006, Remake:
+  2024) - voce a sé, prima voce di Velvet Room, host di 2 gemelle -
+  sessione notturna, 2026-09-09.
+- `persona-3-the-movie` - Persona 3 the Movie (tetralogia anime,
+  2013-2016) - voce gemella di `persona-3` - sessione notturna,
+  2026-09-09.
+- `persona-3-manga` - Persona 3 (manga, 2007-2017) - voce gemella di
+  `persona-3` - sessione notturna, 2026-09-09.
+- `persona-4` - Persona 4 / Persona 4 Golden (VIDEOGIOCO, 2008, Remake:
+  2027) - voce a sé, host di 3 gemelle - sessione notturna, 2026-09-09.
+- `persona-4-the-animation` - Persona 4: The Animation (serie animata,
+  2011-2012) - voce gemella di `persona-4` - sessione notturna,
+  2026-09-09.
+- `persona-4-the-golden-animation` - Persona 4: The Golden Animation
+  (serie animata, 2014) - voce gemella di `persona-4` - sessione
+  notturna, 2026-09-09.
+- `persona-4-manga` - Persona 4 (manga, 2008-2019) - voce gemella di
+  `persona-4` - sessione notturna, 2026-09-09.
+- `persona-4-arena` - Persona 4 Arena (VIDEOGIOCO, 2012) - voce a sé -
+  sessione notturna, 2026-09-09.
+- `persona-4-arena-ultimax` - Persona 4 Arena Ultimax (VIDEOGIOCO,
+  2013/2014) - voce a sé - sessione notturna, 2026-09-09.
+- `persona-q` - Persona Q: Shadow of the Labyrinth (VIDEOGIOCO, 2014) -
+  voce a sé - sessione notturna, 2026-09-09.
+- `persona-4-dancing-all-night` - Persona 4: Dancing All Night
+  (VIDEOGIOCO, 2015) - voce a sé, ultima voce del blocco Persona 4 -
+  sessione notturna, 2026-09-09.
+- `persona-5` - Persona 5 / Persona 5 Royal (VIDEOGIOCO, 2016, Royal:
+  2019/2020) - voce a sé, host di 2 gemelle - sessione notturna,
+  2026-09-09.
+- `persona-5-the-animation` - Persona 5: The Animation (serie animata,
+  2018-2019, voce fusa: serie TV + 2 speciali) - voce gemella di
+  `persona-5` - sessione notturna, 2026-09-09.
+- `persona-5-manga` - Persona 5 (manga, 2016-in corso) - voce gemella di
+  `persona-5` - sessione notturna, 2026-09-09.
+- `persona-5-day-breakers` - Persona 5: The Day Breakers
+  (cortometraggio, 2016) - voce a sé - sessione notturna, 2026-09-09.
+- `persona-q2` - Persona Q2: New Cinema Labyrinth (VIDEOGIOCO, 2018) -
+  voce a sé - sessione notturna, 2026-09-09.
+- `dancing-moonlight-starlight` - Persona 3: Dancing in Moonlight /
+  Persona 5: Dancing in Starlight (VIDEOGIOCO, 2018) - voce a sé,
+  fusione cross-saga P3+P5, riclassificata standalone (non gemella,
+  trama propria) - sessione notturna, 2026-09-09.
+- `persona-5-strikers` - Persona 5 Strikers (VIDEOGIOCO, 2020) - voce a
+  sé - sessione notturna, 2026-09-09.
+- `persona-5-tactica` - Persona 5 Tactica (VIDEOGIOCO, 2023) - voce a
+  sé, ultima voce della saga - sessione notturna, 2026-09-09.
+
+**Nota per Sakrem - architettura a 3 universi invece di 5**: il
+Supervisore ha fuso quelli che sarebbero stati Persona 3, Persona 4 e
+Persona 5 in un unico universo "Velvet Room", invece di 3 universi
+separati collegati da `universeLink`. Decisione di giudizio motivata dai
+4 titoli crossover diretti tra questi giochi (Persona 4 Arena/Ultimax,
+Persona Q, Persona Q2, Dancing in Moonlight/Starlight), non imposta da
+una regola scritta univoca - reversibile in un ciclo successivo se
+Sakrem preferisce l'architettura a 3 universi separati. Dettaglio
+completo nel report di sessione.
