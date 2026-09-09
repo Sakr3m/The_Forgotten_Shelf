@@ -2308,3 +2308,72 @@ stessa sessione, 2026-09-09 (richiamo mirato, turno notturno 2, saga 4/11).
 - `sh-film-return` - Return to Silent Hill (LIVE ACTION, 2026) - voce a
   sé, ultima voce del nuovo Universo Cinematografico - sessione
   2026-09-09.
+
+## The Legend of Zelda
+
+### Note da non perdere di vista
+
+#### Majora's Mask assente dalla scheda
+
+- **Segnalazione**: Majora's Mask non risulta presente in nessuna voce
+  della scheda della saga (verificato via grep su data.js, nessun
+  risultato) - gap preesistente, mai notato da nessun ciclo precedente
+  della catena. Come conseguenza diretta, la sua colonna sonora (inclusa
+  "Song of Healing", tra le tracce Zelda più amate in assoluto secondo
+  quasi ogni classifica di settore) resta esclusa a priori dalla
+  playlist, non potendo pescare da un titolo non presente in scheda.
+- **Origine**: Musicista (richiamo mirato, turno notturno 2).
+- **Data**: 2026-09-09.
+- **Stato**: da valutare se aggiungere Majora's Mask come voce a sé in un
+  futuro richiamo mirato sulla saga - nessuna azione presa in questo
+  ciclo.
+
+#### Artbook "Secrets of the Zonai" rimandato
+
+- **Segnalazione**: artbook Secrets of the Zonai non ancora uscito
+  (uscita prevista 20 ottobre 2026) - nessuna nota aggiunta a
+  `tears-of-the-kingdom` in questo ciclo. Da valutare una nota breve
+  collegata (non una voce a sé, trattandosi di materiale editoriale)
+  dopo l'uscita.
+- **Origine**: Supervisore (segnalato come follow-up programmato, non
+  dubbio bloccante).
+- **Data**: 2026-09-09.
+- **Stato**: rimandato a un richiamo mirato dopo il 20/10/2026.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo vuoto da popolare)
+
+- **Proposta**: popolare il campo `tracks` della saga (attualmente `[]`,
+  vuoto) con una playlist di 7 brani, in ordine di fama decrescente:
+  Main Theme (Overworld Theme) (*The Legend of Zelda*, 1986), Song of
+  Storms (*Ocarina of Time*), Dragon Roost Island (*The Wind Waker*),
+  Gerudo Valley (*Ocarina of Time*), Midna's Lament (*Twilight
+  Princess*), Zelda's Lullaby (*Ocarina of Time*), Ballad of the
+  Goddess (*Skyward Sword*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di più epoche/rami narrativi della
+  saga, con le 3 tracce di Ocarina of Time volutamente non adiacenti tra
+  loro pur riflettendo la reale concentrazione di fama su quel titolo.
+  Nessuna traccia da Majora's Mask (titolo assente dalla scheda, vedi
+  nota sopra) né da spin-off/collection non elencati (Hyrule Warriors,
+  Cadence of Hyrule, Age of Calamity).
+- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, saga 6/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo `tracks` resta `[]` in questo
+  pacchetto, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Aggiornamento minimale: nuovo 6° universo creato con 1 nuova voce
+imagePending, sessione 2026-09-09 (richiamo mirato, turno notturno 2).
+
+- Nuovo universo **Adattamento Live-Action** (`adattamento-live-action`,
+  unica voce `zelda-film-2027`, nessuna epoca dichiarata) - sessione
+  2026-09-09.
+- `zelda-film-2027` - The Legend of Zelda (Film) (LIVE ACTION, in
+  uscita 30 aprile 2027, imagePending) - voce a sé, unica voce del
+  nuovo universo Adattamento Live-Action - sessione 2026-09-09.
