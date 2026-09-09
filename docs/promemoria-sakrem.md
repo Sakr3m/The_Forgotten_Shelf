@@ -304,6 +304,67 @@ nella stessa sessione notturna, 2026-09-09.
   2004) - voce a sé, ultima voce del nuovo universo Dark Alliance -
   sessione notturna, 2026-09-09.
 
+## Battlefield
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani:
+  Battlefield 3 Main Theme (*Battlefield 3*), Battlefield 4 "Warsaw"
+  Theme (Main Theme) (*Battlefield 4*), The Storm (Main Theme)
+  (*Battlefield: Bad Company 2*), Battlefield 6 Main Theme
+  (*Battlefield 6*), Battlefield 2042 (Main Theme) (*Battlefield
+  2042*), Fortunate Son (Creedence Clearwater Revival) (*Battlefield:
+  Bad Company 2*, radio in-game, espansione Vietnam), A Prelude to a
+  Lost Cause (*Battlefield: Bad Company*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi
+  principali più iconici/riconoscibili a copertura di più capitoli,
+  incluso un brano radiofonico in-game (Fortunate Son) tra i momenti
+  più citati della saga.
+- **Data**: 2026-09-09 (sessione notturna, 10/12).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 4 nuovi universi e 8 nuove voci (nessuna
+gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
+
+- Nuovo universo **Bad Company** (`bfbc1` → `bfbc2`, span 1944
+  (prologo) – Guerra USA-Russia, 2 voci) - sessione notturna,
+  2026-09-09.
+- Nuovo universo **La Guerra del 2014** (`bf3` → `bf4-countdown-to-war`
+  → `bf4`, span 2014 – 2020, 3 voci) - sessione notturna, 2026-09-09.
+- Nuovo universo **La Guerra del 2042** (`exodus` → `bf2042`, span
+  2042, 2 voci) - sessione notturna, 2026-09-09.
+- Nuovo universo **Battlefield 6** (`bf6`, span 2027-2028, 1 voce) -
+  sessione notturna, 2026-09-09.
+- `bfbc1` - Battlefield: Bad Company (VIDEOGIOCO, 2008) - voce a sé,
+  prima voce del nuovo universo Bad Company - sessione notturna,
+  2026-09-09.
+- `bfbc2` - Battlefield: Bad Company 2 (VIDEOGIOCO, 2010) - voce a sé,
+  ultima voce del nuovo universo Bad Company - sessione notturna,
+  2026-09-09.
+- `bf3` - Battlefield 3 (VIDEOGIOCO, 2011) - voce a sé, prima voce del
+  nuovo universo La Guerra del 2014 - sessione notturna, 2026-09-09.
+- `bf4-countdown-to-war` - Battlefield 4: Countdown to War (ROMANZO,
+  2013) - voce a sé - sessione notturna, 2026-09-09.
+- `bf4` - Battlefield 4 (VIDEOGIOCO, 2013) - voce a sé, ultima voce del
+  nuovo universo La Guerra del 2014 - sessione notturna, 2026-09-09.
+- `exodus` - Exodus (CORTOMETRAGGIO, 2021) - voce a sé, prima voce del
+  nuovo universo La Guerra del 2042 - sessione notturna, 2026-09-09.
+- `bf2042` - Battlefield 2042 (VIDEOGIOCO, 2021) - voce a sé, ultima
+  voce del nuovo universo La Guerra del 2042 - sessione notturna,
+  2026-09-09.
+- `bf6` - Battlefield 6 (VIDEOGIOCO, 2025) - voce a sé, unica voce del
+  nuovo universo Battlefield 6 - sessione notturna, 2026-09-09.
+
 ## BioShock
 
 ### In sospeso
