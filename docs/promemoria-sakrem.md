@@ -639,3 +639,43 @@ dettagli).
   quando il gioco uscirà con sinossi reale, la posizione cronologica
   potrebbe rivelarsi precedente a `god-of-war-2018`) - sessione
   notturna, 2026-09-08.
+
+## Grand Theft Auto
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (attualmente
+  assente da `data.js`, nemmeno come array vuoto) e popolarlo con una
+  playlist di 7 brani: Billie Jean (*GTA Vice City*, Flash FM), Welcome
+  to the Jungle (*GTA San Andreas*, K-DST), Africa (*GTA Vice City*,
+  Emotion 98.3), Wanted Dead or Alive (*GTA IV*, Liberty Rock Radio
+  97.8), In the Air Tonight (*GTA Vice City*, Emotion 98.3), Express
+  Yourself (*GTA San Andreas*, Radio Los Santos), I Ran (So Far Away)
+  (*GTA Vice City*, Wave 103).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione di brani reali
+  delle radio in-game per copertura equilibrata di più capitoli.
+- **Data**: 2026-09-09 (sessione notturna, 6/12).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal Programmatore
+  come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+- `gta1` - GTA (VIDEOGIOCO, 1997) - voce a sé, prima voce del nuovo
+  universo 2D - sessione notturna, 2026-09-09.
+- `gta2` - GTA 2 (VIDEOGIOCO, 1999) - voce a sé, seconda voce del nuovo
+  universo 2D - sessione notturna, 2026-09-09.
+- `gta-london-1969` - GTA: London 1969 (VIDEOGIOCO, 1999) - voce a sé,
+  terza e ultima voce del nuovo universo 2D - sessione notturna,
+  2026-09-09.
+- `gta-vi` - GTA VI (VIDEOGIOCO, in uscita 19 novembre 2026,
+  imagePending) - voce a sé, inserita in coda all'Universo HD dopo
+  `gta5` - sessione notturna, 2026-09-09.
+- Nuovo universo **2D** (IT "Universo 2D", GTA → London 1969, primo dei
+  3 universi della saga, span 1997 – 1999) - sessione notturna,
+  2026-09-09.

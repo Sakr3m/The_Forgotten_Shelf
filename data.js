@@ -2941,14 +2941,49 @@ const GAMES = {
     },
     palette: ["#ff4fa3", "#f2b705", "#2ecc71"],
     accentColor: "#ff4fa3",
+    tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Avatar.jpg",
     watermarkOpacity: 0.2,
+    lastAgentPass: "2026-09-09",
     universes: [
+      {
+        id: "2d-universe",
+        name: { it: "Universo 2D", en: "2D Universe" },
+        span: { it: "1997 – 1999", en: "1997 – 1999" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
+        palette: ["#FF4FA3", "#C6FF3D", "#C8102E"],
+        paletteBounds: ["gta1", "gta2"],
+        entries: [
+          { id: "gta1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1997", releaseYear: "1997", releaseYearEn: "1997",
+            title: { it: "GTA", en: "GTA" },
+            synopsis: {
+              it: "Il gioco non ha un protagonista unico: si sceglie uno fra otto criminali indipendenti, ciascuno con la propria scalata nella malavita (i quattro uomini Travis, Troy, Bubba e Kivlov, più le quattro donne Katie, Divine, Mikki e Ulrika, queste ultime assenti nella versione PlayStation), attivi in tre città americane immaginarie riprodotte in grafica dall'alto bidimensionale: Liberty City, San Andreas e Vice City. A Liberty City il personaggio lavora dapprima per la famiglia mafiosa dei Vercotti in una serie di rapine e omicidi contro la rivale famiglia Sonetti, di stanza nel vicino stato di New Guernsey, fino a smantellarne il giro criminale e a far fuori un capo della polizia corrotto facendo esplodere l'intero commissariato. Trasferitosi a San Andreas, entra al servizio del boss cinese Uncle Fu per espanderne i traffici in città, per poi passare alle dipendenze del gangster messicano El Burro, eliminando anche presunti traditori della sua banda. A Vice City la trama si riduce a una sequenza di incarichi per diversi boss criminali locali, furti d'auto, sabotaggi, omicidi su commissione, senza un vero antagonista finale né una conclusione narrativa: il punteggio ottenuto missione dopo missione determina semplicemente l'avanzamento tra i livelli di ciascuna città, in perfetto stile \"sandbox\" ancora acerbo del capostipite della serie.",
+              en: "The game has no single protagonist: players choose one of eight independent criminals, each climbing their own path through the underworld (the four men Travis, Troy, Bubba and Kivlov, plus the four women Katie, Divine, Mikki and Ulrika, the latter absent from the PlayStation version), operating across three fictional American cities rendered in top-down 2D: Liberty City, San Andreas and Vice City. In Liberty City the character first works for the Vercotti crime family through a string of robberies and killings against the rival Sonetti family, based in the neighboring state of New Guernsey, eventually dismantling their operation and taking out a corrupt police chief by blowing up his entire precinct. Moving to San Andreas, the character enters the service of Chinese boss Uncle Fu to expand his rackets across the city, then works for Mexican gangster El Burro, also eliminating suspected traitors within his gang. In Vice City the plot is reduced to a string of jobs for various local crime bosses, car theft, sabotage, contract killings, with no real final antagonist or narrative closure: the score racked up mission after mission simply determines progression through each city's levels, in the still-rudimentary sandbox style of the series' first entry."
+            }
+          },
+          { id: "gta2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1999", releaseYear: "1999", releaseYearEn: "1999",
+            title: { it: "GTA 2", en: "GTA 2" },
+            synopsis: {
+              it: "Ambientato in un futuro prossimo cyberpunk e satirico, in un'anonima metropoli chiamata \"Anywhere City\", il gioco segue un criminale il cui nome non viene mai pronunciato dai personaggi in gioco (ognuna delle bande lo chiama con un soprannome diverso), pur essendo indicato come \"Claude Speed\" nel manuale e nei titoli di coda. Appena uscito di prigione, si offre come uomo di fatica per le numerose bande che si spartiscono i tre distretti della città, Downtown, Residential e Industrial: la corporazione Zaibatsu, apparentemente una legittima multinazionale ma in realtà dedita a narcotraffico, omicidi su commissione e manipolazioni politiche; gli Yakuza, che gestiscono un laboratorio di droghe sintetiche; i Loonies, banda di squilibrati guidata da Elmo; i Redneck di periferia; la setta di scienziati SRS; la mafia russa; e gli Hare Krishna, ormai convertiti alla violenza di banda. In ogni distretto il giocatore accumula punti reputazione presso ciascuna fazione portando a termine incarichi per loro conto, tradendo di continuo i propri datori di lavoro e ritorcendoli gli uni contro gli altri per fare strada. Nel distretto industriale, ultima area di gioco, dopo aver manipolato ogni banda locale il protagonista si ritrova bersaglio contemporaneo dei boss della mafia russa, degli Hare Krishna e della Zaibatsu (Uno Carb): l'unica via d'uscita è eliminarli tutti in un unico scontro finale, prima di lasciare per sempre Anywhere City.",
+              en: "Set in a satirical near-future cyberpunk world, in an anonymous metropolis called \"Anywhere City\", the game follows a criminal whose name is never spoken by any in-game character (each gang addresses him by a different nickname), though he is credited as \"Claude Speed\" in the manual and end credits. Fresh out of prison, he hires himself out as muscle for the many gangs carving up the city's three districts, Downtown, Residential and Industrial: the Zaibatsu Corporation, an apparently legitimate multinational actually steeped in drug trafficking, contract killing and political manipulation; the Yakuza, who run a synthetic drug lab; the Loonies, a gang of lunatics led by Elmo; the suburban Rednecks; the SRS scientist cult; the Russian Mafia; and the Hare Krishna, now converted to gang violence. In each district the player builds up respect with every faction by completing jobs for them, constantly betraying employers and turning rival gangs against each other to climb the ladder. In the Industrial District, the game's final area, after manipulating every local gang the protagonist becomes the simultaneous target of the Russian Mafia, Hare Krishna and Zaibatsu (Uno Carb) bosses: the only way out is to kill them all in one final showdown, before leaving Anywhere City for good."
+            }
+          },
+          { id: "gta-london-1969", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1969", releaseYear: "1999", releaseYearEn: "1999",
+            title: { it: "London 1969", en: "London 1969" },
+            synopsis: {
+              it: "Ambientato nella Londra del 1969, nel pieno della Swinging London e della mod culture, il gioco segue un giovane criminale senza nome che comincia a lavorare per il gangster di quartiere Harold Cartwright, scalando i ranghi della malavita londinese fra rapine, corse clandestine e regolamenti di conti con bande rivali, compresi i Mods dedicati allo spaccio. La trama si complica quando il protagonista viene coinvolto, per conto degli stessi datori di lavoro, in vicende che intrecciano una squadra di calcio, agenti segreti britannici e terroristi internazionali, in una parodia dei generi spionistico e poliziesco dell'epoca. Dopo una serie di doppi giochi da entrambe le parti, il protagonista riceve infine l'incarico, direttamente da \"the Firm\" (i gemelli Albert e Archie Crisp, i veri padroni del crimine organizzato londinese), di eliminare lo stesso Cartwright, diventato ormai un ostacolo scomodo: portato a termine l'omicidio, il giovane criminale ne eredita di fatto il posto, entrando al servizio diretto dei Crisp Twins come loro nuovo uomo di fiducia, in un percorso complessivo di 43 missioni.\n\nNota: London 1961 (1999), mission-pack freeware aggiuntivo, distribuito gratuitamente e utilizzabile solo se già installati il gioco base e London 1969, ambientato nella stessa Londra otto anni prima, nel 1961. Il protagonista lavora ancora come manovalanza per la banda di Harold Cartwright, qui ancora agli esordi della propria scalata criminale, in un pacchetto di nuove missioni che introduce anche 22 veicoli inediti, la prima sparatoria da veicolo in movimento (drive-by) della serie e una nuova mappa deathmatch multigiocatore ambientata a Manchester.",
+              en: "Set in London in 1969, at the height of Swinging London and mod culture, the game follows a young unnamed criminal who starts out working for local gangster Harold Cartwright, climbing London's criminal ranks through robberies, illegal street races and turf wars against rival gangs, including the drug-dealing Mods. The plot thickens when the protagonist, still working for the same employers, gets tangled up in an affair involving a football team, British secret agents and international terrorists, in a parody of the era's spy and crime genres. After a string of double-crosses on both sides, the protagonist is finally given a contract directly by \"the Firm\" (twin brothers Albert and Archie Crisp, the true rulers of London's organized crime), to remove Cartwright himself, who has by now become an inconvenient obstacle: once the hit is carried out, the young criminal effectively inherits his position, entering the direct service of the Crisp Twins as their new top man, across a total of 43 missions.\n\nNote — London 1961 (1999): an additional freeware mission pack, distributed for free and requiring both the base game and London 1969 to already be installed, set in the same London eight years earlier, in 1961. The protagonist still works as muscle for Harold Cartwright's gang, here still at the start of his own criminal rise, in a package of new missions that also introduces 22 new vehicles, the series' first-ever drive-by shooting, and a new multiplayer deathmatch map set in Manchester."
+            }
+          }
+        ]
+      },
       {
         id: "3d-universe",
         name: { it: "Universo 3D", en: "3D Universe" },
         span: { it: "1984 – 2001", en: "1984 – 2001" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
+        palette: ["#FF4FA3", "#2ECC71", "#455A64"],
+        paletteBounds: ["vc", "sa"],
         entries: [
           { id: "vcs", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1984", releaseYear: "2006", releaseYearEn: "2006",
             title: { it: "Vice City Stories", en: "Vice City Stories" },
@@ -3013,6 +3048,8 @@ const GAMES = {
         name: { it: "Universo HD", en: "HD Universe" },
         span: { it: "dal 2008", en: "since 2008" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/GTA%20Filigrana.jpg",
+        palette: ["#8A6234", "#FF4FA3"],
+        paletteBounds: ["ctw"],
         entries: [
           { id: "gta4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2008", releaseYear: "2008", releaseYearEn: "2008",
             title: { it: "GTA IV", en: "GTA IV" },
@@ -3037,6 +3074,12 @@ const GAMES = {
               it: "Michael De Santa, Franklin Clinton e Trevor Philips, rispettivamente ex rapinatore in pensione sotto falsa identità, giovane di strada e trafficante di metanfetamine, si intrecciano in una serie di grandi rapine mentre FIB e vari antagonisti li mettono l'uno contro l'altro. Nell'ending canonico, confermato da Rockstar nel dicembre 2025 tramite GTA Online: i tre si alleano, eliminano Steve Haines, Wei Cheng e Devin Weston, e sopravvivono tutti. Michael diventa produttore cinematografico, Trevor si reinventa come lifestyle guru e Franklin gestisce una società di sicurezza e contratti chiamata F. Clinton and Partner, dove collabora con Dr. Dre.\n\nNella versione online (GTA Online) il protagonista custom del giocatore opera a Los Santos prima e dopo gli eventi di GTA V. Canonicamente parte dell'Universo HD: Franklin, Michael e Trevor appaiono in diverse missioni. Lester menziona Niko Bellic come \"un tipo dell'Est Europa che faceva rumore a Liberty City, poi è sparito\", confermando la continuità con GTA IV.",
               en: "Michael De Santa, Franklin Clinton and Trevor Philips — a retired robber living under a false identity, a young street hustler, and a methamphetamine trafficker — become entangled in a series of major heists while the FIB and various antagonists turn them against each other. In the canonical ending, confirmed by Rockstar in December 2025 via GTA Online: the three ally and eliminate Steve Haines, Wei Cheng and Devin Weston, and all survive. Michael becomes a film producer, Trevor reinvents himself as a lifestyle guru, and Franklin runs a security and contracts firm called F. Clinton and Partner, where he works alongside Dr. Dre.\n\nIn the online version (GTA Online), the player's custom protagonist operates in Los Santos before and after the events of GTA V. Canonically part of the HD Universe: Franklin, Michael and Trevor all appear in various missions. Lester mentions Niko Bellic as \"an Eastern European guy who was making noise in Liberty City, then went quiet\", confirming continuity with GTA IV."
             }
+          },
+          { id: "gta-vi", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "GTA VI", yearEn: "GTA VI", releaseYear: "19 novembre 2026", releaseYearEn: "November 19, 2026",
+            title: { it: "GTA VI", en: "GTA VI" },
+            imagePending: true,
+            releaseDateShort: { it: "19 novembre 2026", en: "November 19, 2026" },
+            releaseDateISO: "2026-11-19"
           }
         ]
       }
