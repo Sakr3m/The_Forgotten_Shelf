@@ -2164,3 +2164,29 @@ interne sono ben definite e coerenti, semplicemente non comunicano mai
 tra loro - tema reso nel blurb di saga). Ultima delle 3 saghe trovate
 dal Project Manager in bypass, e ultima saga di tutta la sessione
 notturna.
+
+## Resident Evil
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare)
+
+- **Proposta**: creare il campo `tracks` della saga (attualmente
+  assente, mai popolato) con una playlist di 7 brani: Save Room Theme
+  (*Resident Evil*, 1996), Serenity (Save Room / Merchant Theme)
+  (*Resident Evil 4*), Go Tell Aunt Rhody (*Resident Evil 7:
+  Biohazard*), Out of Control (Lady Dimitrescu Theme) (*Resident Evil
+  Village*), Save Room Theme (*Resident Evil 2*), Nemesis' Theme
+  (*Resident Evil 3: Nemesis*), Deep Ambition (Wesker Final Battle
+  Theme) (*Resident Evil 5*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di più ere della serie (save room
+  classici, mercante di RE4, viralità di Go Tell Aunt Rhody e di Lady
+  Dimitrescu, boss theme di Nemesis e dello scontro finale con Wesker).
+- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, saga 3/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo `tracks` non viene creato in questo
+  pacchetto, resta assente fino al caricamento dei file.
