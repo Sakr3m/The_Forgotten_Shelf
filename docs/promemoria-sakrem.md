@@ -1812,3 +1812,189 @@ Persona Q, Persona Q2, Dancing in Moonlight/Starlight), non imposta da
 una regola scritta univoca - reversibile in un ciclo successivo se
 Sakrem preferisce l'architettura a 3 universi separati. Dettaglio
 completo nel report di sessione.
+
+## The Witcher
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani:
+  Geralt of Rivia (*The Witcher 3: Wild Hunt*), The Wolven Storm
+  (Priscilla's Song) (*The Witcher 3: Wild Hunt*), Silver for Monsters
+  (*The Witcher 3: Wild Hunt*), Ladies of the Wood (*The Witcher 3:
+  Wild Hunt*), Steel for Humans (*The Witcher 3: Wild Hunt*), Assassins
+  of Kings (*The Witcher 2: Assassins of Kings*), For Honor! For
+  Toussaint! (*The Witcher 3: Blood and Wine*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione concentrata
+  sulla colonna sonora di *The Witcher 3* (di gran lunga la più
+  pluripremiata e riconosciuta della saga, per fama pubblica superiore
+  a Witcher 1 e 2 messi insieme) più il tema principale di *The Witcher
+  2* e il tema da combattimento di *Blood and Wine*. Verificato ed
+  escluso "Toss a Coin to Your Witcher": non suona ufficialmente in
+  alcun videogioco della saga (esiste solo in mod non ufficiali), fama
+  dovuta esclusivamente alla serie Netflix - fuori dal perimetro "solo
+  videogiochi confermati" della saga.
+- **Data**: 2026-09-09 (sessione notturna, saga 9/10, 2a delle 3 saghe
+  trovate dal Project Manager in bypass).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 3 nuovi universi paralleli (Libri di Sapkowski,
+Videogiochi CDPR, Netflix - tutti e 3 ufficiali ma con dettagli
+narrativi divergenti tra loro, nessun `universeLink`), 36 voci
+principali + 3 gemelle nidificate + 2 imagePending (41 voci totali),
+tutte inserite nella stessa sessione notturna, 2026-09-09.
+
+- Nuovo universo **Libri** (`witcher-komiks-polacco` →
+  `witcher-signora-del-lago`, 13 voci: 10 principali + 3 gemelle
+  nidificate) - sessione notturna, 2026-09-09.
+- Nuovo universo **Videogiochi** (`witcher-old-world` →
+  `witcher-4-polaris`, 20 voci: 18 principali con sinossi + 2
+  imagePending senza sinossi) - sessione notturna, 2026-09-09.
+- Nuovo universo **Netflix** (`witcher-blood-origin` →
+  `witcher-stagione-4`, 8 voci) - sessione notturna, 2026-09-09.
+- `witcher-komiks-polacco` - Wiedźmin (FUMETTO, 1993-1995) - voce a sé,
+  prima voce della saga - sessione notturna, 2026-09-09.
+- `witcher-crocevia-dei-corvi` - Il Crocevia dei Corvi / Crossroads of
+  Ravens (ROMANZO, 2024) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-guardiano-degli-innocenti` - Il Guardiano degli Innocenti /
+  The Last Wish (RACCOLTA DI RACCONTI, 1993) - voce a sé, host di 2
+  gemelle - sessione notturna, 2026-09-09.
+- `witcher-a-grain-of-truth` - The Witcher: Un Briciolo di Verità / A
+  Grain of Truth (FUMETTO, 2021-2022) - voce gemella di
+  `witcher-guardiano-degli-innocenti` - sessione notturna, 2026-09-09.
+- `witcher-the-lesser-evil` - The Witcher: Il Male Minore / The Lesser
+  Evil (FUMETTO, 2023-2024) - voce gemella di
+  `witcher-guardiano-degli-innocenti` - sessione notturna, 2026-09-09.
+- `witcher-spada-del-destino` - La Spada del Destino / Sword of Destiny
+  (RACCOLTA DI RACCONTI, 1992) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-stagione-delle-tempeste` - La Stagione delle Tempeste /
+  Season of Storms (ROMANZO, prequel, 2013) - voce a sé, host di 1
+  gemella, ultima voce del sottogruppo "Racconti e origini" - sessione
+  notturna, 2026-09-09.
+- `witcher-fox-children` - The Witcher: Figli della Volpe / Fox
+  Children (FUMETTO, 2015) - voce gemella di
+  `witcher-stagione-delle-tempeste` - sessione notturna, 2026-09-09.
+- `witcher-sangue-degli-elfi` - Il Sangue degli Elfi / Blood of Elves
+  (ROMANZO, 1994) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-tempo-della-guerra` - Il Tempo della Guerra / Time of
+  Contempt (ROMANZO, 1995) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-battesimo-del-fuoco` - Battesimo del Fuoco / Baptism of Fire
+  (ROMANZO, 1996) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-torre-della-rondine` - La Torre della Rondine / The Tower of
+  the Swallow (ROMANZO, 1997) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-signora-del-lago` - La Signora del Lago / The Lady of the
+  Lake (ROMANZO, 1999) - voce a sé, ultima voce dell'Universo Libri -
+  sessione notturna, 2026-09-09.
+- `witcher-old-world` - The Witcher: Old World (BOARD GAME, 2023) -
+  voce a sé, prima voce dell'Universo Videogiochi - sessione notturna,
+  2026-09-09.
+- `witcher-thronebreaker` - Thronebreaker: The Witcher Tales
+  (VIDEOGIOCO, 2018) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-1` - The Witcher (VIDEOGIOCO, 2007) - voce a sé - sessione
+  notturna, 2026-09-09.
+- `witcher-2` - The Witcher 2: Assassins of Kings (VIDEOGIOCO, 2011) -
+  voce a sé - sessione notturna, 2026-09-09.
+- `witcher-matters-of-conscience` - The Witcher: Matters of Conscience
+  (FUMETTO, 2015) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-house-of-glass` - The Witcher: La Casa di Vetro / House of
+  Glass (FUMETTO, 2014) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-killing-monsters` - The Witcher: Uccidere Mostri / Killing
+  Monsters (FUMETTO, 2015) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-3` - The Witcher 3: Wild Hunt (VIDEOGIOCO, 2015) - voce a
+  sé, con nota Gwent: The Witcher Card Game collegata - sessione
+  notturna, 2026-09-09.
+- `witcher-curse-of-crows` - The Witcher: La Maledizione dei Corvi /
+  Curse of Crows (FUMETTO, 2016) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-3-hearts-of-stone` - The Witcher 3: Hearts of Stone
+  (ESPANSIONE, 2015) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-of-flesh-and-flame` - The Witcher: Di Carne e Fiamma / Of
+  Flesh and Flame (FUMETTO, 2018) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-3-blood-and-wine` - The Witcher 3: Blood and Wine
+  (ESPANSIONE, 2016) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-ballad-of-two-wolves` - The Witcher: La Ballata dei Due Lupi
+  / The Ballad of Two Wolves (FUMETTO, 2022) - voce a sé - sessione
+  notturna, 2026-09-09.
+- `witcher-fading-memories` - The Witcher: Ricordi Sbiaditi / Fading
+  Memories (FUMETTO, 2018) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-witchs-lament` - The Witcher: Il Lamento della Strega /
+  Witch's Lament (FUMETTO, 2021) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-once-upon-a-time-in-the-woods` - The Witcher: Once Upon a
+  Time in the Woods (FUMETTO, 2021) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-wild-animals` - The Witcher: Wild Animals (FUMETTO, 2023) -
+  voce a sé - sessione notturna, 2026-09-09.
+- `witcher-frog-kiss` - The Witcher: Frog Kiss (FUMETTO, 2023) - voce a
+  sé, ultima voce con sinossi del blocco fumetti - sessione notturna,
+  2026-09-09.
+- `witcher-songs-of-the-past` - The Witcher 3: Songs of the Past
+  (ESPANSIONE, annuncio 27/05/2026, uscita attesa 2027, imagePending,
+  senza sinossi) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-4-polaris` - The Witcher IV (nome in codice "Polaris")
+  (VIDEOGIOCO, uscita attesa 2027/2028, imagePending, senza sinossi) -
+  voce a sé, ultima voce dell'Universo Videogiochi - sessione notturna,
+  2026-09-09.
+- `witcher-blood-origin` - The Witcher: Blood Origin (MINISERIE, 4
+  episodi, 2022) - voce a sé, prima voce dell'Universo Netflix -
+  sessione notturna, 2026-09-09.
+- `witcher-nightmare-of-the-wolf` - The Witcher: Nightmare of the Wolf
+  (FILM D'ANIMAZIONE, 2021) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-stagione-1` - The Witcher: Stagione 1 / Season 1 (SERIE TV,
+  8 episodi, 2019) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-sirens-of-the-deep` - The Witcher: Sirens of the Deep (FILM
+  D'ANIMAZIONE, 2025) - voce a sé, scritta direttamente dal
+  Supervisore (deviazione procedurale, vedi report di sessione) -
+  sessione notturna, 2026-09-09.
+- `witcher-stagione-2` - The Witcher: Stagione 2 / Season 2 (SERIE TV,
+  2021) - voce a sé - sessione notturna, 2026-09-09.
+- `witcher-stagione-3` - The Witcher: Stagione 3 / Season 3 (SERIE TV,
+  pubblicata in due parti, 2023) - voce a sé - sessione notturna,
+  2026-09-09.
+- `witcher-the-rats-a-witcher-tale` - The Rats: A Witcher Tale (LIVE
+  ACTION, spin-off, 2025) - voce a sé, scritta direttamente dal
+  Supervisore (deviazione procedurale, vedi report di sessione) -
+  sessione notturna, 2026-09-09.
+- `witcher-stagione-4` - The Witcher: Stagione 4 / Season 4 (SERIE TV,
+  2025) - voce a sé, ultima voce della saga - sessione notturna,
+  2026-09-09.
+
+**Nota per Sakrem - correzioni fattuali applicate dal Supervisore in
+revisione finale**: `witcher-matters-of-conscience` riposizionata sulla
+linea Videogiochi (spostata dal blocco post-saga a subito dopo
+`witcher-2`) e anno corretto a 2015 (non 2019); `witcher-witchs-lament`
+e `witcher-once-upon-a-time-in-the-woods` anni corretti a 2021 (non
+2019 e 2020); titoli italiani ufficiali Panini applicati a 7 fumetti
+Dark Horse "continuità giochi" (House of Glass, Killing Monsters,
+Curse of Crows, Of Flesh and Flame, Fading Memories, Witch's Lament,
+Ballad of Two Wolves); **Fjall**, non Balor, confermato primo strigo in
+Blood Origin (Balor resta il mago antagonista); l'evento della Stagione
+3 è il **Colpo di Thanedd**, non un inesistente "Torneo dei
+Pretendenti".
+
+**Nota per Sakrem - deviazione procedurale**: 2 delle voci Netflix
+(`witcher-sirens-of-the-deep`, `witcher-the-rats-a-witcher-tale`) sono
+state scritte direttamente dal Supervisore, saltando il passaggio
+Scrittore/Linguista, per colmare una lacuna di ricerca scoperta tardi
+nel ciclo (senza queste 2 voci la saga avrebbe avuto un buco reale: 2
+media ufficiali già usciti nel 2025). Testo verificato su fonti
+multiple (Netflix Tudum, stampa di settore) ma senza il consueto doppio
+controllo. Reversibile in un ciclo successivo mirato se Sakrem
+preferisce un passaggio formale da Scrittore/Linguista anche per queste
+due. Dettaglio completo nel report di sessione.
