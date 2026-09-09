@@ -679,3 +679,47 @@ dettagli).
 - Nuovo universo **2D** (IT "Universo 2D", GTA → London 1969, primo dei
   3 universi della saga, span 1997 – 1999) - sessione notturna,
   2026-09-09.
+
+## Halo
+
+### Musica
+
+#### Tracklist completa saga (mai popolata)
+
+- **Proposta**: popolare il campo `tracks` della saga (attualmente
+  `[]`, mai popolato) con una playlist di 7 brani: Halo Theme (Opening
+  Suite) (*Halo: Combat Evolved*), Peril (*Halo 2*), Never Forget
+  (*Halo: Reach*), One Final Effort (*Halo 3*), Blow Me Away (*Halo
+  2*), 117 (*Halo 4*), Zeta Halo (*Halo Infinite*).
+- **Origine**: Musicista.
+- **Motivazione**: selezione dei brani più iconici/riconoscibili della
+  saga, a copertura di più capitoli, per popolare per la prima volta
+  la playlist.
+- **Data**: 2026-09-09 (sessione notturna, 7/12).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
+  audio sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico).
+
+### Media aggiunti
+
+- `glasslands` - Halo: Glasslands (ROMANZO, 2011) - voce a sé, prima
+  delle tre nuove voci finali de Il Ciclo degli Anelli (in coda dopo
+  `halo-3`) - sessione notturna, 2026-09-09.
+- `the-thursday-war` - Halo: The Thursday War (ROMANZO, 2012) - voce a
+  sé, seconda delle tre nuove voci finali de Il Ciclo degli Anelli -
+  sessione notturna, 2026-09-09.
+- `mortal-dictata` - Halo: Mortal Dictata (ROMANZO, 2014) - voce a sé,
+  ultima voce de Il Ciclo degli Anelli - sessione notturna, 2026-09-09.
+- `halo-escalation` - Halo: Escalation (FUMETTO, 2013 – 2015) - voce a
+  sé, inserita nella Saga del Reclamatore dopo `halo-4` - sessione
+  notturna, 2026-09-09.
+- `rise-of-atriox` - Halo: Rise of Atriox (FUMETTO, 2017) - voce a sé,
+  inserita nella Saga del Reclamatore dopo `halo-5` - sessione
+  notturna, 2026-09-09.
+- `shadows-of-reach` - Halo: Shadows of Reach (ROMANZO, 2020) - voce a
+  sé, inserita nella Saga del Reclamatore dopo `halo-wars-2` -
+  sessione notturna, 2026-09-09.
+- `divine-wind` - Halo: Divine Wind (ROMANZO, 2021) - voce a sé,
+  inserita nella Saga del Reclamatore dopo `shadows-of-reach` (subito
+  prima di `halo-infinite`) - sessione notturna, 2026-09-09.
