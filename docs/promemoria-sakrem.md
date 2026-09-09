@@ -1279,3 +1279,50 @@ Supervisore ha corretto il malinteso e confermato l'applicazione
 automatica in questo stesso ciclo, quindi nessun impatto sul risultato
 finale - ma segnala che il brief dell'Artista andrebbe aggiornato per
 evitare che l'inciampo si ripeta nei prossimi cicli.
+
+## Lost Planet
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (finora
+  assente da `data.js`) e popolarlo con una playlist di 7 brani, ordine
+  di fama/gradimento decrescente: Main Theme -Lost Planet- (*Lost
+  Planet: Extreme Condition*), Main Theme ~Lost Planet 2~ (*Lost Planet
+  2*), Lost Planet 3 Theme (*Lost Planet 3*), Welcome to the Jungle,
+  Boys! (*Lost Planet 2*), Battle with Basil (*Lost Planet: Extreme
+  Condition*), The Forgotten (*Lost Planet 3*), Infiltration (*Lost
+  Planet 2*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, copertura di LP1/LP2/LP3,
+  nessuna coppia consecutiva dello stesso titolo; Trag Zero ed E.X.
+  Troopers esclusi per assenza di fama pubblica verificabile.
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 3/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
+  sono nuovi per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Include correzione del Supervisore sul brano 5: titolo
+  ufficiale "Battle with Basil" (in tracklist proposta inizialmente dal
+  Musicista solo come "Basil"). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+- `ex-troopers` - E.X. Troopers (VIDEOGIOCO, 2012) - voce a sé, ultima
+  voce dell'universo "E.D.N. III" (ramo narrativo parallelo, fuori
+  dalla linea principale) - richiamo mirato, 2026-09-09.
+
+### Nota procedurale - palette/gradiente
+
+In seguito all'aggiunta di `ex-troopers` (settima voce della saga), la
+palette passa da 3 a 4 colori: da `["#b3e5fc", "#f97316", "#1e3a5f"]` a
+`["#b3e5fc", "#1e3a5f", "#f97316", "#22d3ee"]`, con l'aggiunta del
+campo `paletteBounds` sull'universo `main` (`["lp3", "lp1", "lp2"]`,
+mai presente prima su questa saga). Verificato dal Supervisore contro
+`computeGradientStops` in `script.js`: con 7 entries totali i 4
+segmenti corrispondono esattamente alle 4 fasi narrative proposte
+dall'Artista. Applicato in automatico, nessuna attesa di consenso di
+Sakrem (regola dell'08/09/2026) - riportato qui solo per completezza
+dello storico, dato che è un cambiamento strutturale legato
+all'aggiunta del nuovo media.
