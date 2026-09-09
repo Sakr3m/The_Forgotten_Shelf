@@ -1998,3 +1998,119 @@ multiple (Netflix Tudum, stampa di settore) ma senza il consueto doppio
 controllo. Reversibile in un ciclo successivo mirato se Sakrem
 preferisce un passaggio formale da Scrittore/Linguista anche per queste
 due. Dettaglio completo nel report di sessione.
+
+## Sonic the Hedgehog
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarla con una playlist di 7 brani: Live
+  and Learn (*Sonic Adventure 2*), His World (*Sonic the Hedgehog*,
+  2006), Green Hill Zone (*Sonic the Hedgehog*, 1991), Escape from the
+  City (*Sonic Adventure 2*), Reach for the Stars (*Sonic Colors*/
+  Sonic Colours), Open Your Heart (*Sonic Adventure*), Endless
+  Possibility (*Sonic Unleashed*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione per fama/
+  gradimento reale (classifiche di settore, setlist ufficiali dei tour
+  "Sonic Symphony" 2023-2025, popolarità streaming), concentrata
+  sull'universo Games Canon perché è lì che si concentra la fama reale
+  della colonna sonora Sonic; nessuna rappresentanza forzata per gli
+  altri 5 universi (Archie, Fleetway, Sonic X, Sonic Boom, Sonic
+  Cinematic Universe), privi di colonne sonore paragonabilmente
+  celebri.
+- **Data**: 2026-09-09 (sessione notturna, ultima saga della notte,
+  3ª delle 3 saghe trovate dal Project Manager in bypass).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 6 nuovi universi e 57 nuove voci (56 con
+sinossi + 1 imagePending senza sinossi, nessuna gemella), tutte
+inserite nella stessa sessione notturna, 2026-09-09.
+
+- Nuovo universo **Games Canon** (`sonic-1` → `sonic-racing-crossworlds`,
+  1991-2025, 42 voci) - sessione notturna, 2026-09-09.
+- Nuovo universo **Archie Comics "Mobius/Freedom Fighters"**
+  (`archie-sonic` → `archie-sonic-universe`, 1993-2017, 3 voci) -
+  sessione notturna, 2026-09-09.
+- Nuovo universo **Fleetway UK "Sonic the Comic"**
+  (`fleetway-sonic-comic`, 1993-2002, 1 voce) - sessione notturna,
+  2026-09-09.
+- Nuovo universo **Sonic X** (`sonic-x-anime` → `sonic-x-comic`,
+  2003-2009, 2 voci) - sessione notturna, 2026-09-09.
+- Nuovo universo **Sonic Boom** (`sonic-boom-rise-of-lyric` →
+  `sonic-boom-comic`, 2014-2017, 5 voci) - sessione notturna,
+  2026-09-09.
+- Nuovo universo **Sonic Cinematic Universe** (`sonic-movie-1` →
+  `sonic-movie-4`, 2020-2027, 4 voci + 1 imagePending) - sessione
+  notturna, 2026-09-09.
+- 42 voci del Games Canon (Era Classica: `sonic-1`, `sonic-cd`,
+  `sonic-2`, `sonic-3-knuckles`, `sonic-chaotix`, `sonic-3d-blast`,
+  `sonic-r`, `sonic-fang-hunter`, `sonic-mania`, `sonic-superstars`;
+  Era Moderna I: `sonic-4`, `sonic-adventure`, `sonic-shuffle`,
+  `sonic-adventure-2`, `sonic-advance`, `sonic-advance-2`,
+  `sonic-battle`, `sonic-heroes`, `sonic-advance-3`,
+  `shadow-the-hedgehog`, `sonic-rush`, `sonic-06`; Era Moderna II:
+  `sonic-riders`, `sonic-rush-adventure`, `sonic-secret-rings`,
+  `sonic-riders-zero-gravity`, `sonic-unleashed`,
+  `sonic-black-knight`, `sonic-free-riders`, `sonic-colors`,
+  `sonic-generations`, `sonic-x-shadow-generations`; Era Moderna III +
+  IDW: `sonic-lost-world`, `team-sonic-racing`, `sonic-forces`,
+  `sonic-idw-ongoing`, `sonic-idw-tangle-whisper`,
+  `sonic-idw-bad-guys`, `sonic-idw-imposter-syndrome`,
+  `sonic-frontiers`, `sonic-idw-scrapnik-island`,
+  `sonic-racing-crossworlds`) - voci a sé - sessione notturna,
+  2026-09-09.
+- `archie-sonic`, `archie-knuckles`, `archie-sonic-universe` - voci a
+  sé del nuovo universo Archie Comics - sessione notturna, 2026-09-09.
+- `fleetway-sonic-comic` - Sonic the Comic (FUMETTO, 1993-2002) - voce
+  a sé, unica voce del nuovo universo Fleetway UK - sessione notturna,
+  2026-09-09.
+- `sonic-x-anime` - Sonic X (ANIME, 2003-2006) - voce a sé, prima voce
+  del nuovo universo Sonic X - sessione notturna, 2026-09-09.
+- `sonic-x-comic` - Sonic X (Archie) (FUMETTO, 2005-2009) - voce a sé,
+  confermata NON gemella (episodi originali intercalati, non
+  retelling), ultima voce del nuovo universo Sonic X - sessione
+  notturna, 2026-09-09.
+- `sonic-boom-rise-of-lyric`, `sonic-boom-shattered-crystal`,
+  `sonic-boom-fire-ice`, `sonic-boom-series`, `sonic-boom-comic` - voci
+  a sé del nuovo universo Sonic Boom - sessione notturna, 2026-09-09.
+- `sonic-movie-1`, `sonic-movie-2`, `knuckles-series`, `sonic-movie-3`
+  - voci a sé del nuovo universo Sonic Cinematic Universe - sessione
+  notturna, 2026-09-09.
+- `sonic-movie-4` - Sonic 4 - Il Film (titolo IT provvisorio, FILM, in
+  uscita 2027) - voce imagePending senza sinossi, ultima voce del
+  nuovo universo Sonic Cinematic Universe - sessione notturna,
+  2026-09-09.
+
+**Nota per Sakrem - correzioni fattuali applicate dal Supervisore in
+revisione finale**: sinossi di `sonic-06` riscritta sostanzialmente
+(Iblis sigillato dentro Elise, non in un reliquiario esterno; Mephiles
+imprigionato nello Scepter of Darkness, manufatto distinto in possesso
+di Eggman; finale corretto - la fiamma soffiata da Elise è Solaris
+ancora informe, non la stessa custodita nel presunto reliquiario);
+sinossi di `sonic-movie-3` integrata con il voltafaccia di Ivo Robotnik
+contro Gerald e il sacrificio congiunto Robotnik/Shadow per allontanare
+l'Eclipse Cannon; titolo IT confermato "Sonic Colours" (grafia PAL) per
+`sonic-colors`; corretto "colonia spaziale ARK" minuscolo → "Colonia
+Spaziale ARK" in `sonic-adventure-2` per uniformità col resto della
+saga; corretto "Chaos Emerald" → "Smeraldi del Caos" nella sinossi IT
+di `sonic-x-anime` (localizzazione ufficiale dell'anime, diversa da
+quella dei giochi coevi).
+
+**Nota per Sakrem - struttura**: 6 universi paralleli indipendenti fin
+dall'origine (Games Canon 1991, Archie Comics 1993, Fleetway UK 1993,
+Sonic X 2003, Sonic Boom 2014, Sonic Cinematic Universe 2020), nessun
+`universeLink` tra loro, nessuna voce STORIA/`lineStyle` in nessuno dei
+6 (a differenza di un caso "senza canone" come Doom, qui le continuità
+interne sono ben definite e coerenti, semplicemente non comunicano mai
+tra loro - tema reso nel blurb di saga). Ultima delle 3 saghe trovate
+dal Project Manager in bypass, e ultima saga di tutta la sessione
+notturna.
