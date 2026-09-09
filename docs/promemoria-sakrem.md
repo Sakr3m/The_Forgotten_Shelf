@@ -1140,3 +1140,99 @@ dettagli).
 - `divine-wind` - Halo: Divine Wind (ROMANZO, 2021) - voce a sé,
   inserita nella Saga del Reclamatore dopo `shadows-of-reach` (subito
   prima di `halo-infinite`) - sessione notturna, 2026-09-09.
+
+## Kingdom Hearts
+
+### In sospeso - immagini mancanti
+
+Sezione diversa dalle altre: non è una proposta da confermare o
+scartare, ma un semplice elenco di lavoro. La voce gemella
+`bbs02-manga` (l'unica delle 6 gemelle manga applicata in questo
+ciclo, vedi sotto e la sotto-sezione successiva per le altre 5) è
+ancora priva di copertina caricata su R2 da Sakrem. Stesso schema già
+discusso per Assassin's Creed e Dragon Quest: quando Sakrem carica il
+file su R2, passa solo il nome file e la voce esce da questo elenco.
+
+1. `bbs02-manga` - Kingdom Hearts 0.2 Birth by Sleep -A Fragmentary
+   Passage- (manga)
+
+- **Stato**: in attesa che Sakrem carichi il file su R2 e ne passi il
+  nome.
+
+### In sospeso - meccanismo "gemella multipla"
+
+#### Manga gemello per kh1, chain-of-memories, kh2, 358-2-days, kh3
+
+- **Proposta**: dare a `kh1`, `chain-of-memories`, `kh2`,
+  `358-2-days` e `kh3` un SECONDO gemello (manga di Shiro Amano), in
+  aggiunta al romanzo già pubblicato come loro unico gemello attuale.
+- **Origine**: emersa durante la classificazione media della catena,
+  bloccata da un limite tecnico rilevato e verificato dal
+  Supervisore in revisione.
+- **Motivazione/problema**: il sito non ha mai gestito più di una
+  voce gemella per host - `entry.twin` è un oggetto singolo, non un
+  array, e il rendering in `script.js` (nodo `h-node--twin`,
+  `findEntry`, `titlePanels`, vista elenco verticale, `notifyIfDue`)
+  è costruito in modo rigidamente binario. Il presunto precedente
+  citato a inizio sessione (`chronicles-china`, Assassin's Creed) è
+  stato verificato e smentito: ha anch'esso un solo gemello, nessun
+  vero caso di gemella multipla esiste già sul sito. Il Supervisore
+  ha individuato due strade alternative, nessuna delle due applicata
+  in questo ciclo:
+  - (a) commissionare al Programmatore il meccanismo strutturale
+    "più gemelle" (bottone/popup di scelta tra le gemelle sullo
+    stesso nodo) - soluzione costosa ora ma riutilizzabile in futuro
+    per casi analoghi;
+  - (b) rinunciare alla voce gemella separata per questi 5 manga e
+    inglobarne il riferimento come nota testuale dentro la sinossi
+    del romanzo/gioco già gemello - soluzione immediata, ma che
+    "degrada" la loro classificazione.
+  Raccomandazione del Supervisore: se in futuro sono attesi altri
+  casi simili (probabile), conviene investire una volta per tutte
+  nel meccanismo (a) invece di gestire ogni caso come eccezione con
+  la (b).
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 1/10; problema
+  rilevato e opzioni proposte dal Supervisore nella stessa sessione).
+- **Stato**: in attesa di decisione di Sakrem, non applicato. Nessun
+  incarico di progettazione dato al Programmatore in questo ciclo.
+  Testo IT/EN e classificazione delle 5 voci (`kh1-manga`,
+  `chain-of-memories-manga`, `kh2-manga`, `358-2-days-manga`,
+  `kh3-manga`) già pronti e verificati, conservati fuori dal
+  pacchetto tecnico in attesa della decisione - nessun lavoro perso,
+  da riprendere non appena Sakrem sceglie tra (a) e (b).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (finora
+  assente da `data.js`) e popolarlo con una playlist di 7 brani: Dearly
+  Beloved (*Kingdom Hearts*), Simple and Clean (*Kingdom Hearts*),
+  Sanctuary (*Kingdom Hearts II*), Face My Fears (*Kingdom Hearts
+  III*), The Other Promise (*Kingdom Hearts II*), Don't Think Twice
+  (*Kingdom Hearts III*), Vector to the Heavens (*Kingdom Hearts 358/2
+  Days*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura dei capitoli principali (Kingdom
+  Hearts I, II, III e 358/2 Days).
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 1/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+1 nuova voce gemella pubblicata in questo ciclo. Le altre 5 gemelle
+manga proposte (vedi "In sospeso - meccanismo gemella multipla" sopra)
+restano bloccate per il problema tecnico del meccanismo "gemella
+multipla": non entrano in questo log finché non saranno effettivamente
+pubblicate in futuro.
+
+- `bbs02-manga` - Kingdom Hearts 0.2 Birth by Sleep -A Fragmentary
+  Passage- (manga, Shiro Amano, 2019, stessa serie editoriale delle
+  altre gemelle ancora in sospeso) - voce gemella di `bbs-02` (prima e
+  unica gemella, meccanismo singolo standard già esistente, nessun
+  problema tecnico) - richiamo mirato, 2026-09-09.
