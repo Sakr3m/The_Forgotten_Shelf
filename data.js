@@ -6911,6 +6911,804 @@ const GAMES = {
     ]
   },
 
+  "the-witcher": {
+    id: "the-witcher",
+    lastAgentPass: "2026-09-09",
+    listTitle: {
+      it: "The Witcher",
+      en: "The Witcher"
+    },
+    eyebrow: {
+      it: "Fascicolo",
+      en: "Case File"
+    },
+    title: {
+      it: "The Witcher",
+      en: "The Witcher"
+    },
+    blurb: {
+      it: "Libri, videogiochi e serie Netflix raccontano versioni divergenti dello stesso mondo, unite da un solo strigo: Geralt di Rivia, cacciatore di mostri dove il vero male ha spesso volto umano. Destino, Legge della Sorpresa e scelte senza soluzioni giuste attraversano ogni ramo di questa saga fantasy slava, cupa e frammentata.",
+      en: "Books, video games and the Netflix series tell diverging versions of one world, united by a single witcher: Geralt of Rivia, hunting monsters where true evil most often wears a human face. Destiny, the Law of Surprise and choices with no right answer run through every branch of this dark, politically fractured Slavic fantasy saga."
+    },
+    palette: [
+      "#1E1B18",
+      "#8A6D3A",
+      "#7C1B24"
+    ],
+    accentColor: "#8A6D3A",
+    tracks: [],
+    watermarkOpacity: 0.2,
+    universes: [
+      {
+        id: "libri",
+        name: {
+          it: "Libri",
+          en: "Books"
+        },
+        span: {
+          it: "1992 – 2024",
+          en: "1992 – 2024"
+        },
+        palette: [
+          "#8A6D3A",
+          "#7C1B24"
+        ],
+        paletteBounds: [
+          "witcher-stagione-delle-tempeste"
+        ],
+        entries: [
+          {
+            id: "witcher-komiks-polacco",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "1993 – 1995",
+            yearEn: "1993 – 1995",
+            releaseYear: "1993 – 1995",
+            releaseYearEn: "1993 – 1995",
+            title: {
+              it: "Wiedźmin",
+              en: "Wiedźmin"
+            },
+            synopsis: {
+              it: "Il primo ciclo a fumetti dedicato allo strigo, pubblicato in Polonia tra il 1993 e il 1995 sulla rivista \"Komiks\" (edita da Prószyński i S-ka) e poi raccolto in volumi singoli, su soggetto di Andrzej Sapkowski e Maciej Parowski (sceneggiatura di Parowski) e disegni di Bogusław Polch. È composto da sei albi indipendenti, legati dalla figura di Geralt di Rivia più che da una trama orizzontale unica. Quattro di essi sono adattamenti diretti di altrettanti racconti già pubblicati nella raccolta \"Il guardiano degli innocenti\": \"Geralt\" (dal racconto \"Lo strigo\", la caccia alla striga alla corte di Temeria), \"Mniejsze zło\" (da \"Il male minore\", lo scontro morale a Blaviken tra Geralt e il mago Stregobor sul destino di Renfri), \"Ostatnie życzenie\" (da \"L'ultimo desiderio\", l'incontro con la maga Yennefer e il genio imprigionato in una bottiglia) e \"Granica możliwości\" (da \"Il confine del mondo\", il viaggio ai confini del continente con il sylvan Torque e lo scontro con il drago dorato Villentretenmerth). Il quinto albo, \"Zdrada\" (\"Tradimento\"), è invece un episodio interamente originale, mai scritto in prosa da Sapkowski: racconta l'addestramento del giovane Geralt e dei suoi compagni a Kaer Morhen sotto la guida di Vesemir, tra intrighi di corte legati al re Radowit II e la comparsa della misteriosa maga Dorreniel, ponendosi come una sorta di racconto delle origini dello strigo. Il sesto e ultimo albo, \"Droga bez powrotu\", adatta infine un racconto esterno alle raccolte canoniche dei libri, incentrato sulla giovane maga Visenna, madre di Geralt, e sulle sue vicende prima della nascita del figlio: un testo di stato editoriale incerto, mai tradotto ufficialmente in italiano o inglese.",
+              en: "The first comic cycle devoted to the witcher, published in Poland between 1993 and 1995 in the magazine \"Komiks\" (Prószyński i S-ka) and later collected in individual volumes, based on a story by Andrzej Sapkowski and Maciej Parowski (script by Parowski) with art by Bogusław Polch. It comprises six standalone albums, connected by the figure of Geralt of Rivia rather than by a single overarching plot. Four of them are direct adaptations of stories already published in the collection \"The Last Wish\": \"Geralt\" (from \"The Witcher,\" the hunt for the cursed striga at the Temerian court), \"Mniejsze zło\" (from \"The Lesser Evil,\" Geralt's moral clash with the mage Stregobor over Renfri's fate in Blaviken), \"Ostatnie życzenie\" (from \"The Last Wish,\" the meeting with the sorceress Yennefer and the djinn trapped in a bottle), and \"Granica możliwości\" (from \"The Edge of the World,\" the journey to the edge of the known continent with the sylvan Torque and the confrontation with the golden dragon Villentretenmerth). The fifth album, \"Zdrada\" (\"Betrayal\"), is entirely original material never written in prose by Sapkowski: it depicts the young Geralt's training alongside his fellow apprentices at Kaer Morhen under Vesemir's watch, amid court intrigues tied to King Radowit II and the appearance of the mysterious sorceress Dorreniel, effectively serving as an origin story for the witcher. The sixth and final album, \"Droga bez powrotu,\" adapts a story outside the books' canonical collections, centred on the young sorceress Visenna, Geralt's mother, and her adventures before her son's birth — a text of uncertain publishing status, never officially translated into Italian or English."
+            }
+          },
+          {
+            id: "witcher-crocevia-dei-corvi",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "Giovinezza di Geralt",
+            yearEn: "Geralt's youth",
+            releaseYear: "2024 (edizione italiana 2025)",
+            releaseYearEn: "2024",
+            title: {
+              it: "Il Crocevia dei Corvi",
+              en: "Crossroads of Ravens"
+            },
+            synopsis: {
+              it: "Romanzo pubblicato in Polonia nel 2024 e in Italia nel settembre 2025 per Editrice Nord (traduzione di Raffaella Belletti), cronologicamente l'episodio più antico dell'intera saga in prosa. Geralt, appena diciottenne e da poco uscito dall'addestramento di Kaer Morhen, muove i primi passi come strigo autonomo nel Kaedwen. Dopo aver ucciso in un atto di legittima difesa uno dei banditi che minacciavano un contadino e sua figlia, rischia la forca come monito per l'opinione pubblica ostile agli strighi; a salvarlo all'ultimo momento è Preston Holt, uno strigo più anziano, burbero e segnato da un passato oscuro, che si offre come mentore. Dietro l'apparente generosità di Holt si celano però interessi tutt'altro che disinteressati: il vecchio strigo lega Geralt a sé con un accordo che li vede dividersi compiti e compensi, muovendosi tra la locanda del crocevia dei corvi, il tempio di Melitele a Elsborg e l'ombra lunga del sacco di Kaer Morhen. Nel corso di una serie di incarichi e incontri sempre più ambigui, Geralt torna più volte da Holt, ogni volta più esperto e più disilluso, imparando sulla propria pelle cosa significhi davvero proteggere un mondo che teme e disprezza i cacciatori di mostri, e ponendo le prime basi morali del personaggio che diventerà noto come il Lupo Bianco.",
+              en: "A novel published in Poland in 2024, chronologically the earliest episode of the entire prose saga. Geralt, just eighteen and freshly out of his training at Kaer Morhen, takes his first steps as an independent witcher in Kaedwen. After killing one of a band of deserters threatening a peasant and his daughter in self-defence, he narrowly escapes hanging, meant as a public warning against witchers; at the last moment he is saved by Preston Holt, an older, gruff witcher scarred by a dark past, who offers to take him under his wing. Behind Holt's apparent generosity, however, lie far from disinterested motives: the old witcher ties Geralt to himself through an arrangement that splits jobs and payment between them, moving between the inn at the crossroads of ravens, the temple of Melitele in Elsborg, and the long shadow of the sack of Kaer Morhen. Through a series of increasingly morally ambiguous jobs and encounters, Geralt keeps returning to Holt, each time more experienced and more disillusioned, learning firsthand what it truly means to protect a world that fears and despises monster hunters — laying the first moral foundations of the character who will become known as the White Wolf."
+            }
+          },
+          {
+            id: "witcher-guardiano-degli-innocenti",
+            type: "RACCOLTA DI RACCONTI",
+            typeEn: "SHORT STORY COLLECTION",
+            year: "1993",
+            yearEn: "1993",
+            releaseYear: "1993 (edizione italiana 2001)",
+            releaseYearEn: "1993",
+            title: {
+              it: "Il Guardiano degli Innocenti",
+              en: "The Last Wish"
+            },
+            synopsis: {
+              it: "Prima raccolta di racconti dedicata allo strigo, pubblicata in Polonia nel 1993 e uscita in Italia nel 2001 per Editrice Nord. Il libro non presenta gli episodi in ordine cronologico lineare: le storie sono incorniciate e alternate ai capitoli di \"La voce della ragione\", ambientati durante la convalescenza di Geralt al tempio di Melitele, dove lo strigo, curato dalla sacerdotessa Nenneke, ripercorre a ritroso e fuori sequenza gli eventi che lo hanno condotto fin lì, mescolando presente e ricordi. Tra i racconti raccolti: \"Lo strigo\", in cui Geralt libera la principessa Adda di Temeria dalla maledizione che l'ha trasformata in striga; \"Un briciolo di verità\", l'incontro con Nivellen, un uomo mutato in bestia e tenuto prigioniero di un incantesimo dalla misteriosa Vereena; \"Il male minore\", in cui Geralt si scontra a Blaviken con il mago Stregobor sul destino della giovane Renfri, ritenuta portatrice di una maledizione ancestrale, in un episodio che gli costerà l'appellativo di Macellaio di Blaviken; \"Una questione di prezzo\", ambientato al banchetto di fidanzamento della principessa Pavetta di Cintra, dove Geralt invoca la legge della Sorpresa nei confronti del cavaliere maledetto Duny, gettando inconsapevolmente le basi del legame con Ciri; \"Il confine del mondo\", il viaggio ai margini del mondo conosciuto in compagnia del sylvan Torque e lo scontro con il drago dorato Villentretenmerth; e il racconto che dà il titolo originale alla raccolta, \"L'ultimo desiderio\", in cui Geralt libera un genio imprigionato in una bottiglia e lega per la prima volta il proprio destino a quello della maga Yennefer di Vengerberg.",
+              en: "The first short-story collection devoted to the witcher, published in Poland in 1993. The book does not present its episodes in strict chronological order: the stories are framed and interspersed with the \"Voice of Reason\" interludes, set during Geralt's convalescence at the temple of Melitele, where the witcher, tended by the priestess Nenneke, recalls the events that led him there out of sequence, blending present and memory. Among the collected stories: \"The Witcher,\" in which Geralt frees Princess Adda of Temeria from the curse that turned her into a striga; \"A Grain of Truth,\" the encounter with Nivellen, a man turned into a beast and kept prisoner of an enchantment by the mysterious Vereena; \"The Lesser Evil,\" in which Geralt clashes in Blaviken with the mage Stregobor over the fate of the young Renfri, believed to carry an ancestral curse, in an episode that earns him the epithet Butcher of Blaviken; \"A Question of Price,\" set at the betrothal feast of Princess Pavetta of Cintra, where Geralt invokes the Law of Surprise against the cursed knight Duny, unknowingly laying the foundation of his bond with Ciri; \"The Edge of the World,\" the journey to the margins of the known world with the sylvan Torque and the confrontation with the golden dragon Villentretenmerth; and the title story, \"The Last Wish,\" in which Geralt frees a djinn trapped in a bottle and, for the first time, binds his destiny to that of the sorceress Yennefer of Vengerberg."
+            },
+            twin: {
+              id: "witcher-a-grain-of-truth",
+              type: "FUMETTO",
+              typeEn: "COMIC",
+              year: "Adattamento del racconto \"Un briciolo di verità\"",
+              yearEn: "Adaptation of \"A Grain of Truth\"",
+              releaseYear: "2021 – 2022",
+              releaseYearEn: "2021 – 2022",
+              title: {
+                it: "The Witcher: Un Briciolo di Verità",
+                en: "The Witcher: A Grain of Truth"
+              },
+              synopsis: {
+                it: "Fumetto in volume unico pubblicato da Dark Horse Comics nel 2022 (con uscita a fascicoli tra il 2021 e il 2022), sceneggiato da Jacek Rembis e disegnato da Jonas Scharf, che adatta il racconto \"Un briciolo di verità\" già contenuto ne \"Il guardiano degli innocenti\": l'incontro di Geralt con Nivellen, un uomo trasformato in creatura bestiale da una maledizione lanciata anni prima da una sacerdotessa da lui offesa, e con Vereena, l'enigmatica ospite del suo maniero che in realtà lo tiene prigioniero di un incantesimo mentre attira e divora altri visitatori. Rispetto al racconto originale, l'adattamento a fumetti mantiene sostanzialmente intatta la trama e il registro da favola nera ispirata alla Bella e la Bestia, valorizzando attraverso il disegno l'atmosfera gotica del maniero decadente e l'ambiguità visiva tra il vero aspetto di Nivellen e quello percepito da Geralt sotto l'effetto dell'incantesimo.",
+                en: "A single-volume comic published by Dark Horse Comics in 2022 (released in issues between 2021 and 2022), scripted by Jacek Rembis and drawn by Jonas Scharf, adapting the short story \"A Grain of Truth\" already contained in \"The Last Wish\": Geralt's encounter with Nivellen, a man turned into a beast-like creature by a curse cast years earlier by a priestess he wronged, and with Vereena, the enigmatic guest of his manor who actually keeps him prisoner of an enchantment while luring and feeding on other visitors. Compared with the original story, the comic adaptation keeps the plot and dark-fairy-tale register (a spin on Beauty and the Beast) largely intact, using the art to heighten the gothic atmosphere of the decaying manor and the visual ambiguity between Nivellen's true appearance and the one Geralt perceives under the spell's effect."
+              }
+            }
+          },
+          {
+            id: "witcher-the-lesser-evil",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Adattamento del racconto \"Il male minore\"",
+            yearEn: "Adaptation of \"The Lesser Evil\"",
+            releaseYear: "2023 – 2024",
+            releaseYearEn: "2023 – 2024",
+            title: {
+              it: "The Witcher: Il Male Minore",
+              en: "The Witcher: The Lesser Evil"
+            },
+            synopsis: {
+              it: "Fumetto in volume unico pubblicato da Dark Horse Comics tra il 2023 e il 2024, sceneggiato da Jacek Rembis e disegnato da Adam Gorham, che adatta il racconto \"Il male minore\" già contenuto ne \"Il guardiano degli innocenti\" (racconto diverso da quello di \"Un briciolo di verità\", pur provenendo dalla stessa raccolta): Geralt, giunto a Blaviken per vendere la carcassa di un mostro appena ucciso, si trova coinvolto nello scontro tra il mago Stregobor, nascosto in incognito in città, e Renfri, una giovane bandita ritenuta dallo stregone portatrice di un'antica maledizione (la Maledizione del Sole Nero) che la renderebbe destinata a compiere atrocità. Messo di fronte alla richiesta di Stregobor di uccidere preventivamente la ragazza e alla versione di Renfri, secondo cui è invece il mago il vero mostro per i crimini commessi in nome delle proprie superstizioni, Geralt è costretto a una scelta impossibile tra due mali, da cui nascerà la sua fama di Macellaio di Blaviken. L'adattamento a fumetti segue fedelmente la struttura moralmente ambigua del racconto originale, sviluppando per immagini soprattutto il breve scontro finale tra Geralt e la banda di Renfri nelle strade della città.",
+              en: "A single-volume comic published by Dark Horse Comics between 2023 and 2024, scripted by Jacek Rembis and drawn by Adam Gorham, adapting the short story \"The Lesser Evil\" already contained in \"The Last Wish\" (a different story from the one adapted in \"A Grain of Truth,\" though from the same collection): Geralt, arriving in Blaviken to sell the carcass of a monster he has just slain, gets drawn into the conflict between the mage Stregobor, hiding incognito in town, and Renfri, a young bandit the sorcerer believes carries an ancient curse (the Curse of the Black Sun) that dooms her to commit atrocities. Faced with Stregobor's demand that he pre-emptively kill the girl, and with Renfri's own account that it is the mage who is the true monster for the crimes he has committed in the name of his superstitions, Geralt is forced into an impossible choice between two evils — the episode that will earn him the name Butcher of Blaviken. The comic adaptation faithfully follows the morally ambiguous structure of the original story, using the art mainly to expand on the brief final clash between Geralt and Renfri's gang in the streets of the town."
+            }
+          },
+          {
+            id: "witcher-spada-del-destino",
+            type: "RACCOLTA DI RACCONTI",
+            typeEn: "SHORT STORY COLLECTION",
+            year: "1992",
+            yearEn: "1992",
+            releaseYear: "1992 (edizione italiana 2012)",
+            releaseYearEn: "1992",
+            title: {
+              it: "La Spada del Destino",
+              en: "Sword of Destiny"
+            },
+            synopsis: {
+              it: "Seconda raccolta di racconti, pubblicata in Polonia nel 1992 e in Italia nel 2012 per Editrice Nord, con le storie disposte in un ordine sostanzialmente cronologico. Si apre con \"Il limite del possibile\", in cui Geralt si unisce a una spedizione di caccia al drago guidata dal nano Yarpen Zigrin e scopre che uno dei componenti del gruppo, Borch Tre Taccole, è in realtà il drago dorato Villentretenmerth sotto mentite spoglie, schierandosi infine dalla parte dei draghi contro l'avidità dei cacciatori. Segue \"Una scheggia di ghiaccio\", ambientato a Rinde, dove Geralt ritrova Yennefer e affronta la gelosia del mago rivale Istredd, mettendo alla prova il legame tra i due. In \"Il fuoco eterno\" Geralt e il bardo Ranuncolo si muovono tra i bassifondi di Novigrad, coinvolti in un intrigo che vede protagonista il doppler Dudu Biberveldt, capace di assumere le sembianze altrui. \"Un piccolo sacrificio\", ambientato nel porto di Bremervoord, racconta l'amore impossibile tra il capitano Agloval e la sirena Sh'eenaz, con Geralt e la poetessa Essi \"Occhietto\" Daven coinvolti nella ricerca di un modo per unire i due mondi, in una rivisitazione amara della fiaba della sirenetta. Il racconto che dà il titolo al libro, \"La spada del destino\", porta Geralt nella foresta di Brokilon, dove incontra per la prima volta Ciri, bambina fuggita da Cintra, e riconosce formalmente il legame di Sorpresa che li unisce, promettendole che tornerà a cercarla. Chiude la raccolta \"Qualcosa di più\", racconto a struttura spezzata che, tra i deliri di un Geralt gravemente ferito, ricostruisce il suo passato (compreso l'abbandono da parte della madre Visenna a Kaer Morhen) e rivela la caduta di Cintra sotto l'invasione di Nilfgaard, con la scomparsa in mare di Pavetta e Duny: la notizia spinge Geralt a partire finalmente alla ricerca di Ciri, aprendo la strada alla saga principale.",
+              en: "The second short-story collection, published in Poland in 1992, with its stories arranged in substantially chronological order. It opens with \"The Bounds of Reason,\" in which Geralt joins a dragon-hunting expedition led by the dwarf Yarpen Zigrin and discovers that one of the party, Borch Three Jackdaws, is actually the golden dragon Villentretenmerth in disguise, ultimately siding with the dragons against the hunters' greed. Next comes \"A Shard of Ice,\" set in Rinde, where Geralt reunites with Yennefer and faces the jealousy of the rival mage Istredd, testing the bond between them. In \"The Eternal Fire,\" Geralt and the bard Dandelion move through the underworld of Novigrad, drawn into an intrigue involving the doppler Dudu Biberveldt, capable of assuming other people's likenesses. \"A Little Sacrifice,\" set in the port of Bremervoord, tells of the impossible love between Captain Agloval and the mermaid Sh'eenaz, with Geralt and the poet Essi \"Little Eye\" Daven caught up in the search for a way to unite their two worlds, in a bittersweet retelling of the Little Mermaid. The title story, \"Sword of Destiny,\" takes Geralt into the forest of Brokilon, where he meets Ciri, a girl who has fled Cintra, for the first time, formally acknowledging the bond of Surprise between them and promising to come looking for her. The collection closes with \"Something More,\" a fractured story that, amid the delirium of a badly wounded Geralt, reconstructs his past (including his mother Visenna's abandonment of him at Kaer Morhen) and reveals the fall of Cintra to the Nilfgaardian invasion, with Pavetta and Duny lost at sea: the news finally spurs Geralt to set out in search of Ciri, opening the way to the main saga."
+            }
+          },
+          {
+            id: "witcher-stagione-delle-tempeste",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "Prequel, anni prima della saga principale",
+            yearEn: "Prequel, years before the main saga",
+            releaseYear: "2013 (edizione italiana 2016)",
+            releaseYearEn: "2013",
+            title: {
+              it: "La Stagione delle Tempeste",
+              en: "Season of Storms"
+            },
+            synopsis: {
+              it: "Romanzo pubblicato in Polonia nel 2013 e in Italia nel 2016 per Editrice Nord, ambientato narrativamente tra le due raccolte di racconti e l'inizio della saga principale, in un periodo della vita di Geralt antecedente agli eventi de \"Il sangue degli elfi\". La vicenda si apre a Kerack, dove Geralt viene arrestato con accuse infondate e, una volta scarcerato grazie all'intervento della potente maga Lytta Neyd (detta Corallo), scopre che le sue due spade da strigo gli sono state confiscate e sono sparite dai depositi del tribunale. La ricerca delle armi lo coinvolge in una serie di intrighi che si intrecciano nella capitale del regno: gli esperimenti proibiti del giovane mago Sorel Degerlund, allievo del senile arcimago Ortolan, che scatena creature mostruose per dimostrare il proprio potere causando una strage di innocenti; le manovre politiche di maghi e nobili attorno al trono instabile del re Belohun; e un imbarco forzato sulla nave \"Prophet Lebioda\", dove Geralt si scontra con un'entità soprannaturale legata a una vendetta ancestrale, la Madre Volpe (episodio adattato separatamente nel fumetto \"Figli della Volpe\"). Le trame convergono nel finale durante il matrimonio di Belohun a Kerack, che degenera in un colpo di stato, in una catastrofe naturale scatenata dalla magia e nello scontro decisivo che permette infine a Geralt di riavere le proprie spade, restituitegli da uno strigo sconosciuto in un epilogo agrodolce che chiude la vicenda.",
+              en: "A novel published in Poland in 2013, set narratively between the two short-story collections and the start of the main saga, during a period of Geralt's life prior to the events of \"Blood of Elves.\" The story opens in Kerack, where Geralt is arrested on false charges and, once freed thanks to the intervention of the powerful sorceress Lytta Neyd (known as Coral), discovers that his two witcher swords have been confiscated and have vanished from the court's storerooms. The search for his weapons draws him into a web of intrigue in the kingdom's capital: the forbidden experiments of the young mage Sorel Degerlund, apprentice to the senile archmage Ortolan, who unleashes monstrous creatures to prove his power, causing a massacre of innocents; the political manoeuvring of mages and nobles around King Belohun's unstable throne; and a forced voyage aboard the ship \"Prophet Lebioda,\" where Geralt confronts a supernatural entity tied to an ancient vendetta, the Fox Mother (an episode separately adapted in the comic \"Fox Children\"). The threads converge in the finale during Belohun's wedding in Kerack, which spirals into a coup, a magically triggered natural catastrophe, and a decisive confrontation that finally allows Geralt to recover his swords, returned to him by an unknown witcher in a bittersweet epilogue that closes the story."
+            },
+            twin: {
+              id: "witcher-fox-children",
+              type: "FUMETTO",
+              typeEn: "COMIC",
+              year: "Stessa cronologia di Stagione delle Tempeste",
+              yearEn: "Same timeline as Season of Storms",
+              releaseYear: "2015",
+              releaseYearEn: "2015",
+              title: {
+                it: "The Witcher: Figli della Volpe",
+                en: "The Witcher: Fox Children"
+              },
+              synopsis: {
+                it: "Fumetto pubblicato da Dark Horse Comics in cinque albi nel 2015, scritto da Paul Tobin e disegnato da Joe Querio, che adatta a fumetti un solo episodio della \"Stagione delle tempeste\" di Sapkowski, non l'intero romanzo: la traversata di Geralt a bordo della nave \"Prophet Lebioda\", carica di criminali ed emarginati in fuga dalla giustizia. Una tempesta soprannaturale costringe l'imbarcazione a risalire un fiume sconosciuto, dove i passeggeri si trovano vittime degli inganni della Madre Volpe, un'entità capace di manipolare le loro percezioni e di scatenarli l'uno contro l'altro sfruttando i loro peccati passati. Rispetto al capitolo corrispondente del romanzo, l'adattamento a fumetti dilata l'episodio su cinque numeri, dando più spazio visivo al progressivo sgretolarsi della realtà percepita dall'equipaggio e lasciando a Geralt il compito di distinguere le illusioni della strega dalla minaccia reale per sopravvivere e portare a termine la traversata.",
+                en: "A five-issue comic published by Dark Horse Comics in 2015, written by Paul Tobin and drawn by Joe Querio, adapting only a single episode of Sapkowski's \"Season of Storms,\" not the whole novel: Geralt's voyage aboard the ship \"Prophet Lebioda,\" crowded with criminals and outcasts fleeing justice. A supernatural storm forces the vessel up an unknown river, where the passengers fall victim to the deceptions of the Fox Mother, an entity able to manipulate their perceptions and turn them against one another by exploiting their past sins. Compared with the corresponding chapter of the novel, the comic adaptation stretches the episode across five issues, giving more visual room to the crew's gradually crumbling grasp on reality and leaving Geralt to tell the witch's illusions from the real threat in order to survive and complete the crossing."
+              }
+            }
+          },
+          {
+            id: "witcher-sangue-degli-elfi",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "1994",
+            yearEn: "1994",
+            releaseYear: "1994 (edizione italiana 2012)",
+            releaseYearEn: "1994",
+            title: {
+              it: "Il Sangue degli Elfi",
+              en: "Blood of Elves"
+            },
+            synopsis: {
+              it: "Primo romanzo della saga principale, pubblicato in Polonia nel 1994 e in Italia nel 2012 per Editrice Nord. Le truppe di Nilfgaard invadono e saccheggiano Cintra, sterminando la famiglia reale; l'unica a fuggire è la giovane principessa Ciri, salvata in extremis da Geralt di Rivia, che la conduce con sé nella fortezza di Kaer Morhen per proteggerla e le insegna i rudimenti dell'addestramento strigo. Quando Ciri comincia a manifestare visioni profetiche e incubi legati al proprio potenziale magico latente, Geralt chiede aiuto alla maga Triss Merigold, che la accompagna al tempio di Melitele, dove la sacerdotessa Nenneke le impartisce un'istruzione più tradizionale prima che la potente maga Yennefer di Vengerberg ne assuma la formazione magica vera e propria. Sullo sfondo, il Continente si prepara a un nuovo conflitto: il consiglio dei maghi si divide sulla strategia da adottare contro l'espansionismo di Nilfgaard, mentre agenti al servizio dell'Impero, guidati dal misterioso Rience, danno la caccia a Ciri, ritenuta una pedina fondamentale per i piani imperiali legati alla sua discendenza e ai suoi poteri. Il romanzo si chiude con Geralt e i suoi alleati, tra cui il bardo Ranuncolo, che sventano un primo attacco contro la ragazza, mentre la minaccia di Nilfgaard e degli agenti che la cercano resta sullo sfondo, aperta verso il seguito della saga.",
+              en: "The first novel of the main saga, published in Poland in 1994. Nilfgaard's troops invade and sack Cintra, wiping out the royal family; the only one to escape is the young princess Ciri, saved at the last moment by Geralt of Rivia, who takes her to the fortress of Kaer Morhen to protect her and teaches her the rudiments of witcher training. When Ciri begins experiencing prophetic visions and nightmares tied to her latent magical potential, Geralt seeks help from the sorceress Triss Merigold, who takes her to the temple of Melitele, where the priestess Nenneke gives her a more traditional education before the powerful sorceress Yennefer of Vengerberg takes over her actual magical training. In the background, the Continent braces for a new conflict: the council of mages is divided over how to respond to Nilfgaard's expansionism, while agents in the Empire's service, led by the mysterious Rience, hunt for Ciri, seen as a crucial pawn for imperial plans tied to her lineage and powers. The novel closes with Geralt and his allies, including the bard Dandelion, thwarting a first attack against the girl, while the looming threat of Nilfgaard and the agents pursuing her remains in the background, left open for the rest of the saga."
+            }
+          },
+          {
+            id: "witcher-tempo-della-guerra",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "1995",
+            yearEn: "1995",
+            releaseYear: "1995 (edizione italiana 2013)",
+            releaseYearEn: "1995",
+            title: {
+              it: "Il Tempo della Guerra",
+              en: "Time of Contempt"
+            },
+            synopsis: {
+              it: "Terzo romanzo della saga (secondo del ciclo principale), pubblicato in Polonia nel 1995 e in Italia nel 2013 per Editrice Nord. Ciri prosegue l'addestramento magico ad Aretuza, l'accademia di stregoneria sull'isola di Thanedd, sotto la guida di Yennefer, in vista del grande Conclave dei maghi convocato per decidere la posizione delle scuole magiche nel conflitto ormai imminente tra i Regni del Nord e l'Impero di Nilfgaard. Geralt raggiunge l'isola per rivedere la ragazza proprio mentre le tensioni tra le fazioni lealiste e i maghi segretamente al servizio di Nilfgaard esplodono in un violento colpo di stato, orchestrato dal potente e ambiguo mago Vilgefortz. Nel caos degli scontri tra streghe e stregoni, Yennefer viene catturata dai golpisti, mentre Geralt, gravemente ferito nel tentativo di proteggere Ciri, non riesce a impedirle di fuggire da sola. Braccata dai traditori, Ciri raggiunge la torre di Tor Lara e, con l'aiuto dell'unicorno Ihuarraquax, attraversa un portale magico instabile che la trasporta lontano dal Continente, nel deserto di Korath, ferita e priva di ogni riferimento. Il romanzo si chiude su questo cliffhanger, mentre la notizia della rivolta di Thanedd si intreccia con lo scoppio ufficiale della guerra tra Nilfgaard e i Regni del Nord.",
+              en: "The third novel of the saga (second of the main cycle), published in Poland in 1995. Ciri continues her magical training at Aretuza, the academy of sorcery on the island of Thanedd, under Yennefer's guidance, ahead of the great Conclave of mages convened to decide the magical schools' stance in the now-imminent conflict between the Northern Kingdoms and the Nilfgaardian Empire. Geralt arrives on the island to see her again just as tensions between loyalist factions and mages secretly in Nilfgaard's service erupt into a violent coup, orchestrated by the powerful and ambiguous mage Vilgefortz. Amid the chaos of sorcerers fighting sorcerers, Yennefer is captured by the plotters, while Geralt, badly wounded trying to protect Ciri, fails to stop her from fleeing on her own. Hunted by the traitors, Ciri reaches the tower of Tor Lara and, with the help of the unicorn Ihuarraquax, crosses an unstable magical portal that carries her far from the Continent, into the desert of Korath, wounded and utterly disoriented. The novel ends on this cliffhanger, as news of the Thanedd uprising intertwines with the official outbreak of war between Nilfgaard and the Northern Kingdoms."
+            }
+          },
+          {
+            id: "witcher-battesimo-del-fuoco",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "1996",
+            yearEn: "1996",
+            releaseYear: "1996 (edizione italiana 2014)",
+            releaseYearEn: "1996",
+            title: {
+              it: "Battesimo del Fuoco",
+              en: "Baptism of Fire"
+            },
+            synopsis: {
+              it: "Quarto romanzo, pubblicato in Polonia nel 1996 e in Italia nel 2014 per Editrice Nord. Sopravvissuto alle proprie ferite grazie alle cure delle driadi nella foresta di Brokilon, Geralt decide di riprendere la ricerca di Ciri e mette insieme un gruppo eterogeneo di compagni: l'arciera Milva, legata alle driadi; il misterioso Emiel Regis Rohellec Terzieff-Godefroy, apparentemente un erborista ma in realtà un vampiro dal passato secolare; Cahir, un ex ufficiale nilfgaardiano ormai in rotta con il proprio impero; e in seguito il nano Zoltan Chivay con il suo manipolo di compagni, tra cui lo gnomo Percival Schuttenbach. Il gruppo attraversa un Continente devastato dalla guerra tra Nilfgaard e i Regni del Nord, tra villaggi saccheggiati, eserciti in marcia e incontri pericolosi con mostri e sbandati, mentre i legami tra i membri della compagnia si rafforzano e i loro segreti vengono progressivamente svelati, incluso quello della gravidanza di Milva. Nel frattempo Yennefer, prigioniera dei golpisti di Thanedd, e Ciri, dispersa nel deserto di Korath, seguono percorsi paralleli e separati verso il ricongiungimento con Geralt. Il romanzo si chiude con la compagnia ancora in viaggio verso sud, decisa a proseguire la ricerca nonostante le perdite e i pericoli affrontati, in attesa dello scontro finale con le forze che tengono Ciri lontana da loro.",
+              en: "The fourth novel, published in Poland in 1996. Having survived his wounds thanks to the dryads' care in the forest of Brokilon, Geralt decides to resume the search for Ciri and assembles a mixed band of companions: the archer Milva, closely tied to the dryads; the mysterious Emiel Regis Rohellec Terzieff-Godefroy, seemingly a herbalist but actually a centuries-old vampire; Cahir, a former Nilfgaardian officer now at odds with his own empire; and later the dwarf Zoltan Chivay with his band, including the gnome Percival Schuttenbach. The group crosses a Continent devastated by the war between Nilfgaard and the Northern Kingdoms, through plundered villages, marching armies and dangerous encounters with monsters and stragglers, as the bonds between the companions strengthen and their secrets are gradually revealed, including Milva's pregnancy. Meanwhile Yennefer, held prisoner by the Thanedd plotters, and Ciri, lost in the desert of Korath, follow separate, parallel paths toward reuniting with Geralt. The novel ends with the company still travelling south, determined to continue the search despite the losses and dangers faced, awaiting the final confrontation with the forces keeping Ciri from them."
+            }
+          },
+          {
+            id: "witcher-torre-della-rondine",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "1997",
+            yearEn: "1997",
+            releaseYear: "1997 (edizione italiana 2015)",
+            releaseYearEn: "1997",
+            title: {
+              it: "La Torre della Rondine",
+              en: "The Tower of the Swallow"
+            },
+            synopsis: {
+              it: "Quinto romanzo, pubblicato in Polonia nel 1997 e in Italia nel 2015 per Editrice Nord. La vicenda segue due filoni paralleli. Ciri, sopravvissuta nel deserto di Korath, si unisce a una banda di giovani fuorilegge noti come i Ratti, vivendo per un periodo di rapine e violenza sotto falsa identità; la banda viene però individuata e sterminata dal letale cacciatore di taglie Leo Bonhart, assoldato dal funzionario imperiale Stefan Skellen (l'Allocco) per conto di Nilfgaard. Catturata, Ciri viene torturata e sfregiata al volto da Bonhart, che la costringe a combattere per lui prima che la ragazza riesca a fuggire, gravemente ferita. Trovata priva di sensi dall'eremita Vysogota di Corvo, viene nascosta e curata nella sua capanna tra le paludi, dove il vecchio le insegna nuove tecniche di combattimento e la aiuta a ritrovare la lucidità dopo il trauma subito. Parallelamente, la compagnia di Geralt, ormai raggiunta anche dalla giovane borsaiola Angoulême, continua la ricerca tra mille pericoli finché non cade in un'imboscata delle forze di Skellen: Cahir, Milva, Regis e Angoulême vengono catturati, mentre la vera natura vampirica di Regis si rivela decisiva per la sopravvivenza del gruppo. Nel frattempo Yennefer, ancora prigioniera, tenta disperatamente di rintracciare Ciri con la magia. Il romanzo si chiude con Ciri, ormai guarita, che lascia il rifugio di Vysogota e, braccata di nuovo dai cacciatori di Skellen, attiva un antico portale tra le rovine note come la Torre della Rondine, scomparendo in una dimensione sconosciuta.",
+              en: "The fifth novel, published in Poland in 1997. The story follows two parallel threads. Ciri, having survived in the desert of Korath, joins a gang of young outlaws known as the Rats, living for a time by robbery and violence under a false identity; the gang is tracked down and slaughtered by the lethal bounty hunter Leo Bonhart, hired by the imperial official Stefan Skellen (the Tawny Owl) on Nilfgaard's behalf. Captured, Ciri is tortured and scarred across the face by Bonhart, who forces her to fight for him before she manages to escape, badly wounded. Found unconscious by the hermit Vysogota of Corvo, she is hidden and nursed back to health in his hut in the marshes, where the old man teaches her new fighting techniques and helps her regain her clarity after the trauma she suffered. Meanwhile Geralt's company, now joined by the young cutpurse Angoulême, continues its search through countless dangers until it falls into an ambush set by Skellen's forces: Cahir, Milva, Regis and Angoulême are captured, and Regis's true vampiric nature proves decisive for the group's survival. Meanwhile Yennefer, still a prisoner, desperately tries to locate Ciri through magic. The novel ends with Ciri, now healed, leaving Vysogota's refuge and, hunted once again by Skellen's men, activating an ancient portal among the ruins known as the Tower of the Swallow, vanishing into an unknown dimension."
+            }
+          },
+          {
+            id: "witcher-signora-del-lago",
+            type: "ROMANZO",
+            typeEn: "NOVEL",
+            year: "1999",
+            yearEn: "1999",
+            releaseYear: "1999 (edizione italiana 2016)",
+            releaseYearEn: "1999",
+            title: {
+              it: "La Signora del Lago",
+              en: "The Lady of the Lake"
+            },
+            synopsis: {
+              it: "Sesto e ultimo romanzo della saga principale, pubblicato in Polonia nel 1999 e in Italia nel 2016 per Editrice Nord: chiusura ufficiale del ciclo in prosa. Intrappolata nel mondo parallelo di Tir na Lia, patria degli Aen Elle, Ciri scopre di essere figlia biologica del sovrano elfico Auberon Muircetach, che tenta di trattenerla per i propri scopi legati al Sangue Antico; con l'aiuto del saggio Avallac'h, la ragazza riesce infine a fuggire e a tornare sul Continente proprio in tempo per intervenire nella decisiva Battaglia di Brenna, contribuendo con i propri poteri a ribaltare le sorti dello scontro tra i Regni del Nord e Nilfgaard e ponendo di fatto fine alla guerra. Nel frattempo Geralt, liberata Yennefer e sopravvissuto alle proprie ferite, si riunisce infine a lei, mentre le trame di Vilgefortz e degli altri cospiratori vengono smascherate e sconfitte. Il romanzo si chiude però con un evento tragico: durante un pogrom scatenato dalla folla di Rivia contro la popolazione non umana, Geralt interviene per difendere le vittime e viene ucciso; Yennefer, accorsa in suo soccorso, muore a sua volta esaurendo ogni energia magica nel tentativo di salvarlo, sotto gli occhi di Ciri, giunta troppo tardi per impedirlo. Ciri, con l'aiuto dell'unicorno Ihuarraquax, trasporta i corpi dei due su una barca fino a un lago, dove in un lampo di luce entrambi scompaiono verso l'Isola di Avalon, lasciando aperta la domanda se si tratti di una guarigione reale in un rifugio nascosto, di una sorta di aldilà, o di un semplice atto di pietà. Nell'epilogo, ambientato anni dopo, è la stessa Ciri, ormai cronista e viaggiatrice, a raccontare la vicenda a Ranuncolo nella sua taverna: la ragazza ammette di poter scegliere di narrare che Geralt e Yennefer si sono in realtà risvegliati insieme in un luogo sconosciuto, si sono confortati a vicenda, si sono infine sposati e hanno preso parte a una grande festa che ha riunito personaggi vivi e morti dell'intera saga. Sapkowski non scioglie mai definitivamente l'ambiguità tra queste letture, lasciando al lettore la scelta se considerare vero il finale luttuoso, quello consolatorio raccontato da Ciri, o un terzo livello simbolico in cui entrambe le versioni convivono come parti della stessa leggenda.",
+              en: "The sixth and final novel of the main saga, published in Poland in 1999: the official closing chapter of the prose cycle. Trapped in the parallel world of Tir na Lia, home of the Aen Elle, Ciri discovers she is the biological daughter of the elven king Auberon Muircetach, who tries to keep her there for his own purposes tied to the Elder Blood; with the help of the sage Avallac'h, she finally manages to escape and return to the Continent just in time to intervene in the decisive Battle of Brenna, using her powers to help turn the tide of the war between the Northern Kingdoms and Nilfgaard and effectively ending it. Meanwhile Geralt, having freed Yennefer and survived his wounds, is finally reunited with her, while Vilgefortz's and the other conspirators' schemes are exposed and defeated. The novel, however, closes on a tragic note: during a pogrom unleashed by the mob of Rivia against the non-human population, Geralt steps in to defend the victims and is killed; Yennefer, rushing to his aid, dies in turn after exhausting all her magical strength trying to save him, before the eyes of Ciri, who arrives too late to stop it. Ciri, aided by the unicorn Ihuarraquax, carries their bodies by boat to a lake, where in a flash of light both vanish toward the Isle of Avalon, leaving open the question of whether this is genuine healing in a hidden refuge, a kind of afterlife, or simply an act of mercy. In the epilogue, set years later, it is Ciri herself, now a chronicler and traveller, who recounts the events to Dandelion in his tavern: she admits she could choose to tell it as Geralt and Yennefer actually waking up together in an unknown place, comforting each other, eventually marrying, and taking part in a great celebration reuniting living and dead characters from across the whole saga. Sapkowski never definitively resolves the ambiguity between these readings, leaving it to the reader to decide whether to believe the grievous ending, the consoling one narrated by Ciri, or a third, symbolic level in which both versions coexist as parts of the same legend."
+            }
+          }
+        ]
+      },
+      {
+        id: "videogiochi",
+        name: {
+          it: "Videogiochi",
+          en: "Video Games"
+        },
+        span: {
+          it: "2007 – 2028",
+          en: "2007 – 2028"
+        },
+        palette: [
+          "#4A4438",
+          "#3E4A2E",
+          "#8A6D3A",
+          "#4A4E6E"
+        ],
+        paletteBounds: [
+          "witcher-thronebreaker",
+          "witcher-killing-monsters",
+          "witcher-ballad-of-two-wolves"
+        ],
+        entries: [
+          {
+            id: "witcher-old-world",
+            type: "BOARD GAME",
+            typeEn: "BOARD GAME",
+            year: "Era di Alzur",
+            yearEn: "Age of Alzur",
+            releaseYear: "2023",
+            releaseYearEn: "2023",
+            title: {
+              it: "The Witcher: Old World",
+              en: "The Witcher: Old World"
+            },
+            synopsis: {
+              it: "The Witcher: Old World è ambientato secoli prima della nascita di Geralt di Rivia, nell'epoca in cui il mago Alzur mette a punto la Prova delle Erbe e le Mutazioni che daranno origine alla Scuola del Lupo, mentre le altre scuole (Grifone, Vipera, Gatto) muovono i primi passi nella rivalità per fama, contratti e gloria. Ogni partita segue uno o più witcher alle prime armi che percorrono le lande e le città del Continente in cerca di mostri da abbattere, ricompense da guadagnare e un posto nella storia della propria scuola. Lungo il cammino i witcher si imbattono in una serie di brevi vicende autoconclusive, scritte come veri e propri racconti a bivio: un contadino che chiede aiuto contro una creatura che in realtà protegge il villaggio, un nobile che vuole silenziare una minaccia scomoda, una donna accusata ingiustamente di stregoneria, un contratto che nasconde un tranello politico. Ogni episodio pone al giocatore un dilemma morale raramente privo di conseguenze negative, e la scelta compiuta lascia un segno duraturo sulla reputazione del witcher e sul mondo che lo circonda, in coerenza con l'etica ambigua e priva di eroi puri tipica dell'universo di Sapkowski.",
+              en: "The Witcher: Old World takes place centuries before Geralt of Rivia is born, in the era when the sorcerer Alzur perfects the Trials and Mutations that will give rise to the Wolf School, while the other schools (Griffin, Viper, Cat) are only just beginning their rivalry for fame, contracts and glory. Each game follows one or more fledgling witchers roaming the Continent's cities and wilds in search of monsters to slay, rewards to earn, and a place in their school's history. Along the way, witchers encounter a series of short, self-contained stories written as branching narrative encounters: a farmer asking for help against a creature that is secretly protecting the village, a noble wanting to silence an inconvenient threat, a woman wrongly accused of witchcraft, a contract concealing a political trap. Each episode presents the player with a moral dilemma that rarely comes without a downside, and the choice made leaves a lasting mark on the witcher's reputation and the world around them, staying true to the morally ambiguous, hero-less ethics typical of Sapkowski's universe."
+            }
+          },
+          {
+            id: "witcher-thronebreaker",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "1267 (GDR narrativo)",
+            yearEn: "1267 (narrative RPG)",
+            releaseYear: "2018",
+            releaseYearEn: "2018",
+            title: {
+              it: "Thronebreaker: The Witcher Tales",
+              en: "Thronebreaker: The Witcher Tales"
+            },
+            synopsis: {
+              it: "Ambientato narrativamente nel 1267, durante la Seconda Guerra del Nord (in parallelo agli eventi narrati nei romanzi Il tempo della guerra e Battesimo del fuoco, quindi anni prima delle vicende di Geralt nei videogiochi), Thronebreaker: The Witcher Tales segue Meve, regina di Lyria e Rivia. Tornata nei propri domini dopo un vertice dei sovrani del Nord, Meve li trova sull'orlo del collasso, tormentati da bande di briganti, e decide di guidare personalmente le truppe per ristabilire l'ordine; il conflitto si rivela presto molto più grande di semplici scaramucce di confine, quando l'esercito nilfgaardiano del generale Ardal aep Dahy dilaga nel Nord e un tradimento interno, orchestrato dal conte Caldwell insieme al principe ereditario Villem, figlio di Meve, costringe la regina alla resa e la fa rinchiudere in una torre, mentre Villem viene incoronato sovrano fantoccio al suo posto. Fuggita dalla prigionia, Meve raccoglie attorno a sé un pugno di fedelissimi, tra cui il cavaliere Sir Eyck di Denesle, il giovane Gascon e il menestrello Reynard Odo, per riconquistare il proprio trono, affrontando scelte morali che segnano irreversibilmente il destino dei suoi compagni e del regno. La vicenda, narrata in retrospettiva dal drago Villentretenmerth (Borch Tre Taccole), culmina nella battaglia per il ponte sullo Yaruga e nella riconquista di Rivia: a seconda delle decisioni prese lungo il cammino, la storia si chiude con epiloghi diversi, che dipendono in particolare da quale compagno, Reynard, Villem o Gascon, si sacrifica per aprire le porte del castello di Rivia a Meve, e dal destino finale della regina e del suo regno.",
+              en: "Set narratively in 1267, during the Second Northern War (parallel to the events told in the novels Time of Contempt and Baptism of Fire, years before Geralt's adventures in the video games), Thronebreaker: The Witcher Tales follows Meve, Queen of Lyria and Rivia. Returning to her realm after a summit of Northern rulers, Meve finds her kingdoms in disarray, plagued by bandit raids, and decides to personally lead her troops to restore order; the conflict soon proves far bigger than mere border skirmishes, as the Nilfgaardian army of General Ardal aep Dahy sweeps through the North and an internal betrayal, orchestrated by Count Caldwell together with Meve's own son and heir, Prince Villem, forces the queen to surrender and be imprisoned in a tower, while Villem is crowned puppet ruler in her place. Having escaped captivity, Meve gathers a handful of loyal followers, including the knight Sir Eyck of Denesle, the young Gascon and the bard Reynard Odo, to reclaim her throne, facing moral choices that irreversibly shape the fate of her companions and her kingdom. The tale, narrated in retrospect by the dragon Villentretenmerth (Borch Three Jackdaws), culminates in the battle for the bridge on the Yaruga and the retaking of Rivia: depending on the decisions made along the way, the story closes with different endings, hinging in particular on which companion, Reynard, Villem or Gascon, sacrifices himself to open the gates of Rivia castle for Meve, and on the queen's own final fate and that of her kingdom."
+            }
+          },
+          {
+            id: "witcher-1",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "1270",
+            yearEn: "1270",
+            releaseYear: "2007",
+            releaseYearEn: "2007",
+            title: {
+              it: "The Witcher",
+              en: "The Witcher"
+            },
+            synopsis: {
+              it: "Ambientato nel 1270, due anni dopo la Pace di Cintra che ha chiuso la Seconda Guerra del Nord, The Witcher riprende le vicende di Geralt di Rivia dopo che questi è stato ritrovato, privo di gran parte della memoria, dai suoi vecchi compagni witcher a Kaer Morhen. Poco dopo, la fortezza viene assalita da un gruppo armato al soldo dell'organizzazione criminale Salamandra, guidata dallo stregone Azar Javed e da un enigmatico \"Professore\": gli assalitori trafugano le formule segrete delle Mutazioni witcher e rapiscono Alvin, un bambino dai poteri magici straordinari legato a visioni di un futuro catastrofico. Sulle tracce dei responsabili, Geralt raggiunge Vizima, dove si ritrova invischiato nello scontro tra l'Ordine della Rosa Fiammeggiante, cavalieri fanatici che perseguitano i non umani e segretamente in combutta con la Salamandra, e gli Scoia'tael, i guerriglieri elfici e nani che si battono per i propri diritti con metodi altrettanto violenti. Affiancato da vecchie e nuove conoscenze, tra cui Triss Merigold, Shani, Dandelion e Zoltan Chivay, Geralt scopre che il \"Professore\" è in realtà Jacques de Aldersberg, Gran Maestro dell'Ordine, ossessionato dal ricreare il processo delle Mutazioni per i propri scopi e legato al destino di Alvin da un intreccio di visioni e viaggi nel tempo. Il gioco offre tre epiloghi diversi a seconda della fazione appoggiata da Geralt nel corso della vicenda: schierandosi con l'Ordine della Rosa Fiammeggiante, Geralt contribuisce a una riforma interna che porta Siegfried di Denesle a diventarne il nuovo Gran Maestro; sostenendo gli Scoia'tael favorisce la causa dei non umani ma non riesce a evitare nuove ondate di violenza; scegliendo la via neutrale, resta indipendente da entrambe le fazioni, pagandone però il prezzo in termini di fiducia reciproca. In tutti e tre i casi la resa dei conti finale con Azar Javed e Jacques de Aldersberg resta la stessa, mentre cambia il modo in cui il Continente ricorda il ruolo di Geralt nella vicenda.",
+              en: "Set in 1270, two years after the Peace of Cintra that ended the Second Northern War, The Witcher picks up Geralt of Rivia's story after he is found, most of his memory gone, by his old fellow witchers at Kaer Morhen. Shortly after, the keep is assaulted by an armed group working for the criminal organization Salamandra, led by the sorcerer Azar Javed and an enigmatic figure known only as \"the Professor\": the attackers steal the secret witcher Mutation formulas and kidnap Alvin, a boy with extraordinary magical gifts tied to visions of a catastrophic future. Following the trail, Geralt reaches Vizima, where he becomes entangled in the conflict between the Order of the Flaming Rose, fanatical knights persecuting nonhumans while secretly in league with Salamandra, and the Scoia'tael, elven and dwarven guerrillas fighting for their rights with equally violent methods. Aided by old and new acquaintances, including Triss Merigold, Shani, Dandelion and Zoltan Chivay, Geralt discovers that \"the Professor\" is in fact Jacques de Aldersberg, Grand Master of the Order, obsessed with recreating the Mutation process for his own ends and bound to Alvin's fate through a tangle of visions and time travel. The game offers three different endings depending on which faction Geralt sides with over the course of the story: siding with the Order of the Flaming Rose, Geralt contributes to an internal reform that sees Siegfried of Denesle become its new Grand Master; supporting the Scoia'tael furthers the nonhumans' cause but fails to prevent new waves of violence; choosing to remain neutral keeps Geralt independent of both factions, at the cost of mutual trust. In all three cases the final reckoning with Azar Javed and Jacques de Aldersberg stays the same, while the way the Continent remembers Geralt's role in the affair changes."
+            }
+          },
+          {
+            id: "witcher-2",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "1271",
+            yearEn: "1271",
+            releaseYear: "2011",
+            releaseYearEn: "2011",
+            title: {
+              it: "The Witcher 2: Assassins of Kings",
+              en: "The Witcher 2: Assassins of Kings"
+            },
+            synopsis: {
+              it: "Ambientato nel 1271, un anno dopo i fatti del primo capitolo, The Witcher 2: Assassins of Kings si apre con Geralt al servizio di re Foltest di Temeria, impegnato a proteggerlo da un misterioso assassino, in realtà un witcher rinnegato di nome Letho, durante l'assedio del castello di La Valette. Nonostante gli sforzi di Geralt, Foltest viene ucciso e lo stesso Geralt, accusato dell'omicidio, viene imprigionato. Evaso con l'aiuto del comandante delle forze speciali temeriane Vernon Roche, oppure passato dalla parte del capo scoia'tael Iorveth (una scelta che, all'inizio del secondo capitolo, divide il gioco in due percorsi narrativi paralleli e sostanzialmente diversi), Geralt indaga sulla congiura dietro una serie di regicidi ai danni dei sovrani del Nord, tra gli intrighi di Flotsam e Vergen, la guerra tra Kaedwen e la città ribelle guidata dall'ex drago Saskia, e i maneggi della misteriosa Loggia delle Maghe. I due percorsi, quello di Roche e quello di Iorveth, confluiscono nel terzo e ultimo capitolo, ambientato durante il congresso di pace di Loc Muinne, dove viene svelato che dietro ai regicidi si cela il mago Vilgefortz, intenzionato a destabilizzare i Regni del Nord in vista dell'avanzata di Nilfgaard, usando Letho e altri witcher come strumenti inconsapevoli del suo piano. Il finale cambia in base al percorso intrapreso e alle scelte compiute nei confronti di Letho, che si tratti di ucciderlo, risparmiarlo o collaborare con lui per svelare la verità, offrendo epiloghi diversi sull'assetto politico del Nord e sul destino dei personaggi coinvolti, senza che nessuno dei due percorsi sia indicato come quello canonico.",
+              en: "Set in 1271, one year after the events of the first chapter, The Witcher 2: Assassins of Kings opens with Geralt in the service of King Foltest of Temeria, tasked with protecting him from a mysterious assassin, in truth a renegade witcher named Letho, during the siege of La Valette castle. Despite Geralt's efforts, Foltest is killed and Geralt himself, accused of the murder, is imprisoned. Escaping with the help of Temerian special forces commander Vernon Roche, or alternatively joining Scoia'tael leader Iorveth (a choice that, at the start of the second chapter, splits the game into two parallel and substantially different narrative paths), Geralt investigates the conspiracy behind a series of regicides targeting Northern rulers, amid intrigue in Flotsam and Vergen, the war between Kaedwen and the rebel city led by the former dragon Saskia, and the machinations of the mysterious Lodge of Sorceresses. The two paths, Roche's and Iorveth's, converge in the third and final chapter, set during the peace congress at Loc Muinne, where it is revealed that the mage Vilgefortz is behind the regicides, aiming to destabilize the Northern Kingdoms ahead of Nilfgaard's advance by using Letho and other witchers as unwitting tools of his plan. The ending changes depending on the path taken and the choices made regarding Letho, whether to kill him, spare him, or work with him to uncover the truth, offering different epilogues on the political balance of the North and the fate of the characters involved, with neither path presented as the canonical one."
+            }
+          },
+          {
+            id: "witcher-matters-of-conscience",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "1271",
+            yearEn: "1271",
+            releaseYear: "2015",
+            releaseYearEn: "2015",
+            title: {
+              it: "The Witcher: Matters of Conscience",
+              en: "The Witcher: Matters of Conscience"
+            },
+            synopsis: {
+              it: "Fumetto digitale promozionale pubblicato da CD Projekt RED in concomitanza con l'uscita dell'espansione Cuore di Pietra, ambientato non nel periodo successivo alla saga ma cronologicamente tra Assassini dei Re e Wild Hunt, nell'anno 1271. La storia si svolge a Vergen, la città liberata alla fine di Witcher 2 e ora governata da Saskia, l'Ammazzadraghi, rivelatasi in realtà un drago sotto mentite spoglie umane. Geralt viene ingaggiato per dare la caccia a un pericoloso chelonod (in italiano noto come dracotartaruga) che infesta le paludi vicine alla città, ma la vera posta in gioco del racconto è politica: l'idealista Saskia è pronta a sacrificare tutto per la libertà di Vergen, mentre il capo dei nani Barclay sceglie la via della diplomazia, concedendo a Nilfgaard il libero passaggio attraverso l'Aedirn Superiore pur di evitare il conflitto aperto. Il witcher, come sempre neutrale, osserva le conseguenze di entrambe le scelte, che si riveleranno ugualmente amare per la città e i suoi abitanti.",
+              en: "A promotional digital comic released by CD Projekt RED alongside the Hearts of Stone expansion, set not in the period after the saga but chronologically between Assassins of Kings and Wild Hunt, in the year 1271. The story takes place in Vergen, the city liberated at the end of Witcher 2 and now ruled by Saskia, the \"Dragonslayer,\" revealed to secretly be a dragon in human form. Geralt is hired to hunt down a dangerous chelonod (a turtle-like dragon) plaguing the marshes near the city, but the story's real stakes are political: the idealistic Saskia is ready to sacrifice everything for Vergen's freedom, while dwarven leader Barclay chooses diplomacy, granting Nilfgaard safe passage through Upper Aedirn to avoid open conflict. The ever-neutral witcher watches the consequences of both choices unfold, each proving equally bitter for the city and its people."
+            }
+          },
+          {
+            id: "witcher-house-of-glass",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Poco dopo The Witcher 2",
+            yearEn: "Shortly after The Witcher 2",
+            releaseYear: "2014",
+            releaseYearEn: "2014",
+            title: {
+              it: "The Witcher: La Casa di Vetro",
+              en: "The Witcher: House of Glass"
+            },
+            synopsis: {
+              it: "Poco dopo la fine degli eventi di Assassini dei Re, Geralt di Rivia si addentra nella foresta di Caed Dhu, nella regione di Angren, dove incontra un uomo di nome Jakob, vedovo sconvolto dal dolore. La moglie Marta, rapita anni prima da un branco di bruxae, è tornata come creatura non morta e vive rinchiusa in una tenebrosa magione nota come la Casa di Vetro. Assoldato per liberare l'edificio dal suo tormento, il witcher si addentra in un labirinto di stanze mutevoli, illusioni e visioni che lo mettono a dura prova sia fisicamente sia psicologicamente. Esplorando la storia della coppia, Geralt scopre che dietro l'orrore si nasconde un tradimento carico di ossessione e colpa: la vera natura del mostro della casa è più legata al dolore e alla follia di Jakob che a un pericolo puramente soprannaturale, e liberare le anime maledette intrappolate tra le mura significa affrontare le conseguenze di quella menzogna.",
+              en: "Shortly after the events of Assassins of Kings, Geralt of Rivia travels into the Caed Dhu forest in the Angren region, where he meets Jakob, a grief-stricken widower. His wife Marta, taken years earlier by a coven of bruxae, has returned as an undead creature and now dwells in a sinister mansion known as the House of Glass. Hired to free the building from its torment, the witcher ventures into a labyrinth of shifting rooms, illusions, and horrors that test him both physically and mentally. As he pieces together the couple's tragic history, Geralt uncovers a bitter betrayal born of obsession and guilt: the true monster haunting the house has more to do with Jakob's grief and madness than with any purely supernatural threat, and freeing the cursed souls trapped within its walls means confronting the consequences of that lie."
+            }
+          },
+          {
+            id: "witcher-killing-monsters",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Immediatamente prima di The Witcher 3",
+            yearEn: "Immediately before The Witcher 3",
+            releaseYear: "2015",
+            releaseYearEn: "2015",
+            title: {
+              it: "The Witcher: Uccidere Mostri",
+              en: "The Witcher: Killing Monsters"
+            },
+            synopsis: {
+              it: "Fumetto promozionale pubblicato in concomitanza con il trailer cinematico omonimo di Wild Hunt, ambientato immediatamente prima dell'inizio del terzo capitolo. Vesemir e Geralt viaggiano insieme sulle tracce di Yennefer, ormai scomparsa da tempo, e si fermano nella cittadina di Vorune, occupata dalle truppe di Nilfgaard durante l'invasione del Nord. Bisognosi di denaro, accettano un contratto da 40 fiorini per uccidere un mostro che si nutre di esseri umani e che semina il terrore tra gli abitanti. La breve storia, più che concentrarsi sull'azione, mette in luce gli orrori della guerra e le sofferenze della popolazione comune, mostrando come siano spesso i più deboli a pagare il prezzo più alto dei conflitti tra potenti.",
+              en: "A promotional comic released alongside the cinematic trailer of the same name for Wild Hunt, set immediately before the start of the third game. Vesemir and Geralt travel together searching for the long-missing Yennefer, stopping in the small town of Vorune, occupied by Nilfgaardian troops during the invasion of the North. Short on coin, they take on a 40-florens contract to kill a man-eating monster terrorizing the townsfolk. More than an action piece, the brief story highlights the horrors of war and the suffering of ordinary people, showing how it is often the powerless who pay the highest price for the ambitions of the powerful."
+            }
+          },
+          {
+            id: "witcher-3",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "1272",
+            yearEn: "1272",
+            releaseYear: "2015 (Remaster: 2026)",
+            releaseYearEn: "2015 (Remaster: 2026)",
+            title: {
+              it: "The Witcher 3: Wild Hunt",
+              en: "The Witcher 3: Wild Hunt"
+            },
+            synopsis: {
+              it: "Ambientato nel 1272, alcuni anni dopo i fatti di The Witcher 2, The Witcher 3: Wild Hunt segue Geralt di Rivia, richiamato dal proprio ritiro da un messaggio di Yennefer, sulle tracce della figlia adottiva Ciri, braccata in tutto il Continente e oltre dalla Caccia Selvaggia, gli spettrali cavalieri guidati dal re Eredin, intenzionati a catturarla per il suo sangue antico e il potere di viaggiare tra i mondi. Il viaggio di Geralt attraversa Velen, la Terra di Nessuno, devastata dalla guerra tra Nilfgaard e Redania (dove si intreccia la vicenda del Barone Sanguinario e delle Megere), la città portuale di Novigrad, sconvolta dalla caccia alle streghe scatenata dal fanatico re Radovid V, e le isole di Skellige, dove Geralt si confronta con la contesa per la successione al trono del clan an Craite tra i figli di Crach, Cerys e Hjalmar. Ricostruendo passo passo il passato di Ciri, la sua fuga attraverso mondi alternativi e il legame con la misteriosa Uma, Geralt si riunisce infine a lei per affrontare insieme Eredin e la Caccia Selvaggia nella battaglia decisiva a Kaer Morhen e nello scontro finale contro il Gelo Bianco. Il finale della vicenda di Ciri dipende dalle scelte compiute da Geralt lungo tutto il gioco, in particolare dal suo comportamento nei suoi confronti come figura paterna: Ciri può diventare Imperatrice di Nilfgaard, salendo sul trono lasciato vacante da Emhyr var Emreis; può scegliere la vita da witcher, libera di viaggiare per il Continente e di far visita a Geralt; oppure, se lasciata sola nei momenti cruciali, può sacrificarsi usando i propri poteri per fermare il Gelo Bianco, morendo nello scontro finale. Nessuno dei tre epiloghi è indicato ufficialmente come canonico. In parallelo, anche il finale personale di Geralt varia in base alle relazioni intrattenute nel corso della storia, potendo ritirarsi in compagnia di Yennefer, di Triss, oppure da solo.\n\nNota — Gwent: The Witcher Card Game: nato come minigioco collezionabile all'interno di The Witcher 3: Wild Hunt, Gwent è diventato nel 2018 un gioco di carte competitivo standalone, con partite PvP tra le fazioni del Continente (Regni del Nord, Nilfgaard, Skellige, Scoia'tael, Mostri, Sindacato). Pur senza offrire un'unica trama strutturata, include contenuti narrativi di contorno legati all'universo di Sapkowski, tra cui l'espansione Master Mirror (2020), incentrata sulla figura di Gaunter O'Dimm già incontrato in Hearts of Stone, e vari \"journey\" con brevi vicende dedicate a personaggi noti della saga.",
+              en: "Set in 1272, several years after the events of The Witcher 2, The Witcher 3: Wild Hunt follows Geralt of Rivia, called out of retirement by a message from Yennefer, as he searches for his adopted daughter Ciri, hunted across the Continent and beyond by the Wild Hunt, spectral riders led by King Eredin, who want to capture her for her Elder Blood and her power to travel between worlds. Geralt's journey takes him through Velen, the No Man's Land, ravaged by the war between Nilfgaard and Redania (where the story of the Bloody Baron and the Crones intertwines), the port city of Novigrad, torn apart by the witch hunts unleashed by the fanatical King Radovid V, and the Skellige Isles, where Geralt gets caught up in the succession dispute for the an Craite clan's throne between Crach's children, Cerys and Hjalmar. Piecing together Ciri's past, her flight across alternate worlds and her bond with the mysterious Uma, Geralt is finally reunited with her to face Eredin and the Wild Hunt together, in the decisive battle at Kaer Morhen and the final confrontation against the White Frost. Ciri's ending depends on the choices Geralt makes throughout the game, particularly how he behaves toward her as a father figure: Ciri can become Empress of Nilfgaard, taking the throne left vacant by Emhyr var Emreis; she can choose the life of a witcher, free to roam the Continent and visit Geralt; or, if left to face her crucial moments alone, she can sacrifice herself using her powers to stop the White Frost, dying in the final battle. None of the three endings is officially designated as canonical. In parallel, Geralt's own personal ending also varies depending on the relationships pursued throughout the story, allowing him to retire in the company of Yennefer, of Triss, or alone.\n\nNote — Gwent: The Witcher Card Game: born as a collectible minigame inside The Witcher 3: Wild Hunt, Gwent became a standalone competitive card game in 2018, with PvP matches between the Continent's factions (Northern Realms, Nilfgaard, Skellige, Scoia'tael, Monsters, Syndicate). While it offers no single structured storyline, it includes light narrative content tied to Sapkowski's universe, including the Master Mirror expansion (2020), centered on Gaunter O'Dimm, already encountered in Hearts of Stone, and various \"journey\" modes featuring short vignettes about well-known characters from the saga."
+            }
+          },
+          {
+            id: "witcher-curse-of-crows",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Durante gli eventi di The Witcher 3",
+            yearEn: "During the events of The Witcher 3",
+            releaseYear: "2016",
+            releaseYearEn: "2016",
+            title: {
+              it: "The Witcher: La Maledizione dei Corvi",
+              en: "The Witcher: Curse of Crows"
+            },
+            synopsis: {
+              it: "Ambientato durante gli eventi di Wild Hunt, il fumetto segue Geralt e Ciri a Novigrad, dove i due witcher accettano un contratto per dare la caccia a una striga che semina il terrore per le strade della città. Quella che sembra una missione di routine si complica rapidamente con l'intervento di Elid, un misterioso ragazzo capace di trasformarsi in corvo, e con l'inattesa ricomparsa di Yennefer. Geralt scopre presto che dietro la creazione della striga si cela la vendetta di un nemico del suo passato, tornato per colpirlo attraverso un mostro creato ad arte. Padre e figlia adottiva devono quindi affrontare insieme non solo il pericolo della bestia, ma anche i fantasmi irrisolti della vita del witcher, in un intreccio che culmina nella resa dei conti tra Geralt e il suo antico avversario.",
+              en: "Set during the events of Wild Hunt, the comic follows Geralt and Ciri in Novigrad, where the two witchers take on a contract to hunt down a striga terrorizing the city streets. What looks like a routine job quickly grows more complicated with the involvement of Elid, a mysterious boy who can turn into a crow, and the unexpected reappearance of Yennefer. Geralt soon discovers that the striga was deliberately created by an old enemy seeking revenge against him. Father and adopted daughter must confront not only the danger of the beast but also unresolved ghosts from the witcher's past, in a story that culminates in a reckoning between Geralt and his former adversary."
+            }
+          },
+          {
+            id: "witcher-3-hearts-of-stone",
+            type: "ESPANSIONE",
+            typeEn: "EXPANSION",
+            year: "1272 (nella finestra narrativa di The Witcher 3)",
+            yearEn: "1272 (within The Witcher 3's narrative window)",
+            releaseYear: "2015",
+            releaseYearEn: "2015",
+            title: {
+              it: "The Witcher 3: Hearts of Stone",
+              en: "The Witcher 3: Hearts of Stone"
+            },
+            synopsis: {
+              it: "Ambientata durante la trama principale di The Witcher 3, nel pieno del 1272 e prima della sua conclusione, mentre Geralt si trova ancora a girovagare per Velen e dintorni, Hearts of Stone lo vede assoldato dall'enigmatico mercante Gaunter O'Dimm, alias Mastro Specchio, per portare a termine tre compiti impossibili per conto di Olgierd von Everec, un ricco brigante che ha stretto un patto con O'Dimm: in cambio della propria anima, Olgierd ottiene una forza e un'invulnerabilità quasi assolute, ma perde la capacità di provare emozioni. I tre compiti coinvolgono lo scontro con uno spadaccino ofieri durante il matrimonio combinato di Olgierd, il recupero del suo cavallo da guerra dal regno dei morti per aiutare lo spirito del fratello Vlodimir a trovare pace, e l'ingresso in un dipinto-sogno che imprigiona lo spirito della defunta moglie di Olgierd, Iris von Everec, vittima a sua volta delle manipolazioni del marito e di O'Dimm. Portati a termine i compiti, Geralt scopre che O'Dimm intende reclamare l'anima di Olgierd come pagamento del patto, e deve affrontarlo in una sfida di astuzia e indovinelli per salvare l'uomo, o quantomeno liberarlo dalla maledizione dell'immortalità, senza pagare lui stesso il prezzo richiesto da O'Dimm, spesso la propria vista o la propria anima. A seconda delle scelte compiute nel corso dell'espansione, Olgierd può infine morire in pace, riunendosi a Iris nell'aldilà, oppure incontrare un destino peggiore, mentre Geralt riesce comunque a beffare Gaunter O'Dimm evitando di saldare il conto con la propria anima.",
+              en: "Set during the main story of The Witcher 3, in the midst of 1272 and before its conclusion, while Geralt is still roaming Velen and its surroundings, Hearts of Stone sees him hired by the enigmatic merchant Gaunter O'Dimm, alias Master Mirror, to complete three impossible tasks on behalf of Olgierd von Everec, a wealthy bandit lord who struck a pact with O'Dimm: in exchange for his soul, Olgierd gained near-absolute strength and invulnerability, but lost the ability to feel emotion. The three tasks involve dueling an Ofieri swordsman during Olgierd's arranged wedding, retrieving his warhorse from the realm of the dead to help the spirit of his brother Vlodimir find peace, and entering a dream-painting that imprisons the spirit of Olgierd's late wife, Iris von Everec, herself a victim of her husband's and O'Dimm's manipulations. With the tasks completed, Geralt discovers that O'Dimm intends to claim Olgierd's soul as payment for the pact, and must face him in a battle of wits and riddles to save the man, or at least free him from the curse of immortality, without paying O'Dimm's price himself, often his own eyesight or his own soul. Depending on the choices made throughout the expansion, Olgierd can finally die in peace, reunited with Iris in the afterlife, or meet a worse fate, while Geralt nonetheless manages to outwit Gaunter O'Dimm and avoid settling the bill with his own soul."
+            }
+          },
+          {
+            id: "witcher-of-flesh-and-flame",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Tra le espansioni Cuore di Pietra e Sangue e Vino",
+            yearEn: "Between the Hearts of Stone and Blood and Wine expansions",
+            releaseYear: "2018",
+            releaseYearEn: "2018",
+            title: {
+              it: "The Witcher: Di Carne e Fiamma",
+              en: "The Witcher: Of Flesh and Flame"
+            },
+            synopsis: {
+              it: "Ambientata nel periodo compreso tra le espansioni Cuore di Pietra e Sangue e Vino, la storia vede Geralt raggiungere il regno di Ofier su richiesta di un vecchio amico, coinvolto in un mistero che riguarda sua figlia. Insieme al menestrello Dandelion, il witcher è costretto a nascondere la propria identità in una terra dai costumi rigidi, dove scopre che una serie di episodi inquietanti colpisce le concubine del re. Al fianco della maga locale Radeyah, Geralt indaga sull'origine di una forza oscura, forgiando armi capaci di contrastarla, ma si ritrova coinvolto in intrighi di corte più grandi di lui, fino a essere accusato ingiustamente di un crimine che rischia di costargli la vita. Sarà proprio l'astuzia di Dandelion, con uno dei suoi piani più spericolati, a tentare di salvare l'amico dall'esecuzione e a far emergere il vero colpevole dietro gli eventi soprannaturali.",
+              en: "Set in the period between the Hearts of Stone and Blood and Wine expansions, the story follows Geralt to the kingdom of Ofier at the request of an old friend entangled in a mystery involving his daughter. Alongside the bard Dandelion, the witcher is forced to hide his identity in a land of rigid customs, where he discovers a string of disturbing incidents affecting the king's concubines. Working alongside the local sorceress Radeyah, Geralt investigates the source of a dark supernatural force and forges weapons capable of countering it, only to become entangled in court intrigues bigger than himself, eventually being falsely accused of a crime that could cost him his life. It is Dandelion's characteristic cunning and one of his most reckless schemes that ultimately helps save his friend from execution and expose the true culprit behind the supernatural events."
+            }
+          },
+          {
+            id: "witcher-3-blood-and-wine",
+            type: "ESPANSIONE",
+            typeEn: "EXPANSION",
+            year: "1275",
+            yearEn: "1275",
+            releaseYear: "2016",
+            releaseYearEn: "2016",
+            title: {
+              it: "The Witcher 3: Blood and Wine",
+              en: "The Witcher 3: Blood and Wine"
+            },
+            synopsis: {
+              it: "Ambientata mesi dopo la conclusione della trama principale di The Witcher 3, quando Geralt si è già in parte ritirato dalla vita di witcher errante, Blood and Wine lo vede chiamato nel ducato di Toussaint, nella capitale Beauclair, dalla duchessa Anna Henrietta, per indagare su una serie di brutali omicidi di cavalieri dell'Ordine locale, attribuiti a una \"Bestia\" leggendaria. Le indagini portano Geralt a riallacciare i rapporti con il vecchio amico Emiel Regis Rohellec Terzieff-Godefroy, un vampiro superiore, e a scoprire che il colpevole è Dettlaff van der Eretein, un altro vampiro superiore, mosso da un desiderio di vendetta legato al tradimento subito anni prima da Syanna, la sorella minore ed esiliata della duchessa, di cui Dettlaff si era innamorato. Nel corso dell'indagine Geralt riporta alla luce una cospirazione di corte che anni addietro aveva portato all'esilio di Syanna e alla sua fama di \"principessa maledetta\", e deve scegliere come gestire la verità con Anna Henrietta, Syanna e Dettlaff. A seconda delle scelte compiute, la vicenda può concludersi con un accordo pacifico in cui Dettlaff risparmia Beauclair e sia lui sia Syanna sopravvivono per andare ognuno per la propria strada, oppure con esiti più tragici, fino allo scontro aperto tra Geralt e Dettlaff, con il rischio concreto che Regis resti gravemente ferito o non sopravviva allo scontro, se la verità su Syanna viene rivelata nel modo o nel momento sbagliato. L'espansione si chiude, in ogni caso, con Geralt che si stabilisce definitivamente nella tenuta di Corvo Bianco, acquistata durante l'avventura: la sequenza segna la chiusura narrativa del suo personale percorso di witcher, accompagnato, se lo desidera il giocatore, da Yennefer o Triss.",
+              en: "Set months after the conclusion of The Witcher 3's main story, once Geralt has already partly retired from life as a wandering witcher, Blood and Wine sees him summoned to the duchy of Toussaint, in the capital Beauclair, by Duchess Anna Henrietta, to investigate a series of brutal murders of local Order knights, attributed to a legendary \"Beast.\" The investigation leads Geralt to reconnect with his old friend Emiel Regis Rohellec Terzieff-Godefroy, a higher vampire, and to discover that the culprit is Dettlaff van der Eretein, another higher vampire driven by a desire for revenge over the betrayal he suffered years earlier at the hands of Syanna, the duchess's younger, exiled sister, with whom he had fallen in love. Over the course of the investigation, Geralt brings to light a court conspiracy that years before had led to Syanna's exile and her reputation as a \"cursed princess,\" and must decide how to handle the truth with Anna Henrietta, Syanna and Dettlaff. Depending on the choices made, the story can end with a peaceful resolution in which Dettlaff spares Beauclair and both he and Syanna survive to go their separate ways, or with more tragic outcomes, up to an open confrontation between Geralt and Dettlaff, with the real risk that Regis is gravely wounded or does not survive the clash, should the truth about Syanna be revealed the wrong way or too late. The expansion closes, in any case, with Geralt permanently settling at the Corvo Bianco estate, purchased during the adventure: the sequence marks the narrative close of his personal journey as a witcher, accompanied, if the player wishes, by Yennefer or Triss."
+            }
+          },
+          {
+            id: "witcher-ballad-of-two-wolves",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Tra la fine di Wild Hunt e il periodo successivo alla saga",
+            yearEn: "Between the end of Wild Hunt and the period after the saga",
+            releaseYear: "2022",
+            releaseYearEn: "2022",
+            title: {
+              it: "The Witcher: La Ballata dei Due Lupi",
+              en: "The Witcher: The Ballad of Two Wolves"
+            },
+            synopsis: {
+              it: "Collocata dall'editore tra la fine di Wild Hunt e il periodo successivo alla saga, la storia vede Geralt chiamato nella cittadina di Grimmwald per indagare su una serie di voci riguardanti un licantropo in libertà. Il sospetto ricade sulle tre misteriose sorelle che, arrivate da poco, hanno trasformato il villaggio povero in una fiorente meta turistica, non senza generare tensioni e risentimenti tra gli abitanti più legati alle vecchie tradizioni. Accompagnato da Dandelion, sempre a caccia di ispirazione per la ballata perfetta, il witcher scopre che la verità dietro il mostro è più complessa e ambigua di quanto sembri, intrecciando elementi tratti dalle fiabe popolari (echi de Il Lupo Bianco e Cappuccetto Rosso) con una riflessione sul progresso, il denaro forestiero e il prezzo pagato dalle comunità che vi si aprono.",
+              en: "Placed by the publisher between the end of Wild Hunt and the period that follows the saga, the story finds Geralt summoned to the town of Grimmwald to investigate rumors of a werewolf on the loose. Suspicion falls on three mysterious sisters who, having recently arrived, transformed the once-poor village into a thriving tourist destination, stirring resentment among locals attached to the old ways. Accompanied by Dandelion, forever chasing inspiration for the perfect ballad, the witcher uncovers a truth far more layered and ambiguous than a simple monster hunt, weaving in echoes of folk tales (The White Wolf, Little Red Riding Hood) with a reflection on progress, foreign money, and the price paid by communities that open themselves to it."
+            }
+          },
+          {
+            id: "witcher-fading-memories",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Dopo Sangue e Vino",
+            yearEn: "After Blood and Wine",
+            releaseYear: "2018",
+            releaseYearEn: "2018",
+            title: {
+              it: "The Witcher: Ricordi Sbiaditi",
+              en: "The Witcher: Fading Memories"
+            },
+            synopsis: {
+              it: "Ambientato dopo la conclusione di Sangue e Vino, il fumetto ritrae un Geralt ormai stanco e in difficoltà economica: i mostri sono sempre più rari e i contratti scarseggiano, costringendo il witcher a interrogarsi sul proprio futuro. Quando la borgomastra della cittadina di Badreine gli chiede aiuto per fermare un branco di foglet che attacca i bambini del villaggio, Geralt accetta l'incarico nonostante la ricompensa modesta. L'indagine lo trascina però in una vicenda ben più oscura e personale, legata al dolore di una madre in lutto e alla sparizione, anni prima, di suo figlio. Tra testimonianze contrastanti degli abitanti e visioni sempre più inquietanti, il witcher dovrà fidarsi del proprio istinto per distinguere la verità dalle menzogne e affrontare un pericolo che si rivela diverso da come era apparso all'inizio.",
+              en: "Set after the events of Blood and Wine, the comic portrays a weary, cash-strapped Geralt: monsters have grown scarce and contracts are drying up, forcing the witcher to question his own future. When the mayoress of the small town of Badreine asks for help stopping a pack of foglets attacking children, Geralt takes the modest job. The investigation drags him into a far darker and more personal affair tied to a grieving mother and the disappearance of her son years earlier. Amid conflicting testimonies from the townsfolk and increasingly unsettling visions, the witcher must trust his own instincts to separate truth from lies and face a danger that turns out to be very different from what it first appeared to be."
+            }
+          },
+          {
+            id: "witcher-witchs-lament",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Dopo Sangue e Vino",
+            yearEn: "After Blood and Wine",
+            releaseYear: "2021",
+            releaseYearEn: "2021",
+            title: {
+              it: "The Witcher: Il Lamento della Strega",
+              en: "The Witcher: Witch's Lament"
+            },
+            synopsis: {
+              it: "Ambientato nel periodo successivo alla saga principale, il fumetto si apre con Geralt reduce da una caccia di routine: la cattura e il rogo di una presunta strega di nome Laima nel villaggio di Neisse. Da quel momento il witcher comincia a essere tormentato da visioni sempre più vivide della morte della donna, un presagio che lo spinge a indagare più a fondo sulla vicenda. Il filo dell'indagine lo conduce fino a Giltine, una giovane il cui corpo viene posseduto dallo spirito vendicativo di Laima, decisa a punire gli uomini del villaggio per gli abusi commessi per anni contro le donne della comunità, vendute e maltrattate dai propri stessi familiari. Geralt si trova quindi combattuto tra il dovere di fermare la furia omicida dello spirito e la comprensione per le sue ragioni, fino a un epilogo in cui il witcher riesce a liberare Giltine dalla persecuzione della vendetta, chiudendo il cerchio aperto fin dalle prime pagine.",
+              en: "Set in the period following the main saga, the comic opens with Geralt fresh from a routine hunt: the capture and burning at the stake of a supposed witch named Laima in the village of Neisse. From that moment, the witcher is haunted by increasingly vivid visions of the woman's death, a premonition that drives him to dig deeper into the case. The trail leads him to Giltine, a young woman whose body is possessed by Laima's vengeful spirit, determined to punish the men of the village for years of abuse against its women, who were sold and mistreated by their own relatives. Geralt finds himself torn between the duty to stop the spirit's murderous rage and sympathy for her reasons, until an ending in which the witcher manages to free Giltine from the persecution of vengeance, closing the circle opened on the story's first pages."
+            }
+          },
+          {
+            id: "witcher-once-upon-a-time-in-the-woods",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Dopo Sangue e Vino",
+            yearEn: "After Blood and Wine",
+            releaseYear: "2021",
+            releaseYearEn: "2021",
+            title: {
+              it: "The Witcher: Once Upon a Time in the Woods",
+              en: "The Witcher: Once Upon a Time in the Woods"
+            },
+            synopsis: {
+              it: "Breve storia autoconclusiva pubblicata in occasione del Free Comic Book Day, che si distacca dal consueto punto di vista di Geralt per raccontare la vicenda dalla prospettiva di un giovane nekker, una delle creature mostruose più comuni dei boschi del Continente. Il racconto segue l'imprevedibile viaggio della piccola creatura attraverso la foresta, tra pericoli, incontri con altri abitanti del bosco e la scoperta di un mondo ostile visto con occhi non umani, offrendo una prospettiva insolita e quasi fiabesca sull'universo di The Witcher, lontana dalle consuete cacce ai mostri del witcher.",
+              en: "A self-contained short story released for Free Comic Book Day, breaking from Geralt's usual point of view to tell the tale from the perspective of a young nekker, one of the Continent's most common monstrous woodland creatures. The story follows the little creature's unpredictable journey through the forest, filled with dangers, encounters with other denizens of the woods, and the discovery of a hostile world seen through non-human eyes, offering an unusual, almost fable-like perspective on The Witcher universe, far removed from the witcher's usual monster hunts."
+            }
+          },
+          {
+            id: "witcher-wild-animals",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Dopo Sangue e Vino",
+            yearEn: "After Blood and Wine",
+            releaseYear: "2023",
+            releaseYearEn: "2023",
+            title: {
+              it: "The Witcher: Wild Animals",
+              en: "The Witcher: Wild Animals"
+            },
+            synopsis: {
+              it: "Dopo un lavoro andato storto, Geralt naufraga su una costa sconosciuta e lontana dalle terre che conosce, dove viene raccolto da un gruppo di cacciatori locali. Ben presto si ritrova coinvolto in un conflitto già in corso tra i suoi soccorritori e un misterioso e violento clan che uccide chiunque non appartenga alla propria gente. In una terra dove uomini e creature convivono secondo regole non scritte, il witcher scopre che le sue capacità vanno ben oltre l'uccisione di mostri, e che restare neutrale in uno scontro dove entrambe le parti bramano vendetta equivale, agli occhi di tutti, a essere un nemico. Non esistendo per Geralt un \"male minore\" a cui appigliarsi, l'unica via resta affrontare lo scontro fino alle sue conseguenze più violente, in un racconto che lo costringe a scegliere da che parte stare in un mondo che non è il suo.",
+              en: "After a job gone wrong, Geralt washes ashore on an unfamiliar coast far from the lands he knows, where he is taken in by a group of local hunters. He soon finds himself drawn into an ongoing conflict between his rescuers and a mysterious, violent clan that kills anyone outside their own people. In a land where humans and creatures coexist under unspoken rules, the witcher discovers that his skills go far beyond killing monsters, and that staying neutral in a conflict where both sides crave vengeance is, in everyone's eyes, the same as being an enemy. With no lesser evil for Geralt to cling to, the only path left is to see the clash through to its violent conclusion, in a story that forces him to choose a side in a world that isn't his own."
+            }
+          },
+          {
+            id: "witcher-frog-kiss",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Dopo Sangue e Vino",
+            yearEn: "After Blood and Wine",
+            releaseYear: "2023",
+            releaseYearEn: "2023",
+            title: {
+              it: "The Witcher: Frog Kiss",
+              en: "The Witcher: Frog Kiss"
+            },
+            synopsis: {
+              it: "Ultimo, in ordine di pubblicazione, dei racconti brevi ambientati nel periodo successivo alla saga principale, pubblicato per il Free Comic Book Day. A Novigrad, un'insolita ondata di sparizioni e trasformazioni colpisce diverse giovani donne della città, che iniziano misteriosamente a mutare in rane. Geralt viene coinvolto nel caso e indaga tra superstizione, magia e possibili maledizioni per scoprire l'origine del fenomeno, in un racconto che gioca apertamente con l'immaginario fiabesco del \"principe ranocchio\" tipico della tradizione popolare del Continente, già evocato altrove nell'universo di The Witcher (come nella leggenda del Principe Rospo).",
+              en: "The last of the post-saga short stories in order of publication, released for Free Comic Book Day. In Novigrad, an unusual wave of disappearances and transformations strikes several young women in the city, who mysteriously begin turning into frogs. Geralt is drawn into the case and investigates through superstition, magic, and possible curses to uncover the source of the phenomenon, in a story that openly plays with the Continent's folk imagery of the \"frog prince,\" an idea already explored elsewhere in The Witcher universe (as with the legend of the Toad Prince)."
+            }
+          },
+          {
+            id: "witcher-songs-of-the-past",
+            type: "ESPANSIONE",
+            typeEn: "EXPANSION",
+            year: "In uscita",
+            yearEn: "Upcoming",
+            releaseYear: "2027 (attesa)",
+            releaseYearEn: "2027 (expected)",
+            title: {
+              it: "The Witcher 3: Songs of the Past",
+              en: "The Witcher 3: Songs of the Past"
+            },
+            imagePending: true,
+            releaseDateShort: {
+              it: "2027 (attesa)",
+              en: "2027 (expected)"
+            }
+          },
+          {
+            id: "witcher-4-polaris",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "In uscita",
+            yearEn: "Upcoming",
+            releaseYear: "2027/2028 (attesa)",
+            releaseYearEn: "2027/2028 (expected)",
+            title: {
+              it: "The Witcher IV",
+              en: "The Witcher IV"
+            },
+            imagePending: true,
+            releaseDateShort: {
+              it: "2027/2028 (attesa)",
+              en: "2027/2028 (expected)"
+            }
+          }
+        ]
+      },
+      {
+        id: "netflix",
+        name: {
+          it: "Netflix",
+          en: "Netflix"
+        },
+        span: {
+          it: "2019 – 2025",
+          en: "2019 – 2025"
+        },
+        palette: [
+          "#4B3663",
+          "#8A6D3A",
+          "#8B2E1F",
+          "#2E3A4A"
+        ],
+        paletteBounds: [
+          "witcher-nightmare-of-the-wolf",
+          "witcher-sirens-of-the-deep",
+          "witcher-stagione-3"
+        ],
+        entries: [
+          {
+            id: "witcher-blood-origin",
+            type: "MINISERIE",
+            typeEn: "MINISERIES",
+            year: "1200 anni prima di Geralt",
+            yearEn: "1200 years before Geralt",
+            releaseYear: "2022",
+            releaseYearEn: "2022",
+            title: {
+              it: "The Witcher: Blood Origin",
+              en: "The Witcher: Blood Origin"
+            },
+            synopsis: {
+              it: "1200 anni prima di Geralt di Rivia, nell'era precedente la Congiunzione delle Sfere, il mondo è ancora abitato solo da elfi e nani, riuniti sotto l'impero dorato di Xin'trea al termine della Guerra dei Mille Anni. Durante la cerimonia di pace, l'ambiziosa Merwyn, erede illegittima al trono, complotta con il fratellastro Eredin e il potente mago Balor per usurpare il potere. Éile, ex guerriera diventata bardo, e Fjall, guerriero bandito dal proprio clan dopo essere stato scoperto con Merwyn, si alleano con Scían, ultima erede della Tribù Fantasma, in cerca della spada sacra Soulweaver, custodita come trofeo dai sovrani di Xin'trea. Il gruppo cresce fino a sette membri, tra cui i fratelli maghi Syndril e Zacaré e la nana fabbro Meldof, tutti decisi a rovesciare la tirannia elfica. Per affrontare la belva da guerra dell'imperatrice, Syndril e Zacaré sottopongono Fjall a un rituale alchemico e magico, una prima \"prova delle erbe\" che fonde la sua essenza con quella di un mostro: nasce così, per la prima volta, uno strigo. Il processo è però instabile: Fjall perde progressivamente il controllo, trasformandosi in una creatura sanguinaria che Éile è costretta a placare con il canto e infine a uccidere per pietà, morendo tra le sue braccia. Nel frattempo Balor, per ottenere accesso al caos primordiale, sacrifica il proprio apprendista Fenrik e ordina a Syndril di collegare gli antichi monoliti nanici, capaci di aprire portali tra i mondi. Nello scontro finale a quattro vie, Éile pugnala Merwyn, che muore sul trono davanti all'orda elfica in rivolta; Zacaré unisce il proprio potere a quello del fratello per scagliare la magia del caos contro il monolito, e Syndril si sacrifica facendolo esplodere insieme a Balor. Quando Balor tenta di far transitare Eredin e le sue truppe attraverso il portale verso il mondo desiderato, Syndril lo devia altrove, esiliando Eredin in una landa desolata dove il guerriero trova un elmo d'ossa: è il primo passo della sua trasformazione nel futuro sovrano scheletrico della Caccia Selvaggia. La distruzione del monolito fa collassare le barriere tra le dimensioni, scatenando la Congiunzione delle Sfere, l'evento che fonde più mondi (inclusa la Terra degli umani) in un unico continente, popolandolo di mostri e di magia del caos. La vicenda è narrata secoli dopo dal bardo Seanchaí al giovane Jaskier, come antico racconto delle origini del Continente.",
+              en: "1200 years before Geralt of Rivia, in the age before the Conjunction of the Spheres, the world is still home only to elves and dwarves, united under the golden empire of Xin'trea at the close of the Thousand Years' War. During the peace treaty ceremony, the ambitious Merwyn, an illegitimate heir to the throne, conspires with her half-brother Eredin and the powerful mage Balor to seize power. Éile, a former warrior turned traveling bard, and Fjall, a warrior exiled from his own clan after being caught with Merwyn, join forces with Scían, the last survivor of the Ghost Tribe, who seeks to reclaim her sacred sword Soulweaver, held as a trophy by Xin'trea's rulers. The group grows to seven, including the sorcerer siblings Syndril and Zacaré and the dwarf blacksmith Meldof, all determined to overthrow elven tyranny. To face the empress's war-beast, Syndril and Zacaré subject Fjall to an alchemical and magical ritual, an early \"trial of the grasses\" that fuses his essence with that of a monster: the first witcher is born. The process proves unstable, however, and Fjall gradually loses control, turning into a bloodthirsty creature that Éile is forced to calm with song and ultimately kill out of mercy, dying in her arms. Meanwhile Balor, seeking access to primal chaos magic, sacrifices his own apprentice Fenrik and orders Syndril to link the ancient dwarven monoliths, capable of opening gateways between worlds. In the four-way final battle, Éile stabs Merwyn, who dies on her throne before the rebelling elven horde; Zacaré binds her power to her brother's to hurl chaos magic at the monolith, and Syndril sacrifices himself to shatter it, taking Balor down with him. When Balor tries to send Eredin and his troops through the portal to the desired world, Syndril diverts it instead, banishing Eredin to a barren wasteland where he finds a bone helm: the first step of his transformation into the future skull-helmed leader of the Wild Hunt. The monolith's destruction collapses the barriers between dimensions, unleashing the Conjunction of the Spheres, the event that merges multiple worlds (including humanity's) into a single continent, filling it with monsters and chaos magic. The tale is narrated centuries later by the bard Seanchaí to the young Jaskier, as an ancient story of the Continent's origins."
+            }
+          },
+          {
+            id: "witcher-nightmare-of-the-wolf",
+            type: "FILM D'ANIMAZIONE",
+            typeEn: "ANIMATED FILM",
+            year: "Gioventù di Vesemir",
+            yearEn: "Vesemir's youth",
+            releaseYear: "2021",
+            releaseYearEn: "2021",
+            title: {
+              it: "The Witcher: Nightmare of the Wolf",
+              en: "The Witcher: Nightmare of the Wolf"
+            },
+            synopsis: {
+              it: "Il film alterna due linee temporali. Nel presente narrativo (1165 p.R.), lo strigo Vesemir, ormai anziano ed esperto cacciatore di mostri, salva un bambino nobile da un leshy nelle foreste vicino ad Ard Carraigh, capitale di Kaedwen; la creatura, in punto di morte, pronuncia parole in una lingua arcana e proibita, segno che la foresta è vittima di un potente incantesimo. La maga di corte Tetra Gilcrest, che disprezza profondamente gli strighi e li considera abomini, coglie l'occasione per istigare il re a sterminarli, costringendo Vesemir a collaborare proprio con lei per scoprire l'origine della minaccia. Le indagini portano alla luce Kitsu, un ibrido creato in segreto dai maghi di Kaer Morhen guidati da Deglan, mentore di Vesemir, nel tentativo di riprodurre con metodi meno crudeli la mutazione degli strighi. In parallelo, i flashback ambientati nel 1100 p.R. ripercorrono la giovinezza di Vesemir: nato in povertà e servitù, incontra per caso lo strigo Deglan e, spinto dal desiderio di riscattare sé stesso e la sua amata d'infanzia Illyana dalla miseria, lascia tutto per sottoporsi alla Prova delle Erbe e alle mutazioni a Kaer Morhen, diventando egli stesso uno strigo. Nel presente, si scopre che Tetra è figlia della maga uccisa da uno strigo nella leggenda che lei stessa raccontava per giustificare il suo odio, e la donna inganna Vesemir con un'illusione facendogli colpire per errore proprio Illyana, ormai adulta e diventata a sua volta maga di corte. Nello scontro finale, mentre Kaer Morhen viene assediata e data alle fiamme dagli uomini del re aizzati da Tetra, Deglan sacrifica la propria vita per abbattere la maga prima di morire a sua volta. Vesemir, distrutto dal rimorso per la morte di Illyana, decide di risparmiare Kitsu, riconoscendo che la creatura non aveva scelto di essere ciò che i maghi l'avevano resa, e sopravvive come uno degli ultimi testimoni di quella generazione di strighi, mentre la fortezza resta in gran parte in rovina.",
+              en: "The film alternates between two timelines. In the narrative present (1165 A.C.), the witcher Vesemir, now aged and seasoned, saves a noble child from a leshen in the forests near Ard Carraigh, capital of Kaedwen; the dying creature speaks words in an ancient, forbidden tongue, a sign that the forest is under a powerful curse. The court sorceress Tetra Gilcrest, who deeply despises witchers and considers them abominations, seizes the chance to push the king toward exterminating them, forcing Vesemir to work alongside her to uncover the source of the threat. The investigation uncovers Kitsu, a hybrid creature secretly created by the mages of Kaer Morhen, led by Vesemir's mentor Deglan, in an attempt to reproduce the witcher mutation through less cruel methods. In parallel, flashbacks set in 1100 A.C. trace Vesemir's youth: born into poverty and servitude, he crosses paths by chance with the witcher Deglan and, driven by the wish to free himself and his childhood sweetheart Illyana from misery, gives up everything to undergo the Trial of the Grasses and the mutations at Kaer Morhen, becoming a witcher himself. In the present, it is revealed that Tetra is the daughter of the sorceress killed by a witcher in the very legend she used to justify her hatred, and she deceives Vesemir with an illusion that makes him strike down Illyana by mistake, now grown and herself a court sorceress. In the final battle, as Kaer Morhen is besieged and set ablaze by the king's men incited by Tetra, Deglan sacrifices his own life to strike her down before dying himself. Vesemir, shattered by guilt over Illyana's death, chooses to spare Kitsu, recognizing that the creature never chose to become what the mages had made her, and survives as one of the last witnesses of that generation of witchers, while the keep is left largely in ruins."
+            }
+          },
+          {
+            id: "witcher-stagione-1",
+            type: "SERIE TV",
+            typeEn: "TV SERIES",
+            year: "8 episodi",
+            yearEn: "8 episodes",
+            releaseYear: "2019",
+            releaseYearEn: "2019",
+            title: {
+              it: "The Witcher: Stagione 1",
+              en: "The Witcher: Season 1"
+            },
+            synopsis: {
+              it: "La prima stagione intreccia tre linee temporali distinte, che convergono solo nel finale. Geralt di Rivia, strigo mercenario cinico ma dotato di un proprio codice morale, vaga per il Continente cacciando mostri e scontrandosi con il pregiudizio degli umani; a Cintra invoca la Legge della Sorpresa nei confronti del cavaliere Duny (l'\"Urcheon di Erlenwald\") per avergli salvato la vita, reclamando senza saperlo il destino della neonata principessa Ciri. Parallelamente, decenni prima, la giovane Yennefer di Vengerberg, gobba e maltrattata, viene trasformata tramite dolorosi rituali di magia del caos in una potente e bellissima maga presso la scuola di Aretuza, per poi legarsi a Geralt tramite il desiderio di uno Jinn formulato male da entrambi. Nel presente più recente, la principessa Ciri fugge dal massacro di Cintra durante l'invasione di Nilfgaard, sopravvivendo nei boschi di Brokilon tra le driadi ed eludendo un doppler al servizio nilfgaardiano che l'aveva ingannata fingendosi il suo mentore Mousesack. Le tre storie confluiscono nella battaglia di Sodden Hill, dove la Confraternita dei Maghi, tra cui Yennefer, respinge l'avanzata nilfgaardiana: Yennefer, ferita gravemente, scatena un'esplosione di energia devastante e scompare, creduta morta da Tissaia e dagli altri maghi. Nel finale, Geralt, ferito dal morso di un mostro e diretto verso Cintra in cerca di Ciri, viene infine ricondotto alla ragazza grazie a una famiglia di contadini che l'aveva accolta: witcher e principessa si ritrovano finalmente, chiudendo la stagione con la Legge della Sorpresa compiuta.",
+              en: "The first season weaves together three distinct timelines that only converge in the finale. Geralt of Rivia, a cynical monster-hunting witcher who nonetheless lives by his own moral code, roams the Continent facing human prejudice; in Cintra he invokes the Law of Surprise against the knight Duny (the \"Urcheon of Erlenwald\") for saving his life, unknowingly claiming the fate of the newborn princess Ciri. In parallel, decades earlier, the young, hunchbacked and mistreated Yennefer of Vengerberg is transformed through painful chaos-magic rituals into a powerful, beautiful sorceress at the Aretuza school, later binding herself to Geralt through a djinn's wish poorly worded by both of them. In the most recent present, Princess Ciri flees the massacre of Cintra during Nilfgaard's invasion, surviving in the forest of Brokilon among the dryads and evading a doppler working for Nilfgaard who had deceived her by posing as her mentor Mousesack. The three storylines converge at the Battle of Sodden Hill, where the Brotherhood of Sorcerers, Yennefer among them, repels the Nilfgaardian advance: gravely wounded, Yennefer unleashes a devastating blast of energy and vanishes, presumed dead by Tissaia and the other mages. In the finale, Geralt, wounded by a monster's bite and heading toward Cintra in search of Ciri, is finally led to the girl thanks to a farming family who had taken her in: witcher and princess are reunited at last, closing the season with the Law of Surprise fulfilled."
+            }
+          },
+          {
+            id: "witcher-sirens-of-the-deep",
+            type: "FILM D'ANIMAZIONE",
+            typeEn: "ANIMATED FILM",
+            year: "Tra il 5° e il 6° episodio della Stagione 1",
+            yearEn: "Between episodes 5 and 6 of Season 1",
+            releaseYear: "2025",
+            releaseYearEn: "2025",
+            title: {
+              it: "The Witcher: Sirens of the Deep",
+              en: "The Witcher: Sirens of the Deep"
+            },
+            synopsis: {
+              it: "Film d'animazione prodotto da Studio Mir, adattamento libero del racconto breve \"Un piccolo sacrificio\", ambientato cronologicamente tra il quinto e il sesto episodio della prima stagione Netflix. Geralt viene assoldato per indagare su una serie di attacchi contro pescherecci in un villaggio costiero, scoprendo che dietro gli assalti si cela un'antica guerra tra umani e tritoni per il controllo del commercio delle perle. Al centro della vicenda c'è l'amore contrastato tra il principe Agloval e la sirena Sh'eenaz, che i rispettivi popoli osteggiano; mentre le tensioni degenerano in scontro aperto, Geralt scopre che il vero architetto della violenza è Melusina, una mutaforma capace di trasformarsi in kraken, mossa da un'antica rivalità con la propria sorella e segretamente in combutta con il re Usveldt, deciso a impedire a ogni costo le nozze del figlio. Nello scontro finale sul mare, Geralt affronta e sconfigge Melusina dall'interno della sua stessa forma mostruosa; Agloval e Sh'eenaz scelgono infine di stare insieme, ciascuno trasformandosi per raggiungere il mondo dell'altro, in un finale agrodolce che lascia comunque presagire che l'odio tra le due specie non sia del tutto sopito.",
+              en: "An animated film produced by Studio Mir, a loose adaptation of the short story \"A Little Sacrifice,\" set chronologically between the fifth and sixth episodes of the Netflix series' first season. Geralt is hired to investigate a string of attacks on fishing boats in a coastal village, uncovering an age-old war between humans and merfolk over control of the pearl trade. At the story's centre is the star-crossed love between Prince Agloval and the mermaid Sh'eenaz, opposed by both their peoples; as tensions spiral into open conflict, Geralt discovers that the true architect of the violence is Melusina, a shapeshifter capable of turning into a kraken, driven by an old rivalry with her own sister and secretly working with King Usveldt, determined to stop his son's marriage at any cost. In the climactic battle at sea, Geralt fights and defeats Melusina from within her monstrous kraken form; Agloval and Sh'eenaz finally choose to be together, each transforming to join the other's world, in a bittersweet ending that nonetheless hints the hatred between the two peoples is far from over."
+            }
+          },
+          {
+            id: "witcher-stagione-2",
+            type: "SERIE TV",
+            typeEn: "TV SERIES",
+            year: "8 episodi",
+            yearEn: "8 episodes",
+            releaseYear: "2021",
+            releaseYearEn: "2021",
+            title: {
+              it: "The Witcher: Stagione 2",
+              en: "The Witcher: Season 2"
+            },
+            synopsis: {
+              it: "Convinto che Yennefer sia morta a Sodden, Geralt conduce Ciri verso Kaer Morhen, la fortezza degli strighi, per proteggerla durante l'inverno. Lungo il tragitto affrontano una bruxa prima di essere accolti dai confratelli di Geralt e dal mentore Vesemir. La quiete è interrotta da Eskel, un altro strigo mutato in un leshy dopo essere stato contaminato da una foresta corrotta: per salvare Vesemir, Geralt è costretto a ucciderlo, portandone il peso della colpa. Yennefer, in realtà sopravvissuta ma privata dei propri poteri, incontra la Voleth Meir, un antico demone che le promette di restituirle la magia in cambio della cattura di Ciri, che la maga conduce controvoglia proprio a Kaer Morhen. Nel frattempo si scopre che Emhyr var Emreis, il temuto imperatore di Nilfgaard detto la Fiamma Bianca, è in realtà Duny, il padre biologico di Ciri creduto morto, ed è lui il vero mandante della caccia alla ragazza. Nel finale, la Voleth Meir possiede Ciri, che inizia a uccidere gli strighi nel sonno e apre un antico monolito nella fortezza, richiamando mostri all'interno delle mura. Yennefer, resasi conto del proprio errore, si offre come nuovo ospite al demone per liberare Ciri; la ragazza apre allora un portale verso un altro mondo, costringendo la Voleth Meir ad abbandonare anche Yennefer. Tornati sul Continente, Geralt, Yennefer e Ciri si riuniscono finalmente come famiglia, ma la stagione si chiude con la comparsa minacciosa della Caccia Selvaggia, pronta a reclamare Ciri.",
+              en: "Convinced Yennefer died at Sodden, Geralt leads Ciri to Kaer Morhen, the witchers' keep, to protect her through the winter. Along the way they face a bruxa before being welcomed by Geralt's fellow witchers and his mentor Vesemir. The calm is broken by Eskel, another witcher turned into a leshen after being tainted by a corrupted forest: to save Vesemir, Geralt is forced to kill him, carrying the guilt with him. Yennefer, who actually survived but was stripped of her powers, encounters Voleth Meir, an ancient demon who promises to restore her magic in exchange for capturing Ciri, whom the sorceress reluctantly brings to Kaer Morhen. Meanwhile it is revealed that Emhyr var Emreis, the feared Nilfgaardian emperor known as the White Flame, is in fact Duny, Ciri's biological father presumed dead, and the true mastermind behind the hunt for the girl. In the finale, Voleth Meir possesses Ciri, who begins killing witchers in their sleep and opens an ancient monolith within the keep, summoning monsters inside its walls. Realizing her mistake, Yennefer offers herself as the demon's new host to free Ciri; Ciri then opens a portal to another world, forcing Voleth Meir out of Yennefer as well. Back on the Continent, Geralt, Yennefer and Ciri are finally reunited as a family, but the season closes with the ominous appearance of the Wild Hunt, ready to claim Ciri."
+            }
+          },
+          {
+            id: "witcher-stagione-3",
+            type: "SERIE TV",
+            typeEn: "TV SERIES",
+            year: "8 episodi, pubblicata in due parti",
+            yearEn: "8 episodes, released in two parts",
+            releaseYear: "2023",
+            releaseYearEn: "2023",
+            title: {
+              it: "The Witcher: Stagione 3",
+              en: "The Witcher: Season 3"
+            },
+            synopsis: {
+              it: "Braccati da fazioni rivali (Nilfgaard, Redania, la Confraternita dei Maghi e lo stregone Rience, che agisce per conto di un misterioso mandante) tutte determinate a impossessarsi di Ciri per il suo sangue antico, Geralt, Yennefer e Ciri si nascondono viaggiando per il Continente, mentre Ciri comincia ad addestrarsi segretamente nella magia del caos sotto la guida di Yennefer. Le indagini rivelano che dietro Rience si cela Vilgefortz, rispettato membro della Confraternita, che non intende usare Ciri per una profezia dinastica ma vuole impossessarsi direttamente dei suoi poteri, dopo aver condotto esperimenti su ragazze di sangue elfico per replicarne le doti. Geralt affida Ciri e Yennefer ad Aretuza in vista del Concilio dei Maghi, sperando che la fortezza sull'isola di Thanedd sia il luogo più sicuro; qui, però, il Concilio degenera nel tradimento noto come Colpo di Thanedd, quando le fazioni della Confraternita si scontrano tra loro e gli Scoia'tael della regina elfica Francesca, alleati di Nilfgaard, irrompono nella fortezza scatenando una strage. Nella battaglia, Vilgefortz rivela il proprio tradimento, Ciri fugge sola nel caos separandosi da Geralt e Yennefer, e Tissaia de Vries, distrutta dai sensi di colpa per aver permesso il complotto, si toglie la vita davanti a Yennefer. Geralt, gravemente ferito, riesce infine a raggiungere e decapitare Rience, ponendo fine alla sua caccia, ma la stagione si chiude con Geralt, Yennefer e Ciri irrimediabilmente separati, ciascuno intrapreso in un proprio percorso, mentre a Nilfgaard viene annunciato un ballo per il \"ritorno\" di Ciri, spingendo Geralt a rimettersi in viaggio nonostante le ferite. È l'ultima stagione interpretata da Henry Cavill nel ruolo di Geralt.",
+              en: "Hunted by rival factions (Nilfgaard, Redania, the Brotherhood of Sorcerers, and the sorcerer Rience, acting on behalf of a mysterious employer) all determined to seize Ciri for her ancient bloodline, Geralt, Yennefer and Ciri go into hiding, traveling across the Continent while Ciri begins secretly training in chaos magic under Yennefer's guidance. The investigation reveals that Vilgefortz, a respected member of the Brotherhood, is the one pulling Rience's strings; rather than wanting Ciri for a dynastic prophecy, he intends to seize her powers directly, having already conducted experiments on girls of elven blood to replicate her gifts. Geralt entrusts Ciri and Yennefer to Aretuza ahead of the Conclave of Mages, hoping the fortress on Thanedd Island will be the safest place for them; instead, the Conclave collapses into the betrayal known as the Thanedd Coup, as the Brotherhood's factions turn on each other and the Scoia'tael of the elven queen Francesca, allied with Nilfgaard, storm the fortress in a bloody massacre. During the battle Vilgefortz reveals his treachery, Ciri flees alone into the chaos and is separated from Geralt and Yennefer, and Tissaia de Vries, consumed by guilt for having enabled the plot, takes her own life in front of Yennefer. Gravely wounded, Geralt finally manages to catch and behead Rience, ending his pursuit, but the season closes with Geralt, Yennefer and Ciri irreparably scattered, each on their own path, while Nilfgaard announces a ball to celebrate Ciri's \"return,\" spurring Geralt back on the road despite his wounds. This is the last season starring Henry Cavill as Geralt."
+            }
+          },
+          {
+            id: "witcher-the-rats-a-witcher-tale",
+            type: "LIVE ACTION",
+            typeEn: "LIVE ACTION",
+            year: "Tra la Stagione 3 e la Stagione 4",
+            yearEn: "Between Season 3 and Season 4",
+            releaseYear: "2025",
+            releaseYearEn: "2025",
+            title: {
+              it: "The Rats: A Witcher Tale",
+              en: "The Rats: A Witcher Tale"
+            },
+            synopsis: {
+              it: "Spin-off in forma di film, pubblicato in contemporanea con la quarta stagione della serie principale e ambientato immediatamente prima dell'incontro dei Ratti con Ciri, a cavallo tra la terza e la quarta stagione. La storia segue la banda di giovani fuorilegge, Mistle, Asse, Giselher, Iskra, Kayleigh e Reef, induriti dalla guerra che devasta il Continente, mentre pianificano il colpo più rischioso della loro carriera: infiltrarsi nell'arena del mercante Dominik Houvenaghel per derubarla, aggirando un pericoloso jalowick, un mostro creato con mezzi alchemici a guardia del tesoro. Per riuscire nell'impresa reclutano Brehen, uno strigo della Scuola del Gatto ormai ai margini, interpretato da Dolph Lundgren. Nel corso del colpo, Mistle scopre con orrore che il jalowick è in realtà Juniper, la sua ex amante creduta morta, trasformata in mostro con la magia; costretta a ucciderla per salvare il gruppo, la ragazza porta con sé un lutto che si somma alla tragedia collettiva della banda. Il colpo attira l'attenzione del temibile cacciatore di taglie Leo Bonhart, legato a Houvenaghel: Brehen si sacrifica chiudendosi in una camera blindata con lui per permettere ai Ratti la fuga, mentre Bonhart promette che li stanerà comunque, ponendo le basi per la caccia che li porterà, più avanti, a incrociare la strada di Ciri.",
+              en: "A spin-off film released alongside the main series' fourth season, set immediately before the Rats cross paths with Ciri, on the cusp between the third and fourth seasons. The story follows the gang of young outlaws, Mistle, Asse, Giselher, Iskra, Kayleigh and Reef, hardened by the war ravaging the Continent, as they plan their riskiest heist yet: infiltrating merchant Dominik Houvenaghel's arena to rob it, bypassing a dangerous jalowick, a monster created through alchemy to guard the treasure. To pull it off they recruit Brehen, a washed-up witcher of the Cat School, played by Dolph Lundgren. During the heist, Mistle discovers in horror that the jalowick is actually Juniper, her former lover long presumed dead, transformed into a monster through magic; forced to kill her to save the group, Mistle carries a grief that compounds the gang's collective tragedy. The heist draws the attention of the fearsome bounty hunter Leo Bonhart, tied to Houvenaghel: Brehen sacrifices himself, locking himself in a vault with Bonhart to let the Rats escape, while Bonhart vows he will hunt them down regardless, setting the stage for the pursuit that will eventually lead them to cross paths with Ciri."
+            }
+          },
+          {
+            id: "witcher-stagione-4",
+            type: "SERIE TV",
+            typeEn: "TV SERIES",
+            year: "8 episodi",
+            yearEn: "8 episodes",
+            releaseYear: "2025",
+            releaseYearEn: "2025",
+            title: {
+              it: "The Witcher: Stagione 4",
+              en: "The Witcher: Season 4"
+            },
+            synopsis: {
+              it: "Prima stagione a vedere Liam Hemsworth nei panni di Geralt di Rivia, subentrato a Henry Cavill. Dopo il tradimento di Vilgefortz e la separazione forzata del trio a Thanedd, Geralt, ancora convalescente dalle ferite riportate nello scontro, si mette in viaggio verso sud per cercare Ciri insieme al bardo Jaskier e alla leggendaria arciera Milva, incrociando lungo il cammino nuovi alleati come il misterioso barbiere-chirurgo (e vampiro secolare) Emiel Regis e i nani viaggiatori Zoltan e Percival. Yennefer, rimasta ad Aretuza, si adopera per riorganizzare quel che resta della Confraternita dei Maghi dopo il Colpo di Thanedd, cercando allo stesso tempo di scoprire fino in fondo il piano di Vilgefortz. Ciri, creduta morta da molti, sopravvive fingendosi un ragazzo e si unisce ai Ratti, una banda di giovani fuorilegge, cedendo sempre più alla propria rabbia e a un lato oscuro di sé mentre affina il controllo del proprio potere. Sullo sfondo, l'imperatore Emhyr var Emreis, rivelatosi il padre biologico di Ciri, intensifica la caccia alla figlia insieme al mago Xarthisius. Nel finale, il crudele cacciatore di strighi Leo Bonhart intrappola e stermina i Ratti uno a uno davanti agli occhi di Ciri, incluso il brutale assassinio della sua compagna Mistle, lasciando la ragazza catturata e indifesa nelle sue mani. Parallelamente, Geralt, dopo essersi distinto in battaglia al fianco della regina Meve di Lyria e Rivia, viene da lei nominato cavaliere, ottenendo così a pieno titolo il nome \"Geralt di Rivia\"; il titolo comporta però un giuramento di fedeltà esclusiva alla regina, che blocca sul nascere la sua ricerca di Ciri proprio mentre lei ne avrebbe più bisogno.",
+              en: "The first season to feature Liam Hemsworth as Geralt of Rivia, taking over from Henry Cavill. After Vilgefortz's betrayal and the trio's forced separation at Thanedd, Geralt, still recovering from his wounds, travels south in search of Ciri alongside the bard Jaskier and the legendary archer Milva, meeting new allies along the way such as the mysterious centuries-old vampire barber-surgeon Emiel Regis and the traveling dwarves Zoltan and Percival. Yennefer, left at Aretuza, works to rebuild what remains of the Brotherhood of Sorcerers after the Thanedd Coup while trying to fully uncover Vilgefortz's plan. Ciri, presumed dead by many, survives disguised as a boy and joins the Rats, a gang of young outlaws, increasingly giving in to her rage and a darker side of herself as she sharpens control over her power. In the background, Emperor Emhyr var Emreis, revealed as Ciri's biological father, intensifies the hunt for his daughter alongside the mage Xarthisius. In the finale, the ruthless witcher-hunter Leo Bonhart traps and slaughters the Rats one by one in front of Ciri, including the brutal killing of her partner Mistle, leaving the girl captured and defenseless in his hands. In parallel, after distinguishing himself in battle alongside Queen Meve of Lyria and Rivia, Geralt is knighted by her, finally earning in full the name \"Geralt of Rivia\"; the title, however, comes with an oath of exclusive loyalty to the queen, which halts his search for Ciri right when she needs it most."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   wolfenstein: {
     id: "wolfenstein",
     listTitle: { it: "Wolfenstein", en: "Wolfenstein" },
@@ -7066,5 +7864,5 @@ const GAME_ORDER = [
   "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat",
   "persona", "pokemon", "prince-of-persia", "resident-evil", "silent-hill",
   "elder-scrolls", "legend-of-zelda", "tomb-raider",
-  "remedy-universe", "warcraft", "wolfenstein", "yakuza"
+  "remedy-universe", "warcraft", "the-witcher", "wolfenstein", "yakuza"
 ];
