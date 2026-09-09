@@ -1813,6 +1813,56 @@ una regola scritta univoca - reversibile in un ciclo successivo se
 Sakrem preferisce l'architettura a 3 universi separati. Dettaglio
 completo nel report di sessione.
 
+## Pokémon
+
+### Nota per Sakrem - ciclo interrotto scoperto e corretto
+
+Richiamo mirato notturno (2/11 saghe assegnate direttamente da
+Sakrem). La saga era pubblicata con `canonNote.intro` +
+`canonNote.titles` (una singola stringa riassuntiva) + `canonNote.outro`,
+ma **priva del campo `chain`** che invece tutte le altre saghe con
+cronologia fan-made incerta (es. Doom) usano per elencare i singoli
+titoli in ordine. Il `titles` esistente non veniva mai renderizzato dal
+sito (campo morto) e conteneva inoltre titoli scritti in inglese anche
+nel testo IT. Il Supervisore ha ricostruito la `chain` (12 titoli
+mainline, compresi Leggende Pokémon: Arceus e Leggende Pokémon: Z-A) e
+ha scelto di adottare solo `canonNote.chain`, non la struttura piena a
+`universes`/`entries` usata dalle saghe con voci STORIA autonome:
+motivazione tecnica, non di merito - il `canonNote` di Pokémon non ha
+mai avuto quella struttura, e introdurla avrebbe richiesto inventare
+meccanismi (nuove voci, nuovi universi) fuori dallo scope di un
+richiamo mirato sulla sola cronologia. Per questo motivo la
+raccomandazione originale del Selezionatore di includere anche Pokémon
+Horizons (stagione 3), il manga Pokémon Adventures, Pokémon Tales e
+Pokémon Wild Card **non è stata seguita**: quella struttura non ha dove
+ospitarli senza una revisione più ampia. Punto da rivalutare in futuro
+se Sakrem desidera per Pokémon una struttura più ricca (a
+universi/voci) invece della sola `chain` testuale.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da popolare)
+
+- **Proposta**: popolare il campo `tracks` della saga (attualmente
+  `[]`, mai popolato) con una playlist di 7 brani: Battle! Cynthia
+  (*Pokémon Diamante/Perla/Platino*), Lavender Town (*Pokémon
+  Rosso/Blu/Giallo*), Battle! Champion Iris (*Pokémon Nero 2/Bianco
+  2*), Route 1 (*Pokémon Rosso/Blu/Giallo*), N's Theme (*Pokémon
+  Nero/Bianco*), Battle! Champion (Lance/Red) (*Pokémon
+  Rosso/Blu/Giallo*), Team Rocket Battle Theme (*Pokémon
+  Rosso/Blu/Giallo*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione per fama/
+  gradimento reale (poll ufficiale Famitsu novembre 2024 + rassegne
+  critiche/fan indipendenti), con particolare peso su Rosso/Blu/Giallo
+  e Diamante/Perla/Platino.
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 2/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i
+  brani sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo resta `tracks: []` fino al
+  caricamento.
+
 ## The Witcher
 
 ### Musica
