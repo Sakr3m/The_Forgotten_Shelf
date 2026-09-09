@@ -1620,3 +1620,77 @@ alle semplici aggiunte di voci:
   MK11). Scartata prima della fase di scrittura, nessuna sinossi mai
   prodotta per questa voce - esempio positivo di controllo qualità
   della catena, segnalato anche nel report a Sakrem.
+
+## Prince of Persia
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare/popolare)
+
+- **Proposta**: popolare il campo `tracks` della saga (attualmente
+  `[]`, mai popolato) con una playlist di 7 brani: I Stand Alone
+  (Godsmack) (*Warrior Within*), Main Theme (*The Two Thrones*), Time
+  Only Knows (Stuart Chatwood feat. Cindy Gomez) (*Sands of Time*),
+  Main Theme (*Prince of Persia*, 2008), Welcome Within (Stuart
+  Chatwood) (*Warrior Within*), Main Theme (*The Lost Crown*), Welcome
+  to Persia (Stuart Chatwood) (*Sands of Time*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di tutti e 4 gli universi già
+  pubblicati (Continuità Originale esclusa, nessun brano iconico
+  individuato per quei tre titoli). Ordine rivisto dal Supervisore in
+  revisione finale rispetto alla proposta originale del Musicista, per
+  evitare che tre tracce "Main Theme" risultassero adiacenti in
+  sequenza.
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 7/10, ultima
+  delle 7 saghe assegnate direttamente da Sakrem prima del passaggio
+  al Project Manager).
+- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i
+  brani sono nuovi per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo resta `tracks: []` fino al
+  caricamento.
+
+### Media aggiunti
+
+Saga già pubblicata, ampliata da 4 a 5 universi in questo ciclo: 1
+nuovo universo (1 voce, universo e voce coincidenti, stesso pattern
+già usato per `lost-crown`), nessuna aggiunta a universi già
+esistenti - richiamo mirato, 2026-09-09.
+
+- Nuovo universo **The Rogue Prince of Persia** (`rogue-prince-of-
+  persia`, span 2024 – 2025, 1 voce, scollegato volutamente dagli
+  altri 4 universi, nessun `universeLink`) - richiamo mirato,
+  2026-09-09.
+- `rogue-prince-of-persia` - The Rogue Prince of Persia (VIDEOGIOCO,
+  2024-2025) - voce a sé, unica voce del nuovo universo - richiamo
+  mirato, 2026-09-09.
+
+### Nota procedurale - 3 annotazioni a voci esistenti, prime sequenze gradient per-universo
+
+Richiamo mirato (7/10, ultima delle 7 saghe assegnate direttamente da
+Sakrem in questa sessione notturna prima del passaggio al Project
+Manager per le 3 saghe finali) - oltre al nuovo universo/voce sopra,
+alcune modifiche a voci già pubblicate:
+
+- **3 annotazioni a voci esistenti** (non nuovi media, non comparse
+  quindi in "Media aggiunti"):
+  - `pop-1989`: releaseYear aggiornato da "1989" a "1989 (Remake:
+    2007)" (releaseYearEn allineato) - nessuna modifica alla sinossi.
+  - `two-thrones`: releaseYear aggiornato da "2005" a "2005 (Rival
+    Swords: 2007)" (releaseYearEn allineato) - nessuna modifica alla
+    sinossi.
+  - `lost-crown`: sinossi integrata in coda con un nuovo paragrafo
+    sul DLC narrativo Mask of Darkness (settembre 2024, Radjen e il
+    Mind Palace), testo completo con dettaglio Kushan/villaggio
+    natale distrutto - releaseYear resta "2024" invariato.
+- **5 sequenze gradient per-universo** (campo nuovo, mai usato prima
+  sul sito - schema tecnico lasciato al Programmatore, es. array di
+  hex per ciascun oggetto `universe`): Continuità Originale (`#c9a227
+  → #8a4a1f`), Le Sabbie del Tempo (`#c9a227 → #2e6b6b → #7a1620 →
+  #5b3a7a`), Reboot 2008 (`#241f2e → #c9a227`), The Lost Crown
+  (`#c9a227 → #3a2e6b`), The Rogue Prince of Persia (`#e8622f →
+  #c9a227`). `palette` e `accentColor` a livello di saga restano
+  invariati.
+- Nessuna immagine/watermark disponibile per la nuova voce/universo in
+  questo ciclo (nessun asset caricato su R2).

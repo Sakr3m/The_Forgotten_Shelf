@@ -5773,8 +5773,9 @@ const GAMES = {
         name: { it: "Continuità Originale", en: "Original Continuity" },
         span: { it: "1989 – 1999", en: "1989 – 1999" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
+        palette: ["#c9a227", "#8a4a1f"],
         entries: [
-          { id: "pop-1989", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1989", releaseYear: "1989", releaseYearEn: "1989",
+          { id: "pop-1989", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1989", releaseYear: "1989 (Remake: 2007)", releaseYearEn: "1989 (Remake: 2007)",
             title: { it: "Prince of Persia", en: "Prince of Persia" },
             synopsis: {
               it: "Un principe senza nome ha sessanta minuti per fuggire dai sotterranei del palazzo, sconfiggere il visir malvagio Jaffar e salvare la principessa che ama, costretta a sposarlo entro un'ora o a morire. Il capostipite del genere platform cinematico, capace di introdurre animazioni fluide e realistiche per l'epoca.",
@@ -5802,6 +5803,7 @@ const GAMES = {
         name: { it: "Le Sabbie del Tempo", en: "The Sands of Time" },
         span: { it: "Persia leggendaria", en: "Legendary Persia" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
+        palette: ["#c9a227", "#2e6b6b", "#7a1620", "#5b3a7a"],
         entries: [
           { id: "sands-of-time", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "primo della saga",
             releaseYear: "2003", releaseYearEn: "2003",
@@ -5828,7 +5830,7 @@ const GAMES = {
             }
           },
           { id: "two-thrones", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seguito diretto di Warrior Within",
-            releaseYear: "2005", releaseYearEn: "2005",
+            releaseYear: "2005 (Rival Swords: 2007)", releaseYearEn: "2005 (Rival Swords: 2007)",
             title: { it: "The Two Thrones", en: "The Two Thrones" },
             synopsis: {
               it: "Tornato a Babilonia con Kaileena, il Principe la vede uccisa dal visir, che ne assorbe i poteri e scatena nuovamente le Sabbie, infettando lo stesso Principe con un lato oscuro violento. Sconfitto il visir e domato il proprio alter ego, il Principe usa infine il pugnale per riscrivere gli eventi e salvare Kaileena, chiudendo la trilogia.",
@@ -5842,6 +5844,7 @@ const GAMES = {
         name: { it: "Reboot 2008", en: "2008 Reboot" },
         span: { it: "Continuità indipendente", en: "Independent continuity" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
+        palette: ["#241f2e", "#c9a227"],
         entries: [
           { id: "pop-2008", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "continuità propria",
             releaseYear: "2008", releaseYearEn: "2008",
@@ -5858,18 +5861,37 @@ const GAMES = {
         name: { it: "The Lost Crown (continuità propria, non dichiarata)", en: "The Lost Crown (own, undeclared continuity)" },
         span: { it: "Persia mitologica", en: "Mythological Persia" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
+        palette: ["#c9a227", "#3a2e6b"],
         entries: [
           { id: "lost-crown", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "non collegato alle precedenti",
             releaseYear: "2024", releaseYearEn: "2024",
             title: { it: "The Lost Crown", en: "The Lost Crown" },
             synopsis: {
-              it: "Sargon, guerriero d'élite del Clan degli Immortali, insegue il rapitore del principe Ghassan fino al Monte Qaf, un luogo dove il tempo scorre in modo instabile, scoprendo lungo il cammino segreti sul proprio passato e su un'antica maledizione. Capitolo più recente della saga, con struttura metroidvania invece che platform lineare, che Ubisoft stessa non ha mai chiarito collegare a nessuna delle tre continuità precedenti.",
-              en: "Sargon, an elite warrior of the Immortals Clan, pursues the kidnapper of Prince Ghassan to Mount Qaf, a place where time flows unstably, uncovering secrets about his own past and an ancient curse along the way. The saga's most recent chapter, with a metroidvania structure instead of linear platforming, which Ubisoft itself has never clarified as connecting to any of the three previous continuities."
+              it: "Sargon, guerriero d'élite del Clan degli Immortali, insegue il rapitore del principe Ghassan fino al Monte Qaf, un luogo dove il tempo scorre in modo instabile, scoprendo lungo il cammino segreti sul proprio passato e su un'antica maledizione. Capitolo più recente della saga, con struttura metroidvania invece che platform lineare, che Ubisoft stessa non ha mai chiarito collegare a nessuna delle tre continuità precedenti.\n\nNota - Mask of Darkness (settembre 2024): ultimo contenuto della roadmap post-lancio, dopo tre aggiornamenti gratuiti precedenti, introduce un'area interconnessa sul Monte Qaf legata a Radjen, l'assassina mascherata degli Immortali che fin dall'ingresso di Sargon nella montagna aveva giurato di ucciderlo. Radjen intrappola infine Sargon dentro la propria maschera, trascinandolo in un Mind Palace: una dimensione onirica e distorta creata dalla sua magia oscura, raggiungibile da una stanza nascosta nella Lower City del Monte Qaf. Privato della maggior parte dei suoi poteri temporali (conserva solo lo scatto aereo e l'ombra del Simurgh) e con salute e frecce ridotte, Sargon esplora questo incubo scoprendo, frammento dopo frammento, il trauma che ha plasmato Radjen: il villaggio natale distrutto dai Kushan e la madre uccisa sotto i suoi occhi. Affrontando nuovi nemici e scontri che sono proiezioni di quel dolore, Sargon arriva a comprendere che Radjen non potrà mai liberarsi davvero del proprio passato.\n\nNessun seguito diretto risulta attualmente in sviluppo: nell'ottobre 2024 Ubisoft ha smantellato il team di Ubisoft Montpellier autore del gioco, e un sequel proposto dagli sviluppatori è stato respinto dalla stessa Ubisoft nonostante l'accoglienza critica positiva.",
+              en: "Sargon, an elite warrior of the Immortals Clan, pursues the kidnapper of Prince Ghassan to Mount Qaf, a place where time flows unstably, uncovering secrets about his own past and an ancient curse along the way. The saga's most recent chapter, with a metroidvania structure instead of linear platforming, which Ubisoft itself has never clarified as connecting to any of the three previous continuities.\n\nNote — Mask of Darkness (September 2024): the final content of the post-launch roadmap, after three previous free updates, adds an interconnected area on Mount Qaf tied to Radjen, the masked Immortals assassin who had sworn to kill Sargon from the moment he first entered the mountain. Radjen finally traps Sargon inside her own mask, pulling him into a Mind Palace: a twisted, nightmarish dimension created by her dark magic, reachable from a hidden room in Mount Qaf's Lower City. Stripped of most of his time powers (keeping only the Simurgh's air dash and shadow ability) and with reduced health and arrows, Sargon explores this nightmare, uncovering piece by piece the trauma that shaped Radjen: her home village destroyed by the Kushans and her mother killed before her eyes. Facing new enemies and battles that are projections of that pain, Sargon comes to understand that Radjen will never truly escape her past.\n\nNo direct sequel is currently in development: in October 2024 Ubisoft disbanded Ubisoft Montpellier's team behind the game, and a sequel pitched by the developers was turned down by Ubisoft itself despite the game's positive critical reception."
+            }
+          }
+        ]
+      },
+      {
+        id: "rogue-prince-of-persia",
+        name: { it: "The Rogue Prince of Persia (continuità propria, non dichiarata)", en: "The Rogue Prince of Persia (own, undeclared continuity)" },
+        span: { it: "2024 – 2025", en: "2024 – 2025" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Prince%20of%20Persia%20Filigrana.jpg",
+        palette: ["#e8622f", "#c9a227"],
+        entries: [
+          { id: "rogue-prince-of-persia", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "non collegato alle precedenti",
+            releaseYear: "2024 – 2025", releaseYearEn: "2024 – 2025",
+            title: { it: "The Rogue Prince of Persia", en: "The Rogue Prince of Persia" },
+            synopsis: {
+              it: "Roguelike 2D sviluppato da Evil Empire, già co-sviluppatore di Dead Cells, in collaborazione con Ubisoft. Il protagonista, il Principe, primogenito dei due figli del re Peroz di Persia, sfida in duello Nogai, il condottiero degli Unni, ma viene atterrato e resta privo di sensi per tre giorni: il tempo sufficiente perché l'invasione unna, forse innescata proprio dalla sua provocazione, travolga la capitale Tisfun. Grazie a un medaglione che lo resuscita ogni volta in un accampamento nell'oasi appena fuori città, il Principe si ritrova intrappolato in un ciclo di morti e rinascite e deve farsi strada run dopo run attraverso le forze unne per raggiungere Nogai. La narrazione è distribuita nella tipica struttura roguelike (morte permanente, livelli rigenerati a ogni tentativo, progressione di equipaggiamento e abilità tra una run e l'altra): a ogni tentativo il Principe scopre nuovi indizi, libera alleati, sblocca dialoghi e aree inedite, ricostruendo poco a poco cosa sia realmente accaduto e tentando di cambiare il destino del suo popolo. In accesso anticipato su Steam dal 27 maggio 2024, il gioco raggiunge la versione 1.0 completa su PS5, Xbox Series e PC il 20 agosto 2025 (Switch e Switch 2 seguono il 16 dicembre 2025), aggiungendo il biomo finale e lo scontro con Nogai nella sala del trono del palazzo: sconfiggendolo si ferma l'invasione, ma il vero epilogo si ottiene solo completando tutti gli indizi e le missioni narrative sparse nelle run, un finale che porta all'incontro con il re Peroz, padre del Principe. Gli sviluppatori (il direttore artistico Dylan Eurlings e la game director Lucie Dewagnier) hanno definito il progetto \"a totally new story and new universe\", scollegato esplicitamente da ogni altra continuità della saga, dalla Continuità Originale alla trilogia delle Sabbie del Tempo, dal Reboot 2008 a The Lost Crown.",
+              en: "A 2D roguelike developed by Evil Empire, the co-developers of Dead Cells, in collaboration with Ubisoft. The protagonist, the Prince, eldest of the two sons of King Peroz of Persia, challenges Nogai, leader of the Huns, to a duel, only to be knocked out and left unconscious for three days: long enough for the Hun invasion, possibly triggered by his own provocation, to overrun the capital city of Tisfun. Thanks to a medallion that revives him each time at an oasis camp just outside the city, the Prince becomes trapped in a cycle of death and rebirth, forced to fight his way run after run through the Hun forces to reach Nogai. The story unfolds through the genre's typical roguelike structure (permadeath, regenerated levels on each attempt, and gear/ability progression carried between runs): with every attempt the Prince uncovers new clues, rescues allies, and unlocks new dialogue and areas, gradually piecing together what really happened and trying to change his people's fate. Released into Steam Early Access on May 27, 2024, the game reached its full 1.0 release on PS5, Xbox Series, and PC on August 20, 2025 (with Switch and Switch 2 following on December 16, 2025), adding the final biome and a confrontation with Nogai in the palace's throne room: defeating him stops the invasion, but the true ending is only unlocked by completing all the story clues and quests scattered across runs, culminating in a meeting with King Peroz, the Prince's father. The developers (art director Dylan Eurlings and game director Lucie Dewagnier) have described the project as \"a totally new story and new universe,\" explicitly disconnected from every other continuity in the saga, from the Original Continuity to the Sands of Time trilogy, the 2008 Reboot, and The Lost Crown."
             }
           }
         ]
       }
-    ]
+    ],
+    lastAgentPass: "2026-09-09"
   },
 
   pokemon: {
