@@ -7045,6 +7045,7 @@ const GAMES = {
 
   "remedy-universe": {
     id: "remedy-universe",
+    lastAgentPass: "2026-09-10",
     listTitle: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Universo Connesso di Remedy", en: "Remedy Connected Universe" },
@@ -7058,7 +7059,7 @@ const GAMES = {
       {
         id: "main",
         name: { it: "RCU", en: "RCU" },
-        span: { it: "2010 – 2025", en: "2010 – 2025" },
+        span: { it: "2010 – 2026", en: "2010 – 2026" },
         entries: [
           { id: "rcu-background", type: "BACKGROUND", typeEn: "BACKGROUND", year: "—",
             title: { it: "RCU", en: "RCU" },
@@ -7067,7 +7068,7 @@ const GAMES = {
               en: "The Remedy Connected Universe (RCU) is Remedy Entertainment's shared universe, built retroactively from 2020 onward — when Sam Lake officially confirmed the project's existence on the occasion of Control's AWE DLC. The RCU was never born from a precise plan: Remedy's games have always contained mutual references, but only with Control and Alan Wake 2 did these rise from easter eggs to genuine canon. The universe revolves around the concept of the Altered World Event (AWE): paranormal phenomena that defy known physics, which the FBC — the Federal Bureau of Control, a secret government agency — studies, contains, and covers up.\n\nCore Concepts of the RCU\n\nThe Dark Place is a parallel dimension that feeds on creativity — artists, writers, and musicians become trapped within it and are used to generate alternative reality. Cauldron Lake, in Bright Falls, Washington, is a Threshold: a physical connection between the real world and the Dark Place. The FBC classifies every paranormal manifestation as an AWE and maintains its operational headquarters in the Oldest House — a New York building that exists across multiple dimensions simultaneously and does not appear on any map. The Hiss is a resonant entity that infected and corrupted the Oldest House during the events of Control. These conceptual structures interweave throughout the entire universe."
             }
           },
-          { id: "alan-wake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010", releaseYear: "2010", releaseYearEn: "2010",
+          { id: "alan-wake", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2010", releaseYear: "2010 (Remaster: 2021)", releaseYearEn: "2010 (Remaster: 2021)",
             title: { it: "Alan Wake", en: "Alan Wake" },
             synopsis: {
               it: "Alan Wake è uno scrittore famoso in crisi creativa che arriva a Bright Falls con la moglie Alice in cerca di ispirazione. Quando Alice scompare nel lago di Cauldron Lake, una soglia verso il Luogo Oscuro, Alan inizia a trovare pagine di un manoscritto horror che non ricorda di aver scritto, ma che descrive gli eventi che si stanno verificando intorno a lui in tempo reale. La Presenza Oscura, un'entità che abita il Luogo Oscuro, sta usando la sua capacità creativa per manifestarsi nel mondo reale attraverso i Posseduti: persone e oggetti corrotti dall'oscurità, che può essere bruciata via dalla luce. Alan scopre che Thomas Zane, un poeta finlandese scomparso nel 1970, era rimasto intrappolato nel Luogo Oscuro e aveva cercato di combattere la Presenza Oscura con la stessa arma: la scrittura. Il gioco si conclude con Alan che si tuffa nel lago per liberare Alice, prendendo il suo posto nel Luogo Oscuro.\n\nI DLC Il Segnale (The Signal) e Lo Scrittore (The Writer) sono parte integrante del canone e mostrano Alan nel Luogo Oscuro mentre inizia a lavorare su un nuovo manoscritto chiamato Ritorno (Return), quello che porterà agli eventi di Alan Wake 2.",
@@ -7115,6 +7116,18 @@ const GAMES = {
               it: "Primo gioco multiplayer cooperativo di Remedy. Sei anni dopo gli eventi di Control, l'Oldest House è ancora in lockdown e l'Hiss non ha ceduto. I giocatori, in squadre da tre, interpretano agenti della Firebreak Unit, un corpo speciale dell'FBC specializzato nel contenimento di crisi paranormali all'interno dell'edificio. Jesse Faden è assente fisicamente ma viene menzionata come impegnata in questioni di maggiore portata. Il gioco introduce nuova lore sull'Oldest House e sullo stato dell'FBC negli anni successivi a Control, preparando il terreno narrativo per Control Resonant.",
               en: "Remedy's first cooperative multiplayer game. Six years after the events of Control, the Oldest House is still in lockdown and the Hiss has not relented. Players — in squads of three — take on the roles of Firebreak Unit agents, an FBC special response team specializing in the containment of paranormal crises within the building. Jesse Faden is physically absent but is mentioned as being occupied with matters of greater importance. The game introduces new lore about the Oldest House and the FBC's state in the years following Control, laying the narrative groundwork for Control Resonant."
             }
+          },
+          {
+            id: "control-resonant",
+            type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "2026", yearEn: "2026",
+            title: { it: "Control Resonant", en: "Control Resonant" },
+            // Sinossi non presente di proposito: titolo non ancora uscito
+            // (uscita attesa 24 settembre 2026). imagePending fa comparire
+            // il riquadro segnaposto con la data, come da convenzione sito.
+            imagePending: true,
+            releaseDateShort: { it: "24 settembre 2026", en: "September 24, 2026" },
+            releaseDateISO: "2026-09-24"
           }
         ]
       }
