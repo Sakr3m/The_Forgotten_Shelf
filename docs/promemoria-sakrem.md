@@ -1684,6 +1684,168 @@ stesso meccanismo appena costruito) o in un secondo momento resta
 comunque di chi gestisce la consegna di quella saga - il testo IT/EN
 delle 5 voci è già pronto e verificato da prima, nessun lavoro perso.
 
+## Metroid
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo): un
+solo universo ("La Galassia di Metroid" / "The Metroid Galaxy",
+`metroid-manga` → `metroid-dread`) e 13 nuove voci, tutte inserite
+nella stessa sessione notturna, 2026-09-10. Nessuna voce gemella,
+nessuna voce STORIA. Ordine delle 13 voci scelto per **cronologia
+narrativa interna**, non per anno di uscita (motivo per cui Metroid
+Prime Hunters, 2006, precede Metroid Prime 2: Echoes, 2004, e Metroid
+Fusion, 2002, arriva dopo Metroid Prime 4: Beyond, 2025).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Brinstar" (tema)
+  (*Metroid*/*Metroid: Zero Mission*), "Phendrana Drifts" (*Metroid
+  Prime*), "Lower Norfair" (*Super Metroid*), "Kraid's Lair" (tema)
+  (*Metroid*/*Metroid: Zero Mission*), "Ridley's Theme" (*Super
+  Metroid*), "Ending Theme" (*Metroid*/*Metroid: Zero Mission*),
+  "Chozo Ruins" (Ancient Chozo Ruins) (*Metroid Prime*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community (TV Tropes, ResetEra,
+  Wikitroid/Metroid Fandom, Hardcore Gamer, Digital Trends, Metacritic),
+  non su gusto personale. Concentrazione volontaria su soli 3 titoli
+  (Metroid 1986/Zero Mission, Super Metroid, Metroid Prime) perché è lì
+  che si concentra la fama reale verificata; gli altri 9 titoli
+  confermati della saga restano fuori dalla selezione (Metroid Dread in
+  particolare più volte descritto dalla community come OST meno
+  memorabile della saga). Copertura sia della linea 2D classica sia
+  della sotto-serie Prime, come richiesto. Nessuna coppia di tracce
+  dello stesso titolo adiacente in ordine.
+- **Data**: 2026-09-10 (sessione notturna, 2/3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 13 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **La Galassia di Metroid** (`metroid-manga` →
+  `metroid-dread`, span 1986 – 2025, 13 voci) - sessione notturna,
+  2026-09-10.
+- `metroid-manga` - Metroid (MANGA, Kodansha/Magazine Z, 2003-2004,
+  mai pubblicato ufficialmente in italiano) - voce a sé, prima voce
+  della saga - sessione notturna, 2026-09-10.
+- `metroid-zero-mission` - Metroid (VIDEOGIOCO, 1986, include il
+  remake Metroid: Zero Mission, 2004, voce unica) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `metroid-prime` - Metroid Prime (VIDEOGIOCO, 2002, include il
+  remaster Metroid Prime Remastered, 2023) - voce a sé - sessione
+  notturna, 2026-09-10.
+- `metroid-prime-hunters` - Metroid Prime Hunters (VIDEOGIOCO, 2006) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `metroid-prime-2-echoes` - Metroid Prime 2: Echoes (VIDEOGIOCO,
+  2004) - voce a sé - sessione notturna, 2026-09-10.
+- `metroid-prime-3-corruption` - Metroid Prime 3: Corruption
+  (VIDEOGIOCO, 2007) - voce a sé - sessione notturna, 2026-09-10.
+- `metroid-prime-federation-force` - Metroid Prime: Federation Force
+  (VIDEOGIOCO, 2016) - voce a sé - sessione notturna, 2026-09-10.
+- `metroid-2-samus-returns` - Metroid II: Return of Samus (VIDEOGIOCO,
+  1991, include il remake Metroid: Samus Returns, 2017, voce unica) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `super-metroid` - Super Metroid (VIDEOGIOCO, 1994) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `metroid-other-m` - Metroid: Other M (VIDEOGIOCO, 2010) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `metroid-prime-4-beyond` - Metroid Prime 4: Beyond (VIDEOGIOCO,
+  4 dicembre 2025) - voce a sé - sessione notturna, 2026-09-10.
+- `metroid-fusion` - Metroid Fusion (VIDEOGIOCO, 2002) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `metroid-dread` - Metroid Dread (VIDEOGIOCO, 2021) - voce a sé,
+  ultima voce della saga - sessione notturna, 2026-09-10.
+
+### Decisioni di scope importanti
+
+- **Metroid Prime Pinball (2005) escluso**: spin-off minore, nessuna
+  voce dedicata, deciso in fase di scrittura/revisione.
+- **Metroid Prime Hunters, Metroid Prime: Federation Force e il manga
+  Metroid (2003) inclusi**: nonostante siano titoli minori/spin-off
+  (Hunters è uno sparatutto multiplayer-centrico, Federation Force è
+  lo spin-off senza Samus giocabile più contestato della serie, il
+  manga non ha mai avuto edizione italiana ufficiale), tutti e tre sono
+  stati inclusi perché fanno parte della continuity narrativa ufficiale
+  della saga (il manga in particolare è confermato canonico da
+  Nintendo stessa tramite le tavole riprese in Metroid: Zero Mission).
+- **Ordine narrativo interno, non ordine di uscita**: le 13 voci sono
+  ordinate per cronologia in-fiction, non per anno di pubblicazione -
+  conseguenza pratica più visibile: Metroid Prime Hunters (uscito nel
+  2006) precede Metroid Prime 2: Echoes (uscito nel 2004) nell'elenco,
+  e Metroid Prime 4: Beyond (uscito il 4 dicembre 2025) è collocato tra
+  Metroid: Other M e Metroid Fusion (usciti rispettivamente nel 2010 e
+  nel 2002). La collocazione di Metroid Prime 4: Beyond dopo Other M è
+  in parte una decisione editoriale di questo sito: Nintendo ha
+  confermato ufficialmente (Famitsu, dicembre 2025) solo che il gioco
+  si colloca tra Super Metroid e Metroid Fusion, non la sua posizione
+  esatta rispetto a Other M, che ricade nella stessa finestra
+  temporale - dettaglio riportato anche come nota nella sinossi
+  pubblicata.
+- **Remake trattati come voce unica, non voce gemella o voce doppia**:
+  Metroid (1986) + Metroid: Zero Mission (2004) sono un'unica voce
+  `metroid-zero-mission` con sinossi basata sulla versione più completa
+  (Zero Mission) e nota sulle differenze; stesso trattamento per
+  Metroid II: Return of Samus (1991) + Metroid: Samus Returns (2017),
+  voce unica `metroid-2-samus-returns`; e per Metroid Prime (2002) +
+  il remaster Metroid Prime Remastered (2023), voce unica
+  `metroid-prime` con nota che chiarisce come il remaster sia un
+  restauro puramente tecnico senza modifiche narrative.
+- **Nessun asset immagine/audio caricato in questo ciclo**: a differenza
+  di altre saghe nuove recenti, per Metroid non è stata prodotta né
+  caricata alcuna immagine (avatar/banner/watermark/copertine per
+  voce) in questo passaggio - solo testo, colori (Artista) e proposta
+  tracklist (Musicista, bloccata). Nessuna sezione "immagini mancanti"
+  aperta perché nessun URL segnaposto è stato creato: sarà un lavoro
+  di un ciclo futuro.
+
+### Correzione di trama - "Regina degli X" inesistente
+
+Errore di trama nella bozza dello Scrittore, non solo una questione
+terminologica: la sinossi originale di Metroid Fusion presentava una
+"Regina degli X" (Queen X) come antagonista finale, un'entità che
+**non esiste nella lore ufficiale della serie**. Verifica supplementare
+del Supervisore (Metroid Database, Omega Metroid Walkthrough, Anatomy
+of Games, dichiarazioni di Yoshio Sakamoto riportate da più fonti
+indipendenti) ha confermato che solo la specie Metroid ha una regina
+(Metroid Queen/Regina dei Metroid, voce Metroid II/Samus Returns) - il
+Parassita X non ne ha una propria. Il finale corretto e ora pubblicato:
+SA-X nella sua forma mutata finale viene sopraffatta da un Omega
+Metroid sopraggiunto nell'hangar, che la riduce al proprio nucleo
+(Core-X); il Core-X si fonde con Samus restituendole l'arsenale della
+Tuta Energia (incluso il Raggio Ghiaccio); Samus sconfigge l'Omega
+Metroid e fugge dalla stazione BSL. Verificato che "Queen X"/"Regina
+degli X" non compariva in nessun'altra voce della saga.
+
+### Correzioni terminologiche significative (Linguista/Supervisore)
+
+Sette correzioni certe del Linguista applicate integralmente (EN
+sempre invariato): "Power Suit"→"Tuta Energia", "Mother Brain"→
+"Cervello Madre" (maschile: "il Cervello Madre"), "Morph Ball"→
+"Morfosfera", "Gravity Suit"→"Tuta Gravità", "Space Jump"→"Salto
+Spaziale", "Plasma Beam"→"Raggio Plasma", "Zero Suit"→"Tuta Zero".
+Quattro punti a confidenza media decisi dal Supervisore con verifica
+incrociata su fonti italiane indipendenti: "Mothership"→"Nave Madre"
+(uniformato anche un'incoerenza IT/EN della bozza), "Parasite Queen"→
+"Parassita Regina", "Metroid Queen"→"Regina dei Metroid" (scartata
+l'alternativa minoritaria "Metroid Sovrana"), e il quarto punto era
+proprio la "Regina degli X" respinta come errore di trama (vedi sopra,
+non una semplice questione di traduzione). Chiarimento aggiuntivo:
+"Mother Brain"/Cervello Madre (Zebes) e "Master Brain" (l'IA del
+Doomseye in Federation Force) sono entità deliberatamente distinte
+anche nell'originale e non vanno mai armonizzate; "Master Brain" resta
+non tradotto, con una parentesi esplicita nella sinossi di Federation
+Force per evitare ambiguità al lettore.
+
 ## Mortal Kombat
 
 ### Musica
