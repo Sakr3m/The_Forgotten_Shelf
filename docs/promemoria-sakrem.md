@@ -807,6 +807,112 @@ notturna, 2026-09-10.
   2022, solo edizione inglese/giapponese, nessuna edizione italiana) -
   voce a sé, ultima voce della saga - sessione notturna, 2026-09-10.
 
+## Dead Space
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
+Una delle 10 saghe individuate dal Project Manager per questa sessione
+notturna (turno notturno 2/notte 3). Un solo universo, "Linea Temporale
+Dead Space" / "Dead Space Timeline" (span 2214 – 2514), 13 voci in
+ordine di cronologia interna (non di uscita): 3 ROMANZO (Martyr,
+Catalyst - Fallen Angel non esiste in questa saga, non confondere con
+Deus Ex), 3 FUMETTO (fumetto 2008, Salvage, Liberation), 2 FILM
+D'ANIMAZIONE (Downfall, Aftermath), 4 VIDEOGIOCO (Extraction, Dead
+Space/`dead-space-1`, Dead Space 2, Dead Space 3), 1 VIDEOGIOCO MOBILE
+(Sabotage) e 1 VIDEOGIOCO (Ignition, non mobile). Decisioni di scope
+importanti: tutti e 13 i media individuati sono stati inclusi, nessuna
+esclusione e nessuna voce trattata come "gemella" (verificato in modo
+puntuale il rischio maggiore, la coppia Salvage/Aftermath: restano due
+vicende distinte con equipaggi ed esiti diversi). Il remake integrale
+2023 del gioco originale non è una voce a sé ma una nota interna alla
+sinossi di `dead-space-1` (stessa entry, stesso id). Il DLC "Severed"
+è nota interna a `dead-space-2`, il DLC "Awakened" nota interna a
+`dead-space-3`. Chiarimento importante: "Dead Space: Sabotage" e "Dead
+Space Mobile" sono lo stesso identico gioco (il titolo fu distribuito
+su alcuni store anche con il nome breve "Dead Space"), non due edizioni
+distinte - una sola voce (`dead-space-sabotage`), nessun duplicato.
+`Catalyst` è ambientata secoli PRIMA del gioco originale (~2294 contro
+2508), non dopo: la sua posizione come seconda voce della saga (dopo
+Martyr) è corretta e intenzionale.
+
+### Correzione terminologica
+
+"Marker" → "Marchio" (Marchio Nero/Marchio Rosso, plurale "Marchi") è
+la resa italiana ufficiale, applicata in tutte le sinossi IT (e nel
+blurb IT) che nominano l'artefatto - il testo EN mantiene invece
+"Marker"/"Black Marker"/"Red Marker" invariato.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Dead Space Theme" (*Dead
+  Space*, 2008), "Welcome Aboard the U.S.G. Ishimura" (*Dead Space*,
+  2008), "Twinkle, Twinkle, Little Star" (Dead Space Version) (*Dead
+  Space*, 2008), "Lacrimosa" (*Dead Space 2*), "Entering Zero-G" (*Dead
+  Space*, 2008), "Titan Station Elementary" (*Dead Space 2*), "The
+  Ascent" (*Dead Space 3*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community. Perimetro musicale
+  limitato ai 6 videogiochi con colonna sonora propria (Extraction,
+  Dead Space/Remake 2023, Sabotage, Ignition, Dead Space 2, Dead Space
+  3): i 3 romanzi, i 3 fumetti e i 2 film d'animazione sono esclusi dal
+  perimetro musicale, nessuna traccia da lì. Compositore principale
+  Jason Graves per quasi tutte le entry musicali (co-compositore James
+  Hannigan su Dead Space 3). Correzione di fatto rispetto alla bozza
+  iniziale: la colonna sonora di Dead Space (2008) ha **vinto due
+  premi BAFTA** (Original Score e Use of Audio), non solo ricevuto una
+  nomination. Distribuzione tracce: 4 da Dead Space (2008), 2 da Dead
+  Space 2, 1 da Dead Space 3 - nessun brano standout singolarmente
+  documentato è stato reperito per Extraction, Sabotage o Ignition.
+- **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 13 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **Linea Temporale Dead Space** (`dead-space-martyr` →
+  `dead-space-3`, span 2214 - 2514, 13 voci) - sessione notturna,
+  2026-09-10.
+- `dead-space-martyr` - Dead Space: Martyr (ROMANZO, 2010) - voce a sé,
+  prima voce della saga - sessione notturna, 2026-09-10.
+- `dead-space-catalyst` - Dead Space: Catalyst (ROMANZO, 2012) - voce a
+  sé, ambientata secoli prima del gioco originale (~2294) - sessione
+  notturna, 2026-09-10.
+- `dead-space-comic-2008` - Dead Space (fumetto, 2008) (FUMETTO) - voce
+  a sé - sessione notturna, 2026-09-10.
+- `dead-space-extraction` - Dead Space: Extraction (VIDEOGIOCO,
+  2009/porting PS3 2010) - voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-downfall` - Dead Space: Downfall (FILM D'ANIMAZIONE,
+  2008) - voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-1` - Dead Space (VIDEOGIOCO, 2008, include nota sul
+  Remake 2023) - voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-salvage` - Dead Space: Salvage (FUMETTO, 2010) - voce a
+  sé - sessione notturna, 2026-09-10.
+- `dead-space-aftermath` - Dead Space: Aftermath (FILM D'ANIMAZIONE,
+  2011) - voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-sabotage` - Dead Space: Sabotage (VIDEOGIOCO MOBILE,
+  2011, distribuito anche come "Dead Space Mobile", stesso gioco) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-ignition` - Dead Space: Ignition (VIDEOGIOCO, 2010) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-2` - Dead Space 2 (VIDEOGIOCO, 2011, include nota sul
+  DLC Severed) - voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-liberation` - Dead Space: Liberation (FUMETTO, 2013) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `dead-space-3` - Dead Space 3 (VIDEOGIOCO, 2013, include nota sul
+  DLC Awakened) - voce a sé, ultima voce della saga - sessione
+  notturna, 2026-09-10.
+
 ## Deus Ex
 
 Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
