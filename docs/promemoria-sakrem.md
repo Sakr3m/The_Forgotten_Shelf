@@ -1247,6 +1247,94 @@ dettagli).
   inserita nella Saga del Reclamatore dopo `shadows-of-reach` (subito
   prima di `halo-infinite`) - sessione notturna, 2026-09-09.
 
+## Horizon
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo), una
+delle 10 sagas nuove individuate dal Project Manager per la sessione
+notturna, lavorata al turno notturno 2/notte 3.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Aloy's Theme" (*Horizon Zero
+  Dawn*), "The Turning Horizon" (*Horizon Zero Dawn*, Launch Trailer),
+  "Aloy's Theme - Forbidden West" (*Horizon Forbidden West*, tema del
+  menu principale), "Whatever Comes" (*Horizon Forbidden West*, Story
+  Trailer), "Into The Frozen Wilds" (*Horizon Zero Dawn: The Frozen
+  Wilds*), "Trinity" (*Horizon Forbidden West*), "To the Burning
+  Shores" (*Horizon Forbidden West: Burning Shores*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale (recensioni di settore alla colonna sonora, uso
+  promozionale ufficiale in trailer/menu, impatto critico), non gusto
+  personale. Horizon Call of the Mountain (titolo VR standalone,
+  compositori diversi dal team principale Joris de Man/The Flight/Niels
+  van der Leest) è stato valutato e **escluso per merito**, non per
+  principio di rappresentanza: nessuna sua traccia ha segnali di fama
+  pubblica comparabili a quelle scelte. Liberation, Sunhawk e Seeds of
+  Rebellion (fumetti e gioco da tavolo) correttamente esclusi a monte,
+  nessuna colonna sonora propria.
+- **Data**: 2026-09-10 (sessione notturna, 3/3 della notte, 2/notte
+  3 delle 10 sagas nuove).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 2 nuovi universi e 6 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **Linea Principale** (`horizon-zero-dawn` →
+  `horizon-forbidden-west`, span 2017 – 2025, 5 voci: 2 videogiochi + 2
+  fumetti + 1 gioco da tavolo) - sessione notturna, 2026-09-10.
+- Nuovo universo **Adattamento Live-Action** (`horizon-film-2027`, 1
+  voce) - sessione notturna, 2026-09-10.
+- `horizon-zero-dawn` - Horizon Zero Dawn (VIDEOGIOCO, 2017, include
+  note su The Frozen Wilds e su Horizon Call of the Mountain, quest'ultimo
+  incluso solo come nota di collocazione narrativa, non come voce a sé
+  né come traccia musicale) - voce a sé, prima voce della saga -
+  sessione notturna, 2026-09-10.
+- `liberation` - Horizon Zero Dawn: Liberazione (FUMETTO, 2021-22,
+  titolo italiano Panini) - voce a sé, innestata nella trama di
+  `horizon-zero-dawn` (schema Priority: Hagalaz) - sessione notturna,
+  2026-09-10.
+- `sunhawk` - Horizon Zero Dawn: Il Falcodoro (FUMETTO, 2020, titolo
+  italiano Panini) - voce a sé - sessione notturna, 2026-09-10.
+- `seeds-of-rebellion` - Horizon Forbidden West: Seeds of Rebellion
+  (GIOCO DA TAVOLO, 2025, Kickstarter 2023) - voce a sé, unica voce da
+  gioco da tavolo della saga, inclusa **solo** perché porta una
+  campagna narrativa propria in tredici capitoli scritta in
+  collaborazione diretta con il Narrative Team di Guerrilla Games -
+  sessione notturna, 2026-09-10.
+- `horizon-forbidden-west` - Horizon Forbidden West (VIDEOGIOCO, 2022,
+  include nota su Burning Shores) - voce a sé, ultima voce di Linea
+  Principale - sessione notturna, 2026-09-10.
+- `horizon-film-2027` - Horizon (Film) (LIVE ACTION, in uscita 2027,
+  data esatta non annunciata, imagePending) - voce a sé, unica voce del
+  nuovo universo Adattamento Live-Action - sessione notturna,
+  2026-09-10.
+
+### Decisioni di scope importanti (non proposte in sospeso, solo per
+memoria)
+
+- **LEGO Horizon Adventures**: escluso, non canonico.
+- **"Horizon 3"**: escluso, nessun annuncio ufficiale al momento della
+  stesura.
+- **Horizon Hunters Gathering**: escluso per stato instabile del
+  progetto. **Da ricontrollare dopo dicembre 2026.**
+- **Horizon Zero Dawn: The Board Game + The Heart of the Nora**:
+  esclusi, nessun contenuto narrativo canonico proprio (a differenza di
+  Seeds of Rebellion, che ha una campagna narrativa dedicata).
+- **Art of Horizon Zero Dawn / Art of Horizon Forbidden West**: esclusi,
+  artbook senza contenuto narrativo.
+
 ## Kingdom Hearts
 
 ### In sospeso - immagini mancanti
