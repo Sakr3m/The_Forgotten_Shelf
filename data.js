@@ -9964,6 +9964,150 @@ const GAMES = {
         ]
       }
     ]
+  },
+  "darksiders": {
+    id: "darksiders",
+    listTitle: { it: "Darksiders", en: "Darksiders" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "Darksiders", en: "Darksiders" },
+    blurb: {
+      it: "Guerra, Morte, Furia e Discordia: i Quattro Cavalieri dell'Apocalisse, mano armata del Concilio Bruciato nell'equilibrio tra Cielo, Inferno e il nascente Regno umano. Un'Apocalisse scoppiata in anticipo, senza autorizzazione, apre una caccia ai colpevoli fatta di redenzione, giustizia e azione hack-and-slash di portata biblica.",
+      en: "War, Death, Fury and Strife: the Four Horsemen of the Apocalypse, enforcers of the Charred Council's balance between Heaven, Hell and the nascent human Kingdom. An Apocalypse triggered early, without authorization, sparks a hunt for the true culprits, forged from redemption, justice and hack-and-slash action of biblical scale."
+    },
+    accentColor: "#B33418",
+    palette: ["#5FA829", "#B33418", "#8B3A9E"],
+    // Playlist proposta dal Musicista (7 brani), in attesa dei file audio
+    // su R2 - nessun asset audio caricato ancora per questa saga in questo
+    // ciclo (stesso caso di Metroid/Dark Souls/Dead Space/Deus Ex/ecc.).
+    // Vedi elenco tracce nel pacchetto Segretaria / promemoria-sakrem.md,
+    // sezione Darksiders. Campo creato vuoto.
+    tracks: [],
+    lastAgentPass: "2026-09-10",
+    universes: [
+      {
+        id: "linea-temporale",
+        name: { it: "Linea Temporale Darksiders", en: "Darksiders Timeline" },
+        span: { it: "2009 – 2027/2028", en: "2009 – 2027/2028" },
+        palette: ["#4E7AA8", "#7C4A1E", "#B33418", "#5FA829", "#8B3A9E", "#C9962E"],
+        entries: [
+          {
+            id: "darksiders-genesis", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "Il capitolo cronologicamente più antico della saga, prima degli eventi di Darksiders",
+            yearEn: "The chronologically earliest chapter of the saga, before the events of Darksiders",
+            releaseYear: "2019", releaseYearEn: "2019",
+            title: { it: "Darksiders Genesis", en: "Darksiders Genesis" },
+            synopsis: {
+              it: "Precede cronologicamente tutti gli altri capitoli della saga. Il Concilio Bruciato, l'organo che sorveglia l'equilibrio tra Cielo, Inferno e il nascente Regno dell'umanità, avverte un'anomalia crescente nelle gerarchie infernali e incarica due dei Quattro Cavalieri dell'Apocalisse, Guerra e Discordia, di indagare sul campo, mentre Morte e Furia restano altrove impegnati nei propri compiti. I due fratelli, caratterialmente agli antipodi — Guerra tutto forza bruta e disciplina marziale, Discordia spregiudicato, sarcastico e abituato a risolvere i problemi a colpi di pistola più che di spada — scendono nei Regni infernali seguendo le tracce di un complotto che punta dritto al cuore del potere di Lucifero.\n\nAttraversando bolge, fortezze e territori contesi tra i signori demoniaci, Guerra e Discordia scoprono che Lucifero sta manovrando nell'ombra per rovesciare l'ordine gerarchico dell'Inferno sancito dal Concilio e concentrare nelle proprie mani un potere che altererebbe pericolosamente l'intero equilibrio tra i Tre Regni. Nel corso dell'indagine i due Cavalieri affinano il proprio arsenale e le proprie capacità, scontrandosi con signori demoniaci alleati o strumentalizzati dal piano di Lucifero, fino allo scontro diretto che sventa il tentativo di golpe e ristabilisce l'ordine voluto dal Concilio, lasciando però intuire che l'ambizione di Lucifero non si sia esaurita del tutto.",
+              en: "Chronologically the earliest chapter in the saga. The Charred Council, the body that watches over the balance between Heaven, Hell and the nascent Kingdom of humanity, senses a growing anomaly within Hell's hierarchy and dispatches two of the Four Horsemen of the Apocalypse, War and Strife, to investigate directly, while Death and Fury remain occupied elsewhere with their own duties. The two brothers, opposite in temperament — War all brute strength and martial discipline, Strife unscrupulous, wisecracking, and inclined to solve problems with his pistols rather than a blade — descend into the infernal Kingdoms following a trail that leads straight to the heart of Lucifer's power.\n\nCrossing infernal pits, fortresses and territories contested among the demon lords, War and Strife discover that Lucifer is maneuvering in the shadows to overthrow the hierarchical order of Hell sanctioned by the Council and concentrate in his own hands a power that would dangerously upset the balance among the Three Kingdoms. Over the course of the investigation the two Horsemen sharpen their arsenal and abilities, clashing with demon lords either allied with or manipulated by Lucifer's scheme, until a direct confrontation foils the attempted coup and restores the order demanded by the Council — though it is left clear that Lucifer's ambition has not been entirely extinguished."
+            }
+          },
+          {
+            id: "darksiders-abomination-vault", type: "ROMANZO", typeEn: "NOVEL",
+            year: "Ambientato secoli prima degli eventi di Darksiders, in un'epoca la cui collocazione esatta rispetto a Darksiders Genesis non è mai stata precisata ufficialmente",
+            yearEn: "Set centuries before the events of Darksiders, in an era whose exact placement relative to Darksiders Genesis has never been officially specified",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Darksiders: The Abomination Vault", en: "Darksiders: The Abomination Vault" },
+            synopsis: {
+              it: "Romanzo di Ari Marmell (Del Rey/Random House, 2012), sviluppato in collaborazione diretta con il team di Darksiders II. Ambientato secoli prima degli eventi principali della saga, quando Morte e Guerra sono ancora alleati e vengono inviati insieme dal Concilio Bruciato in una missione congiunta: dare la caccia a Hadrimon, un angelo rinnegato che ha voltato le spalle alla gerarchia celeste, e alla Maker Belisatra, un'artefice della stirpe di Ulthane passata dall'altra parte, unite in un progetto tanto ambizioso quanto proibito.\n\nHadrimon e Belisatra stanno infatti forgiando un arsenale di armi Nephilim proibite, le cosiddette \"Grand Abominations\": strumenti di distruzione della stessa stirpe a cui appartengono gli stessi Quattro Cavalieri, capaci di mettere a rischio l'equilibrio tra i Regni se lasciati nelle mani sbagliate. Morte e Guerra seguono le tracce dei due rinnegati attraverso covi nascosti e fucine segrete, smantellando l'operazione pezzo per pezzo fino allo scontro finale, che li costringe a confrontarsi sia con la potenza delle Grand Abominations sia con le motivazioni di Hadrimon e Belisatra, prima di mettere fine alla minaccia e riportare la Vault e il suo contenuto sotto il controllo del Concilio.",
+              en: "A novel by Ari Marmell (Del Rey/Random House, 2012), developed in direct collaboration with the Darksiders II development team. Set centuries before the saga's main events, when Death and War are still allies and are sent together by the Charred Council on a joint mission: to hunt down Hadrimon, a rogue angel who has turned his back on the celestial hierarchy, and the Maker Belisatra, an artificer of Ulthane's lineage who has gone over to the other side, united in a project as ambitious as it is forbidden.\n\nHadrimon and Belisatra are in fact forging an arsenal of forbidden Nephilim weapons, the so-called \"Grand Abominations\": instruments of destruction from the very bloodline of the Four Horsemen themselves, capable of upsetting the balance between the Kingdoms if left in the wrong hands. Death and War follow the two renegades' trail through hidden lairs and secret forges, dismantling the operation piece by piece until the final confrontation, which forces them to reckon with both the power of the Grand Abominations and the motivations behind Hadrimon and Belisatra's betrayal, before putting an end to the threat and returning the Vault and its contents to the Council's control."
+            }
+          },
+          {
+            id: "darksiders-comic-2009", type: "FUMETTO", typeEn: "GRAPHIC NOVEL",
+            year: "Immediatamente prima degli eventi di Darksiders",
+            yearEn: "Immediately before the events of Darksiders",
+            releaseYear: "2009", releaseYearEn: "2009",
+            title: { it: "Darksiders (GameStop Limited Edition Comic)", en: "Darksiders (GameStop Limited Edition Comic)" },
+            synopsis: {
+              it: "One-shot autoconclusivo distribuito nel 2009 come bonus pre-order dell'edizione GameStop di Darksiders, pubblicato da DC/Wildstorm e realizzato con il coinvolgimento diretto di Joe Madureira — art director e co-creatore del gioco, la cui firma visiva definisce l'intero franchise — insieme a Joshua Ortega e Jim DeMeo alla scrittura. Il volume include un codice di sblocco per contenuti in-game, a conferma della sua integrazione ufficiale con il prodotto principale.\n\nIl racconto funge da prequel diretto al primo Darksiders, ambientandosi negli istanti che precedono la rottura anzitempo del Settimo Sigillo e l'inizio dell'Apocalisse sulla Terra: introduce il lettore alla gerarchia del Concilio Bruciato, al ruolo dei Quattro Cavalieri come sua forza esecutiva e alla fragilità dell'equilibrio tra Cielo, Inferno e il Regno umano, ponendo le basi narrative e di tono per gli eventi che il giocatore vivrà in prima persona nel capitolo che segue.",
+              en: "A self-contained one-shot released in 2009 as a pre-order bonus for the GameStop edition of Darksiders, published by DC/Wildstorm and produced with the direct involvement of Joe Madureira — the game's art director and co-creator, whose visual signature defines the entire franchise — alongside writers Joshua Ortega and Jim DeMeo. The volume includes an unlock code for in-game content, confirming its official integration with the main product.\n\nThe story serves as a direct prequel to the first Darksiders, taking place in the moments before the premature breaking of the Seventh Seal and the start of the Apocalypse on Earth: it introduces readers to the hierarchy of the Charred Council, the role of the Four Horsemen as its enforcing arm, and the fragility of the balance between Heaven, Hell and the human Kingdom, laying the narrative and tonal groundwork for the events the player will experience firsthand in the chapter that follows."
+            }
+          },
+          {
+            id: "darksiders-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "Il giorno dell'Apocalisse anzitempo, e cento anni dopo",
+            yearEn: "The day of the premature Apocalypse, and a hundred years later",
+            releaseYear: "2010 (Warmastered Edition: 2016)", releaseYearEn: "2010 (Warmastered Edition: 2016)",
+            title: { it: "Darksiders", en: "Darksiders" },
+            synopsis: {
+              it: "Il Settimo Sigillo si spezza anzitempo, senza l'autorizzazione del Concilio Bruciato: Cielo e Inferno scendono in guerra aperta sulla Terra e l'umanità viene quasi completamente spazzata via. Guerra, uno dei Quattro Cavalieri dell'Apocalisse, si trova coinvolto nello scontro finale contro il Distruttore, un'entità demoniaca colossale, ma quando il Concilio lo convoca per rispondere delle proprie azioni viene accusato di aver scatenato l'Apocalisse in anticipo e senza permesso, in violazione diretta del patto che regola l'equilibrio tra i Tre Regni. Privato della maggior parte dei suoi poteri e incatenato al Guardiano, una creatura al servizio del Concilio incaricata di sorvegliarlo, Guerra viene rispedito sulla Terra cento anni più tardi con un solo compito: scoprire chi ha davvero orchestrato l'inganno e ripulire il proprio nome.\n\nNel mondo ormai devastato e conteso tra le fazioni di Cielo e Inferno, Guerra riottiene gradualmente parte della propria forza, affianca il mercante demoniaco Vulgrim, il Maker Ulthane e l'angelo Uriel — inizialmente convinta della sua colpevolezza — mentre affronta signori demoniaci come Silitha e Straga e recupera armi ed equipaggiamento perduti, incluso il destriero Rovina. Le indagini lo conducono infine a scoprire che il vero Distruttore non era che una marionetta manovrata da Abaddon, un angelo caduto a capo di una cospirazione tesa a far apparire l'Apocalisse come opera dell'umanità stessa e dei Cavalieri, per rivendicare la Terra in nome del Cielo in violazione delle leggi del Concilio. Sconfitto Abaddon e svelato l'inganno, Guerra viene infine scagionato dall'accusa di aver provocato l'Apocalisse anzitempo, ma la Terra resta devastata e l'umanità ridotta quasi all'estinzione, un'eredità che pesa sul resto della saga.\n\nNota (Warmastered Edition 2016): remaster puramente tecnico, nessun contenuto narrativo aggiuntivo.",
+              en: "The Seventh Seal breaks prematurely, without the Charred Council's authorization: Heaven and Hell descend into open war on Earth and humanity is nearly wiped out entirely. War, one of the Four Horsemen of the Apocalypse, finds himself locked in a final confrontation against the Destroyer, a colossal demonic entity, but when the Council summons him to answer for his actions he is accused of having triggered the Apocalypse early and without permission, in direct violation of the pact governing the balance among the Three Kingdoms. Stripped of most of his power and bound to the Watcher, a creature in the Council's service tasked with keeping him in check, War is sent back to Earth a hundred years later with a single purpose: to discover who truly orchestrated the deception and clear his name.\n\nIn the now-devastated world, contested between the forces of Heaven and Hell, War gradually regains part of his strength, is joined by the demonic merchant Vulgrim, the Maker Ulthane and the angel Uriel — initially convinced of his guilt — while facing demon lords such as Silitha and Straga and recovering lost weapons and equipment, including his steed Ruin. His investigation eventually reveals that the true Destroyer was nothing more than a puppet controlled by Abaddon, a fallen angel leading a conspiracy designed to make the Apocalypse look like the doing of humanity and the Horsemen themselves, in order to claim the Earth in Heaven's name in violation of the Council's laws. With Abaddon defeated and the deception exposed, War is finally cleared of having caused the premature Apocalypse, but the Earth remains devastated and humanity reduced to near-extinction — a legacy that weighs on the rest of the saga.\n\nNote (Warmastered Edition 2016): a purely technical remaster, with no additional narrative content."
+            }
+          },
+          {
+            id: "darksiders-2-deaths-door", type: "FUMETTO", typeEn: "COMIC",
+            year: "Pochi giorni prima degli eventi di Darksiders II",
+            yearEn: "A few days before the events of Darksiders II",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Darksiders II: Death's Door", en: "Darksiders II: Death's Door" },
+            synopsis: {
+              it: "Miniserie a fumetti in 5 numeri pubblicata da Dark Horse Comics nel 2012 in collaborazione diretta con Vigil Games, scritta da Andrew Kreisberg e disegnata da Roger Robinson, con la copertina dell'edizione cartacea bonus Best Buy (\"Angel of Death\") realizzata dallo stesso Joe Madureira. Ambientata nei giorni immediatamente precedenti l'Apocalisse raccontata nel primo Darksiders, la storia segue Morte mentre dà la caccia a un demone fuggitivo la cui cattura si rivela intrecciata a segreti più profondi sulla natura dei Regni e sul destino che attende suo fratello Guerra.\n\nLa vicenda rivela retroscena essenziali che il giocatore ritroverà riecheggiati nell'apertura di Darksiders II, chiarendo cosa Morte sapeva — e cosa sospettava — nei momenti immediatamente precedenti la rottura del Settimo Sigillo, prima ancora di apprendere dell'accusa mossa contro Guerra.",
+              en: "A five-issue comic miniseries published by Dark Horse Comics in 2012 in direct collaboration with Vigil Games, written by Andrew Kreisberg and drawn by Roger Robinson, with the bonus Best Buy print edition cover (\"Angel of Death\") illustrated by Joe Madureira himself. Set in the days immediately preceding the Apocalypse recounted in the first Darksiders, the story follows Death as he hunts a fugitive demon whose capture proves entangled with deeper secrets about the nature of the Kingdoms and the fate awaiting his brother War.\n\nThe story reveals essential backstory that echoes into the opening of Darksiders II, clarifying what Death knew — and suspected — in the moments immediately before the breaking of the Seventh Seal, even before learning of the accusation leveled against War."
+            }
+          },
+          {
+            id: "darksiders-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "Nello stesso arco temporale della prigionia di Guerra — in parallelo a Darksiders III",
+            yearEn: "Within the same timeframe as War's imprisonment — parallel to Darksiders III",
+            releaseYear: "2012 (Deathinitive Edition: 2015)", releaseYearEn: "2012 (Deathinitive Edition: 2015)",
+            title: { it: "Darksiders II", en: "Darksiders II" },
+            synopsis: {
+              it: "La vicenda si svolge nello stesso arco temporale in cui Guerra è prigioniero del Concilio Bruciato, incatenato al Guardiano in attesa che qualcuno dimostri la sua innocenza — lo stesso periodo raccontato, da un altro punto di vista, in Darksiders III. Morte, incredulo davanti all'accusa mossa contro il fratello, non attende il verdetto del Concilio: parte per proprio conto con un obiettivo tanto ambizioso quanto disperato, resuscitare l'intera umanità sterminata nell'Apocalisse, l'unica prova in grado di scagionare definitivamente Guerra.\n\nAccompagnato dal corvo Dust, Morte attraversa le Forge Lands, dominio dei Maker guidati da Ulthane, minacciato da una piaga chiamata Corruzione che sta divorando i Regni; discende nel Regno dei Morti, dove il Crowfather, antico Nephilim e vecchio maestro di Morte, custodisce segreti sulla via per raggiungere il Well of Souls, la fonte in grado — forse — di riportare in vita l'umanità. Lungo il cammino Morte stringe nuove alleanze, affina il proprio arsenale e la propria abilità nel manipolare la vita e la morte stessa, mentre riemergono tracce di un suo antico segreto, sepolto da secoli, che lo lega in modo inquietante all'origine stessa della Corruzione.\n\nGiunto infine al cuore del Well of Souls, Morte deve affrontare le conseguenze di quel segreto e scegliere fino a che punto è disposto a spingersi pur di salvare il fratello e restituire un futuro all'umanità, in un finale che lascia aperte le domande sul prezzo reale della sua missione e si riallaccia direttamente a quanto accade, nello stesso periodo, a Guerra e a Furia.\n\nNota (Deathinitive Edition 2015): ripubblicazione con miglioramenti tecnici che include anche le due espansioni narrative Argul's Tomb e The Abyssal Forge, qui trattate come voci proprie a seguire.",
+              en: "The story unfolds within the same timeframe in which War is a prisoner of the Charred Council, bound to the Watcher while awaiting someone to prove his innocence — the same period recounted, from another point of view, in Darksiders III. Death, unable to believe the accusation leveled against his brother, does not wait for the Council's verdict: he sets out on his own with a goal as ambitious as it is desperate — to resurrect the entirety of humanity wiped out in the Apocalypse, the only proof capable of fully clearing War's name.\n\nAccompanied by the crow Dust, Death crosses the Forge Lands, domain of the Makers led by Ulthane, threatened by a plague called the Corruption that is devouring the Kingdoms; he descends into the Kingdom of the Dead, where the Crowfather, an ancient Nephilim and Death's former mentor, guards secrets about the path to the Well of Souls, the source that might — just possibly — bring humanity back to life. Along the way Death forges new alliances and sharpens both his arsenal and his skill at manipulating life and death itself, while traces resurface of an old secret of his own, buried for centuries, unsettlingly tied to the very origin of the Corruption.\n\nReaching at last the heart of the Well of Souls, Death must face the consequences of that secret and decide just how far he is willing to go to save his brother and give humanity a future, in an ending that leaves open questions about the true price of his quest and ties directly into what is happening, in that same period, to War and to Fury.\n\nNote (Deathinitive Edition 2015): a re-release with technical improvements that also includes the two narrative expansions Argul's Tomb and The Abyssal Forge, treated here as entries of their own below."
+            }
+          },
+          {
+            id: "darksiders-2-arguls-tomb", type: "ESPANSIONE", typeEn: "EXPANSION",
+            year: "Nel corso del viaggio di Morte narrato in Darksiders II",
+            yearEn: "During Death's journey recounted in Darksiders II",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Darksiders II: Argul's Tomb", en: "Darksiders II: Argul's Tomb" },
+            synopsis: {
+              it: "Espansione narrativa di Darksiders II, pubblicata separatamente nel 2012 e in seguito integrata nella Deathinitive Edition. La vicenda si inserisce nel corso del viaggio di Morte attraverso i Regni alla ricerca del Well of Souls, quando una deviazione lo conduce fino alla tomba dimenticata di Argul, un leggendario cacciatore Nephilim la cui fama era nota già ai tempi dei Quattro Cavalieri. Esplorando la tomba, disseminata di trappole e custodita da guardiani spettrali, Morte scopre e libera lo spirito di Mauler, il fedele lupo compagno di Argul, che da quel momento si unisce a lui come alleato nel combattimento, mentre un nuovo arsenale recuperato nelle profondità del sepolcro arricchisce l'equipaggiamento del Cavaliere in vista delle prove ancora da affrontare.",
+              en: "A narrative expansion for Darksiders II, released separately in 2012 and later folded into the Deathinitive Edition. The story takes place during Death's journey across the Kingdoms in search of the Well of Souls, when a detour leads him to the forgotten tomb of Argul, a legendary Nephilim hunter whose renown was already known in the age of the Four Horsemen. Exploring the tomb, riddled with traps and guarded by spectral wardens, Death discovers and frees the spirit of Mauler, Argul's faithful wolf companion, who from that point on joins him as an ally in battle, while a new arsenal recovered from the depths of the crypt adds to the Horseman's equipment for the trials still ahead."
+            }
+          },
+          {
+            id: "darksiders-2-abyssal-forge", type: "ESPANSIONE", typeEn: "EXPANSION",
+            year: "Nel corso del viaggio di Morte narrato in Darksiders II",
+            yearEn: "During Death's journey recounted in Darksiders II",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: { it: "Darksiders II: The Abyssal Forge", en: "Darksiders II: The Abyssal Forge" },
+            synopsis: {
+              it: "Seconda espansione narrativa di Darksiders II, pubblicata nel 2013 e in seguito integrata anch'essa nella Deathinitive Edition. Sempre nel corso del proprio viaggio attraverso i Regni, Morte segue le tracce di un antico potere fino all'Abyssal Forge, una fucina infernale reclamata da Belial, signore demoniaco che vi si è insediato per piegarne le fiamme e i macchinari al proprio dominio. Addentrandosi negli strati sempre più profondi e pericolosi della fucina, tra prove di abilità e ondate di nemici sempre più temibili, Morte affronta infine Belial in persona: sconfiggerlo gli permette di reclamare per sé i segreti e l'equipaggiamento custoditi nell'Abyssal Forge, un ulteriore passo verso gli strumenti necessari a completare la propria missione.",
+              en: "The second narrative expansion for Darksiders II, released in 2013 and likewise later folded into the Deathinitive Edition. Still in the course of his journey across the Kingdoms, Death follows the trail of an ancient power to the Abyssal Forge, an infernal foundry claimed by Belial, a demon lord who has settled there to bend its flames and machinery to his own rule. Descending through ever deeper and more dangerous levels of the forge, through trials of skill and waves of increasingly fearsome enemies, Death finally confronts Belial himself: defeating him allows Death to claim for his own the secrets and equipment kept within the Abyssal Forge, another step toward the tools needed to complete his mission."
+            }
+          },
+          {
+            id: "darksiders-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "In parallelo a Darksiders II, durante la prigionia di Guerra",
+            yearEn: "Parallel to Darksiders II, during War's imprisonment",
+            releaseYear: "2018", releaseYearEn: "2018",
+            title: { it: "Darksiders III", en: "Darksiders III" },
+            synopsis: {
+              it: "La vicenda si svolge in parallelo diretto con quanto racconta Darksiders II, nello stesso arco temporale in cui Guerra è prigioniero del Concilio Bruciato in attesa di essere scagionato: mentre Morte percorre i Regni alla ricerca di un modo per resuscitare l'umanità, il Concilio affida a Furia un compito altrettanto urgente per ristabilire l'equilibrio infranto dall'Apocalisse anzitempo. Furia viene incaricata di dare la caccia ai Sette Peccati Capitali, sfuggiti al proprio confinamento nel caos scatenato dalla rottura del Settimo Sigillo, e viene affiancata nell'impresa dallo stesso Guardiano che tiene sotto controllo Guerra, inviato dal Concilio anche al suo fianco.\n\nAttraverso una Terra devastata e frammentata, Furia dà la caccia ai Peccati uno a uno, ottenendo di volta in volta nuove forme elementali — la Hollow di Forza, di Fiamma, di Tempesta e altre ancora — che ne ampliano tanto il ventaglio di combattimento quanto la capacità di raggiungere aree altrimenti precluse. Nel corso della caccia emerge che la fuga dei Peccati non è stata casuale, ma orchestrata nell'ombra per indebolire ulteriormente l'autorità del Concilio in un momento di massima vulnerabilità: un complotto le cui trame Furia scopre di dover affrontare fino in fondo, sconfiggendo il Peccato che ne ha tirato i fili, prima di poter dire di aver davvero ristabilito l'equilibrio che le era stato affidato.",
+              en: "The story unfolds in direct parallel with the events of Darksiders II, within the same timeframe in which War is a prisoner of the Charred Council awaiting exoneration: while Death travels the Kingdoms in search of a way to resurrect humanity, the Council entrusts Fury with an equally urgent task to restore the balance shattered by the premature Apocalypse. Fury is charged with hunting down the Seven Deadly Sins, who escaped their confinement amid the chaos unleashed by the breaking of the Seventh Seal, and is accompanied on the task by the very same Watcher keeping War in check, sent by the Council to her side as well.\n\nAcross a devastated, fractured Earth, Fury hunts the Sins one by one, gaining new elemental forms along the way — the Force Hollow, the Flame Hollow, the Storm Hollow and others — that expand both her combat repertoire and her ability to reach areas otherwise out of reach. Over the course of the hunt it emerges that the Sins' escape was no accident, but orchestrated in the shadows to further weaken the Council's authority at a moment of maximum vulnerability: a conspiracy whose threads Fury discovers she must follow to the end, defeating the Sin who has been pulling them, before she can truly claim to have restored the balance entrusted to her."
+            }
+          },
+          {
+            id: "darksiders-4", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "In uscita", yearEn: "Upcoming",
+            releaseYear: "2027/2028 (attesa)", releaseYearEn: "2027/2028 (expected)",
+            title: { it: "Darksiders IV", en: "Darksiders IV" },
+            // Annunciato da THQ Nordic (Digital Showcase, 7 agosto 2026),
+            // sviluppo Gunfire Games, finestra aprile 2027 - marzo 2028 da
+            // report trimestrale Embracer Group. Nessuna sinossi: titolo non
+            // ancora uscito. Nessuna copertina cercata per questa voce:
+            // solo il colore §3.6 della sequenza universo (oro apocalittico
+            // #C9962E). ATTENZIONE per quando si scriverà la sinossi vera:
+            // NON specificare se i 4 Cavalieri giocabili sono fruibili in
+            // co-op o a scelta singola finché non confermato ufficialmente.
+            imagePending: true,
+            releaseDateShort: { it: "aprile 2027 – marzo 2028 (attesa)", en: "April 2027 – March 2028 (expected)" }
+          }
+        ]
+      }
+    ]
   }
 };
 
@@ -9973,5 +10117,5 @@ const GAME_ORDER = [
   "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat",
   "persona", "pokemon", "prince-of-persia", "resident-evil", "silent-hill", "sonic-the-hedgehog",
   "elder-scrolls", "legend-of-zelda", "tomb-raider",
-  "remedy-universe", "warcraft", "the-witcher", "wolfenstein", "yakuza", "dark-souls", "metroid", "horizon", "deus-ex", "dead-space", "metro", "nier-drakengard", "shin-megami-tensei", "xenoblade-chronicles"
+  "remedy-universe", "warcraft", "the-witcher", "wolfenstein", "yakuza", "dark-souls", "metroid", "horizon", "deus-ex", "dead-space", "metro", "nier-drakengard", "shin-megami-tensei", "xenoblade-chronicles", "darksiders"
 ];

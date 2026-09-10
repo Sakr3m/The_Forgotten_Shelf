@@ -807,6 +807,156 @@ notturna, 2026-09-10.
   2022, solo edizione inglese/giapponese, nessuna edizione italiana) -
   voce a sé, ultima voce della saga - sessione notturna, 2026-09-10.
 
+## Darksiders
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
+Una delle 10 saghe individuate dal Project Manager per questa sessione
+notturna (turno notturno 2/notte 3) - 10ª e ULTIMA delle 10 saghe nuove
+di questo turno. Un solo universo, "Linea Temporale Darksiders" /
+"Darksiders Timeline" (span 2009 - 2027/2028), 10 voci in ordine
+cronologico interno (non di uscita), modello Dead Space: 5 VIDEOGIOCO
+(Genesis, Darksiders, Darksiders II, Darksiders III, Darksiders IV
+imagePending), 1 ROMANZO (The Abomination Vault), 1 FUMETTO/GRAPHIC
+NOVEL (comic GameStop 2009), 1 FUMETTO/COMIC (Death's Door, miniserie
+Dark Horse), 2 ESPANSIONE/EXPANSION (Argul's Tomb, The Abyssal Forge).
+
+### Decisioni di scope importanti
+
+- **Darksiders IV incluso** come voce `imagePending`, senza sinossi,
+  con finestra di uscita ampia (aprile 2027 - marzo 2028, attesa,
+  da report trimestrale Embracer Group) invece di una data puntuale -
+  annunciato da THQ Nordic il 7 agosto 2026, sviluppo Gunfire Games.
+  Prima volta nella serie con tutti e quattro i Cavalieri giocabili
+  nello stesso capitolo. Nota per quando uscirà davvero: non
+  specificare se i 4 Cavalieri sono fruibili in co-op o a scelta
+  singola finché non confermato ufficialmente dagli sviluppatori.
+- **Artbook esclusi**: "The Art of Darksiders" e "The Art of Darksiders
+  II" non inclusi - nessuna fonte editoriale primaria reperita che ne
+  confermi un contenuto narrativo (solo materiale visivo/concept art),
+  a differenza del precedente Zelda (Secrets of the Zonai) dove la
+  fonte dichiarava esplicitamente una componente di lore testuale.
+  Decisione revocabile con nuove prove in un ciclo futuro.
+- **"Antichrist Files" escluso**: titolo verificato come inesistente,
+  non un media reale della saga - nessuna voce creata.
+- **Parallelismo narrativo DS2/DS3**: Darksiders II e Darksiders III si
+  svolgono nello stesso arco temporale (la prigionia di Guerra), da
+  punti di vista diversi (Morte / Furia). Gestito solo testualmente nel
+  campo `year` e in apertura di entrambe le sinossi, nessun meccanismo
+  tecnico di ramificazione/secondo universo.
+
+### Correzione terminologica
+
+Un solo refuso grammaticale corretto in fase di revisione finale:
+"incatenato a Il Guardiano" -> "incatenato al Guardiano" (preposizione
+articolata errata) nella sinossi IT di Darksiders (voce 4); le altre
+occorrenze dello stesso costrutto nel documento erano già corrette.
+Tutto il resto del testo dello Scrittore confermato invariato dal
+Linguista: War/Death/Fury/Strife -> Guerra/Morte/Furia/Discordia,
+Charred Council -> Concilio Bruciato, Nephilim invariato, Corruption ->
+Corruzione, Well of Souls e Forge Lands invariati per assenza di fonte
+che ne confermi una resa italiana, tutti i titoli dei media lasciati in
+inglese.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Darksiders Theme" (*Darksiders*,
+  2010), "Fury's Theme" (*Darksiders III*), "The Maker's Theme"
+  (*Darksiders II*), "Into Eternity" (*Darksiders II*), "War's Theme"
+  (*Darksiders*), "The Corruption" (*Darksiders II*), "Death Brings Hope"
+  (*Darksiders II*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community (recensioni VGMO su
+  Darksiders 1, RPGFan su Darksiders II, anteprima Game Informer e
+  dichiarazioni dirette di Cris Velasco su "Fury's Theme"). Perimetro
+  musicale limitato ai 4 videogiochi con colonna sonora propria
+  (Darksiders, Darksiders II incl. le due espansioni Argul's Tomb e The
+  Abyssal Forge, Darksiders III; Darksiders IV escluso in quanto
+  imagePending, romanzo e fumetti esclusi dal perimetro musicale).
+  Darksiders Genesis verificato ma senza un brano segnalato con rilievo
+  critico paragonabile agli altri, quindi non rappresentato nei 7 slot.
+  Distribuzione: 2 tracce da Darksiders, 4 da Darksiders II, 1 da
+  Darksiders III.
+- **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 10 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **Linea Temporale Darksiders** (`darksiders-genesis` ->
+  `darksiders-4`, span 2009 - 2027/2028, 10 voci) - sessione notturna,
+  2026-09-10.
+- `darksiders-genesis` - Darksiders Genesis (VIDEOGIOCO, 2019) - voce a
+  sé, prima voce della saga in ordine cronologico interno - sessione
+  notturna, 2026-09-10.
+- `darksiders-abomination-vault` - Darksiders: The Abomination Vault
+  (ROMANZO, 2012) - voce a sé - sessione notturna, 2026-09-10.
+- `darksiders-comic-2009` - Darksiders (GameStop Limited Edition Comic)
+  (FUMETTO/GRAPHIC NOVEL, 2009) - voce a sé - sessione notturna,
+  2026-09-10.
+- `darksiders-1` - Darksiders (VIDEOGIOCO, 2010, include nota sulla
+  Warmastered Edition 2016) - voce a sé - sessione notturna, 2026-09-10.
+- `darksiders-2-deaths-door` - Darksiders II: Death's Door (FUMETTO/
+  COMIC, miniserie Dark Horse, 2012) - voce a sé - sessione notturna,
+  2026-09-10.
+- `darksiders-2` - Darksiders II (VIDEOGIOCO, 2012, include nota sulla
+  Deathinitive Edition 2015) - voce a sé - sessione notturna,
+  2026-09-10.
+- `darksiders-2-arguls-tomb` - Darksiders II: Argul's Tomb (ESPANSIONE,
+  2012) - voce a sé - sessione notturna, 2026-09-10.
+- `darksiders-2-abyssal-forge` - Darksiders II: The Abyssal Forge
+  (ESPANSIONE, 2013) - voce a sé - sessione notturna, 2026-09-10.
+- `darksiders-3` - Darksiders III (VIDEOGIOCO, 2018) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `darksiders-4` - Darksiders IV (VIDEOGIOCO, in uscita aprile 2027 -
+  marzo 2028 attesa, imagePending) - voce a sé, ultima voce della saga
+  - sessione notturna, 2026-09-10.
+
+### Note tecniche di sessione
+
+Sotto-sezione fuori dallo schema standard del file, aggiunta qui in via
+eccezionale perché Darksiders è l'ultima saga del turno notturno 2/notte
+3 (10/10): raccoglie segnalazioni tecniche/ambientali emerse durante il
+lavoro su questa saga, utili a chi consulterà l'archivio in futuro.
+
+- **Guasto di rete ricorrente in questo ciclo**: Supervisore, Linguista
+  e Musicista hanno tutti riscontrato un guasto di rete sistematico
+  durante il lavoro su Darksiders - WebFetch bloccato (`EGRESS_BLOCKED`)
+  su tutti i domini pertinenti tentati, WebSearch con tasso di
+  fallimento molto alto (16/17 per il Linguista, circa 11 tentativi
+  iniziali falliti per il Musicista prima che le query cominciassero a
+  restituire risultati reali). Le verifiche si sono dovute appoggiare a
+  coerenza interna e convenzioni consolidate per analogia più che a
+  fonte primaria diretta in ogni singolo caso; nessuna resa è stata
+  inventata, ogni punto non verificabile è stato segnalato come aperto
+  invece di essere deciso d'iniziativa. Limite ambientale della
+  sessione, non della qualità del lavoro svolto.
+- **Punto aperto "Uriel"/"Uriele"**: il nome dell'angelo alleato in
+  Darksiders (voce 4) potrebbe avere una forma italiana tradizionale
+  ("Uriele"), non verificabile in questa sessione per il guasto di rete
+  sopra descritto. Lasciato invariato "Uriel" come scritto dallo
+  Scrittore. Da riverificare in un ciclo futuro con accesso di rete
+  funzionante (fonte auspicata: credits/sottotitoli italiani ufficiali
+  del gioco) - non impedisce la pubblicazione.
+- **Discrepanza fattuale in un report precedente** (non riguarda
+  Darksiders): un report etichettato "Xenoblade" sosteneva erroneamente
+  che "Blood and Wine" (The Witcher 3) non avesse mai una voce propria
+  in `data.js` - verificato di persona dal Supervisore che la voce
+  esiste (`witcher-3-blood-and-wine`, riga 7644 al momento della
+  verifica). Segnalazione da correggere nell'archivio dei report per chi
+  lo riconsulterà in futuro.
+
 ## Dead Space
 
 Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
