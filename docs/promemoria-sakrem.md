@@ -2511,3 +2511,61 @@ Aggiornamento nel richiamo mirato: nessun nuovo universo, 1 nuova voce
   (sequel diretto di `control`, narrativamente successivo a `firebreak`);
   estende lo span dell'universo "main" da "2010 – 2025" a "2010 – 2026" -
   sessione 2026-09-10.
+
+## Warcraft
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora, `tracks: []`) e popolarlo con una playlist di 7
+  brani, in ordine di fama/gradimento decrescente: Invincible = *World of
+  Warcraft: Wrath of the Lich King*, Legends of Azeroth = *World of
+  Warcraft*, Lament of the Highborne = *World of Warcraft: The Burning
+  Crusade*, Elwynn Forest = *World of Warcraft*, Arthas, My Son = *Warcraft
+  III: Reign of Chaos*, A Call to Arms = *World of Warcraft: Wrath of the
+  Lich King*, Icecrown Glacier = *Warcraft III: The Frozen Throne*.
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei brani più
+  iconici/riconoscibili a copertura della trilogia RTS e di World of
+  Warcraft fino a The War Within (nessuna traccia da Midnight, priva di
+  riscontro musicale pubblico al momento). Nessuna coppia di tracce
+  consecutive dallo stesso titolo.
+- **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 9/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo viene comunque creato dal Programmatore come
+  `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Aggiornamento nel richiamo mirato: nessun nuovo universo, 2 nuove voci
+(nessuna gemella), sessione 2026-09-10 (richiamo mirato, turno notturno 2,
+saga 9/11).
+
+- `midnight` - World of Warcraft: Midnight (VIDEOGIOCO, 2026, undicesima
+  espansione) - voce a sé, inserita nell'universo "World of Warcraft" dopo
+  `the-war-within` - sessione 2026-09-10.
+- `the-last-titan` - World of Warcraft: The Last Titan (VIDEOGIOCO,
+  annunciata, non prima del 2027, imagePending) - voce a sé, ultima voce
+  dell'universo "World of Warcraft" e dell'intera saga, dopo `midnight` -
+  sessione 2026-09-10.
+
+### Gap fuori scope segnalati (da non perdere di vista)
+
+- **Blood Ties / romanzi / film Warcraft (2016)**: NON aperta la categoria
+  media extra-videoludici in questo richiamo (un solo romanzo o un solo
+  film isolato non formano un universo secondo le regole strutturali del
+  sito; aprire la categoria solo per Blood Ties lascerebbe fuori ~29 altri
+  romanzi di pari rilevanza, incoerenza peggiore del vuoto attuale).
+  Raccomandato un richiamo dedicato futuro "Warcraft — media
+  extra-videoludici", con ricerca ad hoc su tutto il corpus romanzi/fumetti
+  (~30 titoli) + film 2016, per valutare in blocco l'aggregazione in uno o
+  più universi coerenti.
+- **Errore "Hallowfall" → "Precipizi Sacri"**: la sinossi già pubblicata di
+  `the-war-within` contiene "Hallowfall" non tradotto (nome ufficiale
+  italiano: "Precipizi Sacri"). Non corretto in questo giro (fuori mandato
+  del richiamo mirato, limitato ai 6 termini scorretti già in scope). Da
+  correggere in un futuro richiamo mirato dedicato a questa sola voce.
