@@ -6898,12 +6898,13 @@ const GAMES = {
 
   warcraft: {
     id: "warcraft",
+    lastAgentPass: "2026-09-10",
     listTitle: { it: "Warcraft", en: "Warcraft" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Warcraft", en: "Warcraft" },
     blurb: {
-      it: "Sul continente di Azeroth, Orda e Alleanza combattono una guerra senza fine, spesso costrette a mettere da parte l'odio reciproco davanti a minacce ben più grandi: legioni demoniache, flagelli non morti e forze elementali capaci di cancellare ogni forma di vita. Eroi di ogni razza scelgono da che parte stare, sapendo che.",
-      en: "On the continent of Azeroth, the Horde and the Alliance wage an endless war, often forced to set aside their mutual hatred in the face of far greater threats: demonic legions, undead scourges, and elemental forces capable of erasing all life. Heroes of every race choose a side, knowing the stakes are always the."
+      it: "Su Azeroth, Orda e Alleanza combattono una guerra quasi senza fine, spesso costrette a mettere da parte l'odio reciproco davanti a minacce più grandi: legioni demoniache, flagelli non morti, forze capaci di cancellare ogni forma di vita. Eroi di ogni razza scelgono da che parte stare, sapendo che nessuna vittoria è mai definitiva.",
+      en: "On Azeroth, the Horde and the Alliance wage a near-endless war, often forced to set aside their hatred before threats greater than either of them: demonic legions, undead scourges, elemental forces able to erase all life. Heroes of every race choose a side, knowing no victory is ever final."
     },
     palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
     accentColor: "#c9a227",
@@ -6917,6 +6918,8 @@ const GAMES = {
         name: { it: "Trilogia RTS", en: "RTS Trilogy" },
         span: { it: "Prima Guerra – Terza Guerra", en: "First War – Third War" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
+        palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
+        paletteBounds: ["warcraft-1", "warcraft-2-btdp"],
         entries: [
           { id: "warcraft-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Prima Guerra", releaseYear: "1994", releaseYearEn: "1994",
             title: { it: "Warcraft: Orcs & Humans", en: "Warcraft: Orcs & Humans" },
@@ -6939,14 +6942,14 @@ const GAMES = {
               en: "The Alliance crosses the Dark Portal to Draenor, the orcs' home world now ravaged by its own corruption, to end the threat at its root before it can strike Azeroth again."
             }
           },
-          { id: "warcraft-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Terza Guerra", releaseYear: "2002", releaseYearEn: "2002",
+          { id: "warcraft-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Terza Guerra", releaseYear: "2002 (Remaster: 2020)", releaseYearEn: "2002 (Remaster: 2020)",
             title: { it: "Warcraft III: Reign of Chaos", en: "Warcraft III: Reign of Chaos" },
             synopsis: {
               it: "Il principe Arthas Menethil cade nella corruzione per fermare una piaga di non-morti, diventando egli stesso il primo Cavaliere della Morte al servizio del Flagello, mentre la Legione Infuocata manovra nell'ombra per aprire un varco verso Azeroth attraverso il Pozzo dell'Eternità.",
               en: "Prince Arthas Menethil falls into corruption trying to stop an undead plague, becoming the first Death Knight in service to the Scourge, while the Burning Legion manoeuvres in the shadows to open a breach into Azeroth through the Well of Eternity."
             }
           },
-          { id: "warcraft-3-tft", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo Reign of Chaos", releaseYear: "2003", releaseYearEn: "2003",
+          { id: "warcraft-3-tft", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo Reign of Chaos", releaseYear: "2003 (Remaster: 2020)", releaseYearEn: "2003 (Remaster: 2020)",
             title: { it: "The Frozen Throne", en: "The Frozen Throne" },
             synopsis: {
               it: "Arthas, ormai Re dei Non Morti, uccide il proprio padre e si fonde con Ner'zhul diventando il Re dei Liches, mentre gli elfi della notte e gli orchi guidati da Thrall respingono l'invasione della Legione Infuocata, chiudendo la Terza Guerra con un mondo profondamente trasformato.",
@@ -6960,36 +6963,38 @@ const GAMES = {
         name: { it: "World of Warcraft", en: "World of Warcraft" },
         span: { it: "2004 – oggi", en: "2004 – present" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
+        palette: ["#4a6fa5", "#b5651d", "#7ec850", "#3a2150", "#c9a227"],
+        paletteBounds: ["wrath-of-the-lich-king", "warlords-of-draenor", "battle-for-azeroth", "shadowlands"],
         entries: [
-          { id: "wow-vanilla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo la Terza Guerra", releaseYear: "2004", releaseYearEn: "2004",
+          { id: "wow-vanilla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo la Terza Guerra", releaseYear: "2004 (Classic: 2019)", releaseYearEn: "2004 (Classic: 2019)",
             title: { it: "World of Warcraft", en: "World of Warcraft" },
             synopsis: {
               it: "Il gioco di ruolo online che trasforma Azeroth in un mondo persistente e condiviso, con Alleanza e Orda ancora in guerra mentre nuove minacce, tra cui i draghi corrotti dell'Incubo dello Smeraldo, emergono ai margini del conflitto.",
               en: "The online role-playing game that turns Azeroth into a persistent, shared world, with the Alliance and the Horde still at war while new threats, including the corrupted dragons of the Emerald Nightmare, emerge at the edges of the conflict."
             }
           },
-          { id: "burning-crusade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "prima espansione", releaseYear: "2007", releaseYearEn: "2007",
+          { id: "burning-crusade", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "prima espansione", releaseYear: "2007 (Classic: 2021)", releaseYearEn: "2007 (Classic: 2021)",
             title: { it: "The Burning Crusade", en: "The Burning Crusade" },
             synopsis: {
               it: "Il Portale Oscuro si riapre verso Draenor, ormai frammentato in Outland: gli eroi vi si spingono per fermare Illidan Grande Traditore e la Legione Infuocata, tornata a minacciare Azeroth dopo gli eventi di Warcraft III.",
               en: "The Dark Portal reopens toward Draenor, now shattered into Outland: heroes venture there to stop Illidan the Betrayer and the Burning Legion, once again threatening Azeroth after the events of Warcraft III."
             }
           },
-          { id: "wrath-of-the-lich-king", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seconda espansione", releaseYear: "2008", releaseYearEn: "2008",
+          { id: "wrath-of-the-lich-king", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "seconda espansione", releaseYear: "2008 (Classic: 2022)", releaseYearEn: "2008 (Classic: 2022)",
             title: { it: "Wrath of the Lich King", en: "Wrath of the Lich King" },
             synopsis: {
               it: "Gli eroi marciano su Northrend per porre fine una volta per tutte al regno di Arthas, ormai completamente il Re dei Liches, affrontandolo infine nella Cittadella della Corona di Ghiaccio.",
               en: "Heroes march on Northrend to end Arthas's reign once and for all, now fully the Lich King, finally confronting him at the Icecrown Citadel."
             }
           },
-          { id: "cataclysm", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "terza espansione", releaseYear: "2010", releaseYearEn: "2010",
+          { id: "cataclysm", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "terza espansione", releaseYear: "2010 (Classic: 2024)", releaseYearEn: "2010 (Classic: 2024)",
             title: { it: "Cataclysm", en: "Cataclysm" },
             synopsis: {
               it: "Deathwing, il Dragone Nero corrotto, emerge dalle profondità di Azeroth devastandone la superficie e ridisegnandone letteralmente la geografia, mentre gli eroi si alleano per fermarlo prima che possa distruggere il mondo stesso.",
               en: "Deathwing, the corrupted Black Dragon, emerges from Azeroth's depths, devastating its surface and literally reshaping its geography, while heroes join forces to stop him before he can destroy the world itself."
             }
           },
-          { id: "mists-of-pandaria", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "quarta espansione", releaseYear: "2012", releaseYearEn: "2012",
+          { id: "mists-of-pandaria", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "quarta espansione", releaseYear: "2012 (Classic: 2025)", releaseYearEn: "2012 (Classic: 2025)",
             title: { it: "Mists of Pandaria", en: "Mists of Pandaria" },
             synopsis: {
               it: "Il continente nascosto di Pandaria riemerge dalla nebbia dopo secoli di isolamento; Alleanza e Orda, seguendovi, riaccendono il proprio conflitto proprio mentre lo scoprono, mettendo a rischio la sua fragile pace.",
@@ -7034,9 +7039,23 @@ const GAMES = {
           { id: "the-war-within", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "decima espansione", releaseYear: "2024", releaseYearEn: "2024",
             title: { it: "The War Within", en: "The War Within" },
             synopsis: {
-              it: "Gli eroi scendono nelle profondità sotterranee di Azeroth per fermare i Nerubiani risvegliati e il Vuoto Nero che li corrompe, scoprendo che il cuore pulsante del pianeta stesso è in pericolo. Prima delle tre espansioni annunciate della trilogia \"Worldsoul Saga\".",
-              en: "Heroes descend into Azeroth's underground depths to stop the awakened Nerubians and the Void corrupting them, discovering that the planet's own beating heart is in danger. The first of three announced expansions in the \"Worldsoul Saga\" trilogy."
+              it: "Gli eroi scendono nelle profondità sotterranee di Azeroth per fermare i Nerubiani risvegliati e il Vuoto Nero che li corrompe, scoprendo che il cuore pulsante del pianeta stesso è in pericolo. Esplorando le nuove terre dell'Isola di Dorn, le Profondità Risonanti, Hallowfall e la Città dei Fili, Alleanza e Orda uniscono le proprie forze in un consiglio comune per affrontare la Regina Nerubiana Ansurek, manipolata dall'entità del Vuoto Xal'atath, e la sconfiggono nel cuore del suo palazzo sotterraneo. Prima tappa della trilogia \"Saga dell'Anima del Mondo\", proseguita dall'espansione Midnight, uscita nel 2026, e destinata a concludersi con The Last Titan, ancora solo annunciata senza una data di uscita precisa.",
+              en: "Heroes descend into Azeroth's underground depths to stop the awakened Nerubians and the Void corrupting them, discovering that the planet's own beating heart is in danger. Exploring the new lands of the Isle of Dorn, the Ringing Deeps, Hallowfall, and the City of Threads, the Alliance and the Horde unite their forces in a shared council to confront the Nerubian Queen Ansurek, manipulated by the Void entity Xal'atath, and defeat her at the heart of her underground palace. The first chapter of the \"Worldsoul Saga\" trilogy, continued by the Midnight expansion, released in 2026, and set to conclude with The Last Titan, still only announced with no confirmed release date."
             }
+          },
+          { id: "midnight", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "undicesima espansione", releaseYear: "2026", releaseYearEn: "2026",
+            title: { it: "World of Warcraft: Midnight", en: "World of Warcraft: Midnight" },
+            synopsis: {
+              it: "Direttamente dagli eventi di The War Within, l'entità del Vuoto Xal'atath scaglia la Tempesta del Vuoto (Voidstorm) sull'Isola di Quel'Danas e scatena lo Sciame Famelico, il suo immenso esercito di creature del Vuoto, contro il Pozzo Solare (Sunwell), fonte stessa del potere arcano di Quel'Thalas. Lor'themar Theron e Lady Liadrin guidano la difesa degli elfi del sangue, affiancati da Turalyon e dall'Avanguardia della Luce, riuscendo a respingere temporaneamente l'assalto incanalando il potere del Pozzo Solare in un fascio di luce; ma nella battaglia del Pinnacolo del Vuoto, Xal'atath sottrae il naaru del vuoto L'ura e ne usa il potere per corrompere il Pozzo Solare dall'interno, trasformandolo nel Pozzo Oscuro (Darkwell), mentre Turalyon e Alleria precipitano tra le rovine con un destino incerto. Gli eroi si spingono poi attraverso Quel'Thalas per riunificare le tribù elfiche disperse nei secoli, dagli alti elfi agli elfi del vuoto un tempo esiliati, radunando un unico esercito capace di marciare su Quel'Danas per riprendersi il Pozzo Oscuro dalle mani dello Sciame Famelico. Nello scontro finale gli elfi uniti abbattono L'ura, ma Xal'atath riesce comunque a fuggire sottoterra con buona parte del suo esercito, lasciando aperta la minaccia per il prosieguo della saga. Seconda tappa della trilogia \"Saga dell'Anima del Mondo\" dopo The War Within, l'espansione introduce anche il sistema di Alloggi (player housing), la possibilità per i giocatori di costruire e arredare una propria dimora nel mondo di gioco.",
+              en: "Directly following the events of The War Within, the Void entity Xal'atath unleashes the Voidstorm over the Isle of Quel'Danas and sends the Devouring Host, her vast army of Void creatures, against the Sunwell, the very source of Quel'Thalas's arcane power. Lor'themar Theron and Lady Liadrin lead the blood elves' defense, joined by Turalyon and the Vanguard of the Light, managing to push back the assault by channeling the Sunwell's power into a beam of light; but during the battle of the Voidspire, Xal'atath seizes the dark naaru L'ura and uses her power to corrupt the Sunwell from within, turning it into the Darkwell, while Turalyon and Alleria fall into the ruins with an uncertain fate. Heroes then travel across Quel'Thalas to reunite the elven tribes scattered for centuries, from the high elves to the once-exiled void elves, gathering a single unified army capable of marching on Quel'Danas to reclaim the Darkwell from the Devouring Host. In the final battle, the united elves strike down L'ura, but Xal'atath still manages to escape underground with much of her army, leaving the threat open for the rest of the saga. The second chapter of the \"Worldsoul Saga\" trilogy after The War Within, the expansion also introduces player housing, letting players build and furnish their own home in the game world."
+            }
+          },
+          { id: "the-last-titan", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "Dopo Midnight", yearEn: "After Midnight",
+            title: { it: "World of Warcraft: The Last Titan", en: "World of Warcraft: The Last Titan" },
+            imagePending: true,
+            releaseDateShort: { it: "Non prima del 2027", en: "Not before 2027" },
+            releaseDateISO: "2027-12-31"
           }
         ]
       }
