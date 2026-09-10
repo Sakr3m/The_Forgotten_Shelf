@@ -1332,6 +1332,87 @@ automatica in questo stesso ciclo, quindi nessun impatto sul risultato
 finale - ma segnala che il brief dell'Artista andrebbe aggiornato per
 evitare che l'inciampo si ripeta nei prossimi cicli.
 
+## Like a Dragon (ex "Yakuza")
+
+Scheda rinominata in questo ciclo (id interno invariato: `yakuza`).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, campo da creare ex novo)
+
+- **Proposta**: creare ex novo il campo `tracks` della saga (finora
+  assente da `data.js`, `tracks: []`) e popolarlo con una playlist di 7
+  brani: Baka Mitai (I've Been a Fool) (*Yakuza 5*, ripresa in *Yakuza
+  0*), Receive You (-Kiwami-) (*Yakuza Kiwami*), Judgement -Shinpan-
+  (*Yakuza 0*), Machine Gun Kiss (*Yakuza 4*, ripresa in numerosi
+  capitoli successivi fino a *Yakuza Kiwami 3 & Dark Ties*), Like a
+  Butterfly (*Yakuza 6: The Song of Life*), Katatoki (*Like a Dragon
+  Gaiden: The Man Who Erased His Name*, firmata da Yojiro Noda dei
+  RADWIMPS e dal rapper J.I.D.), Song of Departure -Journey to the New
+  World- (*Like a Dragon: Pirate Yakuza in Hawaii*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione per fama/status
+  di meme o classico riconosciuto (in particolare "Baka Mitai", diventato
+  meme internet globale) a copertura di più capitoli ed epoche, incluso
+  il nuovo "Kiwami 3 & Dark Ties" (nessuna traccia propria trovata
+  abbastanza affermata per quel titolo, uscito solo 7 mesi fa) e i due
+  nuovi titoli con theme song di rilievo pubblico (Gaiden, Pirate Yakuza
+  in Hawaii). Esclusi dal perimetro i due adattamenti live-action (nessuna
+  colonna sonora di gioco propria) e "Stranger Than Heaven" (non ancora
+  uscito).
+- **Data**: 2026-09-10 (richiamo mirato notturno, saga 11/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo resta `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+- `stranger-than-heaven` - Stranger Than Heaven (VIDEOGIOCO, in uscita 15
+  gennaio 2027, imagePending) - voce a sé, nuova prima voce cronologica
+  dell'universo `main` (1915-1965) - sessione notturna, 2026-09-10.
+- `ryu-ga-gotoku-film` - Ryu ga Gotoku (LIVE ACTION, film, 2007, regia
+  Takashi Miike) - voce a sé, primo titolo live-action della saga -
+  sessione notturna, 2026-09-10.
+- `like-a-dragon-yakuza-series` - Like a Dragon: Yakuza (LIVE ACTION,
+  serie Prime Video, 2024) - voce a sé - sessione notturna, 2026-09-10.
+- `like-a-dragon-gaiden` - Like a Dragon Gaiden: The Man Who Erased His
+  Name (VIDEOGIOCO, 2023) - voce a sé, inserita tra `like-a-dragon` e
+  `infinite-wealth` - sessione notturna, 2026-09-10.
+- `pirate-yakuza-hawaii` - Like a Dragon: Pirate Yakuza in Hawaii
+  (VIDEOGIOCO, 2025) - voce a sé, ultima voce dell'universo `main` -
+  sessione notturna, 2026-09-10.
+- `yakuza-3` sostituita da `yakuza-kiwami-3` - Yakuza Kiwami 3 & Dark
+  Ties (VIDEOGIOCO, remake 2026, include la storia inedita "Dark Ties")
+  - sostituzione di voce esistente, non un semplice aggiornamento di
+  sinossi (nuovo id, nuovo titolo, nuova data di uscita) - sessione
+  notturna, 2026-09-10.
+- Prima `palette`/`paletteBounds` a livello di universo per `main` (5
+  colori: `#5c4029 #c9a227 #8b1a1a #1a1a2e #1f8a7a`, 4 confini) - proposta
+  Artista, applicata in automatico (nessun consenso di Sakrem richiesto
+  per le scelte di colore, regola in vigore dall'8/09/2026) - sessione
+  notturna, 2026-09-10.
+
+### Note di scope aperte
+
+- **Rename scheda**: `listTitle`/`title` di saga cambiati da "Yakuza:
+  Like a Dragon" a "Like a Dragon" (id `yakuza` invariato; il `title`
+  della voce del gioco 2020 resta "Yakuza: Like a Dragon", non toccato).
+- **Judgment / Lost Judgment**: esclusi entrambi dalla linea editoriale,
+  con nota esplicita aggiunta al blurb di saga (stesso universo/stessa
+  Kamurocho, ma brand a sé stante per scelta di SEGA, protagonista e
+  trama autonomi). Nessuna voce creata per questi titoli in questo ciclo.
+- **Crossover "Ryu ga Gotoku Powered By Nihon Tōitsu"**: escluso dallo
+  scope di questo richiamo per canonicità non confermata rispetto al
+  resto della linea principale - da rivalutare in un futuro richiamo
+  mirato, non deciso definitivamente.
+- **Span universo `main`**: aggiornato da "1988 – 2024" a "1915 – 2027",
+  entrambi gli estremi dovuti alla stessa nuova voce `stranger-than-
+  heaven`: 1915 come inizio della sua ambientazione (cinque epoche di
+  famiglia, prima di Kiryu), 2027 come sua data di uscita (15 gennaio),
+  più lontana nel tempo della precedente uscita più recente della saga
+  (2024, *Infinite Wealth*).
+
 ## Lost Planet
 
 ### Musica
