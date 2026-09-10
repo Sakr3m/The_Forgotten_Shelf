@@ -9293,6 +9293,238 @@ const GAMES = {
         ]
       }
     ]
+  },
+  "metro": {
+    id: "metro",
+    lastAgentPass: "2026-09-10",
+    listTitle: {
+      it: "Metro",
+      en: "Metro"
+    },
+    eyebrow: {
+      it: "Fascicolo",
+      en: "Case File"
+    },
+    title: {
+      it: "Metro",
+      en: "Metro"
+    },
+    blurb: {
+      it: "Dopo la guerra nucleare del 2013, i sopravvissuti vivono nella metro di Mosca, tra fazioni rivali — comunisti, nazisti, mercanti, Ranger — e minacciati da mutanti e dai misteriosi Tetri. Romanzi e videogiochi narrano due versioni divergenti dello stesso evento fondativo: stesso Artyom, esiti opposti tra sopravvivenza e redenzione.",
+      en: "After the 2013 nuclear war, survivors live in the Moscow metro, amid rival factions — communists, Nazis, traders, Rangers — and threatened by mutants and the mysterious Dark Ones. Novels and games tell two diverging versions of the same founding event: same Artyom, opposite outcomes between survival and redemption."
+    },
+    palette: [
+      "#1A1714",
+      "#B06A2E",
+      "#94A03C"
+    ],
+    accentColor: "#B06A2E",
+    // Playlist proposta dal Musicista (7 brani), in attesa dei file audio
+    // su R2 - nessun asset audio caricato ancora per questa saga (stesso
+    // caso di Metroid/Dark Souls/Armored Core/ecc.). Vedi elenco tracce nel
+    // pacchetto Segretaria / promemoria-sakrem.md, sezione Metro. Campo
+    // creato vuoto.
+    tracks: [],
+    universes: [
+      {
+        id: "libri",
+        name: {
+          it: "Libri",
+          en: "Books"
+        },
+        span: {
+          it: "2005 – 2019",
+          en: "2005 – 2019"
+        },
+        palette: [
+          "#B06A2E",
+          "#3E4A54",
+          "#8CA3AC"
+        ],
+        paletteBounds: [
+          "metro-2033-fumetto",
+          "metro-2034"
+        ],
+        entries: [
+          {
+            id: "metro-2033-romanzo", type: "ROMANZO", typeEn: "NOVEL",
+            year: "2033", yearEn: "2033",
+            releaseYear: "2005 (edizione italiana: 2010)", releaseYearEn: "2005 (Italian edition: 2010)",
+            title: {
+              it: "Metro 2033",
+              en: "Metro 2033"
+            },
+            synopsis: {
+              it: "Mosca, vent'anni dopo la guerra nucleare del 2013 che ha spazzato via la civiltà in superficie: gli ultimi sopravvissuti vivono rintanati nei tunnel della metropolitana, spartiti in stazioni-stato indipendenti e legati da un'unica, fragile linea di sopravvivenza. Artyom, cresciuto alla stazione di VDNKh dopo la morte della madre nei giorni della guerra, riceve la visita di Hunter, un leggendario Ranger dell'Ordine che lo mette in guardia su una minaccia crescente proveniente dai Giardini Botanici in superficie: creature telepatiche sconosciute, soprannominate i Tetri, che si stanno lentamente avvicinando alla stazione e che Hunter sospetta vogliano invadere e sterminare l'ultima enclave umana rimasta a nord della linea. Prima di inoltrarsi da solo verso il nido dei Tetri, Hunter affida ad Artyom un compito: se non farà ritorno entro un certo termine, il ragazzo dovrà lasciare VDNKh e raggiungere Polis, la stazione-fortezza al centro della rete che ospita il governo e la biblioteca della metro, per avvertire l'Ordine del pericolo.\n\nHunter non torna, e Artyom intraprende così un viaggio attraverso l'intera metropolitana moscovita, attraversando stazioni controllate dal Quarto Reich neonazista, l'avamposto comunista della Linea Rossa, i territori dell'alleanza mercantile di Hansa, tunnel infestati da fantasmi e mutanti, la sinistra Biblioteca di Stato custodita da creature simili a bibliotecari mostruosi, e i sotterranei del misterioso bunker D6. Lungo la strada Artyom perde e ritrova compagni di viaggio — tra cui il cinico contrabbandiere Bourbon, ucciso presto in un'imboscata, e il filosofo mistico Khan, convinto che i Tetri non siano un nemico ma un tentativo di contatto — e attraversa stazioni che incarnano visioni del mondo opposte: comunismo, fascismo, sette religiose, nichilismo, ciascuna presentata come possibile risposta alla fine del mondo.\n\nGiunto infine a Polis e reclutato dai Ranger dell'Ordine guidati da Melnik, Artyom convince i vertici militari che i Tetri rappresentino una minaccia esistenziale, e li accompagna in una missione per lanciare un attacco missilistico dal complesso D6 contro il loro nido ai Giardini Botanici. Solo nell'istante finale, mentre il missile è ormai in volo, Artyom comincia a percepire con chiarezza i veri messaggi telepatici dei Tetri: non un'invasione, ma un tentativo disperato di comunicare con l'umanità e offrirle un'evoluzione oltre l'odio e la distruzione che l'hanno condotta all'apocalisse. È troppo tardi per fermare l'attacco: il nido viene raso al suolo e i Tetri sterminati, mentre Artyom resta solo con la consapevolezza di aver frainteso — forse in modo irreparabile — l'unica possibilità di redenzione offerta all'umanità dopo la fine del mondo.\n\nIl romanzo, più contemplativo e filosofico-religioso del videogioco che ne è liberamente ispirato (vedi voce corrispondente nel Ramo Giochi), intreccia il viaggio di Artyom con riflessioni sulla natura umana, la fede e la colpa, restando volutamente ambiguo su cosa sarebbe potuto accadere se l'umanità avesse scelto di ascoltare invece di temere.",
+              en: "Moscow, twenty years after the 2013 nuclear war that wiped out civilization on the surface: the last survivors live crammed into the tunnels of the metro, split into independent station-states linked by one fragile lifeline. Artyom, raised at VDNKh station after his mother's death in the war's first days, is visited by Hunter, a legendary Order Ranger who warns him of a growing threat emerging from the Botanical Garden above: unknown telepathic creatures, nicknamed the Dark Ones, slowly closing in on the station, which Hunter suspects intend to invade and wipe out the last human enclave north of the line. Before venturing alone toward the Dark Ones' nest, Hunter entrusts Artyom with a task: if he fails to return by a set deadline, the boy must leave VDNKh and reach Polis, the fortress-station at the heart of the network that houses the metro's government and library, to warn the Order of the danger.\n\nHunter never returns, and Artyom sets out on a journey across the entire Moscow metro, passing through stations held by the neo-Nazi Fourth Reich, the communist outpost of the Red Line, the territories of the Hansa trading alliance, tunnels haunted by ghosts and mutants, the sinister State Library guarded by monstrous librarian creatures, and the depths of the mysterious D6 bunker. Along the way Artyom loses and gains travelling companions — including the cynical smuggler Bourbon, killed early in an ambush, and the mystic philosopher Khan, convinced the Dark Ones are not an enemy but an attempt at contact — and passes through stations embodying opposing worldviews: communism, fascism, religious cults, nihilism, each presented as a possible answer to the end of the world.\n\nReaching Polis at last and recruited by the Order's Rangers under Miller, Artyom convinces the military leadership that the Dark Ones represent an existential threat, and joins a mission to launch a missile strike from the D6 complex against their nest at the Botanical Garden. Only in the final instant, as the missile is already in flight, does Artyom begin to clearly perceive the Dark Ones' true telepathic messages: not an invasion, but a desperate attempt to reach out to humanity and offer it a way beyond the hatred and destruction that brought about the apocalypse. It is too late to stop the strike: the nest is razed and the Dark Ones exterminated, leaving Artyom alone with the knowledge that he may have irreparably misread humanity's one chance at redemption after the end of the world.\n\nMore contemplative and philosophical-religious than the video game loosely inspired by it (see the corresponding entry in the Games Branch), the novel weaves Artyom's journey together with reflections on human nature, faith and guilt, staying deliberately ambiguous about what might have happened had humanity chosen to listen instead of fear."
+            }
+          },
+          {
+            id: "metro-2033-fumetto", type: "FUMETTO", typeEn: "COMIC",
+            year: "Adattamento integrale del romanzo Metro 2033, in 4 volumi", yearEn: "Full adaptation of the novel Metro 2033, in 4 volumes",
+            releaseYear: "dal 2019", releaseYearEn: "from 2019",
+            title: {
+              it: "Metro 2033 (graphic novel)",
+              en: "Metro 2033 (graphic novel)"
+            },
+            synopsis: {
+              it: "Adattamento a fumetti integrale del romanzo Metro 2033 di Dmitry Glukhovsky, realizzato con la partecipazione diretta dell'autore e disegnato dall'artista olandese Peter Nuyten, pubblicato a partire dal 2019 in quattro volumi (prevalentemente nell'edizione tedesca Cross Cult, punto di riferimento per la serie — non risulta ancora un'edizione italiana ufficiale). L'opera segue fedelmente l'intero arco narrativo del romanzo: la vita di Artyom a VDNKh, l'incarico affidatogli da Hunter, il lungo viaggio attraverso le stazioni del Quarto Reich, della Linea Rossa e dell'alleanza di Hansa, l'attraversamento della Biblioteca di Stato e del bunker D6, fino all'arrivo a Polis e alla missione finale contro il nido dei Tetri ai Giardini Botanici, con il medesimo finale ambiguo e amaro del testo originale.\n\nDistinta dal fumetto ponte The Gospel According to Artyom (che appartiene invece al Ramo Giochi e adatta un episodio diverso, legato al videogioco), questa graphic novel privilegia la resa visiva dell'atmosfera claustrofobica e decadente della metro e delle sue stazioni-fazione, offrendo un'esperienza di lettura pensata come trasposizione diretta del romanzo più che come opera autonoma.",
+              en: "A full comic adaptation of Dmitry Glukhovsky's novel Metro 2033, made with the author's direct involvement and illustrated by Dutch artist Peter Nuyten, published from 2019 onward in four volumes (primarily through the German Cross Cult edition, the series' reference release). The work faithfully follows the novel's entire narrative arc: Artyom's life at VDNKh, the task entrusted to him by Hunter, the long journey through the stations of the Fourth Reich, the Red Line and the Hansa alliance, the crossing of the State Library and the D6 bunker, up to the arrival at Polis and the final mission against the Dark Ones' nest at the Botanical Garden, with the same bittersweet, ambiguous ending as the original text.\n\nDistinct from the bridging comic The Gospel According to Artyom (which belongs to the Games Branch and adapts a different episode tied to the video game), this graphic novel favors a visual rendering of the metro's claustrophobic, decaying atmosphere and its faction-stations, offering a reading experience conceived as a direct transposition of the novel rather than a standalone work."
+            }
+          },
+          {
+            id: "metro-2034", type: "ROMANZO", typeEn: "NOVEL",
+            year: "Non è la fonte del videogioco Last Light — protagonisti diversi", yearEn: "Not the source of the video game Last Light — different protagonists",
+            releaseYear: "2009 (edizione italiana: 2011)", releaseYearEn: "2009 (Italian edition: 2011)",
+            title: {
+              it: "Metro 2034",
+              en: "Metro 2034"
+            },
+            synopsis: {
+              it: "Da non confondere con il videogioco Metro: Last Light, ambientato nello stesso anno narrativo ma senza alcun rapporto di fonte: Metro 2034 non è collegato alla trama del gioco, e i suoi personaggi ed eventi sono del tutto indipendenti da quelli di Artyom. Secondo romanzo della saga di Dmitry Glukhovsky, pubblicato nel 2009, si allontana dal protagonista del primo libro per seguire nuove figure alla stazione di Sevastopolskaya, un avamposto isolato e sempre più fragile, minato da un'epidemia e circondato da un pericolo mai visto prima.\n\nOmero, anziano guardiano della stazione ossessionato dal sogno di scrivere il grande romanzo definitivo sulla metro, si unisce a una missione guidata dal leggendario Ranger Hunter (già comparso nel primo libro), incaricato di indagare sulla minaccia che si sta addensando nei tunnel intorno a Sevastopolskaya — un'entità mostruosa, quasi leggendaria, capace di seminare morte e panico tra gli abitanti. Nel corso del viaggio Omero si lega alla giovane Sasha, rimasta sola dopo essere stata separata dal padre, e la accompagna in un percorso di crescita e sopravvivenza che li porta ad attraversare stazioni ostili e territori infestati.\n\nMentre Hunter si addentra sempre più a fondo sulle tracce della creatura, un nemico ben più concreto e umano manovra nell'ombra: un gruppo di predatori intenzionato a impadronirsi di Sevastopolskaya sfruttandone la debolezza, che dissemina false comunicazioni radio per illudere gli abitanti di un soccorso in arrivo da Polis e indebolirne così la volontà di resistere. L'inganno si rivela fatale: la stazione, ormai priva di difese credibili, cade sotto l'assalto degli invasori in una notte di violenza e perdite, mentre il destino di Hunter nello scontro con la creatura resta avvolto nell'incertezza.\n\nSopravvissuti al disastro, Omero e Sasha raggiungono infine Polis, portando con sé non solo le proprie ferite ma anche la consapevolezza di quanto la memoria e la parola scritta possano essere l'unica forma di resistenza rimasta a un'umanità che rischia di dimenticare se stessa. Più cupo e dal registro noir rispetto al romanzo d'esordio, Metro 2034 sviluppa un tema amoroso e generazionale attraverso il legame tra Omero e Sasha, e riflette sull'eredità, la memoria e il senso della narrazione stessa come atto di sopravvivenza.",
+              en: "Not to be confused with the video game Metro: Last Light, set in the same narrative year but with no source relationship whatsoever: Metro 2034 is not connected to the game's plot, and its characters and events are entirely independent from Artyom's story. The second novel in Dmitry Glukhovsky's saga, published in 2009, moves away from the first book's protagonist to follow new figures at Sevastopolskaya station, an isolated, increasingly fragile outpost undermined by disease and surrounded by an unprecedented danger.\n\nHomer, an aging station guard obsessed with the dream of writing the definitive great novel of the metro, joins a mission led by the legendary Ranger Hunter (already seen in the first book), tasked with investigating a threat gathering in the tunnels around Sevastopolskaya — a monstrous, almost legendary entity sowing death and panic among the inhabitants. Along the way, Homer grows close to young Sasha, left alone after being separated from her father, and accompanies her on a journey of growth and survival that takes them through hostile stations and infested territories.\n\nWhile Hunter pushes ever deeper on the creature's trail, a far more concrete and human enemy is maneuvering in the shadows: a band of predators intent on seizing Sevastopolskaya by exploiting its weakness, spreading false radio broadcasts to convince the inhabitants that help is coming from Polis and so sap their will to resist. The deception proves fatal: the station, now with no credible defense left, falls to the invaders in a night of violence and loss, while Hunter's fate in his confrontation with the creature is left uncertain.\n\nSurviving the disaster, Homer and Sasha finally reach Polis, carrying with them not only their wounds but also the realization that memory and the written word may be the only form of resistance left to a humanity at risk of forgetting itself. Darker and more noir in register than the debut novel, Metro 2034 develops a love and generational theme through the bond between Homer and Sasha, and reflects on legacy, memory and storytelling itself as an act of survival."
+            }
+          },
+          {
+            id: "metro-2035", type: "ROMANZO", typeEn: "NOVEL",
+            year: "Versione alternativa ed estesa della storia di Last Light", yearEn: "Alternative, expanded version of the Last Light story",
+            releaseYear: "2015 (edizione italiana: 2016)", releaseYearEn: "2015 (Italian edition: 2016)",
+            title: {
+              it: "Metro 2035",
+              en: "Metro 2035"
+            },
+            synopsis: {
+              it: "Presentato come versione alternativa ed estesa della storia raccontata nel videogioco Metro: Last Light, questo terzo romanzo di Dmitry Glukhovsky, pubblicato nel 2015, riprende Artyom e Anna (qui ancora legati, come nel gioco, dal rapporto con il Ranger Melnik) ma sviluppa un canone divergente e autonomo, che omette gran parte degli elementi creati appositamente per il videogioco (inclusa la vicenda del cucciolo di Tetro e il conflitto diretto tra il Quarto Reich e la Linea Rossa per il controllo del bunker D6) per concentrarsi su un dubbio più personale e filosofico.\n\nCinque anni dopo la fine ufficiale della guerra tra le fazioni della metro, Artyom vive a VDNKh logorato dall'immobilismo e dalla convinzione, condivisa da quasi tutta la popolazione della metropolitana, che in superficie non sia rimasto nulla e nessuno. Quando intercetta per caso un misterioso segnale radio che sembra provenire da un insediamento umano ben oltre i confini di Mosca, Artyom viene preso da un'ossessione che lo isola sempre più dagli altri abitanti e persino da Anna, convinto che quel segnale sia la prova che l'umanità sopravvive anche fuori dalla capitale.\n\nDeciso a verificarlo con i propri occhi, intraprende una serie di incursioni sempre più pericolose in superficie e nei settori più remoti della rete metropolitana, scontrandosi con le fazioni che presidiano il flusso di informazioni — Quarto Reich, Linea Rossa, Hansa — ognuna interessata, per ragioni diverse, a mantenere intatto il mito dell'isolamento totale di Mosca. Il romanzo alterna il viaggio di Artyom a riflessioni sulla natura della verità, della speranza e della manipolazione dell'informazione in una società chiusa su se stessa, fino a una conferma, ottenuta a caro prezzo personale, che oltre Mosca esiste ancora un mondo abitabile e abitato.\n\nConcepito esplicitamente come ponte narrativo verso Metro Exodus — di cui anticipa la premessa di fondo, la possibilità di una vita oltre la metropolitana — Metro 2035 va inteso non come «il romanzo di Last Light» in senso stretto, ma come un'opera parallela che riusa lo stesso materiale di partenza per condurlo verso un esito radicalmente diverso, nel proprio ramo canonico coerente.",
+              en: "Presented as an alternative, expanded version of the story told in the video game Metro: Last Light, this third novel by Dmitry Glukhovsky, published in 2015, brings back Artyom and Anna (still linked, as in the game, through their bond with the Ranger Miller) but develops a divergent, self-contained canon that omits most of the elements created specifically for the video game (including the storyline of the Dark One cub and the direct conflict between the Fourth Reich and the Red Line over control of the D6 bunker) to focus instead on a more personal, philosophical doubt.\n\nFive years after the official end of the war between the metro's factions, Artyom lives at VDNKh worn down by stagnation and by the belief, shared by almost the entire metro population, that nothing and no one is left on the surface. When he happens to intercept a mysterious radio signal that seems to come from a human settlement far beyond Moscow's borders, Artyom is gripped by an obsession that increasingly isolates him from the other inhabitants and even from Anna, convinced the signal is proof that humanity survives outside the capital.\n\nDetermined to verify it with his own eyes, he undertakes a series of increasingly dangerous forays onto the surface and into the network's most remote sectors, clashing with the factions that control the flow of information — the Fourth Reich, the Red Line, Hansa — each with its own reasons for keeping the myth of Moscow's total isolation intact. The novel alternates Artyom's journey with reflections on the nature of truth, hope and information manipulation within a society closed in on itself, building to a confirmation, won at great personal cost, that a habitable, inhabited world still exists beyond Moscow.\n\nConceived explicitly as a narrative bridge toward Metro Exodus — whose core premise, the possibility of life beyond the metro, it anticipates — Metro 2035 should be understood not as strictly \"the novel of Last Light,\" but as a parallel work that reuses the same starting material to carry it toward a radically different outcome, within its own consistent canonical branch."
+            }
+          },
+          {
+            id: "metro-outpost-america", type: "FUMETTO", typeEn: "COMIC",
+            year: "Storia parallela ambientata negli USA, 2033", yearEn: "Parallel story set in the USA, 2033",
+            releaseYear: "2016", releaseYearEn: "2016",
+            title: {
+              it: "The Outpost: America",
+              en: "The Outpost: America"
+            },
+            synopsis: {
+              it: "Graphic novel scritta direttamente da Dmitry Glukhovsky e pubblicata in autoproduzione (Createspace) nel 2016 con il sottotitolo ufficiale «A Metro 2033 Universe graphic novel», che dichiara così esplicitamente la propria appartenenza al filone dei romanzi piuttosto che a quello videoludico. Ambientata negli Stati Uniti nel 2033, in parallelo alla linea temporale di Artyom a Mosca, racconta le vicende di un gruppo di sopravvissuti americani rifugiati in un bunker/avamposto dopo la medesima guerra nucleare globale che ha devastato anche la Russia, alle prese con le proprie fazioni, i propri conflitti interni e le proprie strategie di sopravvivenza in un contesto geografico e culturale del tutto diverso dalla metropolitana moscovita.\n\nStoria parallela e indipendente dalla linea narrativa principale della trilogia di Artyom, The Outpost: America amplia la portata dell'universo di Metro 2033 mostrando come la stessa catastrofe abbia colpito, con esiti e risposte umane differenti, un'altra parte del mondo, senza intrecciarsi direttamente con gli eventi di Mosca.",
+              en: "A graphic novel written directly by Dmitry Glukhovsky and self-published (via Createspace) in 2016 under the official subtitle \"A Metro 2033 Universe graphic novel,\" explicitly declaring its place within the novel line rather than the video game one. Set in the United States in 2033, running parallel to Artyom's timeline in Moscow, it follows a group of American survivors sheltering in a bunker/outpost after the same global nuclear war that also devastated Russia, grappling with their own factions, internal conflicts and survival strategies in a geographic and cultural context entirely different from the Moscow metro.\n\nA parallel story independent from the main narrative line of Artyom's trilogy, The Outpost: America broadens the scope of the Metro 2033 universe by showing how the same catastrophe struck another part of the world, with different outcomes and human responses, without directly intertwining with the events in Moscow."
+            }
+          }
+        ]
+      },
+      {
+        id: "giochi",
+        name: {
+          it: "Giochi",
+          en: "Games"
+        },
+        span: {
+          it: "2010 – 2027",
+          en: "2010 – 2027"
+        },
+        palette: [
+          "#B06A2E",
+          "#94A03C",
+          "#3F7A93"
+        ],
+        paletteBounds: [
+          "metro-last-light",
+          "metro-exodus-two-colonels"
+        ],
+        entries: [
+          {
+            id: "metro-2033-videogioco", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "2033", yearEn: "2033",
+            releaseYear: "2010 (Redux: 2014)", releaseYearEn: "2010 (Redux: 2014)",
+            title: {
+              it: "Metro 2033",
+              en: "Metro 2033"
+            },
+            synopsis: {
+              it: "Liberamente ispirato all'omonimo romanzo di Dmitry Glukhovsky, di cui condivide la premessa di partenza ma non il tono né, in parte, il protagonista (qui un Ranger silenzioso più orientato all'azione che alla riflessione interiore: vedi la voce corrispondente nel Ramo Libri per il romanzo originale). Sviluppato da 4A Games e pubblicato nel 2010, il gioco segue Artyom, cresciuto alla stazione di VDNKh dopo la guerra nucleare del 2013, mentre viene incaricato dal Ranger Hunter — partito in avanscoperta verso il nido dei Tetri ai Giardini Botanici e mai tornato — di raggiungere Polis per avvertire l'Ordine della minaccia crescente.\n\nIl viaggio di Artyom attraversa le stazioni controllate dal Quarto Reich, l'avamposto della Linea Rossa, i territori dell'alleanza mercantile di Hansa, i tunnel infestati da fantasmi e mutanti, la Biblioteca di Stato custodita da creature simili a bibliotecari giganteschi, e i sotterranei del bunker D6, affiancato per tratti del percorso dal contrabbandiere Bourbon (ucciso presto in un'imboscata) e dal filosofo Khan, convinto che i Tetri non siano ostili ma stiano cercando un contatto con l'umanità. Giunto a Polis, Artyom viene reclutato dai Ranger dell'Ordine guidati da Miller e partecipa a una missione finale per colpire il nido dei Tetri con un attacco missilistico lanciato dal complesso D6.\n\nIl finale del gioco dipende da un sistema nascosto di scelte morali accumulate lungo l'intera avventura (ascoltare conversazioni, risparmiare nemici, atti di compassione): con un punteggio morale basso si ottiene il finale «Ranger», in cui Artyom dà l'ordine di lanciare il missile e distrugge il nido dei Tetri, convinto di aver salvato l'umanità da un'invasione; con un punteggio morale alto si ottiene invece il finale «Illuminato», in cui Artyom, ormai vicino al lancio, comprende all'ultimo istante le reali intenzioni pacifiche dei Tetri e riesce a fermare l'attacco in tempo, aprendo la strada a una pace tra le due specie.\n\nNota tecnica: il gioco è stato successivamente ripubblicato nel 2014 in edizione rimasterizzata con il sottotitolo Redux, che ne aggiorna motore grafico e bilanciamento senza modificarne la trama.",
+              en: "Loosely inspired by Dmitry Glukhovsky's novel of the same name, sharing its starting premise but not its tone or, in part, its protagonist (here a silent Ranger geared more toward action than inner reflection: see the corresponding entry in the Books Branch for the original novel). Developed by 4A Games and released in 2010, the game follows Artyom, raised at VDNKh station after the 2013 nuclear war, as he is tasked by the Ranger Hunter — who set out to scout the Dark Ones' nest at the Botanical Garden and never returned — with reaching Polis to warn the Order of the growing threat.\n\nArtyom's journey crosses stations held by the Fourth Reich, the Red Line outpost, the territories of the Hansa trading alliance, tunnels haunted by ghosts and mutants, the State Library guarded by giant librarian-like creatures, and the depths of the D6 bunker, accompanied for stretches of the route by the smuggler Bourbon (killed early in an ambush) and the philosopher Khan, convinced the Dark Ones are not hostile but seeking contact with humanity. Reaching Polis, Artyom is recruited by the Order's Rangers under Miller and takes part in a final mission to strike the Dark Ones' nest with a missile launched from the D6 complex.\n\nThe game's ending depends on a hidden system of moral choices accumulated throughout the adventure (listening to conversations, sparing enemies, acts of compassion): a low moral score yields the \"Ranger\" ending, in which Artyom gives the order to launch the missile and destroys the Dark Ones' nest, believing he has saved humanity from an invasion; a high moral score instead yields the \"Enlightened\" ending, in which Artyom, moments from the launch, grasps at the last instant the Dark Ones' true, peaceful intentions and manages to halt the attack in time, opening the way to peace between the two species.\n\nTechnical note: the game was later re-released in 2014 in a remastered edition subtitled Redux, updating its engine and balance without changing the story."
+            }
+          },
+          {
+            id: "metro-gospel-according-to-artyom", type: "FUMETTO", typeEn: "COMIC",
+            year: "Ponte narrativo tra Metro 2033 e Metro: Last Light (videogiochi)", yearEn: "Narrative bridge between Metro 2033 and Metro: Last Light (video games)",
+            releaseYear: "2013", releaseYearEn: "2013",
+            title: {
+              it: "The Gospel According to Artyom",
+              en: "The Gospel According to Artyom"
+            },
+            synopsis: {
+              it: "Fumetto tie-in pubblicato da Dark Horse Comics nel 2013 in concomitanza con il lancio di Metro: Last Light, che riprende Artyom subito dopo il finale «Ranger» del videogioco Metro 2033, quello in cui il protagonista ordina l'attacco missilistico che distrugge il nido dei Tetri ai Giardini Botanici. Adattamento a fumetti (da non confondere con l'omonimo racconto breve in prosa pubblicato nell'antologia «Last Refuge», di cui riprende solo in parte la materia), la storia segue un Artyom segnato dal dubbio e dal peso della propria scelta, alle prese con le prime conseguenze dell'aver sterminato una specie che forse cercava soltanto un contatto pacifico con l'umanità.\n\nNel corso di un nuovo incarico affidatogli dall'Ordine, Artyom è costretto a confrontarsi apertamente con quel dubbio, in un episodio breve ma funzionale a completare la sua trasformazione in Ranger a tutti gli effetti e a fare da ponte narrativo diretto verso l'apertura di Metro: Last Light, in cui lo ritroviamo membro a pieno titolo dei Ranger dell'Ordine.",
+              en: "A tie-in comic published by Dark Horse Comics in 2013 alongside the launch of Metro: Last Light, picking up Artyom immediately after the \"Ranger\" ending of the video game Metro 2033, the one in which the protagonist orders the missile strike that destroys the Dark Ones' nest at the Botanical Garden. A comic adaptation (not to be confused with the prose short story of the same name published in the anthology \"Last Refuge,\" of which it reuses only part of the material), the story follows an Artyom marked by doubt and by the weight of his choice, grappling with the first consequences of having wiped out a species that may have only been seeking peaceful contact with humanity.\n\nDuring a new assignment given to him by the Order, Artyom is forced to confront that doubt head-on, in a short episode that nonetheless completes his transformation into a full-fledged Ranger and serves as a direct narrative bridge to the opening of Metro: Last Light, where he reappears as a full member of the Order's Rangers."
+            }
+          },
+          {
+            id: "metro-last-light", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "2034", yearEn: "2034",
+            releaseYear: "2013 (Redux: 2014)", releaseYearEn: "2013 (Redux: 2014)",
+            title: {
+              it: "Metro: Last Light",
+              en: "Metro: Last Light"
+            },
+            synopsis: {
+              it: "Da non confondere con il romanzo Metro 2034, ambientato nello stesso anno narrativo ma senza alcun rapporto di fonte: Metro: Last Light segue direttamente Metro 2033 (videogioco) e il fumetto ponte The Gospel According to Artyom, non il romanzo omonimo di Dmitry Glukhovsky (vedi la voce corrispondente nel Ramo Libri). Un anno dopo gli eventi di Metro 2033, Artyom è ormai un Ranger a pieno titolo dell'Ordine, guidato dal Colonnello Miller. Quando emergono segnali della sopravvivenza di un Tetro, l'ultimo della sua specie dopo lo sterminio del nido ai Giardini Botanici, Artyom viene inviato a eliminarlo, ma scopre che si tratta in realtà di un cucciolo indifeso, che finisce per risparmiare e che comincia a seguirlo come un legame silenzioso col proprio passato e con la colpa mai del tutto superata.\n\nSullo sfondo, il conflitto tra il Quarto Reich e la Linea Rossa comunista degenera in una guerra aperta per il controllo del bunker D6, struttura pre-bellica che custodisce un arsenale capace di ribaltare gli equilibri di potere nell'intera metropolitana. Catturato dalle forze della Linea Rossa e tenuto prigioniero, Artyom riesce a fuggire con l'aiuto di Anna, figlia di Miller e Ranger essa stessa, e del disertore Pavel, ex ufficiale della Linea Rossa diventato alleato quanto meno instabile; insieme attraversano la superficie devastata e le viscere della metro per raggiungere D6 prima che l'arsenale venga usato per sterminare Polis o l'una o l'altra fazione rivale. Il legame telepatico con il cucciolo di Tetro, che ne accompagna il viaggio, restituisce progressivamente ad Artyom frammenti di verità sulla vera natura pacifica della sua specie.\n\nAnche qui il finale dipende da un sistema di scelte morali accumulate nel corso del gioco: nel finale positivo, Artyom riesce a impedire l'uso indiscriminato dell'arsenale di D6, salva il cucciolo di Tetro e, condividendone la visione empatica con le fazioni in lotta, provoca un cessate il fuoco che scongiura la strage, chiudendo la vicenda con la riconciliazione con Anna; nel finale negativo, Artyom, ormai disilluso, autorizza o non riesce a impedire l'uso delle armi chimiche del bunker contro Reich e Linea Rossa, causando una strage di massa che include il cucciolo di Tetro stesso, e chiudendo la storia su una nota cupa sull'autodistruttività della natura umana.\n\nNota tecnica: come il capitolo precedente, anche Last Light è stato ripubblicato nel 2014 in edizione rimasterizzata Redux, senza modifiche alla trama.",
+              en: "Not to be confused with the novel Metro 2034, set in the same narrative year but with no source relationship whatsoever: Metro: Last Light directly follows Metro 2033 (video game) and the bridging comic The Gospel According to Artyom, not Dmitry Glukhovsky's novel of the same narrative year (see the corresponding entry in the Books Branch). One year after the events of Metro 2033, Artyom is now a full Order Ranger under Colonel Miller. When signs emerge that a single Dark One has survived the extermination of the Botanical Garden nest, Artyom is sent to eliminate it, but discovers it is in fact a defenseless cub, which he ends up sparing and which begins to follow him, becoming a silent link to his own past and to guilt never fully resolved.\n\nIn the background, the conflict between the Fourth Reich and the communist Red Line escalates into open war for control of the D6 bunker, a pre-war facility holding an arsenal capable of tipping the balance of power across the whole metro. Captured and held prisoner by Red Line forces, Artyom manages to escape with the help of Anna, Miller's daughter and a Ranger in her own right, and the defector Pavel, a former Red Line officer turned uneasy ally; together they cross the devastated surface and the metro's depths to reach D6 before its arsenal can be used to wipe out Polis or either rival faction. The telepathic bond with the Dark One cub, who accompanies him on the journey, gradually restores fragments of truth to Artyom about the true, peaceful nature of its species.\n\nHere too, the ending depends on a system of moral choices accumulated throughout the game: in the good ending, Artyom manages to prevent the indiscriminate use of D6's arsenal, saves the Dark One cub and, sharing its empathic vision with the warring factions, triggers a ceasefire that averts the massacre, closing the story with reconciliation with Anna; in the bad ending, a now-disillusioned Artyom authorizes, or fails to prevent, the use of the bunker's chemical weapons against the Reich and the Red Line, causing a mass slaughter that claims the Dark One cub as well, closing the story on a grim note about humanity's self-destructive nature.\n\nTechnical note: like its predecessor, Last Light was also re-released in 2014 in a remastered Redux edition, with no changes to the story."
+            }
+          },
+          {
+            id: "metro-exodus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "2036 circa", yearEn: "circa 2036",
+            releaseYear: "2019 (Enhanced Edition: 2021)", releaseYearEn: "2019 (Enhanced Edition: 2021)",
+            title: {
+              it: "Metro Exodus",
+              en: "Metro Exodus"
+            },
+            synopsis: {
+              it: "Ambientato circa due anni dopo il finale positivo di Metro: Last Light (qui trattato come base di continuità), Metro Exodus segue Artyom, ormai sposato con Anna, mentre continua ossessivamente a cercare, via radio, prove dell'esistenza di vita al di fuori di Mosca, nonostante lo scetticismo del Colonnello Miller e dell'Ordine Spartano dei Ranger. Quando le sue indagini rivelano che la cortina di radiazioni ritenuta impenetrabile si sta in realtà assottigliando, un violento scontro con un comandante corrotto della metro spinge il gruppo — Artyom, Anna, Miller e un manipolo di Ranger, tra cui il Ranger americano Sam — a impadronirsi di una locomotiva a vapore, l'Aurora, e a fuggire da Mosca per lanciarsi alla ricerca di un luogo abitabile oltre la capitale.\n\nIl viaggio dell'Aurora attraversa la Russia post-atomica in una struttura open-world scandita da capitoli stagionali: lungo il Volga, in primavera, il gruppo affronta una setta di sopravvissuti e una comunità dedita al cannibalismo; nel deserto del Mar Caspio, in estate, si scontra con una fazione di schiavisti e si intreccia con il dramma di una famiglia locale; nella Taiga, in autunno, esplora un insediamento nascosto minacciato da creature mutanti dotate di capacità telepatiche; a Novosibirsk, in inverno, scopre tra le rovine della «Città Morta» il destino tragico della guarnigione della stazione, legato agli eventi raccontati nell'espansione The Two Colonels. Il viaggio si conclude sulle sponde del Lago Bajkal, dove il gruppo trova finalmente un territorio incontaminato e potenzialmente abitabile.\n\nAnche qui l'esito dipende da un sistema di scelte morali maturato lungo l'intero viaggio: nel finale positivo, pur perdendo Miller (che muore per le ferite o l'età proprio quando la meta è ormai raggiunta), il resto del gruppo si stabilisce sulle rive del Bajkal per fondarvi una nuova vita lontano da Mosca, in un finale di speranza; nel finale negativo, è invece Anna a perire lungo il tragitto finale, e il gruppo raggiunge comunque il Bajkal ma sotto il peso di quella perdita, in un epilogo assai più amaro.\n\nNota tecnica: il gioco è stato aggiornato nel 2021 con un'edizione Enhanced Edition che introduce il ray tracing e altri miglioramenti tecnici, senza modifiche alla trama.",
+              en: "Set roughly two years after the good ending of Metro: Last Light (treated here as the baseline for continuity), Metro Exodus follows Artyom, now married to Anna, as he obsessively keeps searching by radio for proof that life exists outside Moscow, despite the skepticism of Colonel Miller and the Spartan Order of Rangers. When his investigations reveal that the radiation curtain long believed impenetrable is actually thinning, a violent clash with a corrupt metro commander pushes the group — Artyom, Anna, Miller and a handful of Rangers, including the American Ranger Sam — to seize a steam locomotive, the Aurora, and flee Moscow in search of a habitable place beyond the capital.\n\nThe Aurora's journey crosses post-nuclear Russia in an open-world structure divided into seasonal chapters: along the Volga, in spring, the group confronts a survivor cult and a community given to cannibalism; in the Caspian desert, in summer, it clashes with a slaver faction and gets entangled in a local family's drama; in the Taiga, in autumn, it explores a hidden settlement threatened by telepathic mutant creatures; in Novosibirsk, in winter, it uncovers amid the ruins of the \"Dead City\" the tragic fate of the station garrison, tied to the events told in the expansion The Two Colonels. The journey ends on the shores of Lake Baikal, where the group finally finds an unspoiled, potentially habitable territory.\n\nHere too the outcome depends on a system of moral choices built up over the whole journey: in the good ending, though losing Miller (who dies of his wounds or old age just as the goal is reached), the rest of the group settles on the shores of Baikal to found a new life far from Moscow, in a hopeful conclusion; in the bad ending, it is instead Anna who dies on the final leg of the journey, and the group still reaches Baikal but under the weight of that loss, in a far bleaker epilogue.\n\nTechnical note: the game received a 2021 Enhanced Edition update adding ray tracing and other technical improvements, with no changes to the story."
+            }
+          },
+          {
+            id: "metro-exodus-two-colonels", type: "ESPANSIONE", typeEn: "EXPANSION",
+            year: "Flashback, caduta di Novosibirsk — parallelo al capitolo «Città Morta»", yearEn: "Flashback, the fall of Novosibirsk — parallel to the Dead City chapter",
+            releaseYear: "2020", releaseYearEn: "2020",
+            title: {
+              it: "Metro Exodus: The Two Colonels",
+              en: "Metro Exodus: The Two Colonels"
+            },
+            synopsis: {
+              it: "Espansione narrativa di Metro Exodus pubblicata nel 2020, ambientata in un flashback che racconta la caduta di Novosibirsk, in parallelo diretto con quanto Artyom e il resto dell'equipaggio dell'Aurora scoprono nel capitolo «Città Morta» del gioco base. Il racconto ripercorre gli ultimi giorni della guarnigione della metro di Novosibirsk attraverso gli occhi di un giovane Ranger, alle dipendenze del Colonnello Khlebnikov, comandante idealista e leale che si trova a dividere il controllo della difesa della stazione con un secondo ufficiale, spinto da metodi ben più brutali e spietati pur di garantire la sopravvivenza del comando.\n\nMentre una minaccia esterna crescente mette sempre più a rischio la tenuta della città sotterranea, la rivalità e le divergenze di metodo tra i due colonnelli minano dall'interno la capacità di risposta della guarnigione, in un crescendo di scelte impossibili tra disciplina, sacrificio personale e sopravvivenza del gruppo. L'espansione si chiude collegandosi direttamente a ciò che Artyom e i suoi compagni troveranno, anni dopo, tra le rovine gelate di Novosibirsk: le tracce concrete del prezzo pagato dalla guarnigione e del destino di Khlebnikov, rivelando così il retroscena umano dietro i resti scoperti nel capitolo principale di Exodus.",
+              en: "A narrative expansion for Metro Exodus released in 2020, set in a flashback recounting the fall of Novosibirsk, running directly parallel to what Artyom and the rest of the Aurora's crew discover in the base game's \"The Dead City\" chapter. The story traces the last days of the Novosibirsk metro garrison through the eyes of a young Ranger serving under Colonel Khlebnikov, an idealistic, loyal commander who finds himself sharing control of the station's defense with a second officer driven by far more brutal, ruthless methods in the name of ensuring the command's survival.\n\nAs a growing external threat increasingly endangers the underground city's ability to hold out, the rivalry and clashing methods between the two colonels undermine the garrison's capacity to respond from within, in a mounting series of impossible choices between discipline, personal sacrifice and the group's survival. The expansion closes by tying directly into what Artyom and his companions will find, years later, among the frozen ruins of Novosibirsk: the concrete traces of the price paid by the garrison and of Khlebnikov's fate, revealing the human backstory behind the remains uncovered in Exodus's main chapter."
+            }
+          },
+          {
+            id: "metro-exodus-sams-story", type: "ESPANSIONE", typeEn: "EXPANSION",
+            year: "Dopo il finale buono di Metro Exodus", yearEn: "After Metro Exodus's good ending",
+            releaseYear: "2020", releaseYearEn: "2020",
+            title: {
+              it: "Metro Exodus: Sam's Story",
+              en: "Metro Exodus: Sam's Story"
+            },
+            synopsis: {
+              it: "Espansione narrativa di Metro Exodus pubblicata nel 2020, ambientata subito dopo il finale positivo del gioco base, quando il gruppo dell'Aurora ha ormai trovato rifugio sulle rive incontaminate del Lago Bajkal. Sam, il Ranger americano rimasto bloccato in Russia fin dagli anni della guerra e da sempre determinato a fare ritorno a casa, decide di lasciare i compagni e la nuova vita appena trovata al Bajkal per intraprendere da solo il lungo viaggio verso Vladivostok, sulla costa del Pacifico, nella speranza di trovare un mezzo — una nave, forse un sottomarino ancora funzionante — capace di riportarlo finalmente negli Stati Uniti.\n\nIl viaggio, intervallato da ricordi della sua vita prima della guerra e del legame mai reciso con il padre, lo conduce ad attraversare territori ostili, installazioni militari abbandonate e comunità di sopravvissuti in conflitto tra loro, mettendo alla prova la sua determinazione a proseguire da solo dopo aver trovato, e poi lasciato di nuovo, una famiglia nei compagni dell'Aurora. L'espansione si chiude su un epilogo aperto e venato di speranza, con Sam sul punto di tentare la traversata verso casa, senza offrire una conferma definitiva sull'esito del suo ritorno.",
+              en: "A narrative expansion for Metro Exodus released in 2020, set immediately after the base game's good ending, once the Aurora's group has found shelter on the unspoiled shores of Lake Baikal. Sam, the American Ranger who has been stranded in Russia since the war years and has always been determined to make it home, decides to leave his companions and the new life just found at Baikal to set out alone on the long journey to Vladivostok, on the Pacific coast, hoping to find some means — a ship, perhaps a still-functioning submarine — able to finally carry him back to the United States.\n\nThe journey, punctuated by memories of his life before the war and his never-severed bond with his father, takes him across hostile territories, abandoned military installations and survivor communities locked in conflict with one another, testing his resolve to go on alone after having found, and then left again, a family in his Aurora companions. The expansion closes on an open, hope-tinged epilogue, with Sam on the verge of attempting the crossing home, offering no definitive confirmation of how his return turns out."
+            }
+          },
+          {
+            id: "metro-2039", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "In uscita", yearEn: "Upcoming",
+            releaseYear: "4 febbraio 2027", releaseYearEn: "February 4, 2027",
+            title: {
+              it: "Metro 2039",
+              en: "Metro 2039"
+            },
+            imagePending: true,
+            releaseDateShort: { it: "4 febbraio 2027", en: "February 4, 2027" }
+          }
+        ]
+      }
+    ]
   }
 };
 
@@ -9302,5 +9534,5 @@ const GAME_ORDER = [
   "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat",
   "persona", "pokemon", "prince-of-persia", "resident-evil", "silent-hill", "sonic-the-hedgehog",
   "elder-scrolls", "legend-of-zelda", "tomb-raider",
-  "remedy-universe", "warcraft", "the-witcher", "wolfenstein", "yakuza", "dark-souls", "metroid", "horizon", "deus-ex", "dead-space"
+  "remedy-universe", "warcraft", "the-witcher", "wolfenstein", "yakuza", "dark-souls", "metroid", "horizon", "deus-ex", "dead-space", "metro"
 ];

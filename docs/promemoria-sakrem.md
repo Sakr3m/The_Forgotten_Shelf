@@ -1975,6 +1975,130 @@ stesso meccanismo appena costruito) o in un secondo momento resta
 comunque di chi gestisce la consegna di quella saga - il testo IT/EN
 delle 5 voci è già pronto e verificato da prima, nessun lavoro perso.
 
+## Metro
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
+delle 10 saghe individuate dal Project Manager per questa sessione notturna
+(turno notturno 2/notte 3). Due universi paralleli di pari peso narrativo,
+stesso caso-tipo di The Witcher: **Libri** (`metro-2033-romanzo` →
+`metro-outpost-america`, 5 voci) e **Giochi** (`metro-2033-videogioco` →
+`metro-2039`, 7 voci, di cui 1 `imagePending`), 12 voci totali, nessuna voce
+gemella (i 3 fumetti della saga sono tutti adattamenti integrali o
+episodi-ponte autonomi, mai l'adattamento di un singolo capitolo puntuale di
+un'opera già elencata).
+
+Decisioni di scope importanti:
+
+- **Universo espanso di terze parti escluso in blocco**: la saga Metro conta
+  oltre 90 romanzi spin-off scritti da autori diversi da Dmitry Glukhovsky
+  su licenza Deep Silver (la cosiddetta "Metro 2033 Universe" allargata),
+  esclusi integralmente per scala eccessiva rispetto al perimetro editoriale
+  di questa catena. Incluse solo le opere di Glukhovsky stesso, i loro
+  adattamenti diretti (fumetti/graphic novel) e il caso particolare di *The
+  Outpost: America*, comunque scritto direttamente da Glukhovsky pur
+  restando fuori dalla trilogia di Artyom. Decisione da **riconsiderare in
+  futuro con un criterio esplicito** se si vorrà includere un sottoinsieme
+  selezionato di quei 90+ romanzi (nessun criterio di selezione ancora
+  proposto in questo ciclo).
+- **`metro-2039` incluso come `imagePending`**: videogioco non ancora
+  uscito (data annunciata 4 febbraio 2027), schema identico a
+  `witcher-songs-of-the-past`/`witcher-4-polaris` (nessuna sinossi, solo
+  campi id/type/typeEn/year/yearEn/releaseYear/releaseYearEn/title/
+  imagePending/releaseDateShort).
+- **Disambiguazione Metro 2034 (romanzo) / Metro: Last Light (videogioco)**:
+  stesso anno narrativo (2034) ma **nessun rapporto di fonte** tra le due
+  opere - personaggi ed eventi del romanzo (Omero, Sasha, Sevastopolskaya)
+  sono del tutto indipendenti dalla trama del gioco (Artyom, Anna, cucciolo
+  di Tetro, bunker D6). Entrambe le sinossi aprono esplicitamente con
+  l'avviso di non-confusione, ed è stato scelto di sfruttare anche il campo
+  `year`/`yearEn` della voce `metro-2034` per rinforzare visivamente la
+  disambiguazione in scheda.
+- **Doppione di titolo "Metro 2033"** (romanzo del 2005 e videogioco del
+  2010, storie diverse pur condividendo la premessa) disambiguato con id
+  distinti: `metro-2033-romanzo` (Ramo Libri) e `metro-2033-videogioco`
+  (Ramo Giochi).
+- I due DLC narrativi di *Metro Exodus* (`metro-exodus-two-colonels`,
+  `metro-exodus-sams-story`) classificati come `type: "ESPANSIONE"` /
+  `typeEn: "EXPANSION"`, non "VIDEOGIOCO" - stesso standard già in uso per
+  Hearts of Stone/Blood and Wine in The Witcher.
+
+### Correzione terminologica
+
+"Dark Ones" → **"i Tetri"** (non "i Neri", presente nella bozza iniziale) è
+la resa italiana applicata in tutte le sinossi IT (e nel blurb IT) che
+nominano la specie aliena/mutante al centro della saga; il testo EN
+mantiene invece "Dark Ones" invariato in ogni voce. Corretto anche
+**Miller/Melnik**: lo stesso personaggio (il Colonnello a capo dei Ranger
+dell'Ordine) ha nome diverso a seconda del media in italiano - **Melnik**
+nelle sinossi IT del Ramo Libri (localizzazione dei romanzi editi da Nord),
+**Miller** nelle sinossi IT del Ramo Giochi (localizzazione ufficiale dei
+videogiochi 4A Games); il testo EN usa invece **Miller** in modo uniforme
+in entrambi i rami, romanzi compresi (nessuna variante "Melnik" in inglese).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Enter the Metro" (*Metro: Last
+  Light*), "Market" (*Metro 2033*), "Enter the Tunnels" (Main Theme)
+  (*Metro 2033*), "Redemption" (*Metro: Last Light*), "Bunker Blues"
+  (*Metro: Last Light*), "Dawn of Hope" (*Metro Exodus*), "Race Against
+  Fate" (*Metro Exodus*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata su fama/
+  gradimento reale (TV Tropes Awesome Music, recensioni di settore
+  specializzate in colonne sonore videoludiche, dati streaming, tab/cover
+  ricorrenti su Ultimate Guitar/Songsterr). Perimetro musicale limitato ai 3
+  videogiochi principali con colonna sonora propria (tutti compositi da
+  Alexey Omelchuk, co-compositore solo su Metro 2033 con Georgiy
+  Beloglazov); le due espansioni di Exodus hanno colonne sonore proprie ma
+  di formato troppo ridotto (EP di 4 tracce e singolo di 2 tracce) e senza
+  riscontro critico di brani distintivi, escluse di conseguenza.
+- **Data**: 2026-09-10 (sessione notturna, turno notturno 2/notte 3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file fisico).
+  Il campo viene comunque creato dal Programmatore come `tracks: []`, non
+  popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 2 nuovi universi e 12 nuove voci (nessuna gemella,
+nessuna voce STORIA), tutte inserite nella stessa sessione notturna,
+2026-09-10.
+
+- Nuovo universo **Libri** (`metro-2033-romanzo` → `metro-outpost-america`,
+  span 2005 - 2019, 5 voci) - sessione notturna, 2026-09-10.
+- Nuovo universo **Giochi** (`metro-2033-videogioco` → `metro-2039`, span
+  2010 - 2027, 7 voci) - sessione notturna, 2026-09-10.
+- `metro-2033-romanzo` - Metro 2033 (ROMANZO, 2005) - voce a sé, prima voce
+  della saga - sessione notturna, 2026-09-10.
+- `metro-2033-fumetto` - Metro 2033 (graphic novel) (FUMETTO, dal 2019) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `metro-2034` - Metro 2034 (ROMANZO, 2009) - voce a sé - sessione
+  notturna, 2026-09-10.
+- `metro-2035` - Metro 2035 (ROMANZO, 2015) - voce a sé - sessione
+  notturna, 2026-09-10.
+- `metro-outpost-america` - The Outpost: America (FUMETTO, 2016) - voce a
+  sé, ultima voce di Libri - sessione notturna, 2026-09-10.
+- `metro-2033-videogioco` - Metro 2033 (VIDEOGIOCO, 2010) - voce a sé,
+  prima voce di Giochi - sessione notturna, 2026-09-10.
+- `metro-gospel-according-to-artyom` - The Gospel According to Artyom
+  (FUMETTO, 2013) - voce a sé - sessione notturna, 2026-09-10.
+- `metro-last-light` - Metro: Last Light (VIDEOGIOCO, 2013) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `metro-exodus` - Metro Exodus (VIDEOGIOCO, 2019) - voce a sé - sessione
+  notturna, 2026-09-10.
+- `metro-exodus-two-colonels` - Metro Exodus: The Two Colonels
+  (ESPANSIONE, 2020) - voce a sé - sessione notturna, 2026-09-10.
+- `metro-exodus-sams-story` - Metro Exodus: Sam's Story (ESPANSIONE, 2020)
+  - voce a sé - sessione notturna, 2026-09-10.
+- `metro-2039` - Metro 2039 (VIDEOGIOCO, in uscita 4 febbraio 2027,
+  imagePending) - voce a sé, ultima voce della saga - sessione notturna,
+  2026-09-10.
+
 ## Metroid
 
 Saga interamente nuova (mai apparsa sul sito prima di questo ciclo): un
