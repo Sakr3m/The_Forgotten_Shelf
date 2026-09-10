@@ -3640,3 +3640,136 @@ Aggiornamento nel richiamo mirato: nessun nuovo universo, 2 nuove voci
   conferma ufficiale da MachineGames/Bethesda al momento di questo
   richiamo. Escluso di proposito da questo ciclo - da riconsiderare solo se
   e quando arriverà un annuncio ufficiale.
+
+## Xenoblade Chronicles
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
+delle 10 saghe individuate dal Project Manager per questa sessione
+notturna (turno notturno 2/notte 3). Un solo universo narrativo, **"Il
+Conduit di Klaus"** (`conduit-di-klaus`, 5 voci, span dalla nascita di
+Bionis/Mechonis e Alrest fino alla fusione in Aionios e all'epilogo su
+Mira), più un secondo bucket separato "Xenoblade Genesis (collocazione non
+dichiarata)" per un titolo non ancora uscito. Nessun `universeLink`,
+nessun `lineStyle` (nessuna voce ombrello/gemella in questa saga).
+
+Le 5 voci uscite dell'universo "Il Conduit di Klaus", in ordine (non di
+release): `xenoblade-chronicles-1` - Xenoblade Chronicles (2010, include
+nota su Future Connected/Definitive Edition 2020 e su Switch 2 Edition
+2026); `xenoblade-chronicles-torna` - Xenoblade Chronicles 2: Torna ~ The
+Golden Country (2018, prequel standalone, voce a sé); `xenoblade-chronicles-2`
+- Xenoblade Chronicles 2 (2017, include nota su Switch 2 Edition 2026);
+`xenoblade-chronicles-3` - Xenoblade Chronicles 3 (2022, include nota su
+Future Redeemed 2023 e su Switch 2 Edition dicembre 2026);
+`xenoblade-chronicles-x` - Xenoblade Chronicles X (2015, include nota su
+Definitive Edition 2025 con il Capitolo 13 e su Switch 2 Edition 2026).
+
+### Decisioni di scope importanti
+
+- **XCX incluso nello stesso universo di XC1/XC2/XC3** grazie all'aggancio
+  narrativo scoperto nel Capitolo 13 della Definitive Edition 2025 (lo
+  scienziato Void e un'increspatura descritta come proveniente da un altro
+  mondo, presentata come collegata a Future Redeemed). Nessuna fonte
+  primaria diretta raggiunta per confermare la formulazione esatta:
+  l'aggancio si basa su fonti secondarie multiple e convergenti (Xenoblade
+  Wiki, ResetEra, GameFAQs, testate di settore), non ancora verificate su
+  fonte primaria diretta. Linguaggio volutamente cauto usato nella sinossi
+  (IT ed EN) per questo motivo - **da riverificare in futuro** con fonte
+  primaria diretta appena disponibile.
+- **Artbook esclusi** dal perimetro media della saga.
+- **Xenogears/Xenosaga esclusi** come media: dichiarazione ufficiale di
+  Soraya Saga conferma che sono "parenti, non in linea diretta" con
+  Xenoblade Chronicles - nessuna voce, nessuna nota, nessun `universeLink`
+  verso questi titoli.
+- **Xenoblade Genesis incluso come `imagePending`** (`xenoblade-genesis`,
+  uscita prevista 2027) nel secondo bucket "collocazione non dichiarata",
+  senza sinossi per policy (i titoli non ancora usciti non passano da
+  Scrittore/Linguista). Ambientazione nota: Anshar, un mondo con sei soli;
+  protagonista Eleanor; elemento narrativo distintivo i "Vesselai".
+  Trattenuto dal Supervisore fino all'uscita reale.
+
+### Correzioni terminologiche
+
+- **"Lama"/"Blade" → "Gladius"** - resa italiana ufficiale applicata nelle
+  sinossi IT (Torna, XC2); il testo EN mantiene "Blade" invariato (lingua
+  originale).
+- **"driver" → "Ductor"** - resa italiana ufficiale applicata nelle sinossi
+  IT (XC2/Torna); il testo EN mantiene "driver" invariato.
+- **"driver" (Elma, XCX) → "pilota"** - resa italiana specifica per XCX
+  (termine diverso da "Ductor", coerente con l'ambientazione fantascientifica
+  separata di Mira); il testo EN mantiene "driver" invariato.
+- **"Elysio" → "Elysium"** (XC2 IT).
+- **"Ether" → "Etere"** (XC1 IT).
+- **"Homecoming" → "Ritorno"** (XC3 IT).
+- **"Accompagnatore" → "Tramandante"** (XC3 IT).
+- **"White Whale" → "Balena Bianca"** (XCX IT).
+- **"Faccia di Metallo"/"unità Faccia" → "Metal Face"/"unità Face"** (XC1
+  IT) - nessuna resa italiana affidabile trovata, lasciato in inglese di
+  proposito.
+
+Tutte le correzioni sopra sono state verificate puntualmente dal
+Supervisore come correttamente applicate nel testo definitivo. Punto
+segnalato ma lasciato invariato: "Samaariano" (bassa confidenza, nessuna
+alternativa migliore trovata).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Gaur Plain" (*Xenoblade
+  Chronicles 1*), "Counterattack!!" (*Xenoblade Chronicles 2*), "You Will
+  Know Our Names" (*Xenoblade Chronicles 1*), "Great Sea, Alrest"
+  (*Xenoblade Chronicles 2*), "Moebius Battle" (*Xenoblade Chronicles 3*),
+  "Kingdom of Torna" (*Xenoblade Chronicles 2: Torna ~ The Golden
+  Country*), "Don't Worry" (*Xenoblade Chronicles X*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community (non gusto personale), a
+  copertura di tutti e 5 i videogiochi con colonna sonora propria
+  confermati dal Supervisore (Xenoblade Genesis, `imagePending`, escluso
+  dal perimetro). Copertura: XC1 2 tracce, XC2 2 tracce, XC3 1 traccia,
+  Torna 1 traccia, XCX 1 traccia, riflettendo la fama reale concentrata
+  soprattutto su XC1 e XC2. Nessuna coppia di tracce dello stesso titolo
+  adiacente nell'elenco finale.
+- **Data**: 2026-09-10 (sessione notturna, 2/3, notte3-XX).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo viene comunque creato dal Programmatore come
+  `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo narrativo e 1 nuovo bucket
+"collocazione non dichiarata", 6 nuove voci totali (5 nell'universo
+narrativo + 1 imagePending nel bucket), nessuna voce gemella, nessuna
+voce STORIA, tutte inserite nella stessa sessione notturna, 2026-09-10.
+
+- Nuovo universo **Il Conduit di Klaus** (`xenoblade-chronicles-1` →
+  `xenoblade-chronicles-torna` → `xenoblade-chronicles-2` →
+  `xenoblade-chronicles-3` → `xenoblade-chronicles-x`, 5 voci) - sessione
+  notturna, 2026-09-10.
+- Nuovo bucket **Xenoblade Genesis (collocazione non dichiarata)**
+  (`xenoblade-genesis`, 1 voce imagePending) - sessione notturna,
+  2026-09-10.
+- `xenoblade-chronicles-1` - Xenoblade Chronicles (VIDEOGIOCO, 2010,
+  include nota su Future Connected/Definitive Edition 2020 e su Switch 2
+  Edition 2026) - voce a sé, prima voce della saga - sessione notturna,
+  2026-09-10.
+- `xenoblade-chronicles-torna` - Xenoblade Chronicles 2: Torna ~ The
+  Golden Country (VIDEOGIOCO, 2018) - voce a sé, prequel standalone -
+  sessione notturna, 2026-09-10.
+- `xenoblade-chronicles-2` - Xenoblade Chronicles 2 (VIDEOGIOCO, 2017,
+  include nota su Switch 2 Edition 2026) - voce a sé - sessione notturna,
+  2026-09-10.
+- `xenoblade-chronicles-3` - Xenoblade Chronicles 3 (VIDEOGIOCO, 2022,
+  include nota su Future Redeemed 2023 e su Switch 2 Edition dicembre
+  2026) - voce a sé - sessione notturna, 2026-09-10.
+- `xenoblade-chronicles-x` - Xenoblade Chronicles X (VIDEOGIOCO, 2015,
+  include nota su Definitive Edition 2025 con il Capitolo 13 e su Switch
+  2 Edition 2026) - voce a sé, ultima voce dell'universo - sessione
+  notturna, 2026-09-10.
+- `xenoblade-genesis` - Xenoblade Genesis (VIDEOGIOCO, in uscita 2027,
+  imagePending) - voce a sé, unica voce del bucket "collocazione non
+  dichiarata" - sessione notturna, 2026-09-10.
