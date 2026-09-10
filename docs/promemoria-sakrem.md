@@ -2377,3 +2377,96 @@ imagePending, sessione 2026-09-09 (richiamo mirato, turno notturno 2).
 - `zelda-film-2027` - The Legend of Zelda (Film) (LIVE ACTION, in
   uscita 30 aprile 2027, imagePending) - voce a sé, unica voce del
   nuovo universo Adattamento Live-Action - sessione 2026-09-09.
+
+## Tomb Raider
+
+### Note da non perdere di vista
+
+#### Em-dash preesistente in `underworld`
+
+- **Segnalazione**: la sinossi IT già live di `underworld` (Continuità
+  Legend) contiene un em-dash ("...uccisa da un colpo sparato da Natla
+  — cliffhanger poi lasciato irrisolto..."). Testo non toccato da questo
+  richiamo mirato (fuori mandato, non modificato da Scrittore/Linguista
+  in questa sessione).
+- **Origine**: Supervisore.
+- **Data**: 2026-09-10.
+- **Stato**: da correggere in un futuro richiamo dedicato alla pulizia
+  stilistica.
+
+#### Film Jolie/Vikander mai coperti
+
+- **Segnalazione**: nessuna voce per i due film live-action con
+  Angelina Jolie (2001, 2003) né per il reboot con Alicia Vikander
+  (2018) - gap preesistente, confermato ancora fuori mandato in questo
+  ciclo.
+- **Origine**: Supervisore.
+- **Data**: 2026-09-10.
+- **Stato**: da valutare in un futuro richiamo mirato dedicato.
+
+#### Run fumetti Dark Horse 2014-2021 non recuperata
+
+- **Segnalazione**: gap preesistente già noto in cicli precedenti, ma
+  reso più rilevante da questo ciclo - la nuova voce Sacred Artifacts
+  (Continuità Legend, ambientata dopo Underworld) ne è ora il
+  predecessore diretto nella scheda, aumentando la priorità di un
+  recupero.
+- **Origine**: Supervisore.
+- **Data**: 2026-09-10.
+- **Stato**: da valutare in un futuro richiamo mirato.
+
+#### Serie live-action Prime Video esclusa
+
+- **Segnalazione**: serie live-action Prime Video (Waller-Bridge/
+  Turner) confermata esclusa, nessuna finestra di uscita nemmeno
+  approssimativa annunciata.
+- **Origine**: Supervisore.
+- **Data**: 2026-09-10.
+- **Stato**: da ricontrollare quando Amazon annuncerà una data anche
+  vaga.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani:
+  Tomb Raider Theme (Main Theme) (*Tomb Raider*, 1996), Lara's Theme
+  (*Tomb Raider*, 2013), Main Theme (*Tomb Raider: Legend*, 2006), A
+  Survivor Is Born (*Tomb Raider*, 2013), Croft Manor (Main Theme)
+  (*Tomb Raider: Anniversary*, 2007), Main Theme (*Tomb Raider:
+  Underworld*, 2008), Lara's Theme (reprise) (*Rise of the Tomb
+  Raider*, 2015).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili concentrata sui due poli di fama principali
+  (tema originale di Nathan McCree, 1996; colonna sonora pluripremiata
+  di Jason Graves, 2013), con innesto del lavoro BAFTA di Troels
+  Folmann (Legend/Anniversary/Underworld).
+- **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 7/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Aggiornamento nel richiamo mirato: nessun nuovo universo (l'universo
+`continuita-survivor` è stato rinominato ed esteso, non creato ex
+novo), 4 nuove voci in totale (2 con sinossi piena + 2 imagePending),
+sessione 2026-09-10 (richiamo mirato, turno notturno 2, saga 7/11).
+
+- `legend-of-lara-croft-netflix` - Tomb Raider: La Leggenda di Lara
+  Croft (SERIE TV, 2024-2025) - voce a sé, universo Continuità
+  Survivor / Timeline Unificata (rinominato in questo ciclo) - sessione
+  2026-09-10.
+- `legacy-of-atlantis` - Tomb Raider: Legacy of Atlantis (VIDEOGIOCO,
+  in uscita 2027, imagePending) - voce a sé, stesso universo -
+  sessione 2026-09-10.
+- `catalyst` - Tomb Raider: Catalyst (VIDEOGIOCO, in uscita 2027,
+  imagePending) - voce a sé, stesso universo, ultima voce della linea
+  - sessione 2026-09-10.
+- `sacred-artifacts` - Tomb Raider: Sacred Artifacts (FUMETTO, 2026) -
+  voce a sé, universo Continuità Legend, dopo `underworld` - sessione
+  2026-09-10.

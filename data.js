@@ -6727,8 +6727,8 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Tomb Raider", en: "Tomb Raider" },
     blurb: {
-      it: "Un'archeologa avventuriera esplora rovine dimenticate e civiltà perdute, spesso al confine tra storia e leggenda, alla ricerca di manufatti capaci di sfidare ogni spiegazione razionale. Trappole millenarie, culti segreti e organizzazioni rivali le contendono ogni scoperta. La sete di conoscenza, qui, va sempre di.",
-      en: "An adventuring archaeologist explores forgotten ruins and lost civilizations, often on the border between history and legend, in search of artifacts that defy rational explanation. Ancient traps, secret cults, and rival organizations contest every discovery with her. The thirst for knowledge always walks hand in hand with."
+      it: "Un'archeologa avventuriera esplora rovine dimenticate e civiltà perdute, al confine tra storia e leggenda, alla ricerca di manufatti capaci di sfidare ogni spiegazione razionale. Trappole millenarie, culti segreti e organizzazioni rivali le contendono ogni scoperta. Qui, la sete di conoscenza va sempre a braccetto col pericolo.",
+      en: "An adventuring archaeologist explores forgotten ruins and lost civilizations, on the border between history and legend, in search of artifacts that defy rational explanation. Ancient traps, secret cults, and rival organizations contest every discovery with her. Here, the thirst for knowledge always walks hand in hand with danger."
     },
     palette: ["#5c1a1a", "#c9a227", "#2e2e2e"],
     accentColor: "#c9a227",
@@ -6736,23 +6736,26 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Banner.jpg",
     watermarkOpacity: 0.18,
+    lastAgentPass: "2026-09-10",
     universes: [
       {
         id: "continuita-classica",
         name: { it: "Continuità Classica (Core Design)", en: "Classic Continuity (Core Design)" },
         span: { it: "1996 – 2003", en: "1996 – 2003" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
+        palette: ["#c9a227", "#2e1f3a", "#1f1a26"],
+        paletteBounds: ["tr3", "chronicles"],
         entries: [
           { id: "tr1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996",
-            releaseYear: "1996", releaseYearEn: "1996",
+            releaseYear: "1996 (Remaster: 2024)", releaseYearEn: "1996 (Remaster: 2024)",
             title: { it: "Tomb Raider", en: "Tomb Raider" },
             synopsis: {
-              it: "Ingaggiata da un'imprenditrice per recuperare un manufatto Atlante chiamato lo Scion, l'archeologa Lara Croft esplora le rovine del Perù, la Grecia, l'Egitto e infine Atlantide stessa, scoprendo che la vera committente, Jacqueline Natla, è una sopravvissuta immortale della civiltà atlantidea intenzionata a resuscitare la propria antica potenza distruttiva. Lara sconfigge Natla nel cuore di Atlantide, impedendo la catastrofe. Il gioco che ha inventato il genere action-adventure archeologico su console, e reso Lara Croft un'icona globale.",
-              en: "Hired by a businesswoman to recover an Atlantean artefact called the Scion, archaeologist Lara Croft explores the ruins of Peru, Greece, Egypt, and finally Atlantis itself, discovering that her true employer, Jacqueline Natla, is an immortal survivor of the Atlantean civilisation intent on resurrecting its ancient destructive power. Lara defeats Natla at the heart of Atlantis, averting catastrophe. The game that invented the archaeological action-adventure genre on consoles, and turned Lara Croft into a global icon."
+              it: "Ingaggiata da un'imprenditrice per recuperare un manufatto Atlante chiamato lo Scion, l'archeologa Lara Croft esplora le rovine del Perù, la Grecia, l'Egitto e infine Atlantide stessa, scoprendo che la vera committente, Jacqueline Natla, è una sopravvissuta immortale della civiltà atlantidea intenzionata a resuscitare la propria antica potenza distruttiva. Lara sconfigge Natla nel cuore di Atlantide, impedendo la catastrofe. Il gioco che ha inventato il genere action-adventure archeologico su console, e reso Lara Croft un'icona globale. Nel 2027, Tomb Raider: Legacy of Atlantis ricollocherà ufficialmente questa vicenda, la caccia allo Scion, cronologicamente dopo la trilogia Survivor (2013-2018), diventando il nuovo riferimento canonico per le origini di Lara all'interno della cosiddetta Timeline Unificata dichiarata da Crystal Dynamics, senza però intaccare lo status storico di questo capitolo originale del 1996.",
+              en: "Hired by a businesswoman to recover an Atlantean artefact called the Scion, archaeologist Lara Croft explores the ruins of Peru, Greece, Egypt, and finally Atlantis itself, discovering that her true employer, Jacqueline Natla, is an immortal survivor of the Atlantean civilisation intent on resurrecting its ancient destructive power. Lara defeats Natla at the heart of Atlantis, averting catastrophe. The game that invented the archaeological action-adventure genre on consoles, and turned Lara Croft into a global icon. In 2027, Tomb Raider: Legacy of Atlantis will officially relocate this story, the hunt for the Scion, chronologically after the Survivor trilogy (2013-2018), becoming the new canonical reference point for Lara's origins within Crystal Dynamics' so-called Unified Timeline, without however affecting the historical status of this original 1996 chapter."
             }
           },
           { id: "tr2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1997",
-            releaseYear: "1997", releaseYearEn: "1997",
+            releaseYear: "1997 (Remaster: 2024)", releaseYearEn: "1997 (Remaster: 2024)",
             title: { it: "Tomb Raider II", en: "Tomb Raider II" },
             synopsis: {
               it: "Lara dà la caccia al Pugnale di Xian, un artefatto in grado di trasformare chi lo impugna in un drago, prima che possa cadere nelle mani di Marco Bartoli, un culto criminale che intende usarlo per ottenere potere sovrumano. Tra Venezia, il Mare Cinese Meridionale e le montagne cinesi, Lara affronta la Fratellanza del Drago capeggiata da Bartoli, recupera il pugnale e lo distrugge in un vulcano, impedendo che il suo potere venga usato per il male.",
@@ -6760,7 +6763,7 @@ const GAMES = {
             }
           },
           { id: "tr3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1998",
-            releaseYear: "1998", releaseYearEn: "1998",
+            releaseYear: "1998 (Remaster: 2024)", releaseYearEn: "1998 (Remaster: 2024)",
             title: { it: "Tomb Raider III", en: "Tomb Raider III" },
             synopsis: {
               it: "Lara insegue i frammenti di un meteorite antichissimo, l'Infada, i cui poteri sono ambiti sia da un'organizzazione paramilitare privata sia dallo spregiudicato collezionista Sophia Leigh, viaggiando tra India, Isole del Pacifico Meridionale, Londra, Nevada e Antartide. Recuperati tutti i frammenti, Lara scopre che il meteorite ha origini aliene e ne distrugge il potenziale distruttivo, ponendo fine alla corsa per il suo controllo.",
@@ -6768,7 +6771,7 @@ const GAMES = {
             }
           },
           { id: "last-revelation", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1999",
-            releaseYear: "1999", releaseYearEn: "1999",
+            releaseYear: "1999 (Remaster: 2025)", releaseYearEn: "1999 (Remaster: 2025)",
             title: { it: "Tomb Raider: The Last Revelation", en: "Tomb Raider: The Last Revelation" },
             synopsis: {
               it: "Tornata in Egitto per la prima volta dal gioco originale, Lara scopre di aver risvegliato inavvertitamente da bambina, durante una spedizione col proprio mentore Von Croy, il dio egizio del caos Seth, imprigionato da millenni. Per rimediare all'errore, Lara raccoglie l'Amuleto di Horus in grado di sigillare nuovamente Seth, ma nel farlo resta apparentemente intrappolata sotto le macerie del tempio in esplosione insieme al dio sconfitto. Il gioco si chiude con la presunta morte di Lara, elemento narrativo poi ripreso e reinterpretato in Chronicles.",
@@ -6776,7 +6779,7 @@ const GAMES = {
             }
           },
           { id: "chronicles", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "prima di Last Revelation (raccontato dopo)",
-            releaseYear: "2000", releaseYearEn: "2000",
+            releaseYear: "2000 (Remaster: 2025)", releaseYearEn: "2000 (Remaster: 2025)",
             title: { it: "Tomb Raider Chronicles", en: "Tomb Raider Chronicles" },
             synopsis: {
               it: "Durante una veglia funebre in memoria di Lara, creduta morta alla fine di The Last Revelation, amici e colleghi si ritrovano a raccontarsi a vicenda avventure passate mai narrate prima: una caccia al tesoro a Roma, un'indagine su una nave affondata al largo dell'Irlanda, una missione a San Pietroburgo e un'infiltrazione in un grattacielo di Manhattan alla ricerca di reliquie mistiche. Un'antologia di episodi indipendenti, ambientati cronologicamente prima di Last Revelation ma narrati come flashback dopo la sua conclusione, che nel finale lascia intendere che Lara sia in realtà sopravvissuta.",
@@ -6784,7 +6787,7 @@ const GAMES = {
             }
           },
           { id: "angel-of-darkness", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2003",
-            releaseYear: "2003", releaseYearEn: "2003",
+            releaseYear: "2003 (Remaster: 2025)", releaseYearEn: "2003 (Remaster: 2025)",
             title: { it: "Tomb Raider: The Angel of Darkness", en: "Tomb Raider: The Angel of Darkness" },
             synopsis: {
               it: "Confermata sopravvissuta agli eventi di Last Revelation, Lara viene incastrata per l'omicidio del proprio ex mentore Werner Von Croy a Parigi, e indaga per conto proprio scoprendo il coinvolgimento di una setta esoterica, i Cabal, intenzionata a resuscitare un antico essere immortale chiamato Boaz attraverso l'uso di dipinti magici capaci di generare mostri viventi. Ultimo capitolo sviluppato da Core Design, concepito come primo episodio di una nuova trilogia poi mai completata a causa della travagliata accoglienza critica e commerciale del gioco, che portò Eidos a trasferire lo sviluppo della serie a Crystal Dynamics.",
@@ -6798,13 +6801,15 @@ const GAMES = {
         name: { it: "Continuità Legend (Crystal Dynamics, prima trilogia)", en: "Legend Continuity (Crystal Dynamics, first trilogy)" },
         span: { it: "2006 – 2008", en: "2006 – 2008" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
+        palette: ["#c9a227", "#1f4a5c", "#3a3540"],
+        paletteBounds: ["anniversary", "underworld"],
         entries: [
           { id: "anniversary", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "cronologicamente il primo di questa continuità",
             releaseYear: "2007", releaseYearEn: "2007",
             title: { it: "Tomb Raider: Anniversary", en: "Tomb Raider: Anniversary" },
             synopsis: {
-              it: "Remake del gioco originale del 1996 per il decimo anniversario della serie, con motore grafico e meccaniche riprese da Legend. Lara viene ingaggiata per recuperare lo Scion, un manufatto della civiltà atlantidea, riscoprendo lungo il cammino tra Perù, Grecia, Egitto e Atlantide la vera natura della sua committente Jacqueline Natla. Pur uscito nel 2007, un anno DOPO Legend, racconta la storia più antica di questa continuità: la scelta narrativa colloca il vero inizio della carriera di Lara qui, non nel gioco uscito per primo.",
-              en: "A remake of the original 1996 game for the series' tenth anniversary, using the engine and mechanics from Legend. Lara is hired to recover the Scion, an artefact of the Atlantean civilisation, discovering along the way across Peru, Greece, Egypt, and Atlantis the true nature of her employer, Jacqueline Natla. Although released in 2007, a year AFTER Legend, it tells the earliest story in this continuity: a narrative choice that places the true beginning of Lara's career here, not in the game that released first."
+              it: "Remake del gioco originale del 1996 per il decimo anniversario della serie, con motore grafico e meccaniche riprese da Legend. Lara viene ingaggiata per recuperare lo Scion, un manufatto della civiltà atlantidea, riscoprendo lungo il cammino tra Perù, Grecia, Egitto e Atlantide la vera natura della sua committente Jacqueline Natla. Pur uscito nel 2007, un anno DOPO Legend, racconta la storia più antica di questa continuità: la scelta narrativa colloca il vero inizio della carriera di Lara qui, non nel gioco uscito per primo. Anche questa versione della vicenda troverà, dal 2027, una nuova collocazione cronologica all'interno della Timeline Unificata grazie a Tomb Raider: Legacy of Atlantis, senza che ciò invalidi il presente remake del 2007.",
+              en: "A remake of the original 1996 game for the series' tenth anniversary, using the engine and mechanics from Legend. Lara is hired to recover the Scion, an artefact of the Atlantean civilisation, discovering along the way across Peru, Greece, Egypt, and Atlantis the true nature of her employer, Jacqueline Natla. Although released in 2007, a year AFTER Legend, it tells the earliest story in this continuity: a narrative choice that places the true beginning of Lara's career here, not in the game that released first. This version of the story will also find, from 2027 onward, a new chronological placement within the Unified Timeline thanks to Tomb Raider: Legacy of Atlantis, without this invalidating the present 2007 remake."
             }
           },
           { id: "legend", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "dopo Anniversary",
@@ -6822,17 +6827,27 @@ const GAMES = {
               it: "Diretto seguito di Legend. Sulle tracce di un martello capace di aprire una porta verso il regno norreno di Helheim, Lara viaggia tra Mediterraneo, Thailandia, Messico e Artico, scontrandosi nuovamente con Amanda Evert e con Jacqueline Natla, sopravvissuta e riemersa dagli eventi di Anniversary. Nel finale, dopo aver scoperto ulteriori verità sulla scomparsa della madre e sulla morte del padre, Lara viene apparentemente uccisa da un colpo sparato da Natla — cliffhanger poi lasciato irrisolto con la chiusura definitiva di questa trilogia e il passaggio alla continuità Survivor.",
               en: "A direct sequel to Legend. On the trail of a hammer capable of opening a door to the Norse realm of Helheim, Lara travels across the Mediterranean, Thailand, Mexico, and the Arctic, clashing once more with Amanda Evert and with Jacqueline Natla, having survived and resurfaced from the events of Anniversary. In the finale, after uncovering further truths about her mother's disappearance and her father's death, Lara is apparently killed by a shot fired by Natla — a cliffhanger left unresolved as this trilogy came to its definitive close and the series moved on to the Survivor continuity."
             }
+          },
+          { id: "sacred-artifacts", type: "FUMETTO", typeEn: "COMIC", year: "dopo Underworld",
+            releaseYear: "2026", releaseYearEn: "2026",
+            title: { it: "Tomb Raider: Sacred Artifacts", en: "Tomb Raider: Sacred Artifacts" },
+            synopsis: {
+              it: "Dopo gli eventi di Underworld, con Residenza Croft ridotta in cenere e la ricerca della madre conclusasi in una nuova perdita, Lara Croft si ritrova a un bivio personale, incerta su chi sia davvero e se voglia ancora essere la Tomb Raider. Un confronto con un misterioso avversario mascherato, in possesso di un'antica spada tanto pericolosa quanto stranamente familiare, le restituisce però uno scopo, lanciandola in un nuovo viaggio tra i continenti. Le indagini portano Lara fino in Italia, dove incontra faccia a faccia l'avversario mascherato; per farne fronte, chiede aiuto al vecchio amico Carter Bell, la cui stessa richiesta di soccorso la costringe a una deviazione a Parigi. Lungo il cammino, Lara scopre che dietro la maschera si cela Gianna Bartoli, figlia di Marco Bartoli, capo del culto criminale sconfitto da Lara anni prima nella caccia al Pugnale di Xian: mossa dal desiderio di vendicare la morte del padre, Gianna ha manipolato un culto di adepti promettendo loro un manufatto ancora più antico e distruttivo in cambio della loro fedeltà. Nello scontro finale, Lara sventa il piano di Gianna, mettendo fine alla sua vendetta e chiudendo, con questa nuova avventura, un capitolo della propria vita segnato dal lutto e dal dubbio su cosa significhi davvero portare il nome Croft.",
+              en: "After the events of Underworld, with Croft Manor burned to the ground and the search for her mother having ended in fresh loss, Lara Croft finds herself at a personal crossroads, unsure of who she really is and whether she still wants to be the Tomb Raider. A confrontation with a mysterious masked adversary, in possession of an ancient sword as dangerous as it is strangely familiar, gives her renewed purpose, launching her on a new cross-continental journey. The investigation takes Lara to Italy, where she comes face to face with the masked adversary; to deal with the threat, she calls on her old friend Carter Bell, whose own request for help forces her into a detour to Paris. Along the way, Lara discovers that behind the mask is Gianna Bartoli, daughter of Marco Bartoli, the criminal cult leader Lara defeated years earlier during the hunt for the Dagger of Xian: driven by a desire to avenge her father's death, Gianna has been manipulating a cult of followers by promising them an even older, more destructive artifact in exchange for their loyalty. In the final confrontation, Lara foils Gianna's plan, ending her vendetta and closing, with this new adventure, a chapter of her life marked by grief and doubt over what it truly means to carry the Croft name."
+            }
           }
         ]
       },
       {
         id: "continuita-survivor",
-        name: { it: "Continuità Survivor (Crystal Dynamics, seconda trilogia)", en: "Survivor Continuity (Crystal Dynamics, second trilogy)" },
-        span: { it: "2013 – 2018", en: "2013 – 2018" },
+        name: { it: "Continuità Survivor / Timeline Unificata (Crystal Dynamics)", en: "Survivor Continuity / Unified Timeline (Crystal Dynamics)" },
+        span: { it: "2013 – 2027", en: "2013 – 2027" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
+        palette: ["#6b3a1f", "#2e6b52", "#c9a227"],
+        paletteBounds: ["shadow-of-the-tomb-raider", "legend-of-lara-croft-netflix"],
         entries: [
           { id: "tr2013", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
-            releaseYear: "2013", releaseYearEn: "2013",
+            releaseYear: "2013 (Porting mobile: 2026)", releaseYearEn: "2013 (Porting mobile: 2026)",
             title: { it: "Tomb Raider (2013)", en: "Tomb Raider (2013)" },
             synopsis: {
               it: "Reboot totale delle origini di Lara. Naufragata sull'isola sovrannaturale di Yamatai insieme all'equipaggio della nave Endurance durante una spedizione archeologica, la giovane e inesperta Lara Croft, alla sua prima vera missione sul campo, deve sopravvivere agli agguati del culto dei Solari, custodi dell'isola, e alle forze soprannaturali legate alla defunta imperatrice-sole Himiko, mentre cerca di salvare i propri compagni catturati. Nel corso della disperata lotta per la sopravvivenza, Lara si trasforma da studiosa timorosa in sopravvissuta risoluta, sconfiggendo infine lo spirito di Himiko e fuggendo dall'isola.",
@@ -6854,6 +6869,27 @@ const GAMES = {
               it: "Nel tentativo di impedire a Trinity di innescare un cataclisma Maya profetizzato, Lara stessa attiva accidentalmente il disastro, scatenando terremoti e inondazioni che devastano l'America Centrale. Sentendosi responsabile, Lara viaggia tra Messico e Perù per fermare Trinity e il suo comandante Dominguez prima che possa completare il rituale apocalittico usando un pugnale sacro, affrontando lungo il cammino le conseguenze dirette delle proprie azioni sulle comunità locali. Capitolo conclusivo della trilogia Survivor, in cui Lara diventa infine pienamente la Tomb Raider.",
               en: "In attempting to stop Trinity from triggering a prophesied Mayan cataclysm, Lara herself accidentally sets the disaster in motion, unleashing earthquakes and floods that devastate Central America. Feeling responsible, Lara travels across Mexico and Peru to stop Trinity and its commander Dominguez before he can complete the apocalyptic ritual using a sacred dagger, confronting along the way the direct consequences of her own actions on local communities. The concluding chapter of the Survivor trilogy, in which Lara finally becomes the Tomb Raider in full."
             }
+          },
+          { id: "legend-of-lara-croft-netflix", type: "SERIE TV", typeEn: "TV SERIES", year: "subito dopo Shadow of the Tomb Raider (ponte narrativo ufficiale)",
+            releaseYear: "2024 – 2025", releaseYearEn: "2024 – 2025",
+            title: { it: "Tomb Raider: La Leggenda di Lara Croft", en: "Tomb Raider: The Legend of Lara Croft" },
+            synopsis: {
+              it: "Poco dopo gli eventi di Shadow of the Tomb Raider, un ladro tecnologicamente attrezzato ruba dal Maniero Croft un misterioso artefatto di giada. Lara Croft, affiancata dal fedele Jonah Maiava, dà la caccia al colpevole fino a un villaggio cinese, dove le indagini su un gruppo di bambini scomparsi la portano alla scoperta di una tomba sotterranea legata alle Pietre del Pericolo, quattro antichi manufatti in grado di conferire poteri sovrumani a chi li possiede. Sulle tracce delle pietre si muove anche Devereaux, un mercenario vendicativo con un conto personale in sospeso, che segue Lara da Istanbul, dove Lara si infiltra nel compound di uno spietato signore della guerra, fino alle catacombe di Parigi, dove Lara e l'agente dell'Interpol Camilla Roth, amica d'infanzia di Lara, scoprono un legame tra le pietre e i Cavalieri Templari. Nel finale di stagione, Devereaux riesce a fondere con il proprio corpo tutte e quattro le pietre trasformandosi in una creatura alata quasi invincibile; Lara e Camilla lo affrontano insieme, resistendo anche al tentativo della pietra rossa di possedere la mente di Lara sfruttando la sua rabbia e il suo dolore irrisolti, e riescono infine a strappargli via le pietre una a una, permettendo all'Interpol di catturarlo. Lara riporta poi personalmente le pietre sul Picco di Kunlun, restituendole alla dea Nu'wa e ponendo fine alla minaccia, mentre definisce sempre più chiaramente che tipo di eroina vuole diventare.\n\nLa seconda e ultima stagione vede Lara riunirsi con la migliore amica d'infanzia Sam Nishimura per recuperare un gruppo di maschere sacre Orisha, trafugate e disperse per il mondo, ognuna capace di fare da tramite per il potere di una divinità Yoruba. La caccia alle maschere mette Lara e Sam sulla rotta di un'enigmatica e spietata miliardaria, decisa a impossessarsene per scopi propri, e le costringe ad affrontare segreti sempre più oscuri legati alla storia degli Orisha e al potere che questi manufatti custodiscono davvero. La stagione, con cui la serie si conclude ufficialmente, funge da vero e proprio ponte narrativo tra la trilogia Survivor e la nuova fase della cronologia di Lara Croft.",
+              en: "Shortly after the events of Shadow of the Tomb Raider, a high-tech thief steals a mysterious jade artifact from Croft Manor. Lara Croft, alongside her loyal friend Jonah Maiava, tracks the culprit to a Chinese village, where an investigation into a group of missing children leads her to an underground tomb tied to the Peril Stones, four ancient artifacts able to grant superhuman power to whoever possesses them. Also hunting the stones is Devereaux, a vengeful mercenary with a personal score to settle, who follows Lara from Istanbul, where she infiltrates the compound of a ruthless warlord, to the Paris catacombs, where Lara and Interpol agent Camilla Roth, a childhood friend of hers, uncover a link between the stones and the Knights Templar. In the season finale, Devereaux fuses all four stones into his own body, becoming a nearly invincible winged creature; Lara and Camilla confront him together, with Lara resisting the red stone's attempt to possess her mind by exploiting her unresolved anger and grief, and eventually strip the stones from him one by one, allowing Interpol to capture him. Lara then personally returns the stones to the Peak of Kunlun Mountain, restoring them to the goddess Nu'wa and ending the threat, all while increasingly defining what kind of hero she wants to become.\n\nThe second and final season sees Lara reunite with her childhood best friend Sam Nishimura to recover a set of sacred Orisha masks, stolen and scattered across the globe, each one able to serve as a conduit for the power of a Yoruba deity. The hunt for the masks puts Lara and Sam on the trail of an enigmatic, ruthless billionaire determined to claim them for her own purposes, and forces them to confront ever-darker secrets tied to Orisha history and the true power these relics hold. The season, which officially concludes the series, serves as a true narrative bridge between the Survivor trilogy and the next chapter of Lara Croft's timeline."
+            }
+          },
+          { id: "legacy-of-atlantis", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Tomb Raider: Legacy of Atlantis", yearEn: "Tomb Raider: Legacy of Atlantis",
+            releaseYear: "2027", releaseYearEn: "2027",
+            title: { it: "Tomb Raider: Legacy of Atlantis", en: "Tomb Raider: Legacy of Atlantis" },
+            imagePending: true,
+            releaseDateShort: { it: "12 febbraio 2027", en: "February 12, 2027" },
+            releaseDateISO: "2027-02-12"
+          },
+          { id: "catalyst", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Tomb Raider: Catalyst", yearEn: "Tomb Raider: Catalyst",
+            releaseYear: "2027", releaseYearEn: "2027",
+            title: { it: "Tomb Raider: Catalyst", en: "Tomb Raider: Catalyst" },
+            imagePending: true,
+            releaseDateShort: { it: "2027 (data non annunciata)", en: "2027 (date not yet announced)" }
           }
         ]
       }
