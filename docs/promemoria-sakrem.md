@@ -2569,3 +2569,58 @@ saga 9/11).
   italiano: "Precipizi Sacri"). Non corretto in questo giro (fuori mandato
   del richiamo mirato, limitato ai 6 termini scorretti già in scope). Da
   correggere in un futuro richiamo mirato dedicato a questa sola voce.
+
+## Wolfenstein
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora, `tracks: []`) e popolarlo con una playlist di 7
+  brani, in ordine di fama/gradimento decrescente: The Partisan (Mick Gordon
+  feat. Tex Perkins) = *Wolfenstein: The Old Blood*, The New Order (tema
+  principale, Mick Gordon) = *Wolfenstein: The New Order*, Blitzmensch!
+  (Ravi Krishnaswami) = *Wolfenstein II: The New Colossus*, Deathshead
+  (Mick Gordon) = *Wolfenstein: The New Order*, Oh, Caroline (Mick Gordon) =
+  *Wolfenstein II: The New Colossus*, Youngblood feat. Robin Finck (Martin
+  Stig Andersen) = *Wolfenstein: Youngblood*, Cyberpilot (Tom Salta) =
+  *Wolfenstein: Cyberpilot*.
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di tutti e 5 i videogiochi confermati
+  dell'universo MachineGames (classici id Software/Muse esclusi per
+  decisione pregressa di Sakrem). Le 2 nuove voci di questo ciclo (fumetto
+  Titan Comics 2017 e GDR Modiphius) restano fuori perimetro: nessuna
+  colonna sonora propria/asset audio possibile per nessuna delle due.
+  Nessuna coppia di tracce consecutive dallo stesso titolo (New Order in
+  posizione 2 e 4, New Colossus in posizione 3 e 5, mai adiacenti).
+- **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 10/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo viene comunque creato dal Programmatore come
+  `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Aggiornamento nel richiamo mirato: nessun nuovo universo, 2 nuove voci
+(nessuna gemella) nell'universo `machinegames`, sessione 2026-09-10
+(richiamo mirato, turno notturno 2, saga 10/11).
+
+- `titan-comics-2017` - Wolfenstein (FUMETTO, Titan Comics, 2017, Dan
+  Watters) - voce a sé, inserita tra `new-order` e `new-colossus` (anno
+  narrativo 1960, prequel diretto di New Colossus) - sessione 2026-09-10.
+- `roleplaying-game` - Wolfenstein: The Roleplaying Game (GIOCO DI RUOLO,
+  Modiphius Entertainment, annunciato, non prima del 2027, imagePending) -
+  voce a sé, inserita tra `new-colossus` e `cyberpilot` (anno narrativo
+  1962), primo caso sul sito del type GIOCO DI RUOLO/TABLETOP RPG -
+  sessione 2026-09-10.
+
+### Gap fuori scope segnalati (da non perdere di vista)
+
+- **Rumor "Wolfenstein 3"/"Valkyrie"**: rumor/leak convergenti su un
+  possibile terzo capitolo mainline (nome in codice "Valkyrie"), ma nessuna
+  conferma ufficiale da MachineGames/Bethesda al momento di questo
+  richiamo. Escluso di proposito da questo ciclo - da riconsiderare solo se
+  e quando arriverà un annuncio ufficiale.

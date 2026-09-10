@@ -7966,7 +7966,7 @@ const GAMES = {
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Wolfenstein", en: "Wolfenstein" },
     blurb: {
-      it: "In una linea temporale dove il regime nazista ha trionfato e conquistato il mondo grazie a tecnologie proibite, un uomo solo continua a combattere una guerra che tutti gli altri credono già persa. Resistenza, sacrificio e una furia inarrestabile contro la tirannia definiscono ogni sua battaglia. Anche da sconfitto, non.",
+      it: "In una linea temporale dove il regime nazista ha trionfato e conquistato il mondo grazie a tecnologie proibite, un uomo continua a combattere una guerra che tutti credono già persa. Resistenza, sacrificio e una furia inarrestabile contro la tirannia definiscono ogni sua battaglia. Anche da sconfitto, non smette mai di combattere.",
       en: "In a timeline where the Nazi regime triumphed and conquered the world through forbidden technology, one man keeps fighting a war everyone else believes is already lost. Resistance, sacrifice, and an unstoppable fury against tyranny define every one of his battles. Even in defeat, he never stops fighting."
     },
     palette: ["#a3161a", "#355e3b", "#5c6773"],
@@ -7976,6 +7976,7 @@ const GAMES = {
         id: "machinegames",
         name: { it: "Universo MachineGames", en: "MachineGames Universe" },
         span: { it: "1946 – 1980", en: "1946 – 1980" },
+        paletteBounds: ["new-order", "roleplaying-game"],
         entries: [
           { id: "old-blood", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1946", releaseYear: "2015", releaseYearEn: "2015",
             title: { it: "Wolfenstein: The Old Blood", en: "Wolfenstein: The Old Blood" },
@@ -7991,12 +7992,28 @@ const GAMES = {
               en: "In 1946, Blazkowicz takes part in the assault on Deathshead's compound, where the general forces him to choose which companion to sacrifice before leaving him to die. Blazkowicz escapes but is struck by shrapnel to the head and falls into a vegetative state for 14 years in a Polish asylum. Upon waking in 1960, he discovers that the Nazis won the war thanks to the technology of the Da'at Yichud, an ancient secret society. He joins the Kreisau Circle and launches a series of operations culminating in a final assault on Deathshead's compound in 1961: Blazkowicz kills the general, but is gravely wounded by the dying man's grenade. He orders a nuclear strike on the compound and barely survives."
             }
           },
+          { id: "titan-comics-2017", type: "FUMETTO", typeEn: "COMIC", year: "1960", releaseYear: "2017", releaseYearEn: "2017",
+            title: { it: "Wolfenstein", en: "Wolfenstein" },
+            synopsis: {
+              it: "1960: in un'America sprofondata sotto il tallone del Regime dopo la vittoria nazista nella Seconda Guerra Mondiale, un gruppo di ribelli sopravvive nascosto nell'insediamento clandestino di Sanctuary, guidato da Mary Sue \"Professor\" Ellington. Quando il Regime avvia una trivellazione ufficialmente in cerca di petrolio nel terreno vicino al rifugio, la Professor scende di persona nel pozzo insieme alla giovane Emilie e scopre che ciò che i nazisti stanno davvero dissotterrando è una sostanza scura, quasi viva, ben più antica del petrolio. Parallelamente, l'ufficiale Hans Hartmann porta alla luce le rovine sommerse di un'antica città dei Thule, la civiltà occulta al centro dei segreti ancestrali del Reich, e le trasforma nelle fondamenta di un nuovo Castello Wolfenstein, sede della Divisione Scientifica del Regime e sua residenza personale. Convinto che scienza e sangue thule combinati garantiranno al Reich una vittoria totale e definitiva, Hartmann avvia un programma per clonare l'antica razza senza comprenderne fino in fondo la reale natura. A osservarlo dall'interno, sotto copertura, c'è la Dott.ssa Emilie Wagner, che riesce a far uscire clandestinamente dal castello una lettera con le prove di ciò che l'ufficiale sta preparando. La lettera raggiunge B.J. \"Terror Billy\" Blazkowicz, che con la sua cellula della Resistenza attraversa il paese in auto radendo al suolo ogni posto di blocco del Regime lungo il tragitto, diretto dritto verso il nuovo Castello Wolfenstein, mentre una vecchia narratrice tesse la leggenda del cacciatore di nazisti per eccellenza. Gli eventi raccontati si concludono nei mesi immediatamente precedenti l'apertura di Wolfenstein II: The New Colossus, quando Blazkowicz verrà trovato gravemente ferito e in cura a bordo dell'Eva's Hammer proprio mentre il Regime lo attacca — e la Professor, qui introdotta per la prima volta, tornerà al fianco della Resistenza come cecchina a New Orleans.",
+              en: "1960: in an America crushed under the Regime's boot after the Nazis' victory in World War II, a group of rebels survives in hiding at the illegal settlement of Sanctuary, led by Mary Sue \"Professor\" Ellington. When the Regime begins drilling the ground near the refuge, officially in search of oil, the Professor climbs down into the well herself alongside young Emilie and discovers that what the Nazis are really unearthing is a dark, almost-living substance far older than any oil. In parallel, German officer Hans Hartmann uncovers the submerged ruins of an ancient Thule city, the occult civilization at the heart of the Reich's oldest secrets, and turns them into the foundations of a new Castle Wolfenstein, seat of the Regime's Science Division and Hartmann's own residence. Convinced that science and Thule blood combined will secure total, permanent victory for the Reich, Hartmann launches a program to clone the ancient race without fully grasping the forces he is dealing with. Watching it all from the inside, undercover, is Dr. Emilie Wagner, who manages to smuggle a letter out of the castle with proof of what the officer is planning. The letter reaches B.J. \"Terror Billy\" Blazkowicz, who drives across the country with his Resistance cell, tearing through Regime checkpoints along the way and heading straight for the new Castle Wolfenstein, while an old woman narrates the legend of the ultimate Nazi hunter. The story closes in the months immediately preceding the opening of Wolfenstein II: The New Colossus, when Blazkowicz will be found gravely wounded and recovering aboard the Eva's Hammer just as the Regime attacks it — and the Professor, introduced here for the first time, will return at the Resistance's side as a sniper in New Orleans."
+            }
+          },
           { id: "new-colossus", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1961", releaseYear: "2017", releaseYearEn: "2017",
             title: { it: "Wolfenstein II: The New Colossus", en: "Wolfenstein II: The New Colossus" },
             synopsis: {
               it: "Cinque mesi dopo The New Order, Blazkowicz si risveglia gravemente menomato e incapace di camminare a bordo dell'Eva's Hammer, il sottomarino del Kreisau Circle. La nuova antagonista è Frau Engel, comandante nazista che attacca il sottomarino, cattura e decapita Caroline Becker davanti a Blazkowicz. Recuperata la mobilità grazie all'armatura Da'at Yichud di Caroline, Blazkowicz raduna le cellule della resistenza americana per innescare una Seconda Rivoluzione. Viene catturato e decapitato in diretta TV come propaganda nazista, ma il Kreisau Circle salva la sua testa e la innesta su un corpo di supersoldato. Nel finale Blazkowicz uccide Engel in diretta televisiva: la sua morte scatena la rivoluzione americana.",
               en: "Five months after The New Order, Blazkowicz wakes up severely disabled and unable to walk aboard the Eva's Hammer, the Kreisau Circle's submarine. The new antagonist is Frau Engel, a Nazi commander who attacks the submarine, captures and decapitates Caroline Becker in front of Blazkowicz. After regaining mobility thanks to Caroline's Da'at Yichud armour, Blazkowicz rallies American resistance cells to ignite a Second Revolution. He is captured and beheaded on live television as Nazi propaganda, but the Kreisau Circle saves his head and grafts it onto a supersoldier's body. In the finale, Blazkowicz kills Engel on live television — her death sparks the American revolution."
             }
+          },
+          // Sinossi non presente di proposito: prodotto non ancora pubblicato, solo crowdfunding
+          // previsto per l'autunno 2026. Tornare qui dopo l'uscita per sinossi vera e immagine.
+          { id: "roleplaying-game", type: "GIOCO DI RUOLO", typeEn: "TABLETOP RPG",
+            year: "1962", yearEn: "1962",
+            title: { it: "Wolfenstein: The Roleplaying Game", en: "Wolfenstein: The Roleplaying Game" },
+            imagePending: true,
+            releaseDateShort: { it: "Non prima del 2027 (crowdfunding: autunno 2026)", en: "Not before 2027 (crowdfunding: Fall 2026)" },
+            releaseDateISO: "2027-12-31"
           },
           { id: "cyberpilot", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1980", releaseYear: "2019", releaseYearEn: "2019",
             title: { it: "Wolfenstein: Cyberpilot", en: "Wolfenstein: Cyberpilot" },
