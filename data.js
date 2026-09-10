@@ -6730,8 +6730,8 @@ const GAMES = {
       it: "Un'archeologa avventuriera esplora rovine dimenticate e civiltà perdute, al confine tra storia e leggenda, alla ricerca di manufatti capaci di sfidare ogni spiegazione razionale. Trappole millenarie, culti segreti e organizzazioni rivali le contendono ogni scoperta. Qui, la sete di conoscenza va sempre a braccetto col pericolo.",
       en: "An adventuring archaeologist explores forgotten ruins and lost civilizations, on the border between history and legend, in search of artifacts that defy rational explanation. Ancient traps, secret cults, and rival organizations contest every discovery with her. Here, the thirst for knowledge always walks hand in hand with danger."
     },
-    palette: ["#5c1a1a", "#c9a227", "#2e2e2e"],
-    accentColor: "#c9a227",
+    palette: ["#5c1a1a", "#a9752f", "#2e2e2e"],
+    accentColor: "#a9752f",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Banner.jpg",
@@ -6743,7 +6743,7 @@ const GAMES = {
         name: { it: "Continuità Classica (Core Design)", en: "Classic Continuity (Core Design)" },
         span: { it: "1996 – 2003", en: "1996 – 2003" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
-        palette: ["#c9a227", "#2e1f3a", "#1f1a26"],
+        palette: ["#a9752f", "#2e1f3a", "#1f1a26"],
         paletteBounds: ["tr3", "chronicles"],
         entries: [
           { id: "tr1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996",
@@ -6801,7 +6801,7 @@ const GAMES = {
         name: { it: "Continuità Legend (Crystal Dynamics, prima trilogia)", en: "Legend Continuity (Crystal Dynamics, first trilogy)" },
         span: { it: "2006 – 2008", en: "2006 – 2008" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
-        palette: ["#c9a227", "#1f4a5c", "#3a3540"],
+        palette: ["#a9752f", "#1f4a5c", "#3a3540"],
         paletteBounds: ["anniversary", "underworld"],
         entries: [
           { id: "anniversary", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "cronologicamente il primo di questa continuità",
@@ -6843,7 +6843,7 @@ const GAMES = {
         name: { it: "Continuità Survivor / Timeline Unificata (Crystal Dynamics)", en: "Survivor Continuity / Unified Timeline (Crystal Dynamics)" },
         span: { it: "2013 – 2027", en: "2013 – 2027" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Tomb%20Raider%20Filigrana.jpg",
-        palette: ["#6b3a1f", "#2e6b52", "#c9a227"],
+        palette: ["#6b3a1f", "#2e6b52", "#a9752f"],
         paletteBounds: ["shadow-of-the-tomb-raider", "legend-of-lara-croft-netflix"],
         entries: [
           { id: "tr2013", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "2013",
@@ -6906,8 +6906,8 @@ const GAMES = {
       it: "Su Azeroth, Orda e Alleanza combattono una guerra quasi senza fine, spesso costrette a mettere da parte l'odio reciproco davanti a minacce più grandi: legioni demoniache, flagelli non morti, forze capaci di cancellare ogni forma di vita. Eroi di ogni razza scelgono da che parte stare, sapendo che nessuna vittoria è mai definitiva.",
       en: "On Azeroth, the Horde and the Alliance wage a near-endless war, often forced to set aside their hatred before threats greater than either of them: demonic legions, undead scourges, elemental forces able to erase all life. Heroes of every race choose a side, knowing no victory is ever final."
     },
-    palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
-    accentColor: "#c9a227",
+    palette: ["#1a3a1a", "#d4952b", "#8b1a1a"],
+    accentColor: "#d4952b",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Banner.jpg",
@@ -6918,7 +6918,7 @@ const GAMES = {
         name: { it: "Trilogia RTS", en: "RTS Trilogy" },
         span: { it: "Prima Guerra – Terza Guerra", en: "First War – Third War" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
-        palette: ["#1a3a1a", "#c9a227", "#8b1a1a"],
+        palette: ["#1a3a1a", "#d4952b", "#8b1a1a"],
         paletteBounds: ["warcraft-1", "warcraft-2-btdp"],
         entries: [
           { id: "warcraft-1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "Prima Guerra", releaseYear: "1994", releaseYearEn: "1994",
@@ -6963,7 +6963,7 @@ const GAMES = {
         name: { it: "World of Warcraft", en: "World of Warcraft" },
         span: { it: "2004 – oggi", en: "2004 – present" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Warcraft%20Filigrana.jpg",
-        palette: ["#4a6fa5", "#b5651d", "#7ec850", "#3a2150", "#c9a227"],
+        palette: ["#4a6fa5", "#b5651d", "#7ec850", "#3a2150", "#d4952b"],
         paletteBounds: ["wrath-of-the-lich-king", "warlords-of-draenor", "battle-for-azeroth", "shadowlands"],
         entries: [
           { id: "wow-vanilla", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "anni dopo la Terza Guerra", releaseYear: "2004 (Classic: 2019)", releaseYearEn: "2004 (Classic: 2019)",
@@ -8043,8 +8043,8 @@ const GAMES = {
       it: "Nei quartieri più oscuri del sottobosco criminale giapponese, uomini legati da un codice d'onore sempre più fragile si muovono tra lealtà, tradimento e la ricerca di un posto nel mondo, dentro o fuori dalla yakuza. Ogni ascesa nasconde una caduta possibile, ogni legame un potenziale tradimento. L'onore, qui, è tanto sacro quanto raro. Restano volutamente fuori da questa linea le serie Judgment e Lost Judgment: stesso universo e stessa Kamurocho, ma un brand a sé stante per scelta di SEGA, con protagonista e trama autonomi.",
       en: "In the darkest districts of Japan's criminal underworld, men bound by an increasingly fragile code of honor navigate loyalty, betrayal, and the search for a place in the world, whether inside or outside the yakuza. Every rise hides a possible fall, every bond a potential betrayal. Honor, here, is as sacred as it is rare. Judgment and Lost Judgment are deliberately left out of this line: same universe and same Kamurocho, but a separate brand by SEGA's own choice, with their own protagonist and story."
     },
-    palette: ["#1a1a2e", "#c9a227", "#8b1a1a"],
-    accentColor: "#c9a227",
+    palette: ["#1a1a2e", "#c88a2e", "#8b1a1a"],
+    accentColor: "#c88a2e",
     tracks: [],
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Banner.jpg",
@@ -8055,7 +8055,7 @@ const GAMES = {
         name: { it: "Continuità Principale", en: "Main Continuity" },
         span: { it: "1915 – 2027", en: "1915 – 2027" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Yakuza%20Filigrana.jpg",
-        palette: ["#5c4029", "#c9a227", "#8b1a1a", "#1a1a2e", "#1f8a7a"],
+        palette: ["#5c4029", "#c88a2e", "#8b1a1a", "#1a1a2e", "#1f8a7a"],
         paletteBounds: ["stranger-than-heaven", "yakuza-kiwami", "like-a-dragon-yakuza-series", "yakuza-6"],
         entries: [
           { id: "stranger-than-heaven", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1915 – 1965", yearEn: "1915 – 1965",
