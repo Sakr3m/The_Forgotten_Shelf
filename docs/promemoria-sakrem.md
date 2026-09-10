@@ -2385,6 +2385,166 @@ alle semplici aggiunte di voci:
   prodotta per questa voce - esempio positivo di controllo qualità
   della catena, segnalato anche nel report a Sakrem.
 
+## NieR/Drakengard
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
+delle 10 saghe individuate dal Project Manager per questa sessione
+notturna (turno notturno 2/notte 3). Struttura tecnicamente la più
+complessa finora affrontata in questa sessione: 2 universi collegati da
+`universeLink` (`drakengard` → `nier`, stesso modello Rapture/Columbia
+già in uso su BioShock) e, al loro interno, 2 voci gemelle (`twin`) - il
+primo caso in cui i due meccanismi coesistono nella stessa saga. 13 voci
+totali sulla linea (11 voci a sé + 2 gemelle): 4 nell'universo
+`drakengard` (Drakengard 3 → Drag-On Dragoon 3: Story Side → Drakengard
+→ Drakengard 2) e 9 nell'universo `nier` (7 voci reali, comprese le 2
+gemelle: NieR Gestalt/Replicant, Grimoire NieR, YoRHa Stage Play + gemella
+YoRHa: Pearl Harbor Descent Record, NieR: Automata + gemella NieR:
+Automata: Long Story Short, NieR: Automata: Short Story Long, NieR:
+Automata Ver1.1a, NieR Re[in]carnation). Introdotto anche 1 type mai
+usato prima sul sito, `TEATRO`/`STAGE PLAY` (per lo YoRHa Stage Play),
+senza bisogno di alcuna modifica di codice.
+
+### Decisioni di scope importanti
+
+- **Meccanismo `universeLink` Drakengard → NieR**: il Finale E di
+  Drakengard (2003) - Caim e Angelus risucchiati nella Tokyo 2003
+  contemporanea e uccisi fuori dal proprio mondo - è l'evento che
+  scatena la sostanza magica alla radice della White Chlorination
+  Syndrome/Necrografia del mondo di NieR, 1300 anni dopo. Collegamento
+  ufficiale (contenuto in-game, dichiarazioni di Yoko Taro), non
+  un'ipotesi tematica: l'universo `drakengard` genera l'aggancio in
+  fondo alla propria linea (`edge: "end"`, dopo Drakengard 2), l'universo
+  `nier` lo riceve in apertura (`edge: "start"`, prima di NieR
+  Gestalt/Replicant).
+- **Manga "Shi Ni Itaru Aka" (Fatal Crimson) escluso integralmente**:
+  nessuna voce, nessuna nota, nessun disclaimer in pagina. Segue
+  dichiaratamente una linea "Drakengard 1.3" alternativa e non canonica
+  a valle del Finale A di Drakengard 3 - a differenza di Drakengard 2
+  (incluso come ramo isolato/specchio, ma comunque parte della
+  continuity ufficiale), qui è la fonte stessa a dichiarare la propria
+  non-canonicità. Nessun dubbio residuo su questa esclusione.
+- **Saggio critico "The Strange Works of Taro Yoko" escluso**: materiale
+  critico/analitico sull'autore, non narrativo - non racconta alcuna
+  trama collocabile sulla linea del tempo e non supera nemmeno la soglia
+  minima per diventare una nota (quella categoria richiede comunque un
+  collegamento narrativo con un media esistente).
+- **Drakengard 2 incluso come ramo isolato/specchio**, comunicato solo in
+  prosa nella sua sinossi (nessun `lineStyle`): sequel del solo Finale A
+  di Drakengard, reso non-canonico come prosecuzione dal retcon di
+  Drakengard 3 (2013), ma senza che la fonte ufficiale ne dichiari la
+  non-canonicità in sé - per questo resta incluso, a differenza di "Shi
+  Ni Itaru Aka".
+- **NieR Gestalt/Replicant e Grimoire NieR**: ciascuno è una voce unica
+  (non due), con le rispettive edizioni successive (remaster
+  ver.1.22474487139..., Grimoire NieR: Revised Edition) annotate in
+  prosa dentro la stessa voce anziché come voci a sé.
+
+### Correzione terminologica
+
+**"Culto dei Guardiani"/"Guardiani" → "Culto dei Messaggeri"/"Messaggeri"**
+(IT): la resa iniziale di lavoro ("Guardiani") era sbagliata, corretta dal
+Linguista in tutte le occorrenze reali del testo IT (voce "Drag-On
+Dragoon 3: Story Side": 1 occorrenza; voce "Drakengard": 4 occorrenze).
+Confidenza medio-alta (fonti secondarie convergenti, non testo di gioco
+verificato in prima persona - ipotesi solida ma non blindata al 100%). Il
+testo EN resta invariato, "Cult of the Watchers"/"Watchers". Altre due
+correzioni minori applicate nella stessa revisione, voce "NieR
+Gestalt/Replicant": "Cicatrice Nera (Black Scrawl)" → "Necrografia (Black
+Scrawl)" (IT, "Cicatrice Nera" era una traduzione letterale mai attestata;
+"Necrografia" è confermata da più fonti italiane indipendenti sull'edizione
+ver.1.22 con testi italiani ufficiali; EN resta "Black Scrawl") e "Project
+Gestalt" → "Progetto Gestalt" (solo IT, EN resta "Project Gestalt").
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Weight of the World" (*NieR:
+  Automata*, tema del finale, Best Score ai The Game Awards 2017), "Song
+  of the Ancients" (*NieR Gestalt/Replicant*, tema di Devola e Popola),
+  "Amusement Park" (*NieR: Automata*, brano più ascoltato in streaming
+  della colonna sonora), "Kainé / Salvation" (*NieR Gestalt/Replicant*,
+  tema di battaglia di Kainé), "A Beautiful Song" (*NieR: Automata*,
+  tema ricorrente, terzo brano più ascoltato in streaming), "Ashes of
+  Dreams" (*NieR Gestalt/Replicant*, titoli di coda, versione inglese
+  cantata), "This Silence Is Mine" (*Drakengard 3*, titoli di coda,
+  cantata da Chihiro Onitsuka).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community (non gusto personale).
+  Perimetro musicale limitato ai soli videogiochi con colonna sonora
+  propria confermata (Drakengard, Drakengard 2, Drakengard 3, NieR
+  Gestalt/Replicant incl. remaster, NieR: Automata, NieR
+  Re[in]carnation): tutte le voci non-videoludiche (romanzi, fumetti,
+  anime, teatro) restano fuori dal perimetro per regola fissa
+  dell'incarico. Nessun brano da Drakengard (2003), Drakengard 2 o NieR
+  Re[in]carnation: nessuno dei tre ha un brano di fama realmente
+  comparabile ai due titoli principali NieR. Distribuzione risultante: 3
+  tracce da NieR: Automata, 3 da NieR Gestalt/Replicant, 1 da Drakengard
+  3 - conseguenza diretta della fama reale (la colonna sonora Okabe/
+  MONACA per NieR è tra le più celebrate della storia dei videogiochi),
+  non decisa a tavolino.
+- **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 2 nuovi universi e 13 nuove voci (11 voci a sé +
+2 gemelle nidificate nelle rispettive voci principali, nessuna voce
+STORIA), tutte inserite nella stessa sessione notturna, 2026-09-10.
+
+- Nuovo universo **Drakengard** (`drakengard-3` → `drakengard-2`, span
+  Era di Zero – Drakengard 2 (18 anni dopo Drakengard), 4 voci,
+  `universeLink` verso `nier`) - sessione notturna, 2026-09-10.
+- Nuovo universo **NieR** (`nier-gestalt-replicant` →
+  `nier-reincarnation`, span 1300 anni dopo Drakengard – 2024, 7 voci
+  reali + 2 gemelle, `universeLink` da `drakengard`) - sessione
+  notturna, 2026-09-10.
+- `drakengard-3` - Drakengard 3 (VIDEOGIOCO, 2013) - voce a sé, prima
+  voce della saga - sessione notturna, 2026-09-10.
+- `drag-on-dragoon-3-story-side` - Drag-On Dragoon 3: Story Side
+  (ROMANZO, 2014) - voce a sé - sessione notturna, 2026-09-10.
+- `drakengard` - Drakengard (VIDEOGIOCO, 2003) - voce a sé, contiene il
+  Finale E, punto esatto dell'aggancio `universeLink` verso `nier` -
+  sessione notturna, 2026-09-10.
+- `drakengard-2` - Drakengard 2 (VIDEOGIOCO, 2005) - voce a sé, ramo
+  isolato/specchio del solo Finale A, ultima voce di Drakengard -
+  sessione notturna, 2026-09-10.
+- `nier-gestalt-replicant` - NieR Gestalt/Replicant (VIDEOGIOCO, 2010,
+  include nota sul remaster ver.1.22474487139..., 2021) - voce a sé,
+  prima voce di NieR - sessione notturna, 2026-09-10.
+- `grimoire-nier` - Grimoire NieR (RACCOLTA DI RACCONTI, 2010, include
+  nota sulla Revised Edition 2021/2023) - voce a sé - sessione notturna,
+  2026-09-10.
+- `yorha-stage-play` - YoRHa Stage Play (TEATRO, 2015 – in corso) - voce
+  a sé, prima uso sul sito del tipo "TEATRO"/"STAGE PLAY" - sessione
+  notturna, 2026-09-10.
+- `yorha-pearl-harbor-descent-record` - YoRHa: Pearl Harbor Descent
+  Record (MANGA, 2020/2021) - voce gemella di `yorha-stage-play` -
+  sessione notturna, 2026-09-10.
+- `nier-automata` - NieR: Automata (VIDEOGIOCO, 2017) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `nier-automata-long-story-short` - NieR: Automata: Long Story Short
+  (ROMANZO, 2017/2018) - voce gemella di `nier-automata` - sessione
+  notturna, 2026-09-10.
+- `nier-automata-short-story-long` - NieR: Automata: Short Story Long
+  (RACCOLTA DI RACCONTI, 2017) - voce a sé (non gemella: racconti
+  originali paralleli, non un riracconto della trama principale) -
+  sessione notturna, 2026-09-10.
+- `nier-automata-ver1-1a` - NieR: Automata Ver1.1a (ANIME, 2023 – 2024)
+  - voce a sé (non gemella: integra materiale sostanziale dallo YoRHa
+  Stage Play, non un semplice adattamento) - sessione notturna,
+  2026-09-10.
+- `nier-reincarnation` - NieR Re[in]carnation (VIDEOGIOCO MOBILE, 2021 –
+  2024) - voce a sé, ultima voce della saga - sessione notturna,
+  2026-09-10.
+
 ## Prince of Persia
 
 ### Musica
