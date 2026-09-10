@@ -807,6 +807,103 @@ notturna, 2026-09-10.
   2022, solo edizione inglese/giapponese, nessuna edizione italiana) -
   voce a sé, ultima voce della saga - sessione notturna, 2026-09-10.
 
+## Deus Ex
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
+Una delle 10 saghe individuate dal Project Manager per questa sessione
+notturna (turno notturno 2/notte 3). Un solo universo, "Linea Temporale
+Deus Ex", 10 voci in ordine di cronologia interna (modello Metal Gear
+Solid, non ordine di uscita reale): 4 romanzi di James Swallow (Fallen
+Angel, Icarus Effect, Hard Line, Black Light), 4 videogiochi (Human
+Revolution, The Fall, Mankind Divided, Deus Ex 2000, Invisible War - in
+realtà 5, vedi sotto), 1 fumetto (Children's Crusade). Nel dettaglio: 4
+ROMANZO, 4 VIDEOGIOCO (Human Revolution, Mankind Divided, Deus Ex,
+Invisible War), 1 VIDEOGIOCO MOBILE (The Fall), 1 FUMETTO (Children's
+Crusade).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Icarus" (Main Theme) (*Deus
+  Ex: Human Revolution*), "Main Title" ("So It Begins") (*Deus Ex*,
+  2000), "Sarif Industries" (tema HQ/menu) (*Deus Ex: Human
+  Revolution*), "UNATCO Theme" (*Deus Ex*, 2000), "TF29" (*Deus Ex:
+  Mankind Divided*), "Main Theme" (*Deus Ex: The Fall*), "Night
+  Assignment" (*Deus Ex: Invisible War*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community. Perimetro musicale
+  limitato ai 5 videogiochi con colonna sonora propria (Deus Ex 2000,
+  Invisible War, Human Revolution incl. The Missing Link, The Fall,
+  Mankind Divided incl. A Criminal Past/System Rift/Breach): i 4 romanzi
+  e il fumetto sono esclusi dal perimetro musicale, nessuna traccia da
+  lì. Distribuzione: 2 tracce da Deus Ex 2000, 2 da Human Revolution, 1
+  da Mankind Divided, 1 da The Fall, 1 da Invisible War.
+- **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 10 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **Linea Temporale Deus Ex** (`deus-ex-fallen-angel` →
+  `deus-ex-invisible-war`, span circa 2025 - 2072, 10 voci) - sessione
+  notturna, 2026-09-10.
+- `deus-ex-fallen-angel` - Deus Ex: Fallen Angel (ROMANZO, 2013) - voce
+  a sé, prima voce della saga - sessione notturna, 2026-09-10.
+- `deus-ex-icarus-effect` - Deus Ex: The Icarus Effect (ROMANZO, 2011) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `deus-ex-human-revolution` - Deus Ex: Human Revolution (VIDEOGIOCO,
+  2011, include nota su The Missing Link) - voce a sé - sessione
+  notturna, 2026-09-10.
+- `deus-ex-the-fall` - Deus Ex: The Fall (VIDEOGIOCO MOBILE, 2013) -
+  voce a sé - sessione notturna, 2026-09-10.
+- `deus-ex-hard-line` - Deus Ex: Hard Line (ROMANZO, 2016) - voce a sé -
+  sessione notturna, 2026-09-10.
+- `deus-ex-black-light` - Deus Ex: Black Light (ROMANZO, 2016) - voce a
+  sé - sessione notturna, 2026-09-10.
+- `deus-ex-childrens-crusade` - Deus Ex: Children's Crusade (FUMETTO,
+  2016) - voce a sé - sessione notturna, 2026-09-10.
+- `deus-ex-mankind-divided` - Deus Ex: Mankind Divided (VIDEOGIOCO,
+  2016, include note su A Criminal Past, System Rift e Deus Ex: Breach)
+  - voce a sé - sessione notturna, 2026-09-10.
+- `deus-ex` - Deus Ex (VIDEOGIOCO, 2000, include nota sullo stato
+  sospeso del Remastered) - voce a sé - sessione notturna, 2026-09-10.
+- `deus-ex-invisible-war` - Deus Ex: Invisible War (VIDEOGIOCO, 2003) -
+  voce a sé, ultima voce della saga - sessione notturna, 2026-09-10.
+
+### Decisioni di scope e correzioni di rilievo (fuori standard, solo qui perché non coperte dai campi sopra)
+
+- **Deus Ex GO** (spin-off mobile puzzle, 2016): escluso dalla saga,
+  confermato dal Supervisore.
+- **Deus Ex: Breach**: trattato come nota narrativa dentro la voce
+  `deus-ex-mankind-divided` (conseguenza diretta del finale di System
+  Rift), non come voce a sé.
+- **Deus Ex Remastered** (Aspyr): non è uscito - annuncio originale per
+  il 5 febbraio 2026, rinviato a tempo indeterminato da dicembre 2025
+  dopo reazioni negative sui nuovi asset grafici, preordini rimborsati.
+  Trattato come nota di stato dentro la voce `deus-ex` (2000), non come
+  voce a sé né incluso nella releaseYear.
+- Tutti e 4 i romanzi di James Swallow (Fallen Angel, Icarus Effect,
+  Hard Line, Black Light) inclusi come voci a sé.
+- **Correzione fattuale importante** (non di traduzione, presente
+  nell'errore originale sia IT che EN): il gioco Deus Ex (2000) ha
+  **tre** finali canonici implementati (Helios, Illuminati, New Dark
+  Age/Tong), non quattro. Rimosso ogni riferimento a un presunto quarto
+  finale (alleanza con Bob Page/MJ12), mai realmente implementato nel
+  gioco; l'unico "quarto" nei file di gioco è l'easter egg non canonico
+  "Dance Party", raggiungibile solo via cheat, senza attinenza con la
+  trama e non citato in sinossi.
+
 ## Devil May Cry
 
 ### Musica
