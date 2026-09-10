@@ -2470,3 +2470,44 @@ sessione 2026-09-10 (richiamo mirato, turno notturno 2, saga 7/11).
 - `sacred-artifacts` - Tomb Raider: Sacred Artifacts (FUMETTO, 2026) -
   voce a sé, universo Continuità Legend, dopo `underworld` - sessione
   2026-09-10.
+
+## Universo Connesso Remedy
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani: Take
+  Control (Old Gods of Asgard) = *Control*, Herald of Darkness (Old Gods
+  of Asgard) = *Alan Wake 2*, Space Oddity (David Bowie) = *Alan Wake*,
+  Balance Slays the Demon (Old Gods of Asgard) = *Alan Wake's American
+  Nightmare*, War (Old Gods of Asgard) = *Alan Wake*, The Poet and the
+  Muse (Old Gods of Asgard) = *Alan Wake*, Children of the Elder God (Old
+  Gods of Asgard) = *Alan Wake*.
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione per fama/gradimento
+  reale (Ashtray Maze di *Control*, "Herald of Darkness"/Game Awards 2023
+  di *Alan Wake 2*, l'iconico uso di "Space Oddity" nel gioco originale).
+  4 tracce su 7 provengono da *Alan Wake* (2010), capostipite musicale
+  della saga: non è stato possibile evitare del tutto l'adiacenza tra
+  tracce dello stesso titolo (posizioni 5-6-7) senza violare l'ordine di
+  fama decrescente, che ha priorità sulla regola di alternanza.
+- **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 8/11).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file
+  fisico). Il campo viene comunque creato dal Programmatore come
+  `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Aggiornamento nel richiamo mirato: nessun nuovo universo, 1 nuova voce
+(imagePending, senza sinossi per policy titoli non ancora usciti), sessione
+2026-09-10 (richiamo mirato, turno notturno 2, saga 8/11).
+
+- `control-resonant` - Control Resonant (VIDEOGIOCO, in uscita 24 settembre
+  2026, imagePending) - voce a sé, ultima voce dell'universo "main"
+  (sequel diretto di `control`, narrativamente successivo a `firebreak`);
+  estende lo span dell'universo "main" da "2010 – 2025" a "2010 – 2026" -
+  sessione 2026-09-10.
