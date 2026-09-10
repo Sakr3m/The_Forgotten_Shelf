@@ -753,6 +753,60 @@ notturna, 2026-09-09.
   2008) - voce a sé, ultima voce della saga - sessione notturna,
   2026-09-09.
 
+## Dark Souls
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
+Trovata dal Project Manager in bypass - non era nell'elenco originale
+delle 10 saghe individuate in questa sessione notturna, segnalazione
+esplicita mantenuta qui per completezza.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Gwyn, Lord of Cinder" (*Dark
+  Souls*), "Nameless King" (*Dark Souls III*), "Ornstein and Smough"
+  (*Dark Souls*), "Slave Knight Gael" (*Dark Souls III*, DLC The Ringed
+  City), "Artorias of the Abyss" (*Dark Souls*, DLC Artorias of the
+  Abyss), "Sister Friede" (*Dark Souls III*, DLC Ashes of Ariandel),
+  "Fume Knight" (*Dark Souls II*, DLC Crown of the Old Iron King).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata solo su
+  fama/gradimento reale di critica e community (non gusto personale).
+  Distribuzione risultante (3 tracce da Dark Souls I incl. DLC, 3 da
+  Dark Souls III incl. DLC, 1 da Dark Souls II incl. DLC) conseguenza
+  diretta della fama reale delle rispettive OST, non decisa a tavolino.
+  Il romanzo *Masque of Vindication* non ha musica propria ed è
+  correttamente escluso dal perimetro.
+- **Data**: 2026-09-10 (sessione notturna, 2/3).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 4 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **Il Ciclo del Fuoco** (`dark-souls-1` →
+  `masque-of-vindication`, span 2011 - 2022, 4 voci) - sessione
+  notturna, 2026-09-10.
+- `dark-souls-1` - Dark Souls (VIDEOGIOCO, 2011) - voce a sé, prima
+  voce della saga - sessione notturna, 2026-09-10.
+- `dark-souls-2` - Dark Souls II (VIDEOGIOCO, 2014, include nota sulla
+  Lost Crown Trilogy) - voce a sé - sessione notturna, 2026-09-10.
+- `dark-souls-3` - Dark Souls III (VIDEOGIOCO, 2016, include nota sui
+  DLC Ashes of Ariandel e The Ringed City) - voce a sé - sessione
+  notturna, 2026-09-10.
+- `masque-of-vindication` - Dark Souls: Masque of Vindication (ROMANZO,
+  2022, solo edizione inglese/giapponese, nessuna edizione italiana) -
+  voce a sé, ultima voce della saga - sessione notturna, 2026-09-10.
+
 ## Devil May Cry
 
 ### Musica
