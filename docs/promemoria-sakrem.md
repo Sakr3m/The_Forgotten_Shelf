@@ -3115,6 +3115,150 @@ notturna.
   solo il file fisico). Il campo `tracks` non viene creato in questo
   pacchetto, resta assente fino al caricamento dei file.
 
+## Shin Megami Tensei
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
+delle 10 saghe individuate dal Project Manager per questa sessione
+notturna (turno notturno 2/notte 3, 8/10). Struttura a 6 universi
+paralleli indipendenti senza continuity lineare unica: Origine
+letteraria (1986-1993, romanzi + OVA gemella) → Center (1987-1990) →
+Tokyo Millennium (1992-1994) → Vortex World (2003) → Mikado (2013-2016)
+→ Da'at (2021, Vengeance 2024). 10 voci top-level + 1 twin (l'OVA
+`digital-devil-story-ova`, gemella di `digital-devil-story-romanzo`) =
+11 media con voce propria. Primo uso sul sito del type `OVA`/`OVA`
+(formato distintivo, distribuzione diretta home video). Blurb di saga
+con un solo accenno testuale/tematico a Persona, spin-off già presente
+sul sito ("Da questa stirpe nascerà, anni dopo, anche Persona.") -
+nessun collegamento dati richiesto o applicato in questo ciclo (nessun
+campo condiviso, nessun `twins` incrociato).
+
+### Decisioni di scope
+
+Perimetro limitato al ramo "mainline" letterario + videoludico
+individuato dal Supervisore: romanzi Digital Devil Story/New Digital
+Devil Story, OVA gemella, ed 8 videogiochi mainline (Digital Devil
+Story: Megami Tensei, Megami Tensei II, Shin Megami Tensei, Shin Megami
+Tensei II, Nocturne, IV, IV: Apocalypse, V). Tutte le sottoserie
+spin-off sono state escluse in blocco per scala eccessiva rispetto al
+mandato di questo ciclo, non per giudizio di qualità - da riconsiderare
+in futuri richiami dedicati, ciascuna come eventuale ampliamento a sé:
+Devil Summoner (incl. Raidou Kuzunoha, citato solo come cameo nella nota
+HD Remaster di Nocturne, nessuna voce propria), Digital Devil Saga,
+Strange Journey (incl. Strange Journey Redux), if..., Majin Tensei,
+Last Bible, Devil Children, e i capitoli mobile/online della serie.
+Persona, già presente sul sito come voce a sé, resta fuori da questo
+scope per lo stesso motivo e non riceve alcun collegamento dati in
+questo ciclo.
+
+### Correzioni fattuali
+
+Due correzioni importanti emerse durante la revisione, applicate nel
+testo finale prima della consegna al Programmatore:
+
+1. "Merciful", il DLC gratuito dell'HD Remaster (2021) di *Shin Megami
+   Tensei III: Nocturne*, NON è un finale/epilogo della storia: è una
+   modalità di difficoltà per principianti (danno inflitto x2, danno
+   subito x0,5, EXP x3, Macca x5, tasso di incontri ridotto),
+   selezionabile a inizio partita o da menu, che non tocca in alcun modo
+   la trama o i finali del gioco.
+2. L'HD Remaster di *Nocturne* (2021) non è mai uscito su Xbox One: le
+   uniche piattaforme reali sono PlayStation 4, Nintendo Switch e PC.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente entro il perimetro degli 8
+  videogiochi mainline (romanzi e OVA esclusi, senza colonna sonora
+  propria): "Normal Battle" (*Shin Megami Tensei III: Nocturne*, 2003,
+  Shoji Meguro), "Title Loop 2" (*Shin Megami Tensei III: Nocturne*,
+  2003), "Ginza" (*Shin Megami Tensei*, 1992), "Dante Battle" (*Shin
+  Megami Tensei III: Nocturne*, 2003), "Tokyo" (*Shin Megami Tensei
+  IV*, 2013), "DECIDE" (*Shin Megami Tensei IV: Apocalypse*, 2016),
+  "Battle V8" (*Shin Megami Tensei V*, 2021, riproposto in Vengeance
+  2024).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata su fama/
+  gradimento reale (nessun criterio di equidistribuzione tra universi).
+  4 tracce con confidenza alta, verificate sul sondaggio ufficiale
+  "Shin Megami Tensei Series Music Popularity Vote" (Atlus JP, 2017,
+  unico poll ufficiale sull'intera serie mainline): "Normal Battle" #1
+  assoluto, "Title Loop 2" #2, "Ginza" #3 (unica traccia pre-Nocturne
+  selezionata, traccia più amata dell'era chiptune/MIDI), "Dante
+  Battle" #4. Le altre 3 (Tokyo, DECIDE, Battle V8) hanno confidenza
+  media, da capitoli usciti dopo il sondaggio 2017, verificate per
+  convergenza di recensioni critiche indipendenti (RPGFan, Paste
+  Magazine, Hardcore Gamer) e discussione di community (ResetEra,
+  NeoGAF), nessun poll ufficiale disponibile per questi capitoli.
+  Universo 2 (Center) resta senza traccia propria: nel sondaggio
+  ufficiale il tema di Megami Tensei II arriva solo 8° assoluto, sotto
+  3 tracce di Nocturne e sotto Ginza/Cathedral of Shadows di SMT I - con
+  soli 7 slot il differenziale di fama non giustificava di sacrificare
+  uno slot Nocturne. Universo 1 (romanzi/OVA) fuori perimetro musicale
+  per mandato esplicito. Nessuna traccia di *SMT: Strange Journey*
+  inclusa nonostante comparisse nello stesso sondaggio ufficiale (9°
+  posto): spin-off, fuori dal perimetro degli 8 capitoli mainline.
+- **Data**: 2026-09-10 (turno notturno 2/notte 3, saga 8/10).
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 6 nuovi universi e 10 nuove voci top-level + 1
+twin (nessuna voce STORIA), tutte inserite nella stessa sessione
+notturna, 2026-09-10.
+
+- Nuovo universo **Origine letteraria** (`digital-devil-story-romanzo`
+  → `new-digital-devil-story`, span 1986 – 1993, 2 voci + 1 twin) -
+  sessione notturna, 2026-09-10.
+- Nuovo universo **Center** (`digital-devil-story-megami-tensei` →
+  `megami-tensei-ii`, span 1987 – 1990, 2 voci) - sessione notturna,
+  2026-09-10.
+- Nuovo universo **Tokyo Millennium** (`shin-megami-tensei-i` →
+  `shin-megami-tensei-ii`, span 1992 – 1994, 2 voci) - sessione
+  notturna, 2026-09-10.
+- Nuovo universo **Vortex World** (`smt3-nocturne`, span 2003, 1 voce)
+  - sessione notturna, 2026-09-10.
+- Nuovo universo **Mikado** (`smt4` → `smt4-apocalypse`, span 2013 –
+  2016, 2 voci) - sessione notturna, 2026-09-10.
+- Nuovo universo **Da'at** (`smt5`, span 2021, 1 voce) - sessione
+  notturna, 2026-09-10.
+- `digital-devil-story-romanzo` - Digital Devil Story: Megami Tensei
+  (romanzo) (ROMANZO, 1986-1988) - voce a sé, prima voce della saga -
+  sessione notturna, 2026-09-10.
+- `digital-devil-story-ova` - Digital Devil Story: Megami Tensei (OVA)
+  (OVA, 1987) - voce gemella di `digital-devil-story-romanzo`, primo
+  uso del tipo/tag "OVA" sul sito - sessione notturna, 2026-09-10.
+- `new-digital-devil-story` - New Digital Devil Story (ROMANZO,
+  1990-1993) - voce a sé, ultima voce di Origine letteraria - sessione
+  notturna, 2026-09-10.
+- `digital-devil-story-megami-tensei` - Digital Devil Story: Megami
+  Tensei (VIDEOGIOCO, 1987) - voce a sé, prima voce di Center -
+  sessione notturna, 2026-09-10.
+- `megami-tensei-ii` - Megami Tensei II (VIDEOGIOCO, 1990) - voce a sé,
+  ultima voce di Center - sessione notturna, 2026-09-10.
+- `shin-megami-tensei-i` - Shin Megami Tensei (VIDEOGIOCO, 1992) - voce
+  a sé, prima voce di Tokyo Millennium - sessione notturna, 2026-09-10.
+- `shin-megami-tensei-ii` - Shin Megami Tensei II (VIDEOGIOCO, 1994) -
+  voce a sé, ultima voce di Tokyo Millennium - sessione notturna,
+  2026-09-10.
+- `smt3-nocturne` - Shin Megami Tensei III: Nocturne (VIDEOGIOCO, 2003,
+  include nota sull'HD Remaster 2021 corretta) - voce a sé, unica voce
+  di Vortex World - sessione notturna, 2026-09-10.
+- `smt4` - Shin Megami Tensei IV (VIDEOGIOCO, 2013) - voce a sé, prima
+  voce di Mikado - sessione notturna, 2026-09-10.
+- `smt4-apocalypse` - Shin Megami Tensei IV: Apocalypse (VIDEOGIOCO,
+  2016) - voce a sé, ultima voce di Mikado - sessione notturna,
+  2026-09-10.
+- `smt5` - Shin Megami Tensei V (VIDEOGIOCO, 2021, include nota sulla
+  Vengeance 2024) - voce a sé, unica voce di Da'at - sessione notturna,
+  2026-09-10.
+
 ## Silent Hill
 
 ### Musica
