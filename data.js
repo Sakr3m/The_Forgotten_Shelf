@@ -8047,9 +8047,9 @@ const GAMES = {
 
   yakuza: {
     id: "yakuza",
-    listTitle: { it: "Like a Dragon", en: "Like a Dragon" },
+    listTitle: { it: "Yakuza: Like a Dragon", en: "Yakuza: Like a Dragon" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
-    title: { it: "Like a Dragon", en: "Like a Dragon" },
+    title: { it: "Yakuza: Like a Dragon", en: "Yakuza: Like a Dragon" },
     blurb: {
       it: "Nei quartieri più oscuri del sottobosco criminale giapponese, uomini legati da un codice d'onore sempre più fragile si muovono tra lealtà, tradimento e la ricerca di un posto nel mondo, dentro o fuori dalla yakuza. Ogni ascesa nasconde una caduta possibile, ogni legame un potenziale tradimento. L'onore, qui, è tanto sacro quanto raro. Restano volutamente fuori da questa linea le serie Judgment e Lost Judgment: stesso universo e stessa Kamurocho, ma un brand a sé stante per scelta di SEGA, con protagonista e trama autonomi.",
       en: "In the darkest districts of Japan's criminal underworld, men bound by an increasingly fragile code of honor navigate loyalty, betrayal, and the search for a place in the world, whether inside or outside the yakuza. Every rise hides a possible fall, every bond a potential betrayal. Honor, here, is as sacred as it is rare. Judgment and Lost Judgment are deliberately left out of this line: same universe and same Kamurocho, but a separate brand by SEGA's own choice, with their own protagonist and story."
