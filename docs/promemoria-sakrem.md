@@ -1892,6 +1892,87 @@ pubblicate in futuro.
   unica gemella, meccanismo singolo standard già esistente, nessun
   problema tecnico) - richiamo mirato, 2026-09-09.
 
+## The Last of Us
+
+### In sospeso - immagini mancanti
+
+Stesso schema già discusso per Ace Combat/Assassin's Creed: nessun file
+immagine (avatar/banner della saga, filigrana dell'unico universo,
+copertine delle 5 voci) è stato indicato dai materiali ricevuti in
+questa sessione - Ricercatore/Selezionatore/Scrittore/Linguista/
+Artista/Musicista coprono testi, colore e musica, non asset visivi.
+
+1. Avatar della saga "The Last of Us"
+2. Banner della saga "The Last of Us"
+3. Filigrana (watermark) dell'unico universo "L'Epidemia di Cordyceps"
+4. Copertina di `american-dreams`
+5. Copertina di `tlou1`
+6. Copertina di `left-behind`
+7. Copertina di `tlou2`
+8. Copertina di `tlou-tv`
+
+- **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento pubblico decrescente: "The Last of Us (Main
+  Theme)" (*The Last of Us* / *The Last of Us Parte I*), "Through the
+  Valley" (*The Last of Us Parte II*), "All Gone (No Escape)" (*The Last
+  of Us* / *The Last of Us Parte I*), "Take On Me" (*The Last of Us
+  Parte II*), "Vanishing Grace" (*The Last of Us* / *The Last of Us
+  Parte I*), "Future Days" (*The Last of Us Parte II*), "The Path" (*The
+  Last of Us* / *The Last of Us Parte I*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata su fama/
+  gradimento pubblico reale documentato da fonti multiple (non gusto
+  personale), con alternanza tra i due titoli principali e nessuna
+  traccia proveniente dalla serie TV o dal fumetto.
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 5 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione,
+2026-09-11.
+
+- Nuovo universo **L'Epidemia di Cordyceps** (`american-dreams` →
+  `tlou-tv`, 5 voci) - sessione 2026-09-11.
+- `american-dreams` - The Last of Us: Il Sogno Americano / The Last of
+  Us: American Dreams (FUMETTO, 2013) - voce a sé, prima voce della
+  saga - sessione 2026-09-11.
+- `tlou1` - The Last of Us (VIDEOGIOCO, 2013, assorbe Remastered 2014 e
+  Remake Parte I/Part I 2022/2023 come annotazione `releaseYear`) - voce
+  a sé - sessione 2026-09-11.
+- `left-behind` - The Last of Us: Left Behind (VIDEOGIOCO/ESPANSIONE,
+  2014) - voce a sé - sessione 2026-09-11.
+- `tlou2` - The Last of Us Parte II / The Last of Us Part II
+  (VIDEOGIOCO, 2020, assorbe Remastered Parte II/Part II Remastered
+  2024 come annotazione `releaseYear`) - voce a sé - sessione
+  2026-09-11.
+- `tlou-tv` - The Last of Us (SERIE TV, HBO, Stagione 1 2023 + Stagione
+  2 2025) - voce ombrello su `tlou1` → `left-behind` → `tlou2`, nessun
+  `lineStyle` (riga solida), ultima voce della saga - sessione
+  2026-09-11.
+
+### Nota per il futuro (non applicare nulla ora)
+
+La Stagione 3 della serie TV HBO è stata rinnovata ufficialmente
+(annuncio 9 aprile 2025, finestra "2027" dichiarata da Casey Bloys,
+CEO contenuti HBO/Max) ma non è ancora uscita. Quando uscirà davvero,
+la sinossi esistente della voce `tlou-tv` andrà aggiornata per
+includerne la trama (arco di Abby in parallelo alla stagione 2).
+Nessuna azione tecnica richiesta oggi, nessun `imagePending` da
+aggiungere ora.
+
 ## Legacy of Kain
 
 ### Musica
