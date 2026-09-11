@@ -1286,6 +1286,104 @@ sessione, 2026-09-11.
   a sé, prima voce collettiva pubblicata sul sito con questo tipo -
   ultima voce della saga - sessione 2026-09-11.
 
+## Dragon Age
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
+Una delle 5 saghe di questo batch (Uncharted, The Last of Us, Mafia,
+Hitman, Dragon Age - ultima della sequenza). Un solo universo,
+"Thedas", 24 voci proprie in ordine cronologico narrativo, 11 DLC
+raggruppati come note dentro 3 sinossi (Origins: 6, Dragon Age II: 3,
+Inquisition: 2). Nessuna gemella, nessuna voce ombrello, nessuna
+VOCE STORIA (verdetto esplicito dello Storico: nessuna necessaria).
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Dragon Age Inquisition
+  Theme" (*Dragon Age: Inquisition*), "I Am the One" (*Dragon Age:
+  Origins*), "The Dawn Will Come" (*Dragon Age: Inquisition*),
+  "Leliana's Song (In Uthenera)" (*Dragon Age: Origins*), "Dragon Age
+  2 Main Theme" (*Dragon Age II*), "Dragon Age: The Veilguard Main
+  Theme" (*Dragon Age: The Veilguard*), "Sera Was Never" (*Dragon Age:
+  Inquisition*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata su
+  fama/gradimento reale (ascolti Spotify, premi di settore per "I Am
+  the One", penetrazione culturale/cover fan-made per "The Dawn Will
+  Come" e "Sera Was Never"), a copertura di Origins, Dragon Age II,
+  Inquisition e The Veilguard. Nessuna traccia da Awakening (nessun
+  brano con fama comparabile individuato) né da media senza gioco
+  proprio (romanzi, fumetti, Absolution).
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 24 nuove voci (nessuna
+gemella), tutte inserite nella stessa sessione, 2026-09-11.
+
+- Nuovo universo **Thedas** (`the-stolen-throne` → `the-veilguard`,
+  span 8:96 Blessed Age - 9:52 Dragon Age, 24 voci) - sessione
+  2026-09-11.
+- `the-stolen-throne` - Dragon Age: Il Trono Usurpato (ROMANZO) - voce
+  a sé, prima voce della saga - sessione 2026-09-11.
+- `the-calling` - Dragon Age: La Chiamata (ROMANZO) - voce a sé -
+  sessione 2026-09-11.
+- `dawn-of-the-seeker` - Dragon Age: Dawn of the Seeker (FILM ANIME) -
+  voce a sé - sessione 2026-09-11.
+- `da-origins` - Dragon Age: Origins (VIDEOGIOCO, include 6 note DLC:
+  Stone Prisoner, Warden's Keep, Return to Ostagar, Leliana's Song,
+  Golems of Amgarrak, Witch Hunt) - voce a sé - sessione 2026-09-11.
+- `da-awakening` - Dragon Age: Origins - Awakening (VIDEOGIOCO) - voce
+  a sé - sessione 2026-09-11.
+- `dragon-age-2` - Dragon Age II (VIDEOGIOCO, include 3 note DLC:
+  Exiled Prince, Legacy, Mark of the Assassin) - voce a sé - sessione
+  2026-09-11.
+- `da-redemption` - Dragon Age: Redemption (SERIE WEB, primo uso di
+  questo tipo sul sito) - voce a sé - sessione 2026-09-11.
+- `the-silent-grove` - Dragon Age: The Silent Grove (FUMETTO) - voce a
+  sé - sessione 2026-09-11.
+- `those-who-speak` - Dragon Age: Those Who Speak (FUMETTO) - voce a
+  sé - sessione 2026-09-11.
+- `until-we-sleep` - Dragon Age: Until We Sleep (FUMETTO) - voce a sé
+  - sessione 2026-09-11.
+- `asunder` - Dragon Age: Asunder (ROMANZO) - voce a sé - sessione
+  2026-09-11.
+- `the-masked-empire` - Dragon Age: L'Impero delle Maschere (ROMANZO)
+  - voce a sé - sessione 2026-09-11.
+- `magekiller` - Dragon Age: Assassini di Maghi (FUMETTO) - voce a sé
+  - sessione 2026-09-11.
+- `da-inquisition` - Dragon Age: Inquisition (VIDEOGIOCO, include 2
+  note DLC: Jaws of Hakkon, The Descent) - voce a sé - sessione
+  2026-09-11.
+- `last-flight` - Dragon Age: Last Flight (ROMANZO) - voce a sé -
+  sessione 2026-09-11.
+- `trespasser` - Dragon Age: Inquisition - Trespasser (VIDEOGIOCO) -
+  voce a sé - sessione 2026-09-11.
+- `da-absolution` - Dragon Age: Absolution (SERIE ANIMATA) - voce a sé
+  - sessione 2026-09-11.
+- `knight-errant` - Dragon Age: Il Cavaliere Errante (FUMETTO) - voce
+  a sé - sessione 2026-09-11.
+- `da-deception` - Dragon Age: Inganno (FUMETTO) - voce a sé -
+  sessione 2026-09-11.
+- `blue-wraith` - Dragon Age: Lo Spettro Blu (FUMETTO) - voce a sé -
+  sessione 2026-09-11.
+- `dark-fortress` - Dragon Age: L'Oscura Fortezza (FUMETTO) - voce a
+  sé - sessione 2026-09-11.
+- `tevinter-nights` - Dragon Age: Tevinter Nights (ANTOLOGIA, primo
+  uso di questo tipo sul sito) - voce a sé - sessione 2026-09-11.
+- `the-missing` - Dragon Age: Scomparso (FUMETTO) - voce a sé -
+  sessione 2026-09-11.
+- `the-veilguard` - Dragon Age: The Veilguard (VIDEOGIOCO) - voce a
+  sé, ultima voce della saga - sessione 2026-09-11.
+
 ## Dragon Quest
 
 ### In sospeso - immagini mancanti

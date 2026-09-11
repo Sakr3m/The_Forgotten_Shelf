@@ -1540,7 +1540,8 @@ const MEDIA_TYPE_LABELS_IT = {
   "GRAPHIC NOVEL": "Graphic Novel", "LIGHT NOVEL": "Light Novel",
   "SERIE ANIMATA": "Serie Animate", "SERIE TV": "Serie TV", "CORTOMETRAGGIO": "Cortometraggi",
   "FILM CGI": "Film CGI", "FILM D'ANIMAZIONE": "Film d'Animazione", "CABINATO ARCADE": "Cabinati Arcade", "LIVE ACTION": "Live Action",
-  "VIDEOGIOCO MOBILE": "Videogiochi Mobile", "VOCE COLLETTIVA": "Voci Collettive", "BACKGROUND": "Background", "BLOG": "Blog"
+  "VIDEOGIOCO MOBILE": "Videogiochi Mobile", "VOCE COLLETTIVA": "Voci Collettive", "BACKGROUND": "Background", "BLOG": "Blog",
+  "SERIE WEB": "Serie Web", "ANTOLOGIA": "Antologie"
 };
 const MEDIA_TYPE_LABELS_EN = {
   "VIDEOGAME": "Video Games", "STORY": "Story", "COMIC": "Comics",
@@ -1548,7 +1549,8 @@ const MEDIA_TYPE_LABELS_EN = {
   "GRAPHIC NOVEL": "Graphic Novels", "LIGHT NOVEL": "Light Novels",
   "ANIMATED SERIES": "Animated Series", "TV SERIES": "TV Series", "SHORT FILM": "Short Films",
   "CGI FILM": "CGI Films", "ANIMATED FILM": "Animated Films", "ARCADE": "Arcade Cabinets", "MOBILE GAME": "Mobile Games",
-  "LIVE ACTION": "Live Action", "COLLECTIVE ENTRY": "Collective Entries", "BACKGROUND": "Background", "BLOG": "Blog"
+  "LIVE ACTION": "Live Action", "COLLECTIVE ENTRY": "Collective Entries", "BACKGROUND": "Background", "BLOG": "Blog",
+  "WEB SERIES": "Web Series", "ANTHOLOGY": "Anthologies"
 };
 
 // Contenuto della tabella decorativa a destra nelle pagine di saga:
