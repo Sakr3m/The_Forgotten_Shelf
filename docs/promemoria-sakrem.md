@@ -1892,6 +1892,104 @@ pubblicate in futuro.
   unica gemella, meccanismo singolo standard già esistente, nessun
   problema tecnico) - richiamo mirato, 2026-09-09.
 
+## The Last of Us
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
+delle 10 saghe individuate dal Project Manager per questa sessione. Un
+solo universo, "L'America Infetta" / "Infected America" (span 2013 - in
+corso), 7 voci: 1 FUMETTO (Il Sogno Americano/American Dreams), 1
+ESPANSIONE (Left Behind, voce autonoma, non nota di Part I), 2
+VIDEOGIOCO (Part I, Part II), 3 SERIE TV (Stagione 1, gemella di Part I;
+Stagione 2, gemella di Part II; Stagione 3, voce a se imagePending senza
+sinossi, futura gemella di Part II quando uscira').
+
+### Decisioni di scope importanti (agite in vece di Sakrem)
+
+- **Universo unico**: fumetto, espansione, entrambi i videogiochi e le
+  tre stagioni TV trattati come un solo universo narrativo, non separati
+  per medium.
+- **Left Behind voce autonoma**: espansione standalone con propria
+  uscita commerciale (2014), non trattata come nota interna a Part I.
+- **Tre decisioni gemella/imagePending**: Stagione 1 gemella di Part I e
+  Stagione 2 gemella di Part II (stesso pallino, stessa storia
+  adattata); Stagione 3 voce autonoma `imagePending`, senza sinossi
+  (rinnovo confermato 9/4/2025, finestra 2027 dichiarata da Casey
+  Bloys/HBO, nessuna data precisa) - diventera' gemella di Part II solo
+  quando uscira' davvero.
+- **Tipo "SERIE TV"/"TV SERIES"**: la sessione lo aveva segnalato come
+  "mai usato prima sul sito" - verifica tecnica ha smentito la premessa:
+  il tipo esiste gia' (Fallout TV, Mass Effect TV, MK Legacy Series,
+  serie Netflix Tomb Raider, tutte le stagioni The Witcher), gia'
+  registrato in `MEDIA_TYPE_LABELS_IT/EN` in script.js. L'unico aspetto
+  davvero nuovo: prima volta come voce gemella (stesso pallino) di un
+  videogioco - segnalato al Programmatore solo per un controllo visivo
+  di routine, nessun blocco reale.
+- **Escluse**: The Last of Us Online (cancellato, mai uscito); One Night
+  Live (canonicita' mai confermata, dubbio residuo dopo ricerca
+  supplementare).
+
+### Correzione fattuale in catena
+
+La sinossi di *The Last of Us Part II* ricevuta dalla catena conteneva
+ancora un errore di fatto in una bozza precedente: Ellie scopriva la
+verita' sulla menzogna di Joel "tramite Jesse". Corretto prima della
+consegna al Programmatore - nel gioco Ellie scopre la verita' da sola,
+tornando alle rovine dell'ospedale di Salt Lake City.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "The Last of Us (Main Theme)"
+  (*The Last of Us / Part I*), "Take On Me" (*The Last of Us Part II*,
+  cover in-game di Ellie), "All Gone (No Escape)" (*The Last of Us /
+  Part I*, tema di Sarah), "Future Days" (*The Last of Us Part II*,
+  cover in-game di Joel, brano dei Pearl Jam), "The Choice" (*The Last
+  of Us / Part I*), "Through the Valley" (*The Last of Us Part II*,
+  cover in-game di Ellie, brano di Shawn James), "Vanishing Grace" (*The
+  Last of Us / Part I*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione basata su
+  fama/gradimento reale di critica e pubblico. Perimetro limitato ai due
+  videogiochi principali (Left Behind incluso nella colonna sonora di
+  Part I, nessuna traccia isolata propria trovata); le tre stagioni TV e
+  il fumetto esclusi, nessun materiale musicale game-based. 4 tracce da
+  Part I, 3 da Part II, alternate per evitare adiacenze dello stesso
+  titolo.
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta gia'
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal Programmatore
+  come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 7 nuove voci (2 gemelle),
+tutte inserite in questa sessione, 2026-09-11.
+
+- Nuovo universo **L'America Infetta** / **Infected America**
+  (`tlou-american-dreams` -> `tlou-season-3-tv`, span 2013 - in corso, 7
+  voci) - sessione 2026-09-11.
+- `tlou-american-dreams` - Il Sogno Americano / American Dreams
+  (FUMETTO, 2013/ed. IT 2020) - voce a se, prima voce della saga -
+  sessione 2026-09-11.
+- `tlou-left-behind` - Left Behind (ESPANSIONE, 2014) - voce a se,
+  autonoma - sessione 2026-09-11.
+- `tlou-part-1` - The Last of Us / Part I (VIDEOGIOCO, 2013/Remastered
+  2014/Remake 2022) - voce a se - sessione 2026-09-11.
+- `tlou-season-1-tv` - The Last of Us: Stagione 1 (SERIE TV, HBO, 2023)
+  - voce gemella di `tlou-part-1` - sessione 2026-09-11.
+- `tlou-part-2` - The Last of Us Part II (VIDEOGIOCO, 2020/Remastered
+  2024) - voce a se - sessione 2026-09-11.
+- `tlou-season-2-tv` - The Last of Us: Stagione 2 (SERIE TV, HBO, 2025)
+  - voce gemella di `tlou-part-2` - sessione 2026-09-11.
+- `tlou-season-3-tv` - The Last of Us: Stagione 3 (SERIE TV, HBO,
+  imagePending, senza sinossi) - voce a se, ultima voce della saga -
+  sessione 2026-09-11.
+
 ## Legacy of Kain
 
 ### Musica
