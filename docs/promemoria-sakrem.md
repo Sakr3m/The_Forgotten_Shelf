@@ -3745,6 +3745,101 @@ sessione 2026-09-10 (richiamo mirato, turno notturno 2, saga 7/11).
   voce a sé, universo Continuità Legend, dopo `underworld` - sessione
   2026-09-10.
 
+## Uncharted
+
+Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Un
+solo universo, "Cacciatori di Tesori" / "Treasure Hunters", 11 voci,
+nessuna voce STORIA, nessuna gemella.
+
+### In sospeso - immagini mancanti
+
+Stesso schema già discusso per Assassin's Creed e Ace Combat: `data.js`
+elenca già i campi `image`/`avatar`/`banner`/`watermark` con l'URL
+atteso, in stile segnaposto coerente con la convenzione di naming del
+bucket, ma i file fisici non risultano ancora caricati da Sakrem su
+R2. Saga pubblicata per la prima volta in questo ciclo: TUTTE le
+immagini (avatar, banner, filigrana dell'unico universo, copertine
+delle 11 voci) sono ancora da caricare.
+
+1. Avatar della saga
+2. Banner della saga
+3. Filigrana dell'universo Cacciatori di Tesori
+4. `amber-room` - Uncharted (miniserie DC "Amber Room")
+5. `golden-abyss` - Uncharted: L'Abisso d'Oro
+6. `eye-of-indra` - Uncharted: Eye of Indra
+7. `drakes-fortune` - Uncharted: Drake's Fortune
+8. `among-thieves` - Uncharted 2: Il Covo dei Ladri
+9. `fourth-labyrinth` - Uncharted: The Fourth Labyrinth
+10. `drakes-deception` - Uncharted 3: L'Inganno di Drake
+11. `a-thiefs-end` - Uncharted 4: Fine di un Ladro
+12. `lost-legacy` - Uncharted: L'Eredità Perduta
+13. `fight-for-fortune` - Uncharted: Fight for Fortune
+14. `fortune-hunter` - Uncharted: Fortune Hunter
+
+- **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i
+  nomi.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: Nate's Theme (*Uncharted:
+  Drake's Fortune*), Nate's Theme 2.0 (*Uncharted 2: Il Covo dei
+  Ladri*), A Thief's End (*Uncharted 4: Fine di un Ladro*), Nate's
+  Theme 3.0 (*Uncharted 3: L'Inganno di Drake*), Brother's Keeper
+  (*Uncharted 4: Fine di un Ladro*), Cut to the Chase (*Uncharted 4:
+  Fine di un Ladro*), Reunited (*Uncharted 4: Fine di un Ladro*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga - concentrazione reale
+  della fama pubblica sui quattro capitoli PS3/PS4 principali (nessuna
+  traccia di Golden Abyss o The Lost Legacy risulta comparabile per
+  notorietà nella ricerca pubblica); posizioni 5-6-7 tutte di
+  Uncharted 4 per via dell'effettiva distribuzione reale della fama,
+  adiacenza accettata perché non evitabile senza distorcere l'ordine
+  reale.
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e mai caricate su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova, prima pubblicazione sul sito: 1 nuovo universo
+e 11 nuove voci (nessuna voce STORIA, nessuna gemella), tutte inserite
+nella stessa sessione, 2026-09-11.
+
+- Nuovo universo **Cacciatori di Tesori** / **Treasure Hunters**
+  (`amber-room` → `fortune-hunter`, 11 voci) - sessione 2026-09-11.
+- `amber-room` - Uncharted (miniserie DC Comics "Amber Room", FUMETTO,
+  2011-2012) - voce a sé, prima voce della saga - sessione 2026-09-11.
+- `golden-abyss` - Uncharted: L'Abisso d'Oro (VIDEOGIOCO, 2011
+  Giappone/2012 NA-EU) - voce a sé - sessione 2026-09-11.
+- `eye-of-indra` - Uncharted: Eye of Indra (MOTION COMIC, 2009) - voce
+  a sé - sessione 2026-09-11.
+- `drakes-fortune` - Uncharted: Drake's Fortune (VIDEOGIOCO, 2007) -
+  voce a sé - sessione 2026-09-11.
+- `among-thieves` - Uncharted 2: Il Covo dei Ladri (VIDEOGIOCO, 2009) -
+  voce a sé - sessione 2026-09-11.
+- `fourth-labyrinth` - Uncharted: The Fourth Labyrinth (ROMANZO, 2011)
+  - voce a sé, collocazione presentata come dedotta tra Uncharted 2 e
+  Uncharted 3 - sessione 2026-09-11.
+- `drakes-deception` - Uncharted 3: L'Inganno di Drake (VIDEOGIOCO,
+  2011) - voce a sé - sessione 2026-09-11.
+- `a-thiefs-end` - Uncharted 4: Fine di un Ladro (VIDEOGIOCO, 2016) -
+  voce a sé - sessione 2026-09-11.
+- `lost-legacy` - Uncharted: L'Eredità Perduta (VIDEOGIOCO, espansione
+  standalone, 2017) - voce a sé, ultima voce narrativa della saga -
+  sessione 2026-09-11.
+- `fight-for-fortune` - Uncharted: Fight for Fortune (VIDEOGIOCO DI
+  CARTE, 2012) - voce a sé, posizionata per anno di uscita - sessione
+  2026-09-11.
+- `fortune-hunter` - Uncharted: Fortune Hunter (VIDEOGIOCO MOBILE,
+  2016-2022) - voce a sé, ultima voce della saga - sessione 2026-09-11.
+
 ## Universo Connesso Remedy
 
 ### Musica
