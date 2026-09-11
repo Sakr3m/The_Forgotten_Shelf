@@ -10204,10 +10204,10 @@ const GAMES = {
 };
 
 const GAME_ORDER = [
-  "ace-combat", "aitd", "armored-core", "assassins-creed", "baldurs-gate", "battlefield", "bioshock", "call-of-duty", "castlevania", "crash-bandicoot", "dmc", "doom", "dragon-quest", "dying-light",
-  "fallout", "final-fantasy", "fire-emblem", "gears-of-war", "god-of-war", "gta", "halo",
-  "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "metal-gear-solid", "mortal-kombat",
-  "persona", "pokemon", "prince-of-persia", "resident-evil", "silent-hill", "sonic-the-hedgehog",
-  "elder-scrolls", "legend-of-zelda", "tomb-raider",
-  "remedy-universe", "warcraft", "the-witcher", "wolfenstein", "yakuza", "dark-souls", "metroid", "horizon", "deus-ex", "dead-space", "metro", "nier-drakengard", "shin-megami-tensei", "xenoblade-chronicles", "darksiders"
+  "ace-combat", "aitd", "armored-core", "assassins-creed", "baldurs-gate", "battlefield", "bioshock", "call-of-duty", "castlevania", "crash-bandicoot", "dark-souls", "darksiders", "dead-space", "deus-ex", "dmc", "doom", "dragon-quest", "dying-light",
+  "fallout", "final-fantasy", "fire-emblem", "gears-of-war", "god-of-war", "gta", "halo", "horizon",
+  "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "metal-gear-solid", "metro", "metroid", "mortal-kombat", "nier-drakengard",
+  "persona", "pokemon", "prince-of-persia", "resident-evil", "shin-megami-tensei", "silent-hill", "sonic-the-hedgehog",
+  "elder-scrolls", "legend-of-zelda", "the-witcher", "tomb-raider",
+  "remedy-universe", "warcraft", "wolfenstein", "xenoblade-chronicles", "yakuza"
 ];
