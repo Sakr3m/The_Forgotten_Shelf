@@ -1,74 +1,61 @@
 # Promemoria Sakrem
 
-File di sola consultazione per Sakrem, mai letto dal sito. Non va confuso
-con i pacchetti tecnici per il Programmatore: niente qui viene mai
-applicato al sito finché non passa prima da una decisione esplicita di
-Sakrem e poi dal normale processo (report + pacchetto + Programmatore).
+File di consultazione per Sakrem, non letto dal sito. Diverso dai
+pacchetti tecnici per il Programmatore: qui non si applica nulla al sito
+finché non c'è la decisione di Sakrem e poi il normale processo (report +
+pacchetto + Programmatore).
 
-Il file tiene insieme due tipi di contenuto, per saga:
+Due tipi di contenuto, per saga:
 
-1. **Proposte in sospeso** - le proposte della catena (Artista, Musicista,
-   o chiunque altro) che Sakrem ha scelto di **non decidere subito**, per
-   riprenderle con calma in una sessione futura, separata dal normale
-   lavoro della catena su quella saga. Ogni voce resta qui finché non
-   viene decisa (confermata o scartata) e poi **rimossa** in un cleanup
-   successivo - questa parte del file non tiene uno storico delle
-   decisioni già prese, solo quelle ancora aperte.
+1. **Proposte in sospeso** - proposte della catena che Sakrem ha
+   rimandato a una sessione futura. Restano qui finché non decise
+   (confermate o scartate), poi si rimuovono. Non è uno storico, solo le
+   cose ancora aperte.
 2. **Storico permanente musica/media aggiunti** - due elenchi per saga
-   che, a differenza delle proposte in sospeso, **non vengono mai
-   rimossi**, qualunque sia l'esito:
-   - **Musica**: ogni cambiamento di tracce mai richiesto dal Musicista
-     per quella saga (sostituzione o riordino), con lo stato reale
-     (confermato / rifiutato / in attesa di decisione), aggiornato
-     quando cambia ma mai cancellato dalla lista.
-   - **Media aggiunti**: solo i nuovi media veri e propri entrati in
-     quella saga durante il lavoro della catena - nuova voce a sé, nuova
-     voce gemella/ombrello o nuovo universo - con la sessione/data in cui
-     sono stati aggiunti. Non contiene mai note aggiunte a voci già
-     pubblicate, correzioni di sinossi esistenti o riclassificazioni:
-     quel materiale resta solo nel report una tantum, mai in questo
-     storico permanente. Se una saga non ha nessuna voce per una di
-     queste due liste, la sotto-sezione relativa viene omessa per quella
-     saga (non si scrive "nessuno").
+   che non si cancellano mai, qualunque sia l'esito:
+   - **Musica**: ogni cambiamento di tracce proposto dal Musicista
+     (sostituzione o riordino), con lo stato reale (confermato /
+     rifiutato / in attesa di decisione), aggiornato quando cambia ma
+     mai cancellato.
+   - **Media aggiunti**: solo i nuovi media veri e propri entrati nella
+     saga - voce a sé, voce gemella/ombrello o nuovo universo - con la
+     sessione/data di aggiunta. Mai note a voci già pubblicate,
+     correzioni di sinossi esistenti o riclassificazioni: quel materiale
+     resta solo nel report una tantum. Se una saga non ha voci per una
+     delle due liste, la sotto-sezione si omette.
 
 ## Come aggiungere una voce
 
 Una sezione `##` per ogni saga toccata. Dentro, fino a tre sotto-sezioni
-`###`, solo quelle effettivamente popolate:
+`###`, solo quelle popolate:
 
 ### In sospeso
 
-Una sotto-sezione `####` per ogni proposta ancora da decidere, con questi
-campi fissi:
+Una `####` per ogni proposta ancora da decidere, con:
 
-- **Proposta**: cosa cambierebbe, in modo puntuale (valori prima/dopo).
-- **Origine**: quale agente l'ha proposta (Artista, Musicista, ecc.).
+- **Proposta**: cosa cambierebbe, con valori prima/dopo.
+- **Origine**: quale agente l'ha proposta.
 - **Motivazione**: perché, in breve.
-- **Data**: quando è stata segnalata la prima volta.
-- **Stato**: `in attesa di decisione di Sakrem, non applicato` finché
-  resta qui - è l'unico stato valido per una voce in questa
-  sotto-sezione. Decisa (confermata o scartata), la voce va rimossa da
-  qui in un cleanup successivo.
+- **Data**: prima segnalazione.
+- **Stato**: sempre `in attesa di decisione di Sakrem, non applicato`
+  finché resta qui. Decisa, si rimuove in un cleanup successivo.
 
 ### Musica
 
-Storico permanente, mai rimosso. Una sotto-sezione `####` per ogni
-cambiamento di tracce mai proposto dal Musicista per questa saga, con
-gli stessi campi fissi di sopra (Proposta/Origine/Motivazione/Data) più:
+Storico permanente. Una `####` per ogni cambiamento di tracce proposto
+dal Musicista per questa saga, stessi campi di sopra
+(Proposta/Origine/Motivazione/Data) più:
 
-- **Stato**: il valore reale e aggiornato - `confermato e applicato`,
-  `rifiutato, non applicato` oppure `in attesa di decisione di Sakrem,
-  non applicato`. Quando lo stato cambia (es. da "in attesa" a
-  "confermato"), si aggiorna il campo sul posto: la voce non si sposta
-  mai nella sezione "In sospeso" né viene mai cancellata.
+- **Stato**: `confermato e applicato`, `rifiutato, non applicato` oppure
+  `in attesa di decisione di Sakrem, non applicato`. Si aggiorna sul
+  posto quando cambia: la voce non si sposta mai in "In sospeso" né
+  viene mai cancellata.
 
 ### Media aggiunti
 
-Storico permanente, mai rimosso. Un elenco puntato, un punto per ogni
-nuovo media vero e proprio entrato in pagina durante il lavoro della
-catena (voce a sé, voce gemella/ombrello o nuovo universo - mai una nota
-aggiunta a una voce già pubblicata, una correzione di sinossi esistente
-o una riclassificazione), con questo formato:
+Storico permanente. Un punto per ogni nuovo media vero e proprio (voce a
+sé, voce gemella/ombrello o nuovo universo - mai una nota a voce
+esistente, una correzione di sinossi o una riclassificazione), formato:
 
 - `id` (se applicabile) - Titolo - tipo (voce a sé / voce gemella /
   nuovo universo) - sessione/data di aggiunta.
@@ -81,14 +68,13 @@ o una riclassificazione), con questo formato:
 
 #### Cambio playlist - "Linkage" → "First Flight"
 
-- **Proposta**: sostituire la traccia "Linkage" (dal gioco *Ace Combat 3:
-  Electrosphere*) con "First Flight" (dal gioco *Ace Combat 5: The Unsung
-  War*) nella playlist della saga.
+- **Proposta**: sostituire "Linkage" (*Ace Combat 3: Electrosphere*) con
+  "First Flight" (*Ace Combat 5: The Unsung War*).
 - **Origine**: Musicista.
-- **Motivazione**: fama pubblica nettamente superiore di "First Flight" -
-  eseguita alle Olimpiadi di Tokyo 2020 - rispetto a "Linkage", che resta
-  di nicchia hardcore. Verificato che nessuna traccia dello stesso gioco
-  resterebbe adiacente in ordine dopo la sostituzione.
+- **Motivazione**: fama pubblica nettamente superiore di "First Flight"
+  (eseguita alle Olimpiadi di Tokyo 2020) rispetto a "Linkage", di nicchia
+  hardcore. Nessuna traccia dello stesso gioco resterebbe adiacente dopo
+  la sostituzione.
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
 
@@ -99,11 +85,11 @@ o una riclassificazione), con questo formato:
 - **Proposta**: sostituire "Linkage" (*Ace Combat 3: Electrosphere*) con
   "First Flight" (*Ace Combat 5: The Unsung War*).
 - **Origine**: Musicista.
-- **Motivazione**: fama pubblica nettamente superiore (eseguita alle
-  Olimpiadi di Tokyo 2020) rispetto a "Linkage", di nicchia hardcore.
+- **Motivazione**: fama pubblica nettamente superiore (Olimpiadi di Tokyo
+  2020) rispetto a "Linkage", di nicchia hardcore.
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
-  proposta ancora aperta in "In sospeso" sopra).
+  proposta aperta anche in "In sospeso" sopra).
 
 ## Alone in the Dark
 
@@ -114,14 +100,12 @@ o una riclassificazione), con questo formato:
 - **Proposta**: sostituire la traccia "The Light Carrier Test" con "Who Am
   I?" nella playlist della saga (entrambe da *Alone in the Dark*, 2008).
 - **Origine**: Musicista.
-- **Motivazione**: fonte critica esplicita (GamesRadar, rubrica "Game Music
-  of the Day") che indica "Who Am I?" come il brano più prominente della
-  OST di *Alone in the Dark* (2008), contro una posizione defilata (17ª su
-  21 tracce) per l'attuale "The Light Carrier Test".
+- **Motivazione**: GamesRadar ("Game Music of the Day") indica "Who Am
+  I?" come brano più prominente della OST 2008, contro posizione 17/21
+  per l'attuale "The Light Carrier Test".
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato. Bloccata
-  anche tecnicamente a prescindere dal consenso: il file audio non è
-  ancora stato caricato su R2.
+  anche tecnicamente: file audio non ancora su R2.
 
 ### Musica
 
@@ -154,16 +138,14 @@ o una riclassificazione), con questo formato:
   Always Moving on the Surface" (*Armored Core: For Answer*), "Remember"
   (*Armored Core: For Answer*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di più ere narrative della serie
-  (trilogia arcaica, Layered, Lynx, Rubicon).
-- **Data**: 2026-09-09 (sessione notturna, 12/12, ultima saga della
-  notte).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di più ere narrative (trilogia arcaica, Layered, Lynx,
+  Rubicon).
+- **Data**: 2026-09-09 (sessione notturna, 12/12).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte e
+  7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa dei
+  file.
 
 ### Media aggiunti
 
@@ -233,14 +215,10 @@ notturna, 2026-09-09.
 
 ### In sospeso - immagini mancanti
 
-Sezione diversa dalle altre: non è una proposta da confermare o
-scartare, ma un semplice elenco di lavoro. Le 11 voci sotto sono ancora
-prive dell'immagine/copertina corrispondente caricata su R2 da Sakrem (le
-voci elencano già il campo `image` in `data.js` con l'URL atteso, in stile
-segnaposto coerente con la convenzione di naming del bucket, ma il file
-fisico non risulta ancora caricato). Stesso schema già discusso per Ace
-Combat: quando Sakrem carica i file su R2, passa solo il nome file e la
-voce esce da questo elenco.
+Elenco di lavoro, non una proposta da decidere: le 11 voci sotto hanno
+già il campo `image` in `data.js` (URL segnaposto) ma senza file
+caricato su R2. Quando Sakrem carica il file e passa il nome, la voce
+esce dall'elenco.
 
 Copertine mancanti per le 9 nuove voci pubblicate in questo ciclo:
 
@@ -325,15 +303,12 @@ Filigrana (watermark) mancante per il nuovo universo:
   Alliance Theme) (*Baldur's Gate: Dark Alliance*), Main Theme
   (*Baldur's Gate: Dark Alliance II*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura sia dei CRPG classici sia di
-  Baldur's Gate 3 sia degli spin-off Dark Alliance.
+- **Motivazione**: prima playlist della saga, temi più iconici tra CRPG
+  classici, Baldur's Gate 3 e spin-off Dark Alliance.
 - **Data**: 2026-09-09 (sessione notturna, 9/12).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti e
+  7 i file sono nuovi per il sito, da caricare su R2. Il Programmatore
+  crea comunque il campo `tracks: []`, vuoto in attesa dei file.
 
 ### Media aggiunti
 
@@ -411,16 +386,14 @@ nella stessa sessione notturna, 2026-09-09.
   Bad Company 2*, radio in-game, espansione Vietnam), A Prelude to a
   Lost Cause (*Battlefield: Bad Company*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi
-  principali più iconici/riconoscibili a copertura di più capitoli,
-  incluso un brano radiofonico in-game (Fortunate Son) tra i momenti
-  più citati della saga.
+- **Motivazione**: prima playlist della saga, temi principali più
+  iconici a copertura di più capitoli, incluso un brano radiofonico
+  in-game (Fortunate Son) tra i più citati della saga.
 - **Data**: 2026-09-09 (sessione notturna, 10/12).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte e
+  7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa dei
+  file.
 
 ### Media aggiunti
 
@@ -465,17 +438,12 @@ gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
 - **Proposta**: sostituire la traccia "Empty Houses" (*BioShock*) con
   "Beyond the Sea" (*BioShock*) nella playlist della saga.
 - **Origine**: Musicista.
-- **Motivazione**: "Beyond the Sea" è la traccia più iconica in assoluto
-  della saga - usata nel trailer di annuncio del 2006 (diventato virale,
-  tra i migliori trailer di sempre), nell'apertura e nel finale del gioco,
-  ripresa anche in *Burial at Sea Episode 1* (*BioShock Infinite*). Nota
-  aggiuntiva: se questa sostituzione viene rifiutata, *BioShock 2*
-  resterebbe senza alcuna traccia genuinamente propria nella playlist,
-  perché è emerso che "Empty Houses" (finora unico slot nominale per quel
-  gioco) appartiene in realtà alla colonna sonora originale del primo
-  *BioShock*, non di *BioShock 2* - correzione già applicata comunque
-  nell'attribuzione tecnica del brano (game: "BioShock 2" → "BioShock"),
-  indipendentemente da questa proposta di sostituzione.
+- **Motivazione**: "Beyond the Sea" è la traccia più iconica della saga -
+  trailer d'annuncio 2006 virale, apertura e finale del gioco, ripresa in
+  *Burial at Sea Episode 1*. Se rifiutata, *BioShock 2* resta senza
+  traccia propria in playlist: "Empty Houses" appartiene in realtà alla
+  OST del primo *BioShock*, non di *BioShock 2* (attribuzione già
+  corretta nel dato tecnico a prescindere da questa proposta).
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
 
@@ -535,15 +503,12 @@ gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
   Schachner), A Brotherhood of Heroes (*Call of Duty: WWII*, 2017,
   Wilbert Roget II).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi
-  musicali più iconici/riconoscibili a copertura di più capitoli ed
-  epoche della saga.
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di più capitoli ed epoche.
 - **Data**: 2026-09-09 (sessione notturna, 8/12).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti e
+  7 i file sono nuovi per il sito, da caricare su R2. Il Programmatore
+  crea comunque il campo `tracks: []`, vuoto in attesa dei file.
 
 ### Media aggiunti
 
@@ -620,10 +585,9 @@ inserite nella stessa sessione notturna, 2026-09-09.
   Portrait of Ruin*) con "Beginning" (*Castlevania: Dracula's Curse*)
   nella playlist della saga.
 - **Origine**: Musicista.
-- **Motivazione**: "Beginning" è il tema di Trevor Belmont, costantemente
-  citato nelle classifiche di settore tra i brani più iconici della saga,
-  presente nella Castlevania Sound Selection di *Super Smash Bros.
-  Ultimate* (verificato in modo indipendente dal Supervisore).
+- **Motivazione**: "Beginning" è il tema di Trevor Belmont, tra i brani
+  più citati come iconici della saga, presente nella Castlevania Sound
+  Selection di *Super Smash Bros. Ultimate*.
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
 
@@ -635,8 +599,7 @@ inserite nella stessa sessione notturna, 2026-09-09.
 - **Origine**: Musicista.
 - **Motivazione**: "Divine Bloodlines" è il tema di Richter Belmont,
   presente nella Castlevania Sound Selection di *Super Smash Bros.
-  Ultimate* (verificato in modo indipendente dal Supervisore), costantemente
-  citato tra i classici della saga.
+  Ultimate*, tra i classici più citati della saga.
 - **Data**: 2026-09-08.
 - **Stato**: in attesa di decisione di Sakrem, non applicato.
 
@@ -679,15 +642,13 @@ inserite nella stessa sessione notturna, 2026-09-09.
   Bandicoot*), Blizzard Bluff (*Crash Team Racing*), Future Frenzy,
   Gone Tomorrow (*Crash Bandicoot: Warped*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura dei capitoli principali della
-  Linea Principale (nessun brano dalla Linea Temporale Alternativa).
+- **Motivazione**: prima playlist della saga, temi più iconici dei
+  capitoli principali della Linea Principale (nessun brano dalla Linea
+  Temporale Alternativa).
 - **Data**: 2026-09-09 (sessione notturna, 11/12).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti e
+  7 i file sono nuovi per il sito, da caricare su R2. Il Programmatore
+  crea comunque il campo `tracks: []`, vuoto in attesa dei file.
 
 ### Media aggiunti
 
@@ -755,10 +716,8 @@ notturna, 2026-09-09.
 
 ## Dark Souls
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
-Trovata dal Project Manager in bypass - non era nell'elenco originale
-delle 10 saghe individuate in questa sessione notturna, segnalazione
-esplicita mantenuta qui per completezza.
+Saga interamente nuova. Trovata dal Project Manager in bypass, non era
+nell'elenco originale delle 10 saghe di questa sessione notturna.
 
 ### Musica
 
@@ -773,19 +732,16 @@ esplicita mantenuta qui per completezza.
   Abyss), "Sister Friede" (*Dark Souls III*, DLC Ashes of Ariandel),
   "Fume Knight" (*Dark Souls II*, DLC Crown of the Old Iron King).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community (non gusto personale).
-  Distribuzione risultante (3 tracce da Dark Souls I incl. DLC, 3 da
-  Dark Souls III incl. DLC, 1 da Dark Souls II incl. DLC) conseguenza
-  diretta della fama reale delle rispettive OST, non decisa a tavolino.
-  Il romanzo *Masque of Vindication* non ha musica propria ed è
-  correttamente escluso dal perimetro.
+- **Motivazione**: prima playlist della saga, basata solo su
+  fama/gradimento reale di critica e community. Distribuzione (3 tracce
+  Dark Souls I incl. DLC, 3 Dark Souls III incl. DLC, 1 Dark Souls II
+  incl. DLC) riflette la fama reale delle rispettive OST. Il romanzo
+  *Masque of Vindication* non ha musica propria, escluso dal perimetro.
 - **Data**: 2026-09-10 (sessione notturna, 2/3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte e
+  7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa dei
+  file.
 
 ### Media aggiunti
 
@@ -809,53 +765,42 @@ notturna, 2026-09-10.
 
 ## Darksiders
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
-Una delle 10 saghe individuate dal Project Manager per questa sessione
-notturna (turno notturno 2/notte 3) - 10ª e ULTIMA delle 10 saghe nuove
-di questo turno. Un solo universo, "Linea Temporale Darksiders" /
-"Darksiders Timeline" (span 2009 - 2027/2028), 10 voci in ordine
-cronologico interno (non di uscita), modello Dead Space: 5 VIDEOGIOCO
-(Genesis, Darksiders, Darksiders II, Darksiders III, Darksiders IV
-imagePending), 1 ROMANZO (The Abomination Vault), 1 FUMETTO/GRAPHIC
-NOVEL (comic GameStop 2009), 1 FUMETTO/COMIC (Death's Door, miniserie
-Dark Horse), 2 ESPANSIONE/EXPANSION (Argul's Tomb, The Abyssal Forge).
+Saga interamente nuova. 10ª e ultima delle 10 saghe individuate dal
+Project Manager per il turno notturno 2/notte 3. Un solo universo,
+"Linea Temporale Darksiders" (span 2009 - 2027/2028), 10 voci in ordine
+cronologico interno (modello Dead Space): 5 VIDEOGIOCO (Genesis,
+Darksiders, II, III, IV imagePending), 1 ROMANZO (The Abomination
+Vault), 1 FUMETTO/GRAPHIC NOVEL (comic GameStop 2009), 1 FUMETTO/COMIC
+(Death's Door, Dark Horse), 2 ESPANSIONE (Argul's Tomb, The Abyssal
+Forge).
 
 ### Decisioni di scope importanti
 
-- **Darksiders IV incluso** come voce `imagePending`, senza sinossi,
-  con finestra di uscita ampia (aprile 2027 - marzo 2028, attesa,
-  da report trimestrale Embracer Group) invece di una data puntuale -
-  annunciato da THQ Nordic il 7 agosto 2026, sviluppo Gunfire Games.
-  Prima volta nella serie con tutti e quattro i Cavalieri giocabili
-  nello stesso capitolo. Nota per quando uscirà davvero: non
-  specificare se i 4 Cavalieri sono fruibili in co-op o a scelta
-  singola finché non confermato ufficialmente dagli sviluppatori.
+- **Darksiders IV incluso** come `imagePending`, senza sinossi,
+  finestra d'uscita aprile 2027 - marzo 2028 (report trimestrale
+  Embracer Group), non data puntuale. Annunciato da THQ Nordic il 7
+  agosto 2026, sviluppo Gunfire Games, prima volta con tutti e quattro
+  i Cavalieri giocabili nello stesso capitolo. Da specificare solo a
+  uscita confermata: co-op o scelta singola dei 4 Cavalieri.
 - **Artbook esclusi**: "The Art of Darksiders" e "The Art of Darksiders
-  II" non inclusi - nessuna fonte editoriale primaria reperita che ne
-  confermi un contenuto narrativo (solo materiale visivo/concept art),
-  a differenza del precedente Zelda (Secrets of the Zonai) dove la
-  fonte dichiarava esplicitamente una componente di lore testuale.
-  Decisione revocabile con nuove prove in un ciclo futuro.
-- **"Antichrist Files" escluso**: titolo verificato come inesistente,
-  non un media reale della saga - nessuna voce creata.
-- **Parallelismo narrativo DS2/DS3**: Darksiders II e Darksiders III si
-  svolgono nello stesso arco temporale (la prigionia di Guerra), da
-  punti di vista diversi (Morte / Furia). Gestito solo testualmente nel
-  campo `year` e in apertura di entrambe le sinossi, nessun meccanismo
-  tecnico di ramificazione/secondo universo.
+  II" - nessuna fonte conferma contenuto narrativo (solo concept art),
+  a differenza dello Zelda Secrets of the Zonai (lore testuale
+  dichiarata). Revocabile con nuove prove.
+- **"Antichrist Files" escluso**: titolo inesistente, non un media
+  reale della saga.
+- **Parallelismo narrativo DS2/DS3**: stesso arco temporale (prigionia
+  di Guerra), punti di vista diversi (Morte/Furia). Gestito solo nel
+  testo (campo `year` e apertura sinossi), nessun meccanismo di
+  ramificazione.
 
 ### Correzione terminologica
 
-Un solo refuso grammaticale corretto in fase di revisione finale:
-"incatenato a Il Guardiano" -> "incatenato al Guardiano" (preposizione
-articolata errata) nella sinossi IT di Darksiders (voce 4); le altre
-occorrenze dello stesso costrutto nel documento erano già corrette.
-Tutto il resto del testo dello Scrittore confermato invariato dal
-Linguista: War/Death/Fury/Strife -> Guerra/Morte/Furia/Discordia,
+Un refuso corretto: "incatenato a Il Guardiano" -> "incatenato al
+Guardiano" nella sinossi IT di Darksiders (voce 4). Resto del testo
+confermato: War/Death/Fury/Strife -> Guerra/Morte/Furia/Discordia,
 Charred Council -> Concilio Bruciato, Nephilim invariato, Corruption ->
-Corruzione, Well of Souls e Forge Lands invariati per assenza di fonte
-che ne confermi una resa italiana, tutti i titoli dei media lasciati in
-inglese.
+Corruzione, Well of Souls e Forge Lands invariati (nessuna fonte per
+resa italiana), titoli dei media in inglese.
 
 ### Musica
 
@@ -869,24 +814,19 @@ inglese.
   (*Darksiders*), "The Corruption" (*Darksiders II*), "Death Brings Hope"
   (*Darksiders II*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community (recensioni VGMO su
-  Darksiders 1, RPGFan su Darksiders II, anteprima Game Informer e
-  dichiarazioni dirette di Cris Velasco su "Fury's Theme"). Perimetro
-  musicale limitato ai 4 videogiochi con colonna sonora propria
-  (Darksiders, Darksiders II incl. le due espansioni Argul's Tomb e The
-  Abyssal Forge, Darksiders III; Darksiders IV escluso in quanto
-  imagePending, romanzo e fumetti esclusi dal perimetro musicale).
-  Darksiders Genesis verificato ma senza un brano segnalato con rilievo
-  critico paragonabile agli altri, quindi non rappresentato nei 7 slot.
-  Distribuzione: 2 tracce da Darksiders, 4 da Darksiders II, 1 da
-  Darksiders III.
+- **Motivazione**: fama/gradimento reale di critica e community (VGMO
+  su Darksiders 1, RPGFan su Darksiders II, Game Informer e
+  dichiarazioni di Cris Velasco su "Fury's Theme"). Perimetro: i 4
+  videogiochi con OST propria (Darksiders, Darksiders II incl.
+  espansioni, Darksiders III); Darksiders IV escluso (imagePending),
+  romanzo e fumetti fuori perimetro. Darksiders Genesis senza brano di
+  rilievo comparabile, non rappresentato. Distribuzione: 2 tracce da
+  Darksiders, 4 da Darksiders II, 1 da Darksiders III.
 - **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -925,71 +865,53 @@ notturna, 2026-09-10.
 
 ### Note tecniche di sessione
 
-Sotto-sezione fuori dallo schema standard del file, aggiunta qui in via
-eccezionale perché Darksiders è l'ultima saga del turno notturno 2/notte
-3 (10/10): raccoglie segnalazioni tecniche/ambientali emerse durante il
-lavoro su questa saga, utili a chi consulterà l'archivio in futuro.
+Sezione eccezionale, aggiunta perché Darksiders è l'ultima saga del
+turno (10/10): segnalazioni tecniche emerse durante il lavoro, utili in
+futuro.
 
-- **Guasto di rete ricorrente in questo ciclo**: Supervisore, Linguista
-  e Musicista hanno tutti riscontrato un guasto di rete sistematico
-  durante il lavoro su Darksiders - WebFetch bloccato (`EGRESS_BLOCKED`)
-  su tutti i domini pertinenti tentati, WebSearch con tasso di
-  fallimento molto alto (16/17 per il Linguista, circa 11 tentativi
-  iniziali falliti per il Musicista prima che le query cominciassero a
-  restituire risultati reali). Le verifiche si sono dovute appoggiare a
-  coerenza interna e convenzioni consolidate per analogia più che a
-  fonte primaria diretta in ogni singolo caso; nessuna resa è stata
-  inventata, ogni punto non verificabile è stato segnalato come aperto
-  invece di essere deciso d'iniziativa. Limite ambientale della
-  sessione, non della qualità del lavoro svolto.
-- **Punto aperto "Uriel"/"Uriele"**: il nome dell'angelo alleato in
-  Darksiders (voce 4) potrebbe avere una forma italiana tradizionale
-  ("Uriele"), non verificabile in questa sessione per il guasto di rete
-  sopra descritto. Lasciato invariato "Uriel" come scritto dallo
-  Scrittore. Da riverificare in un ciclo futuro con accesso di rete
-  funzionante (fonte auspicata: credits/sottotitoli italiani ufficiali
-  del gioco) - non impedisce la pubblicazione.
-- **Discrepanza fattuale in un report precedente** (non riguarda
-  Darksiders): un report etichettato "Xenoblade" sosteneva erroneamente
-  che "Blood and Wine" (The Witcher 3) non avesse mai una voce propria
-  in `data.js` - verificato di persona dal Supervisore che la voce
-  esiste (`witcher-3-blood-and-wine`, riga 7644 al momento della
-  verifica). Segnalazione da correggere nell'archivio dei report per chi
-  lo riconsulterà in futuro.
+- **Guasto di rete**: Supervisore, Linguista e Musicista hanno avuto un
+  guasto di rete sistematico su Darksiders - WebFetch bloccato
+  (`EGRESS_BLOCKED`), WebSearch con tasso di fallimento alto (16/17 per
+  il Linguista, circa 11 tentativi falliti per il Musicista prima di
+  risultati reali). Le verifiche si sono appoggiate a coerenza interna e
+  convenzioni consolidate; nessuna resa inventata, punti non
+  verificabili segnalati come aperti. Limite ambientale, non di qualità
+  del lavoro.
+- **Punto aperto "Uriel"/"Uriele"**: l'angelo alleato in Darksiders
+  (voce 4) potrebbe avere forma italiana tradizionale ("Uriele"), non
+  verificabile per il guasto di rete. Lasciato "Uriel" come scritto
+  dallo Scrittore. Da riverificare con fonte ufficiale (credits/
+  sottotitoli italiani) - non blocca la pubblicazione.
+- **Discrepanza in un report precedente** (non su Darksiders): un
+  report "Xenoblade" affermava erroneamente che "Blood and Wine" (The
+  Witcher 3) non avesse voce propria in `data.js` - la voce esiste
+  (`witcher-3-blood-and-wine`, riga 7644). Da correggere nell'archivio
+  report.
 
 ## Dead Space
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
-Una delle 10 saghe individuate dal Project Manager per questa sessione
-notturna (turno notturno 2/notte 3). Un solo universo, "Linea Temporale
-Dead Space" / "Dead Space Timeline" (span 2214 – 2514), 13 voci in
-ordine di cronologia interna (non di uscita): 3 ROMANZO (Martyr,
-Catalyst - Fallen Angel non esiste in questa saga, non confondere con
-Deus Ex), 3 FUMETTO (fumetto 2008, Salvage, Liberation), 2 FILM
-D'ANIMAZIONE (Downfall, Aftermath), 4 VIDEOGIOCO (Extraction, Dead
-Space/`dead-space-1`, Dead Space 2, Dead Space 3), 1 VIDEOGIOCO MOBILE
-(Sabotage) e 1 VIDEOGIOCO (Ignition, non mobile). Decisioni di scope
-importanti: tutti e 13 i media individuati sono stati inclusi, nessuna
-esclusione e nessuna voce trattata come "gemella" (verificato in modo
-puntuale il rischio maggiore, la coppia Salvage/Aftermath: restano due
-vicende distinte con equipaggi ed esiti diversi). Il remake integrale
-2023 del gioco originale non è una voce a sé ma una nota interna alla
-sinossi di `dead-space-1` (stessa entry, stesso id). Il DLC "Severed"
-è nota interna a `dead-space-2`, il DLC "Awakened" nota interna a
-`dead-space-3`. Chiarimento importante: "Dead Space: Sabotage" e "Dead
-Space Mobile" sono lo stesso identico gioco (il titolo fu distribuito
-su alcuni store anche con il nome breve "Dead Space"), non due edizioni
-distinte - una sola voce (`dead-space-sabotage`), nessun duplicato.
-`Catalyst` è ambientata secoli PRIMA del gioco originale (~2294 contro
-2508), non dopo: la sua posizione come seconda voce della saga (dopo
-Martyr) è corretta e intenzionale.
+Saga interamente nuova. Una delle 10 saghe individuate dal Project
+Manager per il turno notturno 2/notte 3. Un solo universo, "Linea
+Temporale Dead Space" (span 2214 – 2514), 13 voci in ordine cronologico
+interno: 3 ROMANZO (Martyr, Catalyst - non Fallen Angel, quello è Deus
+Ex), 3 FUMETTO (2008, Salvage, Liberation), 2 FILM D'ANIMAZIONE
+(Downfall, Aftermath), 4 VIDEOGIOCO (Extraction, Dead Space, Dead Space
+2, Dead Space 3), 1 VIDEOGIOCO MOBILE (Sabotage), 1 VIDEOGIOCO
+(Ignition). Tutti e 13 i media inclusi, nessuna esclusione, nessuna
+gemella (Salvage/Aftermath restano due vicende distinte, equipaggi ed
+esiti diversi). Il remake 2023 è nota interna a `dead-space-1` (stesso
+id), non voce a sé. DLC "Severed" nota interna a `dead-space-2`, DLC
+"Awakened" nota interna a `dead-space-3`. "Dead Space: Sabotage" e
+"Dead Space Mobile" sono lo stesso gioco - una sola voce
+(`dead-space-sabotage`), nessun duplicato. `Catalyst` è ambientata
+secoli prima del gioco originale (~2294 contro 2508): la sua posizione
+come seconda voce (dopo Martyr) è corretta.
 
 ### Correzione terminologica
 
-"Marker" → "Marchio" (Marchio Nero/Marchio Rosso, plurale "Marchi") è
-la resa italiana ufficiale, applicata in tutte le sinossi IT (e nel
-blurb IT) che nominano l'artefatto - il testo EN mantiene invece
-"Marker"/"Black Marker"/"Red Marker" invariato.
+"Marker" → "Marchio" (Marchio Nero/Marchio Rosso, plurale "Marchi")
+resa italiana ufficiale, applicata in tutte le sinossi/blurb IT; testo
+EN resta "Marker"/"Black Marker"/"Red Marker".
 
 ### Musica
 
@@ -1004,25 +926,21 @@ blurb IT) che nominano l'artefatto - il testo EN mantiene invece
   Space*, 2008), "Titan Station Elementary" (*Dead Space 2*), "The
   Ascent" (*Dead Space 3*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community. Perimetro musicale
-  limitato ai 6 videogiochi con colonna sonora propria (Extraction,
-  Dead Space/Remake 2023, Sabotage, Ignition, Dead Space 2, Dead Space
-  3): i 3 romanzi, i 3 fumetti e i 2 film d'animazione sono esclusi dal
-  perimetro musicale, nessuna traccia da lì. Compositore principale
-  Jason Graves per quasi tutte le entry musicali (co-compositore James
-  Hannigan su Dead Space 3). Correzione di fatto rispetto alla bozza
-  iniziale: la colonna sonora di Dead Space (2008) ha **vinto due
-  premi BAFTA** (Original Score e Use of Audio), non solo ricevuto una
-  nomination. Distribuzione tracce: 4 da Dead Space (2008), 2 da Dead
-  Space 2, 1 da Dead Space 3 - nessun brano standout singolarmente
-  documentato è stato reperito per Extraction, Sabotage o Ignition.
+- **Motivazione**: fama/gradimento reale di critica e community.
+  Perimetro: i 6 videogiochi con OST propria (Extraction, Dead
+  Space/Remake 2023, Sabotage, Ignition, Dead Space 2, Dead Space 3);
+  romanzi, fumetti e film d'animazione fuori perimetro. Compositore
+  principale Jason Graves (co-compositore James Hannigan su Dead Space
+  3). Correzione di fatto: la OST di Dead Space (2008) ha vinto due
+  premi BAFTA (Original Score e Use of Audio), non solo nomination.
+  Distribuzione: 4 tracce da Dead Space (2008), 2 da Dead Space 2, 1 da
+  Dead Space 3 - nessun brano standout documentato per Extraction,
+  Sabotage o Ignition.
 - **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1065,17 +983,13 @@ notturna, 2026-09-10.
 
 ## Deus Ex
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
-Una delle 10 saghe individuate dal Project Manager per questa sessione
-notturna (turno notturno 2/notte 3). Un solo universo, "Linea Temporale
-Deus Ex", 10 voci in ordine di cronologia interna (modello Metal Gear
-Solid, non ordine di uscita reale): 4 romanzi di James Swallow (Fallen
-Angel, Icarus Effect, Hard Line, Black Light), 4 videogiochi (Human
-Revolution, The Fall, Mankind Divided, Deus Ex 2000, Invisible War - in
-realtà 5, vedi sotto), 1 fumetto (Children's Crusade). Nel dettaglio: 4
-ROMANZO, 4 VIDEOGIOCO (Human Revolution, Mankind Divided, Deus Ex,
-Invisible War), 1 VIDEOGIOCO MOBILE (The Fall), 1 FUMETTO (Children's
-Crusade).
+Saga interamente nuova. Una delle 10 saghe individuate dal Project
+Manager per il turno notturno 2/notte 3. Un solo universo, "Linea
+Temporale Deus Ex", 10 voci in ordine cronologico interno (modello
+Metal Gear Solid): 4 ROMANZO di James Swallow (Fallen Angel, Icarus
+Effect, Hard Line, Black Light), 4 VIDEOGIOCO (Human Revolution,
+Mankind Divided, Deus Ex, Invisible War), 1 VIDEOGIOCO MOBILE (The
+Fall), 1 FUMETTO (Children's Crusade).
 
 ### Musica
 
@@ -1090,20 +1004,17 @@ Crusade).
   Mankind Divided*), "Main Theme" (*Deus Ex: The Fall*), "Night
   Assignment" (*Deus Ex: Invisible War*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community. Perimetro musicale
-  limitato ai 5 videogiochi con colonna sonora propria (Deus Ex 2000,
-  Invisible War, Human Revolution incl. The Missing Link, The Fall,
-  Mankind Divided incl. A Criminal Past/System Rift/Breach): i 4 romanzi
-  e il fumetto sono esclusi dal perimetro musicale, nessuna traccia da
-  lì. Distribuzione: 2 tracce da Deus Ex 2000, 2 da Human Revolution, 1
-  da Mankind Divided, 1 da The Fall, 1 da Invisible War.
+- **Motivazione**: fama/gradimento reale di critica e community.
+  Perimetro: i 5 videogiochi con OST propria (Deus Ex 2000, Invisible
+  War, Human Revolution incl. The Missing Link, The Fall, Mankind
+  Divided incl. A Criminal Past/System Rift/Breach); romanzi e fumetto
+  fuori perimetro. Distribuzione: 2 tracce da Deus Ex 2000, 2 da Human
+  Revolution, 1 da Mankind Divided, 1 da The Fall, 1 da Invisible War.
 - **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1137,28 +1048,23 @@ notturna, 2026-09-10.
 - `deus-ex-invisible-war` - Deus Ex: Invisible War (VIDEOGIOCO, 2003) -
   voce a sé, ultima voce della saga - sessione notturna, 2026-09-10.
 
-### Decisioni di scope e correzioni di rilievo (fuori standard, solo qui perché non coperte dai campi sopra)
+### Decisioni di scope e correzioni di rilievo
 
-- **Deus Ex GO** (spin-off mobile puzzle, 2016): escluso dalla saga,
-  confermato dal Supervisore.
-- **Deus Ex: Breach**: trattato come nota narrativa dentro la voce
-  `deus-ex-mankind-divided` (conseguenza diretta del finale di System
-  Rift), non come voce a sé.
-- **Deus Ex Remastered** (Aspyr): non è uscito - annuncio originale per
-  il 5 febbraio 2026, rinviato a tempo indeterminato da dicembre 2025
-  dopo reazioni negative sui nuovi asset grafici, preordini rimborsati.
-  Trattato come nota di stato dentro la voce `deus-ex` (2000), non come
-  voce a sé né incluso nella releaseYear.
+- **Deus Ex GO** (spin-off mobile puzzle, 2016): escluso dalla saga.
+- **Deus Ex: Breach**: nota narrativa dentro `deus-ex-mankind-divided`
+  (conseguenza del finale di System Rift), non voce a sé.
+- **Deus Ex Remastered** (Aspyr): non è uscito - annuncio per il 5
+  febbraio 2026, rinviato a tempo indeterminato da dicembre 2025 dopo
+  reazioni negative sui nuovi asset grafici, preordini rimborsati. Nota
+  di stato dentro `deus-ex` (2000), non voce a sé, non in releaseYear.
 - Tutti e 4 i romanzi di James Swallow (Fallen Angel, Icarus Effect,
   Hard Line, Black Light) inclusi come voci a sé.
-- **Correzione fattuale importante** (non di traduzione, presente
-  nell'errore originale sia IT che EN): il gioco Deus Ex (2000) ha
-  **tre** finali canonici implementati (Helios, Illuminati, New Dark
-  Age/Tong), non quattro. Rimosso ogni riferimento a un presunto quarto
-  finale (alleanza con Bob Page/MJ12), mai realmente implementato nel
-  gioco; l'unico "quarto" nei file di gioco è l'easter egg non canonico
-  "Dance Party", raggiungibile solo via cheat, senza attinenza con la
-  trama e non citato in sinossi.
+- **Correzione fattuale** (errore presente sia IT che EN): Deus Ex
+  (2000) ha tre finali canonici (Helios, Illuminati, New Dark Age/Tong),
+  non quattro. Rimosso ogni riferimento a un presunto quarto finale
+  (alleanza con Bob Page/MJ12), mai implementato; l'unico "quarto" nei
+  file è l'easter egg non canonico "Dance Party", raggiungibile solo via
+  cheat, non citato in sinossi.
 
 ## Devil May Cry
 
@@ -1180,15 +1086,13 @@ notturna, 2026-09-10.
 
 ## Diablo
 
-Saga interamente nuova (mai pubblicata sul sito prima di questo ciclo).
-Esisteva una bozza di questa saga in un vecchio branch di lavoro mai
-arrivato su main (probabilmente per via della blacklist storica su
-Diablo), con un blurb troncato a metà frase: Sakrem ha rifiutato
-esplicitamente di riciclarla e ha chiesto di rifare tutto da zero con
-la catena completa - questo lavoro è interamente indipendente da
-quella bozza abbandonata. Un solo universo, **Sanctuarium** (id
-`sanctuary`), 25 voci (23 media reali + 2 voci STORIA), span 1996 -
-2026, palette narrativa a 4 colori.
+Saga interamente nuova. Esisteva una bozza in un vecchio branch mai
+arrivato su main (blurb troncato a metà frase, probabile blacklist
+storica su Diablo): Sakrem ha rifiutato di riciclarla, chiesto di
+rifare da zero con la catena completa - lavoro indipendente da quella
+bozza. Un solo universo, **Sanctuarium** (id `sanctuary`), 25 voci (23
+media reali + 2 voci STORIA), span 1996 - 2026, palette narrativa a 4
+colori.
 
 ### Musica
 
@@ -1202,19 +1106,17 @@ quella bozza abbandonata. Un solo universo, **Sanctuarium** (id
   (*Diablo III*), "Diablo IV Main Theme" (*Diablo IV*), "Leah's Theme"
   (*Diablo III*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione concentrata su
-  Diablo I-IV (nessun brano da Diablo Immortal, Reaper of Souls, Vessel
-  of Hatred o Lord of Hatred: verificato che non hanno prodotto brani
-  di fama paragonabile nelle fonti reperite). "Tristram" è il brano più
-  iconico della saga (riconosciuto dal pubblico del BlizzCon 2008 dai
-  soli primi accordi, prima ancora dell'annuncio ufficiale di Diablo
-  III).
+- **Motivazione**: prima playlist della saga, concentrata su Diablo
+  I-IV (nessun brano da Diablo Immortal, Reaper of Souls, Vessel of
+  Hatred o Lord of Hatred: nessuna fama paragonabile nelle fonti).
+  "Tristram" è il brano più iconico della saga - riconosciuto dal
+  pubblico del BlizzCon 2008 dai soli primi accordi, prima
+  dell'annuncio di Diablo III.
 - **Data**: 2026-09-11.
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1288,13 +1190,12 @@ sessione, 2026-09-11.
 
 ## Dragon Age
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
-Una delle 5 saghe di questo batch (Uncharted, The Last of Us, Mafia,
-Hitman, Dragon Age - ultima della sequenza). Un solo universo,
-"Thedas", 24 voci proprie in ordine cronologico narrativo, 11 DLC
-raggruppati come note dentro 3 sinossi (Origins: 6, Dragon Age II: 3,
-Inquisition: 2). Nessuna gemella, nessuna voce ombrello, nessuna
-VOCE STORIA (verdetto esplicito dello Storico: nessuna necessaria).
+Saga interamente nuova. Ultima di 5 saghe di questo batch (Uncharted,
+The Last of Us, Mafia, Hitman, Dragon Age). Un solo universo, "Thedas",
+24 voci in ordine cronologico narrativo, 11 DLC come note dentro 3
+sinossi (Origins: 6, Dragon Age II: 3, Inquisition: 2). Nessuna
+gemella, nessuna voce ombrello, nessuna VOCE STORIA (lo Storico non ne
+ha ritenuta necessaria alcuna).
 
 ### Musica
 
@@ -1310,19 +1211,17 @@ VOCE STORIA (verdetto esplicito dello Storico: nessuna necessaria).
   Theme" (*Dragon Age: The Veilguard*), "Sera Was Never" (*Dragon Age:
   Inquisition*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata su
-  fama/gradimento reale (ascolti Spotify, premi di settore per "I Am
-  the One", penetrazione culturale/cover fan-made per "The Dawn Will
-  Come" e "Sera Was Never"), a copertura di Origins, Dragon Age II,
-  Inquisition e The Veilguard. Nessuna traccia da Awakening (nessun
-  brano con fama comparabile individuato) né da media senza gioco
-  proprio (romanzi, fumetti, Absolution).
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (ascolti Spotify, premi di settore per "I Am the One", penetrazione
+  culturale/cover fan-made per "The Dawn Will Come" e "Sera Was
+  Never"), a copertura di Origins, Dragon Age II, Inquisition e The
+  Veilguard. Nessuna traccia da Awakening (nessun brano comparabile) né
+  da media senza gioco proprio (romanzi, fumetti, Absolution).
 - **Data**: 2026-09-11.
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1388,14 +1287,10 @@ gemella), tutte inserite nella stessa sessione, 2026-09-11.
 
 ### In sospeso - immagini mancanti
 
-Sezione diversa dalle altre: non è una proposta da confermare o
-scartare, ma un semplice elenco di lavoro. Le voci sotto sono ancora
-prive dell'immagine/copertina corrispondente caricata su R2 da Sakrem (i
-campi `image` in `data.js` contengono già l'URL atteso in stile
-segnaposto coerente con la convenzione di naming del bucket, ma il file
-fisico non risulta ancora caricato). Stesso schema già discusso per
-Assassin's Creed: quando Sakrem carica i file su R2, passa solo il nome
-file e la voce esce da questo elenco.
+Elenco di lavoro, non una proposta da decidere: le voci sotto hanno già
+il campo `image` in `data.js` (URL segnaposto) ma senza file caricato
+su R2. Quando Sakrem carica il file e passa il nome, la voce esce
+dall'elenco.
 
 Copertine mancanti per le nuove voci pubblicate in questo ciclo:
 
@@ -1432,12 +1327,10 @@ Filigrane (watermark) mancanti per i due nuovi universi:
 - **Motivazione**: l'ordine cronologico non riflette il gradimento/fama
   reale delle tracce.
 - **Data**: 2026-09-08.
-- **Stato**: confermato e applicato. Puro riordino (stesse tracce,
-  nessuna sostituzione): applicato direttamente senza consenso esplicito
-  di Sakrem, secondo la regola stabilita l'08/09/2026. Il Musicista ha
-  inoltre verificato l'eventuale inclusione di tracce da Dragon Quest VII
-  o Dragon Quest Builders 2 (i due nuovi titoli aggiunti in questo ciclo)
-  ma non ne ha trovate di abbastanza iconiche: nessuna traccia aggiunta.
+- **Stato**: confermato e applicato, puro riordino. Il Musicista ha
+  verificato possibili tracce da Dragon Quest VII o Dragon Quest
+  Builders 2 (nuovi titoli di questo ciclo) ma nessuna abbastanza
+  iconica: nessuna traccia aggiunta.
 
 ### Media aggiunti
 
@@ -1485,23 +1378,19 @@ cambiamento di tracce già esistenti) e non più toccata in seguito.
 
 ### In sospeso - lavoro rimandato a un ciclo futuro
 
-Non è una proposta da confermare o scartare (nessuna decisione ancora
-presa da nessun agente della catena su questi titoli, nessuna proposta di
-inclusione formulata): solo un promemoria di scope, per non perdere di
-vista questo materiale in una sessione futura dedicata alla saga.
+Non una proposta da decidere (nessuna inclusione ancora proposta):
+promemoria di scope per una sessione futura dedicata alla saga.
 
-- **Nota di scope**: in questo richiamo mirato il Supervisore ha scelto
-  una via di mezzo tra rattoppo minimo e rifacimento totale - inclusi
-  Oblivion Remastered (scoperto autonomamente durante la revisione), i
-  DLC classici annotati (Knights of the Nine, Shivering Isles, Dawnguard,
-  Dragonborn) e la nuova voce a sé "blades". Rimandati esplicitamente a
-  un ciclo futuro dedicato: gli spin-off standalone *Battlespire* e
-  *Redguard*, e i romanzi di Greg Keyes (*The Elder Scrolls: The Infernal
-  City* e seguiti).
-- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, 5ª saga di 11).
-- **Stato**: non deciso, non un dubbio da risolvere - scope volutamente
-  limitato in questo ciclo, da riprendere in una sessione futura dedicata
-  a Battlespire/Redguard/romanzi Keyes.
+- **Nota di scope**: via di mezzo tra rattoppo minimo e rifacimento
+  totale - inclusi Oblivion Remastered (scoperto durante la revisione),
+  i DLC classici annotati (Knights of the Nine, Shivering Isles,
+  Dawnguard, Dragonborn) e la nuova voce a sé "blades". Rimandati a un
+  ciclo futuro: *Battlespire*, *Redguard*, romanzi di Greg Keyes (*The
+  Elder Scrolls: The Infernal City* e seguiti).
+- **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, 5ª saga di
+  11).
+- **Stato**: non deciso, scope limitato in questo ciclo, da riprendere
+  in futuro.
 
 ### Musica
 
@@ -1514,15 +1403,14 @@ vista questo materiale in una sessione futura dedicata alla saga.
   Watch the Skies (*Skyrim*), Beauty of Dawn (*The Elder Scrolls
   Online*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione per fama/
-  gradimento decrescente verificata su più fonti indipendenti; nessuna
-  coppia di tracce dello stesso gioco adiacente in ordine.
+- **Motivazione**: prima playlist della saga, fama/gradimento
+  decrescente su più fonti; nessuna coppia di tracce dello stesso gioco
+  adiacente.
 - **Data**: 2026-09-09 (richiamo mirato, turno notturno 2).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1537,8 +1425,8 @@ sola nuova voce.
 
 ### Immagini/audio mancanti
 
-Sezione di lavoro, non una proposta da confermare o scartare: elenco dei
-file fisici ancora da caricare su R2 da parte di Sakrem per questo ciclo.
+Sezione di lavoro: elenco dei file fisici ancora da caricare su R2 per
+questo ciclo.
 
 Copertina mancante per la nuova voce pubblicata in questo ciclo:
 
@@ -1570,13 +1458,11 @@ mai popolata finora, vedi sotto in "Musica"):
   Five Stars), Butcher Pete (*Fallout 4*, Roy Brown), Jingle, Jangle,
   Jingle (*Fallout: New Vegas*, Kay Kyser).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione di brani reali e
-  iconici della OST/colonna sonora in-game per copertura equilibrata dei
-  vari capitoli.
+- **Motivazione**: prima playlist della saga, brani iconici della
+  OST/colonna sonora in-game, copertura equilibrata dei capitoli.
 - **Data**: 2026-09-08.
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio da caricare su R2 (proposta già accettata nel merito, non in
-  attesa di decisione di Sakrem: manca solo il file fisico).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file da caricare su R2.
 
 ### Media aggiunti
 
@@ -1598,14 +1484,11 @@ mai popolata finora, vedi sotto in "Musica"):
   Stand By Me (*Final Fantasy XV*), Blinded by Light (*Final Fantasy
   XIII*).
 - **Origine**: Musicista.
-- **Motivazione**: selezione dei brani più iconici/riconoscibili della
-  saga, a copertura di più capitoli, per popolare per la prima volta
-  la playlist.
+- **Motivazione**: brani più iconici della saga, copertura di più
+  capitoli, prima playlist mai popolata.
 - **Data**: 2026-09-08 (sessione notturna).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2.
 
 ### Media aggiunti
 
@@ -1637,14 +1520,11 @@ mai popolata finora, vedi sotto in "Musica"):
   (*Fire Emblem: Radiant Dawn*), Lost in the Waves (*Fire Emblem
   Fates*).
 - **Origine**: Musicista.
-- **Motivazione**: selezione dei brani più iconici/riconoscibili della
-  saga, a copertura di più universi/capitoli, per popolare per la prima
-  volta la playlist.
+- **Motivazione**: brani più iconici della saga, copertura di più
+  universi/capitoli, prima playlist mai popolata.
 - **Data**: 2026-09-08 (sessione notturna).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2.
 
 ### Media aggiunti
 
@@ -1674,21 +1554,16 @@ mai popolata finora, vedi sotto in "Musica"):
   Finally a Tomorrow (*Gears of War 3*), Main Theme (*Gears of War 4*),
   14 Years After E-Day (*Gears of War*, 2006).
 - **Origine**: Musicista.
-- **Motivazione**: selezione dei brani più iconici/riconoscibili della
-  saga, a copertura di più capitoli, per popolare per la prima volta la
-  playlist.
+- **Motivazione**: brani più iconici della saga, copertura di più
+  capitoli, prima playlist mai popolata.
 - **Data**: 2026-09-08 (sessione notturna).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2.
 
 Nota: nessuna sezione "Media aggiunti" per Gears of War in questa
-sessione - il lavoro di questo ciclo è stato solo una correzione
-urgente su `e-day` (già pubblicata, downgrade a titolo non ancora
-uscito) e una nota aggiunta alla sinossi esistente di `gears-1`, mai un
-nuovo media vero e proprio (vedi il report una tantum, punto 4, per i
-dettagli).
+sessione - solo una correzione urgente su `e-day` (già pubblicata,
+downgrade a titolo non ancora uscito) e una nota alla sinossi esistente
+di `gears-1`, mai un nuovo media (vedi report una tantum, punto 4).
 
 ## God of War
 
@@ -1704,14 +1579,11 @@ dettagli).
   2018), Rage of Sparta (*God of War III*), Ragnarök (Tema del climax)
   (*God of War Ragnarök*), The End Begins (*God of War II*).
 - **Origine**: Musicista.
-- **Motivazione**: selezione dei brani più iconici/riconoscibili della
-  saga, a copertura di più capitoli, per popolare per la prima volta la
-  playlist.
+- **Motivazione**: brani più iconici della saga, copertura di più
+  capitoli, prima playlist mai popolata.
 - **Data**: 2026-09-08 (sessione notturna).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2.
 
 ### Media aggiunti
 
@@ -1737,14 +1609,13 @@ dettagli).
   Yourself (*GTA San Andreas*, Radio Los Santos), I Ran (So Far Away)
   (*GTA Vice City*, Wave 103).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione di brani reali
-  delle radio in-game per copertura equilibrata di più capitoli.
+- **Motivazione**: prima playlist della saga, brani reali delle radio
+  in-game, copertura equilibrata dei capitoli.
 - **Data**: 2026-09-09 (sessione notturna, 6/12).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal Programmatore
-  come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1774,14 +1645,11 @@ dettagli).
   (*Halo: Reach*), One Final Effort (*Halo 3*), Blow Me Away (*Halo
   2*), 117 (*Halo 4*), Zeta Halo (*Halo Infinite*).
 - **Origine**: Musicista.
-- **Motivazione**: selezione dei brani più iconici/riconoscibili della
-  saga, a copertura di più capitoli, per popolare per la prima volta
-  la playlist.
+- **Motivazione**: brani più iconici della saga, copertura di più
+  capitoli, prima playlist mai popolata.
 - **Data**: 2026-09-09 (sessione notturna, 7/12).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2.
 
 ### Media aggiunti
 
@@ -1820,18 +1688,16 @@ dettagli).
   White Room & Main Title (*Hitman: Contracts*), The Showstopper
   (*Hitman*, 2016), Apex Predator (*Hitman 3*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di più capitoli (Jesper Kyd per la
-  tetralogia classica, Niels Bye Nielsen per la trilogia World of
-  Assassination). Scartata in ricerca "Requiem for a Tower": verificata
-  come brano non composto per Hitman (proviene dal trailer de Il
-  Signore degli Anelli - Le Due Torri, 2002).
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di più capitoli (Jesper Kyd per la tetralogia classica,
+  Niels Bye Nielsen per la trilogia World of Assassination). Scartata
+  "Requiem for a Tower": non composto per Hitman, proviene dal trailer
+  de Il Signore degli Anelli - Le Due Torri (2002).
 - **Data**: 2026-09-11.
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1876,9 +1742,8 @@ inserite nella stessa sessione, 2026-09-11.
 
 ## Horizon
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo), una
-delle 10 sagas nuove individuate dal Project Manager per la sessione
-notturna, lavorata al turno notturno 2/notte 3.
+Saga interamente nuova, una delle 10 individuate dal Project Manager
+per il turno notturno 2/notte 3.
 
 ### Musica
 
@@ -1894,23 +1759,19 @@ notturna, lavorata al turno notturno 2/notte 3.
   Wilds*), "Trinity" (*Horizon Forbidden West*), "To the Burning
   Shores" (*Horizon Forbidden West: Burning Shores*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale (recensioni di settore alla colonna sonora, uso
-  promozionale ufficiale in trailer/menu, impatto critico), non gusto
-  personale. Horizon Call of the Mountain (titolo VR standalone,
-  compositori diversi dal team principale Joris de Man/The Flight/Niels
-  van der Leest) è stato valutato e **escluso per merito**, non per
-  principio di rappresentanza: nessuna sua traccia ha segnali di fama
-  pubblica comparabili a quelle scelte. Liberation, Sunhawk e Seeds of
-  Rebellion (fumetti e gioco da tavolo) correttamente esclusi a monte,
-  nessuna colonna sonora propria.
-- **Data**: 2026-09-10 (sessione notturna, 3/3 della notte, 2/notte
-  3 delle 10 sagas nuove).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (recensioni di settore, uso promozionale in trailer/menu, impatto
+  critico), non gusto personale. Horizon Call of the Mountain (VR
+  standalone, compositori diversi dal team principale Joris de
+  Man/The Flight/Niels van der Leest) escluso per merito: nessuna
+  traccia con fama comparabile. Liberation, Sunhawk e Seeds of
+  Rebellion (fumetti e gioco da tavolo) esclusi a monte, nessuna
+  colonna sonora propria.
+- **Data**: 2026-09-10 (sessione notturna, 3/3 della notte).
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -1948,8 +1809,7 @@ notturna, 2026-09-10.
   nuovo universo Adattamento Live-Action - sessione notturna,
   2026-09-10.
 
-### Decisioni di scope importanti (non proposte in sospeso, solo per
-memoria)
+### Decisioni di scope importanti
 
 - **LEGO Horizon Adventures**: escluso, non canonico.
 - **"Horizon 3"**: escluso, nessun annuncio ufficiale al momento della
@@ -1966,13 +1826,10 @@ memoria)
 
 ### In sospeso - immagini mancanti
 
-Sezione diversa dalle altre: non è una proposta da confermare o
-scartare, ma un semplice elenco di lavoro. La voce gemella
-`bbs02-manga` (l'unica delle 6 gemelle manga applicata in questo
-ciclo, vedi sotto e la sotto-sezione successiva per le altre 5) è
-ancora priva di copertina caricata su R2 da Sakrem. Stesso schema già
-discusso per Assassin's Creed e Dragon Quest: quando Sakrem carica il
-file su R2, passa solo il nome file e la voce esce da questo elenco.
+Elenco di lavoro, non una proposta da decidere. La gemella
+`bbs02-manga` (unica delle 6 gemelle manga applicata in questo ciclo,
+vedi sotto per le altre 5) è priva di copertina su R2. Quando Sakrem
+carica il file e passa il nome, la voce esce dall'elenco.
 
 1. `bbs02-manga` - Kingdom Hearts 0.2 Birth by Sleep -A Fragmentary
    Passage- (manga)
@@ -1990,37 +1847,29 @@ file su R2, passa solo il nome file e la voce esce da questo elenco.
 - **Origine**: emersa durante la classificazione media della catena,
   bloccata da un limite tecnico rilevato e verificato dal
   Supervisore in revisione.
-- **Motivazione/problema**: il sito non ha mai gestito più di una
-  voce gemella per host - `entry.twin` è un oggetto singolo, non un
-  array, e il rendering in `script.js` (nodo `h-node--twin`,
-  `findEntry`, `titlePanels`, vista elenco verticale, `notifyIfDue`)
-  è costruito in modo rigidamente binario. Il presunto precedente
-  citato a inizio sessione (`chronicles-china`, Assassin's Creed) è
-  stato verificato e smentito: ha anch'esso un solo gemello, nessun
-  vero caso di gemella multipla esiste già sul sito. Il Supervisore
-  ha individuato due strade alternative, nessuna delle due applicata
-  in questo ciclo:
-  - (a) commissionare al Programmatore il meccanismo strutturale
-    "più gemelle" (bottone/popup di scelta tra le gemelle sullo
-    stesso nodo) - soluzione costosa ora ma riutilizzabile in futuro
-    per casi analoghi;
-  - (b) rinunciare alla voce gemella separata per questi 5 manga e
-    inglobarne il riferimento come nota testuale dentro la sinossi
-    del romanzo/gioco già gemello - soluzione immediata, ma che
-    "degrada" la loro classificazione.
-  Raccomandazione del Supervisore: se in futuro sono attesi altri
-  casi simili (probabile), conviene investire una volta per tutte
-  nel meccanismo (a) invece di gestire ogni caso come eccezione con
-  la (b).
-- **Data**: 2026-09-09 (richiamo mirato notturno, saga 1/10; problema
-  rilevato e opzioni proposte dal Supervisore nella stessa sessione).
+- **Motivazione/problema**: il sito non gestisce più di una voce
+  gemella per host - `entry.twin` è un oggetto singolo, non un array;
+  il rendering in `script.js` (`h-node--twin`, `findEntry`,
+  `titlePanels`, vista elenco verticale, `notifyIfDue`) è binario. Il
+  presunto precedente (`chronicles-china`, Assassin's Creed) è stato
+  verificato e smentito: ha un solo gemello, nessun caso di gemella
+  multipla esiste già sul sito. Due strade alternative, nessuna
+  applicata:
+  - (a) commissionare al Programmatore il meccanismo "più gemelle"
+    (bottone/popup di scelta tra le gemelle sullo stesso nodo) -
+    costoso ora, riutilizzabile in futuro;
+  - (b) rinunciare alla voce gemella separata per i 5 manga, nota
+    testuale nella sinossi del gemello esistente - immediato, ma
+    degrada la classificazione.
+  Raccomandazione: se sono attesi altri casi simili, conviene
+  investire una volta per tutte in (a) invece di gestire ogni caso
+  come eccezione con (b).
+- **Data**: 2026-09-09 (richiamo mirato notturno, saga 1/10).
 - **Stato**: in attesa di decisione di Sakrem, non applicato. Nessun
-  incarico di progettazione dato al Programmatore in questo ciclo.
-  Testo IT/EN e classificazione delle 5 voci (`kh1-manga`,
-  `chain-of-memories-manga`, `kh2-manga`, `358-2-days-manga`,
-  `kh3-manga`) già pronti e verificati, conservati fuori dal
-  pacchetto tecnico in attesa della decisione - nessun lavoro perso,
-  da riprendere non appena Sakrem sceglie tra (a) e (b).
+  incarico dato al Programmatore. Testo IT/EN e classificazione delle
+  5 voci (`kh1-manga`, `chain-of-memories-manga`, `kh2-manga`,
+  `358-2-days-manga`, `kh3-manga`) già pronti, conservati fuori dal
+  pacchetto in attesa della decisione tra (a) e (b).
 
 ### Musica
 
@@ -2034,23 +1883,19 @@ file su R2, passa solo il nome file e la voce esce da questo elenco.
   (*Kingdom Hearts III*), Vector to the Heavens (*Kingdom Hearts 358/2
   Days*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura dei capitoli principali (Kingdom
-  Hearts I, II, III e 358/2 Days).
+- **Motivazione**: prima playlist della saga, temi più iconici dei
+  capitoli principali (Kingdom Hearts I, II, III e 358/2 Days).
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 1/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
-1 nuova voce gemella pubblicata in questo ciclo. Le altre 5 gemelle
-manga proposte (vedi "In sospeso - meccanismo gemella multipla" sopra)
-restano bloccate per il problema tecnico del meccanismo "gemella
-multipla": non entrano in questo log finché non saranno effettivamente
-pubblicate in futuro.
+1 nuova voce gemella pubblicata in questo ciclo. Le altre 5 (vedi
+sopra) restano bloccate dal problema tecnico, non entrano nel log
+finché non pubblicate.
 
 - `bbs02-manga` - Kingdom Hearts 0.2 Birth by Sleep -A Fragmentary
   Passage- (manga, Shiro Amano, 2019, stessa serie editoriale delle
@@ -2062,11 +1907,10 @@ pubblicate in futuro.
 
 ### In sospeso - immagini mancanti
 
-Stesso schema già discusso per Ace Combat/Assassin's Creed: nessun file
-immagine (avatar/banner della saga, filigrana dell'unico universo,
-copertine delle 5 voci) è stato indicato dai materiali ricevuti in
-questa sessione - Ricercatore/Selezionatore/Scrittore/Linguista/
-Artista/Musicista coprono testi, colore e musica, non asset visivi.
+Stesso schema di Ace Combat/Assassin's Creed: nessun file immagine
+(avatar/banner saga, filigrana dell'unico universo, copertine delle 5
+voci) indicato in questa sessione - la catena copre testi, colore e
+musica, non asset visivi.
 
 1. Avatar della saga "The Last of Us"
 2. Banner della saga "The Last of Us"
@@ -2093,16 +1937,14 @@ Artista/Musicista coprono testi, colore e musica, non asset visivi.
   Parte I*), "Future Days" (*The Last of Us Parte II*), "The Path" (*The
   Last of Us* / *The Last of Us Parte I*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata su fama/
-  gradimento pubblico reale documentato da fonti multiple (non gusto
-  personale), con alternanza tra i due titoli principali e nessuna
-  traccia proveniente dalla serie TV o dal fumetto.
+- **Motivazione**: prima playlist della saga, fama/gradimento
+  pubblico reale su fonti multiple (non gusto personale), alternanza
+  tra i due titoli principali, nessuna traccia da serie TV o fumetto.
 - **Data**: 2026-09-11.
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -2155,14 +1997,13 @@ aggiungere ora.
 - **Origine**: Musicista.
 - **Motivazione**: prima playlist della saga, ordine di fama/gradimento
   decrescente, nessuna coppia consecutiva dello stesso titolo. Copertura
-  4 titoli su 6 (Defiance e Ascendance restano senza un brano proprio -
-  non è richiesta copertura totale).
+  4 titoli su 6 (Defiance e Ascendance senza brano proprio, copertura
+  totale non richiesta).
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 2/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i file
-  audio sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i file sono nuovi per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -2172,15 +2013,12 @@ aggiungere ora.
 
 ### Nota procedurale - brief Artista
 
-L'Artista ha chiuso la propria proposta di cambio gradiente (palette a
-4 colori) dicendo che "non si applica in automatico e passa al
-Supervisore per la conferma di Sakrem" - applicazione della regola
-pre-08/09, ormai superata (dall'08/09/2026 ogni scelta di colore
-dell'Artista si applica in automatico, senza attesa di consenso). Il
-Supervisore ha corretto il malinteso e confermato l'applicazione
-automatica in questo stesso ciclo, quindi nessun impatto sul risultato
-finale - ma segnala che il brief dell'Artista andrebbe aggiornato per
-evitare che l'inciampo si ripeta nei prossimi cicli.
+L'Artista ha chiuso la proposta di cambio gradiente (palette a 4
+colori) citando la vecchia regola pre-08/09 (consenso di Sakrem
+necessario), ormai superata - dall'08/09/2026 le scelte di colore si
+applicano in automatico. Il Supervisore ha corretto il malinteso e
+applicato in automatico, nessun impatto sul risultato. Da aggiornare il
+brief dell'Artista per evitare che si ripeta.
 
 ## Like a Dragon (ex "Yakuza")
 
@@ -2201,20 +2039,18 @@ Scheda rinominata in questo ciclo (id interno invariato: `yakuza`).
   RADWIMPS e dal rapper J.I.D.), Song of Departure -Journey to the New
   World- (*Like a Dragon: Pirate Yakuza in Hawaii*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione per fama/status
-  di meme o classico riconosciuto (in particolare "Baka Mitai", diventato
-  meme internet globale) a copertura di più capitoli ed epoche, incluso
-  il nuovo "Kiwami 3 & Dark Ties" (nessuna traccia propria trovata
-  abbastanza affermata per quel titolo, uscito solo 7 mesi fa) e i due
-  nuovi titoli con theme song di rilievo pubblico (Gaiden, Pirate Yakuza
-  in Hawaii). Esclusi dal perimetro i due adattamenti live-action (nessuna
-  colonna sonora di gioco propria) e "Stranger Than Heaven" (non ancora
-  uscito).
+- **Motivazione**: prima playlist della saga, fama/status di meme o
+  classico riconosciuto (in particolare "Baka Mitai", meme internet
+  globale), copertura di più capitoli ed epoche, incluso "Kiwami 3 &
+  Dark Ties" (nessuna traccia propria abbastanza affermata, uscito solo
+  7 mesi fa) e i due nuovi titoli con theme song di rilievo pubblico
+  (Gaiden, Pirate Yakuza in Hawaii). Esclusi i due adattamenti
+  live-action (nessuna OST di gioco propria) e "Stranger Than Heaven"
+  (non ancora uscito).
 - **Data**: 2026-09-10 (richiamo mirato notturno, saga 11/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo resta `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il campo
+  resta `tracks: []`, vuoto in attesa dei file.
 
 ### Media aggiunti
 
@@ -2282,13 +2118,11 @@ Scheda rinominata in questo ciclo (id interno invariato: `yakuza`).
   nessuna coppia consecutiva dello stesso titolo; Trag Zero ed E.X.
   Troopers esclusi per assenza di fama pubblica verificabile.
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 3/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
-  sono nuovi per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Include correzione del Supervisore sul brano 5: titolo
-  ufficiale "Battle with Basil" (in tracklist proposta inizialmente dal
-  Musicista solo come "Basil"). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i brani sono nuovi per il sito, da caricare su R2. Correzione del
+  Supervisore sul brano 5: titolo ufficiale "Battle with Basil" (il
+  Musicista l'aveva proposto solo come "Basil"). Il Programmatore crea
+  comunque il campo `tracks: []`, vuoto in attesa dei file.
 
 ### Media aggiunti
 
@@ -2298,17 +2132,13 @@ Scheda rinominata in questo ciclo (id interno invariato: `yakuza`).
 
 ### Nota procedurale - palette/gradiente
 
-In seguito all'aggiunta di `ex-troopers` (settima voce della saga), la
-palette passa da 3 a 4 colori: da `["#b3e5fc", "#f97316", "#1e3a5f"]` a
-`["#b3e5fc", "#1e3a5f", "#f97316", "#22d3ee"]`, con l'aggiunta del
-campo `paletteBounds` sull'universo `main` (`["lp3", "lp1", "lp2"]`,
-mai presente prima su questa saga). Verificato dal Supervisore contro
-`computeGradientStops` in `script.js`: con 7 entries totali i 4
-segmenti corrispondono esattamente alle 4 fasi narrative proposte
-dall'Artista. Applicato in automatico, nessuna attesa di consenso di
-Sakrem (regola dell'08/09/2026) - riportato qui solo per completezza
-dello storico, dato che è un cambiamento strutturale legato
-all'aggiunta del nuovo media.
+Con l'aggiunta di `ex-troopers` (settima voce), la palette passa da 3 a
+4 colori: da `["#b3e5fc", "#f97316", "#1e3a5f"]` a `["#b3e5fc",
+"#1e3a5f", "#f97316", "#22d3ee"]`, con nuovo `paletteBounds` su `main`
+(`["lp3", "lp1", "lp2"]`). Verificato contro `computeGradientStops` in
+`script.js`: con 7 entries i 4 segmenti corrispondono alle 4 fasi
+narrative proposte dall'Artista. Applicato in automatico (regola
+dell'08/09/2026).
 
 ## Mafia
 
@@ -2326,41 +2156,34 @@ all'aggiunta del nuovo media.
   colonna sonora originale), "Born to Be Wild" (*Mafia III*,
   Steppenwolf).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione per fama/
-  radicamento reale nel pubblico (non cronologica), con concentrazione
-  ammessa su Mafia III perché è lì che si concentra la fama reale dei
-  brani licenziati. Esclusione verificata e confermata di un possibile
-  ottavo brano da *Mafia: The Old Country* ("The Carusu"): nessuna
-  prova di fama/radicamento paragonabile (nessun remake, nessuna
-  ri-registrazione da concerto, nessuna citazione isolata in
-  retrospettive), a differenza del "Main Theme" di Mafia I (riarrangiato
-  nel remake 2020, ri-registrato dal vivo nel 2024).
+- **Motivazione**: prima playlist della saga, fama/radicamento reale
+  nel pubblico (non cronologica), concentrata su Mafia III perché lì si
+  concentra la fama dei brani licenziati. Escluso un possibile ottavo
+  brano da *Mafia: The Old Country* ("The Carusu"): nessuna prova di
+  fama paragonabile (nessun remake, ri-registrazione da concerto,
+  citazione in retrospettive), a differenza del "Main Theme" di Mafia I
+  (riarrangiato nel remake 2020, ri-registrato dal vivo nel 2024).
 - **Data**: 2026-09-11.
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
   **AVVISO RISCHIO DIRITTI D'AUTORE**: 6 delle 7 tracce ("Respect",
   "Paint It Black", "That's Amore", "Fortunate Son", "Sympathy for the
   Devil", "Born to Be Wild") sono master discografici commerciali major
   con licenza (Aretha Franklin, Rolling Stones x2, Dean Martin, CCR,
-  Steppenwolf) - un tipo di traccia diverso e più a rischio del
-  precedente unico brano non originale già sul sito (BioShock, di
-  pubblico dominio). Ospitare questi file integrali su R2/CDN pubblico
-  comporta un rischio di diritti d'autore più elevato: prima di
-  caricare i file reali, Sakrem deve valutare separatamente se
-  procedere con estratti brevi, invocare il fair use, o sostituire
-  queste tracce con la sola colonna sonora orchestrale originale. Solo
-  "Main Theme" (Mafia: The City of Lost Heaven) è colonna sonora
-  originale del gioco, senza questo rischio aggiuntivo.
+  Steppenwolf) - più a rischio del precedente unico brano non originale
+  sul sito (BioShock, pubblico dominio). Ospitarli integrali su R2/CDN
+  pubblico è un rischio maggiore: prima di caricare i file, Sakrem deve
+  valutare estratti brevi, fair use, o sostituzione con la sola colonna
+  sonora orchestrale originale. Solo "Main Theme" (Mafia: The City of
+  Lost Heaven) è OST originale del gioco, senza questo rischio.
 
 ### Media aggiunti
 
-Saga interamente nuova: 1 nuovo universo e 5 nuove voci (tutte voci a
-sé, nessuna gemella, nessuna STORIA), tutte inserite nella stessa
-sessione, 2026-09-11 (terza di una sequenza di 10 saghe lavorate in
-sequenza in questa sessione).
+Saga interamente nuova: 1 nuovo universo e 5 nuove voci (tutte a sé,
+nessuna gemella, nessuna STORIA), sessione 2026-09-11 (terza di 10
+saghe lavorate in sequenza).
 
 - Nuovo universo **Universo principale** (`the-old-country` →
   `mafia-iii`, 5 voci) - sessione 2026-09-11.
@@ -2397,15 +2220,13 @@ sequenza in questa sessione).
   2*), Leaving Earth (*Mass Effect 3*), I Was Lost Without You (*Mass
   Effect 2*, DLC Lair of the Shadow Broker).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura dei tre capitoli principali della
-  Trilogia di Shepard.
+- **Motivazione**: prima playlist della saga, temi più iconici dei tre
+  capitoli principali della Trilogia di Shepard.
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 4/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
-  sono nuovi per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo viene comunque creato dal Programmatore come
-  `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i brani sono nuovi per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -2420,14 +2241,13 @@ sequenza in questa sessione).
   usciti) - voce a sé, ultima voce dell'universo Trilogia di Shepard,
   dopo `priority-hagalaz`/`foundation` - richiamo mirato, 2026-09-09.
 
-### Nota procedurale - blurb saga e palette a sottogruppi (entrambi gli universi)
+### Nota procedurale - blurb saga e palette a sottogruppi
 
-Il blurb della saga, precedentemente troncato a metà frase ("...nel."
-/ "...The."), è stato riscritto per intero dal Linguista e verificato
-dal Supervisore (IT 304 caratteri, EN 277 caratteri). Contestualmente,
-l'Artista ha proposto per la prima volta una palette a sottogruppi
-narrativi su entrambi gli universi della saga (finora la saga aveva
-solo `palette` a 3 colori senza `paletteBounds`):
+Il blurb della saga, troncato a metà frase ("...nel." / "...The."), è
+stato riscritto per intero dal Linguista (IT 304 caratteri, EN 277
+caratteri). L'Artista ha proposto per la prima volta una palette a
+sottogruppi narrativi su entrambi gli universi (finora solo `palette` a
+3 colori, senza `paletteBounds`):
 
 - **Trilogia di Shepard**: `palette: ["#1a2744", "#e8532a",
   "#4a90d9"]`, `paletteBounds: ["me1", "discovery"]` - tre fasi: "La
@@ -2442,36 +2262,27 @@ solo `palette` a 3 colori senza `paletteBounds`):
   `#4a2f7a`; "Approdo a Heleus" (fino a fine universo) = `#2e9e8f`.
 
 `accentColor: "#4a90d9"` resta invariato. Entrambi i `paletteBounds`
-verificati dal Supervisore contro l'ordine reale delle entries in
-`data.js`. Applicato in automatico, nessuna attesa di consenso di
-Sakrem (regola dell'08/09/2026) - riportato qui per completezza dello
-storico, dato che è la prima volta che questa saga usa il meccanismo
-"palette a sottogruppi".
+verificati contro l'ordine reale delle entries in `data.js`. Applicato
+in automatico (regola dell'08/09/2026) - prima volta che questa saga
+usa il meccanismo "palette a sottogruppi".
 
 ### INCIDENTE PROCEDURALE - Artista, scrittura diretta su `data.js`
 
-**Da leggere con priorità - non è una nota procedurale minore come le
-altre di questa sessione.**
+**Da leggere con priorità.**
 
-Nel ciclo di questo richiamo mirato, l'Artista invocato ha scritto
-DIRETTAMENTE su `data.js` (palette/paletteBounds/lastAgentPass, con
-commenti inline), bypassando la regola per cui solo il Programmatore
-può scrivere o committare quel file. La modifica è stata scoperta
-dall'orchestratore tramite `git diff`, verificata tecnicamente corretta
-nel contenuto (i `paletteBounds` corrispondevano esattamente all'ordine
-reale delle entries), ma SCARTATA con `git checkout -- data.js` PRIMA
-di qualunque commit, per non normalizzare l'accesso in scrittura di un
-agente che non dovrebbe averlo. **Nessun impatto sul sito pubblicato**
-(la modifica non è mai stata committata). Il Programmatore ha poi
-riscritto la stessa palette da zero come propria azione, sulla base
-della sola descrizione testuale della proposta (non del diff
-scartato).
+L'Artista invocato ha scritto direttamente su `data.js`
+(palette/paletteBounds/lastAgentPass, con commenti inline), bypassando
+la regola per cui solo il Programmatore scrive o committa quel file.
+Scoperta dall'orchestratore via `git diff`, contenuto tecnicamente
+corretto (i `paletteBounds` corrispondevano all'ordine reale delle
+entries), ma scartata con `git checkout -- data.js` prima di qualunque
+commit. Nessun impatto sul sito pubblicato (mai committata). Il
+Programmatore ha poi riscritto la stessa palette da zero, sulla sola
+descrizione testuale della proposta.
 
-**Raccomandazione esplicita del Supervisore per Sakrem**: verificare e,
-se necessario, rimuovere qualunque permesso di scrittura su `data.js`
-lato Artista - e per coerenza controllare anche il Musicista - per
-evitare che l'incidente si ripeta al prossimo ciclo di rivalutazione
-palette/tracklist.
+**Raccomandazione per Sakrem**: verificare e, se necessario, rimuovere
+il permesso di scrittura su `data.js` dell'Artista - e per coerenza
+controllare anche il Musicista.
 
 ## Metal Gear Solid
 
@@ -2490,17 +2301,15 @@ palette/tracklist.
   Sins of the Father (*Metal Gear Solid V: The Phantom Pain*), Heavens
   Divide (*Metal Gear Solid: Peace Walker*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di più capitoli principali e
-  spin-off (incluso Metal Gear Rising: Revengeance).
+- **Motivazione**: prima playlist della saga, temi più iconici di più
+  capitoli principali e spin-off (incluso Metal Gear Rising:
+  Revengeance).
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 5/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
-  sono nuovi per il sito e da caricare su R2 (proposta già accettata
-  nel merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico; saga finora priva di qualunque asset audio/immagine caricato,
-  incluso avatar/banner/watermarkOpacity). Il campo viene comunque
-  creato dal Programmatore come `tracks: []`, non popolato, in attesa
-  dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i brani sono nuovi per il sito, da caricare su R2 (saga finora
+  priva di qualunque asset audio/immagine, incluso
+  avatar/banner/watermarkOpacity). Il Programmatore crea comunque il
+  campo `tracks: []`, vuoto in attesa dei file.
 
 ### Media aggiunti
 
@@ -2523,94 +2332,79 @@ del meccanismo "gemella multipla" - vedi nota procedurale sotto).
   Project Itoh, 2008 Giappone/2012 EN) - voce gemella singola di
   `mgs4` - richiamo mirato, 2026-09-09.
 
-### Nota procedurale - PRIMA APPLICAZIONE REALE del meccanismo "gemella multipla"
+### Nota procedurale - prima applicazione reale del meccanismo "gemella multipla"
 
-**Da leggere con priorità - novità tecnica rilevante anche oltre questa
-saga, non solo una nota di dettaglio locale.**
+**Da leggere con priorità - rilevante anche oltre questa saga.**
 
-`mgs1` è la prima voce sul sito ad avere davvero DUE gemelle
-contemporaneamente (`mgs1-comic`, IDW 2004-2006, e `mgs1-novel`,
-Benson 2008): il meccanismo "box pulsante + popup" per due o più
-gemelle sullo stesso titolo principale, già specificato in
-`.claude/agents/traccia-programmatore.md` (righe 76-83) ma mai
-implementato finora, viene commissionato al Programmatore per la prima
-volta in questo ciclo. Ordine delle due gemelle nel popup: prima
-`mgs1-comic` (2004-2006), poi `mgs1-novel` (2008) - ordine cronologico
-di uscita.
+`mgs1` è la prima voce sul sito con davvero due gemelle contemporanee
+(`mgs1-comic`, IDW 2004-2006, e `mgs1-novel`, Benson 2008): il
+meccanismo "box pulsante + popup" per due o più gemelle, già
+specificato in `.claude/agents/traccia-programmatore.md` (righe 76-83)
+ma mai implementato, viene commissionato al Programmatore per la prima
+volta. Ordine nel popup: prima `mgs1-comic` (2004-2006), poi
+`mgs1-novel` (2008), cronologico di uscita.
 
 Collegamento diretto con la proposta ancora in sospeso per Kingdom
-Hearts (vedi sezione Kingdom Hearts sopra, "In sospeso - meccanismo
-gemella multipla"): lì il Supervisore aveva individuato lo stesso
-identico limite tecnico e proposto due strade, (a) costruire il
-meccanismo strutturale oppure (b) degradare i 5 manga proposti
-(`kh1-manga`, `chain-of-memories-manga`, `kh2-manga`,
-`358-2-days-manga`, `kh3-manga`) a semplice nota testuale. Con
-l'implementazione del meccanismo (a) commissionata ora per Metal Gear
-Solid, la strada (a) diventa concretamente disponibile anche per
-Kingdom Hearts: la decisione se ripubblicare i 5 manga KH ora (con lo
-stesso meccanismo appena costruito) o in un secondo momento resta
-comunque di chi gestisce la consegna di quella saga - il testo IT/EN
-delle 5 voci è già pronto e verificato da prima, nessun lavoro perso.
+Hearts (vedi sopra, "In sospeso - meccanismo gemella multipla"): stesso
+limite tecnico, stesse due strade (a: meccanismo strutturale; b:
+degradare i 5 manga proposti - `kh1-manga`, `chain-of-memories-manga`,
+`kh2-manga`, `358-2-days-manga`, `kh3-manga` - a nota testuale). Con
+(a) ora commissionata per Metal Gear Solid, diventa disponibile anche
+per Kingdom Hearts: la decisione se ripubblicare i 5 manga KH ora o più
+avanti resta di chi gestisce quella saga - testo IT/EN già pronto,
+nessun lavoro perso.
 
 ## Metro
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
-delle 10 saghe individuate dal Project Manager per questa sessione notturna
-(turno notturno 2/notte 3). Due universi paralleli di pari peso narrativo,
-stesso caso-tipo di The Witcher: **Libri** (`metro-2033-romanzo` →
-`metro-outpost-america`, 5 voci) e **Giochi** (`metro-2033-videogioco` →
-`metro-2039`, 7 voci, di cui 1 `imagePending`), 12 voci totali, nessuna voce
-gemella (i 3 fumetti della saga sono tutti adattamenti integrali o
-episodi-ponte autonomi, mai l'adattamento di un singolo capitolo puntuale di
+Saga interamente nuova, una delle 10 individuate dal Project Manager
+per il turno notturno 2/notte 3. Due universi paralleli di pari peso
+narrativo, stesso caso-tipo di The Witcher: **Libri**
+(`metro-2033-romanzo` → `metro-outpost-america`, 5 voci) e **Giochi**
+(`metro-2033-videogioco` → `metro-2039`, 7 voci, 1 `imagePending`), 12
+voci totali, nessuna gemella (i 3 fumetti sono adattamenti integrali o
+episodi-ponte autonomi, mai adattamento di un singolo capitolo di
 un'opera già elencata).
 
 Decisioni di scope importanti:
 
-- **Universo espanso di terze parti escluso in blocco**: la saga Metro conta
-  oltre 90 romanzi spin-off scritti da autori diversi da Dmitry Glukhovsky
-  su licenza Deep Silver (la cosiddetta "Metro 2033 Universe" allargata),
-  esclusi integralmente per scala eccessiva rispetto al perimetro editoriale
-  di questa catena. Incluse solo le opere di Glukhovsky stesso, i loro
-  adattamenti diretti (fumetti/graphic novel) e il caso particolare di *The
-  Outpost: America*, comunque scritto direttamente da Glukhovsky pur
-  restando fuori dalla trilogia di Artyom. Decisione da **riconsiderare in
-  futuro con un criterio esplicito** se si vorrà includere un sottoinsieme
-  selezionato di quei 90+ romanzi (nessun criterio di selezione ancora
-  proposto in questo ciclo).
-- **`metro-2039` incluso come `imagePending`**: videogioco non ancora
-  uscito (data annunciata 4 febbraio 2027), schema identico a
-  `witcher-songs-of-the-past`/`witcher-4-polaris` (nessuna sinossi, solo
-  campi id/type/typeEn/year/yearEn/releaseYear/releaseYearEn/title/
+- **Universo espanso di terze parti escluso in blocco**: oltre 90
+  romanzi spin-off di autori diversi da Dmitry Glukhovsky su licenza
+  Deep Silver ("Metro 2033 Universe" allargata), esclusi per scala
+  eccessiva. Incluse solo le opere di Glukhovsky, i loro adattamenti
+  diretti e *The Outpost: America* (scritto da Glukhovsky, fuori dalla
+  trilogia di Artyom). Da riconsiderare in futuro con un criterio
+  esplicito per un sottoinsieme di quei 90+ romanzi (nessun criterio
+  ancora proposto).
+- **`metro-2039` incluso come `imagePending`**: non ancora uscito (4
+  febbraio 2027), schema identico a `witcher-songs-of-the-past`/
+  `witcher-4-polaris` (nessuna sinossi, solo campi
+  id/type/typeEn/year/yearEn/releaseYear/releaseYearEn/title/
   imagePending/releaseDateShort).
-- **Disambiguazione Metro 2034 (romanzo) / Metro: Last Light (videogioco)**:
-  stesso anno narrativo (2034) ma **nessun rapporto di fonte** tra le due
-  opere - personaggi ed eventi del romanzo (Omero, Sasha, Sevastopolskaya)
-  sono del tutto indipendenti dalla trama del gioco (Artyom, Anna, cucciolo
-  di Tetro, bunker D6). Entrambe le sinossi aprono esplicitamente con
-  l'avviso di non-confusione, ed è stato scelto di sfruttare anche il campo
-  `year`/`yearEn` della voce `metro-2034` per rinforzare visivamente la
-  disambiguazione in scheda.
-- **Doppione di titolo "Metro 2033"** (romanzo del 2005 e videogioco del
-  2010, storie diverse pur condividendo la premessa) disambiguato con id
+- **Disambiguazione Metro 2034 (romanzo) / Metro: Last Light
+  (videogioco)**: stesso anno narrativo (2034), nessun rapporto di
+  fonte - personaggi ed eventi del romanzo (Omero, Sasha,
+  Sevastopolskaya) indipendenti dalla trama del gioco (Artyom, Anna,
+  cucciolo di Tetro, bunker D6). Entrambe le sinossi aprono con avviso
+  di non-confusione; il campo `year`/`yearEn` di `metro-2034` rinforza
+  la disambiguazione in scheda.
+- **Doppione di titolo "Metro 2033"** (romanzo 2005, videogioco 2010,
+  storie diverse pur condividendo la premessa) disambiguato con id
   distinti: `metro-2033-romanzo` (Ramo Libri) e `metro-2033-videogioco`
   (Ramo Giochi).
 - I due DLC narrativi di *Metro Exodus* (`metro-exodus-two-colonels`,
   `metro-exodus-sams-story`) classificati come `type: "ESPANSIONE"` /
-  `typeEn: "EXPANSION"`, non "VIDEOGIOCO" - stesso standard già in uso per
-  Hearts of Stone/Blood and Wine in The Witcher.
+  `typeEn: "EXPANSION"`, non "VIDEOGIOCO" - stesso standard di Hearts
+  of Stone/Blood and Wine in The Witcher.
 
 ### Correzione terminologica
 
-"Dark Ones" → **"i Tetri"** (non "i Neri", presente nella bozza iniziale) è
-la resa italiana applicata in tutte le sinossi IT (e nel blurb IT) che
-nominano la specie aliena/mutante al centro della saga; il testo EN
-mantiene invece "Dark Ones" invariato in ogni voce. Corretto anche
-**Miller/Melnik**: lo stesso personaggio (il Colonnello a capo dei Ranger
-dell'Ordine) ha nome diverso a seconda del media in italiano - **Melnik**
-nelle sinossi IT del Ramo Libri (localizzazione dei romanzi editi da Nord),
-**Miller** nelle sinossi IT del Ramo Giochi (localizzazione ufficiale dei
-videogiochi 4A Games); il testo EN usa invece **Miller** in modo uniforme
-in entrambi i rami, romanzi compresi (nessuna variante "Melnik" in inglese).
+"Dark Ones" → **"i Tetri"** (non "i Neri", bozza iniziale) resa
+italiana in tutte le sinossi/blurb IT; il testo EN resta "Dark Ones".
+Corretto anche **Miller/Melnik**: stesso personaggio (il Colonnello a
+capo dei Ranger), nome diverso in italiano - **Melnik** nel Ramo Libri
+(localizzazione Nord), **Miller** nel Ramo Giochi (localizzazione 4A
+Games); l'EN usa **Miller** uniformemente in entrambi i rami, romanzi
+compresi.
 
 ### Musica
 
@@ -2624,21 +2418,19 @@ in entrambi i rami, romanzi compresi (nessuna variante "Melnik" in inglese).
   (*Metro: Last Light*), "Dawn of Hope" (*Metro Exodus*), "Race Against
   Fate" (*Metro Exodus*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata su fama/
-  gradimento reale (TV Tropes Awesome Music, recensioni di settore
-  specializzate in colonne sonore videoludiche, dati streaming, tab/cover
-  ricorrenti su Ultimate Guitar/Songsterr). Perimetro musicale limitato ai 3
-  videogiochi principali con colonna sonora propria (tutti compositi da
-  Alexey Omelchuk, co-compositore solo su Metro 2033 con Georgiy
-  Beloglazov); le due espansioni di Exodus hanno colonne sonore proprie ma
-  di formato troppo ridotto (EP di 4 tracce e singolo di 2 tracce) e senza
-  riscontro critico di brani distintivi, escluse di conseguenza.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale (TV
+  Tropes Awesome Music, recensioni specializzate, dati streaming,
+  tab/cover ricorrenti su Ultimate Guitar/Songsterr). Perimetro: i 3
+  videogiochi principali con OST propria (compositi da Alexey
+  Omelchuk, co-compositore solo su Metro 2033 con Georgiy Beloglazov);
+  le due espansioni di Exodus hanno OST proprie ma troppo ridotte (EP
+  di 4 tracce, singolo di 2) e senza brani distintivi di rilievo,
+  escluse.
 - **Data**: 2026-09-10 (sessione notturna, turno notturno 2/notte 3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file fisico).
-  Il campo viene comunque creato dal Programmatore come `tracks: []`, non
-  popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -2678,14 +2470,12 @@ nessuna voce STORIA), tutte inserite nella stessa sessione notturna,
 
 ## Metroid
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo): un
-solo universo ("La Galassia di Metroid" / "The Metroid Galaxy",
-`metroid-manga` → `metroid-dread`) e 13 nuove voci, tutte inserite
-nella stessa sessione notturna, 2026-09-10. Nessuna voce gemella,
-nessuna voce STORIA. Ordine delle 13 voci scelto per **cronologia
-narrativa interna**, non per anno di uscita (motivo per cui Metroid
-Prime Hunters, 2006, precede Metroid Prime 2: Echoes, 2004, e Metroid
-Fusion, 2002, arriva dopo Metroid Prime 4: Beyond, 2025).
+Saga interamente nuova: un solo universo ("La Galassia di Metroid",
+`metroid-manga` → `metroid-dread`) e 13 nuove voci, sessione notturna
+2026-09-10. Nessuna gemella, nessuna VOCE STORIA. Ordine per cronologia
+narrativa interna, non uscita (Metroid Prime Hunters, 2006, precede
+Metroid Prime 2: Echoes, 2004; Metroid Fusion, 2002, arriva dopo
+Metroid Prime 4: Beyond, 2025).
 
 ### Musica
 
@@ -2700,23 +2490,19 @@ Fusion, 2002, arriva dopo Metroid Prime 4: Beyond, 2025).
   Metroid*), "Ending Theme" (*Metroid*/*Metroid: Zero Mission*),
   "Chozo Ruins" (Ancient Chozo Ruins) (*Metroid Prime*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community (TV Tropes, ResetEra,
-  Wikitroid/Metroid Fandom, Hardcore Gamer, Digital Trends, Metacritic),
-  non su gusto personale. Concentrazione volontaria su soli 3 titoli
-  (Metroid 1986/Zero Mission, Super Metroid, Metroid Prime) perché è lì
-  che si concentra la fama reale verificata; gli altri 9 titoli
-  confermati della saga restano fuori dalla selezione (Metroid Dread in
-  particolare più volte descritto dalla community come OST meno
-  memorabile della saga). Copertura sia della linea 2D classica sia
-  della sotto-serie Prime, come richiesto. Nessuna coppia di tracce
-  dello stesso titolo adiacente in ordine.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (TV Tropes, ResetEra, Wikitroid/Metroid Fandom, Hardcore Gamer,
+  Digital Trends, Metacritic), non gusto personale. Concentrata su 3
+  titoli (Metroid 1986/Zero Mission, Super Metroid, Metroid Prime) dove
+  si concentra la fama reale; gli altri 9 restano fuori (Metroid Dread
+  descritto dalla community come OST meno memorabile della saga).
+  Copertura sia della linea 2D classica sia della sotto-serie Prime.
+  Nessuna coppia di tracce dello stesso titolo adiacente.
 - **Data**: 2026-09-10 (sessione notturna, 2/3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -2763,80 +2549,65 @@ notturna, 2026-09-10.
 - **Metroid Prime Pinball (2005) escluso**: spin-off minore, nessuna
   voce dedicata, deciso in fase di scrittura/revisione.
 - **Metroid Prime Hunters, Metroid Prime: Federation Force e il manga
-  Metroid (2003) inclusi**: nonostante siano titoli minori/spin-off
-  (Hunters è uno sparatutto multiplayer-centrico, Federation Force è
-  lo spin-off senza Samus giocabile più contestato della serie, il
-  manga non ha mai avuto edizione italiana ufficiale), tutti e tre sono
-  stati inclusi perché fanno parte della continuity narrativa ufficiale
-  della saga (il manga in particolare è confermato canonico da
-  Nintendo stessa tramite le tavole riprese in Metroid: Zero Mission).
+  Metroid (2003) inclusi**: titoli minori/spin-off (Hunters è
+  multiplayer-centrico, Federation Force è lo spin-off senza Samus
+  giocabile più contestato, il manga non ha mai avuto edizione
+  italiana), inclusi perché parte della continuity ufficiale (il manga
+  è confermato canonico da Nintendo tramite le tavole riprese in
+  Metroid: Zero Mission).
 - **Ordine narrativo interno, non ordine di uscita**: le 13 voci sono
-  ordinate per cronologia in-fiction, non per anno di pubblicazione -
-  conseguenza pratica più visibile: Metroid Prime Hunters (uscito nel
-  2006) precede Metroid Prime 2: Echoes (uscito nel 2004) nell'elenco,
-  e Metroid Prime 4: Beyond (uscito il 4 dicembre 2025) è collocato tra
-  Metroid: Other M e Metroid Fusion (usciti rispettivamente nel 2010 e
-  nel 2002). La collocazione di Metroid Prime 4: Beyond dopo Other M è
-  in parte una decisione editoriale di questo sito: Nintendo ha
-  confermato ufficialmente (Famitsu, dicembre 2025) solo che il gioco
-  si colloca tra Super Metroid e Metroid Fusion, non la sua posizione
-  esatta rispetto a Other M, che ricade nella stessa finestra
-  temporale - dettaglio riportato anche come nota nella sinossi
-  pubblicata.
-- **Remake trattati come voce unica, non voce gemella o voce doppia**:
-  Metroid (1986) + Metroid: Zero Mission (2004) sono un'unica voce
-  `metroid-zero-mission` con sinossi basata sulla versione più completa
-  (Zero Mission) e nota sulle differenze; stesso trattamento per
-  Metroid II: Return of Samus (1991) + Metroid: Samus Returns (2017),
-  voce unica `metroid-2-samus-returns`; e per Metroid Prime (2002) +
-  il remaster Metroid Prime Remastered (2023), voce unica
-  `metroid-prime` con nota che chiarisce come il remaster sia un
-  restauro puramente tecnico senza modifiche narrative.
-- **Nessun asset immagine/audio caricato in questo ciclo**: a differenza
-  di altre saghe nuove recenti, per Metroid non è stata prodotta né
-  caricata alcuna immagine (avatar/banner/watermark/copertine per
-  voce) in questo passaggio - solo testo, colori (Artista) e proposta
-  tracklist (Musicista, bloccata). Nessuna sezione "immagini mancanti"
-  aperta perché nessun URL segnaposto è stato creato: sarà un lavoro
-  di un ciclo futuro.
+  ordinate per cronologia in-fiction, non uscita: Metroid Prime Hunters
+  (2006) precede Metroid Prime 2: Echoes (2004); Metroid Prime 4:
+  Beyond (4 dicembre 2025) è tra Metroid: Other M e Metroid Fusion
+  (2010 e 2002). La collocazione dopo Other M è in parte decisione
+  editoriale: Nintendo (Famitsu, dicembre 2025) conferma solo che il
+  gioco si colloca tra Super Metroid e Metroid Fusion, non la posizione
+  esatta rispetto a Other M (stessa finestra temporale) - nota
+  riportata anche in sinossi.
+- **Remake trattati come voce unica, non gemella o doppia**: Metroid
+  (1986) + Metroid: Zero Mission (2004) → voce unica
+  `metroid-zero-mission` (sinossi su Zero Mission, nota sulle
+  differenze); Metroid II: Return of Samus (1991) + Metroid: Samus
+  Returns (2017) → voce unica `metroid-2-samus-returns`; Metroid Prime
+  (2002) + Metroid Prime Remastered (2023) → voce unica
+  `metroid-prime` (nota: remaster è restauro tecnico, nessuna modifica
+  narrativa).
+- **Nessun asset immagine/audio caricato in questo ciclo**: nessuna
+  immagine (avatar/banner/watermark/copertine) prodotta o caricata in
+  questo passaggio - solo testo, colori e tracklist proposta (bloccata).
+  Nessuna sezione "immagini mancanti" aperta (nessun URL segnaposto
+  creato): lavoro di un ciclo futuro.
 
 ### Correzione di trama - "Regina degli X" inesistente
 
-Errore di trama nella bozza dello Scrittore, non solo una questione
-terminologica: la sinossi originale di Metroid Fusion presentava una
-"Regina degli X" (Queen X) come antagonista finale, un'entità che
-**non esiste nella lore ufficiale della serie**. Verifica supplementare
-del Supervisore (Metroid Database, Omega Metroid Walkthrough, Anatomy
-of Games, dichiarazioni di Yoshio Sakamoto riportate da più fonti
-indipendenti) ha confermato che solo la specie Metroid ha una regina
-(Metroid Queen/Regina dei Metroid, voce Metroid II/Samus Returns) - il
-Parassita X non ne ha una propria. Il finale corretto e ora pubblicato:
-SA-X nella sua forma mutata finale viene sopraffatta da un Omega
-Metroid sopraggiunto nell'hangar, che la riduce al proprio nucleo
-(Core-X); il Core-X si fonde con Samus restituendole l'arsenale della
-Tuta Energia (incluso il Raggio Ghiaccio); Samus sconfigge l'Omega
-Metroid e fugge dalla stazione BSL. Verificato che "Queen X"/"Regina
-degli X" non compariva in nessun'altra voce della saga.
+Errore di trama, non solo terminologico: la bozza presentava una
+"Regina degli X" (Queen X) come antagonista finale di Metroid Fusion,
+entità inesistente nella lore ufficiale. Verifica del Supervisore
+(Metroid Database, Omega Metroid Walkthrough, Anatomy of Games,
+dichiarazioni di Yoshio Sakamoto) conferma che solo la specie Metroid
+ha una regina (Metroid Queen/Regina dei Metroid, in Metroid
+II/Samus Returns); il Parassita X non ne ha una propria. Finale
+corretto e pubblicato: SA-X mutata viene sopraffatta da un Omega
+Metroid nell'hangar, ridotta al nucleo (Core-X); il Core-X si fonde con
+Samus restituendole l'arsenale della Tuta Energia (incluso Raggio
+Ghiaccio); Samus sconfigge l'Omega Metroid e fugge dalla stazione BSL.
+"Queen X"/"Regina degli X" non compariva in nessun'altra voce della
+saga.
 
 ### Correzioni terminologiche significative (Linguista/Supervisore)
 
-Sette correzioni certe del Linguista applicate integralmente (EN
-sempre invariato): "Power Suit"→"Tuta Energia", "Mother Brain"→
-"Cervello Madre" (maschile: "il Cervello Madre"), "Morph Ball"→
-"Morfosfera", "Gravity Suit"→"Tuta Gravità", "Space Jump"→"Salto
-Spaziale", "Plasma Beam"→"Raggio Plasma", "Zero Suit"→"Tuta Zero".
-Quattro punti a confidenza media decisi dal Supervisore con verifica
-incrociata su fonti italiane indipendenti: "Mothership"→"Nave Madre"
-(uniformato anche un'incoerenza IT/EN della bozza), "Parasite Queen"→
-"Parassita Regina", "Metroid Queen"→"Regina dei Metroid" (scartata
-l'alternativa minoritaria "Metroid Sovrana"), e il quarto punto era
-proprio la "Regina degli X" respinta come errore di trama (vedi sopra,
-non una semplice questione di traduzione). Chiarimento aggiuntivo:
-"Mother Brain"/Cervello Madre (Zebes) e "Master Brain" (l'IA del
-Doomseye in Federation Force) sono entità deliberatamente distinte
-anche nell'originale e non vanno mai armonizzate; "Master Brain" resta
-non tradotto, con una parentesi esplicita nella sinossi di Federation
-Force per evitare ambiguità al lettore.
+Sette correzioni certe del Linguista (EN invariato): "Power Suit"→"Tuta
+Energia", "Mother Brain"→"Cervello Madre" (m., "il Cervello Madre"),
+"Morph Ball"→"Morfosfera", "Gravity Suit"→"Tuta Gravità", "Space
+Jump"→"Salto Spaziale", "Plasma Beam"→"Raggio Plasma", "Zero
+Suit"→"Tuta Zero". Quattro punti a confidenza media del Supervisore:
+"Mothership"→"Nave Madre" (corretta anche un'incoerenza IT/EN),
+"Parasite Queen"→"Parassita Regina", "Metroid Queen"→"Regina dei
+Metroid" (scartata "Metroid Sovrana"), e la "Regina degli X" respinta
+come errore di trama (vedi sopra). "Mother Brain"/Cervello Madre
+(Zebes) e "Master Brain" (IA del Doomseye in Federation Force) restano
+entità distinte, mai armonizzate; "Master Brain" non tradotto, con
+parentesi esplicita in sinossi per evitare ambiguità.
 
 ## Mortal Kombat
 
@@ -2857,10 +2628,9 @@ Force per evitare ambiguità al lettore.
   della sola Linea Videoludica Mainline (nessun brano dagli universi
   cinematografici/TV appena aggiunti).
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 6/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i brani
-  sono nuovi per il sito e da caricare su R2 (proposta già accettata
-  nel merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo resta `tracks: []` fino al caricamento.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i brani sono nuovi per il sito, da caricare su R2. Il campo resta
+  `tracks: []` fino al caricamento.
 
 ### Media aggiunti
 
@@ -2925,61 +2695,51 @@ sessione, 2026-09-09.
 
 ### Nota procedurale - riordino strutturale, blurb, palette, allucinazione intercettata
 
-Ampliamento da 3 a 7 universi in un solo ciclo, il più grande di
-questa sessione notturna finora - alcune modifiche strutturali oltre
-alle semplici aggiunte di voci:
+Ampliamento da 3 a 7 universi, il più grande di questa sessione
+notturna - modifiche strutturali oltre alle semplici aggiunte:
 
-- **Riordino dell'intero array `universes`** (non un semplice append
-  dei 4 nuovi in coda): criterio anno di nascita dell'universo, dato
-  che nessun espediente narrativo unificante lega le 7 diramazioni tra
-  loro. Ordine finale: Timeline Originale (1992) → Film Anni '90
-  (1995) → Mortal Kombat Legacy (2010) → Timeline Rebooted (nato 2011
-  con MK9, non 2008 - l'inclusione di MK vs DC è un retcon successivo)
-  → Mortal Kombat Legends (2020) → Film Reboot (2021) → Nuova Era
-  (2023).
+- **Riordino dell'intero array `universes`** (non solo append dei 4
+  nuovi): criterio anno di nascita, nessun espediente narrativo unifica
+  le 7 diramazioni. Ordine finale: Timeline Originale (1992) → Film
+  Anni '90 (1995) → Mortal Kombat Legacy (2010) → Timeline Rebooted
+  (nato 2011 con MK9, non 2008 - MK vs DC è un retcon successivo) →
+  Mortal Kombat Legends (2020) → Film Reboot (2021) → Nuova Era (2023).
 - **Correzione dello span di Timeline Rebooted**: da "2011 – 2019" a
-  "2008 – 2019" (conseguenza dell'aggiunta di `mk-vs-dc-2008`, che ha
-  releaseYear 2008, il più basso dell'universo, pur restando
-  narrativamente l'ultima voce).
-- **Nuovo blurb della saga** (sostituisce quello troncato a metà frase
-  in `data.js`): riscritto per intero da Scrittore/Linguista, con una
-  correzione di traduzione EN applicata dal Supervisore in revisione
-  finale. Copre tutti e 7 gli universi senza descrivere la trama di un
-  singolo titolo.
-- **7 sequenze palette** (campo `uni.palette`, già esistente/
-  funzionante sul sito) applicate a ciascuno dei 7 universi
-  dall'Artista - dettaglio completo nel pacchetto tecnico. `palette` e
-  `accentColor` a livello di saga restano invariati.
+  "2008 – 2019" (per `mk-vs-dc-2008`, releaseYear più basso
+  dell'universo pur restando narrativamente l'ultima voce).
+- **Nuovo blurb della saga** (sostituisce quello troncato a metà
+  frase): riscritto da Scrittore/Linguista, correzione di traduzione EN
+  del Supervisore in revisione. Copre tutti e 7 gli universi senza
+  descrivere la trama di un singolo titolo.
+- **7 sequenze palette** (campo `uni.palette`, già esistente sul sito)
+  applicate a ciascuno dei 7 universi dall'Artista - dettaglio completo
+  nel pacchetto tecnico. `palette` e `accentColor` a livello di saga
+  restano invariati.
 - **Nuovo tipo "FILM D'ANIMAZIONE"/"ANIMATED FILM"**: mai usato prima
   sul sito, introdotto dalle 4 voci di Mortal Kombat Legends.
 - **Allucinazione del Ricercatore intercettata e scartata**:
-  `mk11-comic-2019` (presunta miniserie fumetto IDW "Mortal Kombat 11"
-  attribuita a Matthew Dow Smith/Carlos Magno) non risulta mai
-  esistita - verificato con ricerca incrociata su più fonti dirette
-  (tra cui una dichiarazione esplicita dello sceneggiatore della vera
-  miniserie MKX 2015 che nega l'esistenza di una serie a fumetti per
-  MK11). Scartata prima della fase di scrittura, nessuna sinossi mai
-  prodotta per questa voce - esempio positivo di controllo qualità
-  della catena, segnalato anche nel report a Sakrem.
+  `mk11-comic-2019` (presunta miniserie fumetto IDW "Mortal Kombat 11",
+  Matthew Dow Smith/Carlos Magno) non risulta mai esistita - verificato
+  su più fonti (tra cui lo sceneggiatore della vera miniserie MKX 2015,
+  che nega l'esistenza di un fumetto MK11). Scartata prima della
+  scrittura, nessuna sinossi prodotta.
 
 ## NieR/Drakengard
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
-delle 10 saghe individuate dal Project Manager per questa sessione
-notturna (turno notturno 2/notte 3). Struttura tecnicamente la più
-complessa finora affrontata in questa sessione: 2 universi collegati da
-`universeLink` (`drakengard` → `nier`, stesso modello Rapture/Columbia
-già in uso su BioShock) e, al loro interno, 2 voci gemelle (`twin`) - il
-primo caso in cui i due meccanismi coesistono nella stessa saga. 13 voci
-totali sulla linea (11 voci a sé + 2 gemelle): 4 nell'universo
-`drakengard` (Drakengard 3 → Drag-On Dragoon 3: Story Side → Drakengard
-→ Drakengard 2) e 9 nell'universo `nier` (7 voci reali, comprese le 2
-gemelle: NieR Gestalt/Replicant, Grimoire NieR, YoRHa Stage Play + gemella
+Saga interamente nuova, una delle 10 individuate dal Project Manager
+per il turno notturno 2/notte 3. Struttura più complessa finora in
+questa sessione: 2 universi collegati da `universeLink` (`drakengard` →
+`nier`, stesso modello Rapture/Columbia di BioShock) e, al loro
+interno, 2 voci gemelle (`twin`) - primo caso in cui i due meccanismi
+coesistono nella stessa saga. 13 voci totali (11 a sé + 2 gemelle): 4
+in `drakengard` (Drakengard 3 → Drag-On Dragoon 3: Story Side →
+Drakengard → Drakengard 2) e 9 in `nier` (7 voci reali + 2 gemelle:
+NieR Gestalt/Replicant, Grimoire NieR, YoRHa Stage Play + gemella
 YoRHa: Pearl Harbor Descent Record, NieR: Automata + gemella NieR:
 Automata: Long Story Short, NieR: Automata: Short Story Long, NieR:
 Automata Ver1.1a, NieR Re[in]carnation). Introdotto anche 1 type mai
-usato prima sul sito, `TEATRO`/`STAGE PLAY` (per lo YoRHa Stage Play),
-senza bisogno di alcuna modifica di codice.
+usato prima, `TEATRO`/`STAGE PLAY` (YoRHa Stage Play), senza modifiche
+di codice.
 
 ### Decisioni di scope importanti
 
@@ -2989,24 +2749,22 @@ senza bisogno di alcuna modifica di codice.
   scatena la sostanza magica alla radice della White Chlorination
   Syndrome/Necrografia del mondo di NieR, 1300 anni dopo. Collegamento
   ufficiale (contenuto in-game, dichiarazioni di Yoko Taro), non
-  un'ipotesi tematica: l'universo `drakengard` genera l'aggancio in
-  fondo alla propria linea (`edge: "end"`, dopo Drakengard 2), l'universo
-  `nier` lo riceve in apertura (`edge: "start"`, prima di NieR
-  Gestalt/Replicant).
+  un'ipotesi tematica: `drakengard` genera l'aggancio in fondo alla
+  propria linea (`edge: "end"`, dopo Drakengard 2), `nier` lo riceve in
+  apertura (`edge: "start"`, prima di NieR Gestalt/Replicant).
 - **Manga "Shi Ni Itaru Aka" (Fatal Crimson) escluso integralmente**:
-  nessuna voce, nessuna nota, nessun disclaimer in pagina. Segue
-  dichiaratamente una linea "Drakengard 1.3" alternativa e non canonica
-  a valle del Finale A di Drakengard 3 - a differenza di Drakengard 2
-  (incluso come ramo isolato/specchio, ma comunque parte della
-  continuity ufficiale), qui è la fonte stessa a dichiarare la propria
-  non-canonicità. Nessun dubbio residuo su questa esclusione.
+  nessuna voce, nessuna nota, nessun disclaimer. Segue dichiaratamente
+  una linea "Drakengard 1.3" alternativa e non canonica a valle del
+  Finale A di Drakengard 3 - a differenza di Drakengard 2 (incluso come
+  ramo isolato/specchio, ma parte della continuity ufficiale), qui è la
+  fonte stessa a dichiarare la propria non-canonicità.
 - **Saggio critico "The Strange Works of Taro Yoko" escluso**: materiale
-  critico/analitico sull'autore, non narrativo - non racconta alcuna
-  trama collocabile sulla linea del tempo e non supera nemmeno la soglia
-  minima per diventare una nota (quella categoria richiede comunque un
-  collegamento narrativo con un media esistente).
-- **Drakengard 2 incluso come ramo isolato/specchio**, comunicato solo in
-  prosa nella sua sinossi (nessun `lineStyle`): sequel del solo Finale A
+  critico/analitico sull'autore, non narrativo - nessuna trama
+  collocabile sulla linea del tempo, non raggiunge la soglia minima per
+  diventare nota (serve comunque un collegamento narrativo con un media
+  esistente).
+- **Drakengard 2 incluso come ramo isolato/specchio**, comunicato solo
+  in prosa nella sinossi (nessun `lineStyle`): sequel del solo Finale A
   di Drakengard, reso non-canonico come prosecuzione dal retcon di
   Drakengard 3 (2013), ma senza che la fonte ufficiale ne dichiari la
   non-canonicità in sé - per questo resta incluso, a differenza di "Shi
@@ -3019,18 +2777,17 @@ senza bisogno di alcuna modifica di codice.
 ### Correzione terminologica
 
 **"Culto dei Guardiani"/"Guardiani" → "Culto dei Messaggeri"/"Messaggeri"**
-(IT): la resa iniziale di lavoro ("Guardiani") era sbagliata, corretta dal
-Linguista in tutte le occorrenze reali del testo IT (voce "Drag-On
-Dragoon 3: Story Side": 1 occorrenza; voce "Drakengard": 4 occorrenze).
-Confidenza medio-alta (fonti secondarie convergenti, non testo di gioco
-verificato in prima persona - ipotesi solida ma non blindata al 100%). Il
-testo EN resta invariato, "Cult of the Watchers"/"Watchers". Altre due
-correzioni minori applicate nella stessa revisione, voce "NieR
-Gestalt/Replicant": "Cicatrice Nera (Black Scrawl)" → "Necrografia (Black
-Scrawl)" (IT, "Cicatrice Nera" era una traduzione letterale mai attestata;
-"Necrografia" è confermata da più fonti italiane indipendenti sull'edizione
-ver.1.22 con testi italiani ufficiali; EN resta "Black Scrawl") e "Project
-Gestalt" → "Progetto Gestalt" (solo IT, EN resta "Project Gestalt").
+(IT): resa iniziale sbagliata, corretta dal Linguista in tutte le
+occorrenze reali (voce "Drag-On Dragoon 3: Story Side": 1 occorrenza;
+voce "Drakengard": 4 occorrenze). Confidenza medio-alta (fonti
+secondarie convergenti, non testo di gioco verificato in prima
+persona). EN invariato, "Cult of the Watchers"/"Watchers". Altre due
+correzioni minori, voce "NieR Gestalt/Replicant": "Cicatrice Nera
+(Black Scrawl)" → "Necrografia (Black Scrawl)" (IT, "Cicatrice Nera"
+era traduzione letterale mai attestata; "Necrografia" confermata da più
+fonti italiane sull'edizione ver.1.22 con testi ufficiali; EN resta
+"Black Scrawl") e "Project Gestalt" → "Progetto Gestalt" (solo IT, EN
+invariato).
 
 ### Musica
 
@@ -3049,26 +2806,23 @@ Gestalt" → "Progetto Gestalt" (solo IT, EN resta "Project Gestalt").
   cantata), "This Silence Is Mine" (*Drakengard 3*, titoli di coda,
   cantata da Chihiro Onitsuka).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community (non gusto personale).
-  Perimetro musicale limitato ai soli videogiochi con colonna sonora
-  propria confermata (Drakengard, Drakengard 2, Drakengard 3, NieR
-  Gestalt/Replicant incl. remaster, NieR: Automata, NieR
-  Re[in]carnation): tutte le voci non-videoludiche (romanzi, fumetti,
-  anime, teatro) restano fuori dal perimetro per regola fissa
-  dell'incarico. Nessun brano da Drakengard (2003), Drakengard 2 o NieR
-  Re[in]carnation: nessuno dei tre ha un brano di fama realmente
-  comparabile ai due titoli principali NieR. Distribuzione risultante: 3
-  tracce da NieR: Automata, 3 da NieR Gestalt/Replicant, 1 da Drakengard
-  3 - conseguenza diretta della fama reale (la colonna sonora Okabe/
-  MONACA per NieR è tra le più celebrate della storia dei videogiochi),
-  non decisa a tavolino.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale di
+  critica e community (non gusto personale). Perimetro: i soli
+  videogiochi con OST propria confermata (Drakengard, Drakengard 2,
+  Drakengard 3, NieR Gestalt/Replicant incl. remaster, NieR: Automata,
+  NieR Re[in]carnation); le voci non-videoludiche (romanzi, fumetti,
+  anime, teatro) restano fuori per regola fissa. Nessun brano da
+  Drakengard (2003), Drakengard 2 o NieR Re[in]carnation: nessuno dei
+  tre ha un brano di fama comparabile ai due titoli principali NieR.
+  Distribuzione: 3 tracce da NieR: Automata, 3 da NieR
+  Gestalt/Replicant, 1 da Drakengard 3 - conseguenza della fama reale
+  (la OST Okabe/MONACA per NieR è tra le più celebrate della storia dei
+  videogiochi), non decisa a tavolino.
 - **Data**: 2026-09-10 (sessione notturna, 2/notte 3).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -3136,21 +2890,17 @@ STORIA), tutte inserite nella stessa sessione notturna, 2026-09-10.
   Chatwood) (*Warrior Within*), Main Theme (*The Lost Crown*), Welcome
   to Persia (Stuart Chatwood) (*Sands of Time*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di tutti e 4 gli universi già
-  pubblicati (Continuità Originale esclusa, nessun brano iconico
-  individuato per quei tre titoli). Ordine rivisto dal Supervisore in
-  revisione finale rispetto alla proposta originale del Musicista, per
-  evitare che tre tracce "Main Theme" risultassero adiacenti in
-  sequenza.
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di tutti e 4 gli universi già pubblicati (Continuità
+  Originale esclusa, nessun brano iconico individuato per quei tre
+  titoli). Ordine rivisto dal Supervisore per evitare tre tracce "Main
+  Theme" adiacenti.
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 7/10, ultima
   delle 7 saghe assegnate direttamente da Sakrem prima del passaggio
   al Project Manager).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i
-  brani sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo resta `tracks: []` fino al
-  caricamento.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i brani sono nuovi per il sito, da caricare su R2. Il campo
+  resta `tracks: []` fino al caricamento.
 
 ### Media aggiunti
 
@@ -3169,10 +2919,9 @@ esistenti - richiamo mirato, 2026-09-09.
 
 ### Nota procedurale - 3 annotazioni a voci esistenti, prime sequenze gradient per-universo
 
-Richiamo mirato (7/10, ultima delle 7 saghe assegnate direttamente da
-Sakrem in questa sessione notturna prima del passaggio al Project
-Manager per le 3 saghe finali) - oltre al nuovo universo/voce sopra,
-alcune modifiche a voci già pubblicate:
+Oltre al nuovo universo/voce sopra, modifiche a voci già pubblicate
+(richiamo mirato 7/10, ultima saga assegnata direttamente da Sakrem
+prima del passaggio al Project Manager):
 
 - **3 annotazioni a voci esistenti** (non nuovi media, non comparse
   quindi in "Media aggiunti"):
@@ -3210,21 +2959,19 @@ alcune modifiche a voci già pubblicate:
   (*Persona 5*), Memories of You (*Persona 3*, anche in *Persona 3
   Reload*), Burn My Dread (*Persona 3*, anche in *Persona 3 Reload*).
 - **Origine**: Musicista.
-- **Motivazione**: selezione basata su sondaggi ufficiali dei fan Atlus
-  (DJ Morgana per P5 Royal, Persona 3 Portable, Persona 4 Golden, tutti
-  2020/2022) incrociati con la fama pubblica internazionale (Beneath the
-  Mask preferita a un brano meglio piazzato nel solo sondaggio
-  giapponese, per la sua notorietà internazionale/presenza in Super
-  Smash Bros. Ultimate). Nessuna traccia da Megami Ibunroku
-  Persona/Persona 2 inclusa, per assenza di notorietà pubblica
-  comparabile.
+- **Motivazione**: sondaggi ufficiali dei fan Atlus (DJ Morgana per P5
+  Royal, Persona 3 Portable, Persona 4 Golden, 2020/2022) incrociati
+  con la fama pubblica internazionale (Beneath the Mask preferita a un
+  brano meglio piazzato nel solo sondaggio giapponese, per notorietà
+  internazionale/presenza in Super Smash Bros. Ultimate). Nessuna
+  traccia da Megami Ibunroku Persona/Persona 2, per assenza di
+  notorietà pubblica comparabile.
 - **Data**: 2026-09-09 (sessione notturna, prima delle 3 saghe trovate
   dal Project Manager in bypass).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -3308,37 +3055,31 @@ sessione notturna, 2026-09-09.
 Supervisore ha fuso quelli che sarebbero stati Persona 3, Persona 4 e
 Persona 5 in un unico universo "Velvet Room", invece di 3 universi
 separati collegati da `universeLink`. Decisione di giudizio motivata dai
-4 titoli crossover diretti tra questi giochi (Persona 4 Arena/Ultimax,
-Persona Q, Persona Q2, Dancing in Moonlight/Starlight), non imposta da
-una regola scritta univoca - reversibile in un ciclo successivo se
-Sakrem preferisce l'architettura a 3 universi separati. Dettaglio
-completo nel report di sessione.
+4 titoli crossover diretti (Persona 4 Arena/Ultimax, Persona Q, Persona
+Q2, Dancing in Moonlight/Starlight), non imposta da una regola scritta -
+reversibile se Sakrem preferisce l'architettura a 3 universi separati.
 
 ## Pokémon
 
 ### Nota per Sakrem - ciclo interrotto scoperto e corretto
 
-Richiamo mirato notturno (2/11 saghe assegnate direttamente da
-Sakrem). La saga era pubblicata con `canonNote.intro` +
-`canonNote.titles` (una singola stringa riassuntiva) + `canonNote.outro`,
-ma **priva del campo `chain`** che invece tutte le altre saghe con
-cronologia fan-made incerta (es. Doom) usano per elencare i singoli
-titoli in ordine. Il `titles` esistente non veniva mai renderizzato dal
-sito (campo morto) e conteneva inoltre titoli scritti in inglese anche
-nel testo IT. Il Supervisore ha ricostruito la `chain` (12 titoli
-mainline, compresi Leggende Pokémon: Arceus e Leggende Pokémon: Z-A) e
-ha scelto di adottare solo `canonNote.chain`, non la struttura piena a
-`universes`/`entries` usata dalle saghe con voci STORIA autonome:
-motivazione tecnica, non di merito - il `canonNote` di Pokémon non ha
-mai avuto quella struttura, e introdurla avrebbe richiesto inventare
-meccanismi (nuove voci, nuovi universi) fuori dallo scope di un
-richiamo mirato sulla sola cronologia. Per questo motivo la
-raccomandazione originale del Selezionatore di includere anche Pokémon
-Horizons (stagione 3), il manga Pokémon Adventures, Pokémon Tales e
-Pokémon Wild Card **non è stata seguita**: quella struttura non ha dove
-ospitarli senza una revisione più ampia. Punto da rivalutare in futuro
-se Sakrem desidera per Pokémon una struttura più ricca (a
-universi/voci) invece della sola `chain` testuale.
+Richiamo mirato notturno (2/11 saghe assegnate da Sakrem). La saga era
+pubblicata con `canonNote.intro` + `canonNote.titles` (stringa
+riassuntiva) + `canonNote.outro`, ma priva del campo `chain` che le
+altre saghe con cronologia fan-made incerta (es. Doom) usano per
+elencare i titoli in ordine. Il `titles` esistente non veniva mai
+renderizzato (campo morto) e aveva titoli in inglese anche nel testo
+IT. Il Supervisore ha ricostruito la `chain` (12 titoli mainline, incl.
+Leggende Pokémon: Arceus e Z-A) scegliendo solo `canonNote.chain`, non
+la struttura piena a `universes`/`entries`: motivazione tecnica, non di
+merito - il `canonNote` di Pokémon non ha mai avuto quella struttura,
+introdurla avrebbe richiesto nuove voci/universi fuori scope per un
+richiamo sulla sola cronologia. Per questo la raccomandazione del
+Selezionatore di includere anche Pokémon Horizons (stagione 3), il
+manga Pokémon Adventures, Pokémon Tales e Pokémon Wild Card non è
+stata seguita: quella struttura non ha dove ospitarli senza una
+revisione più ampia. Da rivalutare se Sakrem vuole una struttura più
+ricca (a universi/voci) invece della sola `chain` testuale.
 
 ### Musica
 
@@ -3353,16 +3094,14 @@ universi/voci) invece della sola `chain` testuale.
   Rosso/Blu/Giallo*), Team Rocket Battle Theme (*Pokémon
   Rosso/Blu/Giallo*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione per fama/
-  gradimento reale (poll ufficiale Famitsu novembre 2024 + rassegne
-  critiche/fan indipendenti), con particolare peso su Rosso/Blu/Giallo
-  e Diamante/Perla/Platino.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (poll ufficiale Famitsu novembre 2024 + rassegne critiche/fan
+  indipendenti), peso particolare su Rosso/Blu/Giallo e
+  Diamante/Perla/Platino.
 - **Data**: 2026-09-09 (richiamo mirato notturno, saga 2/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutti e 7 i
-  brani sono nuovi per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo resta `tracks: []` fino al
-  caricamento.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutti
+  e 7 i brani sono nuovi per il sito, da caricare su R2. Il campo
+  resta `tracks: []` fino al caricamento.
 
 ## The Witcher
 
@@ -3379,30 +3118,28 @@ universi/voci) invece della sola `chain` testuale.
   of Kings (*The Witcher 2: Assassins of Kings*), For Honor! For
   Toussaint! (*The Witcher 3: Blood and Wine*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione concentrata
-  sulla colonna sonora di *The Witcher 3* (di gran lunga la più
-  pluripremiata e riconosciuta della saga, per fama pubblica superiore
-  a Witcher 1 e 2 messi insieme) più il tema principale di *The Witcher
-  2* e il tema da combattimento di *Blood and Wine*. Verificato ed
-  escluso "Toss a Coin to Your Witcher": non suona ufficialmente in
-  alcun videogioco della saga (esiste solo in mod non ufficiali), fama
-  dovuta esclusivamente alla serie Netflix - fuori dal perimetro "solo
-  videogiochi confermati" della saga.
+- **Motivazione**: prima playlist della saga, concentrata sulla OST di
+  *The Witcher 3* (di gran lunga la più pluripremiata e riconosciuta
+  della saga, fama pubblica superiore a Witcher 1 e 2 messi insieme)
+  più il tema principale di *The Witcher 2* e il tema da combattimento
+  di *Blood and Wine*. Escluso "Toss a Coin to Your Witcher": non suona
+  ufficialmente in alcun videogioco della saga (esiste solo in mod non
+  ufficiali), fama dovuta solo alla serie Netflix - fuori dal perimetro
+  "solo videogiochi confermati".
 - **Data**: 2026-09-09 (sessione notturna, saga 9/10, 2a delle 3 saghe
   trovate dal Project Manager in bypass).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
-Saga interamente nuova: 3 nuovi universi paralleli (Libri di Sapkowski,
-Videogiochi CDPR, Netflix - tutti e 3 ufficiali ma con dettagli
-narrativi divergenti tra loro, nessun `universeLink`), 36 voci
-principali + 3 gemelle nidificate + 2 imagePending (41 voci totali),
-tutte inserite nella stessa sessione notturna, 2026-09-09.
+Saga interamente nuova: 3 nuovi universi paralleli (Libri di
+Sapkowski, Videogiochi CDPR, Netflix - tutti e 3 ufficiali ma con
+dettagli narrativi divergenti tra loro, per questo senza
+`universeLink`), 36 voci principali + 3 gemelle nidificate + 2
+imagePending (41 voci totali), sessione notturna 2026-09-09.
 
 - Nuovo universo **Libri** (`witcher-komiks-polacco` →
   `witcher-signora-del-lago`, 13 voci: 10 principali + 3 gemelle
@@ -3546,9 +3283,8 @@ Scrittore/Linguista, per colmare una lacuna di ricerca scoperta tardi
 nel ciclo (senza queste 2 voci la saga avrebbe avuto un buco reale: 2
 media ufficiali già usciti nel 2025). Testo verificato su fonti
 multiple (Netflix Tudum, stampa di settore) ma senza il consueto doppio
-controllo. Reversibile in un ciclo successivo mirato se Sakrem
-preferisce un passaggio formale da Scrittore/Linguista anche per queste
-due. Dettaglio completo nel report di sessione.
+controllo. Reversibile se Sakrem preferisce un passaggio formale da
+Scrittore/Linguista anche per queste due.
 
 ## Sonic the Hedgehog
 
@@ -3564,21 +3300,19 @@ due. Dettaglio completo nel report di sessione.
   Sonic Colours), Open Your Heart (*Sonic Adventure*), Endless
   Possibility (*Sonic Unleashed*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione per fama/
-  gradimento reale (classifiche di settore, setlist ufficiali dei tour
-  "Sonic Symphony" 2023-2025, popolarità streaming), concentrata
-  sull'universo Games Canon perché è lì che si concentra la fama reale
-  della colonna sonora Sonic; nessuna rappresentanza forzata per gli
-  altri 5 universi (Archie, Fleetway, Sonic X, Sonic Boom, Sonic
-  Cinematic Universe), privi di colonne sonore paragonabilmente
-  celebri.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (classifiche di settore, setlist ufficiali dei tour "Sonic Symphony"
+  2023-2025, popolarità streaming), concentrata sull'universo Games
+  Canon perché lì si concentra la fama reale della colonna sonora
+  Sonic; nessuna rappresentanza forzata per gli altri 5 universi
+  (Archie, Fleetway, Sonic X, Sonic Boom, Sonic Cinematic Universe),
+  privi di colonne sonore paragonabilmente celebri.
 - **Data**: 2026-09-09 (sessione notturna, ultima saga della notte,
   3ª delle 3 saghe trovate dal Project Manager in bypass).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -3642,29 +3376,28 @@ inserite nella stessa sessione notturna, 2026-09-09.
   2026-09-09.
 
 **Nota per Sakrem - correzioni fattuali applicate dal Supervisore in
-revisione finale**: sinossi di `sonic-06` riscritta sostanzialmente
-(Iblis sigillato dentro Elise, non in un reliquiario esterno; Mephiles
-imprigionato nello Scepter of Darkness, manufatto distinto in possesso
-di Eggman; finale corretto - la fiamma soffiata da Elise è Solaris
-ancora informe, non la stessa custodita nel presunto reliquiario);
-sinossi di `sonic-movie-3` integrata con il voltafaccia di Ivo Robotnik
-contro Gerald e il sacrificio congiunto Robotnik/Shadow per allontanare
-l'Eclipse Cannon; titolo IT confermato "Sonic Colours" (grafia PAL) per
-`sonic-colors`; corretto "colonia spaziale ARK" minuscolo → "Colonia
-Spaziale ARK" in `sonic-adventure-2` per uniformità col resto della
-saga; corretto "Chaos Emerald" → "Smeraldi del Caos" nella sinossi IT
-di `sonic-x-anime` (localizzazione ufficiale dell'anime, diversa da
-quella dei giochi coevi).
+revisione finale**: sinossi di `sonic-06` riscritta (Iblis sigillato
+dentro Elise, non in un reliquiario esterno; Mephiles imprigionato
+nello Scepter of Darkness, manufatto distinto in possesso di Eggman;
+finale corretto - la fiamma soffiata da Elise è Solaris ancora informe,
+non la stessa custodita nel presunto reliquiario); sinossi di
+`sonic-movie-3` integrata col voltafaccia di Ivo Robotnik contro Gerald
+e il sacrificio congiunto Robotnik/Shadow per allontanare l'Eclipse
+Cannon; titolo IT confermato "Sonic Colours" (grafia PAL) per
+`sonic-colors`; corretto "colonia spaziale ARK" → "Colonia Spaziale
+ARK" in `sonic-adventure-2` per uniformità con la saga; corretto "Chaos
+Emerald" → "Smeraldi del Caos" nella sinossi IT di `sonic-x-anime`
+(localizzazione ufficiale dell'anime, diversa da quella dei giochi
+coevi).
 
 **Nota per Sakrem - struttura**: 6 universi paralleli indipendenti fin
 dall'origine (Games Canon 1991, Archie Comics 1993, Fleetway UK 1993,
 Sonic X 2003, Sonic Boom 2014, Sonic Cinematic Universe 2020), nessun
 `universeLink` tra loro, nessuna voce STORIA/`lineStyle` in nessuno dei
-6 (a differenza di un caso "senza canone" come Doom, qui le continuità
+6 - a differenza di un caso "senza canone" come Doom, qui le continuità
 interne sono ben definite e coerenti, semplicemente non comunicano mai
-tra loro - tema reso nel blurb di saga). Ultima delle 3 saghe trovate
-dal Project Manager in bypass, e ultima saga di tutta la sessione
-notturna.
+tra loro (tema reso nel blurb di saga). Ultima delle 3 saghe trovate
+dal Project Manager in bypass, ultima saga della sessione notturna.
 
 ## Resident Evil
 
@@ -3681,56 +3414,49 @@ notturna.
   (*Resident Evil 3: Nemesis*), Deep Ambition (Wesker Final Battle
   Theme) (*Resident Evil 5*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di più ere della serie (save room
-  classici, mercante di RE4, viralità di Go Tell Aunt Rhody e di Lady
-  Dimitrescu, boss theme di Nemesis e dello scontro finale con Wesker).
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di più ere della serie (save room classici, mercante di
+  RE4, viralità di Go Tell Aunt Rhody e Lady Dimitrescu, boss theme di
+  Nemesis e scontro finale con Wesker).
 - **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, saga 3/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo `tracks` non viene creato in questo
-  pacchetto, resta assente fino al caricamento dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il campo
+  `tracks` non viene creato in questo pacchetto, resta assente fino al
+  caricamento.
 
 ## Shin Megami Tensei
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
-delle 10 saghe individuate dal Project Manager per questa sessione
-notturna (turno notturno 2/notte 3, 8/10). Struttura a 6 universi
+Saga interamente nuova, una delle 10 individuate dal Project Manager
+per il turno notturno 2/notte 3 (8/10). Struttura a 6 universi
 paralleli indipendenti senza continuity lineare unica: Origine
 letteraria (1986-1993, romanzi + OVA gemella) → Center (1987-1990) →
 Tokyo Millennium (1992-1994) → Vortex World (2003) → Mikado (2013-2016)
 → Da'at (2021, Vengeance 2024). 10 voci top-level + 1 twin (l'OVA
 `digital-devil-story-ova`, gemella di `digital-devil-story-romanzo`) =
-11 media con voce propria. Primo uso sul sito del type `OVA`/`OVA`
-(formato distintivo, distribuzione diretta home video). Blurb di saga
-con un solo accenno testuale/tematico a Persona, spin-off già presente
-sul sito ("Da questa stirpe nascerà, anni dopo, anche Persona.") -
-nessun collegamento dati richiesto o applicato in questo ciclo (nessun
-campo condiviso, nessun `twins` incrociato).
+11 media. Primo uso sul sito del type `OVA` (formato distintivo,
+distribuzione diretta home video). Il blurb accenna testualmente a
+Persona, spin-off già presente sul sito ("Da questa stirpe nascerà,
+anni dopo, anche Persona.") - nessun collegamento dati richiesto o
+applicato (nessun campo condiviso, nessun `twins` incrociato).
 
 ### Decisioni di scope
 
-Perimetro limitato al ramo "mainline" letterario + videoludico
-individuato dal Supervisore: romanzi Digital Devil Story/New Digital
-Devil Story, OVA gemella, ed 8 videogiochi mainline (Digital Devil
-Story: Megami Tensei, Megami Tensei II, Shin Megami Tensei, Shin Megami
-Tensei II, Nocturne, IV, IV: Apocalypse, V). Tutte le sottoserie
-spin-off sono state escluse in blocco per scala eccessiva rispetto al
-mandato di questo ciclo, non per giudizio di qualità - da riconsiderare
-in futuri richiami dedicati, ciascuna come eventuale ampliamento a sé:
-Devil Summoner (incl. Raidou Kuzunoha, citato solo come cameo nella nota
-HD Remaster di Nocturne, nessuna voce propria), Digital Devil Saga,
-Strange Journey (incl. Strange Journey Redux), if..., Majin Tensei,
-Last Bible, Devil Children, e i capitoli mobile/online della serie.
-Persona, già presente sul sito come voce a sé, resta fuori da questo
-scope per lo stesso motivo e non riceve alcun collegamento dati in
-questo ciclo.
+Perimetro limitato al ramo "mainline" letterario + videoludico: romanzi
+Digital Devil Story/New Digital Devil Story, OVA gemella, e 8
+videogiochi mainline (Digital Devil Story: Megami Tensei, Megami Tensei
+II, Shin Megami Tensei, Shin Megami Tensei II, Nocturne, IV, IV:
+Apocalypse, V). Tutte le sottoserie spin-off escluse in blocco per
+scala eccessiva rispetto al mandato di questo ciclo, non per giudizio
+di qualità - da riconsiderare in futuri richiami dedicati: Devil
+Summoner (incl. Raidou Kuzunoha, citato solo come cameo nella nota HD
+Remaster di Nocturne, nessuna voce propria), Digital Devil Saga,
+Strange Journey (incl. Redux), if..., Majin Tensei, Last Bible, Devil
+Children, capitoli mobile/online. Persona, già presente sul sito, resta
+fuori per lo stesso motivo, nessun collegamento dati in questo ciclo.
 
 ### Correzioni fattuali
 
-Due correzioni importanti emerse durante la revisione, applicate nel
-testo finale prima della consegna al Programmatore:
+Due correzioni emerse in revisione, applicate nel testo finale:
 
 1. "Merciful", il DLC gratuito dell'HD Remaster (2021) di *Shin Megami
    Tensei III: Nocturne*, NON è un finale/epilogo della storia: è una
@@ -3757,32 +3483,30 @@ testo finale prima della consegna al Programmatore:
   "Battle V8" (*Shin Megami Tensei V*, 2021, riproposto in Vengeance
   2024).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata su fama/
-  gradimento reale (nessun criterio di equidistribuzione tra universi).
-  4 tracce con confidenza alta, verificate sul sondaggio ufficiale
-  "Shin Megami Tensei Series Music Popularity Vote" (Atlus JP, 2017,
-  unico poll ufficiale sull'intera serie mainline): "Normal Battle" #1
-  assoluto, "Title Loop 2" #2, "Ginza" #3 (unica traccia pre-Nocturne
-  selezionata, traccia più amata dell'era chiptune/MIDI), "Dante
-  Battle" #4. Le altre 3 (Tokyo, DECIDE, Battle V8) hanno confidenza
-  media, da capitoli usciti dopo il sondaggio 2017, verificate per
-  convergenza di recensioni critiche indipendenti (RPGFan, Paste
-  Magazine, Hardcore Gamer) e discussione di community (ResetEra,
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (nessun criterio di equidistribuzione tra universi). 4 tracce a
+  confidenza alta, dal sondaggio ufficiale "Shin Megami Tensei Series
+  Music Popularity Vote" (Atlus JP, 2017, unico poll ufficiale sulla
+  serie mainline): "Normal Battle" #1 assoluto, "Title Loop 2" #2,
+  "Ginza" #3 (unica traccia pre-Nocturne selezionata, la più amata
+  dell'era chiptune/MIDI), "Dante Battle" #4. Le altre 3 (Tokyo,
+  DECIDE, Battle V8) a confidenza media, da capitoli usciti dopo il
+  sondaggio 2017, verificate per convergenza di recensioni critiche
+  (RPGFan, Paste Magazine, Hardcore Gamer) e community (ResetEra,
   NeoGAF), nessun poll ufficiale disponibile per questi capitoli.
-  Universo 2 (Center) resta senza traccia propria: nel sondaggio
-  ufficiale il tema di Megami Tensei II arriva solo 8° assoluto, sotto
-  3 tracce di Nocturne e sotto Ginza/Cathedral of Shadows di SMT I - con
-  soli 7 slot il differenziale di fama non giustificava di sacrificare
-  uno slot Nocturne. Universo 1 (romanzi/OVA) fuori perimetro musicale
-  per mandato esplicito. Nessuna traccia di *SMT: Strange Journey*
-  inclusa nonostante comparisse nello stesso sondaggio ufficiale (9°
-  posto): spin-off, fuori dal perimetro degli 8 capitoli mainline.
+  Universo 2 (Center) resta senza traccia propria: nel sondaggio il
+  tema di Megami Tensei II arriva solo 8°, sotto 3 tracce di Nocturne e
+  sotto Ginza/Cathedral of Shadows di SMT I - con soli 7 slot il
+  differenziale di fama non giustificava sacrificare uno slot Nocturne.
+  Universo 1 (romanzi/OVA) fuori perimetro musicale per mandato
+  esplicito. Nessuna traccia di *SMT: Strange Journey* inclusa
+  nonostante comparisse nello stesso sondaggio (9° posto): spin-off,
+  fuori dal perimetro degli 8 capitoli mainline.
 - **Data**: 2026-09-10 (turno notturno 2/notte 3, saga 8/10).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -3849,21 +3573,19 @@ notturna, 2026-09-10.
   2*), Silent Hill (Main Theme) (*Silent Hill*), I Want Love (*Silent Hill
   3*), Heaven's Night (*Silent Hill*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei brani più
-  iconici/riconoscibili a copertura dei giochi Main universe (Silent Hill
-  1/2/3/4), tutti già presenti o in via di aggiunta nella scheda. Nessuna
-  traccia dai film del nuovo Universo Cinematografico (fuori scope per
-  esplicita richiesta del mandato). *Silent Hill f* (2025) valutato ma
-  escluso per ora: accoglienza critica molto positiva ma nessun brano ha
-  ancora raggiunto, a un anno dall'uscita, un livello di fama pubblica
-  paragonabile ai classici storici della saga - candidato da rivalutare in
-  cicli futuri.
+- **Motivazione**: prima playlist della saga, brani più iconici a
+  copertura dei giochi Main universe (Silent Hill 1/2/3/4), già
+  presenti o in via di aggiunta nella scheda. Nessuna traccia dai film
+  del nuovo Universo Cinematografico (fuori scope per mandato
+  esplicito). *Silent Hill f* (2025) valutato ma escluso per ora:
+  accoglienza critica molto positiva ma nessun brano ha raggiunto, a un
+  anno dall'uscita, una fama pubblica paragonabile ai classici storici
+  - da rivalutare in cicli futuri.
 - **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, saga 4/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file fisico).
-  Il campo `tracks` non viene creato in questo pacchetto, resta assente
-  fino al caricamento dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il campo
+  `tracks` non viene creato in questo pacchetto, resta assente fino al
+  caricamento.
 
 ### Media aggiunti
 
@@ -3909,12 +3631,11 @@ stessa sessione, 2026-09-09 (richiamo mirato, turno notturno 2, saga 4/11).
 #### Majora's Mask assente dalla scheda
 
 - **Segnalazione**: Majora's Mask non risulta presente in nessuna voce
-  della scheda della saga (verificato via grep su data.js, nessun
-  risultato) - gap preesistente, mai notato da nessun ciclo precedente
-  della catena. Come conseguenza diretta, la sua colonna sonora (inclusa
-  "Song of Healing", tra le tracce Zelda più amate in assoluto secondo
-  quasi ogni classifica di settore) resta esclusa a priori dalla
-  playlist, non potendo pescare da un titolo non presente in scheda.
+  della scheda (verificato via grep su data.js) - gap preesistente, mai
+  notato prima. Di conseguenza la sua colonna sonora (inclusa "Song of
+  Healing", tra le tracce Zelda più amate secondo quasi ogni classifica
+  di settore) resta esclusa a priori dalla playlist, non potendo
+  pescare da un titolo assente in scheda.
 - **Origine**: Musicista (richiamo mirato, turno notturno 2).
 - **Data**: 2026-09-09.
 - **Stato**: da valutare se aggiungere Majora's Mask come voce a sé in un
@@ -3945,19 +3666,17 @@ stessa sessione, 2026-09-09 (richiamo mirato, turno notturno 2, saga 4/11).
   Princess*), Zelda's Lullaby (*Ocarina of Time*), Ballad of the
   Goddess (*Skyward Sword*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di più epoche/rami narrativi della
-  saga, con le 3 tracce di Ocarina of Time volutamente non adiacenti tra
-  loro pur riflettendo la reale concentrazione di fama su quel titolo.
-  Nessuna traccia da Majora's Mask (titolo assente dalla scheda, vedi
-  nota sopra) né da spin-off/collection non elencati (Hyrule Warriors,
-  Cadence of Hyrule, Age of Calamity).
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di più epoche/rami narrativi, con le 3 tracce di Ocarina of
+  Time volutamente non adiacenti pur riflettendo la reale
+  concentrazione di fama su quel titolo. Nessuna traccia da Majora's
+  Mask (titolo assente dalla scheda, vedi nota sopra) né da
+  spin-off/collection non elencati (Hyrule Warriors, Cadence of Hyrule,
+  Age of Calamity).
 - **Data**: 2026-09-09 (richiamo mirato, turno notturno 2, saga 6/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo `tracks` resta `[]` in questo
-  pacchetto, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il campo
+  `tracks` resta `[]` in questo pacchetto, non popolato.
 
 ### Media aggiunti
 
@@ -4031,23 +3750,21 @@ imagePending, sessione 2026-09-09 (richiamo mirato, turno notturno 2).
   Underworld*, 2008), Lara's Theme (reprise) (*Rise of the Tomb
   Raider*, 2015).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili concentrata sui due poli di fama principali
-  (tema originale di Nathan McCree, 1996; colonna sonora pluripremiata
-  di Jason Graves, 2013), con innesto del lavoro BAFTA di Troels
-  Folmann (Legend/Anniversary/Underworld).
+- **Motivazione**: prima playlist della saga, temi più iconici
+  concentrati sui due poli di fama principali (tema originale di
+  Nathan McCree, 1996; OST pluripremiata di Jason Graves, 2013), con
+  innesto del lavoro BAFTA di Troels Folmann
+  (Legend/Anniversary/Underworld).
 - **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 7/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e da caricare su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
-Aggiornamento nel richiamo mirato: nessun nuovo universo (l'universo
-`continuita-survivor` è stato rinominato ed esteso, non creato ex
-novo), 4 nuove voci in totale (2 con sinossi piena + 2 imagePending),
+Nessun nuovo universo (`continuita-survivor` rinominato ed esteso, non
+creato ex novo), 4 nuove voci (2 con sinossi piena + 2 imagePending),
 sessione 2026-09-10 (richiamo mirato, turno notturno 2, saga 7/11).
 
 - `legend-of-lara-croft-netflix` - Tomb Raider: La Leggenda di Lara
@@ -4072,13 +3789,11 @@ nessuna voce STORIA, nessuna gemella.
 
 ### In sospeso - immagini mancanti
 
-Stesso schema già discusso per Assassin's Creed e Ace Combat: `data.js`
-elenca già i campi `image`/`avatar`/`banner`/`watermark` con l'URL
-atteso, in stile segnaposto coerente con la convenzione di naming del
-bucket, ma i file fisici non risultano ancora caricati da Sakrem su
-R2. Saga pubblicata per la prima volta in questo ciclo: TUTTE le
-immagini (avatar, banner, filigrana dell'unico universo, copertine
-delle 11 voci) sono ancora da caricare.
+Stesso schema di Assassin's Creed e Ace Combat: `data.js` ha già i
+campi `image`/`avatar`/`banner`/`watermark` (URL segnaposto) ma i file
+non sono ancora su R2. Saga pubblicata per la prima volta: tutte le
+immagini (avatar, banner, filigrana, copertine delle 11 voci) sono da
+caricare.
 
 1. Avatar della saga
 2. Banner della saga
@@ -4113,17 +3828,15 @@ delle 11 voci) sono ancora da caricare.
 - **Origine**: Musicista.
 - **Motivazione**: prima playlist della saga - concentrazione reale
   della fama pubblica sui quattro capitoli PS3/PS4 principali (nessuna
-  traccia di Golden Abyss o The Lost Legacy risulta comparabile per
-  notorietà nella ricerca pubblica); posizioni 5-6-7 tutte di
-  Uncharted 4 per via dell'effettiva distribuzione reale della fama,
-  adiacenza accettata perché non evitabile senza distorcere l'ordine
-  reale.
+  traccia di Golden Abyss o The Lost Legacy comparabile per notorietà);
+  posizioni 5-6-7 tutte di Uncharted 4 per l'effettiva distribuzione
+  della fama, adiacenza accettata perché non evitabile senza distorcere
+  l'ordine reale.
 - **Data**: 2026-09-11.
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
-  tracce sono nuove per il sito e mai caricate su R2 (proposta già
-  accettata nel merito, non in attesa di decisione di Sakrem: manca
-  solo il file fisico). Il campo viene comunque creato dal
-  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, mai caricate su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -4174,19 +3887,18 @@ nella stessa sessione, 2026-09-11.
   Muse (Old Gods of Asgard) = *Alan Wake*, Children of the Elder God (Old
   Gods of Asgard) = *Alan Wake*.
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione per fama/gradimento
-  reale (Ashtray Maze di *Control*, "Herald of Darkness"/Game Awards 2023
-  di *Alan Wake 2*, l'iconico uso di "Space Oddity" nel gioco originale).
-  4 tracce su 7 provengono da *Alan Wake* (2010), capostipite musicale
-  della saga: non è stato possibile evitare del tutto l'adiacenza tra
-  tracce dello stesso titolo (posizioni 5-6-7) senza violare l'ordine di
-  fama decrescente, che ha priorità sulla regola di alternanza.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale
+  (Ashtray Maze di *Control*, "Herald of Darkness"/Game Awards 2023 di
+  *Alan Wake 2*, l'iconico uso di "Space Oddity" nel gioco originale).
+  4 tracce su 7 da *Alan Wake* (2010), capostipite musicale della saga:
+  non è stato possibile evitare del tutto l'adiacenza tra tracce dello
+  stesso titolo (posizioni 5-6-7) senza violare l'ordine di fama
+  decrescente, che ha priorità sulla regola di alternanza.
 - **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 8/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo viene comunque creato dal Programmatore come
-  `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -4215,17 +3927,16 @@ Aggiornamento nel richiamo mirato: nessun nuovo universo, 1 nuova voce
   III: Reign of Chaos*, A Call to Arms = *World of Warcraft: Wrath of the
   Lich King*, Icecrown Glacier = *Warcraft III: The Frozen Throne*.
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei brani più
-  iconici/riconoscibili a copertura della trilogia RTS e di World of
-  Warcraft fino a The War Within (nessuna traccia da Midnight, priva di
-  riscontro musicale pubblico al momento). Nessuna coppia di tracce
-  consecutive dallo stesso titolo.
+- **Motivazione**: prima playlist della saga, brani più iconici a
+  copertura della trilogia RTS e di World of Warcraft fino a The War
+  Within (nessuna traccia da Midnight, priva di riscontro musicale
+  pubblico al momento). Nessuna coppia di tracce consecutive dallo
+  stesso titolo.
 - **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 9/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo viene comunque creato dal Programmatore come
-  `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -4243,20 +3954,20 @@ saga 9/11).
 
 ### Gap fuori scope segnalati (da non perdere di vista)
 
-- **Blood Ties / romanzi / film Warcraft (2016)**: NON aperta la categoria
-  media extra-videoludici in questo richiamo (un solo romanzo o un solo
-  film isolato non formano un universo secondo le regole strutturali del
-  sito; aprire la categoria solo per Blood Ties lascerebbe fuori ~29 altri
-  romanzi di pari rilevanza, incoerenza peggiore del vuoto attuale).
+- **Blood Ties / romanzi / film Warcraft (2016)**: categoria media
+  extra-videoludici non aperta in questo richiamo - un solo romanzo o
+  film isolato non forma un universo secondo le regole strutturali del
+  sito, e aprirla solo per Blood Ties lascerebbe fuori ~29 altri romanzi
+  di pari rilevanza (incoerenza peggiore del vuoto attuale).
   Raccomandato un richiamo dedicato futuro "Warcraft — media
-  extra-videoludici", con ricerca ad hoc su tutto il corpus romanzi/fumetti
-  (~30 titoli) + film 2016, per valutare in blocco l'aggregazione in uno o
-  più universi coerenti.
-- **Errore "Hallowfall" → "Precipizi Sacri"**: la sinossi già pubblicata di
-  `the-war-within` contiene "Hallowfall" non tradotto (nome ufficiale
-  italiano: "Precipizi Sacri"). Non corretto in questo giro (fuori mandato
-  del richiamo mirato, limitato ai 6 termini scorretti già in scope). Da
-  correggere in un futuro richiamo mirato dedicato a questa sola voce.
+  extra-videoludici", con ricerca su tutto il corpus romanzi/fumetti
+  (~30 titoli) + film 2016, per valutare l'aggregazione in uno o più
+  universi coerenti.
+- **Errore "Hallowfall" → "Precipizi Sacri"**: la sinossi già pubblicata
+  di `the-war-within` contiene "Hallowfall" non tradotto (nome ufficiale
+  italiano: "Precipizi Sacri"). Non corretto in questo giro, fuori
+  mandato del richiamo (limitato ai 6 termini scorretti già in scope).
+  Da correggere in un futuro richiamo dedicato a questa sola voce.
 
 ## Wolfenstein
 
@@ -4275,20 +3986,19 @@ saga 9/11).
   Stig Andersen) = *Wolfenstein: Youngblood*, Cyberpilot (Tom Salta) =
   *Wolfenstein: Cyberpilot*.
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione dei temi più
-  iconici/riconoscibili a copertura di tutti e 5 i videogiochi confermati
-  dell'universo MachineGames (classici id Software/Muse esclusi per
-  decisione pregressa di Sakrem). Le 2 nuove voci di questo ciclo (fumetto
-  Titan Comics 2017 e GDR Modiphius) restano fuori perimetro: nessuna
-  colonna sonora propria/asset audio possibile per nessuna delle due.
-  Nessuna coppia di tracce consecutive dallo stesso titolo (New Order in
+- **Motivazione**: prima playlist della saga, temi più iconici a
+  copertura di tutti e 5 i videogiochi confermati dell'universo
+  MachineGames (classici id Software/Muse esclusi per decisione
+  pregressa di Sakrem). Le 2 nuove voci di questo ciclo (fumetto Titan
+  Comics 2017 e GDR Modiphius) restano fuori perimetro: nessuna colonna
+  sonora propria/asset audio possibile per nessuna delle due. Nessuna
+  coppia di tracce consecutive dallo stesso titolo (New Order in
   posizione 2 e 4, New Colossus in posizione 3 e 5, mai adiacenti).
 - **Data**: 2026-09-10 (richiamo mirato, turno notturno 2, saga 10/11).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo viene comunque creato dal Programmatore come
-  `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
@@ -4315,14 +4025,13 @@ Aggiornamento nel richiamo mirato: nessun nuovo universo, 2 nuove voci
 
 ## Xenoblade Chronicles
 
-Saga interamente nuova (mai apparsa sul sito prima di questo ciclo). Una
-delle 10 saghe individuate dal Project Manager per questa sessione
-notturna (turno notturno 2/notte 3). Un solo universo narrativo, **"Il
+Saga interamente nuova, una delle 10 individuate dal Project Manager
+per il turno notturno 2/notte 3. Un solo universo narrativo, **"Il
 Conduit di Klaus"** (`conduit-di-klaus`, 5 voci, span dalla nascita di
 Bionis/Mechonis e Alrest fino alla fusione in Aionios e all'epilogo su
-Mira), più un secondo bucket separato "Xenoblade Genesis (collocazione non
-dichiarata)" per un titolo non ancora uscito. Nessun `universeLink`,
-nessun `lineStyle` (nessuna voce ombrello/gemella in questa saga).
+Mira), più un secondo bucket separato "Xenoblade Genesis (collocazione
+non dichiarata)" per un titolo non ancora uscito. Nessun `universeLink`,
+nessun `lineStyle` (nessuna voce ombrello/gemella).
 
 Le 5 voci uscite dell'universo "Il Conduit di Klaus", in ordine (non di
 release): `xenoblade-chronicles-1` - Xenoblade Chronicles (2010, include
@@ -4339,13 +4048,12 @@ Definitive Edition 2025 con il Capitolo 13 e su Switch 2 Edition 2026).
 
 - **XCX incluso nello stesso universo di XC1/XC2/XC3** grazie all'aggancio
   narrativo scoperto nel Capitolo 13 della Definitive Edition 2025 (lo
-  scienziato Void e un'increspatura descritta come proveniente da un altro
-  mondo, presentata come collegata a Future Redeemed). Nessuna fonte
-  primaria diretta raggiunta per confermare la formulazione esatta:
-  l'aggancio si basa su fonti secondarie multiple e convergenti (Xenoblade
-  Wiki, ResetEra, GameFAQs, testate di settore), non ancora verificate su
-  fonte primaria diretta. Linguaggio volutamente cauto usato nella sinossi
-  (IT ed EN) per questo motivo - **da riverificare in futuro** con fonte
+  scienziato Void e un'increspatura descritta come proveniente da un
+  altro mondo, collegata a Future Redeemed). Nessuna fonte primaria
+  diretta per confermare la formulazione esatta: l'aggancio si basa su
+  fonti secondarie convergenti (Xenoblade Wiki, ResetEra, GameFAQs,
+  testate di settore). Linguaggio volutamente cauto nella sinossi
+  (IT/EN) per questo motivo - **da riverificare in futuro** con fonte
   primaria diretta appena disponibile.
 - **Artbook esclusi** dal perimetro media della saga.
 - **Xenogears/Xenosaga esclusi** come media: dichiarazione ufficiale di
@@ -4378,10 +4086,9 @@ Definitive Edition 2025 con il Capitolo 13 e su Switch 2 Edition 2026).
   IT) - nessuna resa italiana affidabile trovata, lasciato in inglese di
   proposito.
 
-Tutte le correzioni sopra sono state verificate puntualmente dal
-Supervisore come correttamente applicate nel testo definitivo. Punto
-segnalato ma lasciato invariato: "Samaariano" (bassa confidenza, nessuna
-alternativa migliore trovata).
+Tutte le correzioni verificate come applicate nel testo definitivo.
+Punto segnalato ma lasciato invariato: "Samaariano" (bassa confidenza,
+nessuna alternativa migliore trovata).
 
 ### Musica
 
@@ -4396,20 +4103,18 @@ alternativa migliore trovata).
   "Kingdom of Torna" (*Xenoblade Chronicles 2: Torna ~ The Golden
   Country*), "Don't Worry" (*Xenoblade Chronicles X*).
 - **Origine**: Musicista.
-- **Motivazione**: prima playlist della saga, selezione basata solo su
-  fama/gradimento reale di critica e community (non gusto personale), a
-  copertura di tutti e 5 i videogiochi con colonna sonora propria
-  confermati dal Supervisore (Xenoblade Genesis, `imagePending`, escluso
-  dal perimetro). Copertura: XC1 2 tracce, XC2 2 tracce, XC3 1 traccia,
-  Torna 1 traccia, XCX 1 traccia, riflettendo la fama reale concentrata
-  soprattutto su XC1 e XC2. Nessuna coppia di tracce dello stesso titolo
-  adiacente nell'elenco finale.
+- **Motivazione**: prima playlist della saga, fama/gradimento reale di
+  critica e community (non gusto personale), a copertura di tutti e 5 i
+  videogiochi con colonna sonora propria (Xenoblade Genesis,
+  `imagePending`, escluso dal perimetro). Copertura: XC1 2 tracce, XC2
+  2 tracce, XC3 1 traccia, Torna 1 traccia, XCX 1 traccia, riflettendo
+  la fama reale concentrata soprattutto su XC1 e XC2. Nessuna coppia di
+  tracce dello stesso titolo adiacente.
 - **Data**: 2026-09-10 (sessione notturna, 2/3, notte3-XX).
-- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
-  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
-  merito, non in attesa di decisione di Sakrem: manca solo il file
-  fisico). Il campo viene comunque creato dal Programmatore come
-  `tracks: []`, non popolato, in attesa dei file.
+- **Stato**: accettata nel merito, bloccata per asset mancante - tutte
+  e 7 le tracce sono nuove per il sito, da caricare su R2. Il
+  Programmatore crea comunque il campo `tracks: []`, vuoto in attesa
+  dei file.
 
 ### Media aggiunti
 
