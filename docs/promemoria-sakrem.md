@@ -2154,6 +2154,70 @@ lato Artista - e per coerenza controllare anche il Musicista - per
 evitare che l'incidente si ripeta al prossimo ciclo di rivalutazione
 palette/tracklist.
 
+## Max Payne
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Late Goodbye" (Poets of the
+  Fall) (*Max Payne 2: The Fall of Max Payne*), "Max Payne Theme"
+  (Kärtsy Hatakka & Kimmo Kajasto) (*Max Payne*), "TEARS" (HEALTH)
+  (*Max Payne 3*), "MAX: THEME" (HEALTH) (*Max Payne 3*), "Max Payne 2
+  Theme" (Kärtsy Hatakka & Kimmo Kajasto) (*Max Payne 2: The Fall of
+  Max Payne*), "Max's Nightmare" (Kärtsy Hatakka, Kimmo Kajasto, Marko
+  Saaresto) (*Max Payne 2: The Fall of Max Payne*), "Mona Theme
+  (Guitar)" (Kärtsy Hatakka, Kimmo Kajasto, Marko Saaresto) (*Max Payne
+  2: The Fall of Max Payne*).
+- **Origine**: Musicista, con correzione del Supervisore sulla traccia
+  6.
+- **Motivazione**: prima playlist della saga, selezione basata su fama
+  reale (classifiche, articoli dedicati Rockstar Newswire, copertura
+  giornalistica) a copertura dei tre videogiochi principali (esclusi a
+  priori il film 2008, senza legame diretto con le colonne sonore dei
+  giochi, e il remake MP1+MP2 non ancora uscito). Correzione
+  Supervisore: la traccia 6 proposta dal Musicista come "Nightmare
+  Theme" (Hatakka & Kajasto, *Max Payne*) conteneva un errore di
+  attribuzione - verifica indipendente (fonti YouTube, Album of the
+  Year) conferma che il brano reale è "Max's Nightmare", appartiene a
+  *Max Payne 2*, non *Max Payne*, ed è firmato da tre autori (Hatakka,
+  Kajasto, Saaresto), non due. Correzione applicata direttamente nella
+  proposta sopra. Effetto collaterale della correzione: le posizioni
+  5-6-7 risultano ora tutte e tre da *Max Payne 2* di fila (il
+  Musicista aveva scambiato le posizioni 6-7 nel proprio abbozzo
+  proprio per evitare questa adiacenza, basandosi però
+  sull'attribuzione poi rivelatasi errata) e *Max Payne* (2001) resta
+  rappresentato da una sola traccia su 7 contro le 4 di *Max Payne 2* -
+  segnalato a Sakrem nel report di sessione come possibile spunto per
+  un nuovo giro di riflessione del Musicista, non riaperto d'ufficio
+  dalla catena.
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 4 nuove voci (nessuna
+gemella, nessuna voce STORIA), tutte inserite nella stessa sessione,
+2026-09-11.
+
+- Nuovo universo **Max Payne** (`main`, `max-payne` → `max-payne-3`,
+  span 1998 - 2009, 4 voci) - sessione 2026-09-11.
+- `max-payne` - Max Payne (VIDEOGIOCO, 2001) - voce a sé, prima voce
+  della saga - sessione 2026-09-11.
+- `max-payne-2` - Max Payne 2: The Fall of Max Payne (VIDEOGIOCO, 2003)
+  - voce a sé - sessione 2026-09-11.
+- `max-payne-3-complete-series` - Max Payne 3: The Complete Series
+  (FUMETTO, 2012) - voce a sé, indipendente (non gemella) - sessione
+  2026-09-11.
+- `max-payne-3` - Max Payne 3 (VIDEOGIOCO, 2012) - voce a sé, ultima
+  voce della saga - sessione 2026-09-11.
+
 ## Metal Gear Solid
 
 ### Musica
