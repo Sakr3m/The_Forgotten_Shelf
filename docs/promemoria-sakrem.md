@@ -1708,6 +1708,74 @@ dettagli).
   inserita nella Saga del Reclamatore dopo `shadows-of-reach` (subito
   prima di `halo-infinite`) - sessione notturna, 2026-09-09.
 
+## Hitman
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: Ave Maria (*Hitman: Blood
+  Money*), Main Title (*Hitman 2: Silent Assassin*), World of
+  Assassination (*Hitman*, 2016), Main Title (*Hitman: Codename 47*),
+  White Room & Main Title (*Hitman: Contracts*), The Showstopper
+  (*Hitman*, 2016), Apex Predator (*Hitman 3*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione dei temi più
+  iconici/riconoscibili a copertura di più capitoli (Jesper Kyd per la
+  tetralogia classica, Niels Bye Nielsen per la trilogia World of
+  Assassination). Scartata in ricerca "Requiem for a Tower": verificata
+  come brano non composto per Hitman (proviene dal trailer de Il
+  Signore degli Anelli - Le Due Torri, 2002).
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 13 nuove voci (12 con
+sinossi + 1 imagePending, nessuna gemella, nessuna voce STORIA), tutte
+inserite nella stessa sessione, 2026-09-11.
+
+- Nuovo universo **Agent 47** (`birth-of-the-hitman` →
+  `hitman-board-game`, 13 voci) - sessione 2026-09-11.
+- `birth-of-the-hitman` - Agent 47: Birth of the Hitman (FUMETTO,
+  2017-2018) - voce a sé, prima voce della saga (prequel) - sessione
+  2026-09-11.
+- `codename-47` - Hitman: Codename 47 (VIDEOGIOCO, 2000) - voce a sé -
+  sessione 2026-09-11.
+- `silent-assassin` - Hitman 2: Silent Assassin (VIDEOGIOCO, 2002) -
+  voce a sé - sessione 2026-09-11.
+- `enemy-within` - Hitman: Enemy Within (ROMANZO, 2007) - voce a sé,
+  ambientata tra Silent Assassin e Contracts - sessione 2026-09-11.
+- `contracts` - Hitman: Contracts (VIDEOGIOCO, 2004) - voce a sé -
+  sessione 2026-09-11.
+- `blood-money` - Hitman: Blood Money (VIDEOGIOCO, 2006, nota porting
+  "Blood Money — Reprisal" 2023 nel campo releaseYear) - voce a sé -
+  sessione 2026-09-11.
+- `damnation` - Hitman: Damnation (ROMANZO, 2012) - voce a sé,
+  ambientata tra Blood Money e Absolution - sessione 2026-09-11.
+- `absolution` - Hitman: Absolution (VIDEOGIOCO, 2012) - voce a sé -
+  sessione 2026-09-11.
+- `hitman-2016` - Hitman (2016) - Stagione 1 (VIDEOGIOCO) - voce a sé,
+  include note su Patient Zero (2018) e sulla chiusura 2026 (The
+  Harbinger/Patient Zero Requiem) - sessione 2026-09-11.
+- `hitman-2` - Hitman 2 (VIDEOGIOCO, 2018) - Stagione 2 - voce a sé -
+  sessione 2026-09-11.
+- `hitman-3` - Hitman 3 / Hitman World of Assassination (VIDEOGIOCO,
+  2021, rebrand 2023) - voce a sé, include nota su Freelancer mode
+  (2023) - sessione 2026-09-11.
+- `hitman-sniper-shadows` - Hitman Sniper: The Shadows (VIDEOGIOCO
+  MOBILE, 2022) - voce a sé, ultima voce reale della saga - sessione
+  2026-09-11.
+- `hitman-board-game` - Hitman: The Board Game (GIOCO DA TAVOLO,
+  imagePending, nessuna sinossi, consegna Wave 1 stimata H1 2027) -
+  voce a sé, ultima voce della saga - sessione 2026-09-11.
+
 ## Horizon
 
 Saga interamente nuova (mai apparsa sul sito prima di questo ciclo), una
