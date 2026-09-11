@@ -7083,6 +7083,154 @@ const GAMES = {
     ]
   },
 
+  "the-last-of-us": {
+    id: "the-last-of-us",
+    lastAgentPass: "2026-09-11",
+    listTitle: { it: "The Last of Us", en: "The Last of Us" },
+    eyebrow: { it: "Fascicolo", en: "Case File" },
+    title: { it: "The Last of Us", en: "The Last of Us" },
+    blurb: {
+      it: "Un'unica America, devastata dal fungo Cordyceps e dal crollo della civiltà, fa da sfondo a storie di sopravvivenza dove il legame tra genitori e figli si scontra con la violenza necessaria per proteggerlo, e dove ogni atto di vendetta o di pietà ridefinisce cosa significhi restare umani in un mondo che ha smesso di esserlo.",
+      en: "One America, ravaged by the Cordyceps fungus and the collapse of civilization, is the backdrop for stories of survival where the bond between parents and children collides with the violence needed to protect it, and where every act of vengeance or mercy redefines what it means to remain human in a world that has stopped being one."
+    },
+    // NOTA: avatar/banner della saga e image di ogni singola voce non
+    // forniti in questo passaggio - nessun asset indicato dai
+    // materiali ricevuti. Da verificare con Sakrem/Selezionatore in un
+    // passaggio successivo.
+    accentColor: "#55624A",
+    palette: ["#A3AD6B", "#55624A", "#8B3A2B"],
+    // Playlist proposta dal Musicista (7 brani), in attesa dei file
+    // audio su R2 - saga mai pubblicata prima, nessun asset caricato
+    // ancora. Ordine e brani proposti:
+    // 1. The Last of Us (Main Theme) = The Last of Us / Part I
+    // 2. Take On Me = The Last of Us Part II
+    // 3. All Gone (No Escape) = The Last of Us / Part I
+    // 4. Future Days = The Last of Us Part II
+    // 5. The Choice = The Last of Us / Part I
+    // 6. Through the Valley = The Last of Us Part II
+    // 7. Vanishing Grace = The Last of Us / Part I
+    tracks: [],
+    universes: [
+      {
+        id: "infected-america",
+        name: { it: "L'America Infetta", en: "Infected America" },
+        span: { it: "2013 – in corso", en: "2013 – ongoing" },
+        palette: ["#A3AD6B", "#55624A", "#8B3A2B"],
+        // paletteBounds: l'id di chiusura del sottogruppo e' l'OSPITE
+        // (tlou-part-1), mai la gemella (tlou-season-1-tv), perche' la
+        // gemella non ha una posizione propria nell'array espanso.
+        paletteBounds: ["tlou-left-behind", "tlou-part-1"],
+        entries: [
+          {
+            id: "tlou-american-dreams",
+            type: "FUMETTO",
+            typeEn: "COMIC",
+            year: "Circa un anno prima degli eventi di Left Behind",
+            yearEn: "About a year before the events of Left Behind",
+            releaseYear: "2013 (edizione italiana: Editoriale Cosmo, luglio 2020)",
+            releaseYearEn: "2013 (Italian edition: Editoriale Cosmo, July 2020)",
+            title: { it: "Il Sogno Americano", en: "American Dreams" },
+            synopsis: {
+              it: "Prequel a fumetti (Dark Horse, 2013, scritto da Neil Druckmann e Faith Erin Hicks) ambientato circa un anno prima degli eventi raccontati nei flashback di Left Behind, e ben prima di Part I. Ellie, orfana cresciuta nella Zona di Quarantena di Boston, viene iscritta in una scuola militare destinata a formare i futuri soldati della FEDRA. Dopo uno scontro violento con dei bulli in cui difende una compagna, conosce Riley Abel, una ragazza ribelle e sfrontata che diventa presto la sua migliore amica. Riley le rivela di aver scoperto l'esistenza delle Luci, il movimento di resistenza contrario al regime militare, e la introduce di nascosto ai loro ideali. Quando Riley scompare per giorni, Ellie la segue e scopre che si è messa in contatto con la cellula locale delle Luci, guidata da Marlene, vecchia amica di Anna, la madre di Ellie, morta poco dopo averla data alla luce. Per dimostrarsi degna di entrare nel gruppo, Riley deve affrontare un'iniziazione che la costringe a uccidere un Infetto. Nel frattempo Marlene, onorando una promessa fatta ad Anna, consegna a Ellie il coltello a serramanico appartenuto alla madre. La storia si chiude con Riley che lascia la scuola militare per unirsi definitivamente alle Luci, gettando le basi per gli eventi narrati, un anno dopo, in Left Behind.",
+              en: "American Dreams is a prequel comic (Dark Horse, 2013, written by Neil Druckmann and Faith Erin Hicks) set about one year before the flashback events of Left Behind, and well before the events of Part I. Ellie, an orphan raised in the Boston Quarantine Zone, is enrolled at a military boarding school meant to train future FEDRA soldiers. After a violent clash with bullies in which she defends a classmate, she meets Riley Abel, a rebellious, sharp-tongued girl who quickly becomes her best friend. Riley reveals that she has discovered the Fireflies, the resistance movement opposing the military regime, and secretly introduces Ellie to their cause. When Riley vanishes for days, Ellie follows her and learns she has made contact with the local Firefly cell led by Marlene, an old friend of Ellie's late mother, Anna, who died shortly after giving birth to her. To prove herself worthy of joining, Riley must undergo an initiation that forces her to kill an Infected. Meanwhile Marlene, honoring a promise made to Anna, gives Ellie the switchblade that belonged to her mother. The story ends with Riley leaving the school to join the Fireflies for good, setting the stage for the events told, a year later, in Left Behind."
+            }
+          },
+          {
+            id: "tlou-left-behind",
+            type: "ESPANSIONE",
+            typeEn: "EXPANSION",
+            year: "2033 (presente, durante Part I); un anno prima (flashback)",
+            yearEn: "2033 (present, during Part I); one year earlier (flashback)",
+            releaseYear: "2014",
+            releaseYearEn: "2014",
+            title: { it: "Left Behind", en: "Left Behind" },
+            synopsis: {
+              it: "Left Behind è un'espansione standalone pubblicata nel 2014 per The Last of Us (in seguito inclusa nell'edizione Remastered e nel remake Part I), che alterna due linee temporali. Nel presente, durante il viaggio di Joel ed Ellie attraverso il Wyoming in Part I, Joel viene gravemente ferito da un gruppo di predoni; rimasta sola con lui privo di sensi in un centro commerciale abbandonato, Ellie deve procurarsi rifornimenti medici e difendere entrambi dai banditi mentre l'edificio si rivela sempre più infestato da Infetti. In parallelo, un flashback racconta l'ultima notte trascorsa da Ellie con la sua migliore amica Riley Abel, poco prima degli eventi del prologo di Part I: fuggite di nascosto dalla Zona di Quarantena di Boston, le due ragazze esplorano insieme il centro commerciale in rovina, tra momenti di leggerezza in una sala giochi e su una giostra, finché Riley non rivela di essersi arruolata definitivamente nelle Luci e di dover presto partire. La serata si interrompe bruscamente quando un Infetto le attacca, mordendole entrambe. Convinte di essere condannate, decidono di restare insieme fino alla fine, ma col passare dei giorni solo Riley mostra i sintomi dell'infezione, mentre Ellie rimane inspiegabilmente immune: è questa la scoperta che, mesi dopo, spingerà Marlene ad affidare Ellie a Joel affinché la scorti dalle Luci, convinta che la sua immunità possa portare a una cura per il Cordyceps.",
+              en: "Left Behind is a standalone expansion released in 2014 for The Last of Us (later bundled into the Remastered edition and the Part I remake), alternating between two timelines. In the present, during Joel and Ellie's journey across Wyoming in Part I, Joel is critically wounded by a group of raiders; left alone with his unconscious body inside an abandoned shopping mall, Ellie must scavenge medical supplies and fend off marauders while the mall grows increasingly overrun with Infected. In parallel, a flashback recounts the last night Ellie spent with her best friend Riley Abel, shortly before the events of Part I's prologue: having sneaked out of the Boston Quarantine Zone together, the two girls explore the ruined mall, sharing lighthearted moments in an arcade and on a carousel, before Riley reveals she has committed to joining the Fireflies for good and will soon be leaving. The night is cut short when an Infected attacks them, biting them both. Convinced they are doomed, they resolve to stay together until the end, but as the days pass only Riley shows symptoms of the infection, while Ellie remains inexplicably immune — the discovery that, months later, will lead Marlene to entrust Ellie to Joel so he can escort her to the Fireflies, convinced her immunity may hold the key to a Cordyceps cure."
+            }
+          },
+          {
+            id: "tlou-part-1",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "2013 (prologo); 2033 (vent'anni dopo)",
+            yearEn: "2013 (prologue); 2033 (twenty years later)",
+            releaseYear: "2013 (Remastered: 2014; Remake: 2022)",
+            releaseYearEn: "2013 (Remastered: 2014; Remake: 2022)",
+            title: { it: "The Last of Us / Part I", en: "The Last of Us / Part I" },
+            synopsis: {
+              it: "The Last of Us (2013; Remastered 2014; remake Part I 2022, stessa identica storia) si apre con un prologo ambientato ad Austin, in Texas, la notte del 26 settembre 2013 (Outbreak Day), quando un ceppo mutato del fungo parassita Cordyceps, capace di infettare l'uomo e trasformarlo in una creatura aggressiva, dilaga improvvisamente nella città. Durante la fuga, il contractor Joel Miller perde la figlia dodicenne Sarah, uccisa da un soldato in preda al panico mentre l'esercito tenta di contenere il contagio; un ritaglio del quotidiano Texas Herald, leggibile tra i contenuti extra, ricostruisce le origini del fungo, diffuso globalmente attraverso farine e cereali contaminati. Vent'anni dopo, nel 2033, gli Stati Uniti sono ridotti a Zone di Quarantena controllate dal regime militare della FEDRA e infestate da Infetti in continua evoluzione (Runner, Stalker, Clicker, Bloater). Joel, ormai un contrabbandiere cinico e indurito dal lutto, viene incaricato da Marlene, leader delle Luci, insieme alla socia Tess, di scortare Ellie, un'adolescente immune al fungo, fuori dalla Zona di Quarantena di Boston fino a un team di ricerca delle Luci, in cambio di armi. Dopo la morte di Tess, Joel ed Ellie proseguono da soli il viaggio attraverso gli Stati Uniti devastati, tra Pittsburgh, un campus universitario, la cittadina fortificata di Bill a Lincoln, la Virginia occidentale (dove incontrano Henry e Sam), il Colorado e infine Salt Lake City, stringendo un legame sempre più profondo che ricorda a Joel la figlia perduta. Giunti dalle Luci, scoprono che l'unico modo per sviluppare un vaccino richiederebbe l'asportazione del tessuto cerebrale infetto di Ellie, operazione che la ucciderebbe. Incapace di perdere un'altra figlia, Joel uccide i chirurghi e i soldati delle Luci, porta via Ellie ancora priva di sensi e fugge da Salt Lake City. Il gioco si chiude con Joel che mente a Ellie, appena risvegliata, dicendole che la cura si è rivelata impossibile perché esistono altre persone immuni, mentre lei, pur dubbiosa, sceglie di credergli.",
+              en: "The Last of Us (2013; Remastered 2014; Part I remake 2022, an identical retelling of the same story) opens with a prologue set in Austin, Texas, on the night of September 26, 2013 (Outbreak Day), when a mutated strain of the parasitic Cordyceps fungus, capable of infecting humans and turning them into aggressive creatures, suddenly overruns the city. During the escape, contractor Joel Miller loses his twelve-year-old daughter Sarah, shot by a panicked soldier as the military scrambles to contain the outbreak; a Texas Herald newspaper clipping, readable among the game's extras, reconstructs the fungus's origins, spread worldwide through contaminated flour and grain. Twenty years later, in 2033, the United States has collapsed into military-controlled quarantine zones under FEDRA, infested by ever-evolving Infected (Runners, Stalkers, Clickers, Bloaters). Joel, now a hardened, grief-scarred smuggler, is hired by Firefly leader Marlene, alongside his partner Tess, to escort Ellie, a teenager immune to the fungus, out of the Boston Quarantine Zone to a Firefly research team, in exchange for weapons. After Tess is killed, Joel and Ellie continue the journey alone across the devastated United States, through Pittsburgh, a university campus, Bill's fortified town of Lincoln, rural West Virginia (where they meet Henry and Sam), Colorado, and finally Salt Lake City, forging a bond that increasingly reminds Joel of the daughter he lost. Upon reaching the Fireflies, they learn that developing a vaccine would require removing the infected tissue from Ellie's brain, an operation that would kill her. Unable to lose another daughter, Joel kills the Firefly surgeons and soldiers, carries the still-unconscious Ellie out of the hospital, and flees Salt Lake City. The game ends with Joel lying to a newly awakened Ellie, telling her the cure proved impossible because other immune survivors already exist, while she, despite her doubts, chooses to believe him."
+            },
+            // Voce "gemella" (entry.twin, singolo, stesso pallino): la
+            // Stagione 1 della serie HBO adatta la stessa identica storia.
+            twin: {
+              id: "tlou-season-1-tv",
+              type: "SERIE TV",
+              typeEn: "TV SERIES",
+              year: "2003 (prologo); 2023 (vent'anni dopo, linea temporale della serie)",
+              yearEn: "2003 (prologue); 2023 (twenty years later, the show's own timeline)",
+              releaseYear: "2023",
+              releaseYearEn: "2023",
+              title: { it: "The Last of Us: Stagione 1", en: "The Last of Us: Season 1" },
+              synopsis: {
+                it: "La prima stagione della serie HBO (2023), ideata da Craig Mazin insieme a Neil Druckmann, adatta con notevole fedeltà la trama di Part I, con Pedro Pascal nei panni di Joel e Bella Ramsey in quelli di Ellie. La serie sposta l'Outbreak Day dal 2013 al 2003, scelta creativa dichiarata dagli autori per collocare il presente della storia nell'anno di uscita dello show (2023) anziché in un futuro più lontano, senza alterare la sostanza degli eventi. Il terzo episodio, \"Long, Long Time\", scritto appositamente per la serie, espande in modo coerente col materiale originale la storia secondaria di Bill (Nick Offerman) e del suo compagno Frank (Murray Bartlett), mostrando vent'anni della loro vita insieme nella cittadina fortificata di Lincoln. Il settimo episodio, anch'esso intitolato \"Left Behind\", incorpora sotto forma di flashback l'intera vicenda di Ellie e Riley nel centro commerciale già narrata nell'omonima espansione videoludica.",
+                en: "The first season of the HBO series (2023), created by Craig Mazin together with Neil Druckmann, adapts the plot of Part I with remarkable fidelity, starring Pedro Pascal as Joel and Bella Ramsey as Ellie. The show shifts Outbreak Day from 2013 to 2003, a deliberate creative choice explained by the writers as a way to set the story's present in the year of the show's release (2023) rather than a more distant future, without altering the substance of the events. The third episode, \"Long, Long Time,\" written specifically for the series, expands — consistently with the source material — on the story of Bill (Nick Offerman) and his partner Frank (Murray Bartlett), showing twenty years of their life together in the fortified town of Lincoln. The seventh episode, also titled \"Left Behind,\" incorporates as flashbacks the entire story of Ellie and Riley at the shopping mall already told in the video game expansion of the same name."
+              }
+            }
+          },
+          {
+            id: "tlou-part-2",
+            type: "VIDEOGIOCO",
+            typeEn: "VIDEOGAME",
+            year: "2037 (quattro anni dopo Part I)",
+            yearEn: "2037 (four years after Part I)",
+            releaseYear: "2020 (Remastered: 2024)",
+            releaseYearEn: "2020 (Remastered: 2024)",
+            title: { it: "The Last of Us Part II", en: "The Last of Us Part II" },
+            synopsis: {
+              it: "The Last of Us Part II (2020; edizione Remastered 2024, che aggiunge tra l'altro la modalità roguelike \"Senza ritorno\" e livelli tagliati resi giocabili, ma con la medesima trama) è ambientato quattro anni dopo Part I. Joel ed Ellie vivono ormai stabilmente nell'insediamento comunitario di Jackson, nel Wyoming, insieme al fratello di Joel, Tommy, e sua moglie Maria. Attraverso flashback intercalati nel corso del gioco si ricostruiscono i mesi successivi all'arrivo a Jackson: Ellie scopre la verità sulla menzogna di Joel riguardo alle Luci e Salt Lake City tornando da sola alle rovine dell'ospedale dove tutto era accaduto, e il loro rapporto si incrina profondamente, ricomponendosi solo in parte in un ultimo, fragile momento di riconciliazione poco prima della tragedia. Durante una pattuglia invernale, Joel e Tommy vengono catturati da un gruppo proveniente da Seattle guidato da Abby Anderson, che si rivela essere la figlia di uno dei chirurghi delle Luci uccisi da Joel a Salt Lake City: per vendicare il padre, lo tortura e lo uccide a colpi di mazza da golf davanti a Ellie e Tommy. Divorata dal senso di colpa e dalla rabbia, Ellie parte per Seattle insieme alla sua ragazza Dina, raggiunta poi da Tommy, per dare la caccia ad Abby e al suo gruppo (i Lupi/WLF), eliminando uno dopo l'altro i suoi compagni, incluso Owen e la sua compagna incinta Mel, in una spirale di violenza sempre più devastante. A metà gioco la prospettiva si inverte e si rivivono gli stessi tre giorni a Seattle dal punto di vista di Abby, soldatessa dei Lupi in guerra contro la setta religiosa dei Serafiti (Iene): se ne scoprono le motivazioni e il legame con il disertore serafita Lev e sua sorella Yara, fino allo scontro finale con Ellie, Dina e Tommy, che Abby vince ma concludendo risparmiando la vita di Ellie e Dina. Mesi dopo, ormai stabilitasi in California con Dina e il figlio nato dalla loro relazione, Ellie apprende che Tommy ha rintracciato Abby, ridotta in schiavitù insieme a Lev dalle Serpi in un accampamento a Santa Barbara; nonostante l'opposizione di Dina, che la lascia, Ellie parte per portare a termine la vendetta. Dopo aver liberato entrambi dalle Serpi, affronta un'ultima volta Abby in un duello quasi mortale sulla riva del mare; ricordando un momento di tenerezza condiviso con Joel, decide infine di risparmiarla e lasciarla andare con Lev. Tornata a casa, scopre che Dina e il bambino se ne sono andati; il gioco si chiude con Ellie sola, che osserva la chitarra di Joel, ormai priva delle due dita necessarie per suonarla, prima di lasciare la casa vuota.",
+              en: "The Last of Us Part II (2020; Remastered 2024 edition, adding among other things the roguelike \"No Return\" mode and playable cut content, but with the same story) is set four years after Part I. Joel and Ellie now live permanently in the settlement of Jackson, Wyoming, alongside Joel's brother Tommy and his wife Maria. Flashbacks woven throughout the game reconstruct the months following their arrival: Ellie discovers the truth about Joel's lie regarding the Fireflies and Salt Lake City by returning alone to the ruins of the hospital where it all happened, and their relationship fractures badly, only partly mending in one final, fragile moment of reconciliation shortly before tragedy strikes. During a winter patrol, Joel and Tommy are captured by a group from Seattle led by Abby Anderson, revealed to be the daughter of one of the Firefly surgeons Joel killed in Salt Lake City; to avenge her father, she tortures and beats Joel to death with a golf club in front of Ellie and Tommy. Consumed by guilt and rage, Ellie travels to Seattle with her girlfriend Dina, later joined by Tommy, to hunt down Abby and her group (the Wolves/WLF), killing her companions one by one, including Owen and his pregnant partner Mel, in an escalating spiral of violence. Midway through the game the perspective shifts, replaying the same three days in Seattle from Abby's point of view as a Wolves soldier at war with the religious sect of the Seraphites (Scars); her motivations are revealed, along with her bond with Seraphite defector Lev and his sister Yara, culminating in her final confrontation with Ellie, Dina, and Tommy, which Abby wins but ends by sparing Ellie and Dina's lives. Months later, having settled in California with Dina and their newborn son, Ellie learns that Tommy has tracked Abby down, now enslaved along with Lev by the Rattlers at a camp in Santa Barbara; despite Dina's objections, which lead her to leave, Ellie sets out to finish what she started. After freeing both Abby and Lev from the Rattlers, Ellie faces Abby one final time in a near-fatal duel on the shore; recalling a tender memory shared with Joel, she ultimately spares her and lets her go with Lev. Returning home, she finds that Dina and their son have left; the game closes with Ellie alone, looking at Joel's guitar, now missing the two fingers she needs to play it, before she walks out of the empty house."
+            },
+            // Voce "gemella" (entry.twin, singolo, stesso pallino): la
+            // Stagione 2 della serie HBO adatta la prima parte della trama.
+            twin: {
+              id: "tlou-season-2-tv",
+              type: "SERIE TV",
+              typeEn: "TV SERIES",
+              year: "Quattro anni dopo la Stagione 1 (linea temporale della serie)",
+              yearEn: "Four years after Season 1 (the show's own timeline)",
+              releaseYear: "2025",
+              releaseYearEn: "2025",
+              title: { it: "The Last of Us: Stagione 2", en: "The Last of Us: Season 2" },
+              synopsis: {
+                it: "La seconda stagione della serie HBO (2025), scritta ancora da Craig Mazin e Neil Druckmann, con Mazin come showrunner, adatta la prima parte della trama di Part II dal punto di vista di Ellie (Bella Ramsey), con Pedro Pascal di nuovo nei panni di Joel, Gabriel Luna in quelli di Tommy e Kaitlyn Dever nel nuovo ruolo di Abby. La stagione copre gli eventi di Jackson, la morte di Joel e l'inizio della spedizione punitiva di Ellie a Seattle, fermandosi poco dopo il primo scontro diretto con Abby per lasciare alla stagione successiva, annunciata per il 2027, lo sviluppo della vicenda dal punto di vista di quest'ultima.",
+                en: "The second season of the HBO series (2025), again written by Craig Mazin and Neil Druckmann, with Mazin serving as showrunner, adapts the first part of Part II's story from Ellie's (Bella Ramsey) point of view, with Pedro Pascal returning as Joel, Gabriel Luna as Tommy, and Kaitlyn Dever joining as Abby. The season covers the events at Jackson, Joel's death, and the beginning of Ellie's revenge mission to Seattle, ending shortly after her first direct clash with Abby to leave the story's continuation, from Abby's perspective, to the following season, announced for 2027."
+              }
+            }
+          },
+          {
+            id: "tlou-season-3-tv",
+            type: "SERIE TV",
+            typeEn: "TV SERIES",
+            year: "Non annunciato",
+            yearEn: "Not yet announced",
+            // Nessuna sinossi di proposito: la stagione non e' ancora
+            // uscita, rinnovo confermato il 9/4/2025 ma nessuna data
+            // precisa, solo la finestra 2027 dichiarata da Casey Bloys/HBO.
+            // imagePending mostra il riquadro rosso segnaposto con la
+            // data (qui solo l'anno, nessun giorno preciso disponibile).
+            // Voce autonoma per ora: diventera' gemella (twin) di
+            // tlou-part-2 solo quando uscira' davvero.
+            imagePending: true,
+            releaseDateShort: { it: "2027 (data non annunciata)", en: "2027 (date not yet announced)" },
+            title: { it: "The Last of Us: Stagione 3", en: "The Last of Us: Season 3" }
+          }
+        ]
+      }
+    ]
+  },
+
   "tomb-raider": {
     id: "tomb-raider",
     listTitle: { it: "Tomb Raider", en: "Tomb Raider" },
@@ -10559,6 +10707,6 @@ const GAME_ORDER = [
   "fallout", "final-fantasy", "fire-emblem", "gears-of-war", "god-of-war", "gta", "halo", "horizon",
   "kingdom-hearts", "legacy-of-kain", "lost-planet", "mass-effect", "max-payne", "metal-gear-solid", "metro", "metroid", "mortal-kombat", "nier-drakengard",
   "persona", "pokemon", "prince-of-persia", "resident-evil", "shin-megami-tensei", "silent-hill", "sonic-the-hedgehog",
-  "elder-scrolls", "legend-of-zelda", "the-witcher", "tomb-raider",
+  "elder-scrolls", "legend-of-zelda", "the-last-of-us", "the-witcher", "tomb-raider",
   "remedy-universe", "warcraft", "wolfenstein", "xenoblade-chronicles", "yakuza"
 ];
