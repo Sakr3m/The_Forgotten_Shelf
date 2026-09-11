@@ -1178,6 +1178,114 @@ notturna, 2026-09-10.
   nessuna sostituzione): applicato direttamente senza consenso esplicito
   di Sakrem, secondo la regola stabilita l'08/09/2026.
 
+## Diablo
+
+Saga interamente nuova (mai pubblicata sul sito prima di questo ciclo).
+Esisteva una bozza di questa saga in un vecchio branch di lavoro mai
+arrivato su main (probabilmente per via della blacklist storica su
+Diablo), con un blurb troncato a metà frase: Sakrem ha rifiutato
+esplicitamente di riciclarla e ha chiesto di rifare tutto da zero con
+la catena completa - questo lavoro è interamente indipendente da
+quella bozza abbandonata. Un solo universo, **Sanctuarium** (id
+`sanctuary`), 25 voci (23 media reali + 2 voci STORIA), span 1996 -
+2026, palette narrativa a 4 colori.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "Tristram" (*Diablo*), "Rogue
+  Encampment" (*Diablo II*), "Harrogath" (*Diablo II: Lord of
+  Destruction*), "Lut Gholein" (*Diablo II*), "Diablo III Overture"
+  (*Diablo III*), "Diablo IV Main Theme" (*Diablo IV*), "Leah's Theme"
+  (*Diablo III*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione concentrata su
+  Diablo I-IV (nessun brano da Diablo Immortal, Reaper of Souls, Vessel
+  of Hatred o Lord of Hatred: verificato che non hanno prodotto brani
+  di fama paragonabile nelle fonti reperite). "Tristram" è il brano più
+  iconico della saga (riconosciuto dal pubblico del BlizzCon 2008 dai
+  soli primi accordi, prima ancora dell'annuncio ufficiale di Diablo
+  III).
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 25 nuove voci (23 media
+reali + 2 voci STORIA, nessuna gemella), tutte inserite nella stessa
+sessione, 2026-09-11.
+
+- Nuovo universo **Sanctuarium** (`sin-war-birthright` → `a-new-tale`,
+  span 1996 - 2026, 25 voci) - sessione 2026-09-11.
+- `sin-war-birthright` - La Guerra del Peccato: Diritto di Nascita
+  (ROMANZO, 2006) - voce a sé, prima voce della saga - sessione
+  2026-09-11.
+- `sin-war-scales` - La Guerra del Peccato: Squame di Serpente
+  (ROMANZO, 2007) - voce a sé - sessione 2026-09-11.
+- `sin-war-veiled-prophet` - La Guerra del Peccato: Il Profeta Velato
+  (ROMANZO, 2007, include nota sulla novella Demonsbane) - voce a sé -
+  sessione 2026-09-11.
+- `dark-exile-horadrim` - VOCE STORIA "L'Esilio Oscuro e la Fondazione
+  degli Horadrim" - sessione 2026-09-11.
+- `diablo-1` - Diablo (VIDEOGIOCO, 1996, include nota su Book of Adria:
+  A Diablo Bestiary) - voce a sé - sessione 2026-09-11.
+- `black-road` - The Black Road (ROMANZO, 2002) - voce a sé - sessione
+  2026-09-11.
+- `legacy-of-blood` - Eredità di Sangue (ROMANZO, 2001) - voce a sé -
+  sessione 2026-09-11.
+- `diablo-2` - Diablo II (VIDEOGIOCO, 2000) - voce a sé - sessione
+  2026-09-11.
+- `lord-of-destruction` - Diablo II: Lord of Destruction (ESPANSIONE,
+  2001, include nota su Diablo II: Resurrected 2021) - voce a sé -
+  sessione 2026-09-11.
+- `kingdom-of-shadow` - The Kingdom of Shadow (ROMANZO, 2002) - voce a
+  sé, riposizionata dopo Lord of Destruction (correzione del
+  Supervisore rispetto alla ricerca iniziale, che la collocava prima) -
+  sessione 2026-09-11.
+- `moon-of-the-spider` - Moon of the Spider (ROMANZO, 2005) - voce a
+  sé, riposizionata dopo Lord of Destruction (stessa correzione) -
+  sessione 2026-09-11.
+- `sword-of-justice` - Diablo III: La Spada della Giustizia (FUMETTO,
+  2011-2013) - voce a sé - sessione 2026-09-11.
+- `diablo-immortal` - Diablo Immortal (VIDEOGIOCO, 2022) - voce a sé -
+  sessione 2026-09-11.
+- `diablo-3-the-order` - Diablo III: L'Ordine (ROMANZO, 2012) - voce a
+  sé - sessione 2026-09-11.
+- `diablo-3` - Diablo III (VIDEOGIOCO, 2012, include note su Book of
+  Cain e Book of Tyrael) - voce a sé - sessione 2026-09-11.
+- `storm-of-light` - Diablo III: Tempesta di Luce (ROMANZO, 2014) -
+  voce a sé - sessione 2026-09-11.
+- `reaper-of-souls` - Diablo III: Reaper of Souls (ESPANSIONE, 2014,
+  include note su Rise of the Necromancer 2017 e Ultimate Evil
+  Edition/Eternal Collection) - voce a sé - sessione 2026-09-11.
+- `fifty-years-of-ruin` - VOCE STORIA "I Cinquant'anni di Rovina" -
+  sessione 2026-09-11.
+- `by-three-they-come` - Diablo IV: By Three They Come
+  (CORTOMETRAGGIO, 2019) - voce a sé - sessione 2026-09-11.
+- `tales-from-horadric-library` - Diablo: Tales from the Horadric
+  Library (RACCOLTA DI RACCONTI, 2022) - voce a sé - sessione
+  2026-09-11.
+- `diablo-4` - Diablo IV (VIDEOGIOCO, 2023, include nota su Book of
+  Lorath) - voce a sé - sessione 2026-09-11.
+- `vessel-of-hatred` - Diablo IV: Vessel of Hatred (ESPANSIONE, 2024,
+  include note su Book of Prava e Ballad of the Blood) - voce a sé -
+  sessione 2026-09-11.
+- `dawn-of-hatred` - Diablo: Dawn of Hatred (FUMETTO, 2025-2026) - voce
+  a sé - sessione 2026-09-11.
+- `lord-of-hatred` - Diablo IV: Lord of Hatred (ESPANSIONE, 2026) -
+  voce a sé, conclusione della trilogia di Mefisto - sessione
+  2026-09-11.
+- `a-new-tale` - Diablo: A New Tale (VOCE COLLETTIVA, 2023-2026) - voce
+  a sé, prima voce collettiva pubblicata sul sito con questo tipo -
+  ultima voce della saga - sessione 2026-09-11.
+
 ## Dragon Quest
 
 ### In sospeso - immagini mancanti
