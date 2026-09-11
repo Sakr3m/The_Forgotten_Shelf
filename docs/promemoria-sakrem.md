@@ -1063,6 +1063,84 @@ notturna, 2026-09-10.
   DLC Awakened) - voce a sé, ultima voce della saga - sessione
   notturna, 2026-09-10.
 
+## Destiny
+
+Saga interamente nuova (mai pubblicata sul sito prima di questo ciclo). Un
+solo universo, **Destiny** (id `destiny`), 17 voci (nessuna gemella, nessuna
+STORIA), span 2014 - 2026.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "The Last Array" (*Destiny*),
+  "Deep Stone Lullaby" (*Destiny 2: Beyond Light*), "Regicide" (*Destiny:
+  The Taken King*), "Hope for the Future" (Paul McCartney; *Destiny*),
+  "Keep of Voices" (*Destiny 2: Forsaken*), "Excerpt from the Union"
+  (*Destiny*), "The First Disciple" (*Destiny 2: The Witch Queen*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, tutti brani verificati come
+  realmente suonati in gioco, con indicatori di fama/gradimento reale
+  (citazioni di critica, articoli dedicati, thread di community, remix/cover
+  amatoriali nel tempo). Tre tracce provengono dal titolo base "Destiny"
+  (posizioni 1, 4, 6), distribuite non consecutive nell'ordine finale.
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le tracce
+  sono nuove per il sito e da caricare su R2 (proposta già accettata nel
+  merito, non in attesa di decisione di Sakrem: manca solo il file fisico).
+  Il campo viene comunque creato dal Programmatore come `tracks: []`, non
+  popolato, in attesa dei file. Dubbio residuo del Musicista (non risolvibile
+  in sessione per blocco tecnico di rete su WebFetch, confermato dal
+  Supervisore) sulla gradazione fine di fama tra le posizioni 5-7 (Keep of
+  Voices, Excerpt from the Union, The First Disciple): ordine mantenuto così
+  com'è, nessuna alternativa chiaramente migliore emersa.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 17 nuove voci (nessuna gemella,
+nessuna voce STORIA), tutte inserite nella stessa sessione, 2026-09-11.
+
+- Nuovo universo **Destiny** (`destiny-1` → `destiny-2-monument-of-triumph`,
+  span 2014 - 2026, 17 voci) - sessione 2026-09-11.
+- `destiny-1` - Destiny (VIDEOGIOCO, 2014) - voce a sé, prima voce della
+  saga - sessione 2026-09-11.
+- `destiny-dark-below` - Destiny: L'Oscurità dal Profondo (ESPANSIONE,
+  2014) - voce a sé - sessione 2026-09-11.
+- `destiny-house-of-wolves` - Destiny: Il Casato dei Lupi (ESPANSIONE,
+  2015) - voce a sé - sessione 2026-09-11.
+- `destiny-taken-king` - Destiny: Il Re dei Corrotti (ESPANSIONE, 2015) -
+  voce a sé - sessione 2026-09-11.
+- `destiny-rise-of-iron` - Destiny: I Signori del Ferro (ESPANSIONE, 2016)
+  - voce a sé, chiude il primo blocco cromatico - sessione 2026-09-11.
+- `destiny-2` - Destiny 2 (Red War) (VIDEOGIOCO, 2017) - voce a sé -
+  sessione 2026-09-11.
+- `destiny-2-curse-of-osiris` - Destiny 2: La Maledizione di Osiride
+  (ESPANSIONE, 2017) - voce a sé - sessione 2026-09-11.
+- `destiny-2-warmind` - Destiny 2: La Mente Bellica (ESPANSIONE, 2018) -
+  voce a sé - sessione 2026-09-11.
+- `destiny-2-forsaken` - Destiny 2: I Rinnegati (ESPANSIONE, 2018) - voce
+  a sé, chiude il secondo blocco cromatico - sessione 2026-09-11.
+- `destiny-2-shadowkeep` - Destiny 2: Ombre dal Profondo (ESPANSIONE, 2019)
+  - voce a sé - sessione 2026-09-11.
+- `destiny-2-beyond-light` - Destiny 2: Oltre la Luce (ESPANSIONE, 2020) -
+  voce a sé - sessione 2026-09-11.
+- `destiny-2-witch-queen` - Destiny 2: La Regina dei Sussurri (ESPANSIONE,
+  2022) - voce a sé - sessione 2026-09-11.
+- `destiny-2-lightfall` - Destiny 2: L'Eclissi (ESPANSIONE, 2023) - voce a
+  sé, chiude il terzo blocco cromatico - sessione 2026-09-11.
+- `destiny-2-final-shape` - Destiny 2: La Forma Ultima (ESPANSIONE, 2024) -
+  voce a sé, fine della Saga della Luce e dell'Oscurità - sessione
+  2026-09-11.
+- `destiny-2-edge-of-fate` - Destiny 2: The Edge of Fate (ESPANSIONE, 2025)
+  - voce a sé, apertura della Saga del Fato - sessione 2026-09-11.
+- `destiny-2-renegades` - Destiny 2: Renegades (ESPANSIONE, 2025) - voce a
+  sé - sessione 2026-09-11.
+- `destiny-2-monument-of-triumph` - Destiny 2: Monument of Triumph
+  (ESPANSIONE, 2026) - voce a sé, ultima voce della saga - sessione
+  2026-09-11.
+
 ## Deus Ex
 
 Saga interamente nuova (mai apparsa sul sito prima di questo ciclo).
@@ -1285,6 +1363,79 @@ sessione, 2026-09-11.
 - `a-new-tale` - Diablo: A New Tale (VOCE COLLETTIVA, 2023-2026) - voce
   a sé, prima voce collettiva pubblicata sul sito con questo tipo -
   ultima voce della saga - sessione 2026-09-11.
+
+## Dishonored
+
+Saga interamente nuova (mai pubblicata sul sito prima di questo ciclo).
+Un solo universo, **Universo principale** (id `main-universe`), 11 voci
+(10 narrative + 1 board game imagePending, nessuna gemella, nessuna
+voce STORIA), span 2012 - 2026. Due coppie parallele esplicitate nel
+testo: Il Pugnale di Dunwall + Le Streghe di Brigmore parallele a
+Dishonored; The Return of Daud parallelo a Dishonored 2. Buco
+cronologico 1837-1850 confermato ma senza fonte ufficiale, lasciato
+scoperto (nessuna voce STORIA). Definitive Edition (2015) annotata come
+anno aggiuntivo nel `releaseYear` di Dishonored (2012), senza voce a
+sé.
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama/gradimento decrescente: "The Drunken Whaler"
+  (*Dishonored*), "Honor for All" (*Dishonored*), "Brigmore Lullaby"
+  (*Dishonored 2*), "Sands of Serkonos" (*Dishonored 2*), "Silver and
+  Dust" (*Dishonored 2*), "Born in the Month of Darkness" (*Dishonored
+  2*, ripreso anche in *Dishonored: Death of the Outsider*), "The Coup"
+  (*Dishonored 2*).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, concentrata su
+  Dishonored (2012, 2 tracce) e Dishonored 2 (5 tracce) - i due titoli
+  con la fama musicale pubblica reale più documentata (trailer virale
+  di "The Drunken Whaler", elenco ufficiale "fan-favourite" della
+  raccolta "Dishonored: The Soundtrack Collection"). Nessun brano da
+  DLC/espansioni (Il Pugnale di Dunwall, Le Streghe di Brigmore), non
+  trattate come titoli musicali a sé.
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 11 nuove voci (10 media
+reali + 1 board game imagePending, nessuna gemella, nessuna voce
+STORIA), tutte inserite nella stessa sessione, 2026-09-11.
+
+- Nuovo universo **Universo principale** (`dishonored-1` →
+  `corrupt-throne`, span 2012 - 2026, 11 voci) - sessione 2026-09-11.
+- `dishonored-1` - Dishonored (VIDEOGIOCO, 2012, include annotazione
+  Definitive Edition 2015 nel releaseYear) - voce a sé, prima voce
+  della saga - sessione 2026-09-11.
+- `knife-of-dunwall` - Il Pugnale di Dunwall (ESPANSIONE, 2013) - voce
+  a sé, parallela a Dishonored - sessione 2026-09-11.
+- `brigmore-witches` - Le Streghe di Brigmore (ESPANSIONE, 2013) - voce
+  a sé, parallela a Dishonored - sessione 2026-09-11.
+- `wyrmwood-deceit` - The Wyrmwood Deceit (FUMETTO, 2016) - voce a sé -
+  sessione 2026-09-11.
+- `corroded-man` - The Corroded Man (ROMANZO, 2016) - voce a sé -
+  sessione 2026-09-11.
+- `dishonored-2` - Dishonored 2 (VIDEOGIOCO, 2016) - voce a sé -
+  sessione 2026-09-11.
+- `return-of-daud` - The Return of Daud (ROMANZO, 2018) - voce a sé,
+  parallela a Dishonored 2 - sessione 2026-09-11.
+- `peeress-and-the-price` - The Peeress and the Price (FUMETTO, 2018) -
+  voce a sé - sessione 2026-09-11.
+- `death-of-the-outsider` - La Morte dell'Esterno / Death of the
+  Outsider (VIDEOGIOCO, 2017) - voce a sé - sessione 2026-09-11.
+- `veiled-terror` - The Veiled Terror (ROMANZO, 2018) - voce a sé,
+  ultima voce narrativa della saga - sessione 2026-09-11.
+- `corrupt-throne` - Dishonored: Corrupt Throne (GIOCO DA TAVOLO,
+  finestra 2026, imagePending, nessuna sinossi) - voce a sé, ultima
+  voce della saga - sessione 2026-09-11.
 
 ## Dragon Quest
 
