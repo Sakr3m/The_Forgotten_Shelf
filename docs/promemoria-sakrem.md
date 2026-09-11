@@ -2144,6 +2144,78 @@ Sakrem (regola dell'08/09/2026) - riportato qui solo per completezza
 dello storico, dato che è un cambiamento strutturale legato
 all'aggiunta del nuovo media.
 
+## Mafia
+
+### Musica
+
+#### Tracklist completa saga (prima volta, saga interamente nuova)
+
+- **Proposta**: creare il campo `tracks` della saga (nuova, quindi
+  inesistente fino ad ora) e popolarlo con una playlist di 7 brani, in
+  ordine di fama decrescente: "Respect" (*Mafia III*, Aretha Franklin),
+  "Paint It Black" (*Mafia III*, The Rolling Stones), "That's Amore"
+  (*Mafia II*, Dean Martin), "Fortunate Son" (*Mafia III*, Creedence
+  Clearwater Revival), "Sympathy for the Devil" (*Mafia III*, The
+  Rolling Stones), "Main Theme" (*Mafia: The City of Lost Heaven*,
+  colonna sonora originale), "Born to Be Wild" (*Mafia III*,
+  Steppenwolf).
+- **Origine**: Musicista.
+- **Motivazione**: prima playlist della saga, selezione per fama/
+  radicamento reale nel pubblico (non cronologica), con concentrazione
+  ammessa su Mafia III perché è lì che si concentra la fama reale dei
+  brani licenziati. Esclusione verificata e confermata di un possibile
+  ottavo brano da *Mafia: The Old Country* ("The Carusu"): nessuna
+  prova di fama/radicamento paragonabile (nessun remake, nessuna
+  ri-registrazione da concerto, nessuna citazione isolata in
+  retrospettive), a differenza del "Main Theme" di Mafia I (riarrangiato
+  nel remake 2020, ri-registrato dal vivo nel 2024).
+- **Data**: 2026-09-11.
+- **Stato**: in attesa - bloccata per asset mancante, tutte e 7 le
+  tracce sono nuove per il sito e da caricare su R2 (proposta già
+  accettata nel merito, non in attesa di decisione di Sakrem: manca
+  solo il file fisico). Il campo viene comunque creato dal
+  Programmatore come `tracks: []`, non popolato, in attesa dei file.
+  **AVVISO RISCHIO DIRITTI D'AUTORE**: 6 delle 7 tracce ("Respect",
+  "Paint It Black", "That's Amore", "Fortunate Son", "Sympathy for the
+  Devil", "Born to Be Wild") sono master discografici commerciali major
+  con licenza (Aretha Franklin, Rolling Stones x2, Dean Martin, CCR,
+  Steppenwolf) - un tipo di traccia diverso e più a rischio del
+  precedente unico brano non originale già sul sito (BioShock, di
+  pubblico dominio). Ospitare questi file integrali su R2/CDN pubblico
+  comporta un rischio di diritti d'autore più elevato: prima di
+  caricare i file reali, Sakrem deve valutare separatamente se
+  procedere con estratti brevi, invocare il fair use, o sostituire
+  queste tracce con la sola colonna sonora orchestrale originale. Solo
+  "Main Theme" (Mafia: The City of Lost Heaven) è colonna sonora
+  originale del gioco, senza questo rischio aggiuntivo.
+
+### Media aggiunti
+
+Saga interamente nuova: 1 nuovo universo e 5 nuove voci (tutte voci a
+sé, nessuna gemella, nessuna STORIA), tutte inserite nella stessa
+sessione, 2026-09-11 (terza di una sequenza di 10 saghe lavorate in
+sequenza in questa sessione).
+
+- Nuovo universo **Universo principale** (`the-old-country` →
+  `mafia-iii`, 5 voci) - sessione 2026-09-11.
+- `the-old-country` - Mafia: The Old Country (VIDEOGIOCO, 2025) - voce
+  a sé, prima voce della saga, con nota DLC narrativo Man of Honor
+  (2026) - sessione 2026-09-11.
+- `the-city-of-lost-heaven` - Mafia: The City of Lost Heaven
+  (VIDEOGIOCO, 2002; Definitive Edition 2020) - voce a sé - sessione
+  2026-09-11.
+- `mafia-ii` - Mafia II (VIDEOGIOCO, 2010; Definitive Edition 2020) -
+  voce a sé, con nota DLC narrativo Joe's Adventures (2010) - sessione
+  2026-09-11.
+- `the-rise-and-fall-of-sal-marcano` - Mafia III: The Rise & Fall of
+  Sal Marcano (FUMETTO/graphic novel, 2017-2018, Insight Comics/Insight
+  Editions) - voce a sé indipendente (protagonista Sal Marcano, diverso
+  dal protagonista del videogioco) - sessione 2026-09-11.
+- `mafia-iii` - Mafia III (VIDEOGIOCO, 2016; Definitive Edition 2020) -
+  voce a sé, ultima voce della saga, con tre note DLC narrativi
+  (Faster, Baby!; Stones Unturned; Sign of the Times) - sessione
+  2026-09-11.
+
 ## Mass Effect
 
 ### Musica
