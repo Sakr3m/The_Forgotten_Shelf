@@ -1266,13 +1266,36 @@ body[data-state="landing"] .index-link{ display:flex; }
    con un solo bordo, non va costruito a mano). Spessore maggiorato
    rispetto alla vecchia versione a background pieno (2px) perche' a
    3px "double" risultava poco leggibile. */
+/* Colore (12/09): non piu' un border-top a tinta unita - il colore
+   ora e' un vero gradiente CSS impostato da JS in background-image
+   (drawUmbrellaConnectors), che campiona i colori reali dei pallini
+   attraversati dall'arco cosi' la riga segue la stessa sfumatura
+   della linea temporale sottostante, invece di restare bloccata su un
+   unico colore preso solo dal primo pallino. background-color qui
+   resta solo un fallback (mai visibile in pratica, JS imposta sempre
+   il gradiente prima di inserire l'elemento nel DOM).
+   Stile (solid/dashed/dotted/double, data-line-style impostato da
+   JS): non piu' border-top-style (incompatibile con un colore a
+   sfondo/gradiente) - una maschera CSS ritaglia lo sfondo nella forma
+   giusta, "solid" resta senza maschera (barra piena). */
 .h-node__umbrella-link{
   position:absolute;
-  height:0;
-  border-top-width:5px;
-  border-top-color:var(--dot-color, var(--cyan));
-  border-top-style:var(--line-style, solid);
+  height:5px;
+  background-color:var(--dot-color, var(--cyan));
+  background-repeat:no-repeat;
   pointer-events:none; z-index:1;
+}
+.h-node__umbrella-link[data-line-style="dashed"]{
+  -webkit-mask-image:repeating-linear-gradient(90deg, black 0 8px, transparent 8px 14px);
+  mask-image:repeating-linear-gradient(90deg, black 0 8px, transparent 8px 14px);
+}
+.h-node__umbrella-link[data-line-style="dotted"]{
+  -webkit-mask-image:repeating-linear-gradient(90deg, black 0 3px, transparent 3px 8px);
+  mask-image:repeating-linear-gradient(90deg, black 0 3px, transparent 3px 8px);
+}
+.h-node__umbrella-link[data-line-style="double"]{
+  -webkit-mask-image:linear-gradient(to bottom, black 0 33%, transparent 33% 67%, black 67% 100%);
+  mask-image:linear-gradient(to bottom, black 0 33%, transparent 33% 67%, black 67% 100%);
 }
 
 .h-node__tile{
@@ -1946,20 +1969,30 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 
   /* Trattino di collegamento tra i due pallini di una voce "ombrello"
      (PARTE 3 punto 3), SOLO MOBILE: stesso elemento .h-node__umbrella-link
-     del desktop (drawUmbrellaConnectors), stessa custom property
-     --line-style per i 4 stili (solid/dashed/dotted/double) e stesso
-     --dot-color - qui e' solo ruotato di 90 gradi, dato che la riga
-     temporale corre verticale invece che orizzontale: un bordo
-     SINISTRO invece che superiore, larghezza 0 invece di altezza 0.
-     Posizione (left/top/height) calcolata a runtime in
+     del desktop (drawUmbrellaConnectors) e stesso meccanismo a
+     background/mask (12/09, vedi il commento esteso nella regola
+     desktop) - qui e' solo ruotato di 90 gradi, dato che la riga
+     temporale corre verticale invece che orizzontale: una barra
+     stretta (width) invece che bassa (height), maschere con l'asse
+     scambiato. Posizione (left/top/height) calcolata a runtime in
      drawUmbrellaConnectorsVertical (script.js), stesso principio di
      drawUmbrellaConnectors ma sugli assi scambiati. */
   .h-node__umbrella-link{
-    height:auto; width:0;
-    border-top-width:0; border-top-style:none;
-    border-left-width:5px;
-    border-left-color:var(--dot-color, var(--cyan));
-    border-left-style:var(--line-style, solid);
+    height:auto; width:5px;
+    background-color:var(--dot-color, var(--cyan));
+    background-repeat:no-repeat;
+  }
+  .h-node__umbrella-link[data-line-style="dashed"]{
+    -webkit-mask-image:repeating-linear-gradient(180deg, black 0 8px, transparent 8px 14px);
+    mask-image:repeating-linear-gradient(180deg, black 0 8px, transparent 8px 14px);
+  }
+  .h-node__umbrella-link[data-line-style="dotted"]{
+    -webkit-mask-image:repeating-linear-gradient(180deg, black 0 3px, transparent 3px 8px);
+    mask-image:repeating-linear-gradient(180deg, black 0 3px, transparent 3px 8px);
+  }
+  .h-node__umbrella-link[data-line-style="double"]{
+    -webkit-mask-image:linear-gradient(to right, black 0 33%, transparent 33% 67%, black 67% 100%);
+    mask-image:linear-gradient(to right, black 0 33%, transparent 33% 67%, black 67% 100%);
   }
 
   /* --- Title detail page --- */

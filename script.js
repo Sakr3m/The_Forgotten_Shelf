@@ -1239,9 +1239,33 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     link.style.left = xLeft.toFixed(2) + "px";
     link.style.width = (xRight - xLeft).toFixed(2) + "px";
     link.style.top = y.toFixed(2) + "px";
-    const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
-    if(color) link.style.setProperty("--dot-color", color);
-    link.style.setProperty("--line-style", umb.lineStyle || "solid");
+    // Colore della riga (12/09, richiesto da Sakrem): non piu' un
+    // singolo colore fisso preso solo dal pallino A - la riga resta
+    // "bloccata" su quel colore anche quando l'arco copre un tratto in
+    // cui la gradazione della saga cambia davvero (es. da blu ad
+    // arancione), restando visibilmente sbagliata a meta' strada.
+    // Ora si ricostruisce un vero gradiente CSS campionando il colore
+    // REALE (--dot-color, gia' risolto da buildUniverseTrack) di ogni
+    // pallino che l'arco attraversa, nella stessa proporzione della
+    // sua posizione orizzontale: la riga segue quindi esattamente la
+    // stessa sfumatura della linea temporale sottostante in ogni suo
+    // punto, non solo all'inizio.
+    const span = xRight - xLeft;
+    const stops = Array.from(liveTimeline.querySelectorAll(".h-node[data-entry-id]"))
+      .map(n => {
+        const m = n.querySelector(".h-node__marker");
+        if(!m) return null;
+        const r = m.getBoundingClientRect();
+        const x = r.left + r.width / 2 - timelineRect.left + scrollLeft;
+        return { x, color: getComputedStyle(n).getPropertyValue("--dot-color").trim() };
+      })
+      .filter(s => s && s.color && s.x >= xLeft - 0.5 && s.x <= xRight + 0.5)
+      .sort((a, b) => a.x - b.x);
+    if(stops.length){
+      const stopsCss = stops.map(s => `${s.color} ${(span > 0 ? (s.x - xLeft) / span * 100 : 0).toFixed(2)}%`).join(", ");
+      link.style.backgroundImage = `linear-gradient(90deg, ${stopsCss})`;
+    }
+    link.dataset.lineStyle = umb.lineStyle || "solid";
     liveTimeline.appendChild(link);
   });
 }
@@ -1471,9 +1495,26 @@ function drawUmbrellaConnectorsVertical(liveTimeline, uni){
     link.style.top = yTop.toFixed(2) + "px";
     link.style.height = (yBottom - yTop).toFixed(2) + "px";
     link.style.left = x.toFixed(2) + "px";
-    const color = getComputedStyle(nodeA).getPropertyValue("--dot-color").trim();
-    if(color) link.style.setProperty("--dot-color", color);
-    link.style.setProperty("--line-style", umb.lineStyle || "solid");
+    // Stesso principio del gemello desktop (vedi il suo commento
+    // esteso): un vero gradiente verticale campionato dai colori reali
+    // gia' risolti sui pallini che l'arco attraversa, non un unico
+    // colore fisso preso solo dal primo pallino.
+    const span = yBottom - yTop;
+    const stops = Array.from(liveTimeline.querySelectorAll(".h-node[data-entry-id]"))
+      .map(n => {
+        const m = n.querySelector(".h-node__marker");
+        if(!m) return null;
+        const r = m.getBoundingClientRect();
+        const yc = r.top + r.height / 2 - timelineRect.top;
+        return { y: yc, color: getComputedStyle(n).getPropertyValue("--dot-color").trim() };
+      })
+      .filter(s => s && s.color && s.y >= yTop - 0.5 && s.y <= yBottom + 0.5)
+      .sort((a, b) => a.y - b.y);
+    if(stops.length){
+      const stopsCss = stops.map(s => `${s.color} ${(span > 0 ? (s.y - yTop) / span * 100 : 0).toFixed(2)}%`).join(", ");
+      link.style.backgroundImage = `linear-gradient(180deg, ${stopsCss})`;
+    }
+    link.dataset.lineStyle = umb.lineStyle || "solid";
     liveTimeline.appendChild(link);
   });
 }
