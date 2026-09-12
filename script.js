@@ -1152,6 +1152,12 @@ function updateUmbrellaBoxVisibility(liveTimeline){
 function drawUmbrellaConnectors(liveTimeline, uni){
   if(!liveTimeline || !uni || !Array.isArray(uni.umbrellas) || !uni.umbrellas.length) return;
   liveTimeline.querySelectorAll(".h-node__umbrella-link").forEach(el => el.remove());
+  // Reset del trattino allungato (vedi --tick-extra piu' sotto): la
+  // funzione va rifatta da zero ad ogni chiamata, un pallino che oggi
+  // ancora arriva a un arco esterno potrebbe non servire piu' domani
+  // (es. Sakrem toglie un ombrello) - senza questo reset resterebbe
+  // allungato per sempre, nessun altro punto del codice lo ripulisce.
+  liveTimeline.querySelectorAll(".h-node__marker").forEach(m => m.style.removeProperty("--tick-extra"));
   const timelineRect = liveTimeline.getBoundingClientRect();
   // liveTimeline e' sia il contenitore posizionato (position:relative,
   // il riferimento per left/top del link) SIA quello che scorre
@@ -1184,8 +1190,14 @@ function drawUmbrellaConnectors(liveTimeline, uni){
   // quando un nuovo trattino si sovrappone in x con uno o piu' gia'
   // presenti sullo stesso lato, viene spostato un altro OFFSET_STEP
   // piu' lontano dalla linea principale, cosi' i tratti condivisi
-  // restano entrambi leggibili invece di fondersi in uno solo.
-  const OFFSET_STEP = 7;
+  // restano entrambi leggibili invece di fondersi in uno solo. Valore
+  // alzato da 7 a 15 (12/09, richiesto da Sakrem): con 7 le due righe
+  // restavano a un soffio l'una dall'altra (il trattino verticale del
+  // marker e' spesso 5px, un distacco di 7 lasciava solo ~2px di
+  // vuoto vero tra le due bande colorate) - a 15 il vuoto vero sale a
+  // ~10px, abbastanza perche' l'occhio le legga subito come due righe
+  // distinte invece di una fascia sola.
+  const OFFSET_STEP = 15;
   const placedBySide = { down: [], up: [] };
   uni.umbrellas.forEach(umb => {
     const pair = byId[umb.id];
@@ -1205,6 +1217,19 @@ function drawUmbrellaConnectors(liveTimeline, uni){
     const overlapCount = placed.filter(p => xLeft < p.xRight && xRight > p.xLeft).length;
     placed.push({ xLeft, xRight });
     const extraOffset = overlapCount * OFFSET_STEP;
+    // Il trattino verticale fisso (CSS, 15px totali) che collega ogni
+    // pallino alla propria riga arriva esattamente alla PUNTA del
+    // trattino quando l'arco non e' spostato (extraOffset 0): appena
+    // extraOffset cresce, la riga si allontana ma il trattino resta
+    // fermo, lasciando un buco vuoto sempre piu' vistoso (proprio
+    // quello segnalato) tra la punta del trattino e l'inizio vero
+    // della riga. --tick-extra (letta da styles.css) allunga il
+    // trattino della stessa identica misura, cosi' torna a toccare la
+    // riga anche quando questa si sposta piu' lontano.
+    if(extraOffset > 0){
+      markerA.style.setProperty("--tick-extra", extraOffset + "px");
+      markerB.style.setProperty("--tick-extra", extraOffset + "px");
+    }
 
     const y = isDown
       ? Math.max(rectA.bottom, rectB.bottom) + DASH_REACH + extraOffset - timelineRect.top
@@ -1386,6 +1411,9 @@ function positionVerticalTimeline(liveTimeline){
 function drawUmbrellaConnectorsVertical(liveTimeline, uni){
   if(!liveTimeline || !uni || !Array.isArray(uni.umbrellas) || !uni.umbrellas.length) return;
   liveTimeline.querySelectorAll(".h-node__umbrella-link").forEach(el => el.remove());
+  // Stesso reset del gemello desktop (drawUmbrellaConnectors) - vedi
+  // --tick-extra piu' sotto.
+  liveTimeline.querySelectorAll(".h-node__marker").forEach(m => m.style.removeProperty("--tick-extra"));
   const timelineRect = liveTimeline.getBoundingClientRect();
   // A differenza del desktop (riga orizzontale scrollabile, dove serve
   // sommare scrollLeft per ottenere una coordinata stabile rispetto a
@@ -1398,7 +1426,7 @@ function drawUmbrellaConnectorsVertical(liveTimeline, uni){
     (byId[node.dataset.entryId] = byId[node.dataset.entryId] || []).push(node);
   });
   const DASH_REACH = 15; // 8px margine + 7px lunghezza del trattino orizzontale verso il box, vedi CSS mobile
-  const OFFSET_STEP = 7; // stesso principio/valore del desktop: archi che si sovrappongono in verticale si allontanano un altro passo dalla linea invece di sovrapporsi graficamente
+  const OFFSET_STEP = 15; // stesso principio/valore del desktop (alzato da 7 a 15 il 12/09, stesso motivo: vedi commento gemello in drawUmbrellaConnectors)
   const placedBySide = { down: [], up: [] };
   uni.umbrellas.forEach(umb => {
     const pair = byId[umb.id];
@@ -1425,6 +1453,15 @@ function drawUmbrellaConnectorsVertical(liveTimeline, uni){
     const overlapCount = placed.filter(p => yTop < p.yBottom && yBottom > p.yTop).length;
     placed.push({ yTop, yBottom });
     const extraOffset = overlapCount * OFFSET_STEP;
+    // Stesso allungamento del trattino del gemello desktop (vedi
+    // commento esteso in drawUmbrellaConnectors) - qui il trattino
+    // mobile e' orizzontale (width, non height), --tick-extra e'
+    // comunque letta in styles.css nella regola giusta per ciascun
+    // asse.
+    if(extraOffset > 0){
+      markerA.style.setProperty("--tick-extra", extraOffset + "px");
+      markerB.style.setProperty("--tick-extra", extraOffset + "px");
+    }
 
     const x = isDown
       ? markerX + DASH_REACH + extraOffset

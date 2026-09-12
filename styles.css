@@ -1203,7 +1203,12 @@ body[data-state="landing"] .index-link{ display:flex; }
   content:"";
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
   margin-top:5px;
-  width:2px; height:10px;
+  width:2px; height:calc(10px + var(--tick-extra, 0px)); /* --tick-extra
+    (JS, drawUmbrellaConnectors): quando questo pallino ancora un arco
+    ombrello spostato piu' lontano dalla linea principale (due archi
+    che si sovrappongono, vedi OFFSET_STEP), il trattino si allunga
+    della stessa misura per continuare a toccare la riga invece di
+    lasciare un buco vuoto. 0px di default, nessun effetto altrove. */
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
 }
@@ -1212,7 +1217,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   content:"";
   position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
   margin-bottom:5px;
-  width:2px; height:10px;
+  width:2px; height:calc(10px + var(--tick-extra, 0px)); /* vedi commento gemello qui sopra */
   background:var(--dot-color, var(--cyan));
   border-radius:1px;
 }
@@ -1891,13 +1896,16 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .h-node--twin .h-node__marker::after{
     top:50%; left:100%; bottom:auto; transform:translateY(-50%);
     margin-top:0; margin-left:8px;
-    width:7px; height:2px;
+    width:calc(7px + var(--tick-extra, 0px)); height:2px; /* --tick-extra:
+      vedi commento esteso nella regola desktop gemella qui sopra -
+      qui il trattino e' orizzontale (width, non height), stesso
+      principio sull'asse scambiato */
   }
   .h-node--up .h-node__marker::before,
   .h-node--twin .h-node__marker::before{
     top:50%; right:100%; bottom:auto; left:auto; transform:translateY(-50%);
     margin-bottom:0; margin-right:8px;
-    width:7px; height:2px;
+    width:calc(7px + var(--tick-extra, 0px)); height:2px;
   }
 
   /* Nodo "Collegamento tra Universi" (vedi styles.css desktop sopra):
