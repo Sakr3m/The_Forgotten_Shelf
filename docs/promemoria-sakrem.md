@@ -391,7 +391,11 @@ nella stessa sessione notturna, 2026-09-09.
   notturna, 2026-09-09.
 - `bg-promo-comic` - Fumetto promozionale di Baldur's Gate (FUMETTO,
   1998) - voce a sé, prima voce della saga - sessione notturna,
-  2026-09-09.
+  2026-09-09. **Rimossa dal sito il 2026-09-12** (decisione diretta di
+  Sakrem: nessuna evoluzione di trama - la fonte ufficiale stessa la
+  descrive come scollegata dagli eventi del gioco - e una contraddizione
+  vera con Baldur's Gate 1, dove Kivan e Tiax, morti nel fumetto, sono
+  personaggi vivi e reclutabili).
 - `bg1` - Baldur's Gate (VIDEOGIOCO, 1998, include Tales of the Sword
   Coast) - voce a sé - sessione notturna, 2026-09-09.
 - `bg1-novel` - Baldur's Gate (novelization, Philip Athans, 1999)

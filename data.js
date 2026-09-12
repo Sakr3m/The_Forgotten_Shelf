@@ -1413,14 +1413,6 @@ const GAMES = {
         palette: ["#B08D3E", "#5B3F7A", "#7A1F3D"],
         paletteBounds: ["throne-of-bhaal", "mindbreaker"],
         entries: [
-          { id: "bg-promo-comic", type: "FUMETTO", typeEn: "COMIC", year: "Prima di Baldur's Gate", yearEn: "Before Baldur's Gate",
-            releaseYear: "1998", releaseYearEn: "1998",
-            title: { it: "Fumetto promozionale di Baldur's Gate", en: "Baldur's Gate Promotional Comic" },
-            synopsis: {
-              it: "Nella foresta di Cloakwood, i mercenari Ajantis, Shar-Teel, Eldoth Kron, Kivan e Tiax scortano una carovana che trasporta la giovane promessa sposa di un nobile di Amn insieme alla sua ricca dote. Il gruppo viene travolto da un'orda di hobgoblin: nello scontro Kivan e Tiax perdono la vita, mentre gli altri sopravvivono a fatica. Approfittando della confusione della battaglia, il bardo Eldoth rapisce la fanciulla e fugge con i sacchi di platino della dote, tradendo apertamente i propri compagni d'armi. Ajantis, paladino integerrimo, e Shar-Teel, guerriera spietata, decidono di unire le forze nonostante la reciproca diffidenza per dargli la caccia, seguendone le tracce fino alle porte di Baldur's Gate, dove il fumetto si interrompe subito prima del resoconto finale, lasciando presagire gli intrighi e i pericoli che attendono chi si avventura in quella città portuale.",
-              en: "In the Cloakwood forest, the mercenaries Ajantis, Shar-Teel, Eldoth Kron, Kivan and Tiax escort a caravan carrying a young noblewoman promised in marriage to a lord of Amn, along with her rich dowry. The group is overwhelmed by a horde of hobgoblins: Kivan and Tiax are killed in the clash, while the others barely survive. Taking advantage of the chaos, the smooth-talking bard Eldoth kidnaps the girl and flees with the sacks of platinum from her dowry, openly betraying his companions. Ajantis, an unwaveringly righteous paladin, and Shar-Teel, a ruthless warrior, reluctantly join forces despite their mutual distrust to hunt him down, following his trail all the way to the gates of Baldur's Gate, where the comic ends right before the final showdown, hinting at the intrigues and dangers awaiting anyone who ventures into that port city."
-            }
-          },
           { id: "bg1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1368 DR",
             releaseYear: "1998", releaseYearEn: "1998",
             title: { it: "Baldur's Gate", en: "Baldur's Gate" },
