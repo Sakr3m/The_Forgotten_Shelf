@@ -527,7 +527,7 @@ function applyPaletteToCSS(){
   document.body.style.setProperty("--tl-3", palette[palette.length - 1]);
   const gradientCss = "linear-gradient(90deg, " + stops.map(s => `rgb(${s.c[0]}, ${s.c[1]}, ${s.c[2]}) ${s.pct.toFixed(2)}%`).join(", ") + ")";
   document.body.style.setProperty("--gradient", gradientCss);
-  document.body.style.setProperty("--cyan", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
+  document.body.style.setProperty("--accent-color", g ? (g.accentColor || DEFAULT_ACCENT) : LANDING_COLOR);
 }
 
 function gradientColorAt(t, customStops){
@@ -664,7 +664,7 @@ function renderSidebar(){
       genitore. Stesso identico pattern gia' in uso su Storie Senza
       Cornice/Il Filo Nascosto (li.style.setProperty, non
       btn.style.setProperty) - qui mancava, la striscia sull'hover
-      ricadeva sul colore di fallback (--cyan, chiaro/bianco) invece
+      ricadeva sul colore di fallback (--accent-color, chiaro/bianco) invece
       del colore proprio di ciascun gioco. */
     btn.style.setProperty("--item-accent", g.accentColor || "#6b7280");
     li.appendChild(btn);
@@ -3247,7 +3247,7 @@ function setState(view){
     document.body.style.setProperty("--tl-2", DEFAULT_PALETTE[1]);
     document.body.style.setProperty("--tl-3", DEFAULT_PALETTE[2]);
     document.body.style.setProperty("--gradient", `linear-gradient(90deg, ${DEFAULT_PALETTE[0]}, ${DEFAULT_PALETTE[1]} 55%, ${DEFAULT_PALETTE[2]})`);
-    document.body.style.setProperty("--cyan", LANDING_COLOR);
+    document.body.style.setProperty("--accent-color", LANDING_COLOR);
     // Barra di luminosita' della filigrana (segnalata con screenshot):
     // resa visibile e posizionata solo dalle viste "game" (Doom-like)
     // e "title", mai piu' nascosta al ritorno su "landing" - restava

@@ -154,12 +154,12 @@
      "vista voce" separata (niente stato entry), quindi si applica
      sempre, non solo in home. --- */
   .index-link{ width:35px; height:35px; }
-  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .discord-link{ width:35px; height:35px; color:var(--accent-color); }
   .kofi-link{
     height:35px; box-sizing:border-box;
     text-decoration:none;
   }
-  .kofi-link__short{ color:var(--cyan); }
+  .kofi-link__short{ color:var(--accent-color); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* Niente swipe: touch-action:none blocca il gesto di trascinamento
@@ -319,8 +319,8 @@
     transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
   .show-projects-btn:hover{
-    border-color:var(--cyan);
-    color:var(--cyan);
+    border-color:var(--accent-color);
+    color:var(--accent-color);
   }
   .show-projects-btn[aria-pressed="true"]{
     color:var(--text-faint); border-color:var(--line); cursor:default;

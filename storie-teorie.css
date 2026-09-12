@@ -149,7 +149,7 @@
 .side-rail .game-list > li:hover,
 .side-rail .game-list > li:has(> a.is-active),
 .side-rail .game-list > li:has(> button.is-active:not(.row-lock)){
-  box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+  box-shadow:inset -5px 0 0 var(--item-accent, var(--accent-color));
   /* Il gradiente di sfondo (background, non lo box-shadow qui sopra)
      e' ereditato dalla regola condivisa in styles.css: 90deg, colore
      forte a sinistra che sfuma verso destra. Ha senso sulla sidebar
@@ -161,7 +161,7 @@
      Specchiato a 270deg (destra->sinistra) SOLO qui: stessi colori
      della regola condivisa, sfuma verso il lucchetto invece di
      restare forte proprio li'. */
-  background:linear-gradient(270deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
+  background:linear-gradient(270deg, color-mix(in srgb, var(--item-accent, var(--accent-color)) 14%, transparent), rgba(232,121,249,.06));
 }
 /* :not(.row-lock) sui selettori button qui sopra: senza, il lucchetto
    (un <button> dentro .game-list) verrebbe colpito anche lui da
@@ -186,10 +186,10 @@
   position:absolute; top:0; bottom:0; margin:auto 0;
   width:25px; height:25px; padding:0; box-sizing:border-box;
   display:flex; align-items:center; justify-content:center;
-  border:1px solid var(--item-accent, var(--cyan));
+  border:1px solid var(--item-accent, var(--accent-color));
   border-radius:50%;
   background:var(--panel);
-  color:var(--item-accent, var(--cyan));
+  color:var(--item-accent, var(--accent-color));
   opacity:0; pointer-events:none;
   -webkit-tap-highlight-color:transparent;
   outline:none;
@@ -212,12 +212,12 @@
 .row-lock:hover,
 .row-lock:focus,
 .row-lock:active{
-  background:var(--panel); border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan));
-  box-shadow:0 0 0 2px color-mix(in srgb, var(--item-accent, var(--cyan)) 35%, transparent);
+  background:var(--panel); border-color:var(--item-accent, var(--accent-color)); color:var(--item-accent, var(--accent-color));
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--item-accent, var(--accent-color)) 35%, transparent);
   filter:none;
 }
 .game-list__row .row-lock[aria-pressed="true"]{
-  background:var(--panel); color:var(--item-accent, var(--cyan));
+  background:var(--panel); color:var(--item-accent, var(--accent-color));
 }
 .game-list__row .row-lock[aria-pressed="true"] rect{
   fill:currentColor;
@@ -225,7 +225,7 @@
 .row-lock[aria-pressed="true"]:hover,
 .row-lock[aria-pressed="true"]:focus,
 .row-lock[aria-pressed="true"]:active{
-  background:var(--panel); color:var(--item-accent, var(--cyan));
+  background:var(--panel); color:var(--item-accent, var(--accent-color));
 }
 #sidebar .row-lock{ right:5px; }
 .side-rail .row-lock{ left:5px; }
@@ -307,7 +307,7 @@ body[data-state="entry"] .text-size-toggle{
     cambiava dimensione passando da "X1" a "X1.5" (piu' largo) a "X2"
     (di nuovo piu' stretto). 58px calcolati per contenere comodamente
     l'etichetta piu' larga, "X1.5", con margine. */
-  border:2px solid var(--item-accent, var(--cyan)); /* FIX: scritto
+  border:2px solid var(--item-accent, var(--accent-color)); /* FIX: scritto
     2px direttamente qui, non piu' 1px - la lista esterna "bordo 2px
     desktop" (piu' sotto nel file) non riusciva mai a vincere su
     questa regola, che essendo piu' specifica (usa il prefisso
@@ -316,7 +316,7 @@ body[data-state="entry"] .text-size-toggle{
   background:var(--panel);
   border-radius:999px;
   font-size:.82rem; font-weight:600;
-  color:var(--item-accent, var(--cyan)); /* era var(--text-dim) -
+  color:var(--item-accent, var(--accent-color)); /* era var(--text-dim) -
     ora la scritta X1/X1.5/X2 prende il colore dell'opera aperta,
     come il bordo. Regola condivisa (nessuna media query), vale gia'
     su desktop e mobile insieme. */
@@ -325,14 +325,14 @@ body[data-state="entry"] .text-size-toggle{
 }
 @media (hover:hover) and (pointer:fine){
   body[data-state="entry"] .text-size-toggle:hover{
-    color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+    color:color-mix(in srgb, var(--item-accent, var(--accent-color)) 55%, var(--text-dim));
     background:var(--panel-raised);
   }
 }
 .entry-game-trigger{
   display:flex; align-items:center; gap:10px;
   height:40px; box-sizing:border-box; padding:0 15px;
-  border:1px solid var(--item-accent, var(--cyan));
+  border:1px solid var(--item-accent, var(--accent-color));
   background:var(--panel);
   border-radius:999px;
   font-size:.82rem; font-weight:600;
@@ -341,15 +341,15 @@ body[data-state="entry"] .text-size-toggle{
 }
 @media (hover:hover) and (pointer:fine){
   .entry-game-trigger:hover, .entry-game-trigger:focus-visible{
-    color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+    color:color-mix(in srgb, var(--item-accent, var(--accent-color)) 55%, var(--text-dim));
     background:var(--panel-raised);
   }
 }
 .entry-game-trigger:focus-visible{
-  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+  color:color-mix(in srgb, var(--item-accent, var(--accent-color)) 55%, var(--text-dim));
   background:var(--panel-raised);
 }
-.entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
+.entry-game-picker.is-open .entry-game-trigger{ color:var(--item-accent, var(--accent-color)); }
 .entry-game-trigger .chevron{ width:10px; height:10px; transition:transform var(--dur-fast) var(--ease); color:var(--text-faint); }
 .entry-game-picker.is-open .chevron{ transform:rotate(180deg); }
 
@@ -357,7 +357,7 @@ body[data-state="entry"] .text-size-toggle{
   position:fixed;
   width:max-content; max-width:min(90vw, 420px);
   background:var(--panel-raised);
-  border:2px solid var(--item-accent, var(--cyan));
+  border:2px solid var(--item-accent, var(--accent-color));
   border-radius:var(--radius-sm);
   box-shadow:0 15px 30px rgba(0,0,0,.5);
   overflow:hidden;
@@ -374,10 +374,10 @@ body[data-state="entry"] .text-size-toggle{
 }
 .entry-game-menu li:last-child button{ border-bottom:none; }
 .entry-game-menu li button:hover, .entry-game-menu li button:focus-visible{
-  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 8%, transparent);
-  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+  background:color-mix(in srgb, var(--item-accent, var(--accent-color)) 8%, transparent);
+  color:color-mix(in srgb, var(--item-accent, var(--accent-color)) 55%, var(--text-dim));
 }
-.entry-game-menu li button.is-active{ color:var(--item-accent, var(--cyan)); }
+.entry-game-menu li button.is-active{ color:var(--item-accent, var(--accent-color)); }
 
 /* Popup di selezione playlist (attivato dal pulsante volume): stesso
    trattamento del menu a tendina qui sopra, posizionato via JS
@@ -393,7 +393,7 @@ body[data-state="entry"] .text-size-toggle{
     residuo al genitore scrollabile piu' vicino, che qui e' la
     pagina intera. */
   background:var(--panel-raised);
-  border:1px solid var(--item-accent, var(--cyan));
+  border:1px solid var(--item-accent, var(--accent-color));
   border-radius:var(--radius-sm);
   box-shadow:0 15px 30px rgba(0,0,0,.5);
   z-index:30;
@@ -409,8 +409,8 @@ body[data-state="entry"] .text-size-toggle{
 }
 .playlist-menu li:last-child button{ border-bottom:none; }
 .playlist-menu li button:hover, .playlist-menu li button:focus-visible{
-  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 8%, transparent);
-  color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-dim));
+  background:color-mix(in srgb, var(--item-accent, var(--accent-color)) 8%, transparent);
+  color:color-mix(in srgb, var(--item-accent, var(--accent-color)) 55%, var(--text-dim));
 }
 
 /* Overlay tazza+testo: ora gestito dal sistema condiviso .stage-topbar
@@ -475,7 +475,7 @@ body[data-state="entry"] .text-size-toggle{
   #storieRail .game-list > li{ direction:ltr; }
 
   /* Aspetto sottile, in linea con la palette del sito (--line a
-     riposo, --cyan in hover, come qualunque altro bordo/accento) al
+     riposo, --accent-color in hover, come qualunque altro bordo/accento) al
      posto della scrollbar grigia di sistema. scrollbar-color/-width
      per Firefox, gli pseudo-elementi ::-webkit-scrollbar-* per
      Chrome/Safari/Edge - le due sintassi coprono tutti i browser
@@ -507,7 +507,7 @@ body[data-state="entry"] .text-size-toggle{
   }
   #sidebar .game-list::-webkit-scrollbar-thumb:hover,
   #storieRail .game-list::-webkit-scrollbar-thumb:hover{
-    background:var(--cyan);
+    background:var(--accent-color);
   }
 }
 
@@ -610,7 +610,7 @@ body[data-state="entry"] .text-size-toggle{
     background:var(--line);
   }
   .entry-body-scrollbar__thumb:hover{
-    background:var(--cyan);
+    background:var(--accent-color);
   }
 }
 .entry-content{
@@ -718,25 +718,25 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
 /* Colore accento della voce selezionata (impostato sul body via JS)
    esteso anche ai controlli in alto: switch lingua, pulsante volume,
    skip e titolo del brano — non solo al tag sopra il titolo. */
-.lang-switch{ border-color:var(--item-accent, var(--cyan)); }
-.lang-switch .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
-.music-toggle{ border-color:var(--item-accent, var(--cyan)); }
+.lang-switch{ border-color:var(--item-accent, var(--accent-color)); }
+.lang-switch .lang-option.is-active{ color:var(--item-accent, var(--accent-color)); }
+.music-toggle{ border-color:var(--item-accent, var(--accent-color)); }
 @media (hover:hover) and (pointer:fine){
-  .music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, var(--text-faint)); }
+  .music-toggle:hover{ color:color-mix(in srgb, var(--item-accent, var(--accent-color)) 55%, var(--text-faint)); }
 }
-.music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
+.music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--accent-color)); }
 @media (hover:hover) and (pointer:fine){
-  .track-skip:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
-  .track-persist:hover{ border-color:var(--item-accent, var(--cyan)); color:var(--item-accent, var(--cyan)); }
+  .track-skip:hover{ border-color:var(--item-accent, var(--accent-color)); color:var(--item-accent, var(--accent-color)); }
+  .track-persist:hover{ border-color:var(--item-accent, var(--accent-color)); color:var(--item-accent, var(--accent-color)); }
 }
-.track-info{ border-color:var(--item-accent, var(--cyan)); }
+.track-info{ border-color:var(--item-accent, var(--accent-color)); }
 .track-info__title{ color:var(--item-accent, var(--text)); }
-.track-skip{ border-color:var(--item-accent, var(--cyan)); }
-.track-persist{ border-color:var(--item-accent, var(--cyan)); }
-.track-persist[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
-.track-progress__fill{ background:var(--item-accent, var(--cyan)); }
-.volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
-.volume-panel{ border-color:var(--item-accent, var(--cyan)); }
+.track-skip{ border-color:var(--item-accent, var(--accent-color)); }
+.track-persist{ border-color:var(--item-accent, var(--accent-color)); }
+.track-persist[aria-pressed="true"]{ color:var(--item-accent, var(--accent-color)); }
+.track-progress__fill{ background:var(--item-accent, var(--accent-color)); }
+.volume-slider{ accent-color:var(--item-accent, var(--accent-color)); }
+.volume-panel{ border-color:var(--item-accent, var(--accent-color)); }
 
 /* Switch lingua e controlli musica: fanno parte del sistema condiviso
    .stage-topbar in styles.css (stesso di la_traccia_del_tempo.html), che li rende
@@ -795,7 +795,7 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
     display:flex;
-    border-color:var(--item-accent, var(--cyan));
+    border-color:var(--item-accent, var(--accent-color));
   }
   body[data-state="entry"] .kofi-link{
     font-size:.76rem;
@@ -807,8 +807,8 @@ body[data-text-size="2"] .entry-body{ font-size:2rem; }
   body[data-state="entry"] .kofi-link__short{ display:inline; }
   body[data-state="entry"] .discord-link svg{ width:15px; height:15px; }
   body[data-state="entry"] .kofi-link svg{ color:var(--text-faint); }
-  body[data-state="entry"] .kofi-link:hover svg{ color:var(--item-accent, var(--cyan)); }
-  body[data-state="entry"] .discord-link:hover{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .kofi-link:hover svg{ color:var(--item-accent, var(--accent-color)); }
+  body[data-state="entry"] .discord-link:hover{ color:var(--item-accent, var(--accent-color)); }
 }
 
 body[data-state="landing"] .entry-panel{ display:none; }
@@ -889,7 +889,7 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
   }
   #sidebar .game-list::-webkit-scrollbar-thumb:hover,
   #storieRail .game-list::-webkit-scrollbar-thumb:hover{
-    background:var(--cyan);
+    background:var(--accent-color);
   }
 
   /* --- home/discord/kofi/switch tutti alla stessa altezza (35px).
@@ -900,7 +900,7 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
      bianco come le cornici. Il cuoricino di Ko-fi resta rosso, e' il
      suo colore voluto. --- */
   .index-link{ width:35px; height:35px; }
-  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .discord-link{ width:35px; height:35px; color:var(--accent-color); }
   .kofi-link{
     height:35px; box-sizing:border-box;
     width:auto; /* FIX: la regola base (styles.css, pensata per il
@@ -910,7 +910,7 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
       dimensionarsi sul contenuto vero (icona + "KoFi" + padding). */
     text-decoration:none;
   }
-  .kofi-link__short{ color:var(--cyan); }
+  .kofi-link__short{ color:var(--accent-color); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* --- Storie Nascoste diventa un terzo pannello del carosello
@@ -1000,10 +1000,10 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
     display:flex;
-    border-color:var(--item-accent, var(--cyan));
+    border-color:var(--item-accent, var(--accent-color));
   }
-  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
-  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--accent-color)); }
+  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--accent-color)); }
   body[data-state="entry"] .social-links{
     display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:50%;
@@ -1064,7 +1064,7 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
   }
   body[data-state="entry"] .shared-theory-ribbon span{
     background:rgba(10,10,15,.82);
-    border:2px solid var(--item-accent, var(--cyan));
+    border:2px solid var(--item-accent, var(--accent-color));
     border-radius:7px;
     padding:5px 12.5px;
     font-size:.6rem; font-weight:600; line-height:1.35;
@@ -1191,7 +1191,7 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
   .panel-toggle{
     display:flex; align-items:center; justify-content:center;
     width:40px; height:40px; box-sizing:border-box;
-    border:1px solid var(--cyan);
+    border:1px solid var(--accent-color);
     background:var(--panel);
     border-radius:50%;
     color:var(--text-dim);
@@ -1204,8 +1204,8 @@ body[data-state="entry"] .spoiler-alert{ display:none; } /* prima
      vista (musica, Ko-fi, Discord). In home resta ciano/grigio di
      base, dato che --item-accent non ha senso senza una voce aperta. */
   body[data-state="entry"] .panel-toggle{
-    border-color:var(--item-accent, var(--cyan));
-    color:var(--item-accent, var(--cyan));
+    border-color:var(--item-accent, var(--accent-color));
+    color:var(--item-accent, var(--accent-color));
   }
   .panel-toggle:hover{ color:var(--text); }
   .panel-toggle svg{ width:20px; height:20px; }
@@ -1330,7 +1330,7 @@ body[data-entry-animate="true"] .entry-panel{
 @media (min-width:901px){
   #sidebar .game-list button.is-active:not(.row-lock),
   #sidebar .game-list a.is-active{
-    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--accent-color));
   }
   /* :hover sull'INTERA riga (<li>), non sul solo link/bottone: prima
      bastava spostare il mouse sul lucchetto (un pulsante fratello,
@@ -1344,7 +1344,7 @@ body[data-entry-animate="true"] .entry-panel{
      riga. */
   #sidebar .game-list > li:hover button:not(.row-lock),
   #sidebar .game-list > li:hover a{
-    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--accent-color));
   }
 }
 
@@ -1463,10 +1463,10 @@ body[data-entry-animate="true"] .entry-panel{
     position:absolute; top:50%; transform:translateY(-50%);
     width:25px; height:25px; padding:0; box-sizing:border-box;
     align-items:center; justify-content:center;
-    border:2px solid var(--cyan);
+    border:2px solid var(--accent-color);
     border-radius:50%;
     background:var(--panel);
-    color:var(--cyan);
+    color:var(--accent-color);
     opacity:0; pointer-events:none;
     -webkit-tap-highlight-color:transparent;
     outline:none;
@@ -1484,18 +1484,18 @@ body[data-entry-animate="true"] .entry-panel{
     }
   }
   .column-lock:hover, .column-lock:focus, .column-lock:active{
-    background:var(--panel); border-color:var(--cyan); color:var(--cyan);
-    box-shadow:0 0 0 2px color-mix(in srgb, var(--cyan) 35%, transparent);
+    background:var(--panel); border-color:var(--accent-color); color:var(--accent-color);
+    box-shadow:0 0 0 2px color-mix(in srgb, var(--accent-color) 35%, transparent);
     filter:none;
   }
   .column-lock[aria-pressed="true"]{
-    background:var(--panel); color:var(--cyan);
+    background:var(--panel); color:var(--accent-color);
   }
   .column-lock[aria-pressed="true"] rect{ fill:currentColor; }
   .column-lock[aria-pressed="true"]:hover,
   .column-lock[aria-pressed="true"]:focus,
   .column-lock[aria-pressed="true"]:active{
-    background:var(--panel); color:var(--cyan);
+    background:var(--panel); color:var(--accent-color);
   }
 }
 
@@ -1609,8 +1609,8 @@ body[data-entry-animate="true"] .entry-panel{
      colore spento di riposo (--text-faint/--text-dim) - richiesto
      esplicitamente che siano sempre accesi col colore della voce
      aperta, non solo su interazione. */
-  .track-skip{ color:var(--item-accent, var(--cyan)); }
-  .entry-game-trigger{ color:var(--item-accent, var(--cyan)); }
+  .track-skip{ color:var(--item-accent, var(--accent-color)); }
+  .entry-game-trigger{ color:var(--item-accent, var(--accent-color)); }
 }
 
 /* ============================================================
@@ -1717,11 +1717,11 @@ body[data-entry-animate="true"] .entry-panel{
   #sidebar .game-list button, #sidebar .game-list a,
   #storieRail .game-list button, #storieRail .game-list a{
     text-align:right;
-    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--accent-color)) 45%, transparent);
   }
   #sidebar .game-list button.is-active, #sidebar .game-list a.is-active,
   #storieRail .game-list button.is-active, #storieRail .game-list a.is-active{
-    box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset -5px 0 0 var(--item-accent, var(--accent-color));
   }
 
   /* --- Evidenziazione (sfondo + striscia sinistra) accorciata del
@@ -1749,7 +1749,7 @@ body[data-entry-animate="true"] .entry-panel{
   .game-list > li:has(> button.is-active:not(.row-lock)){
     background:linear-gradient(90deg,
       transparent 5%,
-      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 5%,
+      color-mix(in srgb, var(--item-accent, var(--accent-color)) 14%, transparent) 5%,
       rgba(232,121,249,.06));
     box-shadow:none;
   }
@@ -1760,7 +1760,7 @@ body[data-entry-animate="true"] .entry-panel{
     position:absolute; top:0; bottom:0;
     left:5%; width:10px;
     border-radius:var(--radius-sm);
-    box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 2px 0 0 var(--item-accent, var(--accent-color));
   }
 
   /* Margini laterali delle voci: il box/striscia resta a 15px dal
@@ -1823,7 +1823,7 @@ body[data-entry-animate="true"] .entry-panel{
     margin-top:20px; /* era 25px, poi 30px, poi 50px (stessa distanza dal sub che aveva
       il vecchio pulsante video, ora eliminato su mobile) */
     padding:0 15px;
-    border:1px solid var(--cyan);
+    border:1px solid var(--accent-color);
     background:var(--panel);
     border-radius:999px;
     font-size:.8rem; font-weight:600;
@@ -1833,7 +1833,7 @@ body[data-entry-animate="true"] .entry-panel{
     color:var(--text-faint);
     transition:color var(--dur-fast) var(--ease);
   }
-  .mobile-table-toggle__option.is-active{ color:var(--cyan); }
+  .mobile-table-toggle__option.is-active{ color:var(--accent-color); }
   .mobile-table-toggle__sep{ color:var(--line); }
 }
 @media (min-width:901px){
@@ -1887,7 +1887,7 @@ body[data-entry-animate="true"] .entry-panel{
   .shared-theory-ribbon span{
     position:absolute; bottom:5px; left:86.5%; transform:translateX(-50%);
     background:rgba(10,10,15,.82);
-    border:2px solid var(--item-accent, var(--cyan));
+    border:2px solid var(--item-accent, var(--accent-color));
     border-radius:7px;
     padding:3.5px 12.5px;
     font-size:.6rem; font-weight:600;

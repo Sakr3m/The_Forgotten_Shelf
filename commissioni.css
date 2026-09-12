@@ -72,7 +72,7 @@
    cambi sopra (benvenuto <-> vetrina) - richiesto esplicitamente.
    Stessa fascia orizzontale (left/right 400px) gia' usata per il
    vecchio alert spoiler, allineata ai limiti reali di .stage su un
-   riferimento 1440px. Colori ancora tutti uguali (var(--cyan)):
+   riferimento 1440px. Colori ancora tutti uguali (var(--accent-color)):
    quali colori dare a ciascuna stanza si decide in un giro
    successivo. Attiva: sfondo pieno invece del solo contorno, stesso
    linguaggio del resto del sito.
@@ -84,7 +84,7 @@
 .commissions-nav__btn{
   display:flex; flex-direction:column; align-items:center; gap:8px;
   flex:1; min-width:0; max-width:150px;
-  border:2px solid var(--cyan);
+  border:2px solid var(--accent-color);
   background:var(--panel);
   border-radius:15px;
   padding:12px 8px;
@@ -114,7 +114,7 @@
   .commissions-nav__btn:hover{ color:var(--text); border-color:var(--text); }
 }
 .commissions-nav__btn.is-active{
-  background:var(--cyan); color:var(--bg); border-color:var(--cyan);
+  background:var(--accent-color); color:var(--bg); border-color:var(--accent-color);
 }
 
 @media (min-width:901px){
@@ -237,7 +237,7 @@
      KoFi, testo/icona colorati di bianco come le cornici (il
      cuoricino resta rosso, colore voluto). --- */
   .index-link{ width:35px; height:35px; }
-  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .discord-link{ width:35px; height:35px; color:var(--accent-color); }
   .kofi-link{
     height:35px; box-sizing:border-box;
     width:auto; /* FIX: la regola base (styles.css, pensata per il
@@ -249,7 +249,7 @@
       (icona + "KoFi" + padding). */
     text-decoration:none;
   }
-  .kofi-link__short{ color:var(--cyan); }
+  .kofi-link__short{ color:var(--accent-color); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* Bordo 2px su tutti i pulsanti dell'header, come su Storie Senza

@@ -20,7 +20,7 @@
   --text-dim:#9aa4b7;
   --text-faint:#5b6478;
 
-  --cyan:#ffffff;
+  --accent-color:#ffffff;
   --magenta:#e879f9;
   --tl-1:#00f0ff;
   --tl-2:#ff2ec4;
@@ -78,7 +78,7 @@ h1,h2,h3{ font-weight:800; margin:0; letter-spacing:-.01em; }
 p{ margin:0; }
 ul{ list-style:none; margin:0; padding:0; }
 button{ font-family:inherit; color:inherit; background:none; border:none; cursor:pointer; }
-::selection{ background:var(--cyan); color:#000000; }
+::selection{ background:var(--accent-color); color:#000000; }
 
 /* ============================================================
    Brand mark — gradient hex logo
@@ -257,14 +257,14 @@ body[data-state="landing"] .brand{ display:none; }
 .lang-switch{
   display:flex; align-items:center; justify-content:center; gap:6px;
   width:90px; height:40px; box-sizing:border-box;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:999px;
   font-size:.78rem; font-weight:600;
   transition:border-color .3s var(--ease);
 }
 .lang-option{ color:var(--text-faint); padding:2px 3px; transition:color var(--dur-fast) var(--ease); }
-.lang-option.is-active{ color:var(--cyan); }
+.lang-option.is-active{ color:var(--accent-color); }
 .lang-sep{ color:var(--line); }
 
 .music-control{ position:relative; display:flex; align-items:center; gap:10px; }
@@ -273,7 +273,7 @@ body[data-state="landing"] .brand{ display:none; }
 .track-info{
   display:flex; flex-direction:column; gap:6px;
   padding:8px 10px 8px 14px;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:14px;
   max-width:280px;
@@ -295,7 +295,7 @@ body[data-state="landing"] .brand{ display:none; }
 .track-skip{
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
   width:26px; height:26px; border-radius:50%;
-  border:2px solid var(--cyan); background:var(--bg-soft);
+  border:2px solid var(--accent-color); background:var(--bg-soft);
   color:var(--text-faint);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   touch-action:none; /* niente scroll verticale se la pressione
@@ -303,7 +303,7 @@ body[data-state="landing"] .brand{ display:none; }
     (vedi attachProgressLongPressHandoff in script-racconti.js) */
 }
 @media (hover:hover) and (pointer:fine){
-  .track-skip:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .track-skip:hover{ border-color:var(--accent-color); color:var(--accent-color); }
 }
 .track-skip svg{ width:11px; height:11px; }
 
@@ -315,16 +315,16 @@ body[data-state="landing"] .brand{ display:none; }
 .track-persist{
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
   width:26px; height:26px; border-radius:50%;
-  border:2px solid var(--cyan); background:var(--bg-soft);
+  border:2px solid var(--accent-color); background:var(--bg-soft);
   color:var(--text-faint);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   touch-action:none; /* stesso motivo di .track-skip qui sopra */
 }
 @media (hover:hover) and (pointer:fine){
-  .track-persist:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .track-persist:hover{ border-color:var(--accent-color); color:var(--accent-color); }
 }
 .track-persist svg{ width:11px; height:11px; }
-.track-persist[aria-pressed="true"]{ color:var(--cyan); }
+.track-persist[aria-pressed="true"]{ color:var(--accent-color); }
 .track-progress{
   width:100%; height:3px;
   background:var(--line);
@@ -339,7 +339,7 @@ body[data-state="landing"] .brand{ display:none; }
 }
 .track-progress__fill{
   width:0%; height:100%;
-  background:var(--cyan);
+  background:var(--accent-color);
   border-radius:2px;
   transition:width .2s linear;
 }
@@ -352,7 +352,7 @@ body[data-state="landing"] .brand{ display:none; }
   position:absolute; top:100%; left:50%; transform:translateX(-50%);
   margin-top:6px;
   padding:12px 8px;
-  border:2px solid var(--cyan);
+  border:2px solid var(--accent-color);
   background:var(--panel);
   border-radius:12px;
   opacity:0; visibility:hidden;
@@ -366,7 +366,7 @@ body[data-state="landing"] .brand{ display:none; }
 .volume-slider{
   writing-mode:vertical-lr; direction:rtl;
   width:6px; height:90px;
-  accent-color:var(--cyan);
+  accent-color:var(--accent-color);
   cursor:pointer;
 }
 
@@ -408,13 +408,13 @@ body[data-state="landing"] .brand{ display:none; }
     height:5px;
     opacity:0;
     transition:opacity .2s ease;
-    accent-color:var(--item-accent, var(--cyan));
+    accent-color:var(--item-accent, var(--accent-color));
     cursor:pointer;
   }
   .watermark-brightness-line__tick{
     position:absolute; top:50%; transform:translate(-50%, -50%);
     width:1px; height:11px;
-    background:var(--item-accent, var(--cyan));
+    background:var(--item-accent, var(--accent-color));
     opacity:0; pointer-events:none;
     transition:opacity .2s ease;
   }
@@ -435,18 +435,18 @@ body[data-state="landing"] .brand{ display:none; }
 .music-toggle{
   display:flex; align-items:center; justify-content:center;
   width:40px; height:40px; flex-shrink:0;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:999px;
   color:var(--text-faint);
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 @media (hover:hover) and (pointer:fine){
-  .music-toggle:hover{ color:color-mix(in srgb, var(--cyan) 55%, var(--text-faint)); }
+  .music-toggle:hover{ color:color-mix(in srgb, var(--accent-color) 55%, var(--text-faint)); }
 }
 .music-toggle svg{ width:18px; height:18px; }
 .music-toggle__icon-off{ display:none; }
-.music-toggle[aria-pressed="true"]{ color:var(--cyan); }
+.music-toggle[aria-pressed="true"]{ color:var(--accent-color); }
 .music-toggle[aria-pressed="false"]{ color:var(--text-faint); } /* esplicito
   invece di lasciarlo al default implicito: un utente ha segnalato
   l'icona rossastra invece che grigia da spento (tornava grigia solo
@@ -548,8 +548,8 @@ body[data-state="landing"] .brand{ display:none; }
 .game-list > li:hover,
 .game-list > li:has(> a.is-active),
 .game-list > li:has(> button.is-active:not(.row-lock)){
-  background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent), rgba(232,121,249,.06));
-  box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
+  background:linear-gradient(90deg, color-mix(in srgb, var(--item-accent, var(--accent-color)) 14%, transparent), rgba(232,121,249,.06));
+  box-shadow:inset 2px 0 0 var(--item-accent, var(--accent-color));
 }
 .game-list > li:hover > a, .game-list > li:hover > button:not(.row-lock),
 .game-list > li:has(> a.is-active) > a,
@@ -580,7 +580,7 @@ body[data-state="landing"] .music-control{ display:none; }
 .kofi-link{
   display:none; align-items:center; justify-content:center; gap:8px;
   width:180px; height:40px; box-sizing:border-box;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:999px;
   font-size:.8rem; font-weight:600; color:var(--text-dim);
@@ -602,7 +602,7 @@ body[data-state="landing"] .kofi-link{ display:flex; }
   display:none; align-items:center; justify-content:center; gap:8px;
   position:fixed; left:350px; bottom:20px; z-index:50;
   width:125px; height:40px; box-sizing:border-box;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:999px;
   font-size:.8rem; font-weight:600; color:var(--text-faint);
@@ -626,7 +626,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
 .report-modal-card{
   position:relative;
   background:var(--panel);
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   border-radius:14px;
   padding:28px;
   max-width:520px; width:100%;
@@ -641,7 +641,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   background:var(--bg); border:1px solid var(--line); border-radius:50%;
   color:var(--text-dim); font-size:1rem; cursor:pointer;
 }
-.report-modal-close:hover{ color:var(--cyan); border-color:var(--cyan); }
+.report-modal-close:hover{ color:var(--accent-color); border-color:var(--accent-color); }
 .report-modal-card h3{ margin:0 24px 12px 0; font-size:1.3rem; color:var(--text); }
 .report-modal-card p{ margin:0 0 16px; font-size:.88rem; line-height:1.5; color:var(--text-dim); }
 .report-field{ margin-bottom:16px; }
@@ -655,7 +655,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   color:var(--text); font-family:inherit; font-size:.9rem; padding:10px;
   box-sizing:border-box; margin:0;
 }
-.report-textarea:focus{ outline:2px solid var(--cyan); outline-offset:1px; }
+.report-textarea:focus{ outline:2px solid var(--accent-color); outline-offset:1px; }
 .report-file-row{ display:flex; align-items:center; gap:10px; }
 .report-file-input{
   position:absolute; width:1px; height:1px; padding:0; margin:-1px;
@@ -663,7 +663,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
 }
 .report-file-trigger{
   font-size:.8rem; font-weight:600; color:var(--text-dim);
-  background:var(--bg); border:1px solid var(--cyan); border-radius:6px;
+  background:var(--bg); border:1px solid var(--accent-color); border-radius:6px;
   padding:7px 14px; cursor:pointer; flex-shrink:0;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
@@ -682,8 +682,8 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   font-weight:700; font-size:.92rem; border:none; border-radius:6px;
   padding:9px 20px; cursor:pointer;
 }
-.report-modal-btn.send{ background:var(--cyan); color:var(--bg); }
-.report-modal-btn.cancel{ background:transparent; color:var(--text-dim); border:1px solid var(--cyan); }
+.report-modal-btn.send{ background:var(--accent-color); color:var(--bg); }
+.report-modal-btn.cancel{ background:transparent; color:var(--text-dim); border:1px solid var(--accent-color); }
 .report-modal-btn:disabled{ opacity:.5; cursor:default; }
 .report-modal-note{ font-size:.76rem; color:var(--text-faint); margin-top:10px; text-align:left; }
 
@@ -713,7 +713,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
 .twins-popup-card{
   position:relative;
   background:var(--panel);
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   border-radius:14px;
   padding:28px;
   max-width:90vw; max-height:85vh; overflow:auto;
@@ -727,7 +727,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   background:var(--bg); border:1px solid var(--line); border-radius:50%;
   color:var(--text-dim); font-size:1rem; cursor:pointer;
 }
-.twins-popup-close:hover{ color:var(--cyan); border-color:var(--cyan); }
+.twins-popup-close:hover{ color:var(--accent-color); border-color:var(--accent-color); }
 .twins-popup-title{ margin:0 24px 20px 0; font-size:1.1rem; font-weight:700; color:var(--text); }
 .twins-popup-track{
   display:flex; flex-direction:row; gap:24px; justify-content:center;
@@ -755,7 +755,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
   font-size:.62rem; font-weight:700; text-align:center; color:#ff6b6f; line-height:1.3; padding:0 6px;
 }
 .twins-popup-item__title{ font-size:.82rem; font-weight:600; color:var(--text-dim); }
-.twins-popup-item:hover .twins-popup-item__tile{ border-color:var(--cyan); }
+.twins-popup-item:hover .twins-popup-item__tile{ border-color:var(--accent-color); }
 .twins-popup-item:hover .twins-popup-item__title{ color:var(--text); }
 
 @media (max-width:900px){
@@ -772,7 +772,7 @@ body[data-state="landing"] .report-bug-btn{ display:flex; }
 .discord-link{
   display:none; align-items:center; justify-content:center;
   width:40px; height:40px;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:50%;
   color:var(--text-dim);
@@ -796,7 +796,7 @@ body[data-state="landing"] .kofi-link:hover svg{ color:#ef4444; }
   display:none; align-items:center; justify-content:center; gap:8px;
   width:140px; height:40px; box-sizing:border-box;
   position:fixed; top:20px; left:270px; z-index:5;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   background:var(--panel);
   border-radius:999px;
   font-size:.8rem; font-weight:600; color:var(--text-dim);
@@ -831,7 +831,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   .kofi-link__short{ display:inline; }
 }
 
-.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); margin-top:44px; }
+.landing-eyebrow{ font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-color); margin-top:44px; }
 .landing-title{ font-size:2.6rem; margin-top:36px; color:var(--text); }
 .landing-intro{ margin-top:52px; color:var(--text-dim); font-size:1rem; line-height:1.7; max-width:640px; }
 
@@ -948,7 +948,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .game-header__title{ font-size:1.9rem; margin-top:8px; color:var(--text); }
 .game-header__blurb{ margin-top:16px; max-width:640px; color:var(--text-dim); font-size:.9rem; line-height:1.6; }
 .game-header__blurb a{
-  color:var(--cyan); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--cyan) 35%, transparent);
+  color:var(--accent-color); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--accent-color) 35%, transparent);
   text-underline-offset:2px;
   transition:color var(--dur-fast) var(--ease);
 }
@@ -1044,7 +1044,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    mobile e desktop (vedi la_traccia_del_tempo.css). */
 .canon-note__eyebrow{
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); text-align:center; margin-bottom:14px;
+  color:var(--accent-color); text-align:center; margin-bottom:14px;
 }
 .canon-note__titles-label{
   font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
@@ -1054,7 +1054,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   font-size:1rem; font-weight:600; color:var(--text);
   line-height:1.6;
   padding:16px 20px;
-  border-left:2px solid var(--cyan);
+  border-left:2px solid var(--accent-color);
   background:var(--panel);
   border-radius:0 var(--radius-sm) var(--radius-sm) 0;
 }
@@ -1074,7 +1074,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .u-track__note:last-child{ margin-bottom:0; }
 .u-track__note-anchor{
   font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:6px;
+  color:var(--accent-color); margin-bottom:6px;
 }
 .u-track__note-body{ font-size:.98rem; line-height:1.75; color:var(--text-dim); white-space:pre-line; }
 
@@ -1093,7 +1093,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   display:flex; align-items:center; gap:8px;
   flex-shrink:0;
   padding:9px 16px;
-  border:1px solid var(--cyan);
+  border:1px solid var(--accent-color);
   border-radius:999px;
   background:var(--panel);
   color:var(--text-dim);
@@ -1102,9 +1102,9 @@ body[data-state="landing"] .index-link{ display:flex; }
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 .carousel-arrow:hover, .carousel-arrow:focus-visible{
-  color:color-mix(in srgb, var(--cyan) 55%, var(--text-dim));
+  color:color-mix(in srgb, var(--accent-color) 55%, var(--text-dim));
 }
-.carousel-arrow__icon{ width:12px; height:14px; color:var(--cyan); flex-shrink:0; }
+.carousel-arrow__icon{ width:12px; height:14px; color:var(--accent-color); flex-shrink:0; }
 .carousel-arrow__label{ line-height:1.2; }
 
 /* Timeline: nodes distributed edge-to-edge, however many there are.
@@ -1209,7 +1209,7 @@ body[data-state="landing"] .index-link{ display:flex; }
     che si sovrappongono, vedi OFFSET_STEP), il trattino si allunga
     della stessa misura per continuare a toccare la riga invece di
     lasciare un buco vuoto. 0px di default, nessun effetto altrove. */
-  background:var(--dot-color, var(--cyan));
+  background:var(--dot-color, var(--accent-color));
   border-radius:1px;
 }
 .h-node--up .h-node__marker::before,
@@ -1218,15 +1218,15 @@ body[data-state="landing"] .index-link{ display:flex; }
   position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
   margin-bottom:5px;
   width:2px; height:calc(10px + var(--tick-extra, 0px)); /* vedi commento gemello qui sopra */
-  background:var(--dot-color, var(--cyan));
+  background:var(--dot-color, var(--accent-color));
   border-radius:1px;
 }
 .h-node__dot{
   width:max(8px, calc(24px * var(--dot-scale, 1))); height:max(8px, calc(24px * var(--dot-scale, 1))); border-radius:50%;
   background:var(--bg);
-  border:max(3px, calc(7px * var(--dot-scale, 1))) solid var(--dot-color, var(--cyan));
+  border:max(3px, calc(7px * var(--dot-scale, 1))) solid var(--dot-color, var(--accent-color));
   /* Alone a riposo (05/09, richiesto esplicitamente da Sakrem): 3px. */
-  box-shadow:0 0 2px 1px var(--dot-color, var(--cyan));
+  box-shadow:0 0 2px 1px var(--dot-color, var(--accent-color));
   transition:box-shadow var(--dur-fast) var(--ease);
 }
 .h-node:hover .h-node__dot, .h-node:focus-visible .h-node__dot{
@@ -1234,8 +1234,8 @@ body[data-state="landing"] .index-link{ display:flex; }
      pieni/piu' intensi, ultimi 4px piu' deboli (color-mix, stessa
      tecnica gia' in uso nel resto del foglio). */
   box-shadow:
-    0 0 3px 3px var(--dot-color, var(--cyan)),
-    0 0 3px 7px color-mix(in srgb, var(--dot-color, var(--cyan)) 45%, transparent);
+    0 0 3px 3px var(--dot-color, var(--accent-color)),
+    0 0 3px 7px color-mix(in srgb, var(--dot-color, var(--accent-color)) 45%, transparent);
 }
 
 /* Voce "ombrello" (PARTE 3 punto 3 del regolamento) - parte
@@ -1281,7 +1281,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .h-node__umbrella-link{
   position:absolute;
   height:5px;
-  background-color:var(--dot-color, var(--cyan));
+  background-color:var(--dot-color, var(--accent-color));
   background-repeat:no-repeat;
   pointer-events:none; z-index:1;
 }
@@ -1314,7 +1314,7 @@ body[data-state="landing"] .index-link{ display:flex; }
    promemoria visivo di cosa manca ancora - al posto del monogramma
    compare la data di uscita, centrata e a capo automatico dato che
    il riquadro resta piccolo e stretto. Colore fisso (non legato a
-   --item-accent/--cyan del resto del sito): deve risaltare come
+   --item-accent/--accent-color del resto del sito): deve risaltare come
    avviso, non confondersi con la palette normale della saga. */
 .h-node__tile--missing{
   border-color:#e5484d; background:color-mix(in srgb, #e5484d 12%, var(--panel));
@@ -1324,7 +1324,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   color:#ff6b6f; line-height:1.3; padding:0 6px;
 }
 .h-node:hover .h-node__tile--missing{ border-color:#ff6b6f; }
-.h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--cyan)); }
+.h-node:hover .h-node__tile, .h-node:focus-visible .h-node__tile{ border-color:var(--dot-color, var(--accent-color)); }
 /* Voci STORIA (senza avatar): spacer della stessa dimensione del
    box immagine, invisibile, cosi' il titolo resta alla stessa
    distanza dalla linea di un titolo con avatar vero - la posizione
@@ -1370,7 +1370,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 .h-node__bottom--multi-twin-btn:hover .h-node__multitwin-box,
-.h-node__bottom--multi-twin-btn:focus-visible .h-node__multitwin-box{ border-color:var(--dot-color, var(--cyan)); }
+.h-node__bottom--multi-twin-btn:focus-visible .h-node__multitwin-box{ border-color:var(--dot-color, var(--accent-color)); }
 .h-node__bottom--multi-twin-btn:hover .h-node__title,
 .h-node__bottom--multi-twin-btn:focus-visible .h-node__title{ color:var(--text); }
 
@@ -1441,10 +1441,10 @@ body[data-state="landing"] .index-link{ display:flex; }
    solida), quella verso l'etichetta a sinistra (::before) resta
    tratteggiata. edge "end" (bridge in chiusura, pallini veri a
    sinistra): speculare. */
-.h-node--bridge[data-bridge-edge="start"]::before{ border-top:7px dashed var(--dot-color, var(--cyan)); }
-.h-node--bridge[data-bridge-edge="start"]::after{ border-top:7px solid var(--dot-color, var(--cyan)); }
-.h-node--bridge[data-bridge-edge="end"]::before{ border-top:7px solid var(--dot-color, var(--cyan)); }
-.h-node--bridge[data-bridge-edge="end"]::after{ border-top:7px dashed var(--dot-color, var(--cyan)); }
+.h-node--bridge[data-bridge-edge="start"]::before{ border-top:7px dashed var(--dot-color, var(--accent-color)); }
+.h-node--bridge[data-bridge-edge="start"]::after{ border-top:7px solid var(--dot-color, var(--accent-color)); }
+.h-node--bridge[data-bridge-edge="end"]::before{ border-top:7px solid var(--dot-color, var(--accent-color)); }
+.h-node--bridge[data-bridge-edge="end"]::after{ border-top:7px dashed var(--dot-color, var(--accent-color)); }
 .h-node__title--bridge{
   font-family:inherit; letter-spacing:.02em;
 }
@@ -1461,7 +1461,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .v-node::before{
   content:""; position:absolute; left:-20px; top:50%; transform:translateY(-50%);
   width:10px; height:10px; border-radius:50%;
-  background:var(--cyan);
+  background:var(--accent-color);
   box-shadow:0 0 0 3px var(--bg-soft);
 }
 .v-node__tile{
@@ -1545,7 +1545,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   font-size:.85rem; font-weight:800;
   background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-.v-node__half--multi-twin-btn:hover .v-node__tile--multi{ border-color:var(--cyan); }
+.v-node__half--multi-twin-btn:hover .v-node__tile--multi{ border-color:var(--accent-color); }
 
 /* ============================================================
    Title panel — full detail
@@ -1578,7 +1578,7 @@ body[data-state="landing"] .index-link{ display:flex; }
 .title-content-item{ position:relative; z-index:1; max-width:900px; opacity:0; animation:fadeUp .45s var(--ease) forwards; }
 .title-tag{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--cyan); border:2px solid var(--cyan); border-radius:999px; padding:4px 12px;
+  color:var(--accent-color); border:2px solid var(--accent-color); border-radius:999px; padding:4px 12px;
   /* Era color-mix(...40%, transparent): per le saghe con un accento
      scuro (es. il navy di Ace Combat, #1a3a5c) quel 40% di opacita'
      rendeva il bordo quasi invisibile su sfondo quasi nero, anche a
@@ -1642,7 +1642,7 @@ body[data-state="landing"] .index-link{ display:flex; }
   font-size:.8rem; font-weight:600; line-height:1.35; text-align:center;
   white-space:normal;
   color:var(--text-dim);
-  border:1px solid var(--cyan); border-radius:999px; padding:9px 20px;
+  border:1px solid var(--accent-color); border-radius:999px; padding:9px 20px;
   transition:color var(--dur-fast) var(--ease);
   flex-shrink:0;
 }
@@ -1654,13 +1654,13 @@ body[data-state="landing"] .index-link{ display:flex; }
   flex:1; min-width:0;
   font-size:.78rem; font-weight:600;
   color:var(--text-faint);
-  border:1px solid var(--cyan); border-radius:999px; padding:9px 16px;
+  border:1px solid var(--accent-color); border-radius:999px; padding:9px 16px;
   transition:color var(--dur-fast) var(--ease);
 }
 .title-nav__side span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .title-nav__side:hover{ color:var(--text); }
 .title-nav__side--next{ justify-content:flex-end; }
-.title-nav__side svg{ width:10px; height:12px; color:var(--cyan); flex-shrink:0; }
+.title-nav__side svg{ width:10px; height:12px; color:var(--accent-color); flex-shrink:0; }
 
 /* ============================================================
    State visibility
@@ -1754,7 +1754,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      non essendoci hover, restano sempre con un contornino sottile del
      proprio colore (opacità ridotta, non l'intensità piena dell'hover). */
   .game-list button, .game-list a{
-    box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    box-shadow:inset 2px 0 0 color-mix(in srgb, var(--item-accent, var(--accent-color)) 45%, transparent);
     padding:12px 14px; /* +20% rispetto ai 10px/12px di base (font invariato,
       solo l'area colorata/toccabile cresce) */
   }
@@ -1914,7 +1914,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .h-node__bottom.h-node__bottom--multi-twin-btn{ padding:0 0 0 14px; }
   .h-node__multitwin-box{ width:65px; height:80px; }
   .h-node__title{ font-size:.7rem; height:auto; width:80px; }
-  .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--cyan)); }
+  .h-node__dot{ width:12px; height:12px; border:5px solid var(--dot-color, var(--accent-color)); }
   .h-node--down .h-node__marker::after,
   .h-node--twin .h-node__marker::after{
     top:50%; left:100%; bottom:auto; transform:translateY(-50%);
@@ -1962,10 +1962,10 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      basso): la meta' vicina alla riga vera e' quella INFERIORE
      (::after, solida); edge "end" (bridge sotto l'ultima voce reale,
      che sta in alto): speculare. */
-  .h-node--bridge[data-bridge-edge="start"]::before{ border-top:none; border-left:5px dashed var(--dot-color, var(--cyan)); }
-  .h-node--bridge[data-bridge-edge="start"]::after{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
-  .h-node--bridge[data-bridge-edge="end"]::before{ border-top:none; border-left:5px solid var(--dot-color, var(--cyan)); }
-  .h-node--bridge[data-bridge-edge="end"]::after{ border-top:none; border-left:5px dashed var(--dot-color, var(--cyan)); }
+  .h-node--bridge[data-bridge-edge="start"]::before{ border-top:none; border-left:5px dashed var(--dot-color, var(--accent-color)); }
+  .h-node--bridge[data-bridge-edge="start"]::after{ border-top:none; border-left:5px solid var(--dot-color, var(--accent-color)); }
+  .h-node--bridge[data-bridge-edge="end"]::before{ border-top:none; border-left:5px solid var(--dot-color, var(--accent-color)); }
+  .h-node--bridge[data-bridge-edge="end"]::after{ border-top:none; border-left:5px dashed var(--dot-color, var(--accent-color)); }
 
   /* Trattino di collegamento tra i due pallini di una voce "ombrello"
      (PARTE 3 punto 3), SOLO MOBILE: stesso elemento .h-node__umbrella-link
@@ -1979,7 +1979,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
      drawUmbrellaConnectors ma sugli assi scambiati. */
   .h-node__umbrella-link{
     height:auto; width:5px;
-    background-color:var(--dot-color, var(--cyan));
+    background-color:var(--dot-color, var(--accent-color));
     background-repeat:no-repeat;
   }
   .h-node__umbrella-link[data-line-style="dashed"]{
@@ -2036,7 +2036,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
   .v-node__title{ font-size:.68rem; }
 }
 
-:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+:focus-visible{ outline:2px solid var(--accent-color); outline-offset:2px; }
 
 /* ============================================================
    Blocco orientamento orizzontale su mobile — stesso escamotage
@@ -2071,7 +2071,7 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
    dal contenuto sopra (50px desktop, 30px mobile) e la posizione
    nella pagina (sempre in fondo al contenuto/voce, gestita pagina
    per pagina in HTML — qui solo l'aspetto). Contorno sul colore
-   d'accento dell'opera (--item-accent con --cyan di riserva, stesso
+   d'accento dell'opera (--item-accent con --accent-color di riserva, stesso
    schema gia' in uso altrove nel sito), rosso pieno una volta messo
    il like.
    ============================================================ */
@@ -2082,8 +2082,8 @@ body[data-state="title"] .landing, body[data-state="title"] .game-panel{ display
 .title-like__btn{
   display:inline-flex; align-items:center; justify-content:center;
   width:38px; height:38px;
-  border:2px solid var(--item-accent, var(--cyan)); border-radius:999px;
-  color:var(--item-accent, var(--cyan)); background:transparent;
+  border:2px solid var(--item-accent, var(--accent-color)); border-radius:999px;
+  color:var(--item-accent, var(--accent-color)); background:transparent;
   cursor:pointer;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }

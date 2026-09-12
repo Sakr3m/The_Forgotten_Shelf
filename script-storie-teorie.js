@@ -728,7 +728,7 @@ function setState(view){
   if(view === "landing"){
     state.column = null; state.entryId = null;
     el.body.style.removeProperty("--item-accent");
-    el.body.style.setProperty("--cyan", "#ffffff");
+    el.body.style.setProperty("--accent-color", "#ffffff");
     // Ko-fi/Discord tornano al loro posto originale (dentro
     // .stage-controls), stessa tecnica di Storie Senza Cornice.
     // Solo desktop: su mobile .social-links non viene mai spostato.
@@ -736,7 +736,7 @@ function setState(view){
       el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
     }
   } else {
-    el.body.style.removeProperty("--cyan");
+    el.body.style.removeProperty("--accent-color");
     // Solo desktop, solo vista voce: la tazzina lascia il posto ai
     // pulsanti veri Ko-fi+Discord, spostati dentro .brand.
     if(!mobileBreakpoint.matches && el.brand && el.socialLinks && el.brandBtn && el.socialLinks.parentElement !== el.brand){

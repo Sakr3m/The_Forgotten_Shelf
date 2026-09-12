@@ -91,7 +91,7 @@ button, a{ touch-action:manipulation; }
   }
 
   /* --- Scrollbar della lista: stesso aspetto sottile di Storie
-     Senza Cornice/Il Filo Nascosto (--line a riposo, --cyan in
+     Senza Cornice/Il Filo Nascosto (--line a riposo, --accent-color in
      hover) al posto di quella grigia di sistema - prima mancava del
      tutto qui, restava quella grezza del browser. Trasparente a
      riposo, visibile solo passando il mouse sul pannello, nessuna
@@ -107,7 +107,7 @@ button, a{ touch-action:manipulation; }
     border-radius:999px;
   }
   #sidebar:hover .game-list::-webkit-scrollbar-thumb{ background:var(--line); }
-  #sidebar .game-list::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+  #sidebar .game-list::-webkit-scrollbar-thumb:hover{ background:var(--accent-color); }
 }
 
 /* --- Pulsanti della topbar "come se ci fosse una seconda tabella":
@@ -324,7 +324,7 @@ button, a{ touch-action:manipulation; }
     border-radius:999px;
   }
   #timelineRail:hover .rail-track::-webkit-scrollbar-thumb{ background:var(--line); }
-  .timeline-rail .rail-track::-webkit-scrollbar-thumb:hover{ background:var(--cyan); }
+  .timeline-rail .rail-track::-webkit-scrollbar-thumb:hover{ background:var(--accent-color); }
 
   /* --- Specchiata rispetto alla sidebar sinistra: la barra deve
      stare sul lato INTERNO (verso lo stage), non su quello esterno
@@ -578,10 +578,10 @@ body[data-state="title"] .spoiler-alert{ display:none; }
 
   #sidebar .game-list button, #sidebar .game-list a{
     text-align:right;
-    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--accent-color)) 45%, transparent);
   }
   #sidebar .game-list button.is-active, #sidebar .game-list a.is-active{
-    box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset -5px 0 0 var(--item-accent, var(--accent-color));
   }
 
   /* --- Evidenziazione (sfondo + striscia sinistra) accorciata del
@@ -606,7 +606,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   #sidebar .game-list > li:has(> button.is-active:not(.row-lock)){
     background:linear-gradient(90deg,
       transparent 5%,
-      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 5%,
+      color-mix(in srgb, var(--item-accent, var(--accent-color)) 14%, transparent) 5%,
       rgba(232,121,249,.06));
     box-shadow:none;
   }
@@ -617,7 +617,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     position:absolute; top:0; bottom:0;
     left:5%; width:10px;
     border-radius:var(--radius-sm);
-    box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 2px 0 0 var(--item-accent, var(--accent-color));
   }
 
   /* Margini della tabella e delle voci al suo interno: pannello a
@@ -673,7 +673,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .panel-toggle{
     display:flex; align-items:center; justify-content:center;
     width:40px; height:40px; box-sizing:border-box;
-    border:2px solid var(--cyan);
+    border:2px solid var(--accent-color);
     background:var(--panel);
     border-radius:50%;
     color:var(--text-dim);
@@ -714,11 +714,11 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      solo il file condiviso). */
   #sidebar .game-list button.is-active:not(.row-lock),
   #sidebar .game-list a.is-active{
-    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--accent-color));
   }
   #sidebar .game-list button:hover:not(.row-lock),
   #sidebar .game-list a:hover{
-    box-shadow:inset 5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 5px 0 0 var(--item-accent, var(--accent-color));
   }
 
   /* --- Lo stesso identico effetto, esteso ora anche alla tabella a
@@ -796,7 +796,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      tolta da KoFi, testo/icona colorati di bianco come le cornici
      (il cuoricino resta rosso, colore voluto). --- */
   .index-link{ width:35px; height:35px; }
-  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .discord-link{ width:35px; height:35px; color:var(--accent-color); }
   .kofi-link{
     height:35px; box-sizing:border-box;
     width:auto; /* la regola base (styles.css, pensata per il
@@ -805,7 +805,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
       "KoFi" e restando largo quanto su desktop. */
     text-decoration:none;
   }
-  .kofi-link__short{ color:var(--cyan); }
+  .kofi-link__short{ color:var(--accent-color); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* --- Topbar in vista "game"/"title" (l'equivalente qui della
@@ -854,14 +854,14 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="universe"] .discord-link,
   body[data-state="title"] .discord-link{
     display:flex;
-    border-color:var(--item-accent, var(--cyan));
+    border-color:var(--item-accent, var(--accent-color));
   }
   body[data-state="game"] .discord-link,
   body[data-state="universe"] .discord-link,
-  body[data-state="title"] .discord-link{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="title"] .discord-link{ color:var(--item-accent, var(--accent-color)); }
   body[data-state="game"] .kofi-link svg,
   body[data-state="universe"] .kofi-link svg,
-  body[data-state="title"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="title"] .kofi-link svg{ color:var(--item-accent, var(--accent-color)); }
   body[data-state="game"] .social-links,
   body[data-state="universe"] .social-links,
   body[data-state="title"] .social-links{
@@ -1134,11 +1134,11 @@ body[data-state="title"] .spoiler-alert{ display:none; }
        precedente che lo mostrava). */
     flex:none; width:40px; height:40px;
     padding:0; justify-content:center;
-    border-width:2px; border-color:var(--item-accent, var(--cyan));
-    color:var(--item-accent, var(--cyan));
+    border-width:2px; border-color:var(--item-accent, var(--accent-color));
+    color:var(--item-accent, var(--accent-color));
   }
   body[data-state="title"] .title-nav__side span{ display:none; }
-  body[data-state="title"] .title-nav__side svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="title"] .title-nav__side svg{ color:var(--item-accent, var(--accent-color)); }
   body[data-state="title"] .title-nav__spacer{ flex:none; width:40px; }
   /* Il pulsante centrale ("Indietro", Titolo->LT) torna visibile su
      mobile: nel nuovo modello di navigazione (27/08, tutto
@@ -1173,8 +1173,8 @@ body[data-state="title"] .spoiler-alert{ display:none; }
     width:auto; min-width:0;
     padding:9px 20px;
     white-space:nowrap;
-    border-width:2px; border-color:var(--item-accent, var(--cyan));
-    color:var(--item-accent, var(--cyan));
+    border-width:2px; border-color:var(--item-accent, var(--accent-color));
+    color:var(--item-accent, var(--accent-color));
   }
 
   /* --- Vista "title": blocco tag/anno abbassato un po' rispetto a
@@ -1634,7 +1634,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .title-body-scrollbar.is-dragging .title-body-scrollbar__thumb{
     background:var(--line);
   }
-  .title-body-scrollbar__thumb:hover{ background:var(--cyan); }
+  .title-body-scrollbar__thumb:hover{ background:var(--accent-color); }
   /* Respiro sotto ai pulsanti (.title-nav, ora fermo in fondo al
      pannello): senza questo toccherebbero il bordo esatto della
      finestra, dato che il pannello ora occupa tutta l'altezza
@@ -1773,7 +1773,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
      vecchio nel loro file, mai aggiornato). Il DOM qui e' gia'
      discord-poi-kofi, quindi basta il flex di base, senza bisogno di
      nessun row-reverse. Bordo del colore della saga aperta - qui e'
-     semplicemente var(--cyan), che su questa pagina viene gia'
+     semplicemente var(--accent-color), che su questa pagina viene gia'
      sovrascritta col colore del gioco corrente (vedi
      applyPaletteToCSS in script.js), non serve un --item-accent
      separato con fallback come sulle altre due pagine. Cuoricino/
@@ -1792,7 +1792,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="title"] .kofi-link,
   body[data-state="title"] .discord-link{
     display:flex;
-    border-color:var(--cyan);
+    border-color:var(--accent-color);
   }
   body[data-state="game"] .kofi-link,
   body[data-state="title"] .kofi-link{
@@ -1813,9 +1813,9 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   body[data-state="game"] .kofi-link svg,
   body[data-state="title"] .kofi-link svg{ color:var(--text-faint); }
   body[data-state="game"] .kofi-link:hover svg,
-  body[data-state="title"] .kofi-link:hover svg{ color:var(--cyan); }
+  body[data-state="title"] .kofi-link:hover svg{ color:var(--accent-color); }
   body[data-state="game"] .discord-link:hover,
-  body[data-state="title"] .discord-link:hover{ color:var(--cyan); }
+  body[data-state="title"] .discord-link:hover{ color:var(--accent-color); }
 }
 
 /* ============================================================
@@ -1824,7 +1824,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
    un salvataggio indipendente per il gioco/voce corrente (es. per
    schermi diversi con luminosità diverse), gestiti in script.js.
    Stessa identica cosa di Storie Senza Cornice/Il Filo Nascosto, solo
-   che qui il colore è semplicemente var(--cyan) (già sovrascritta
+   che qui il colore è semplicemente var(--accent-color) (già sovrascritta
    col colore della saga da applyPaletteToCSS), non serve un
    --item-accent separato con fallback come sulle altre due pagine.
    Dimensione: 6px in più dell'altezza della barra (20px -> 26px),
@@ -1837,7 +1837,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .watermark-brightness-line__preset{
     width:25px; height:25px;
     display:flex; align-items:center; justify-content:center;
-    border:2px solid var(--cyan);
+    border:2px solid var(--accent-color);
     border-radius:5px;
     background:transparent;
     color:var(--text-faint);
@@ -1849,7 +1849,7 @@ body[data-state="title"] .spoiler-alert{ display:none; }
   .watermark-brightness-line:hover .watermark-brightness-line__preset{ opacity:1; }
   .watermark-brightness-line__preset:hover{ color:var(--text); }
   .watermark-brightness-line__preset.is-active{
-    background:var(--cyan);
+    background:var(--accent-color);
     color:#000;
   }
 }

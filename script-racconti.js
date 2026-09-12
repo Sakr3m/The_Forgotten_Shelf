@@ -875,7 +875,7 @@ function setState(view){
     state.musicOn = false; state.playlist = null; state.trackIndex = 0;
     closePlaylistMenu();
     el.body.style.removeProperty("--item-accent");
-    el.body.style.setProperty("--cyan", "#ffffff");
+    el.body.style.setProperty("--accent-color", "#ffffff");
     // Bug: la filigrana veniva impostata all'apertura di una voce ma
     // mai ripulita tornando alla home — restava visibile li' sopra
     // (l'elemento e' sempre display:block su desktop, position:fixed,
@@ -895,7 +895,7 @@ function setState(view){
       el.stageControls.insertBefore(el.socialLinks, el.stageControls.firstChild);
     }
   } else {
-    el.body.style.removeProperty("--cyan");
+    el.body.style.removeProperty("--accent-color");
     // Solo desktop, solo vista voce: la tazzina (icona Ko-fi dentro
     // .brand) lascia il posto ai pulsanti veri di Ko-fi e Discord -
     // spostati fisicamente dentro .brand (prima della scritta), dato

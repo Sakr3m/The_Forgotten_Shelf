@@ -187,7 +187,7 @@
     border-left:none;
     border-radius:0 var(--radius) var(--radius) 0;
   }
-  .gate-handle:hover{ color:var(--cyan); border-color:var(--cyan); }
+  .gate-handle:hover{ color:var(--accent-color); border-color:var(--accent-color); }
   .gate-handle__arrow{
     width:15px; height:15px;
     transition:transform .5s cubic-bezier(.4,0,.2,1);
@@ -289,7 +289,7 @@
      vero (il browser gestisce da solo il "ritorno" a mouse fuori). */
   .review-tile:hover{
     transform:translateY(-5px) scale(1.035);
-    border-color:var(--cyan);
+    border-color:var(--accent-color);
     filter:brightness(1.18);
   }
 
@@ -335,7 +335,7 @@
   .gate-side-toggle{
     display:flex; align-items:center; justify-content:center;
     width:40px; height:40px; box-sizing:border-box;
-    border:2px solid var(--cyan);
+    border:2px solid var(--accent-color);
     background:var(--panel);
     border-radius:50%;
     color:var(--text-dim);
@@ -345,8 +345,8 @@
      pulsanti della topbar in questo stato (musica, Ko-fi, Discord,
      switch lingua). */
   body.is-review-open .gate-side-toggle{
-    border-color:var(--item-accent, var(--cyan));
-    color:var(--item-accent, var(--cyan));
+    border-color:var(--item-accent, var(--accent-color));
+    color:var(--item-accent, var(--accent-color));
   }
   .gate-side-toggle:hover{ color:var(--text); }
   .gate-side-toggle svg{ width:20px; height:20px; }
@@ -371,10 +371,10 @@
 .text-size-toggle{ display:none; }
 body.is-review-open .text-size-toggle{
   display:flex; align-items:center; justify-content:center;
-  border:2px solid var(--item-accent, var(--cyan));
+  border:2px solid var(--item-accent, var(--accent-color));
   background:var(--panel);
   border-radius:999px;
-  color:var(--item-accent, var(--cyan));
+  color:var(--item-accent, var(--accent-color));
   font-weight:600;
   cursor:pointer;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
@@ -429,11 +429,11 @@ body.is-review-open .text-size-toggle{
 /* Switch lingua colorato con l'accento della voce aperta (era gia'
    cosi' su Storie Senza Cornice/Il Filo Nascosto, mancava qui):
    fuori dalle voci --item-accent non e' impostata, quindi il
-   fallback --cyan (bianco) resta il colore normale. */
-.lang-switch{ border-color:var(--item-accent, var(--cyan)); }
+   fallback --accent-color (bianco) resta il colore normale. */
+.lang-switch{ border-color:var(--item-accent, var(--accent-color)); }
 /* Stesso trattamento per il pulsante volume/mute del player: acceso
    E in una voce aperta -> colore della voce, non il ciano generico. */
-body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
+body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-accent, var(--accent-color)); }
 
 /* --- Copertina, scheda (etichetta/righe) e icona platino: erano
    finite per errore solo nel blocco desktop (stesso identico bug
@@ -534,7 +534,7 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
   cursor:pointer;
   transition:border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
 }
-.review-entry .threshold button:hover{ border-color:var(--cyan); color:var(--cyan); }
+.review-entry .threshold button:hover{ border-color:var(--accent-color); color:var(--accent-color); }
 .review-entry .threshold.is-crossed{ opacity:.5; }
 
 /* Coppia di pulsanti (versione seria/senza freni): affiancati, non
@@ -556,10 +556,10 @@ body[data-state="entry"] .music-toggle[aria-pressed="true"]{ color:var(--item-ac
    universale (vale anche mobile). */
 .review-entry .title-tag{
   padding:5px 10px;
-  border:1px solid var(--item-accent, var(--cyan));
+  border:1px solid var(--item-accent, var(--accent-color));
   border-radius:999px;
   font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-  color:var(--cyan);
+  color:var(--accent-color);
 }
 
 /* Bordo a 2px (20/08, solo desktop per ora - le regole sopra restano
@@ -603,11 +603,11 @@ body.is-review-open .index-link,
 body.is-review-open .discord-link,
 body.is-review-open .kofi-link,
 body.is-review-open .lang-switch{
-  border-color:var(--item-accent, var(--cyan));
+  border-color:var(--item-accent, var(--accent-color));
 }
-body.is-review-open .discord-link{ color:var(--item-accent, var(--cyan)); }
-body.is-review-open .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
-body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
+body.is-review-open .discord-link{ color:var(--item-accent, var(--accent-color)); }
+body.is-review-open .kofi-link svg{ color:var(--item-accent, var(--accent-color)); }
+body.is-review-open .lang-option.is-active{ color:var(--item-accent, var(--accent-color)); }
 
 @media (min-width:901px){
   /* Come sulle altre pagine interne: a voce aperta resta visibile il
@@ -706,10 +706,10 @@ body.is-review-open .track-skip,
 body.is-review-open .track-persist,
 body.is-review-open .track-info,
 body.is-review-open .volume-panel{
-  border-color:var(--item-accent, var(--cyan));
+  border-color:var(--item-accent, var(--accent-color));
 }
-body.is-review-open .track-persist[aria-pressed="true"]{ color:var(--item-accent, var(--cyan)); }
-body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan)); }
+body.is-review-open .track-persist[aria-pressed="true"]{ color:var(--item-accent, var(--accent-color)); }
+body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--accent-color)); }
 
 /* Nascondi/rivela la recensione completa: era finito solo nel blocco
    desktop (stesso bug di scoping trovato piu' volte oggi) - su
@@ -730,7 +730,7 @@ body.is-review-open .volume-slider{ accent-color:var(--item-accent, var(--cyan))
    contesto: piu' affidabile. --- */
 .review-entry .section-eyebrow{
   font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:15px;
+  color:var(--accent-color); margin-bottom:15px;
   display:flex; flex-wrap:wrap; justify-content:center; gap:5px;
 }
 .review-entry .section-eyebrow .eyebrow-dot{ opacity:.6; }
@@ -944,7 +944,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   .review-entry .note{
     margin:20px 0;
     padding:15px 20px;
-    border-left:2px solid var(--cyan);
+    border-left:2px solid var(--accent-color);
     background:var(--panel);
     color:var(--text-dim);
     font-size:.88rem; font-style:italic;
@@ -1027,14 +1027,14 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   margin:25px 0;
   clear:both;
   padding:10px 20px;
-  border:1px solid var(--item-accent, var(--cyan));
+  border:1px solid var(--item-accent, var(--accent-color));
   border-radius:999px;
   color:var(--text); font-size:.88rem; font-weight:600;
   transition:background var(--dur-fast) var(--ease);
 }
-.review-entry .deep-theory-link svg{ width:15px; height:15px; flex-shrink:0; color:var(--item-accent, var(--cyan)); }
+.review-entry .deep-theory-link svg{ width:15px; height:15px; flex-shrink:0; color:var(--item-accent, var(--accent-color)); }
 .review-entry .deep-theory-link:hover{
-  background:color-mix(in srgb, var(--item-accent, var(--cyan)) 12%, transparent);
+  background:color-mix(in srgb, var(--item-accent, var(--accent-color)) 12%, transparent);
 }
 
 /* ============================================================
@@ -1098,7 +1098,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
      KoFi, testo/icona colorati di bianco come le cornici (il
      cuoricino resta rosso, colore voluto). --- */
   .index-link{ width:35px; height:35px; }
-  .discord-link{ width:35px; height:35px; color:var(--cyan); }
+  .discord-link{ width:35px; height:35px; color:var(--accent-color); }
   .kofi-link{
     height:35px; box-sizing:border-box;
     width:auto; /* FIX: la regola base (styles.css, pensata per il
@@ -1110,7 +1110,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
       (icona + "KoFi" + padding). */
     text-decoration:none;
   }
-  .kofi-link__short{ color:var(--cyan); }
+  .kofi-link__short{ color:var(--accent-color); }
   .lang-switch{ height:35px; box-sizing:border-box; }
 
   /* Bordo 2px su tutti i pulsanti dell'header, come su Storie Senza
@@ -1144,8 +1144,8 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     font-weight:700; font-size:20px; letter-spacing:.05em; text-transform:uppercase;
     transition:color .15s ease;
   }
-  .mobile-genre-btn:active{ color:var(--cyan); }
-  .mobile-genre-btn.is-active{ color:var(--cyan); }
+  .mobile-genre-btn:active{ color:var(--accent-color); }
+  .mobile-genre-btn.is-active{ color:var(--accent-color); }
 
   /* --- Tabella titoli del genere: pannello del carosello a
      sinistra, come .sidebar nelle altre pagine — sempre presente
@@ -1197,7 +1197,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
       - il verticale ora lo decide height+flex, non serve piu' */
     border-radius:var(--radius-sm);
     background:none; border:none;
-    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
+    box-shadow:inset -5px 0 0 color-mix(in srgb, var(--item-accent, var(--accent-color)) 45%, transparent);
     color:var(--text-dim); font-size:15px;
     font-weight:500;
     line-height:20px;
@@ -1207,7 +1207,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     color:var(--text); font-weight:600;
     background:linear-gradient(90deg,
       transparent 5%,
-      color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent) 5%,
+      color-mix(in srgb, var(--item-accent, var(--accent-color)) 14%, transparent) 5%,
       rgba(232,121,249,.06));
     /* Striscia destra (-5px, sempre presente su ogni voce) invariata
        col box-shadow. La striscia sinistra invece non e' piu' un
@@ -1216,7 +1216,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
        vedi ::before qui sotto: left/width/border-radius separati,
        la striscia resta 2px, arrotondata come il <li> stesso, e si
        sposta al 5% insieme all'inizio del gradiente. */
-    box-shadow:inset -5px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset -5px 0 0 var(--item-accent, var(--accent-color));
   }
   .mobile-genre-table__items button:active::before,
   .mobile-genre-table__items button.is-active::before{
@@ -1224,7 +1224,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
     position:absolute; top:0; bottom:0;
     left:5%; width:10px;
     border-radius:var(--radius-sm);
-    box-shadow:inset 2px 0 0 var(--item-accent, var(--cyan));
+    box-shadow:inset 2px 0 0 var(--item-accent, var(--accent-color));
   }
   /* .is-active (persistente, la recensione APERTA in questo
      momento - impostata da fillGenreList()/syncTableToReview() in
@@ -1546,10 +1546,10 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   body[data-state="entry"] .kofi-link,
   body[data-state="entry"] .discord-link{
     display:flex;
-    border-color:var(--item-accent, var(--cyan));
+    border-color:var(--item-accent, var(--accent-color));
   }
-  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--cyan)); }
-  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .discord-link{ color:var(--item-accent, var(--accent-color)); }
+  body[data-state="entry"] .kofi-link svg{ color:var(--item-accent, var(--accent-color)); }
   body[data-state="entry"] .social-links{
     display:flex; align-items:center; gap:10px;
     position:absolute; left:50%; top:50%;
@@ -1560,7 +1560,7 @@ body[data-text-size="2"] .review-entry .section-eyebrow{ font-size:1.44rem; }
   }
   /* Scritta attiva dello switch lingua (IT o EN) colorata con
      l'accento della voce aperta, non solo il bordo. */
-  body[data-state="entry"] .lang-option.is-active{ color:var(--item-accent, var(--cyan)); }
+  body[data-state="entry"] .lang-option.is-active{ color:var(--item-accent, var(--accent-color)); }
 }
 
 /* ============================================================
