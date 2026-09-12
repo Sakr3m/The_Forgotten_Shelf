@@ -580,6 +580,35 @@ gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
   nuovo universo Battlefield 6 - sessione notturna, 2026-09-09.
   **Rimossa dal sito il 12/09** (vedi rimozione dell'universo sopra).
 
+### Da riverificare in futuro (segnalazione per la Sentinella)
+
+#### Battlefield 6 - riconsiderare se smette di essere un universo monotitolo
+
+- **Cosa monitorare**: se emergono nuovi capitoli/espansioni narrative
+  legate a Battlefield 6 (sequel diretto, DLC con vera trama) capaci di
+  formare insieme a esso una linea temporale vera e propria, oppure se
+  emerge un aggancio narrativo più solido di una semplice citazione a
+  un personaggio di un altro universo della saga (Henry Blackburn,
+  citato in una battuta della missione "Night Raid" come figura storica
+  studiata in accademia, senza apparizione né ruolo attivo - troppo
+  debole per giustificare un'appartenenza).
+- **Origine**: Ricercatore/Selezionatore/Storico, sessione di Controllo
+  Battlefield del 12/09; motivazione della non-inclusione chiarita
+  direttamente da Sakrem nella stessa sessione.
+- **Motivazione dell'esclusione attuale (precisata il 12/09)**: non è la
+  mancanza di collegamento con il resto della saga in sé (altri universi
+  della saga, es. Bad Company, non hanno alcun legame con gli altri e
+  restano inclusi comunque) - il problema è strutturale: un universo
+  richiede una vera timeline/contenitore narrativo, che un solo titolo
+  isolato non può costituire. Sakrem è comunque favorevole all'idea di
+  includere Battlefield 6 in futuro, se e quando smetterà di essere
+  l'unico titolo del proprio ipotetico universo.
+- **Data**: 2026-09-12.
+- **Stato**: non applicato, in attesa di un secondo titolo/capitolo che
+  giustifichi un vero universo (o di un aggancio narrativo più solido a
+  uno degli universi esistenti) - nessuna azione fino alla prossima
+  verifica.
+
 ## BioShock
 
 ### In sospeso
