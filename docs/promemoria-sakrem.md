@@ -162,7 +162,11 @@ notturna, 2026-09-09.
 - Nuovo universo **Verdict Day** (`ac-v` → `verdict-day`, 2 voci) -
   sessione notturna, 2026-09-09.
 - Nuovo universo **Rubicon** (`ac6-fires-of-rubicon`, 1 voce) -
-  sessione notturna, 2026-09-09.
+  sessione notturna, 2026-09-09. **Intero universo rimosso dal sito
+  il 2026-09-12** (decisione diretta di Sakrem: soft reboot isolato,
+  nessun secondo medium collegato, sotto la soglia minima di 2 media
+  per formare un universo - vedi report saga Armored Core del
+  2026-09-12).
 - `ac1` - Armored Core (VIDEOGIOCO, 1997) - voce a sé, prima voce della
   saga - sessione notturna, 2026-09-09.
 - `project-phantasma` - Armored Core: Project Phantasma (VIDEOGIOCO,
@@ -176,19 +180,25 @@ notturna, 2026-09-09.
   notturna, 2026-09-09.
 - `ac2-another-age` - Armored Core 2: Another Age (VIDEOGIOCO, 2001) -
   voce a sé, ultima voce di Leos Klein - sessione notturna, 2026-09-09.
+  **Rimossa dal sito il 2026-09-12** (assorbita come nota nella
+  sinossi di `ac2`, decisione diretta di Sakrem - vedi report saga
+  Armored Core del 2026-09-12).
 - `ac3` - Armored Core 3 (VIDEOGIOCO, 2002) - voce a sé, prima voce di
   Layered - sessione notturna, 2026-09-09.
 - `silent-line` - Silent Line: Armored Core (VIDEOGIOCO, 2003) - voce a
   sé - sessione notturna, 2026-09-09.
 - `formula-front` - Armored Core: Formula Front (VIDEOGIOCO,
   2004/Extreme Battle 2005) - voce a sé - sessione notturna,
-  2026-09-09.
+  2026-09-09. **Rimossa dal sito il 2026-09-12** (decisione diretta
+  di Sakrem - vedi report saga Armored Core del 2026-09-12).
 - `end-of-truce-rise-of-navis` - VOCE STORIA "La Fine della Tregua tra
   le Corporazioni e l'Ascesa di Navis" - sessione notturna, 2026-09-09.
 - `nexus` - Armored Core: Nexus (VIDEOGIOCO, 2003/2004) - voce a sé -
   sessione notturna, 2026-09-09.
 - `nine-breaker` - Armored Core: Nine Breaker (VIDEOGIOCO, 2004) - voce
-  a sé - sessione notturna, 2026-09-09.
+  a sé - sessione notturna, 2026-09-09. **Rimossa dal sito il
+  2026-09-12** (decisione diretta di Sakrem - vedi report saga
+  Armored Core del 2026-09-12).
 - `ac-mobile` - Armored Core Mobile (VIDEOGIOCO, 2004-2008, voce
   consolidata) - voce a sé - sessione notturna, 2026-09-09.
 - `last-raven` - Armored Core: Last Raven (VIDEOGIOCO, 2005) - voce a
@@ -209,7 +219,9 @@ notturna, 2026-09-09.
   sé, ultima voce di Verdict Day - sessione notturna, 2026-09-09.
 - `ac6-fires-of-rubicon` - Armored Core VI: Fires of Rubicon
   (VIDEOGIOCO, 2023) - voce a sé, unica voce del nuovo universo Rubicon
-  - sessione notturna, 2026-09-09.
+  - sessione notturna, 2026-09-09. **Rimossa dal sito il 2026-09-12**
+  insieme all'intero universo Rubicon (vedi sopra) - nessuna voce
+  ospita più questo media in attesa di un secondo medium collegato.
 
 ## Assassin's Creed
 
