@@ -1070,9 +1070,9 @@ const GAMES = {
       {
         id: "eta-vela",
         name: { it: "Età della Vela", en: "Age of Sail" },
-        span: { it: "1715 – 1780", en: "1715 – 1780" },
+        span: { it: "1715 – 1737", en: "1715 – 1737" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Et%C3%A0%20della%20Vela%20Filigrana.jpg",
-        palette: ["#1B7A72", "#8E1B2E", "#8A6A2E"],
+        palette: ["#1B7A72", "#8E1B2E"],
         entries: [
           { id: "black-flag", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1715 – 1722",
             releaseYear: "2013", releaseYearEn: "2013",
@@ -1091,38 +1091,32 @@ const GAMES = {
               it: "Vent'anni dopo Black Flag, l'ex quartiermastro Adéwalé, ormai Assassino a tutti gli effetti, naufraga al largo di Saint-Domingue mentre insegue una fazione templare. A terra scopre che i Templari finanziano segretamente la tratta degli schiavi tramite la tenutaria Bastienne Josèphe, e si allea con i Maroon, un gruppo di schiavi fuggiti guidato da Augustin Dieufort, per liberare la colonia dal commercio schiavista, arrivando a scontrarsi con il governatore Pierre de Fayet. Nato come contenuto scaricabile per Black Flag, distribuito anche come esperienza autonoma, affronta di petto il tema della schiavitù nei Caraibi.",
               en: "Twenty years after Black Flag, former quartermaster Adéwalé, now a full-fledged Assassin, is shipwrecked off Saint-Domingue while pursuing a Templar faction. Ashore, he discovers the Templars are secretly financing the slave trade through brothel owner Bastienne Josèphe, and allies with the Maroons, a band of escaped slaves led by Augustin Dieufort, to free the colony from the slave trade, eventually clashing with governor Pierre de Fayet. Originally released as downloadable content for Black Flag, later made available as a standalone experience, it confronts the subject of slavery in the Caribbean head-on."
             }
-          },
-          { id: "liberation", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1765 – 1780",
-            releaseYear: "2012 (Remaster: 2014, 2019)", releaseYearEn: "2012 (Remaster: 2014, 2019)",
-            title: { it: "Assassin's Creed III: Liberation", en: "Assassin's Creed III: Liberation" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Liberation.jpg",
-            synopsis: {
-              it: "A New Orleans, sotto la contestata transizione dal dominio francese a quello spagnolo, l'Assassina franco-africana Aveline de Grandpré, addestrata dal proprio mentore Agaté dopo essere scampata bambina a un tentativo di rapimento, indaga sulla misteriosa identità del 'Company Man', il Templare che manovra la città nell'ombra. Nel corso delle sue indagini, Aveline assassina il governatore francese d'Abbadie, corrotto dai Templari, e smaschera Baptiste, un Assassino rinnegato che complotta per avvelenare la nobiltà locale. Prima protagonista donna della serie, il gioco intreccia la sua vicenda personale alla piaga della schiavitù nella Louisiana coloniale.\n\nNota sulle versioni successive: il gioco originale uscì nel 2012 per PS Vita col titolo Assassin's Creed III: Liberation. Nel 2014 arrivò una versione rielaborata in alta definizione per PS3/Xbox 360/PC, intitolata solo Assassin's Creed: Liberation HD (senza 'III'), seguita da un'ulteriore Remastered nel 2019 insieme ad Assassin's Creed III Remastered. La storia resta la stessa in tutte le versioni; le edizioni successive rimuovono le meccaniche pensate apposta per il touch screen di Vita e la modalità multigiocatore, aggiungendo qualche missione in più e una grafica aggiornata, più vicina nello stile ad Assassin's Creed III.",
-              en: "In New Orleans, amid the contested transition from French to Spanish rule, the French-African Assassin Aveline de Grandpré, trained by her mentor Agaté after narrowly escaping a kidnapping attempt as a child, investigates the mysterious identity of the 'Company Man', the Templar secretly pulling the city's strings. In the course of her investigation, Aveline assassinates the Templar-corrupted French governor d'Abbadie and exposes Baptiste, a renegade Assassin plotting to poison the local nobility. The series' first female protagonist, the game weaves her personal story together with the scourge of slavery in colonial Louisiana.\n\nNote — later versions: the original game released in 2012 for PS Vita under the title Assassin's Creed III: Liberation. A reworked high-definition version arrived in 2014 for PS3/Xbox 360/PC, titled simply Assassin's Creed: Liberation HD (dropping the 'III'), followed by a further Remastered edition in 2019 alongside Assassin's Creed III Remastered. The story remains the same across all versions; the later editions remove the mechanics designed specifically for the Vita's touch screen and the multiplayer mode, adding a handful of extra missions and updated visuals closer in style to Assassin's Creed III."
-            }
           }
         ]
       },
       {
         // Universo creato il 12/09 su richiesta diretta di Sakrem: prima
-        // separava Rogue (in Età della Vela) e AC3 (in Epoca degli
-        // Imperi, insieme all'ombrello Forsaken) senza un legame
-        // formale, pur essendo Rogue il seme diretto ("getta le basi")
-        // del Rito Templare Coloniale che AC3 racconta dal lato
-        // avversario. Liberation resta in Età della Vela: nessun
-        // collegamento verificato con questo trio.
+        // separava Rogue (in Età della Vela), AC3/Forsaken ed Unity
+        // (in Epoca degli Imperi) senza un legame formale sul sito,
+        // pur esistendo un collegamento di trama reale e diretto,
+        // verificato via fonti esterne, non solo tematico: Shay
+        // Cormac (Rogue) uccide personalmente sia Adéwalé (Freedom
+        // Cry) sia Charles Dorian, il padre di Arno, il cui omicidio
+        // apre Assassin's Creed Unity. Liberation è stata rimossa dal
+        // sito (vedi sotto, Età della Vela): nessun collegamento di
+        // trama verificato con nessun altro media della saga.
         id: "rito-coloniale",
         name: { it: "Il Rito Coloniale", en: "The Colonial Rite" },
-        span: { it: "1725 – 1783", en: "1725 – 1783" },
-        palette: ["#8E1B2E", "#6B1220"],
+        span: { it: "1725 – 1794", en: "1725 – 1794" },
+        palette: ["#8E1B2E", "#6B1220", "#242A3D"],
         entries: [
           { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
             releaseYear: "2014 (Remaster: 2018)", releaseYearEn: "2014 (Remaster: 2018)",
             title: { it: "Assassin's Creed Rogue", en: "Assassin's Creed Rogue" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Rogue.jpg",
             synopsis: {
-              it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
-              en: "In the North Atlantic during the Seven Years' War, the Assassin Shay Patrick Cormac, after unwittingly causing the death of innocents by triggering a cataclysm with an Isu artefact recovered on the Brotherhood's behalf, becomes disillusioned with his mentors' ruthless methods and defects to the Templars, becoming the hunter of his own former comrades. The first and only chapter in the series to tell the story from the Templar point of view, laying the groundwork for the Templar Colonial Rite that will oppose Connor in AC3."
+              it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Tra i suoi bersagli cadono anche Adéwalé, l'ex quartiermastro di Edward Kenway protagonista di Freedom Cry, e Charles Dorian, un funzionario templare francese la cui morte per mano di Shay a Versailles lascerà orfano il figlio Arno, aprendo così gli eventi di Assassin's Creed Unity. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
+              en: "In the North Atlantic during the Seven Years' War, the Assassin Shay Patrick Cormac, after unwittingly causing the death of innocents by triggering a cataclysm with an Isu artefact recovered on the Brotherhood's behalf, becomes disillusioned with his mentors' ruthless methods and defects to the Templars, becoming the hunter of his own former comrades. Among his targets are Adéwalé, Edward Kenway's former quartermaster and the protagonist of Freedom Cry, and Charles Dorian, a French Templar official whose death at Shay's hands in Versailles will leave his son Arno orphaned, setting in motion the events of Assassin's Creed Unity. The first and only chapter in the series to tell the story from the Templar point of view, laying the groundwork for the Templar Colonial Rite that will oppose Connor in AC3."
             }
           },
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
@@ -1132,6 +1126,15 @@ const GAMES = {
             synopsis: {
               it: "Durante la Rivoluzione Americana, Ratonhnhaké:ton detto Connor, figlio del Templare britannico Haytham Kenway e di una donna Mohawk, si allea con gli Assassini dopo aver visto il proprio villaggio minacciato dall'espansione coloniale, opponendosi al padre e ai suoi alleati templari che manipolano entrambi gli schieramenti del conflitto rivoluzionario per i propri fini. Nel corso della guerra Connor affronta e uccide uno dopo l'altro i Templari del Rito Coloniale, incluso lo stesso Haytham, ricostruendo la Confraternita americana dalle sue rovine.",
               en: "During the American Revolution, Ratonhnhaké:ton, called Connor, son of the British Templar Haytham Kenway and a Mohawk woman, allies with the Assassins after seeing his village threatened by colonial expansion, opposing his father and his Templar allies who manipulate both sides of the revolutionary conflict for their own ends. Over the course of the war Connor confronts and kills the Colonial Rite Templars one by one, including Haytham himself, rebuilding the American Brotherhood from its ruins."
+            }
+          },
+          { id: "unity", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1789 – 1794",
+            releaseYear: "2014", releaseYearEn: "2014",
+            title: { it: "Assassin's Creed Unity", en: "Assassin's Creed Unity" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Unity.jpg",
+            synopsis: {
+              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.\n\nNota sul collegamento con Rogue: l'uomo che uccide il padre di Arno, Charles Dorian, all'inizio del gioco resta senza volto e senza nome; solo in Assassin's Creed Rogue si scopre che si trattava di Shay Patrick Cormac, incaricato di recuperare un manufatto Isu in suo possesso, rendendo esplicito il legame tra i due capitoli.\n\nNota sul romanzo Unity: il romanzo omonimo di Oliver Bowden (2014) aggiunge il punto di vista di Élise de la Serre e un epilogo dopo la fine del gioco: Arno cade in depressione dopo la morte di Élise, prima di essere contattato dal Marchese de Sade per una missione a Saint-Denis; include inoltre un cameo di Jennifer Scott, figlia di Haytham Kenway, che consegna a Élise i diari del padre.\n\nNota su Dead Kings (DLC narrativo): proprio la missione a Saint-Denis anticipata nel romanzo è al centro di questo capitolo, ambientato subito dopo la fine del gioco. Nella necropoli sotterranea della basilica, dove riposano da secoli i re di Francia, Arno si scontra con una banda di predoni intenzionati a profanare le tombe reali per saccheggiarne i tesori, tra nuovi intrighi legati ai predoni e alle rovine della città sepolta di Franciade.",
+              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain.\n\nNote — connection to Rogue: the man who kills Arno's father, Charles Dorian, at the start of the game remains faceless and unnamed; only in Assassin's Creed Rogue is it revealed that he was Shay Patrick Cormac, sent to recover an Isu artefact in his possession, making the link between the two chapters explicit.\n\nNote — Unity novel: Oliver Bowden's same-titled novel (2014) adds Élise de la Serre's point of view and an epilogue set after the game's ending: Arno falls into depression following Élise's death, before being contacted by the Marquis de Sade for a mission in Saint-Denis; it also features a cameo by Jennifer Scott, daughter of Haytham Kenway, who gives Élise her father's journals.\n\nNote — Dead Kings (narrative DLC): the very mission to Saint-Denis foreshadowed in the novel is at the center of this chapter, set right after the end of the game. In the basilica's underground necropolis, where the kings of France have rested for centuries, Arno clashes with a band of raiders bent on defiling the royal tombs to loot their treasures, amid new intrigue tied to the raiders and the buried ruins of the city of Franciade."
             }
           }
         ],
@@ -1144,12 +1147,12 @@ const GAMES = {
             // eventi (la Rivoluzione Americana) di "assassins-creed-3",
             // ma vissuti da un personaggio diverso (Haytham Kenway
             // invece di Connor) - lineStyle "dashed" (variante 2).
-            // endsBeforeId omesso (12/09): AC3 e' l'ultima voce di questo
-            // universo, quindi l'arco arriva naturalmente fino alla sua
-            // fine (stesso meccanismo di Castlevania 64, vedi
-            // expandEntriesWithUmbrellas in script.js).
+            // L'arco copre solo Assassin's Creed III, non si estende
+            // fino a Unity (12/09: tornato a valere ora che Unity e'
+            // di nuovo nello stesso universo, come endsBeforeId).
             lineStyle: "dashed",
             startsBeforeId: "assassins-creed-3",
+            endsBeforeId: "unity",
             synopsis: {
               it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
               en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
@@ -1160,30 +1163,20 @@ const GAMES = {
       {
         id: "eta-rivoluzioni",
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
-        span: { it: "1789 – 1888", en: "1789 – 1888" },
+        span: { it: "1839 – 1888", en: "1839 – 1888" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
-        palette: ["#242A3D", "#C4802E", "#5C4A66", "#4E5449"],
+        palette: ["#C4802E", "#5C4A66", "#4E5449"],
         // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
-        // ciascun sottogruppo tranne l'ultimo (Notte di Parigi - Unity,
-        // Zafferano - India, Nebbia Industriale - Londra vittoriana).
-        // Senza questo campo il colore si "sconfinava" ben prima della
-        // voce che chiude davvero ogni sottogruppo. Aggiornato (12/09):
-        // Connor/AC3 e l'ombrello Forsaken sono usciti da questo
-        // universo (ora nel nuovo "Il Rito Coloniale", tra Età della
-        // Vela ed Epoca degli Imperi) - rimosso il sottogruppo
-        // "Sangue/accento" e il relativo colore, gli altri restano
-        // identici.
-        paletteBounds: ["unity", "chronicles-india", "magus-conspiracy"],
+        // ciascun sottogruppo tranne l'ultimo (Zafferano - India, Nebbia
+        // Industriale - Londra vittoriana). Senza questo campo il colore
+        // si "sconfinava" ben prima della voce che chiude davvero ogni
+        // sottogruppo. Aggiornato (12/09): Unity e' uscito da questo
+        // universo insieme a Connor/AC3 e all'ombrello Forsaken (ora
+        // tutti nel "Il Rito Coloniale", tra Età della Vela ed Epoca
+        // degli Imperi) - rimosso anche il sottogruppo "Notte di Parigi"
+        // e il relativo colore/bound, gli altri restano identici.
+        paletteBounds: ["chronicles-india", "magus-conspiracy"],
         entries: [
-          { id: "unity", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1789 – 1794",
-            releaseYear: "2014", releaseYearEn: "2014",
-            title: { it: "Assassin's Creed Unity", en: "Assassin's Creed Unity" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Unity.jpg",
-            synopsis: {
-              it: "Durante la Rivoluzione Francese, il nobile decaduto Arno Dorian, adottato dalla famiglia templare de la Serre dopo la morte del padre Assassino, viene incastrato per l'omicidio del proprio padre adottivo e mentore templare, e si unisce alla Confraternita degli Assassini parigina per scoprire la verità e vendicarlo, mentre Parigi precipita nel Terrore rivoluzionario. Nel corso dell'indagine, Arno scopre che entrambi gli ordini, Assassini e Templari, sono stati manipolati da un cospiratore infiltrato in entrambe le fazioni per innescare il caos rivoluzionario a proprio vantaggio.\n\nNota sul romanzo Unity: il romanzo omonimo di Oliver Bowden (2014) aggiunge il punto di vista di Élise de la Serre e un epilogo dopo la fine del gioco: Arno cade in depressione dopo la morte di Élise, prima di essere contattato dal Marchese de Sade per una missione a Saint-Denis; include inoltre un cameo di Jennifer Scott, figlia di Haytham Kenway, che consegna a Élise i diari del padre.\n\nNota su Dead Kings (DLC narrativo): proprio la missione a Saint-Denis anticipata nel romanzo è al centro di questo capitolo, ambientato subito dopo la fine del gioco. Nella necropoli sotterranea della basilica, dove riposano da secoli i re di Francia, Arno si scontra con una banda di predoni intenzionati a profanare le tombe reali per saccheggiarne i tesori, tra nuovi intrighi legati ai predoni e alle rovine della città sepolta di Franciade.",
-              en: "During the French Revolution, the disgraced nobleman Arno Dorian, adopted by the Templar de la Serre family after the death of his Assassin father, is framed for the murder of his adoptive father and Templar mentor, and joins the Parisian Brotherhood of Assassins to uncover the truth and avenge him, as Paris plunges into revolutionary Terror. In the course of the investigation, Arno discovers that both orders, Assassins and Templars, have been manipulated by a conspirator infiltrated within both factions to trigger revolutionary chaos for personal gain.\n\nNote — Unity novel: Oliver Bowden's same-titled novel (2014) adds Élise de la Serre's point of view and an epilogue set after the game's ending: Arno falls into depression following Élise's death, before being contacted by the Marquis de Sade for a mission in Saint-Denis; it also features a cameo by Jennifer Scott, daughter of Haytham Kenway, who gives Élise her father's journals.\n\nNote — Dead Kings (narrative DLC): the very mission to Saint-Denis foreshadowed in the novel is at the center of this chapter, set right after the end of the game. In the basilica's underground necropolis, where the kings of France have rested for centuries, Arno clashes with a band of raiders bent on defiling the royal tombs to loot their treasures, amid new intrigue tied to the raiders and the buried ruins of the city of Franciade."
-            }
-          },
           { id: "brahman", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "1839 – 1841", yearEn: "1839 – 1841",
             releaseYear: "2013", releaseYearEn: "2013",
             title: { it: "Assassin's Creed: Brahman", en: "Assassin's Creed: Brahman" },
