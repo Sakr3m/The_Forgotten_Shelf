@@ -341,8 +341,8 @@ const GAMES = {
             type: "VIDEOGIOCO",
             typeEn: "VIDEOGAME",
             year: "1925",
-            releaseYear: "1994",
-            releaseYearEn: "1994",
+            releaseYear: "1994 (copyright) / 1995 (uscita: EU febbraio, NA 16 marzo)",
+            releaseYearEn: "1994 (copyright) / 1995 (release: EU February, NA March 16)",
             title: { it: "Alone in the Dark 3", en: "Alone in the Dark 3" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%203.jpg",
             synopsis: {
@@ -392,7 +392,7 @@ const GAMES = {
       },
       {
         id: "eden-games",
-        name: { it: "Universo Eden Games", en: "Eden Games Universe" },
+        name: { it: "Universo Eden Games/Pure FPS", en: "Eden Games/Pure FPS Universe" },
         span: { it: "2008 – 2015", en: "2008 – 2015" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Alone%20in%20the%20Dark%20Eden%20Games%20Filigrana.jpg",
         palette: ["#5B3A73", "#D1903D"],
