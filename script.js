@@ -37,7 +37,7 @@ const STRINGS = {
     // chiavi con suffisso "Mobile".
     landingSubMobile: "Seleziona un titolo dalla libreria a destra per esplorarne la linea temporale.",
     railWelcomeLabel: "Come funziona",
-    railWelcomeText: "Le voci elencate in ogni saga non sono un catalogo completo: sono i titoli che si intrecciano in un filo narrativo coerente, nell'ordine in cui andrebbero seguiti per viverne la trama senza doverla ricostruire da soli. I media troppo minori o scollegati dal resto restano fuori di proposito — se manca un titolo che conosci o a cui sei affezionato, non è una svista. Quando una saga racconta storie davvero distinte tra loro, viene divisa in più universi separati.",
+    railWelcomeText: "Le voci elencate in ogni saga non sono un catalogo completo: sono i titoli che si intrecciano in un filo narrativo coerente, nell'ordine in cui andrebbero seguiti per viverne la trama senza doverla ricostruire da soli. I media troppo minori o scollegati dal resto restano fuori di proposito: se manca un titolo che conosci o a cui sei affezionato, non è una svista. Quando una saga racconta storie davvero distinte tra loro, viene divisa in più universi separati.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     universeLabel: "Universo",
