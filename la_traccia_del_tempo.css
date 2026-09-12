@@ -203,6 +203,12 @@ button, a{ touch-action:manipulation; }
     display:flex; flex-direction:column; gap:3px;
     font-size:10px; color:var(--text-dim);
   }
+  /* Testo statico "come funziona" (solo vista "landing", vedi
+     renderLandingRailInfo in script.js) - stesso box di
+     Composizione, quando nessuna saga e' selezionata. */
+  .game-rail-content__welcome{
+    font-size:12.5px; line-height:1.6; color:var(--text-dim); margin:0;
+  }
   body[data-panels="hover"] .game-rail-decor{
     background:transparent; border-color:transparent;
     transition:background 1s ease-in-out .18s, border-color 1s ease-in-out .18s;

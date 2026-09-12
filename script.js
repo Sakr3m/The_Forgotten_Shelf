@@ -36,6 +36,8 @@ const STRINGS = {
     // desktop - meccanismo gia' pronto in paintStaticText() per le
     // chiavi con suffisso "Mobile".
     landingSubMobile: "Seleziona un titolo dalla libreria a destra per esplorarne la linea temporale.",
+    railWelcomeLabel: "Come funziona",
+    railWelcomeText: "Le voci elencate in ogni saga non sono un catalogo completo: sono i titoli che si intrecciano in un filo narrativo coerente, nell'ordine in cui andrebbero seguiti per viverne la trama senza doverla ricostruire da soli. I media troppo minori o scollegati dal resto restano fuori di proposito — se manca un titolo che conosci o a cui sei affezionato, non è una svista. Quando una saga racconta storie davvero distinte tra loro, viene divisa in più universi separati.",
     kofiLabel: "Sostienimi su Ko-fi",
     backToIndexLabel: "Torna all'index",
     universeLabel: "Universo",
@@ -78,6 +80,8 @@ const STRINGS = {
     spoilerAlertMobile: "Contains spoilers: proceed only if you've finished the games or don't mind.",
     landingSub: "Select a title from the library on the left to explore its timeline.",
     landingSubMobile: "Select a title from the library on the right to explore its timeline.",
+    railWelcomeLabel: "How this works",
+    railWelcomeText: "The entries listed in each saga aren't a complete catalogue: they're the titles that weave into one coherent narrative thread, in the order you'd need to follow to experience the story without piecing it together yourself. Titles too minor or disconnected from the rest are left out on purpose — if one you know or love is missing, that's not an oversight. When a saga tells genuinely distinct stories, it's split into separate universes.",
     kofiLabel: "Support me on Ko-fi",
     backToIndexLabel: "Back to index",
     universeLabel: "Universe",
@@ -1605,6 +1609,18 @@ const MEDIA_TYPE_LABELS_EN = {
 // nessuna curatela manuale richiesta. Solo su Ace Combat per ora
 // (prima prova, su richiesta esplicita) ma la funzione e' generica:
 // funzionerebbe gia' identica su qualunque altro gioco.
+// Testo statico della tabella decorativa a destra (#gameRailDecor)
+// per la sola vista "landing" (nessuna saga selezionata) - richiesto
+// esplicitamente da Sakrem il 12/09, prima quello spazio restava
+// vuoto anche li'. Stesso elemento che su "game" ospita invece
+// renderGameRailInfo() (Composizione): qui e' testo statico, non
+// dipende da nessuna saga.
+function renderLandingRailInfo(){
+  if(!el.gameRailLabel || !el.gameRailContent) return;
+  el.gameRailLabel.textContent = t("railWelcomeLabel");
+  el.gameRailContent.innerHTML = `<p class="game-rail-content__welcome">${t("railWelcomeText")}</p>`;
+}
+
 function renderGameRailInfo(g){
   if(!el.gameRailLabel || !el.gameRailContent) return;
   if(g.canonNote && Array.isArray(g.canonNote.chain)){
@@ -3105,13 +3121,15 @@ function setState(view){
   // altra tabella a destra) - nascosta solo su "title"/"universe",
   // dove c'e' gia' la tabella vera (#timelineRail) nello stesso
   // identico spazio, altrimenti si sovrapporrebbero. Il contenuto
-  // (titolo+elenco) resta invece SEMPRE svuotato tranne che su
-  // "game" - segnalato: la richiesta era solo togliere il testo
-  // residuo della saga precedente quando si torna in home, non far
-  // sparire anche l'aspetto della tabella stessa.
+  // (titolo+elenco) resta SEMPRE svuotato tranne che su "game"
+  // (Composizione) e "landing" (testo statico "come funziona",
+  // aggiunto il 12/09 su richiesta di Sakrem - prima restava vuoto
+  // anche li').
   if(el.gameRailDecor){
     el.gameRailDecor.hidden = (view === "title" || view === "universe");
-    if(view !== "game"){
+    if(view === "landing"){
+      renderLandingRailInfo();
+    } else if(view !== "game"){
       if(el.gameRailLabel) el.gameRailLabel.textContent = "";
       if(el.gameRailContent) el.gameRailContent.innerHTML = "";
     }
@@ -3253,7 +3271,7 @@ el.langSwitch.addEventListener("click", () => {
   updateAllTitlePanelsText();
   updateAllGameHeaderPanelsText();
   updateAllCanonPanelsText();
-  if(state.view === "landing"){ renderSidebar(); }
+  if(state.view === "landing"){ renderSidebar(); renderLandingRailInfo(); }
   else if(state.view === "game"){ renderSidebar(); renderGamePanel(); }
   else if(state.view === "title"){ renderSidebar(); renderTitlePanel(); renderRail(); }
   const reportBtn = document.getElementById("reportBugBtn");
