@@ -735,7 +735,7 @@ const GAMES = {
     avatar: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Avatar.jpg",
     banner: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassins%20Creed%20Banner.jpg",
     watermarkOpacity: 0.18,
-    lastAgentPass: "2026-09-08",
+    lastAgentPass: "2026-09-12",
     universes: [
       {
         id: "antichita",
@@ -1105,10 +1105,13 @@ const GAMES = {
         // apre Assassin's Creed Unity. Liberation è stata rimossa dal
         // sito (vedi sotto, Età della Vela): nessun collegamento di
         // trama verificato con nessun altro media della saga.
-        id: "rito-coloniale",
-        name: { it: "Il Rito Coloniale", en: "The Colonial Rite" },
+        // (Rinominato lo stesso giorno in "Rivoluzioni Atlantiche": nome coerente
+        // con lo stile degli altri universi della saga, storiografico invece che
+        // preso dal nome di una fazione della trama.)
+        id: "rivoluzioni-atlantiche",
+        name: { it: "Rivoluzioni Atlantiche", en: "Atlantic Revolutions" },
         span: { it: "1725 – 1794", en: "1725 – 1794" },
-        palette: ["#8E1B2E", "#6B1220", "#242A3D"],
+        palette: ["#3A6B78", "#8E1B2E", "#242A3D"],
         entries: [
           { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
             releaseYear: "2014 (Remaster: 2018)", releaseYearEn: "2014 (Remaster: 2018)",
@@ -1165,17 +1168,26 @@ const GAMES = {
         name: { it: "Epoca degli Imperi", en: "Age of Empires" },
         span: { it: "1839 – 1888", en: "1839 – 1888" },
         watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
-        palette: ["#C4802E", "#5C4A66", "#4E5449"],
+        palette: ["#C4802E", "#5C4A66", "#8E1B2E"],
         // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
-        // ciascun sottogruppo tranne l'ultimo (Zafferano - India, Nebbia
-        // Industriale - Londra vittoriana). Senza questo campo il colore
+        // ciascun sottogruppo tranne l'ultimo. Senza questo campo il colore
         // si "sconfinava" ben prima della voce che chiude davvero ogni
         // sottogruppo. Aggiornato (12/09): Unity e' uscito da questo
-        // universo insieme a Connor/AC3 e all'ombrello Forsaken (ora
-        // tutti nel "Il Rito Coloniale", tra Età della Vela ed Epoca
-        // degli Imperi) - rimosso anche il sottogruppo "Notte di Parigi"
-        // e il relativo colore/bound, gli altri restano identici.
-        paletteBounds: ["chronicles-india", "magus-conspiracy"],
+        // universo insieme a Connor/AC3 e all'ombrello Forsaken (ora tutti
+        // in "Rivoluzioni Atlantiche", tra Età della Vela ed Epoca degli
+        // Imperi) - rimosso anche il sottogruppo "Notte di Parigi" e il
+        // relativo colore/bound, gli altri restano identici. Corretto
+        // (12/09, bug trovato in revisione dal Supervisore): il secondo
+        // bound era "magus-conspiracy", che raggruppava erroneamente
+        // Resurrection Plot con Underworld/Syndicate/Jack the Ripper (i
+        // Frye); portato a "resurrection-plot" perche' Resurrection Plot
+        // e' il seguito diretto di Magus Conspiracy (stessi protagonisti
+        // Pierrette Arnaud e Simeon Price, "sette anni dopo" nel testo
+        // stesso). I 3 sottogruppi cromatici reali: (1) Brahman +
+        // Chronicles India (Arbaaz Mir), (2) Magus Conspiracy +
+        // Resurrection Plot (Pierrette/Simeon), (3) Underworld + Syndicate
+        // + Jack the Ripper (dinastia Frye/Jayadeep-Henry Green).
+        paletteBounds: ["chronicles-india", "resurrection-plot"],
         entries: [
           { id: "brahman", type: "GRAPHIC NOVEL", typeEn: "GRAPHIC NOVEL", year: "1839 – 1841", yearEn: "1839 – 1841",
             releaseYear: "2013", releaseYearEn: "2013",

@@ -227,10 +227,10 @@ notturna, 2026-09-09.
 
 ### In sospeso - immagini mancanti
 
-Elenco di lavoro, non una proposta da decidere: le 11 voci sotto hanno
-già il campo `image` in `data.js` (URL segnaposto) ma senza file
-caricato su R2. Quando Sakrem carica il file e passa il nome, la voce
-esce dall'elenco.
+Elenco di lavoro, non una proposta da decidere: le 12 voci sotto hanno
+già il campo `image` (o, per il punto 12, `watermark`) in `data.js`
+(URL segnaposto) ma senza file caricato su R2. Quando Sakrem carica il
+file e passa il nome, la voce esce dall'elenco.
 
 Copertine mancanti per le 9 nuove voci pubblicate in questo ciclo:
 
@@ -250,10 +250,12 @@ immagine propria, distinta dall'ospite):
 10. `blade-of-shao-jun` - Assassin's Creed: Blade of Shao Jun (gemella di
     `chronicles-china`)
 
-Filigrana (watermark) mancante per il nuovo universo:
+Filigrana (watermark) mancante per i nuovi universi:
 
-11. `novecento` - universo "Novecento" (unico, tra gli universi della
-    saga, ancora privo del campo `watermark`)
+11. `novecento` - universo "Novecento"
+12. `rivoluzioni-atlantiche` - universo "Rivoluzioni Atlantiche" (creato
+    2026-09-12, ex "Il Rito Coloniale" rinominato nella stessa sessione -
+    vedi "Contesto sessione 2026-09-12" più sotto)
 
 - **Stato**: in attesa che Sakrem carichi i file su R2 e ne passi i nomi.
 
@@ -299,6 +301,59 @@ Filigrana (watermark) mancante per il nuovo universo:
   revisione) - sessione 2026-09-08.
 - Nuovo universo **Novecento** (Conspiracies → Bloodstone, span 1943 -
   1964) - sessione 2026-09-08.
+- Nuovo universo **Rivoluzioni Atlantiche** (`rogue` →
+  `assassins-creed-3` → `unity`, + ombrello `forsaken`, span 1725 –
+  1794) - creato 2026-09-12 su richiesta diretta di Sakrem, con il nome
+  provvisorio "Il Rito Coloniale", rinominato nella stessa sessione
+  (vedi sotto). Rogue, Assassin's Creed III, Unity e l'ombrello Forsaken
+  erano tutte voci già esistenti sul sito, solo riclassificate in questo
+  nuovo universo (non nuove voci) - conta come "media aggiunto" solo
+  l'universo in sé.
+
+### Contesto sessione 2026-09-12
+
+Sessione lunga con più correzioni in sequenza sulla saga:
+
+1. Creazione dell'universo (poi rinominato, vedi sotto) con Rogue + AC
+   III + ombrello Forsaken, su richiesta diretta di Sakrem.
+2. Rimozione completa dal sito di "Assassin's Creed III: Liberation"
+   (era in Età della Vela): nessun collegamento di trama verificato con
+   alcun altro media della saga.
+3. Scoperta (ricerca esterna) di un collegamento di trama reale tra
+   Rogue e Unity - Shay Cormac uccide sia Adéwalé (Freedom Cry) sia
+   Charles Dorian, padre di Arno, la cui morte apre Unity - con
+   conseguente spostamento di Unity nello stesso universo di Rogue/AC
+   III (prima era in Epoca degli Imperi) e aggiornamento delle sinossi
+   di Rogue e Unity per documentare questi legami nel testo.
+4. Rinominato l'universo da "Il Rito Coloniale" / "The Colonial Rite" a
+   **"Rivoluzioni Atlantiche" / "Atlantic Revolutions"** (id:
+   `rito-coloniale` → `rivoluzioni-atlantiche`) - unico nome della saga
+   preso da una fazione invece che da un'epoca storica, rompeva lo
+   schema stilistico (Antichità, Alto Medioevo, Basso Medioevo e
+   Rinascimento, Giappone Feudale, Età della Vela, Epoca degli Imperi,
+   Rivoluzione Russa, Novecento, Era Moderna). "Rivoluzioni Atlantiche"
+   è termine storiografico reale per Rivoluzione Americana + Rivoluzione
+   Francese, le due rivoluzioni coperte dall'universo.
+5. Nuova palette per Rivoluzioni Atlantiche (Artista):
+   `["#3A6B78", "#8E1B2E", "#242A3D"]` per Rogue/AC III/Unity (teal
+   glaciale, rosso-firma della saga, blu-notte parigino).
+6. "Età della Vela" (Black Flag, Freedom Cry): palette
+   `["#1B7A72", "#8E1B2E"]` riconfermata da zero dall'Artista, nessuna
+   modifica.
+7. "Epoca degli Imperi": terzo colore palette sostituito da `#4E5449`
+   a `#8E1B2E` (Artista - unico universo della saga senza rosso-firma,
+   e verde-grigio "nebbia industriale" non adatto a Resurrection Plot,
+   ambientato in Egitto). Corretto anche un bug nel `paletteBounds`
+   (trovato dal Supervisore, non dall'Artista): da
+   `["chronicles-india", "magus-conspiracy"]` a `["chronicles-india",
+   "resurrection-plot"]` - Resurrection Plot è il seguito diretto di
+   Magus Conspiracy (stessi protagonisti Pierrette Arnaud e Simeon
+   Price), non va raggruppato con i Frye (Underworld/Syndicate/Jack the
+   Ripper).
+8. Playlist della saga (Musicista): verificata con fonti esterne,
+   nessuna traccia proviene da Liberation e nessun titolo del nuovo
+   universo ha fama pubblica superiore alle 7 tracce attuali - playlist
+   confermata invariata.
 
 ## Baldur's Gate
 
