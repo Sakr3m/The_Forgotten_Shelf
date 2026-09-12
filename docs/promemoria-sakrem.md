@@ -11,18 +11,26 @@ Due tipi di contenuto, per saga:
    rimandato a una sessione futura. Restano qui finché non decise
    (confermate o scartate), poi si rimuovono. Non è uno storico, solo le
    cose ancora aperte.
-2. **Storico permanente musica/media aggiunti** - due elenchi per saga
+2. **Storico permanente musica/universi nuovi** - due elenchi per saga
    che non si cancellano mai, qualunque sia l'esito:
    - **Musica**: ogni cambiamento di tracce proposto dal Musicista
      (sostituzione o riordino), con lo stato reale (confermato /
      rifiutato / in attesa di decisione), aggiornato quando cambia ma
      mai cancellato.
-   - **Media aggiunti**: solo i nuovi media veri e propri entrati nella
-     saga - voce a sé, voce gemella/ombrello o nuovo universo - con la
-     sessione/data di aggiunta. Mai note a voci già pubblicate,
-     correzioni di sinossi esistenti o riclassificazioni: quel materiale
+   - **Universi nuovi**: solo i nuovi universi creati nella saga, con
+     la sessione/data di aggiunta, in forma semplice (nome
+     dell'universo, saga, data), senza commenti o valutazioni
+     personali. Mai singoli media nuovi (voce a sé o gemella) che non
+     danno vita a un nuovo universo, mai note a voci già pubblicate,
+     correzioni di sinossi esistenti o riclassificazioni: tutto questo
      resta solo nel report una tantum. Se una saga non ha voci per una
      delle due liste, la sotto-sezione si omette.
+
+   Regola valida dal 2026-09-12 in poi (decisione di Sakrem): prima di
+   questa data la seconda lista si chiamava "Media aggiunti" e teneva
+   anche i singoli media nuovi, non solo gli universi - le sezioni già
+   scritte con quel criterio restano come sono, storico invariato, non
+   si riscrivono.
 
 ## Come aggiungere una voce
 
@@ -51,14 +59,15 @@ dal Musicista per questa saga, stessi campi di sopra
   posto quando cambia: la voce non si sposta mai in "In sospeso" né
   viene mai cancellata.
 
-### Media aggiunti
+### Universi nuovi
 
-Storico permanente. Un punto per ogni nuovo media vero e proprio (voce a
-sé, voce gemella/ombrello o nuovo universo - mai una nota a voce
-esistente, una correzione di sinossi o una riclassificazione), formato:
+Storico permanente (dal 2026-09-12 in poi, vedi sopra). Un punto per
+ogni nuovo universo creato nella saga - mai un singolo media nuovo
+senza un universo nuovo, mai una nota a voce esistente, una
+correzione di sinossi o una riclassificazione - formato semplice,
+senza commenti personali:
 
-- `id` (se applicabile) - Titolo - tipo (voce a sé / voce gemella /
-  nuovo universo) - sessione/data di aggiunta.
+- Nome dell'universo - saga - sessione/data di aggiunta.
 
 ---
 

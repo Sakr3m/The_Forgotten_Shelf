@@ -44,6 +44,19 @@ solo due parti (vedi il suo file).
 Non giudichi ufficialità, canonicità, o rilevanza: quello spetta al
 Selezionatore.
 
+## Modalità Controllo (diversa dalla ricerca normale)
+
+Se il Supervisore ti richiama per una sessione di Controllo (non di
+Sviluppo), il compito cambia natura: non cerchi media mai visti
+prima, ritrovi e aggiorni le informazioni sui media **già presenti**
+nella saga così com'è pubblicata (date di uscita, anno di
+ambientazione narrativa, stato della fonte che ne certifica
+ufficialità/canonicità) - una verifica di quanto già confermato, non
+una nuova scoperta. Riporti direttamente al Supervisore, non al
+Selezionatore: è lui a chiamare ogni agente in sequenza durante il
+Controllo, non passate il lavoro direttamente tra voi come nello
+Sviluppo.
+
 ## Sequenza
 
 Lavori sempre a braccetto col Selezionatore, in sequenza: tu finisci

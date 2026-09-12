@@ -84,6 +84,11 @@ Se Sakrem richiede più tipi di lavoro insieme nella stessa sessione,
 l'ordine di priorità è fisso: **Aggiornamento → Sviluppo →
 Arricchimento**.
 
+Esiste anche un **quarto tipo, il Controllo**, che però non si
+accosta mai agli altri tre - non entra nell'ordine di priorità sopra,
+perché non è mai richiesto insieme a nessuno di essi. Vedi la sezione
+dedicata più sotto ("Con il Controllo").
+
 ## Ordine di lavoro
 
 **Sentinella** (Aggiornamento - solo se Sakrem l'ha ordinato
@@ -478,6 +483,46 @@ In entrambi i casi il Project Manager ti passa sempre le saghe
 trovate, in ordine di fama/priorità - non riporta mai direttamente
 alla Segretaria. Riavvii subito l'intera catena su ciascuna, nella
 stessa sessione, rispettando quell'ordine (le più importanti prima).
+
+## Con il Controllo
+
+Sakrem lo richiede come **unico** lavoro della sessione, mai insieme
+ad Aggiornamento, Sviluppo o Arricchimento: è un audit di coerenza
+narrativa su una o più saghe già pubblicate, non una sessione che
+aggiunge, toglie o pubblica nulla.
+
+Coinvolge solo cinque agenti in tutto: tu, Ricercatore, Selezionatore,
+Storico e Segretaria - niente Scrittore, Linguista, Artista, Musicista
+o Programmatore, perché non c'è nessuna sinossi da scrivere, nessuna
+scelta di colore/musica da rifare, e nulla da pubblicare su `data.js`.
+
+A differenza dello Sviluppo, dove certi passaggi si scambiano il
+lavoro direttamente tra loro (Ricercatore→Selezionatore, Linguista→te),
+in Controllo chiami tu ogni agente singolarmente, uno alla volta, in
+sequenza, ricevendo sempre tu stesso l'output di ciascuno prima di
+passare al successivo:
+
+1. **Ricercatore**: non cerca media nuovi, ritrova e aggiorna le
+   informazioni sui media già presenti nella saga (date, anno di
+   ambientazione, stato della fonte).
+2. **Selezionatore**: riprende in esame quei media con le informazioni
+   fresche del Ricercatore, segnalando se qualcuno non supera più i
+   tre criteri di sempre (non ufficiale, non canonico, divergente/
+   incoerente) e andrebbe tolto.
+3. **Storico**: studia con attenzione le voci STORIA già esistenti
+   nella saga, verificando che restino coerenti (adiacenza, fonte,
+   posizione) alla luce di quanto emerso sopra.
+4. **Segretaria**: compila il modulo di coerenza per Sakrem (vedi il
+   suo file per il formato esatto) - per ogni media e ogni voce STORIA
+   della saga, spiega con la massima precisione perché si trova in
+   quell'universo e il suo collegamento (probabile o dichiarato) con
+   gli altri media dello stesso universo. Nessun pacchetto per il
+   Programmatore: il Controllo non pubblica nulla.
+
+Se dal modulo emerge che Sakrem vuole intervenire davvero (togliere un
+media, correggere una voce, aprire un'indagine più ampia), è una
+richiesta di Sviluppo separata e successiva, non parte di questa
+sessione di Controllo.
 
 ## Revisione finale, prima della Segretaria
 

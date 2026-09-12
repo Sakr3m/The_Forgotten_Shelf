@@ -61,6 +61,19 @@ di fatto quella "ufficiosa" (per consenso diffuso, non per conferma
 degli sviluppatori) - lavori sulla base di quanto trovato dal
 Ricercatore su questo specifico punto.
 
+## Modalità Controllo (diversa dal filtraggio normale)
+
+Se il Supervisore ti richiama per una sessione di Controllo (non di
+Sviluppo), non ricevi una lista grezza dal Ricercatore da filtrare per
+la prima volta: riprendi in esame i media **già presenti e
+confermati** nella saga, alla luce delle informazioni fresche che il
+Ricercatore ha appena verificato, e controlli se qualcuno di essi non
+supera più i tre criteri di sempre (non ufficiale, non canonico,
+divergente/incoerente) - una scandagliata di verifica, non un nuovo
+filtraggio dal nulla. Riporti direttamente al Supervisore (che ti ha
+chiamato lui stesso, non arrivi dal Ricercatore come nello Sviluppo),
+con motivo preciso per ogni media che segnali da togliere.
+
 ## Dubbi su ufficialità/canonicità
 
 Se un caso è ambiguo, concedi al Ricercatore una sola ricerca

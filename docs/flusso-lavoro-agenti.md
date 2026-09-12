@@ -30,6 +30,11 @@ tre possibili (anche più di uno nella stessa sessione):
 Se Sakrem richiede più tipi insieme, l'ordine di priorità è fisso:
 **Aggiornamento → Sviluppo → Arricchimento**.
 
+Esiste anche un **quarto tipo, il Controllo** (vedi la sezione
+dedicata in fondo a questo documento), che però non si accosta mai
+agli altri tre: Sakrem lo richiede sempre da solo, mai insieme ad
+Aggiornamento/Sviluppo/Arricchimento nella stessa sessione.
+
 ---
 
 ## Fase 0: Sentinella - Aggiornamento (opzionale, solo su richiesta esplicita)
@@ -316,21 +321,24 @@ passa il resoconto completo alla Segretaria.
 
 ## Fase 9: Segretaria
 
-Riceve dal Supervisore (il caso normale, a fine sessione su una saga),
-oppure direttamente da Sakrem per direttive puntuali fuori catena
-(es. un asset già caricato su R2 da collegare), oppure dal Project
-Manager quando lavora senza bypass.
+Riceve dal Supervisore a fine Sviluppo su una saga (vale sia per una
+saga assegnata direttamente da Sakrem sia per una trovata dal Project
+Manager, che oggi porta sempre a uno Sviluppo pieno), oppure
+direttamente da Sakrem per direttive puntuali fuori catena (es. un
+asset già caricato su R2 da collegare).
 
 Per ogni saga toccata, aggiorna per prima cosa `docs/promemoria-
 sakrem.md` (due elenchi permanenti mai svuotati: musica proposta per
-quella saga, e media/universi nuovi aggiunti: correzioni a note o
-riclassificazioni non entrano mai in questo storico permanente, restano
-solo nel report una tantum). Solo dopo prepara, in parallelo tra loro,
-il pacchetto tecnico per il Programmatore e il report completo per
-Sakrem (un elenco sintetico: universi creati, media aggiunti/tolti,
-voci STORIA aggiunte/tolte, modifiche alle note, proposte di
-Artista/Musicista, dubbi irrisolti del Supervisore: mai un resoconto
-di ogni singola decisione interna della catena).
+quella saga, e - regola di Sakrem, 12/09 - solo gli universi nuovi
+creati, in forma semplice, senza commenti personali: i singoli media
+nuovi che non danno vita a un nuovo universo non entrano più in questo
+storico permanente, restano solo nel report una tantum, come le
+correzioni a note o le riclassificazioni). Solo dopo prepara, in
+parallelo tra loro, il pacchetto tecnico per il Programmatore e il
+report completo per Sakrem (un elenco sintetico: universi creati,
+media aggiunti/tolti, voci STORIA aggiunte/tolte, modifiche alle note,
+proposte di Artista/Musicista, dubbi irrisolti del Supervisore: mai un
+resoconto di ogni singola decisione interna della catena).
 
 Non ha un tool proprio per invocare il Programmatore e non scrive mai
 lei stessa `data.js` o alcun file del sito: consegna il pacchetto per
@@ -380,3 +388,51 @@ In entrambi i casi passa sempre le saghe trovate al Supervisore, in
 ordine di fama/priorità - non riporta mai direttamente alla
 Segretaria. Il Supervisore riavvia subito l'intera catena (Fasi 1-10)
 su ciascuna, nello stesso ordine, nella stessa sessione.
+
+---
+
+## Controllo (quarto tipo di lavoro, sessione a sé)
+
+Sakrem lo richiede sempre come **unico** lavoro della sessione, mai
+insieme ad Aggiornamento, Sviluppo o Arricchimento: è un audit di
+coerenza narrativa su una o più saghe già pubblicate, non una sessione
+che aggiunge, toglie o pubblica nulla. Per questo non ha una
+numerazione "Fase" propria dentro le Fasi 0-11 sopra: è un percorso
+separato, con una catena molto più corta.
+
+Coinvolge solo cinque agenti: il Supervisore, il Ricercatore, il
+Selezionatore, lo Storico e la Segretaria - niente Scrittore,
+Linguista, Artista, Musicista o Programmatore, perché non c'è nessuna
+sinossi da scrivere, nessuna scelta di colore/musica da rifare, e
+nulla da pubblicare su `data.js`.
+
+A differenza dello Sviluppo, dove certi passaggi si scambiano il
+lavoro direttamente tra loro (Ricercatore→Selezionatore, Linguista→
+Supervisore), in Controllo il Supervisore chiama ogni agente
+singolarmente, uno alla volta, in sequenza, ricevendo sempre lui
+stesso l'output di ciascuno prima di passare al successivo:
+
+1. **Ricercatore**: non cerca media nuovi, ritrova e aggiorna le
+   informazioni sui media già presenti nella saga (date di uscita,
+   anno di ambientazione narrativa, stato della fonte).
+2. **Selezionatore**: riprende in esame quei media con le informazioni
+   fresche del Ricercatore, segnalando se qualcuno non supera più i
+   tre criteri di sempre (non ufficiale, non canonico, divergente/
+   incoerente) e andrebbe tolto.
+3. **Storico**: studia con attenzione le voci STORIA già esistenti
+   nella saga, verificando che restino coerenti (adiacenza, fonte,
+   posizione) alla luce di quanto emerso sopra.
+4. **Segretaria**: compila un modulo di coerenza per Sakrem, diverso
+   dal report normale di Sviluppo (niente pacchetto per il
+   Programmatore: il Controllo non pubblica nulla) - per ogni media e
+   ogni voce STORIA della saga, spiega con la massima precisione
+   perché si trova in quell'universo (il ragionamento narrativo reale,
+   non un'etichetta sommaria) e il suo collegamento, probabile o
+   dichiarato, con gli altri media dello stesso universo. Include
+   anche gli eventuali media da togliere segnalati dal Selezionatore
+   (con motivo) e i buchi STORIA trovati dallo Storico.
+
+Nessuna decisione è presa in questa sede: se dal modulo emerge che
+Sakrem vuole intervenire davvero (togliere un media, correggere una
+voce), è una richiesta di Sviluppo separata e successiva, non parte
+della sessione di Controllo.
