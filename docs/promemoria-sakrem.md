@@ -779,6 +779,26 @@ inserite nella stessa sessione notturna, 2026-09-09.
 - `cod-film` - Call of Duty (film) (LIVE ACTION, in uscita 30 giugno
   2028, imagePending) - sessione notturna, 2026-09-09.
 
+### Da riverificare in futuro (segnalazione per la Sentinella)
+
+#### Rumor nuovo Call of Duty 2027 (Sledgehammer Games) - stato di conferma
+
+- **Cosa monitorare**: leak (PCGamesN, 80.lv, ResetEra, Vice) su un
+  presunto nuovo sub-franchise ambientato tra fine anni '90 e inizio
+  2000 (fonti discordanti, altre parlano di ambientazione moderna),
+  possibile assenza di Zombies, ritorno del sistema Pick Ten. Nessun
+  annuncio ufficiale Activision al momento del controllo.
+- **Origine**: Ricercatore/Selezionatore, sessione di Controllo Call of
+  Duty.
+- **Motivazione dell'attesa**: puro rumor, nessuna fonte ufficiale -
+  non soddisfa il criterio minimo di ufficialità nemmeno per un
+  `imagePending`. Da riprendere quando la Sentinella ricontrollerà
+  questa saga in futuro, verificando se Activision ha confermato
+  titolo/ambientazione/data.
+- **Data**: 2026-09-12.
+- **Stato**: non applicato, in attesa di un annuncio ufficiale -
+  nessuna azione fino alla prossima verifica.
+
 ## Castlevania
 
 ### In sospeso
