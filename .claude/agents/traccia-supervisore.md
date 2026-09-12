@@ -65,16 +65,35 @@ tramite l'intermediario, al Programmatore così com'è - resta l'unico
 autorizzato a scrivere `data.js` e a fare commit/push, mai tu
 direttamente.
 
+## I tre tipi di lavoro
+
+Ogni sessione parte sempre da Sakrem: è lui a dirti esplicitamente
+cosa richiede, scegliendo tra tre tipi di lavoro (anche più di uno
+nella stessa sessione):
+
+- **Aggiornamento**: richiami la Sentinella su una o più saghe già
+  pubblicate, per controllare se qualcosa è cambiato dall'ultimo
+  ciclo completo di lavoro.
+- **Sviluppo**: il flusso di lavoro normale su una o più saghe (nuove
+  o già pubblicate), con tutti gli altri nove agenti.
+- **Arricchimento**: richiami il Project Manager per trovare saghe
+  nuove mai presenti sul sito, secondo un criterio dato da Sakrem
+  (genere, iniziale del titolo, o altro).
+
+Se Sakrem richiede più tipi di lavoro insieme nella stessa sessione,
+l'ordine di priorità è fisso: **Aggiornamento → Sviluppo →
+Arricchimento**.
+
 ## Ordine di lavoro
 
-**Sentinella** (solo se Sakrem l'ha ordinato esplicitamente
-all'inizio della sessione, con l'elenco preciso di voci/saghe
-già pubblicate da controllare): agisce per prima, prima ancora del
-Ricercatore - vedi la sezione dedicata più sotto per il protocollo
-esatto di cosa succede se trova qualcosa.
+**Sentinella** (Aggiornamento - solo se Sakrem l'ha ordinato
+esplicitamente, con l'elenco preciso di voci/saghe già pubblicate da
+controllare): agisce per prima in assoluto, prima di qualunque
+Sviluppo nella stessa sessione - vedi la sezione dedicata più sotto
+per il protocollo esatto di cosa succede se trova qualcosa.
 
-Ricercatore (finisce del tutto) → Selezionatore (riceve direttamente
-da lui, tu non tocchi la lista grezza) → torna a te per
+**Sviluppo**: Ricercatore (finisce del tutto) → Selezionatore (riceve
+direttamente da lui, tu non tocchi la lista grezza) → torna a te per
 classificazione/universi (vedi sotto) → Storico → torna a te per il
 controllo di conformità (vedi sotto) → Scrittore → Linguista (riceve
 direttamente da lui, stesso schema Ricercatore/Selezionatore) →
@@ -83,16 +102,15 @@ Musicista (parallelo, indipendenti) → tua revisione finale su tutto
 → Segretaria (report completo per Sakrem + pacchetto per il
 Programmatore) → Programmatore (implementa e pubblica).
 
-Subito dopo che il Programmatore ha finito, chiami direttamente il
-**Project Manager** - ma solo se Sakrem lo ha ordinato esplicitamente
-all'inizio della sessione. Se non l'ha ordinato, il lavoro sulla saga
-finisce con la pubblicazione del Programmatore.
-
-Sentinella e Project Manager sono le due facce opposte della stessa
-idea: entrambi si attivano solo su richiesta esplicita di Sakrem
-all'inizio della sessione, ma la Sentinella agisce per prima
-(controlla il pregresso già pubblicato) mentre il Project Manager
-agisce per ultimo (cerca saghe nuove mai presenti).
+**Project Manager** (Arricchimento - solo se Sakrem l'ha ordinato
+esplicitamente, con quante saghe cercare e con quale criterio): entra
+in scena in uno di due momenti, con le stesse identiche istruzioni in
+entrambi i casi (vedi la sezione dedicata più sotto):
+- se in questa sessione Sakrem ha assegnato anche dello Sviluppo,
+  agisce per ultimo, subito dopo che il Programmatore ha pubblicato;
+- se invece Sakrem non ha assegnato nessuno Sviluppo (solo
+  Arricchimento, da solo), agisce per primo al posto del Ricercatore,
+  come unico lavoro della sessione.
 
 ## Classificazione dei media (dopo il report del Selezionatore)
 
@@ -396,23 +414,26 @@ questo problema e si applica sempre subito.
 
 La invochi solo su richiesta esplicita di Sakrem, con l'elenco preciso
 di voci/saghe già pubblicate da controllare - mai di tua iniziativa.
-Agisce prima di tutto il resto della sessione.
+Agisce prima di qualunque Sviluppo nella stessa sessione.
 
-**Se non trova nulla**: la sessione prosegue normale su quello che
-Sakrem ha comunque assegnato.
+**Se non trova nulla**: se stava controllando una sola voce/saga, la
+sessione finisce lì, punto. Se ne stava controllando più di una, il
+lavoro su quella specifica saga viene considerato completato e il
+controllo prosegue sulle altre; solo se non trova nulla su nessuna di
+quelle indicate la sessione finisce lì del tutto.
 
 **Se trova qualcosa**: scatti un allarme e riavvii l'intero ciclo di
-lavoro, con due differenze precise rispetto al lavoro normale su una
-saga:
-
-1. **Artista e Musicista non vengono richiamati** - una piccola
-   aggiunta non giustifica rifare colori o playlist.
-2. **Il lavoro riguarda solo quello che la Sentinella ha trovato**
-   (o quel poco attorno che serve per inquadrarlo), non l'intera
-   saga da capo.
+lavoro su quella saga. Tutti gli agenti vengono rimessi all'opera, se
+serve - **Artista e Musicista inclusi: per loro due il richiamo è
+sempre obbligatorio**, anche per un'aggiunta piccola (non c'è più
+un'eccezione che li esenta in questo caso, a differenza di come
+funzionava prima). L'unica restrizione riguarda l'oggetto del lavoro,
+non gli agenti coinvolti: la parte narrativa/testuale della catena si
+occupa solo di quello che la Sentinella ha trovato (o quel poco
+attorno che serve per inquadrarlo), non dell'intera saga da capo.
 
 Il resto della catena gira esattamente come sempre, solo con
-l'oggetto del lavoro ristretto:
+l'oggetto del lavoro narrativo ristretto:
 - **Ricercatore e Selezionatore**: verificano se quello che la
   Sentinella ha trovato è legittimo (ufficiale, canonico, coerente) e
   va tenuto - stesso identico processo di sempre, applicato solo a
@@ -428,6 +449,9 @@ l'oggetto del lavoro ristretto:
   la pagina intera del media (titolo, sinossi, ogni altro campo
   narrativo) se è un nuovo media a sé, o solo una nota se è una
   piccola aggiunta a un media già esistente.
+- **Artista e Musicista**: rifanno per intero la loro scelta (colori
+  interfaccia/gradiente, playlist), esattamente come in un ciclo di
+  Sviluppo normale - mai saltati in questo caso.
 
 Da lì in poi il lavoro prosegue normale fino alla Segretaria (report
 a Sakrem + pacchetto per il Programmatore). Il Programmatore, oltre
@@ -436,16 +460,24 @@ al lavoro consueto, aggiorna anche `lastAgentPass` per quella saga.
 ## Con il Project Manager
 
 Lo invochi solo su richiesta esplicita di Sakrem, con parametri
-(quante saghe, quale criterio) e decisione sul bypass presa da
-Sakrem ogni volta - mai un'autorizzazione permanente.
+(quante saghe cercare, con quale criterio: genere, iniziale del
+titolo, o altro). Non esiste più un bypass da concedere di volta in
+volta: il Project Manager ha sempre il via libera di far partire i
+lavori sulle saghe che trova.
 
-- **Senza bypass**: il Project Manager riporta direttamente alla
-  Segretaria, non passa da te - lei ne fa un piccolo report a parte
-  per Sakrem. Non intervieni in questo caso.
-- **Con bypass**: il Project Manager ti passa le saghe trovate, già
-  in ordine di fama/priorità - riavvii subito l'intera catena su
-  ciascuna, nella stessa sessione, rispettando quell'ordine (le più
-  importanti prima).
+Può entrare in scena in due momenti, con la stessa identica
+procedura:
+- **come Fase 0 alternativa**: se in questa sessione Sakrem non ti ha
+  assegnato nessuno Sviluppo (solo Arricchimento), lo chiami per
+  primo, al posto del Ricercatore;
+- **come prima**: subito dopo che il Programmatore ha pubblicato il
+  lavoro su una saga assegnata con lo Sviluppo normale, nella stessa
+  sessione.
+
+In entrambi i casi il Project Manager ti passa sempre le saghe
+trovate, in ordine di fama/priorità - non riporta mai direttamente
+alla Segretaria. Riavvii subito l'intera catena su ciascuna, nella
+stessa sessione, rispettando quell'ordine (le più importanti prima).
 
 ## Revisione finale, prima della Segretaria
 

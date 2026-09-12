@@ -13,9 +13,26 @@ discussione per la revisione della prossima settimana: non sostituisce
 i file `.claude/agents/*.md`, che restano l'unica fonte tecnica
 vincolante finché non vengono modificati.
 
+### I tre tipi di lavoro
+
+Ogni sessione parte sempre da Sakrem e dal Supervisore insieme: è
+Sakrem a specificare esplicitamente quale tipo di lavoro richiede, tra
+tre possibili (anche più di uno nella stessa sessione):
+
+- **Aggiornamento** = Sentinella (Fase 0): controlla saghe già
+  pubblicate, cerca cosa è cambiato dall'ultimo ciclo.
+- **Sviluppo** = flusso normale (Fasi 1-10): i nove agenti che
+  lavorano una saga, nuova o già pubblicata.
+- **Arricchimento** = Project Manager (Fase 11, o Fase 0 alternativa):
+  cerca saghe nuove mai presenti sul sito, secondo un criterio dato
+  da Sakrem.
+
+Se Sakrem richiede più tipi insieme, l'ordine di priorità è fisso:
+**Aggiornamento → Sviluppo → Arricchimento**.
+
 ---
 
-## Fase 0: Sentinella (opzionale, solo su richiesta esplicita)
+## Fase 0: Sentinella - Aggiornamento (opzionale, solo su richiesta esplicita)
 
 Si attiva **solo** se Sakrem lo ordina esplicitamente a inizio
 sessione, indicando l'elenco preciso di voci/saghe già pubblicate da
@@ -34,18 +51,17 @@ Ricercatore.
 
 - **Non trova nulla**: se stava controllando una sola voce/saga, la
   sessione finisce lì, punto. Se ne stava controllando più di una,
-  quella specifica voce/saga viene scartata e il controllo prosegue
-  sulle altre; solo se non trova nulla su nessuna di quelle indicate
-  la sessione finisce lì del tutto.
+  il lavoro su quella specifica voce/saga viene considerato completato
+  e il controllo prosegue sulle altre; solo se non trova nulla su
+  nessuna di quelle indicate la sessione finisce lì del tutto.
 - **Trova qualcosa** → segnala al Supervisore cosa e dove, senza
-  lavorarci lei stessa. È il Supervisore a decidere se e come far
-  ripartire la catena, e solo sulla parte che serve davvero (non
-  necessariamente l'intera saga da capo). Quando lo fa, ci sono due
-  differenze rispetto al lavoro normale: Artista e Musicista non
-  vengono richiamati (una piccola aggiunta non giustifica rifare
-  colori o playlist), e il lavoro di Ricercatore/Selezionatore/Storico/
-  Scrittore/Linguista riguarda solo la scoperta della Sentinella, non
-  l'intera saga da zero.
+  lavorarci lei stessa. È il Supervisore a far ripartire l'intero
+  ciclo su quella saga: tutti gli agenti vengono rimessi al lavoro, se
+  serve, **Artista e Musicista compresi (per loro due il richiamo è
+  sempre obbligatorio, anche per un'aggiunta piccola)**. L'unica cosa
+  ristretta è l'oggetto del lavoro narrativo di Ricercatore/
+  Selezionatore/Storico/Scrittore/Linguista, che riguarda solo la
+  scoperta della Sentinella, non l'intera saga da zero.
 
 ## Fase 1: Il Supervisore riceve la saga da Sakrem
 
@@ -338,20 +354,29 @@ ripartire in futuro.
 Non parla con Sakrem durante il lavoro. Unico output finale, dopo il
 controllo completo e il push riusciti: **pubblicato**.
 
-## Fase 11: Project Manager (opzionale, solo su richiesta esplicita)
+## Fase 11: Project Manager - Arricchimento (opzionale, solo su richiesta esplicita)
 
-Subito dopo che il Programmatore ha pubblicato il lavoro sulla saga
-assegnata, il Supervisore chiama il Project Manager **solo** se Sakrem
-lo ha ordinato esplicitamente a inizio sessione, specificando quante
-saghe cercare e con quale criterio, e decidendo ogni volta se concedere
-il bypass della sua conferma (mai un'autorizzazione permanente). Cerca
-le saghe richieste secondo il criterio dato, escludendo sempre quelle
-in blacklist (attualmente: Diablo), e le ordina per fama/priorità, non
-a caso.
+Il Supervisore chiama il Project Manager **solo** se Sakrem lo ha
+ordinato esplicitamente, specificando quante saghe cercare e con quale
+criterio (genere, iniziale del titolo, o altro). Non esiste più un
+bypass da concedere di volta in volta: il Project Manager ha sempre il
+via libera di far partire i lavori sulle saghe che trova. Cerca le
+saghe richieste secondo il criterio dato, escludendo sempre quelle in
+blacklist (attualmente: Diablo), e le ordina per fama/priorità, non a
+caso.
 
-- **Senza bypass** → riporta l'elenco trovato direttamente alla
-  Segretaria (non al Supervisore), che ne fa un piccolo report a parte
-  per Sakrem.
-- **Con bypass** → passa le saghe trovate al Supervisore, in ordine di
-  priorità, e si riparte dalla Fase 1 per ciascuna, nello stesso
-  ordine, nella stessa sessione.
+Entra in scena in uno di due momenti, con la stessa identica
+procedura in entrambi i casi:
+
+- **come questa Fase 11**: subito dopo che il Programmatore ha
+  pubblicato il lavoro su una saga assegnata con lo Sviluppo normale
+  (Fasi 1-10), nella stessa sessione;
+- **come Fase 0 alternativa**: se Sakrem non ha assegnato nessuno
+  Sviluppo in questa sessione (solo Arricchimento, da solo), agisce
+  per primo al posto del Ricercatore, come unico lavoro della
+  sessione.
+
+In entrambi i casi passa sempre le saghe trovate al Supervisore, in
+ordine di fama/priorità - non riporta mai direttamente alla
+Segretaria. Il Supervisore riavvia subito l'intera catena (Fasi 1-10)
+su ciascuna, nello stesso ordine, nella stessa sessione.
