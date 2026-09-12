@@ -472,7 +472,7 @@ const GAMES = {
 
   "armored-core": {
     id: "armored-core",
-    lastAgentPass: "2026-09-09",
+    lastAgentPass: "2026-09-12",
     listTitle: { it: "Armored Core", en: "Armored Core" },
     eyebrow: { it: "Fascicolo", en: "Case File" },
     title: { it: "Armored Core", en: "Armored Core" },
@@ -496,18 +496,8 @@ const GAMES = {
         paletteBounds: ["mars-terraformation-frighteners-coup", "ac2"],
         entries: [
           {
-            id: "ac1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
-            year: "1997", yearEn: "1997", releaseYear: "1997", releaseYearEn: "1997",
-            title: { it: "Armored Core", en: "Armored Core" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Armored%20Core.jpg",
-            synopsis: {
-              it: "Cinquant'anni dopo la Grande Distruzione, un conflitto che ha devastato la superficie terrestre e costretto i sopravvissuti a rifugiarsi nel sottosuolo, il potere è nelle mani delle corporazioni. Le due più grandi, Chrome e Murakumo Millennium, si contendono la supremazia in una guerra perenne che alimenta il mercato dei mercenari indipendenti noti come Raven. Il giocatore, dopo aver superato il test d'ammissione presso la Ravens' Nest, riceve i primi incarichi dall'operatore misterioso \"R\" e può scegliere di lavorare per l'una o l'altra corporazione, intraprendendo missioni che minano progressivamente il rivale. Una volta piegata una delle due fazioni, anche l'altra declina rapidamente, lasciando presagire che i Raven non serviranno più a nessuno. L'incarico finale, commissionato dalla stessa Ravens' Nest, si rivela una trappola: il Raven deve penetrare nella base dell'organizzazione, sconfiggere le unità Nine-Ball pilotate dal vertice dell'Arena, Hustler One (che si scopre essere un'intelligenza artificiale), e distruggere il nucleo del sistema che governa segretamente la Ravens' Nest stessa.\n\nNota (porting PS4/PS5, marzo 2025): Riedizione tecnica in emulazione PS1 tramite il Catalogo Classics di PS Plus Premium e in vendita standalone, senza modifiche alla trama originale.",
-              en: "Fifty years after the Great Destruction, a catastrophic war that devastated Earth's surface and forced survivors underground, power rests in the hands of the corporations. The two largest, Chrome and Murakumo Millennium, wage a constant war for supremacy that sustains a thriving market for independent mercenaries known as Ravens. After passing the entrance test at the Ravens' Nest, the player begins receiving assignments from the mysterious operator \"R\" and may choose to work for either corporation, taking on missions that gradually undermine the rival. Once one faction is crushed, the other declines rapidly as well, raising fears that Ravens will soon become obsolete. The final job, commissioned by the Ravens' Nest itself, turns out to be a trap: the Raven must infiltrate the organization's own base, defeat the Nine-Ball units piloted by the Arena's top-ranked pilot, Hustler One (revealed to be an AI), and destroy the core of the system secretly controlling the Ravens' Nest.\n\nNote — PS4/PS5 port, March 2025: Technical PS1-emulation re-release via the PS Plus Premium Classics Catalog and as a standalone purchase, with no changes to the original story."
-            }
-          },
-          {
             id: "project-phantasma", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
-            year: "1997 (due anni prima di Armored Core)", yearEn: "1997 (two years before Armored Core)",
+            year: "1995 (due anni prima di Armored Core)", yearEn: "1995 (two years before Armored Core)",
             releaseYear: "1997", releaseYearEn: "1997",
             title: { it: "Armored Core: Project Phantasma", en: "Armored Core: Project Phantasma" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Armored%20Core%20Project%20Phantasma.jpg",
@@ -518,12 +508,22 @@ const GAMES = {
           },
           {
             id: "master-of-arena", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
-            year: "1999", yearEn: "1999", releaseYear: "1999", releaseYearEn: "1999",
+            year: "Dopo Project Phantasma, prima di Armored Core", yearEn: "After Project Phantasma, before Armored Core", releaseYear: "1999", releaseYearEn: "1999",
             title: { it: "Armored Core: Master of Arena", en: "Armored Core: Master of Arena" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Armored%20Core%20Master%20of%20Arena.jpg",
             synopsis: {
               it: "Sequel diretto di Project Phantasma e capitolo conclusivo della trilogia prequel, ambientato a Isaac City, dove due corporazioni si scontrano senza pietà per il controllo del territorio. Durante uno degli scontri più violenti, numerosi civili restano uccisi: tra loro l'intera famiglia di un giovane sopravvissuto, che decide di arruolarsi come Raven presso la Ravens' Nest per vendicarsi del responsabile, il pilota di vertice dell'Arena Hustler One. Nella sua scalata, il protagonista trova sostegno nella manager Lana Nielsen e nello sponsor Elan Cubis, entrambi mossi da propri secondi fini. A differenza dei capitoli precedenti, l'Arena è qui pienamente integrata nella trama principale: salire di rango è indispensabile per sbloccare nuove missioni, fino al confronto conclusivo con Hustler One che chiude il ciclo di vendetta e, con esso, l'intera trilogia arcaica della serie.\n\nNota (porting PS4/PS5, marzo 2025): Stessa riedizione tecnica dei due capitoli precedenti, senza alterazioni alla trama.",
               en: "A direct sequel to Project Phantasma and the closing chapter of the prequel trilogy, set in Isaac City, where two corporations fight mercilessly for control of the territory. During one of the most violent clashes, numerous civilians are killed, including the entire family of a young survivor, who enlists as a Raven at the Ravens' Nest to take revenge on the man responsible: the Arena's top-ranked pilot, Hustler One. On his climb to the top, the protagonist finds support in manager Lana Nielsen and sponsor Elan Cubis, both driven by their own hidden agendas. Unlike previous entries, the Arena is here fully woven into the main plot: climbing its ranks is required to unlock new missions, culminating in the final showdown with Hustler One that closes the cycle of revenge and, with it, the series' entire archaic trilogy.\n\nNote — PS4/PS5 port, March 2025: Same technical re-release as the previous two entries, with no story changes."
+            }
+          },
+          {
+            id: "ac1", type: "VIDEOGIOCO", typeEn: "VIDEOGAME",
+            year: "1997", yearEn: "1997", releaseYear: "1997", releaseYearEn: "1997",
+            title: { it: "Armored Core", en: "Armored Core" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Armored%20Core.jpg",
+            synopsis: {
+              it: "Cinquant'anni dopo la Grande Distruzione, un conflitto che ha devastato la superficie terrestre e costretto i sopravvissuti a rifugiarsi nel sottosuolo, il potere è nelle mani delle corporazioni. Le due più grandi, Chrome e Murakumo Millennium, si contendono la supremazia in una guerra perenne che alimenta il mercato dei mercenari indipendenti noti come Raven. Il giocatore, dopo aver superato il test d'ammissione presso la Ravens' Nest, riceve i primi incarichi dall'operatore misterioso \"R\" e può scegliere di lavorare per l'una o l'altra corporazione, intraprendendo missioni che minano progressivamente il rivale. Una volta piegata una delle due fazioni, anche l'altra declina rapidamente, lasciando presagire che i Raven non serviranno più a nessuno. L'incarico finale, commissionato dalla stessa Ravens' Nest, si rivela una trappola: il Raven deve penetrare nella base dell'organizzazione, sconfiggere le unità Nine-Ball pilotate dal vertice dell'Arena, Hustler One (che si scopre essere un'intelligenza artificiale), e distruggere il nucleo del sistema che governa segretamente la Ravens' Nest stessa.\n\nNota (porting PS4/PS5, marzo 2025): Riedizione tecnica in emulazione PS1 tramite il Catalogo Classics di PS Plus Premium e in vendita standalone, senza modifiche alla trama originale.",
+              en: "Fifty years after the Great Destruction, a catastrophic war that devastated Earth's surface and forced survivors underground, power rests in the hands of the corporations. The two largest, Chrome and Murakumo Millennium, wage a constant war for supremacy that sustains a thriving market for independent mercenaries known as Ravens. After passing the entrance test at the Ravens' Nest, the player begins receiving assignments from the mysterious operator \"R\" and may choose to work for either corporation, taking on missions that gradually undermine the rival. Once one faction is crushed, the other declines rapidly as well, raising fears that Ravens will soon become obsolete. The final job, commissioned by the Ravens' Nest itself, turns out to be a trap: the Raven must infiltrate the organization's own base, defeat the Nine-Ball units piloted by the Arena's top-ranked pilot, Hustler One (revealed to be an AI), and destroy the core of the system secretly controlling the Ravens' Nest.\n\nNote — PS4/PS5 port, March 2025: Technical PS1-emulation re-release via the PS Plus Premium Classics Catalog and as a standalone purchase, with no changes to the original story."
             }
           },
           {
