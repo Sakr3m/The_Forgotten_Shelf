@@ -476,6 +476,27 @@ nella stessa sessione notturna, 2026-09-09.
   2004) - voce a sé, ultima voce del nuovo universo Dark Alliance -
   sessione notturna, 2026-09-09.
 
+### Da riverificare in futuro (segnalazione per la Sentinella)
+
+#### Nuova serie a fumetti Baldur's Gate 3 (Dark Horse Comics) - stato di conferma
+
+- **Cosa monitorare**: annuncio Dark Horse Comics (in collaborazione con
+  Wizards of the Coast) al San Diego Comic-Con 2026, arte promozionale
+  di Becky Cloonan incentrata su Karlach. Annuncio "nudo": nessuna data
+  di uscita nemmeno indicativa, nessun titolo definitivo, nessuno
+  sceneggiatore, nessun dettaglio di trama. Non presente sul sito,
+  nemmeno come voce `imagePending`.
+- **Origine**: Ricercatore/Selezionatore, sessione di Controllo Baldur's
+  Gate.
+- **Motivazione dell'attesa**: manca l'elemento minimo (una data anche
+  vaga) richiesto per una voce `imagePending`. Da riprendere quando la
+  Sentinella ricontrollerà questa saga in futuro, verificando se nel
+  frattempo sono emersi un titolo definitivo, una finestra di uscita
+  anche solo approssimativa, o dettagli di trama.
+- **Data**: 2026-09-12.
+- **Stato**: non applicato, in attesa di nuove informazioni ufficiali -
+  nessuna azione fino alla prossima verifica.
+
 ## Battlefield
 
 ### Musica
