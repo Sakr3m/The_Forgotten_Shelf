@@ -61,7 +61,7 @@ const GAMES = {
               en: "Mercenary pilot Cipher fights in the Belkan War, a conflict sparked by years of internal economic crisis that pushed the principality to invade its former territories to reclaim lost resources, alongside his wingman Pixy. In the finale, unable to withstand the allied coalition's advance, Belka detonates seven nuclear warheads on its own territory rather than surrender — an event whose shadow looms over every subsequent conflict in the continuity.\n\nNote — The White Notebook (2019): one of four short stories written by Sunao Katabuchi in the artbook Aces at War: A History, bundled with physical collector's editions of Ace Combat 7: Skies Unknown. It expands on the past of Belkan ace Yellow 13, set in San Salvacion in 2004, during the Erusean occupation of the Continental War: in a local bar, Yellow 13 bonds with a war-orphaned boy who plays harmonica while he plays guitar, unaware that the bar's keeper and his daughter are secretly members of the local resistance. When the girl is caught fleeing after an act of sabotage, Yellow 13 lets her go along with the boy who shields her, never reporting either of them."
             }
           },
-          { id: "ace-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1996", yearEn: "1996", releaseYear: "1997 (Remake: 2011)", releaseYearEn: "1997 (Remake: 2011)",
+          { id: "ace-2", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1997", yearEn: "1997", releaseYear: "1997 (Remake: 2011)", releaseYearEn: "1997 (Remake: 2011)",
             title: { it: "Ace Combat 2", en: "Ace Combat 2" },
             image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Ace%20Combat%202.jpg",
             synopsis: {

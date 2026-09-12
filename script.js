@@ -2739,6 +2739,18 @@ window.addEventListener("mouseup", () => {
 });
 window.addEventListener("resize", () => {
   document.querySelectorAll(".title-body").forEach(b => { if(b._scrollbarLayout) b._scrollbarLayout(); });
+  // #titleContent (e le altre misure runtime di renderTitlePanel: barra
+  // di luminosita', larghezza di .title-nav, ecc.) sono calcolate una
+  // sola volta dalla posizione reale di Discord/switch lingua quando la
+  // voce viene mostrata - mai piu' ricalcolate dopo, quindi un resize
+  // successivo lasciava una larghezza in px ormai sbagliata (troppo
+  // larga se la finestra si restringe), che sconfinava proprio sopra
+  // alla tabella di destra (#timelineRail). Richiamare qui la stessa
+  // funzione, gia' di per se' idempotente (mostra/nasconde pannelli
+  // gia' presenti, aggiorna solo stile), la tiene sempre coerente con
+  // la larghezza reale della finestra - solo in vista "title", unica
+  // dove il problema era stato segnalato.
+  if(state.view === "title") renderTitlePanel();
 });
 
 function buildAllTitlePanels(){
@@ -2845,7 +2857,23 @@ function renderTitlePanel(){
     const langRect = el.langSwitch.getBoundingClientRect();
     const delta = discordRect.left - contentRect.left;
     el.titleContent.style.marginLeft = delta.toFixed(2) + "px";
-    el.titleContent.style.width = (langRect.right - discordRect.left).toFixed(2) + "px";
+    // Clamp (12/09, bug reale riprodotto con Playwright): Discord e
+    // switch lingua vivono nella .stage-topbar insieme a KoFi, nome
+    // saga e controllo musica - quando quel gruppo di pulsanti non
+    // entra piu' nello spazio rimasto dopo sidebar+tabella di destra
+    // (capita gia' a molte larghezze desktop non estreme, il
+    // controllo musica da solo supera i 290px), la topbar sfora ben
+    // oltre il proprio box e langRect.right smette di essere un
+    // confine affidabile - misura un punto ben oltre la vera tabella
+    // di destra, mai richiesto ne' visibile li'. #titleContent
+    // ereditava quello sconfinamento tale e quale, finendo sopra alla
+    // tabella. .titlePanel invece resta sempre corretto (e' un figlio
+    // flex vero di .stage, si restringe da solo con sidebar/tabella):
+    // il bordo destro reale disponibile non supera mai il suo.
+    const panelRect = el.titlePanel.getBoundingClientRect();
+    const measuredWidth = langRect.right - discordRect.left;
+    const safeWidth = panelRect.right - discordRect.left;
+    el.titleContent.style.width = Math.min(measuredWidth, safeWidth).toFixed(2) + "px";
 
     // Larghezza REALE di .title-nav allineata al testo della sinossi,
     // non al box fisso al 70% (segnalato con screenshot: il pulsante
