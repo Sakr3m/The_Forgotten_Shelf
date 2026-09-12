@@ -465,6 +465,10 @@ nella stessa sessione notturna, 2026-09-09.
   7 le tracce sono nuove per il sito, da caricare su R2. Il
   Programmatore crea comunque il campo `tracks: []`, vuoto in attesa dei
   file.
+- **Attenzione (12/09)**: Battlefield 6 è stato rimosso dal sito (vedi
+  "Media aggiunti" più sotto) - la traccia "Battlefield 6 Main Theme"
+  proposta sopra non è più valida quando si popolerà davvero il campo
+  `tracks`, andrà sostituita con un'altra scelta.
 
 ### Media aggiunti
 
@@ -476,10 +480,24 @@ gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
   2026-09-09.
 - Nuovo universo **La Guerra del 2014** (`bf3` → `bf4-countdown-to-war`
   → `bf4`, span 2014 – 2020, 3 voci) - sessione notturna, 2026-09-09.
+  **Fuso il 12/09** con l'universo "La Guerra del 2042" nel nuovo
+  universo **L'Eredità di Irish** (decisione diretta di Sakrem: i due
+  universi erano divisi per anno/epoca invece che per continuità
+  narrativa reale, lo stesso difetto individuato e corretto su
+  Assassin's Creed lo stesso giorno - vedi sotto).
 - Nuovo universo **La Guerra del 2042** (`exodus` → `bf2042`, span
-  2042, 2 voci) - sessione notturna, 2026-09-09.
+  2042, 2 voci) - sessione notturna, 2026-09-09. **Fuso il 12/09** con
+  "La Guerra del 2014" nel nuovo universo **L'Eredità di Irish** (stesso
+  motivo di cui sopra: Irish/Kimble Graves attraversa entrambi, da BF4 a
+  Exodus a BF2042, un aggancio di trama reale che l'universo diviso per
+  anno non rendeva).
 - Nuovo universo **Battlefield 6** (`bf6`, span 2027-2028, 1 voce) -
-  sessione notturna, 2026-09-09.
+  sessione notturna, 2026-09-09. **Rimosso interamente dal sito il
+  12/09** (decisione diretta di Sakrem: nessun aggancio di trama
+  verificato con nessun altro media della saga - verificato anche con
+  ricerca esterna, nessun personaggio/organizzazione/evento in comune
+  con Battlefield 2042 o con il resto della saga, solo easter egg
+  meta-narrativi senza peso di trama).
 - `bfbc1` - Battlefield: Bad Company (VIDEOGIOCO, 2008) - voce a sé,
   prima voce del nuovo universo Bad Company - sessione notturna,
   2026-09-09.
@@ -488,17 +506,23 @@ gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
   2026-09-09.
 - `bf3` - Battlefield 3 (VIDEOGIOCO, 2011) - voce a sé, prima voce del
   nuovo universo La Guerra del 2014 - sessione notturna, 2026-09-09.
+  **Dal 12/09, prima voce di L'Eredità di Irish** (vedi fusione sopra).
 - `bf4-countdown-to-war` - Battlefield 4: Countdown to War (ROMANZO,
-  2013) - voce a sé - sessione notturna, 2026-09-09.
+  2013) - voce a sé - sessione notturna, 2026-09-09. **Dal 12/09, in
+  L'Eredità di Irish** (vedi fusione sopra).
 - `bf4` - Battlefield 4 (VIDEOGIOCO, 2013) - voce a sé, ultima voce del
   nuovo universo La Guerra del 2014 - sessione notturna, 2026-09-09.
+  **Dal 12/09, in L'Eredità di Irish** (vedi fusione sopra).
 - `exodus` - Exodus (CORTOMETRAGGIO, 2021) - voce a sé, prima voce del
   nuovo universo La Guerra del 2042 - sessione notturna, 2026-09-09.
+  **Dal 12/09, in L'Eredità di Irish** (vedi fusione sopra).
 - `bf2042` - Battlefield 2042 (VIDEOGIOCO, 2021) - voce a sé, ultima
   voce del nuovo universo La Guerra del 2042 - sessione notturna,
-  2026-09-09.
+  2026-09-09. **Dal 12/09, ultima voce di L'Eredità di Irish** (vedi
+  fusione sopra).
 - `bf6` - Battlefield 6 (VIDEOGIOCO, 2025) - voce a sé, unica voce del
   nuovo universo Battlefield 6 - sessione notturna, 2026-09-09.
+  **Rimossa dal sito il 12/09** (vedi rimozione dell'universo sopra).
 
 ## BioShock
 
