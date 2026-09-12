@@ -666,6 +666,30 @@ gemella), tutte inserite nella stessa sessione notturna, 2026-09-09.
 - **Stato**: in attesa di decisione di Sakrem, non applicato (stessa
   proposta ancora aperta in "In sospeso" sopra).
 
+### Da riverificare in futuro (segnalazione per la Sentinella)
+
+#### Nuovo BioShock (Cloud Chamber/2K, nome interno "Parkside") - stato di conferma
+
+- **Cosa monitorare**: ancora senza titolo pubblico e senza data di
+  uscita, nemmeno vaga. Nel 2025 ha subito una revisione narrativa
+  completa (uscita della responsabile dello studio Kelley Gilmore,
+  arrivo di Rod Fergusson - ex Gears of War/Diablo IV - come nuovo capo
+  di Cloud Chamber, oltre 80 licenziamenti). L'unica dichiarazione
+  ufficiale (CEO Take-Two Strauss Zelnick) conferma solo che è "in
+  sviluppo attivo". Ambientazione circolata (città antartica anni '60,
+  gemella "Aurora/Borealis", protagonista femminile, open world) da
+  leak giornalistici mai confermati da 2K.
+- **Origine**: Ricercatore/Selezionatore, sessione di Controllo
+  BioShock.
+- **Motivazione dell'attesa**: mancano sia un titolo pubblico sia
+  qualunque finestra di uscita anche approssimativa, requisiti minimi
+  non soddisfatti nemmeno per un `imagePending`. Da riprendere quando
+  la Sentinella ricontrollerà questa saga in futuro, verificando se 2K
+  ha confermato almeno un titolo o una finestra indicativa.
+- **Data**: 2026-09-12.
+- **Stato**: non applicato, in attesa di nuove informazioni ufficiali -
+  nessuna azione fino alla prossima verifica.
+
 ## Call of Duty
 
 ### Musica
