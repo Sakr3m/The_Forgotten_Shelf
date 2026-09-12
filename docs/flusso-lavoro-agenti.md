@@ -32,8 +32,11 @@ che prima non lo era o viceversa, un titolo dato per cancellato che è
 stato riesumato). È una ricerca mirata, non esaustiva come quella del
 Ricercatore.
 
-- **Non trova nulla** → lo dice chiaramente, e la sessione prosegue
-  normale sul lavoro che Sakrem ha comunque assegnato.
+- **Non trova nulla**: se stava controllando una sola voce/saga, la
+  sessione finisce lì, punto. Se ne stava controllando più di una,
+  quella specifica voce/saga viene scartata e il controllo prosegue
+  sulle altre; solo se non trova nulla su nessuna di quelle indicate
+  la sessione finisce lì del tutto.
 - **Trova qualcosa** → segnala al Supervisore cosa e dove, senza
   lavorarci lei stessa. È il Supervisore a decidere se e come far
   ripartire la catena, e solo sulla parte che serve davvero (non

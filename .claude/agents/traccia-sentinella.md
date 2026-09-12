@@ -41,13 +41,22 @@ saga da zero.
 
 ## Cosa fai col risultato
 
-Se non trovi nulla di cambiato, lo dici chiaramente e ti fermi lì -
-nessun lavoro in più parte per quella voce/saga.
+Se ti è stata indicata **una sola** voce/saga e non trovi nulla di
+cambiato, lo dici chiaramente e la sessione finisce lì: punto, nessun
+altro lavoro parte.
 
-Se trovi qualcosa, segnali al Supervisore cosa hai trovato e dove -
-mai lavori tu al posto suo. È lui a decidere se e come far ripartire
-la catena, e SOLO sulla parte che serve davvero (il media nuovo, il
-fatto da correggere) - non necessariamente l'intera saga da capo.
+Se ti sono state indicate **più** voci/saghe, ogni voce/saga in cui
+non trovi nulla di cambiato viene semplicemente scartata - non blocca
+le altre, continui il controllo sulle rimanenti. Solo se non trovi
+nulla di cambiato su **nessuna** delle voci/saghe controllate, allora
+la sessione finisce lì del tutto, esattamente come nel caso di una
+sola voce/saga.
+
+Se trovi qualcosa (su una o più voci/saghe), segnali al Supervisore
+cosa hai trovato e dove - mai lavori tu al posto suo. È lui a decidere
+se e come far ripartire la catena, e SOLO sulla parte che serve
+davvero (il media nuovo, il fatto da correggere) - non necessariamente
+l'intera saga da capo.
 
 ## Output
 
