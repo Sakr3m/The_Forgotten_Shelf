@@ -1092,15 +1092,6 @@ const GAMES = {
               en: "Twenty years after Black Flag, former quartermaster Adéwalé, now a full-fledged Assassin, is shipwrecked off Saint-Domingue while pursuing a Templar faction. Ashore, he discovers the Templars are secretly financing the slave trade through brothel owner Bastienne Josèphe, and allies with the Maroons, a band of escaped slaves led by Augustin Dieufort, to free the colony from the slave trade, eventually clashing with governor Pierre de Fayet. Originally released as downloadable content for Black Flag, later made available as a standalone experience, it confronts the subject of slavery in the Caribbean head-on."
             }
           },
-          { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
-            releaseYear: "2014 (Remaster: 2018)", releaseYearEn: "2014 (Remaster: 2018)",
-            title: { it: "Assassin's Creed Rogue", en: "Assassin's Creed Rogue" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Rogue.jpg",
-            synopsis: {
-              it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
-              en: "In the North Atlantic during the Seven Years' War, the Assassin Shay Patrick Cormac, after unwittingly causing the death of innocents by triggering a cataclysm with an Isu artefact recovered on the Brotherhood's behalf, becomes disillusioned with his mentors' ruthless methods and defects to the Templars, becoming the hunter of his own former comrades. The first and only chapter in the series to tell the story from the Templar point of view, laying the groundwork for the Templar Colonial Rite that will oppose Connor in AC3."
-            }
-          },
           { id: "liberation", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1765 – 1780",
             releaseYear: "2012 (Remaster: 2014, 2019)", releaseYearEn: "2012 (Remaster: 2014, 2019)",
             title: { it: "Assassin's Creed III: Liberation", en: "Assassin's Creed III: Liberation" },
@@ -1113,24 +1104,27 @@ const GAMES = {
         ]
       },
       {
-        id: "eta-rivoluzioni",
-        name: { it: "Epoca degli Imperi", en: "Age of Empires" },
-        span: { it: "1725 – 1888", en: "1725 – 1888" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
-        palette: ["#8E1B2E", "#242A3D", "#C4802E", "#5C4A66", "#4E5449"],
-        // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
-        // ciascun sottogruppo tranne l'ultimo (Sangue/accento - Connor,
-        // Notte di Parigi - Unity, Zafferano - India, Nebbia Industriale
-        // - Londra vittoriana). Senza questo campo il colore si
-        // "sconfinava" ben prima della voce che chiude davvero ogni
-        // sottogruppo, piu' evidente sull'arco esterno della voce
-        // ombrello sotto (colore fisso, vedi computeGradientStops in
-        // script.js). Aggiornato (08/09): il sottogruppo "Zafferano -
-        // India" si ferma di nuovo a "chronicles-india"; il nuovo
-        // sottogruppo viola-prugna "Magus Conspiracy" ha ora un bound
-        // dedicato su "magus-conspiracy".
-        paletteBounds: ["assassins-creed-3", "unity", "chronicles-india", "magus-conspiracy"],
+        // Universo creato il 12/09 su richiesta diretta di Sakrem: prima
+        // separava Rogue (in Età della Vela) e AC3 (in Epoca degli
+        // Imperi, insieme all'ombrello Forsaken) senza un legame
+        // formale, pur essendo Rogue il seme diretto ("getta le basi")
+        // del Rito Templare Coloniale che AC3 racconta dal lato
+        // avversario. Liberation resta in Età della Vela: nessun
+        // collegamento verificato con questo trio.
+        id: "rito-coloniale",
+        name: { it: "Il Rito Coloniale", en: "The Colonial Rite" },
+        span: { it: "1725 – 1783", en: "1725 – 1783" },
+        palette: ["#8E1B2E", "#6B1220"],
         entries: [
+          { id: "rogue", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1752 – 1760",
+            releaseYear: "2014 (Remaster: 2018)", releaseYearEn: "2014 (Remaster: 2018)",
+            title: { it: "Assassin's Creed Rogue", en: "Assassin's Creed Rogue" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Rogue.jpg",
+            synopsis: {
+              it: "Nell'Atlantico settentrionale durante la Guerra dei Sette Anni, l'Assassino Shay Patrick Cormac, dopo aver causato involontariamente la morte di innocenti innescando un cataclisma con un manufatto Isu recuperato per conto della Confraternita, si disillude dei metodi spregiudicati dei propri mentori e passa dalla parte dei Templari, diventando il cacciatore dei suoi ex compagni. Primo e unico capitolo della serie a raccontare la storia dal punto di vista templare, getta le basi per la nascita del Rito Templare Coloniale che si opporrà a Connor in AC3.",
+              en: "In the North Atlantic during the Seven Years' War, the Assassin Shay Patrick Cormac, after unwittingly causing the death of innocents by triggering a cataclysm with an Isu artefact recovered on the Brotherhood's behalf, becomes disillusioned with his mentors' ruthless methods and defects to the Templars, becoming the hunter of his own former comrades. The first and only chapter in the series to tell the story from the Templar point of view, laying the groundwork for the Templar Colonial Rite that will oppose Connor in AC3."
+            }
+          },
           { id: "assassins-creed-3", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1754, 1775 – 1783",
             releaseYear: "2012 (Remaster: 2019)", releaseYearEn: "2012 (Remaster: 2019)",
             title: { it: "Assassin's Creed III", en: "Assassin's Creed III" },
@@ -1139,7 +1133,48 @@ const GAMES = {
               it: "Durante la Rivoluzione Americana, Ratonhnhaké:ton detto Connor, figlio del Templare britannico Haytham Kenway e di una donna Mohawk, si allea con gli Assassini dopo aver visto il proprio villaggio minacciato dall'espansione coloniale, opponendosi al padre e ai suoi alleati templari che manipolano entrambi gli schieramenti del conflitto rivoluzionario per i propri fini. Nel corso della guerra Connor affronta e uccide uno dopo l'altro i Templari del Rito Coloniale, incluso lo stesso Haytham, ricostruendo la Confraternita americana dalle sue rovine.",
               en: "During the American Revolution, Ratonhnhaké:ton, called Connor, son of the British Templar Haytham Kenway and a Mohawk woman, allies with the Assassins after seeing his village threatened by colonial expansion, opposing his father and his Templar allies who manipulate both sides of the revolutionary conflict for their own ends. Over the course of the war Connor confronts and kills the Colonial Rite Templars one by one, including Haytham himself, rebuilding the American Brotherhood from its ruins."
             }
-          },
+          }
+        ],
+        umbrellas: [
+          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
+            releaseYear: "2012", releaseYearEn: "2012",
+            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
+            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Forsaken.jpg",
+            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md): stessi
+            // eventi (la Rivoluzione Americana) di "assassins-creed-3",
+            // ma vissuti da un personaggio diverso (Haytham Kenway
+            // invece di Connor) - lineStyle "dashed" (variante 2).
+            // endsBeforeId omesso (12/09): AC3 e' l'ultima voce di questo
+            // universo, quindi l'arco arriva naturalmente fino alla sua
+            // fine (stesso meccanismo di Castlevania 64, vedi
+            // expandEntriesWithUmbrellas in script.js).
+            lineStyle: "dashed",
+            startsBeforeId: "assassins-creed-3",
+            synopsis: {
+              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
+              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
+            }
+          }
+        ]
+      },
+      {
+        id: "eta-rivoluzioni",
+        name: { it: "Epoca degli Imperi", en: "Age of Empires" },
+        span: { it: "1789 – 1888", en: "1789 – 1888" },
+        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Epoca%20degli%20Imperi%20Filigrana.jpg",
+        palette: ["#242A3D", "#C4802E", "#5C4A66", "#4E5449"],
+        // paletteBounds (06/09, PARTE 3 punto 1): ultima voce reale di
+        // ciascun sottogruppo tranne l'ultimo (Notte di Parigi - Unity,
+        // Zafferano - India, Nebbia Industriale - Londra vittoriana).
+        // Senza questo campo il colore si "sconfinava" ben prima della
+        // voce che chiude davvero ogni sottogruppo. Aggiornato (12/09):
+        // Connor/AC3 e l'ombrello Forsaken sono usciti da questo
+        // universo (ora nel nuovo "Il Rito Coloniale", tra Età della
+        // Vela ed Epoca degli Imperi) - rimosso il sottogruppo
+        // "Sangue/accento" e il relativo colore, gli altri restano
+        // identici.
+        paletteBounds: ["unity", "chronicles-india", "magus-conspiracy"],
+        entries: [
           { id: "unity", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "1789 – 1794",
             releaseYear: "2014", releaseYearEn: "2014",
             title: { it: "Assassin's Creed Unity", en: "Assassin's Creed Unity" },
@@ -1210,26 +1245,6 @@ const GAMES = {
             synopsis: {
               it: "Nel 1888, Evie Frye torna a Londra dall'India per un breve soggiorno e scopre che il fratello Jacob è scomparso, dato per morto dall'ispettore Frederick Abberline. Jacob, prima di sparire, aveva indagato con l'aiuto della prostituta Nellie sulla scia di brutali omicidi che stanno terrorizzando l'East End, opera di un uomo noto come \"Jack lo Squartatore\". Proseguendo le indagini del fratello, Evie scopre che il vero bersaglio dell'assassino non sono prostitute qualunque, ma alcune Assassine sotto copertura, e che il colpevole è un ex membro della Confraternita, un tempo valoroso, sprofondato nella follia e corrotto dal potere assoluto della lama celata, che ha rivolto contro Londra stessa e contro i suoi antichi fratelli. Seguendo gli indizi fino all'abitazione dove Jacob era stato aggredito, Evie affronta e uccide Jack lo Squartatore, scoprendo con sollievo che il fratello è ancora vivo.",
               en: "In 1888, Evie Frye returns to London from India for a short visit and learns that her brother Jacob has gone missing, presumed dead by police inspector Frederick Abberline. Before disappearing, Jacob had been investigating, with the help of the prostitute Nellie, a string of brutal murders terrorising the East End, committed by a man known as \"Jack the Ripper\". Continuing her brother's investigation, Evie discovers that the killer's real targets are not ordinary prostitutes but undercover Assassins, and that the culprit is a former member of the Brotherhood, once valorous, driven mad and corrupted by the absolute power of the hidden blade, which he has turned against London itself and against his former brothers and sisters. Following the clues to the house where Jacob was attacked, Evie confronts and kills Jack the Ripper, discovering with relief that her brother is still alive."
-            }
-          }
-        ],
-        umbrellas: [
-          { id: "forsaken", type: "ROMANZO", typeEn: "NOVEL", year: "1725 – 1781", yearEn: "1725 – 1781",
-            releaseYear: "2012", releaseYearEn: "2012",
-            title: { it: "Assassin's Creed: Forsaken", en: "Assassin's Creed: Forsaken" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Forsaken.jpg",
-            // Voce "ombrello" (vedi .claude/agents/traccia-supervisore.md e traccia-programmatore.md): stessi
-            // eventi (la Rivoluzione Americana) di "assassins-creed-3",
-            // ma vissuti da un personaggio diverso (Haytham Kenway
-            // invece di Connor) - lineStyle "dashed" (variante 2).
-            // L'arco copre solo Assassin's Creed III, non si estende
-            // fino a Unity.
-            lineStyle: "dashed",
-            startsBeforeId: "assassins-creed-3",
-            endsBeforeId: "unity",
-            synopsis: {
-              it: "Nato nel 1725, Haytham Kenway diventa Gran Maestro dei Templari britannici dopo un'infanzia segnata dall'omicidio del padre, orchestrato dallo stesso mentore che lo ha addestrato, Reginald Birch. Convinto che solo il controllo assoluto possa garantire una pace duratura all'umanità, Haytham attraversa le colonie americane in cerca di manufatti Isu, sposa la donna Mohawk Ziio e ha con lei un figlio, Ratonhnhaké:ton, poi noto come Connor, di cui ignora a lungo l'esistenza. Il romanzo ripercorre la Rivoluzione Americana dal punto di vista opposto a quello del gioco, fino allo scontro finale e alla morte di Haytham per mano dello stesso Connor nel 1781, lo stesso conflitto narrato in Assassin's Creed III, qui rivissuto specchiato dal lato templare.",
-              en: "Born in 1725, Haytham Kenway becomes Grand Master of the British Templars after a childhood marked by his father's murder, orchestrated by the very mentor who trained him, Reginald Birch. Convinced that only absolute control can secure lasting peace for humanity, Haytham travels across the American colonies in search of Isu artefacts, marries the Mohawk woman Ziio, and has a son with her, Ratonhnhaké:ton, later known as Connor, of whose existence he remains unaware for years. The novel retraces the American Revolution from the opposite viewpoint to the game, up to the final confrontation and Haytham's death at his own son's hands in 1781 — the same conflict told in Assassin's Creed III, here relived mirrored from the Templar side."
             }
           }
         ]
