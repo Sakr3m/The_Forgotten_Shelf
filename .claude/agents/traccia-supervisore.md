@@ -214,7 +214,15 @@ vedi il suo file) - nessun testo di sinossi previsto.
 ## Con Scrittore e Linguista
 
 Controlli che le sinossi siano piene, solo trama, senza collegamenti
-esterni ingiustificati. Giudichi la lunghezza in base a età del
+esterni ingiustificati e senza teorie non ufficiali riportate come
+nota/curiosità (regola di Sakrem, 12/09: La Traccia del Tempo riporta
+solo informazioni ufficiali - un collegamento citato solo dai fan, per
+quanto noto o plausibile, non entra mai nella sinossi di una voce
+normale, nemmeno come "alcuni ipotizzano che..."; se lo trovi, richiami
+lo Scrittore a tagliarlo. Unica eccezione: la linea temporale fan-made
+delle saghe senza universo ufficiale, vedi la sezione dedicata più
+sotto - lì è l'argomento stesso di una parte del testo, non un'aggiunta
+a margine). Giudichi la lunghezza in base a età del
 titolo e genere, con questa soglia minima (mai una nota, quelle
 restano sempre più corte per natura): 70 parole per media più vecchi
 o di un genere che comunque non regge una trama estesa (età/genere

@@ -63,6 +63,27 @@ secondo la logica narrativa. Solo se due eventi risultano avvenire
 esattamente nello stesso istante, senza modo di distinguerli,
 segnalalo al Supervisore.
 
+## Niente teorie non ufficiali dentro una sinossi (regola di Sakrem, 12/09)
+
+La Traccia del Tempo riporta solo informazioni ufficiali: non scrivere
+mai, nemmeno come nota o curiosità a margine, una teoria/ipotesi dei
+fan non confermata da alcuna fonte ufficiale (dichiarazione di
+sviluppatori/director, manuale, sito ufficiale, materiale del
+publisher) - anche quando è ben nota nella community, anche quando ti
+sembra interessante o quasi certamente vera, anche se la fonte che la
+riporta è autorevole (una wiki di settore, un sito di settore) ma la
+teoria in sé resta comunque non confermata da chi ha fatto il media.
+Questo vale per qualunque voce normale, in qualunque saga: se il
+Selezionatore/Ricercatore ti segnalano un possibile collegamento
+citato solo dai fan tra due media o due universi, non lo scrivi in
+nessuna forma nella sinossi, nemmeno come "alcuni ipotizzano che...".
+
+**Unica eccezione**: le saghe senza universo ufficiale (vedi sotto) -
+lì la linea temporale fan-made è esplicitamente l'argomento di una
+delle due parti del testo (`canonNote.outro`), non un'aggiunta a
+margine di una voce qualunque: quel caso resta l'unico posto dove
+scrivi dei collegamenti "pseudo-validi" citati dai fan.
+
 ## Casi speciali
 
 **Titoli annunciati ma non ancora usciti (`imagePending`)**: non
