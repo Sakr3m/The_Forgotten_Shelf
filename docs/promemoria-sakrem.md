@@ -364,6 +364,32 @@ Sessione lunga con più correzioni in sequenza sulla saga:
    universo ha fama pubblica superiore alle 7 tracce attuali - playlist
    confermata invariata.
 
+### Da riverificare in futuro (segnalazione per la Sentinella)
+
+#### Serie live-action Netflix "Assassin's Creed" - stato di conferma
+
+- **Cosa monitorare**: annuncio Netflix (riprese iniziate marzo 2026 a
+  Cinecittà, finestra di uscita ufficiale seppur approssimativa H2 2027,
+  ambientazione Roma 64 d.C., arco 54-68 d.C., Nerone, Grande Incendio di
+  Roma, Seneca, nuovo Assassino contro cospirazione templare). Non ancora
+  presente sul sito, nemmeno come voce `imagePending`.
+- **Origine**: Ricercatore/Selezionatore/Storico, sessione di Controllo
+  Assassin's Creed.
+- **Motivazione dell'attesa**: Sakrem ha deciso di non aprire una voce
+  `imagePending` ora. Da riprendere quando la Sentinella ricontrollerà
+  questa saga in futuro, verificando se nel frattempo sono emerse
+  informazioni più solide (data di uscita precisa, cast/trama
+  confermati) prima di riconsiderarne l'inclusione.
+- **Nota di posizionamento già raccolta** (Storico, 12/09): l'anno 64
+  d.C. cade in un vuoto cronologico scoperto tra "Antichità" (chiude 44
+  a.C.) e "Alto Medioevo" (apre nell'824) - nessuno dei due universi
+  esistenti lo copre. Se/quando si deciderà di includerla, il giudizio
+  tecnico dello Storico è per un nuovo universo dedicato (es. "Roma
+  Imperiale"), non un'estensione forzata di uno dei due esistenti.
+- **Data**: 2026-09-12.
+- **Stato**: non applicato, in attesa di nuove informazioni ufficiali -
+  nessuna azione fino alla prossima verifica.
+
 ## Baldur's Gate
 
 ### Musica
