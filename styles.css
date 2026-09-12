@@ -1062,6 +1062,22 @@ body[data-state="landing"] .index-link{ display:flex; }
 
 .timeline-viewport{ flex:1; min-height:0; display:flex; align-items:center; position:relative; width:90%; margin:0 auto; }
 
+/* Universo "solo sinossi" (uni.notes: vedi buildUniverseTrack in
+   script.js) - via di mezzo tra la timeline normale qui sopra e
+   .canon-note (Doom, saga intera): niente pallini/gradiente/palette,
+   solo un blocco di brevi sinossi impilate, scrollabile in verticale.
+   Tipografia calcata su .canon-note per coerenza visiva col resto del
+   sito, invece di inventare uno stile nuovo. */
+.timeline-viewport--notes{ display:block; align-items:normal; overflow-y:auto; padding:8px 0 24px; }
+.u-track__notes{ max-width:900px; margin:0 auto; }
+.u-track__note{ margin-bottom:26px; }
+.u-track__note:last-child{ margin-bottom:0; }
+.u-track__note-anchor{
+  font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:6px;
+}
+.u-track__note-body{ font-size:.98rem; line-height:1.75; color:var(--text-dim); white-space:pre-line; }
+
 .u-track__head{
   display:flex; align-items:center; justify-content:center; gap:100px;
 }

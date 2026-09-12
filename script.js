@@ -691,15 +691,21 @@ function selectUniverse(idx){
     // switching universe from the title view: jump to that universe's first entry
     const g = currentGame();
     const u = g.universes[idx];
-    if(u.entries.length) selectEntry(u.entries[0].id);
-  } else {
-    // ogni universo puo' avere la propria palette dedicata (vedi .claude/agents/traccia-artista.md
-    // PARTE 3 punto 1): riapplicarla qui, non solo su renderGamePanel(),
-    // altrimenti passando da un universo all'altro senza mai toccare
-    // "title" i colori resterebbero quelli dell'universo precedente.
-    applyPaletteToCSS();
-    renderGamePanel();
+    if(u.entries.length){
+      selectEntry(u.entries[0].id);
+      return;
+    }
+    // Universo "solo sinossi" (uni.notes: niente voci reali da aprire,
+    // vedi buildUniverseTrack) - resta sulla vista attuale, si limita a
+    // ridisegnare la card dell'universo con le nuove sinossi, stesso
+    // ramo usato sotto per il caso normale.
   }
+  // ogni universo puo' avere la propria palette dedicata (vedi .claude/agents/traccia-artista.md
+  // PARTE 3 punto 1): riapplicarla qui, non solo su renderGamePanel(),
+  // altrimenti passando da un universo all'altro senza mai toccare
+  // "title" i colori resterebbero quelli dell'universo precedente.
+  applyPaletteToCSS();
+  renderGamePanel();
 }
 
 // Nodo "Collegamento tra Universi" (vedi .claude/agents/traccia-supervisore.md (Eccezione collegamento tra universi),
@@ -771,6 +777,45 @@ function buildUniverseTrack(uni, prevBtn, nextBtn){
   head.appendChild(nameBlock);
 
   if(nextBtn) head.appendChild(nextBtn);
+
+  // Universo "solo sinossi" (uni.notes - richiesto da Sakrem il 12/09 per
+  // Assassin's Creed: Era Moderna): via di mezzo tra la timeline normale
+  // qui sotto e g.noTimeline (Doom, saga intera). Qui e' il SINGOLO
+  // universo, non l'intera saga, a rinunciare a linea/pallini/palette,
+  // mostrando solo brevi sinossi raggruppate per aggancio narrativo a
+  // una voce gia' esistente altrove (uni.notes[].anchorId, opzionale).
+  // uni.entries resta vuoto apposta per questo universo: niente pagina
+  // dedicata viene generata (vedi tools/genera-voci.js, gia' safe con
+  // entries: [] senza bisogno di modifiche li'). Ramo completamente
+  // separato da tutta la logica sotto (nessuna palette/gradiente/
+  // pallino/ombrello coinvolti).
+  if(Array.isArray(uni.notes) && uni.notes.length){
+    const viewport = track.querySelector(".timeline-viewport");
+    viewport.classList.add("timeline-viewport--notes");
+    const wrap = document.createElement("div");
+    wrap.className = "u-track__notes";
+    uni.notes.forEach(note => {
+      const block = document.createElement("div");
+      block.className = "u-track__note";
+      if(note.anchorId){
+        const found = findEntry(currentGame(), note.anchorId);
+        if(found){
+          const label = document.createElement("p");
+          label.className = "u-track__note-anchor";
+          label.textContent = tf(found.entry.title);
+          block.appendChild(label);
+        }
+      }
+      const body = document.createElement("p");
+      body.className = "u-track__note-body";
+      body.textContent = tf(note.synopsis);
+      block.appendChild(body);
+      wrap.appendChild(block);
+    });
+    viewport.innerHTML = "";
+    viewport.appendChild(wrap);
+    return track;
+  }
 
   const timeline = track.querySelector(".h-timeline");
 

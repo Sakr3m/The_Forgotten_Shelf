@@ -1320,56 +1320,72 @@ const GAMES = {
         id: "era-moderna",
         name: { it: "Era Moderna", en: "Modern Era" },
         span: { it: "2015 – 2023", en: "2015 – 2023" },
-        watermark: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Era%20Moderna%20Filigrana.jpg",
-        palette: ["#8E1B2E", "#2E6E8E", "#A67F3E", "#5B4E8C"],
-        paletteBounds: ["assassins-templars", "last-descendants", "uprising"],
-        entries: [
-          { id: "assassins-templars", type: "FUMETTO", typeEn: "COMIC", year: "2015 – 2017", yearEn: "2015 – 2017",
-            releaseYear: "2015 – 2017", releaseYearEn: "2015 – 2017",
-            title: { it: "Assassin's Creed: Assassins / Templars", en: "Assassin's Creed: Assassins / Templars" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Assassin%27s%20%26%20Templats.jpg",
-            synopsis: {
-              it: "\"Assassins\": la banchiera Charlotte de la Cruz viene reclutata dagli Assassini dopo essere stata scoperta a giocare con un Animus casalingo che le dà accesso ai ricordi genetici dell'antenato Tom Stoddard, coinvolto a Salem nel 1692. Charlotte entra così nel conflitto contro i Templari e nella caccia a un Assassino sospettato di tradimento in cerca di un Frutto dell'Eden. \\n\\n\"Templars\": in parallelo, il Templare Juhani Otso Berg indaga una cellula corrotta all'interno del proprio Ordine, rivivendo tramite l'Animus i ricordi dell'agente Black Cross nella Shanghai del 1927 e quelli di Albert Bolden nel 1805, alla ricerca della verità dietro un complotto interno che minaccia gli equilibri dei Templari stessi.",
-              en: "\"Assassins\": banker Charlotte de la Cruz is recruited by the Assassins after being caught using a homemade Animus that grants her access to the genetic memories of her ancestor Tom Stoddard, caught up in Salem in 1692. Charlotte is drawn into the conflict against the Templars and the hunt for an Assassin suspected of treason in search of a Piece of Eden. \\n\\n\"Templars\": in parallel, the Templar Juhani Otso Berg investigates a corrupted cell within his own Order, reliving through the Animus the memories of agent Black Cross in 1927 Shanghai and those of Albert Bolden in 1805, in search of the truth behind an internal conspiracy threatening the Templars' own balance of power."
+        // Universo "solo sinossi" (uni.notes, richiesto da Sakrem il
+        // 12/09): niente piu' linea temporale/pallini/palette/filigrana
+        // per questo universo - via di mezzo tra la timeline normale
+        // degli altri undici universi della saga e g.noTimeline (Doom,
+        // saga intera, vedi buildUniverseTrack in script.js). Sinossi
+        // condensate (non riscritte da zero) dai 5 media originali,
+        // raggruppate non per titolo ma per aggancio narrativo reale a
+        // una voce gia' esistente altrove (notes[].anchorId, opzionale):
+        // Assassins/Templars e Reflections restano senza aggancio
+        // dichiarato (nessun legame verificato/specifico), Last
+        // Descendants aggancia Syndicate (spin-off a fumetti Locus,
+        // stesso ricordo ancestrale nella Londra di Syndicate), Uprising
+        // aggancia Unity (stesso Progetto Fenice), Nexus VR e' spezzato
+        // in 4 note separate (una per filo narrativo indipendente:
+        // cornice moderna -> Valhalla, filo di Ezio -> Brotherhood,
+        // filo di Connor -> Assassin's Creed III, filo di Kassandra ->
+        // Odyssey) invece di restare un blob unico. Niente piu' type/
+        // year strutturati: genere e ambientazione restano nel testo.
+        notes: [
+          { synopsis: {
+              it: "Nel fumetto \"Assassins\", la banchiera Charlotte de la Cruz viene reclutata dagli Assassini dopo essere stata scoperta a giocare con un Animus casalingo che le dà accesso ai ricordi genetici dell'antenato Tom Stoddard, coinvolto a Salem nel 1692. Charlotte entra così nel conflitto contro i Templari e nella caccia a un Assassino sospettato di tradimento, in cerca di un Frutto dell'Eden.",
+              en: "In the comic \"Assassins\", banker Charlotte de la Cruz is recruited by the Assassins after being caught using a homemade Animus that grants her access to the genetic memories of her ancestor Tom Stoddard, caught up in Salem in 1692. Charlotte is drawn into the conflict against the Templars and the hunt for an Assassin suspected of treason, in search of a Piece of Eden."
             }
           },
-          { id: "last-descendants", type: "ROMANZO", typeEn: "NOVEL", year: "Epoca contemporanea (2016 – 2017 circa)", yearEn: "Present day (c. 2016 – 2017)",
-            releaseYear: "2016 – 2017", releaseYearEn: "2016 – 2017",
-            title: { it: "Assassin's Creed: Last Descendants", en: "Assassin's Creed: Last Descendants" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Last%20Descendants.jpg",
-            synopsis: {
-              it: "Epoca contemporanea. Owen, convinto dell'innocenza del padre morto in carcere, si impossessa di un Animus rubato per scagionarne la memoria e scopre di condividere una \"concordanza di memoria\" con altri cinque adolescenti: Javier, amico d'infanzia con cui ha un rapporto burrascoso, Sean, ex giocatore di football reso paraplegico, la schiva Natalya, e i fratelli Grace e David. Le loro linee di sangue si sono incrociate più volte nel corso della storia, a partire da una memoria condivisa nella New York del 1863, alla vigilia dei moti contro la coscrizione durante la Guerra Civile. Reclutati da fazioni opposte, con Sean, Grace, Natalya e David persuasi ad aiutare i Templari, i sei esplorano insieme e separatamente memorie ancestrali alla ricerca del Tridente dell'Eden, tra cui l'assedio mongolo alla fortezza cinese di Diaoyu del 1259, vissuto in parallelo da Owen e Natalya da fronti opposti, dove i due scoprono il nascondiglio di uno dei pugnali dell'Eden. Nel volume conclusivo, Il destino degli dei, il templare rinnegato Isaiah, già in possesso di due delle tre punte del Tridente (fede e paura), minaccia di impadronirsi anche della terza; per fermarlo, Owen e i compagni stringono una fragile alleanza tra Assassini e Templari, che li conduce fino a un'ultima memoria vichinga incentrata sullo scontro tra Styrbjörn e Harald Dente Azzurro nel X secolo.",
-              en: "Present day. Owen, convinced his father died in prison an innocent man, gets hold of a stolen Animus to clear his name and discovers he shares a \"memory concordance\" with five other teenagers: Javier, an estranged childhood friend, Sean, a paraplegic former football player, the withdrawn Natalya, and siblings Grace and David. Their bloodlines have crossed paths repeatedly throughout history, beginning with a shared memory in New York City in 1863, on the eve of the Civil War draft riots. Recruited by opposing factions, with Sean, Grace, Natalya and David persuaded to help the Templars, the six explore ancestral memories together and separately in search of the Trident of Eden, including the 1259 Mongol siege of the Chinese fortress of Diaoyu, relived in parallel by Owen and Natalya from opposite sides, where the two uncover the resting place of one of the Daggers of Eden. In the concluding volume, Fate of the Gods, rogue Templar Isaiah, already in possession of two of the Trident's three prongs (faith and fear), threatens to seize the third as well; to stop him, Owen and his companions forge an uneasy Assassin-Templar alliance that leads them into one final Viking-age memory centred on the clash between Styrbjörn and Harald Bluetooth in the 10th century."
+          { synopsis: {
+              it: "Nel fumetto parallelo \"Templars\", il Templare Juhani Otso Berg indaga una cellula corrotta all'interno del proprio Ordine, rivivendo tramite l'Animus i ricordi dell'agente Black Cross nella Shanghai del 1927 e quelli di Albert Bolden nel 1805, alla ricerca della verità dietro un complotto interno che minaccia gli equilibri dei Templari stessi.",
+              en: "In the parallel comic \"Templars\", Templar Juhani Otso Berg investigates a corrupted cell within his own Order, reliving through the Animus the memories of agent Black Cross in 1927 Shanghai and those of Albert Bolden in 1805, in search of the truth behind an internal conspiracy threatening the Templars' own balance of power."
             }
           },
-          { id: "reflections", type: "FUMETTO", typeEn: "COMIC", year: "2017", yearEn: "2017",
-            releaseYear: "2017", releaseYearEn: "2017",
-            title: { it: "Assassin's Creed: Reflections", en: "Assassin's Creed: Reflections" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Reflections.jpg",
-            synopsis: {
-              it: "Per il decimo anniversario della serie, il Templare Otso Berg consulta gli archivi segreti dell'Ordine per ripercorrere le vite di alcuni tra gli Assassini più celebri della storia (Altaïr, Ezio, Connor e Arno), riflettendo sul significato della guerra secolare contro la Confraternita. Miniserie di raccordo tra Assassins/Templars e Uprising.",
-              en: "For the series' tenth anniversary, the Templar Otso Berg consults the Order's secret archives to revisit the lives of some of history's most celebrated Assassins — Altaïr, Ezio, Connor and Arno — reflecting on the meaning of the centuries-old war against the Brotherhood. A bridging miniseries between Assassins/Templars and Uprising."
+          { anchorId: "syndicate", synopsis: {
+              it: "Nella trilogia di romanzi \"Last Descendants\", Owen, convinto dell'innocenza del padre morto in carcere, ruba un Animus per scagionarne la memoria e scopre di condividere una \"concordanza di memoria\" con altri cinque adolescenti, le cui linee di sangue si intrecciano nella storia fin da un ricordo comune nella New York del 1863. Reclutati da fazioni opposte, i sei esplorano ricordi ancestrali - tra cui l'assedio mongolo di Diaoyu del 1259 - alla ricerca del Tridente dell'Eden, fino a fermare il templare rinnegato Isaiah in un'ultima memoria vichinga. Nello spin-off a fumetti \"Locus\", uno di loro, Sean, rivive i ricordi del proprio antenato nella Londra vittoriana degli eventi di Assassin's Creed Syndicate.",
+              en: "In the \"Last Descendants\" novel trilogy, Owen, convinced his father died in prison an innocent man, steals an Animus to clear his name and discovers he shares a \"memory concordance\" with five other teenagers, whose bloodlines have crossed throughout history since a shared memory in 1863 New York. Recruited by opposing factions, the six explore ancestral memories - including the 1259 Mongol siege of Diaoyu - in search of the Trident of Eden, eventually stopping rogue Templar Isaiah in one final Viking-age memory. In the comic spin-off \"Locus\", one of them, Sean, relives his ancestor's memories in the Victorian London of Assassin's Creed Syndicate."
             }
           },
-          { id: "uprising", type: "FUMETTO", typeEn: "COMIC", year: "2017 – 2018", yearEn: "2017 – 2018",
-            releaseYear: "2017 – 2018", releaseYearEn: "2017 – 2018",
-            title: { it: "Assassin's Creed: Uprising", en: "Assassin's Creed: Uprising" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Uprising.jpg",
-            synopsis: {
-              it: "Le squadre di Assassini e Templari, ormai unite dalla necessità comune, si confrontano con gli Instruments of the First Will, una fazione decisa a riportare in vita la Isu Juno per sottomettere l'umanità. Charlotte de la Cruz guida la squadra finale contro la minaccia, rivivendo ulteriori ricordi genetici per individuare la posizione del Koh-i-Noor, mentre il Progetto Fenice, avviato negli eventi di Assassin's Creed Unity, giunge alla propria conclusione.",
-              en: "The Assassin and Templar teams, now united by shared necessity, face the Instruments of the First Will, a faction determined to bring the Isu Juno back to life to subjugate humanity. Charlotte de la Cruz leads the final team against the threat, reliving further genetic memories to locate the Koh-i-Noor, as the Phoenix Project, set in motion in the events of Assassin's Creed Unity, reaches its conclusion."
+          { synopsis: {
+              it: "Nel fumetto \"Reflections\", pubblicato per il decimo anniversario della serie, il Templare Otso Berg consulta gli archivi segreti dell'Ordine per ripercorrere le vite di alcuni tra gli Assassini più celebri della storia - Altaïr, Ezio, Connor e Arno - riflettendo sul significato della guerra secolare contro la Confraternita. Miniserie di raccordo tra \"Assassins/Templars\" e \"Uprising\".",
+              en: "In the comic \"Reflections\", published for the series' tenth anniversary, Templar Otso Berg consults the Order's secret archives to revisit the lives of some of history's most celebrated Assassins - Altaïr, Ezio, Connor and Arno - reflecting on the meaning of the centuries-old war against the Brotherhood. A bridging miniseries between \"Assassins/Templars\" and \"Uprising\"."
             }
           },
-          { id: "nexus-vr", type: "VIDEOGIOCO", typeEn: "VIDEOGAME", year: "405 – 404 a.C. / 1509 / 1775 – 1777", yearEn: "405 – 404 BC / 1509 / 1775 – 1777",
-            releaseYear: "2023", releaseYearEn: "2023",
-            title: { it: "Assassin's Creed Nexus VR", en: "Assassin's Creed Nexus VR" },
-            image: "https://pub-de8310383cdb437f8f0b585a6642e88e.r2.dev/Assassin%27s%20Creed%20Nexus%20VR.jpg",
-            synopsis: {
-              it: "Un hacker senza nome, reclutato dagli Assassini Rebecca Crane e Shaun Hastings, si infiltra nel progetto Abstergo \"Nexus Eye\", che punta a recuperare il codice di un frammento di macchina Isu per fonderlo con la tecnologia dell'Animus e creare un sistema capace di prevedere e influenzare il comportamento umano. Attraverso l'Animus, il protagonista rivive tre memorie indipendenti. A Venezia e Monteriggioni, nel 1509, Ezio Auditore insegue la brigante Seraphina che gli ha rubato la spada; la pista lo conduce dal mercante templare Francesco Rizzo fino al Culto di Hermes e al Bastone di Ermete Trismegisto, artefatto che Seraphina cerca di usare contro di lui, rivelandosi però un falso. A Boston e Newport, tra il 1775 e il 1777, Connor affianca Achilles e i Figli della Libertà: elimina una cellula templare infiltrata tra i Patrioti durante l'assedio di Boston e, a Newport, collabora con William Barton al rapimento del generale britannico Richard Prescott, liberando anche l'Assassino prigioniero Lawrence Cato. A Delo e Atene, tra il 405 e il 404 a.C., Kassandra combatte per la causa spartana: dopo un'incursione a Delo, si ritrova ad Atene sotto il regime dei Trenta Tiranni, dove il loro capo Crizia la manipola per eliminare rivali politici, incluso lo statista Teramene. Nel presente, l'hacker, braccato dai cacciatori di una misteriosa donna chiamata Dominika, riesce infine a piazzare le ultime bombe logiche e a farle detonare, distruggendo le memorie dei più grandi Assassini della storia.",
-              en: "An unnamed hacker, recruited by Assassins Rebecca Crane and Shaun Hastings, infiltrates Abstergo's \"Nexus Eye\" project, which aims to recover the code of an Isu machine fragment and merge it with Animus technology to build a system able to predict and influence human behaviour. Through the Animus, the protagonist relives three independent memories. In Venice and Monteriggioni in 1509, Ezio Auditore pursues the bandit Seraphina, who has stolen his sword; the trail leads him to the Templar merchant Francesco Rizzo and then to the Cult of Hermes and the Staff of Hermes Trismegistus, an artifact Seraphina tries to use against him, only for it to prove a fake. In Boston and Newport, between 1775 and 1777, Connor works alongside Achilles and the Sons of Liberty: he eliminates a Templar cell posing as Patriots during the Siege of Boston and, in Newport, helps William Barton kidnap British general Richard Prescott, also freeing the imprisoned Assassin Lawrence Cato. In Delos and Athens, between 405 and 404 BC, Kassandra fights for the Spartan cause: after a raid on Delos she ends up in Athens under the rule of the Thirty Tyrants, whose leader Critias manipulates her into eliminating political rivals, including the statesman Theramenes. In the present, the hacker, hunted by the agents of a mysterious woman named Dominika, finally manages to plant the last logic bombs and detonate them, destroying the memories of history's greatest Assassins."
+          { anchorId: "unity", synopsis: {
+              it: "Nel fumetto \"Uprising\", le squadre di Assassini e Templari, ormai unite dalla necessità comune, affrontano gli Instruments of the First Will, decisi a riportare in vita la Isu Juno per sottomettere l'umanità. Charlotte de la Cruz guida la squadra finale contro la minaccia, rivivendo ulteriori ricordi genetici per individuare la posizione del Koh-i-Noor, mentre il Progetto Fenice, avviato negli eventi di Assassin's Creed Unity, giunge alla propria conclusione.",
+              en: "In the comic \"Uprising\", the Assassin and Templar teams, now united by shared necessity, face the Instruments of the First Will, determined to bring the Isu Juno back to life to subjugate humanity. Charlotte de la Cruz leads the final team against the threat, reliving further genetic memories to locate the Koh-i-Noor, as the Phoenix Project, set in motion in the events of Assassin's Creed Unity, reaches its conclusion."
+            }
+          },
+          { anchorId: "valhalla", synopsis: {
+              it: "Nel videogioco VR \"Assassin's Creed Nexus\", un hacker senza nome, reclutato dagli Assassini Rebecca Crane e Shaun Hastings, si infiltra nel progetto Abstergo \"Nexus Eye\" della misteriosa Dominika, che punta a fondere il codice di un frammento di macchina Isu con la tecnologia dell'Animus per creare un sistema capace di prevedere e influenzare il comportamento umano - proseguimento diretto del percorso di Shaun e Rebecca dopo Assassin's Creed Valhalla. Braccato dai cacciatori di Dominika, l'hacker riesce infine a piazzare le ultime bombe logiche e a farle detonare, distruggendo le memorie dei più grandi Assassini della storia.",
+              en: "In the VR game \"Assassin's Creed Nexus\", an unnamed hacker, recruited by Assassins Rebecca Crane and Shaun Hastings, infiltrates Abstergo's \"Nexus Eye\" project, led by the mysterious Dominika, which aims to merge the code of an Isu machine fragment with Animus technology to build a system able to predict and influence human behaviour - a direct continuation of Shaun and Rebecca's own arc after Assassin's Creed Valhalla. Hunted by Dominika's agents, the hacker finally manages to plant the last logic bombs and detonate them, destroying the memories of history's greatest Assassins."
+            }
+          },
+          { anchorId: "brotherhood", synopsis: {
+              it: "Nella stessa \"Assassin's Creed Nexus\", a Venezia e Monteriggioni nel 1509 (circa due anni dopo Assassin's Creed Brotherhood), Ezio Auditore insegue la brigante Seraphina che gli ha rubato la spada; la pista lo conduce dal mercante templare Francesco Rizzo fino al Culto di Hermes e al Bastone di Ermete Trismegisto, che Seraphina cerca di usare contro di lui, rivelandosi però un falso.",
+              en: "In the same \"Assassin's Creed Nexus\", in Venice and Monteriggioni in 1509 (roughly two years after Assassin's Creed Brotherhood), Ezio Auditore pursues the bandit Seraphina, who has stolen his sword; the trail leads him to Templar merchant Francesco Rizzo and then to the Cult of Hermes and the Staff of Hermes Trismegistus, an artefact Seraphina tries to use against him, only for it to prove a fake."
+            }
+          },
+          { anchorId: "assassins-creed-3", synopsis: {
+              it: "Sempre in \"Assassin's Creed Nexus\", a Boston e Newport tra il 1775 e il 1777, Connor affianca Achilles e i Figli della Libertà: elimina una cellula templare infiltrata tra i Patrioti durante l'assedio di Boston e, a Newport, collabora con William Barton al rapimento del generale britannico Richard Prescott, liberando anche l'Assassino prigioniero Lawrence Cato.",
+              en: "Also in \"Assassin's Creed Nexus\", in Boston and Newport between 1775 and 1777, Connor works alongside Achilles and the Sons of Liberty: he eliminates a Templar cell posing as Patriots during the Siege of Boston and, in Newport, helps William Barton kidnap British general Richard Prescott, also freeing imprisoned Assassin Lawrence Cato."
+            }
+          },
+          { anchorId: "odyssey", synopsis: {
+              it: "Infine, in \"Assassin's Creed Nexus\", a Delo e Atene tra il 405 e il 404 a.C., Kassandra combatte per la causa spartana: dopo un'incursione a Delo si ritrova ad Atene sotto il regime dei Trenta Tiranni, dove il loro capo Crizia la manipola per eliminare rivali politici, incluso lo statista Teramene.",
+              en: "Finally, in \"Assassin's Creed Nexus\", in Delos and Athens between 405 and 404 BC, Kassandra fights for the Spartan cause: after a raid on Delos she ends up in Athens under the rule of the Thirty Tyrants, whose leader Critias manipulates her into eliminating political rivals, including statesman Theramenes."
             }
           }
-        ]
+        ],
+        entries: []
       }
     ]
   },
