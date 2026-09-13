@@ -166,10 +166,7 @@ vai dritto al punto.
 
 ## Niente em-dash in italiano
 
-Nel testo italiano (`synopsis.it`, blurb, ogni altro testo narrativo
-italiano) non usare mai l'em-dash (—). Per una pausa o un inciso usa
-la punteggiatura normale: virgola, due punti, parentesi, o due frasi
-separate da un punto. In inglese resta ammesso normalmente.
+Vedi `traccia-regole-comuni.md`.
 
 ## Output
 

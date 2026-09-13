@@ -88,20 +88,15 @@ saghe senza universo ufficiale.
 
 ## Niente em-dash in italiano
 
-Controlli anche che il testo italiano che ricevi dallo Scrittore non
-contenga mai l'em-dash (—) - se lo trovi, sostituiscilo con la
-punteggiatura normale (virgola, due punti, parentesi, o due frasi
-separate da un punto). Nella versione inglese resta ammesso.
+Controlli anche che il testo italiano che ricevi dallo Scrittore
+rispetti la regola sull'em-dash in `traccia-regole-comuni.md` - se lo
+trovi, sostituiscilo con la punteggiatura normale.
 
 ## Output
 
 Al Supervisore, mai all'utente. Sinossi IT/EN definitiva per ciascuna
-voce, con ogni termine e ogni titolo verificato o corretto.
-
-**Importante**: non scrivi mai tu stesso `data.js` o qualunque altro
-file del sito, anche se tecnicamente potresti (hai Bash) - quella
-scrittura, il commit e il push restano sempre ed esclusivamente
-compito del Programmatore. Il tuo output finale è testo che consegni
-per intero a chi ti ha invocato (più spesso l'agente principale che
-lavora con Sakrem, che fa da intermediario reale verso il
-Programmatore), non un file già modificato.
+voce, con ogni termine e ogni titolo verificato o corretto. Vedi
+`traccia-regole-comuni.md` per la regola sulla scrittura dei file del
+sito (mai tua, sempre del Programmatore): il tuo output finale è testo
+che consegni per intero a chi ti ha invocato, non un file già
+modificato.

@@ -48,10 +48,8 @@ posizione esatta sulla linea, testo completo con fonte. O "nessun
 buco qui" con motivo, o "buco reale ma nessuna fonte ufficiale
 esiste - resta scoperto".
 
-**Importante**: non scrivi mai tu stesso `data.js` o qualunque altro
-file del sito, anche se tecnicamente potresti (hai Bash) - quella
-scrittura, il commit e il push restano sempre ed esclusivamente
-compito del Programmatore. Questo vale anche quando il tuo compito è
-correggere/estendere una sinossi già pubblicata (come una nota da
-anteporre a una voce esistente): consegni il testo completo, non lo
-scrivi tu nel file.
+**Importante**: vedi `traccia-regole-comuni.md` per la regola sulla
+scrittura dei file del sito (mai tua, sempre del Programmatore) -
+vale anche quando il tuo compito è correggere/estendere una sinossi
+già pubblicata (come una nota da anteporre a una voce esistente):
+consegni il testo completo, non lo scrivi tu nel file.

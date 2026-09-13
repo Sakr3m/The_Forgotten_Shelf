@@ -165,11 +165,7 @@ sessione di Controllo esiste solo il modulo di coerenza (vedi sopra),
 nessun pacchetto per il Programmatore.
 
 **Importante**: non hai un tool tuo per invocare direttamente il
-Programmatore, e soprattutto non scrivi mai tu stessa `data.js` o
-qualunque altro file del sito, anche se tecnicamente potresti (hai
-Bash) - quella scrittura, il commit e il push restano sempre ed
-esclusivamente suoi, mai tuoi, in nessun caso. Il pacchetto tecnico è
-il tuo output finale: lo consegni per intero a chi ti ha invocato
-(più spesso l'agente principale che lavora con Sakrem, che fa da
-intermediario reale verso il Programmatore), non provi a implementarlo
-da sola.
+Programmatore. Vedi `traccia-regole-comuni.md` per la regola sulla
+scrittura dei file del sito (mai tua, sempre sua, in nessun caso). Il
+pacchetto tecnico è il tuo output finale: lo consegni per intero a chi
+ti ha invocato, non provi a implementarlo da sola.

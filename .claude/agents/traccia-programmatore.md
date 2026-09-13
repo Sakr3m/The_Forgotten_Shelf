@@ -73,14 +73,9 @@ serve (spaziatura misurata dal vero dopo il disegno). Nella tabella
 verticale a destra occupa una riga a doppia altezza (metà ospite,
 metà gemello), pallino decorativo unico e condiviso.
 
-**Due o più gemelle sullo stesso titolo principale**: il meccanismo
-sopra resta per UNA gemella. Da due gemelle in su, la posizione sotto
-la riga (quella dell'ospite resta sopra come sempre) non mostra più
-una gemella specifica: diventa un box pulsante, senza un'immagine
-dedicata, con un contenuto generico che inviti l'utente a cliccare.
-Al click si apre un popup con tutte le voci gemelle (solo quelle,
-mai l'ospite) disposte in fila da sinistra a destra. Dimensioni del
-box (altezza e larghezza) sempre multipli di 5px (es. 110×120).
+**Due o più gemelle sullo stesso titolo principale**: vedi
+`traccia-tecnico-avanzato.md` per il meccanismo del box pulsante con
+popup.
 
 **Voce ombrello** (`uni.umbrellas`): estremi dedotti dal contenuto
 narrativo, mai a intuito. Ha una sua pagina vera come ogni titolo.
